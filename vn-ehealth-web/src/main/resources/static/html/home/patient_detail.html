@@ -1,0 +1,145 @@
+<link href="/css/pagestyle.css" rel="stylesheet">
+<div id='app'>
+	<template v-if="patient != null">
+		<div class="panel panel-default">
+			<div class="text-right MB20">
+				<a class="btn-info bo50 btn-pd" href="#"><i class="fa fa-print faR10" aria-hidden="true"></i>In</a>
+				<a class="btn-warning bo50 btn-pd" href="#"><i class="fa fa-arrow-left faR10"
+						aria-hidden="true"></i>Quay lại</a>
+			</div>
+			<!--bt-->
+			<div class="row row-eq-height">
+				<div class="col-3">
+					<div class="box">
+						<p class="text-center MB0">
+							<span class="text-ten"> {{ patient.name[0].text}} </span><br>
+							<span class="text-danger">Nam | {{ patient.identifier[0].value}}</span><br>
+							<img src="/images/avatar-4.jpg" class="img-circle MB10 MT10" alt=""><br>
+							<span class="btn-info bo50 btn-pd1">Đang hoạt động</span>
+						</p>
+					</div>
+				</div>
+				<div class="col-8 offset-1">
+					<!-- <h3 class="text-tle MT0 MB20"><span class="text-cam">{{patient.address[0].line[0]}}, {{patient.address[0].line[1]}}, {{patient.address[0].district}}</span> - {{patient.address[0].city}}</h3> -->
+					<div class="row MB20">
+						<div class="col-6">
+							<ul class="list-ds">
+								<li><span class="text-label1">Giới tính:</span>Nam</li>
+								<li><span class="text-label1">Ngày sinh:</span>{{ formatDate(patient.birthDate) }} </li>
+								<li><span class="text-label1">Quên quán:</span>{{patient.address[0].city}}</li>
+								<li><span class="text-label1">Tình trạng hôn nhân:</span>Độc thân</li>
+							</ul>
+						</div>
+						<div class="col-6">
+							<ul class="list-ds">
+								<li><span class="text-label2">Dân
+										tộc:</span>{{ patient.extension[1].valueCodeableConcept.coding[0].display}}</li>
+								<li><span class="text-label2">Tôn
+										giáo:</span>{{ patient.extension[0].valueCodeableConcept.coding[0].display}}
+								</li>
+								<li><span class="text-label2">Trình độ giáo dục:</span>N/A</li>
+								<li><span class="text-label2">Trình độ ngoại ngữ:</span>N/A</li>
+							</ul>
+						</div>
+					</div>
+					<ul class="list-inline box-ul li-MR20">
+						<li class="list-inline-item"><span class="text-danger"><i class="MR5 fa fa-mobile"
+									aria-hidden="true"></i>{{patient.telecom[0].value}}</span></li>
+						<li class="list-inline-item"><span class="text-info"><i class="MR5 fa fa-envelope-o"
+									aria-hidden="true"></i>{{patient.telecom[1].value}}</span></li>
+						<li class="list-inline-item"><span class="text-success"><i class="MR5 fa fa-map-marker"
+									aria-hidden="true"></i>{{patient.address[0].line[0]}},
+								{{patient.address[0].line[1]}}, {{patient.address[0].district}} -
+								{{patient.address[0].city}}</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--panel 1-->
+
+		<div class="panel panel-default">
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<a class="nav-link" v-bind:class="{ active: tab == 1}" v-bind:style="{ backgroundColor: tab==1? '#1057ae' : '#eee', color: tab==1? '#fff' : '#000',
+			    	marginBottom : '2px', borderTop : tab==1? '0px' : ''}" href="#" v-on:click="tab=1">Tổng quan</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" style="margin-bottom : '2px'," v-bind:class="{ active: tab == 2 }" v-bind:style="{ backgroundColor: tab==2? '#1057ae' : '#eee', color: tab==2? '#fff' : '#000',
+			    	marginBottom : '2px', borderTop : tab==2? '0px' : ''}" href="#" v-on:click="tab=2">Biểu đồ phát triển</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" style="margin-bottom : '2px'," v-bind:class="{ active: tab == 3 }" v-bind:style="{ backgroundColor: tab==3? '#1057ae' : '#eee', color: tab==3? '#fff' : '#000',
+			    	marginBottom : '2px', borderTop : tab==3? '0px' : ''}" href="#" v-on:click="tab=3">Lịch sử dùng thuốc</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" style="margin-bottom : '2px'," v-bind:class="{ active: tab == 4 }" v-bind:style="{ backgroundColor: tab==4? '#1057ae' : '#eee', color: tab==4? '#fff' : '#000',
+			    	marginBottom : '2px', borderTop : tab==4? '0px' : ''}" href="#" v-on:click="tab=4">Chẩn đoán hình ảnh</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" style="margin-bottom : '2px'," v-bind:class="{ active: tab == 5 }" v-bind:style="{ backgroundColor: tab==5? '#1057ae' : '#eee', color: tab==5? '#fff' : '#000',
+			    	marginBottom : '2px', borderTop : tab==5? '0px' : ''}" href="#" v-on:click="tab=5">Phẫu thuật, thủ thuật</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" style="margin-bottom : '2px'," v-bind:class="{ active: tab == 6 }" v-bind:style="{ backgroundColor: tab==6? '#1057ae' : '#eee', color: tab==6? '#fff' : '#000',
+			    	marginBottom : '2px', borderTop : tab==6? '0px' : ''}" href="#" v-on:click="tab=6">Tài liệu lâm sàng</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" style="margin-bottom : '2px'," v-bind:class="{ active: tab == 7 }" v-bind:style="{ backgroundColor: tab==7? '#1057ae' : '#eee', color: tab==7? '#fff' : '#000',
+			    	marginBottom : '2px', borderTop : tab==7? '0px' : ''}" href="#" v-on:click="tab=7">Chỉ số sinh tồn</a>
+				</li>
+			</ul>
+			<div style="border-top: 2px solid #1057ae">
+				<div v-if="tab==1" class="tab-pane active padT20">
+					<patient-summary></patient-summary>
+				</div>
+				<div v-if="tab==2">
+					<grow-chart></grow-chart>
+				</div>
+				<div v-if="tab==3">
+					Coming soon!
+				</div>
+				<div v-if="tab==4">
+					Coming soon!
+				</div>
+				<div v-if="tab==5">
+					Coming soon!
+				</div>
+				<div v-if="tab==6">
+					Coming soon!
+				</div>
+				<div v-if="tab==7">
+					Coming soon!
+				</div>
+			</div>
+		</div>
+	</template>
+</div>
+
+<!--panel 1-->
+<script src="/js/vue_components/home/patient_detail/patient_summary.js"></script>
+<script src="/js/vue_components/home/patient_detail/growchart.js"></script>
+<script type="text/javascript">
+	var vue_det = new Vue({
+		el: '#app',
+		data: {
+			tab: 1,
+			patientId: 0,
+			patient: null
+		},
+		methods: {
+			loadPatientData: function () {
+				this.callService(`/STU3/Patient/${this.patientId}`)
+					.then(result => {
+						this.patient = result;
+						console.log(result);
+					});
+			},
+		},
+		watch: {
+		},
+		mounted: function () {
+			this.patientId = getParam('patientId');
+			this.loadPatientData();
+		}
+	});
+</script>

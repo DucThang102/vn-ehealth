@@ -1,0 +1,87 @@
+<root>
+	<item>
+		<name>DS_HS</name>
+		<sql>
+			<![CDATA[
+                select ba.id as id,
+                    ba.matraodoi as so_benh_an, 
+                    bn.idhis as ma_benh_nhan,
+                    bn.tendaydu as ten_benh_nhan, 
+                    bn.diachi as diachi, 
+                    lba.ten as loai_benh_an, 
+                    ba.mayte as ma_yte, 
+                    ba.maluutru as ma_luutru,
+                    cd_vv.ma as vaovien_mabenh, 
+                    cd_vv.ten as vaovien_tenbenh, 
+                    cd.motachandoankkb as vaovien_mota,
+                    cd_rv.ma as ravien_mabenh, 
+                    cd_rv.ten as ravien_tenbenh, 
+                    cd.motachandoanravienchinh as ravien_mota, 
+                    khoa_dt.ten as khoa_ravien, 
+                    qlnb.ngaygiovaovien as ngay_vaovien, 
+                    qlnb.ngaygioravien as ngay_ravien, 
+                    ba.ngaytao as ngay_tiepnhan, 
+                    nguoitao.username as canbo_tiepnhan,
+                    ba.ngaysua as ngay_luutru, 
+                    nguoisua.username as canbo_luutru,	
+                    dm_ndl.ten as nguon_dulieu
+                from emr_danh_sach_ho_so_benh_an ba
+                    join emr_benh_nhan bn on bn.id = ba.idbenhnhan
+                    join emr_dm_loai_benh_an lba on lba.id = ba.idloaibenhan 
+                    join emr_vao_khoa vk on vk.idhsba=ba.id
+                    join emr_dm_khoa_dieu_tri khoa_dt on khoa_dt.id=vk.idkhoadieutri
+                    join emr_chan_doan cd on cd.idhsba = ba.id
+                    join emr_dm_ma_benh cd_vv on cd_vv.id=cd.idicd_chandoankkb
+                    join emr_dm_ma_benh cd_rv on cd_rv.id=cd.idicd_chandoanravienchinh
+                    join emr_quan_ly_nguoi_benh qlnb on qlnb.idhsba=ba.id
+                    left join users nguoitao on nguoitao.user_id=ba.idnguoitao
+                    left join users nguoisua on nguoisua.user_id=ba.idnguoisua
+                    join emr_dm_tu_sinh dm_ndl on dm_ndl.id=ba.idnguondulieu
+                where ba.idtrangthai=? 
+                	  [MA_YTE_CHECK]			 
+			]]>			
+		</sql>
+	</item>
+	<item>
+		<name>HS_BY_MA</name>
+		<sql>
+			<![CDATA[
+                select ba.id as id,
+                    ba.matraodoi as so_benh_an, 
+                    bn.idhis as ma_benh_nhan,
+                    bn.tendaydu as ten_benh_nhan, 
+                    bn.diachi as diachi, 
+                    lba.ten as loai_benh_an, 
+                    ba.mayte as ma_yte, 
+                    ba.maluutru as ma_luutru,
+                    cd_vv.ma as vaovien_mabenh, 
+                    cd_vv.ten as vaovien_tenbenh, 
+                    cd.motachandoankkb as vaovien_mota,
+                    cd_rv.ma as ravien_mabenh, 
+                    cd_rv.ten as ravien_tenbenh, 
+                    cd.motachandoanravienchinh as ravien_mota, 
+                    khoa_dt.ten as khoa_ravien, 
+                    qlnb.ngaygiovaovien as ngay_vaovien, 
+                    qlnb.ngaygioravien as ngay_ravien, 
+                    ba.ngaytao as ngay_tiepnhan, 
+                    nguoitao.username as canbo_tiepnhan,
+                    ba.ngaysua as ngay_luutru, 
+                    nguoisua.username as canbo_luutru,	
+                    dm_ndl.ten as nguon_dulieu
+                from emr_danh_sach_ho_so_benh_an ba
+                    join emr_benh_nhan bn on bn.id = ba.idbenhnhan
+                    join emr_dm_loai_benh_an lba on lba.id = ba.idloaibenhan 
+                    join emr_vao_khoa vk on vk.idhsba=ba.id
+                    join emr_dm_khoa_dieu_tri khoa_dt on khoa_dt.id=vk.idkhoadieutri
+                    join emr_chan_doan cd on cd.idhsba = ba.id
+                    join emr_dm_ma_benh cd_vv on cd_vv.id=cd.idicd_chandoankkb
+                    join emr_dm_ma_benh cd_rv on cd_rv.id=cd.idicd_chandoanravienchinh
+                    join emr_quan_ly_nguoi_benh qlnb on qlnb.idhsba=ba.id
+                    left join users nguoitao on nguoitao.user_id=ba.idnguoitao
+                    left join users nguoisua on nguoisua.user_id=ba.idnguoisua
+                    join emr_dm_tu_sinh dm_ndl on dm_ndl.id=ba.idnguondulieu
+                where mayte=?
+			]]>			
+		</sql>
+	</item>	
+</root>

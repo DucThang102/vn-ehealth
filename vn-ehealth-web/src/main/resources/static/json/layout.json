@@ -1,0 +1,203 @@
+{
+	"default_page": "hs_chua_xl",
+	"pages":
+		[
+		    {
+		        "id": "hsba",
+		        "title": "HỒ SƠ BỆNH ÁN",        
+		        "roles" : ["USER"],
+		        "children" : [
+		        	{
+		        		"id": "hs_chua_xl",
+		        		"title" : "Chưa xử lý",
+		        		"detail" : "<i class='far fa-file-alt'></i> Danh sách hồ sơ bệnh án chưa xử lý",
+		        		"url": "/html/hsba/hs_chua_xl.html",
+		        		"roles" : ["USER"]     		
+		        	},
+		        	{
+		        		"id": "hs_da_luu",
+		        		"title" : "Đã lưu",
+		        		"detail" : "<i class='far fa-file-alt'></i> Danh sách hồ sơ bệnh án đã lưu",
+		        		"url": "/html/hsba/hs_da_luu.html",
+		        		"roles" : ["USER"]    		
+		        	},
+		        	{
+		        		"id": "hs_cho_nhan_ngoai_vien",
+		        		"title" : "Chờ nhận - HSBA ngoài viện",
+		        		"detail" : "<i class='far fa-file-alt'></i> Danh sách hồ sơ bệnh án chờ nhận - HSBA ngoài viện",
+		        		"url": "/html/hsba/hs_cho_nhan_ngoai_vien.html",
+		        		"roles" : ["USER"]       		
+		        	},
+		        	{
+		        		"id": "hs_da_nhan_ngoai_vien",
+		        		"title" : "Đã nhận - HSBA ngoài viện",
+		        		"detail" : "<i class='far fa-file-alt'></i> Danh sách hồ sơ bệnh án đã nhận - HSBA ngoài viện",
+		        		"url": "/html/hsba/hs_da_nhan_ngoai_vien.html",
+		        		"roles" : ["USER"]       		
+		        	},
+		        	{
+		        		"id": "cap_ma_truy_cap",
+		        		"title" : "Cấp mã truy cập",
+		        		"detail" : "<i class='far fa-file-alt'></i> Cấp mã truy cập",
+		        		"url": "/html/hsba/cap_ma_truy_cap.html",
+		        		"roles" : ["USER"]      		
+		        	},
+		        	{
+		        		"id": "vet_truy_cap",
+		        		"title" : "Vết truy cập HSBA",
+		        		"detail" : "<i class='far fa-file-alt'></i> Vết truy cập HSBA",
+		        		"url": "/html/hsba/vet_truy_cap.html",
+		        		"roles" : ["USER"]      		
+		        	},
+		        	{
+		        		"id": "vet_trao_doi",
+		        		"title" : "Vết trao đổi HSBA",
+		        		"detail" : "<i class='far fa-file-alt'></i> Vết trao đổi HSBA",
+		        		"url": "/html/hsba/vet_trao_doi.html",
+		        		"roles" : ["USER"]    		
+		        	}
+		        ]        
+		        
+		    },
+		    {
+		    	"id" : "danhmuc",
+		    	"title" : "Danh mục",
+		    	"roles" : ["USER"],
+		    	"children" : [
+		        	{
+		        		"id": "dm_dungchung",
+		        		"title" : "Dùng chung",
+		        		"detail" : "Danh mục dùng chung",
+		        		"url": "/html/danhmuc/dm_dungchung.html",
+		        		"roles" : ["USER"]     		
+		        	},
+		        	{
+		        		"id": "dm_chuanhoa",
+		        		"title" : "Danh sách danh mục chuẩn hóa",        		
+		        		"url": "/html/danhmuc/dm_chuanhoa.html",
+		        		"roles" : ["USER"]
+		        	}
+		        ]    	
+		    },
+		    {
+		    	"id" : "baocao",
+		    	"title" : "Báo cáo thống kê",
+		    	"roles" : ["USER"],
+		    	"children" : [
+		        	{
+		        		"id": "bc_traodoi_hsba",
+		        		"title" : "Thống kê trao đổi HSBA",
+		        		"detail" : "Báo cáo thống kê trao đổi HSBA",
+		        		"url": "/html/baocao/bc_traodoi_hsba.html",
+		        		"roles" : ["USER"]     		
+		        	},
+		        	{
+		        		"id": "bc_chitiet_hsba",
+		        		"title" : "Thống kê chi tiết HSBA",
+		        		"detail" : "Báo cáo thống kê chi tiết HSBA",
+		        		"url": "/html/baocao/bc_chitiet_hsba.html",
+		        		"roles" : ["USER"]     		
+		        	},
+		        	{
+		        		"id": "bc_dinhky",
+		        		"title" : "Báo cáo thống kê định kỳ",        		
+		        		"url": "/html/baocao/bc_dinhky.html",
+		        		"roles" : ["USER"]     		
+		        	}, 
+		        	{
+		        		"id": "bc_guitu_his",
+		        		"title" : "Báo cáo thống kê gửi từ HIS",        		
+		        		"url": "/html/baocao/bc_guitu_his.html",
+		        		"roles" : ["USER"]     		
+		        	} 	
+		        ]    	
+		    },
+		    {
+		    	"id" : "vanban",
+		    	"title" : "Văn bản",
+		    	"roles" : ["USER"],
+		    	"children" : [
+		        	{
+		        		"id": "vb_di",
+		        		"title" : "Văn bản đi",        		
+		        		"url": "/html/vanban/vb_di.html",
+		        		"roles" : ["USER"]     		
+		        	},
+		        	{
+		        		"id": "vb_den",
+		        		"title" : "Văn bản đến",        		
+		        		"url": "/html/vanban/vb_den.html",
+		        		"roles" : ["USER"]     		
+		        	}
+		        ]    	
+		    },
+		    {
+		    	"id" : "khaithac_hsba",
+		    	"title" : "Khai thác hồ sơ bệnh án",
+		    	"roles" : ["USER"],
+		    	"children" : [
+		        	{
+		        		"id": "tracuu_thongtin",
+		        		"title" : "Tra cứu thông tin",        		
+		        		"url": "/html/khaithac_hsba/tracuu_thongtin.html",
+		        		"roles" : ["USER"]     		
+		        	},
+		        	{
+		        		"id": "yeucau_truynhap",
+		        		"title" : "Các yêu cầu truy nhập",        		
+		        		"url": "/html/khaithac_hsba/yeucau_truynhap.html",
+		        		"roles" : ["USER"]     		
+		        	},
+		        	{
+		        		"id": "hsba_capquyen",
+		        		"title" : "Hồ sơ bệnh án được cấp quyền",        		
+		        		"url": "/html/khaithac_hsba/hsba_capquyen.html",
+		        		"roles" : ["USER"]     		
+		        	}
+		        ]    	
+		    },
+		    {
+		    	"id" : "quantri",
+		    	"title" : "Quản trị",
+		    	"roles" : ["ADMIN"],
+		    	"children" : [
+		        	{
+		        		"id": "nguoidung",
+		        		"title" : "Người dùng",        		
+		        		"url": "/html/quantri/nguoidung.html",
+		        		"roles" : ["ADMIN"]     		
+		        	},
+		        	{
+		        		"id": "nhom_nguoidung",
+		        		"title" : "Nhóm người dùng",        		
+		        		"url": "/html/quantri/nhom_nguoidung.html",
+		        		"roles" : ["ADMIN"]     		
+		        	},
+		        	{
+		        		"id": "dacquyen",
+		        		"title" : "Đặc quyền",        		
+		        		"url": "/html/quantri/dacquyen.html",
+		        		"roles" : ["ADMIN"]     		
+		        	},
+		        	{
+		        		"id": "cauhinh_baocao",
+		        		"title" : "Cấu hình báo cáo theo chuẩn SDMX",        		
+		        		"url": "/html/quantri/cauhinh_baocao.html",
+		        		"roles" : ["ADMIN"]     		
+		        	},
+		        	{
+		        		"id": "system_log",
+		        		"title" : "System Log",        		
+		        		"url": "/html/quantri/system_log.html",
+		        		"roles" : ["ADMIN"]     		
+		        	}
+		        ]    	
+		    },
+		    {
+		        "id": "help",
+		        "title": "Trợ giúp",
+		        "url": "/html/about.html",        
+		        "roles" : ["USER"]
+		    }
+		]
+}

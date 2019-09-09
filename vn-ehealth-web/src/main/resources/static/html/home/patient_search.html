@@ -1,0 +1,124 @@
+<meta charset="UTF-8">
+<style>
+    .family-name {
+        font-weight: bold;
+        font-size: 90%;
+    }
+
+    .given-name {
+        font-size: 90%;
+    }
+
+    .gender {
+        font-weight: bold;
+    }
+
+    .dob {
+        font-weight: bold;
+    }
+
+    .identifier-system {
+        font-style: italic;
+        font-size: 90%;
+    }
+
+    .identifier-number {
+        font-weight: bold;
+        font-size: 90%;
+    }
+
+    .contact-type {
+        font-style: italic;
+        font-size: 90%;
+    }
+
+    .contact {
+        font-weight: bold;
+        font-size: 90%;
+    }
+
+</style>
+
+<!-- <div id='app' class="container mt-3"> -->
+<div id='app' class="panel panel-default">
+	<template>	  
+		<form class='mt-3' @submit.prevent="searchPatient()">
+		  <div class="row">
+		    <div class="col-10">
+			  <input class="form-control" id="searchinput" placeholder="Tìm kiếm bệnh nhân" type="text">
+			 </div>
+			<div class="col-2">
+				<button type="submit" class="btn btn btn-primary"><i class="fa fa-search faR10" aria-hidden="true"></i>Tìm kiếm</button>
+			</div>
+		  </div>
+		</form>
+		
+		<div class="portlet-body">
+		    <table class="table mt-3">
+		        <tr>
+		            <th style="width: 20%">Patient</th>
+		            <th style="width: 10%">DOB</th>
+		            <th style="width: 5%">Sex</th>
+		            <th style="width: 25%">Identifier</th>
+		            <th style="width: 25%">Contact</th>
+		            <th style="width: 7%">GP</th>
+		            <th style="width: 7%">Prac.</th>
+		        </tr>
+		
+		        <tr v-for="patient in patients">
+		            <td>
+		                <ul>
+		                    <li v-for="patient_name in patient.name">
+		                    	<a v-bind:href='createURL("/html/home/patient_detail.html", {"patientId" : patient.id})'>
+		                        	<span class="family-name">{{ patient_name.family }}</span> , <span class="given-name">{{ patient_name.given.join('/') }}</span> (<span class="prefix">{{ patient_name.prefix.join('/') }}</span>)
+		                        </a>
+		                    </li>
+		                </ul>                
+		            </td>
+		            <td><span class="dob">{{ formatDate(patient.birthDate) }}</span></td>
+		            <td><span class="gender">{{ patient.gender }}</span></td>
+		            <td>
+		                <ul>
+		                    <li v-for="identity in patient.identifier">
+		                        <span class="identifier-system">{{ identity.system }}</span>
+		                        &nbsp;
+		                        <span class="identifier-number">{{ identity.value }}</span>
+		                    </li>                    
+		                </ul>
+		            </td>
+		            <td>
+		                <ul>
+		                    <li v-for="contact in patient.telecom">
+		                        <span class="contact-type">{{ contact.system }}</span> <span class="contact">{{ contact.value }}</span>
+		                    </li>
+		                </ul>
+		            </td>
+		            <td></td>
+		            <td></td>
+		        </tr>
+		    </table>
+	    </div>
+	</template>
+</div>
+
+<script type = "text/javascript">
+    var vue_det = new Vue({
+        el: '#app',
+        data: {
+           name : '',
+           patients : []
+        },        
+        methods: {
+            searchPatient: function() {
+            	this.callService(`/STU3/Patient?name=${this.name}`)
+                    .then(result => {
+	                	if(result.entry) {
+	                    	this.patients = result.entry.map(x => x.resource);
+	                    } else {
+	                    	this.patients = [];
+	                    }
+                	});
+            },
+        }
+    });
+</script>
