@@ -69,23 +69,28 @@ public class SQLUtil {
 		return 0;		
 	}
 	
-	private static void formatDateField(Map<String, Object> record) {
+	private static void formatField(Map<String, Object> record) {
 		for(String key : record.keySet()) {
 			Object value = record.get(key);
 			if(value instanceof Date) {
 				value = DateUtil.parseDateToString((Date) value, DateUtil.FORMAT_DD_MM_YYYY_HH_MM);
 				record.put(key, value);
 			}
+			if(value == null) {
+			    record.put(key, "");
+			}
 		}
 	}
 	
 	public static List<Map<String, Object>> getRecords(JdbcTemplate jdbcTemplate, String queryStr, Object[] params, int start, int count) {
 		if(!StringUtils.isEmpty(queryStr)) {
-			queryStr = queryStr + String.format(" OFFSET %d LIMIT %d", start, count);
+		    if(start >= 0 && count >= 0) {
+		        queryStr = queryStr + String.format(" OFFSET %d LIMIT %d", start, count);
+		    }
 			var result = jdbcTemplate.queryForList(queryStr, params);
 			
 			for(var record : result) {
-				formatDateField(record);
+			    formatField(record);
 			}
 			return result;
 		}		
@@ -97,7 +102,7 @@ public class SQLUtil {
 			var records = jdbcTemplate.queryForList(queryStr, params);
 			if(records.size() > 0) {
 				var record = records.get(0);
-				formatDateField(record);
+				formatField(record);
 				return record;
 			}			
 		}

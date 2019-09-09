@@ -17,7 +17,7 @@ public class HsbaService {
 	@Autowired
     JdbcTemplate jdbcTemplate;
 
-	String adjustDsHosoSql(String rawSql, int trangthai, String maYte, List<Object> params) {
+	String adjustDsHoSoSql(String rawSql, int trangthai, String maYte, List<Object> params) {
 		params.add(trangthai);
 		
 		String sql = rawSql;
@@ -31,19 +31,74 @@ public class HsbaService {
 		return sql;
 	}
 	
-	public int countDsHoso(int trangthai, String maYte) {
+	public int countDsHoSo(int trangthai, String maYte) {
 		String sql = SQLUtil.getSQL("DS_HS");
 		var params = new ArrayList<Object>();
-		sql = adjustDsHosoSql(sql, trangthai, maYte, params);
+		sql = adjustDsHoSoSql(sql, trangthai, maYte, params);
 		return SQLUtil.countRecords(jdbcTemplate, sql, params.toArray());
 		
 	}
 
-	public List<Map<String, Object>> getDsHoso(int trangthai, String maYte, int start, int count) {
+	public List<Map<String, Object>> getDsHoSo(int trangthai, String maYte, int start, int count) {
 		String sql = SQLUtil.getSQL("DS_HS");
 		var params = new ArrayList<Object>();
-		sql = adjustDsHosoSql(sql, trangthai, maYte, params);
+		sql = adjustDsHoSoSql(sql, trangthai, maYte, params);
 		return SQLUtil.getRecords(jdbcTemplate, sql, params.toArray(), start, count);
 	}
+	
+	public Map<String, Object> getThongTinHoSo(int hoSoId) {
+	    String sql = SQLUtil.getSQL("THONGTIN_HOSO");
+	    return SQLUtil.getRecord(jdbcTemplate, sql, new Object[] {hoSoId});
+	}
+	
+	public Map<String, Object> getThongTinBenhNhan(int benhNhanId) {
+	    String sql = SQLUtil.getSQL("THONGTIN_BENHNHAN");
+	    return SQLUtil.getRecord(jdbcTemplate, sql, new Object[] {benhNhanId});
+	}
+	
+	public Map<String, Object> getHsba(int hoSoId) {
+	    return SQLUtil.getRecord(jdbcTemplate, "SELECT * FROM emr_danh_sach_ho_so_benh_an WHERE id=?", 
+	                    new Object[] {hoSoId});
+	}
+	
+	public Map<String, Object> getThongTinVaoVien(int hoSoId) {
+	    String sql = SQLUtil.getSQL("THONGTIN_VAOVIEN");
+	    return SQLUtil.getRecord(jdbcTemplate, sql, new Object[] {hoSoId});	    
+	}
+	
+	public List<Map<String, Object>> getThongTinVaoKhoa(int hoSoId) {
+	    String sql = SQLUtil.getSQL("THONGTIN_VAOKHOA");
+	    return SQLUtil.getRecords(jdbcTemplate, sql, new Object[] {hoSoId}, -1, -1);
+	}
+	
+	public Map<String, Object> getThongTinRaVien(int hoSoId) {
+        String sql = SQLUtil.getSQL("THONGTIN_RAVIEN");
+        return SQLUtil.getRecord(jdbcTemplate, sql, new Object[] {hoSoId});     
+    }
+	
+	public Map<String, Object> getThongTinChanDoanVaoVien(int hoSoId) {
+	    String sql = SQLUtil.getSQL("CHANDOAN_VAOVIEN");
+	    return SQLUtil.getRecord(jdbcTemplate, sql, new Object[] {hoSoId});
+	}
+	
+	public Map<String, Object> getThongTinChanDoanVaoKhoa(int hoSoId) {
+	    String sql = SQLUtil.getSQL("CHANDOAN_VAOKHOA");
+	    return SQLUtil.getRecord(jdbcTemplate, sql, new Object[] {hoSoId});
+        
+    }
 
+	public Map<String, Object> getThongTinChanDoanRaVien(int hoSoId) {
+	    String sql = SQLUtil.getSQL("CHANDOAN_RAVIEN");
+	    return SQLUtil.getRecord(jdbcTemplate, sql, new Object[] {hoSoId});
+	}
+	
+	public Map<String, Object> getTinhTrangRaVien(int hoSoId) {
+        String sql = SQLUtil.getSQL("TINHTRANG_RAVIEN");
+        return SQLUtil.getRecord(jdbcTemplate, sql, new Object[] {hoSoId});
+    }
+	
+	public Map<String, Object> getThongTinLanhDao(int hoSoId) {
+        String sql = SQLUtil.getSQL("THONGTIN_LANHDAO");
+        return SQLUtil.getRecord(jdbcTemplate, sql, new Object[] {hoSoId});
+    }
 }
