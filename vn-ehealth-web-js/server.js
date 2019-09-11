@@ -7,7 +7,7 @@ var sync_req = require('sync-request');
 ejs.open = '<%'; 
 ejs.close = '%>';
 
-
+var API_URL = 'http://localhost:8000';
 var oneDay = 86400000;
  
 server.set("view options", {layout: false});  
@@ -31,7 +31,7 @@ server.all("*", function(req, res, next) {
             res.render("login.html");
         }else {
             var page = request.substr(1, pos - 1);
-            var check_permission_res = sync_req('GET', `http://localhost:8000/api/auth/check_page_permission?username=${username}&page=${page}`);
+            var check_permission_res = sync_req('GET', `${API_URL}/api/auth/check_page_permission?username=${username}&page=${page}`);
             if(check_permission_res.body.toString('utf-8') !== "true") {
                 page = "unauthorized";
             }

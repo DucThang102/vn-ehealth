@@ -80,7 +80,7 @@
 <script>
     $(document).ready(function(){
         var username = localStorage.getItem("username");
-        fetch(`http://localhost:8000/api/auth/get_permissions?username=${username}`)
+        fetch(`${API_URL}/api/auth/get_permissions?username=${username}`)
           .then(res => res.json()).then(result => {
             var allow_tabs = result.map(x => x["tab"]);
             var allow_items = result.flatMap(x => x["items"]);

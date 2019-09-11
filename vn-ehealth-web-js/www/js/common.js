@@ -1,7 +1,9 @@
+var API_URL = 'http://localhost:8000';
+
 Vue.mixin({
 	data: function () {
 		return {
-			baseURL: 'http://localhost:8000'
+			API_URL: 'http://localhost:8000'
 		}
 	},
 
@@ -27,7 +29,7 @@ Vue.mixin({
 		},
 
 		get: function (uri, params) {
-			var url = this.baseURL + uri;
+			var url = this.API_URL + uri;
 
 			if (params) {
 				url += '?' + this.serialize(params);
@@ -39,7 +41,7 @@ Vue.mixin({
 		},
 
 		post: function (uri, params) {
-			var url = this.baseURL + uri;
+			var url = this.API_URL + uri;
 			console.log(`%POST ${uri} : `, 'background: blue; color: yellow', params);
 
 			return fetch(url, {
