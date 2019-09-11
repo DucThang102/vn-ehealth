@@ -37,7 +37,7 @@
   </li>
   
   <li class="nav-item dropdown no-arrow">
-      <a class="nav-link" href="#" onclick="localStorage.removeItem('token'); location.href='/index.html';">
+      <a class="nav-link" href="#" onclick="document.cookie='username=;path=/';localStorage.removeItem('token'); location.href='/index.html';">
           <i class="fas fa-fw fa-sign-out-alt"></i>
       </a>
   </li>
@@ -79,7 +79,9 @@
 
 <script>
     $(document).ready(function(){
-        fetch("/data/permissions.json").then(res => res.json()).then(result => {
+        var username = localStorage.getItem("username");
+        fetch(`http://localhost:8000/api/auth/get_permissions?username=${username}`)
+          .then(res => res.json()).then(result => {
             var allow_tabs = result.map(x => x["tab"]);
             var allow_items = result.flatMap(x => x["items"]);
             

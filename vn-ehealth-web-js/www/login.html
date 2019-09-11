@@ -14,7 +14,7 @@
   		</ul>  		
   	</div>
   	<div class="">
-  		<p class="text-center pd20"><img src="images/logo.png" alt=""></p>
+  		<p class="text-center pd20"><img src="/images/logo.png" alt=""></p>
   		<h3 class="text-center text1">Bệnh viện Trung ương</h3>
   		<h1 class="text-center text2 MT0">Hệ thống Bệnh án điện tử</h1>
   	</div>
@@ -73,7 +73,8 @@
 	            var token = result.accessToken;
 	            if(token) {
 	                localStorage.setItem('token', token);
-	                location.href = "index.html";
+					document.cookie = `username=${username}; max-age=3600;path=/`;
+	                location.href = "/index.html";
 	            }else {
 	                document.getElementById("error").innerHTML = 'Sai mật khẩu hoặc tên đăng nhập';
 	            }
