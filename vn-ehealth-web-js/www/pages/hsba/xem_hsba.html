@@ -1,71 +1,71 @@
 <% include ../../header.html %>
 
 <div id="content-wrapper" class="bg-light">
-    <div class="font-weight-bold text-uppercase"></div>
-    <div id="content" class="bg-white mt-2">		
-        <div id="app">
-          <template>
-            <div>
-              <div class="mb-2" style="display:flex">
-                <div v-if="backURL">
-                    <a class="btn btn-sm btn-secondary" :href="backURL">
-                        <i class="fas fa-fw fa-arrow-left"></i>Quay lại
-                    </a>
-                </div>
-                <div class="ml-3" style="display: flex;">
-                    <div style="display: inline-block; align-self: flex-end;">
-                        <b>Chi tiết hồ sơ bệnh án : {{ maHs }}</b>
-                    </div>
-                </div> 
-              </div>
-
-              <b-card no-body>
-                <b-tabs	content-class="mt-3" card vertical>
-                  <b-tab title="Tờ bệnh án" active>
-                    <to-benh-an></to-benh-an>
-                  </b-tab>
-                  <b-tab title="Hình ảnh tổn thương">
-                    <hinhanh-tonthuong></hinhanh-tonthuong>
-                  </b-tab>
-                  <b-tab title="Phẫu thuật thủ thuật">
-                    <phauthuat-thuthuat></phauthuat-thuthuat>
-                  </b-tab>
-                  <b-tab title="Xét nghiệm">
-                    <xet-nghiem></xet-nghiem>
-                  </b-tab>
-                  <b-tab title="Chẩn đoán hình ảnh">
-                    <chandoan-hinhanh></chandoan-hinhanh>
-                  </b-tab>
-                  <b-tab title="Thăm dò chức năng">
-                    <thamdo-chucnang></thamdo-chucnang>
-                  </b-tab>
-                  <b-tab title="Giải phẫu bệnh">
-                    <giaiphau-benh></giaiphau-benh>
-                  </b-tab>
-                  <b-tab title="Hội chẩn">
-                    <hoi-chan></hoi-chan>
-                  </b-tab>
-                  <b-tab title="Điều trị">
-                    <dieu-tri></dieu-tri>
-                  </b-tab>
-                  <b-tab title="Chăm sóc">
-                    <cham-soc></cham-soc>
-                  </b-tab>
-                  <b-tab title="Theo dõi chức năng sống">
-                    <chucnang-song></chucnang-song>
-                  </b-tab>
-                  <b-tab title="Đơn thuốc">
-                    <don-thuoc></don-thuoc>
-                  </b-tab>
-                  <b-tab title="Các giấy tờ đi kèm khác">
-                    <giay-to></giay-to>
-                  </b-tab>
-                </b-tabs>
-              </b-card>
+  <div class="font-weight-bold text-uppercase"></div>
+  <div id="content" class="bg-white mt-2">
+    <div id="app">
+      <template>
+        <div>
+          <div class="mb-2" style="display:flex">
+            <div v-if="backURL">
+              <a class="btn btn-sm btn-secondary" :href="backURL">
+                <i class="fas fa-fw fa-arrow-left"></i>Quay lại
+              </a>
             </div>
-          </template>
+            <div class="ml-3" style="display: flex;">
+              <div style="display: inline-block; align-self: flex-end;">
+                <b>Chi tiết hồ sơ bệnh án : {{ maHs }}</b>
+              </div>
+            </div>
+          </div>
+
+          <b-card no-body>
+            <b-tabs content-class="mt-3" card vertical>
+              <b-tab title="Tờ bệnh án" active>
+                <to-benh-an></to-benh-an>
+              </b-tab>
+              <b-tab title="Hình ảnh tổn thương">
+                <hinhanh-tonthuong></hinhanh-tonthuong>
+              </b-tab>
+              <b-tab title="Phẫu thuật thủ thuật">
+                <phauthuat-thuthuat></phauthuat-thuthuat>
+              </b-tab>
+              <b-tab title="Xét nghiệm">
+                <xet-nghiem></xet-nghiem>
+              </b-tab>
+              <b-tab title="Chẩn đoán hình ảnh">
+                <chandoan-hinhanh></chandoan-hinhanh>
+              </b-tab>
+              <b-tab title="Thăm dò chức năng">
+                <thamdo-chucnang></thamdo-chucnang>
+              </b-tab>
+              <b-tab title="Giải phẫu bệnh">
+                <giaiphau-benh></giaiphau-benh>
+              </b-tab>
+              <b-tab title="Hội chẩn">
+                <hoi-chan></hoi-chan>
+              </b-tab>
+              <b-tab title="Điều trị">
+                <dieu-tri></dieu-tri>
+              </b-tab>
+              <b-tab title="Chăm sóc">
+                <cham-soc></cham-soc>
+              </b-tab>
+              <b-tab title="Theo dõi chức năng sống">
+                <chucnang-song></chucnang-song>
+              </b-tab>
+              <b-tab title="Đơn thuốc">
+                <don-thuoc></don-thuoc>
+              </b-tab>
+              <b-tab title="Các giấy tờ đi kèm khác">
+                <giay-to></giay-to>
+              </b-tab>
+            </b-tabs>
+          </b-card>
         </div>
+      </template>
     </div>
+  </div>
 </div>
 
 <script src="/pages/hsba/detail/to_benh_an.js"></script>
@@ -95,24 +95,24 @@
   VueAsyncComponent('cham-soc', '/pages/hsba/detail/cham_soc.html', cham_soc_script);
   VueAsyncComponent('chucnang-song', '/pages/hsba/detail/chucnang_song.html', chucnang_song_script);
   VueAsyncComponent('don-thuoc', '/pages/hsba/detail/don_thuoc.html', don_thuoc_script);
-  VueAsyncComponent('giay-to', '/pages/hsba/detail/giay_to.html', giay_to_script);  
-  	
+  VueAsyncComponent('giay-to', '/pages/hsba/detail/giay_to.html', giay_to_script);
+
   new Vue({
     el: "#app",
     data: {
-	  backURL : null,  
-	  hsId : null,
-	  maHs : ""	  
+      backURL: null,
+      hsId: null,
+      maHs: ""
     },
-    
+
     methods: {
-	},
-	
-    created : async function() {
-	   this.backURL = this.getParam("backURL");
-	   this.hsId = this.getParam("hs_id");
-	   var hoso = await this.get("/api/hsba/get_hs", {id : this.hsId });
-	   this.maHs = hoso.ma_yte;
+    },
+
+    created: async function () {
+      this.backURL = this.getParam("backURL");
+      this.hsId = this.getParam("hs_id");
+      var hoso = await this.get("/api/hsba/get_hs", { id: this.hsId });
+      this.maHs = hoso.ma_yte;
     }
   });
 </script>

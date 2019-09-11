@@ -8,7 +8,9 @@
 
 <!-- Custom fonts for this template-->
 <link href="/css/fontawesome/all.css" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<link
+  href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+  rel="stylesheet">
 
 <!-- Custom styles for this template-->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -22,82 +24,92 @@
 <script src="/js/common.js"></script>
 
 <nav id="topbar" class="navbar navbar-expand bg-xanh">
-<div class="navbar-header1">            
-  <a class="navbar-brand1" href="/"><img src="/images/logo.png" height="50" alt=""></a>
-  <h5 class="text3">Hệ thống</h5>
-  <h4 class="text4 MT0 MB0">Bệnh án điện tử</h4>
-</div>
+  <div class="navbar-header1">
+    <a class="navbar-brand1" href="/"><img src="/images/logo.png" height="50" alt=""></a>
+    <h5 class="text3">Hệ thống</h5>
+    <h4 class="text4 MT0 MB0">Bệnh án điện tử</h4>
+  </div>
 
-<ul class="navbar-nav top-bar ml-auto">      
-  <li class="nav-item dropdown no-arrow">
-    <a class="nav-link" href="#">          
-      <img class="img-profile rounded-circle" src="/images/MediaObj_Placeholder.png">
-      <span class="ml-2 d-none d-lg-inline text-white">admin</span>
-    </a>        
-  </li>
-  
-  <li class="nav-item dropdown no-arrow">
-      <a class="nav-link" href="#" onclick="document.cookie='username=;path=/';localStorage.removeItem('token'); location.href='/index.html';">
-          <i class="fas fa-fw fa-sign-out-alt"></i>
+  <ul class="navbar-nav top-bar ml-auto">
+    <li class="nav-item dropdown no-arrow">
+      <a class="nav-link" href="#">
+        <img class="img-profile rounded-circle" src="/images/MediaObj_Placeholder.png">
+        <span class="ml-2 d-none d-lg-inline text-white">admin</span>
       </a>
-  </li>
+    </li>
 
-</ul>
+    <li class="nav-item dropdown no-arrow">
+      <a class="nav-link" href="#"
+        onclick="document.cookie='username=;path=/';localStorage.removeItem('token'); location.href='/index.html';">
+        <i class="fas fa-fw fa-sign-out-alt"></i>
+      </a>
+    </li>
+
+  </ul>
 
 </nav>
 
 <nav id="menubar" class="d-none navbar navbar-expand-lg navbar-light bg-white p-0">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class='nav-link' href='#'><i class="fas fa-lg fa-home black"></i></a>
-      </li>
-      <li id='tab_hsba' class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-uppercase" href="#" id="hsbaDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            HỒ SƠ BỆNH ÁN
-        </a>
-        <div class="dropdown-menu" aria-labelledby="hsbaDropdown">
-          <a class="dropdown-item" id='hsba_chuaxuly' href="/pages/hsba/hs_chua_xl.html"><i class="fas fa-angle-right black"></i> Chưa xử lý</a>
-          <a class="dropdown-item" id='hsba_daluu' href="/pages/hsba/hs_da_luu.html"><i class="fas fa-angle-right black"></i> Đã lưu</a>
-          <a class="dropdown-item" id='hsba_cho_nhan' href="#"><i class="fas fa-angle-right black"></i> Chờ nhận - HSBA ngoài viện</a>
-          <a class="dropdown-item" id='hsba_da_nhan' href="#"><i class="fas fa-angle-right black"></i> Đã nhận - HSBA ngoài viện</a>
-          <a class="dropdown-item" id='hsba_cap_ma' href="#"><i class="fas fa-angle-right black"></i> Cấp mã truy cập</a>
-          <a class="dropdown-item" id='hsba_vet_truycap' href="#"><i class="fas fa-angle-right black"></i> Vết truy cập HSBA</a>
-          <a class="dropdown-item" id='hsba_vet_traodoi' href="#"><i class="fas fa-angle-right black"></i> Vết trao đổi HSBA</a>			  
-        </div>
-      </li>
-      <li id='tab_dm' class="nav-item active dropdown">
-        <a class="nav-link dropdown-toggle text-uppercase" href="#" id="hsbaDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Danh mục
-        </a>
-        <div class="dropdown-menu" aria-labelledby="hsbaDropdown">
-          <a class="dropdown-item" id='dm_dungchung' href="#"><i class="fas fa-angle-right black"></i> Dùng chung</a>
-          <a class="dropdown-item" id='dm_chuan_hoa' href="#"><i class="fas fa-angle-right black"></i> Danh sách danh mục chuẩn hóa</a>
-        </div>
-      </li>		  
-    </ul>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class='nav-link' href='#'><i class="fas fa-lg fa-home black"></i></a>
+    </li>
+    <li id='tab_hsba' class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle text-uppercase" href="#" id="hsbaDropdown" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        HỒ SƠ BỆNH ÁN
+      </a>
+      <div class="dropdown-menu" aria-labelledby="hsbaDropdown">
+        <a class="dropdown-item" id='hsba_chuaxuly' href="/pages/hsba/hs_chua_xl.html"><i
+            class="fas fa-angle-right black"></i> Chưa xử lý</a>
+        <a class="dropdown-item" id='hsba_daluu' href="/pages/hsba/hs_da_luu.html"><i
+            class="fas fa-angle-right black"></i> Đã lưu</a>
+        <a class="dropdown-item" id='hsba_cho_nhan' href="#"><i class="fas fa-angle-right black"></i> Chờ nhận - HSBA
+          ngoài viện</a>
+        <a class="dropdown-item" id='hsba_da_nhan' href="#"><i class="fas fa-angle-right black"></i> Đã nhận - HSBA
+          ngoài viện</a>
+        <a class="dropdown-item" id='hsba_cap_ma' href="#"><i class="fas fa-angle-right black"></i> Cấp mã truy cập</a>
+        <a class="dropdown-item" id='hsba_vet_truycap' href="#"><i class="fas fa-angle-right black"></i> Vết truy cập
+          HSBA</a>
+        <a class="dropdown-item" id='hsba_vet_traodoi' href="#"><i class="fas fa-angle-right black"></i> Vết trao đổi
+          HSBA</a>
+      </div>
+    </li>
+    <li id='tab_dm' class="nav-item active dropdown">
+      <a class="nav-link dropdown-toggle text-uppercase" href="#" id="hsbaDropdown" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Danh mục
+      </a>
+      <div class="dropdown-menu" aria-labelledby="hsbaDropdown">
+        <a class="dropdown-item" id='dm_dungchung' href="#"><i class="fas fa-angle-right black"></i> Dùng chung</a>
+        <a class="dropdown-item" id='dm_chuan_hoa' href="#"><i class="fas fa-angle-right black"></i> Danh sách danh mục
+          chuẩn hóa</a>
+      </div>
+    </li>
+  </ul>
 </nav>
 
 <script>
-    $(document).ready(function(){
-        var username = localStorage.getItem("username");
-        fetch(`${API_URL}/api/auth/get_permissions?username=${username}`)
-          .then(res => res.json()).then(result => {
-            var allow_tabs = result.map(x => x["tab"]);
-            var allow_items = result.flatMap(x => x["items"]);
-            
-            $('#menubar .nav-item').each(function() { 
-                if(!allow_tabs.includes($(this).attr('id'))) {
-                    $(this).remove();
-                }
-            });
-            
-            $('#menubar .dropdown-item').each(function() { 
-                if(!allow_items.includes($(this).attr('id'))) {
-                    $(this).remove();
-                }
-            });
-            
-            $('#menubar').removeClass('d-none');
-        });        
-    });
+  $(document).ready(function () {
+    var username = localStorage.getItem("username");
+    fetch(`${API_URL}/api/auth/get_permissions?username=${username}`)
+      .then(res => res.json()).then(result => {
+        var allow_tabs = result.map(x => x["tab"]);
+        var allow_items = result.flatMap(x => x["items"]);
+
+        $('#menubar .nav-item').each(function () {
+          if (!allow_tabs.includes($(this).attr('id'))) {
+            $(this).remove();
+          }
+        });
+
+        $('#menubar .dropdown-item').each(function () {
+          if (!allow_items.includes($(this).attr('id'))) {
+            $(this).remove();
+          }
+        });
+
+        $('#menubar').removeClass('d-none');
+      });
+  });
 </script>
