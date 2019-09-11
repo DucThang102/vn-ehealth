@@ -1,0 +1,16 @@
+[
+    { 
+        "tab": "tab_hsba",
+        "items" : [
+            "hsba_chuaxuly",
+            "hsba_daluu"
+        ]
+    },
+    {
+        "tab" : "tab_dm",
+        "items" : [
+            "dm_dungchung",
+            "dm_chuan_hoa"
+        ]
+    }
+]

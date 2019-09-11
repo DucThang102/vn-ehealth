@@ -1,0 +1,146 @@
+<% include ../../header.html %>
+<style>
+  #app {
+    overflow: scroll;
+    width: 100%;
+  }
+</style>
+
+<div id="content-wrapper" class="bg-light">
+    <div class="font-weight-bold text-uppercase"><i class="far fa-file-alt"></i> DANH SÁCH HỒ SƠ BỆNH ÁN ĐÃ LƯU</div>
+    <div id="content" class="bg-white mt-2">
+        <div id="app">
+          <template v-if="total == 0">
+            <b>Không có dữ liệu</b>
+          </template>
+          
+          <template>
+            <form @submit.prevent="timKiemHoso()" class="mb-3">
+              <div class="row">
+                <div class="col-12">
+                  <input v-model="ma_yte" class="form-control" placeholder="Tìm theo mã y tế"></input>
+                </div>
+              </div>
+            </form>
+            <table style="width:150%" class="table table-bordered" v-if="total > 0">
+              <thead>
+                <tr>
+                  <th rowspan="2" style="width:2%">Thao tác</th>
+                  <th rowspan="2" style="width:2%">STT</th>
+                  <th rowspan="2" style="width:8%">Mã bệnh nhân</th>
+                  <th rowspan="2" style="width:10%">Tên bệnh nhân</th>
+                  <th rowspan="2" style="width:10%">Địa chỉ</th>
+                  <th rowspan="2" style="width:6%">Loại bệnh án</th>
+                  <th rowspan="2" style="width:4%">Mã y tế</th>
+                  <th rowspan="2" style="width:4%">Mã lưu trữ</th>
+                  <th colspan="2">Chẩn đoán vào viện</th>
+                  <th colspan="2">Chẩn đoán ra viện</th>
+                  <th rowspan="2" style="width:8%">Khoa ra viện</th>
+                  <th rowspan="2" style="width:5%">Ngày vào viện</th>
+                  <th rowspan="2" style="width:5%">Ngày ra viện</th>
+                  <th rowspan="2" style="width:5%">Ngày lưu trữ</th>
+                  <th rowspan="2" style="width:6%">Cán bộ lưu trữ</th>
+                  <th rowspan="2" style="width:5%">Nguồn dữ liệu</th>
+                </tr>
+                <tr>
+                  <th style="width:5%">Mã Bệnh</th>
+                  <th style="width:5%">Mô tả</th>
+                  <th style="width:5%">Mã Bệnh</th>
+                  <th style="width:5%">Mô tả</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(hs, index) in items">
+                  <td>
+                    <button class="btn btn-small dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-fw fa-tasks"></i>
+                      </button>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" :href="createURL('/pages/hsba/xem_hsba.html', {hs_id: hs.id, backURL: currentURL})">Xem HSBA</a>
+                        <a class="dropdown-item" href="#">Chỉnh sửa</a>
+                        <a class="dropdown-item" href="#">Lưu trữ</a>
+                        <a class="dropdown-item" href="#">Thông tin gốc</a>
+                        <a class="dropdown-item" href="#">Xóa</a>			    
+                      </div>
+                  </td>
+                  <td>{{ index + offset + 1 }}</td>
+                  <td>{{ hs.ma_benh_nhan }}</td>
+                  <td>{{ hs.ten_benh_nhan }}</td>
+                  <td>{{ hs.diachi }}</td>
+                  <td>{{ hs.loai_benh_an }}</td>
+                  <td>{{ hs.ma_yte }}</td>
+                  <td>{{ hs.ma_luutru }}</td>
+                  <td>{{ hs.vaovien_mabenh }} - {{ hs.vaovien_tenbenh }}</td>
+                  <td>{{ hs.vaovien_mota }}</td>
+                  <td>{{ hs.ravien_mabenh }} - {{ hs.ravien_tenbenh }}</td>
+                  <td>{{ hs.ravien_mota }}</td>
+                  <td>{{ hs.khoa_ravien }}</td>
+                  <td>{{ hs.ngay_vaovien }}</td>
+                  <td>{{ hs.ngay_ravien }}</td>
+                  <td>{{ hs.ngay_luutru }}</td>
+                  <td>{{ hs.canbo_luutru }}</td>
+                  <td> {{hs.nguon_dulieu }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <b-pagination v-if="total > perPage" size="sm" v-model="currentPage" :total-rows="total" :per-page="perPage"></b-pagination>
+            <label class="label">Tổng số : {{ total }} bản ghi</label>
+          </template>
+        </div>
+    </div>
+</div>
+
+<script>
+  new Vue({
+    el: "#app",
+    data: {  
+    	perPage: 5,
+    	currentPage: null,
+    	items: [],
+    	total : null,
+    	ma_yte:  ''	  
+    },
+    
+    methods: {
+	  getTotal: async function() {
+		this.total = await this.get("/api/hsba/count_ds_hs", {trangthai: 2, ma_yte: this.ma_yte});
+	  },
+
+	  getItems : async function() {
+		this.items = await this.get("/api/hsba/get_ds_hs", 
+			{ trangthai: 2, ma_yte: this.ma_yte,  start: this.offset, count: this.perPage });		
+	  },
+	  timKiemHoso : async function() {
+	    this.currentPage = 1;
+	    location.href = this.currentURL;
+	  }
+    },
+    
+    computed: {      
+      offset() {
+        return (this.currentPage - 1) * this.perPage;
+	  },
+
+	  currentURL() {
+		return this.createURL("/pages/hsba/hs_da_luu.html", {currentPage: this.currentPage, ma_yte: this.ma_yte})
+	  }
+    },
+    
+    watch: {
+      currentPage : async function(newVal, oldVal) {
+		if(oldVal){	  
+		  location.href = this.currentURL;
+		}
+      }
+    },
+    
+    created: async function () {
+	  this.currentPage = this.getParam("currentPage") || 1;
+	  this.ma_yte = this.getParam("ma_yte") || '';
+      await this.getTotal();
+      await this.getItems();
+    }
+  });
+</script>
+
+<% include ../../footer.html %>
