@@ -1,8 +1,8 @@
 @charset "utf-8";
 /* CSS Document */
 body, a{
-	font-family: Verdana, 'Lucida Grande', 'Trebuchet MS', Arial, Sans-Serif;
-	font-size: 14px;
+  font-family: Verdana, 'Lucida Grande', 'Trebuchet MS', Arial, Sans-Serif;
+  font-size: 14px;
 }
 
 .dropdown-item {
@@ -87,29 +87,29 @@ footer.sticky-footer {
 }
 
 .bg1{
-	background: #1057ae;
-	text-align: center;
+  background: #1057ae;
+  text-align: center;
 }
 
 .text-menu{display: inline-block;padding-left: 0;margin-bottom: -6px;}
 .text-menu li{
-	float: left;
-	list-style: none;
+  float: left;
+  list-style: none;
 }
 .text-menu li a{
-	color: #fff;
-	text-transform: uppercase;
-	padding: 0px 15px;
-	line-height: 40px;
-	border-right: solid 1px #0a4082;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 0px 15px;
+  line-height: 40px;
+  border-right: solid 1px #0a4082;
 }
 .text-menu li .linenone{border-right: none;}
 .bg-login{
-	position: relative;
+  position: relative;
     width: 100%;
     min-height: auto;
     color: #fff;
-	background-image: url(../images/bg-login.png);
+  background-image: url(../images/bg-login.png);
     background-position: right 0px top -200px;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -117,25 +117,25 @@ footer.sticky-footer {
     -o-background-size: cover;
 }
 .text1, .text2, .text3, .text4{
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 .text1{
-	color: #FF0004;
-	font-size: 24px;
+  color: #FF0004;
+  font-size: 24px;
 }
 .text2{
-	color: #1057ae;
-	font-weight: 700;
-	font-size: 36px;
+  color: #1057ae;
+  font-weight: 700;
+  font-size: 36px;
 }
 .text3{
-	color: #88bdff;
-	margin-bottom: 5px;
-	font-size: 14px;
+  color: #88bdff;
+  margin-bottom: 5px;
+  font-size: 14px;
 }
 .text4{
-	color: #fff;
-	font-size: 18px;
+  color: #fff;
+  font-size: 18px;
 }
 .pd20{margin-top: 20px;}
 .form-signin {
@@ -149,23 +149,23 @@ footer p{font-size: 14px;}
 .MT10{margin-top: 10px;}
 .LineH{line-height: 1.5;}
 .fixF{position: fixed; 
-	bottom: 0;
-	width: 100%;
-	background: #f9f9f9;
-	color: #58666e;
-	border-top: 1px solid rgba(0, 0, 0, 0.05);
+  bottom: 0;
+  width: 100%;
+  background: #f9f9f9;
+  color: #58666e;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 @media(max-width:768px) {
     header {
         min-height: 100%;
     }
-	.fixF{position: inherit;}
+  .fixF{position: inherit;}
 }
-.bg-xanh{	background: #1057ae;
+.bg-xanh{  background: #1057ae;
 }
 .navbar-brand1{
-	padding-right: 10px;
+  padding-right: 10px;
     float: left;
 }
 .navbar-header1{width: 380px;display: block;}
@@ -173,5 +173,5 @@ footer p{font-size: 14px;}
 .text-blue{color: #007bff;}
 
 footer p {
-	margin: 0 0 10px;
+  margin: 0 0 10px;
 }
