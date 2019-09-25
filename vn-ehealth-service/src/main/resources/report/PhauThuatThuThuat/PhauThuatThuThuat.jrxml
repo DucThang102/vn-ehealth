@@ -26,8 +26,8 @@
 	<field name="phuongphapvocam" class="java.lang.String">
 		<fieldDescription><![CDATA[phuongphapvocam]]></fieldDescription>
 	</field>
-	<field name="emrDmMaBenhByIdicdchandoansau" class="vn.ehealth.emr.EmrDm">
-		<fieldDescription><![CDATA[emrDmMaBenhByIdicdchandoansau]]></fieldDescription>
+	<field name="emrDmMaBenhChandoansau" class="vn.ehealth.emr.EmrDm">
+		<fieldDescription><![CDATA[emrDmMaBenhChandoansau]]></fieldDescription>
 	</field>
 	<field name="id" class="java.lang.Integer">
 		<fieldDescription><![CDATA[id]]></fieldDescription>
@@ -56,8 +56,8 @@
 	<field name="emrDmPhauThuThuat" class="vn.ehealth.emr.EmrDm">
 		<fieldDescription><![CDATA[emrDmPhauThuThuat]]></fieldDescription>
 	</field>
-	<field name="emrDmMaBenhByIdicdchandoantruoc" class="vn.ehealth.emr.EmrDm">
-		<fieldDescription><![CDATA[emrDmMaBenhByIdicdchandoantruoc]]></fieldDescription>
+	<field name="emrDmMaBenhChandoantruoc" class="vn.ehealth.emr.EmrDm">
+		<fieldDescription><![CDATA[emrDmMaBenhChandoantruoc]]></fieldDescription>
 	</field>
 	<variable name="RowCount" class="java.lang.Integer" calculation="Count">
 		<variableExpression><![CDATA[$F{id}]]></variableExpression>
@@ -195,7 +195,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{REPORT_SCRIPTLET}.getTextChanDoanYhhd(
     $F{motachandoantruocpt},
-    $F{emrDmMaBenhByIdicdchandoantruoc})]]></textFieldExpression>
+    $F{emrDmMaBenhChandoantruoc})]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="188" y="89" width="349" height="17" uuid="ab59c286-1bed-4421-bd17-44c1c6ba6e93"/>
@@ -205,7 +205,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{REPORT_SCRIPTLET}.getTextChanDoanYhhd(
     $F{motachandoansaupt},
-    $F{emrDmMaBenhByIdicdchandoansau})]]></textFieldExpression>
+    $F{emrDmMaBenhChandoansau})]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
 				<reportElement positionType="Float" x="36" y="181" width="499" height="17" uuid="c4231b4b-9659-4808-a4cf-baec84949495"/>
