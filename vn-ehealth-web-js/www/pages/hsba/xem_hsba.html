@@ -103,7 +103,7 @@
       step : 0,
       backURL: null,
       hsId: null,
-      maHs: ""
+      maHs: '',
     },
 
     methods: {
@@ -112,8 +112,8 @@
     created: async function () {
       this.backURL = this.getParam("backURL");
       this.hsId = this.getParam("hs_id");
-      var hoso = await this.get("/api/hsba/get_hs", { id: this.hsId });
-      this.maHs = hoso.ma_yte;
+      var hoso = await this.get("/api/hsba/get_thongtin_hoso", { hoso_id: this.hsId });
+      this.maHs = hoso.mayte;
     }
   });
 </script>

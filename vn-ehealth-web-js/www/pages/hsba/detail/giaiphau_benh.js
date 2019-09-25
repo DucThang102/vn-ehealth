@@ -7,7 +7,7 @@ var giaiphau_benh_script = {
 
   computed: {
     pdfURL : function() {
-      return "http://34.87.51.9:8000/api/hsba/view_pdf?loai_report=giaiphaubenh&idhsba=" + this.hsId;
+      return this.API_URL + "/api/hsba/view_pdf?loai_report=giaiphaubenh&idhsba=" + this.hsId;
     }
   },
   
