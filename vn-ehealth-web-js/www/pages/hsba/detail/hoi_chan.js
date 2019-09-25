@@ -7,7 +7,7 @@ var hoi_chan_script = {
 
   computed: {
     pdfURL : function() {
-      return "http://localhost:8000/api/hsba/view_pdf?loai_report=hoichan&idhsba=" + this.hsId;
+      return "http://34.87.51.9:8000/api/hsba/view_pdf?loai_report=hoichan&idhsba=" + this.hsId;
     }
   },
   

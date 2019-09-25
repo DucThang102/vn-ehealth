@@ -7,7 +7,7 @@ var sync_req = require('sync-request');
 ejs.open = '<%'; 
 ejs.close = '%>';
 
-var API_URL = 'http://localhost:8000';
+var API_URL = 'http://34.87.51.9:8000';
 var oneDay = 86400000;
  
 server.set("view options", {layout: false});  
@@ -47,4 +47,4 @@ server.all("*", function(req, res, next) {
 
  server.use(express.static(__dirname + '/www', { maxAge: oneDay }));
 
- server.listen(process.env.PORT || 8081);
+ server.listen(process.env.PORT || 8080);
