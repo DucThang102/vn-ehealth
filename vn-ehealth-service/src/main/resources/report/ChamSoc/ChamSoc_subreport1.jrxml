@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ChamSoc_subreport1" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7570f019-509d-4441-8be5-82912a00acd2">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="360"/>
+	<property name="ireport.y" value="0"/>
+	<scriptlet name="Header" class="vn.ehealth.emr.utils.JasperUtils"/>
+	<parameter name="maLoaiBA" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="thuchienylenh" class="java.lang.String">
+		<fieldDescription><![CDATA[thuchienylenh]]></fieldDescription>
+	</field>
+	<field name="ytachamsoc" class="java.lang.String">
+		<fieldDescription><![CDATA[ytachamsoc]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="ngaychamsoc" class="java.util.Date">
+		<fieldDescription><![CDATA[ngaychamsoc]]></fieldDescription>
+	</field>
+	<field name="daxoa" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[daxoa]]></fieldDescription>
+	</field>
+	<field name="theodoidienbien" class="java.lang.String">
+		<fieldDescription><![CDATA[theodoidienbien]]></fieldDescription>
+	</field>
+	<variable name="RowCount" class="java.lang.Integer">
+		<variableExpression><![CDATA[($F{daxoa} == null || $F{daxoa} == false) ? ($V{RowCount}+1): $V{RowCount}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<columnHeader>
+		<band height="29">
+			<staticText>
+				<reportElement x="71" y="0" width="75" height="20" uuid="f6ed2e6a-196f-428e-a80c-f357021c312d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ngày thực hiện]]></text>
+			</staticText>
+			<line>
+				<reportElement x="32" y="0" width="482" height="1" uuid="ddcef702-b951-4976-9dbf-f3709da5ff87"/>
+			</line>
+			<textField>
+				<reportElement x="155" y="0" width="126" height="28" uuid="9fdd22c0-734d-44a3-abcb-9babb43aa8b9"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.checkLoaiBAYHCT($P{maLoaiBA}) ? "Theo dõi diễn biến" : "Diễn biến người bệnh"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="0" width="30" height="20" uuid="68e45aac-0b68-41b1-ad53-eddf00970f0c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[STT]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="405" y="1" width="105" height="27" uuid="b74635bf-c4f9-442a-aa8d-e0489210fad9"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{maLoaiBA} != null ? ($P{Header_SCRIPTLET}.checkLoaiBAYHCT($P{maLoaiBA}) ? "Ký tên" : "Y tá chăm sóc") : ""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="287" y="1" width="114" height="27" uuid="a4124e11-fb73-418d-9c6e-37a4be410211"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{maLoaiBA} != null ? ($P{Header_SCRIPTLET}.checkLoaiBAYHCT($P{maLoaiBA}) ? "Thực hiện y lệnh/chăm sóc" : "Thực hiện y lệnh") : ""]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="514" y="0" width="1" height="28" uuid="132c6fad-4887-47e3-b29c-d3b43d82eaf5"/>
+			</line>
+			<line>
+				<reportElement x="401" y="0" width="1" height="28" uuid="68b1953a-01ab-4b0b-948c-579d825d7d2f"/>
+			</line>
+			<line>
+				<reportElement x="286" y="0" width="1" height="28" uuid="0294b6a6-bedc-4381-9bbb-4aefcccbcf30"/>
+			</line>
+			<line>
+				<reportElement x="151" y="0" width="1" height="28" uuid="fe628735-78ed-4b60-b22b-58e9ed3369e9"/>
+			</line>
+			<line>
+				<reportElement x="66" y="0" width="1" height="28" uuid="e180c9dd-9309-40af-946f-4ee3c4e4ddea"/>
+			</line>
+			<line>
+				<reportElement x="32" y="0" width="1" height="28" uuid="6e4752d7-8921-4481-b950-cdd7bef02c60"/>
+			</line>
+			<line>
+				<reportElement x="32" y="28" width="482" height="1" isPrintWhenDetailOverflows="true" uuid="c162d0e8-77d0-4dc6-a3eb-1f45e030acca"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement x="24" y="0" width="495" height="20" uuid="846ba7c0-455c-4c9f-8e0e-b5431f9cac1e"/>
+				<textField isBlankWhenNull="true">
+					<reportElement x="12" y="0" width="27" height="20" uuid="0521bb72-8a4f-49ee-af7f-a93a094bc3cb"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd/MM/yyyy HH.mm" isBlankWhenNull="true">
+					<reportElement x="43" y="0" width="84" height="20" uuid="12150d71-6349-4273-8cb6-9c0090fa012b"/>
+					<textElement>
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ngaychamsoc}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+					<reportElement x="131" y="0" width="126" height="20" uuid="ee813802-3146-464b-bee8-b4f0084f3209"/>
+					<textElement>
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{theodoidienbien}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement positionType="FixRelativeToBottom" x="8" y="19" width="482" height="1" isPrintWhenDetailOverflows="true" uuid="8ecba9e1-a866-4f2e-8036-38a918a095e9"/>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="8" y="0" width="1" height="20" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="755ba594-8541-4284-be96-7e77fb052623"/>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="42" y="0" width="1" height="20" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="eb5d3878-56c0-4e60-8e39-a83d7395e2cc"/>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="127" y="0" width="1" height="20" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="07ea6c7d-1f4b-4c09-8761-b7134f74d1e6"/>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="262" y="0" width="1" height="20" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="944e2dfc-e667-4388-b737-a3ad13c7849f"/>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="377" y="0" width="1" height="20" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="516b9839-8efa-4f0d-af48-317b07edeac2"/>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="490" y="0" width="1" height="20" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="d2f51087-5f46-4834-b1b7-3af1310339db"/>
+				</line>
+				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+					<reportElement x="381" y="0" width="105" height="19" uuid="0f16e50c-cff5-4c10-a985-17a504347a77"/>
+					<textElement>
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ytachamsoc}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="266" y="0" width="108" height="19" uuid="67d278ff-d2cd-4496-a4a7-36b19f2c5b8b"/>
+					<textElement>
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{thuchienylenh}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

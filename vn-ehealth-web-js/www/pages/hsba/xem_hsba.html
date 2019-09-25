@@ -20,45 +20,45 @@
           </div>
 
           <b-card no-body>
-            <b-tabs content-class="mt-3" card vertical>
-              <b-tab title="Tờ bệnh án" active>
-                <to-benh-an></to-benh-an>
+            <b-tabs content-class="mt-3" card vertical v-model="step">
+              <b-tab title="Tờ bệnh án">
+                <to-benh-an v-if="step==0"></to-benh-an>
               </b-tab>
               <b-tab title="Hình ảnh tổn thương">
-                <hinhanh-tonthuong></hinhanh-tonthuong>
+                <hinhanh-tonthuong v-if="step==1"></hinhanh-tonthuong>
               </b-tab>
               <b-tab title="Phẫu thuật thủ thuật">
-                <phauthuat-thuthuat></phauthuat-thuthuat>
+                <phauthuat-thuthuat v-if="step==2"></phauthuat-thuthuat>
               </b-tab>
               <b-tab title="Xét nghiệm">
-                <xet-nghiem></xet-nghiem>
+                <xet-nghiem v-if="step==3"></xet-nghiem>
               </b-tab>
               <b-tab title="Chẩn đoán hình ảnh">
-                <chandoan-hinhanh></chandoan-hinhanh>
+                <chandoan-hinhanh v-if="step==4"></chandoan-hinhanh>
               </b-tab>
               <b-tab title="Thăm dò chức năng">
-                <thamdo-chucnang></thamdo-chucnang>
+                <thamdo-chucnang v-if="step==5"></thamdo-chucnang>
               </b-tab>
               <b-tab title="Giải phẫu bệnh">
-                <giaiphau-benh></giaiphau-benh>
+                <giaiphau-benh v-if="step==6"></giaiphau-benh>
               </b-tab>
               <b-tab title="Hội chẩn">
-                <hoi-chan></hoi-chan>
+                <hoi-chan v-if="step==7"></hoi-chan>
               </b-tab>
               <b-tab title="Điều trị">
-                <dieu-tri></dieu-tri>
+                <dieu-tri v-if="step==8"></dieu-tri>
               </b-tab>
               <b-tab title="Chăm sóc">
-                <cham-soc></cham-soc>
+                <cham-soc v-if="step==9"></cham-soc>
               </b-tab>
               <b-tab title="Theo dõi chức năng sống">
-                <chucnang-song></chucnang-song>
+                <chucnang-song v-if="step==10"></chucnang-song>
               </b-tab>
               <b-tab title="Đơn thuốc">
-                <don-thuoc></don-thuoc>
+                <don-thuoc v-if="step==11"></don-thuoc>
               </b-tab>
               <b-tab title="Các giấy tờ đi kèm khác">
-                <giay-to></giay-to>
+                <giay-to v-if="step==12"></giay-to>
               </b-tab>
             </b-tabs>
           </b-card>
@@ -100,6 +100,7 @@
   new Vue({
     el: "#app",
     data: {
+      step : 0,
       backURL: null,
       hsId: null,
       maHs: ""

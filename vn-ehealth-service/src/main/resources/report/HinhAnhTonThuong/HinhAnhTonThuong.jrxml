@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="HinhAnhTonThuong" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a6089458-45cc-4b86-8ef7-9b534a6d1577">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="135"/>
+	<parameter name="danhSachHSBA" class="java.lang.Object"/>
+	<parameter name="tenThongTin" class="java.lang.String"/>
+	<parameter name="headerPath" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="duongDanFileDinhKem" class="java.lang.String"/>
+	<parameter name="duongDanFileDinhKemOnline" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="motatonthuong" class="java.lang.String">
+		<fieldDescription><![CDATA[motatonthuong]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="anhtonthuong" class="java.lang.String">
+		<fieldDescription><![CDATA[anhtonthuong]]></fieldDescription>
+	</field>
+	<field name="emrQuanLyFileDinhKemHatts" class="java.util.List">
+		<fieldDescription><![CDATA[emrQuanLyFileDinhKemHatts]]></fieldDescription>
+	</field>
+	<variable name="RowCount" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{id}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="123">
+			<subreport>
+				<reportElement x="7" y="10" width="538" height="109" uuid="de5f12db-0e8b-47bc-80c8-dce4a7a610b4"/>
+				<subreportParameter name="danhSachHSBA">
+					<subreportParameterExpression><![CDATA[$P{danhSachHSBA}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tenThongTin">
+					<subreportParameterExpression><![CDATA[$P{tenThongTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{headerPath} + "/Header_SubReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<detail>
+		<band height="81" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="35" y="2" width="497" height="17" uuid="a462f9c8-3bd0-4a2c-875a-b5d18aa02652"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{anhtonthuong}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="54" y="19" width="478" height="17" uuid="a1b3365b-f437-4a5d-a1a0-6bcb99fb2a7b"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{motatonthuong}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="10" y="0" width="530" height="1" uuid="4204d292-f5c1-4ea0-841b-d3edefeb86b8"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="16" y="2" width="20" height="17" uuid="0df7fada-ee1a-4db1-b0cb-9950af820d78"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{RowCount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="19" y="19" width="36" height="17" uuid="eaf5b9bc-5b15-4e0b-8cd8-2425b1a32d76"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[- Mô tả:]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="19" y="37" width="519" height="39" isRemoveLineWhenBlank="true" uuid="81e4874a-ac75-4c73-9548-f6f2b1c3de65">
+					<printWhenExpression><![CDATA[$F{emrQuanLyFileDinhKemHatts}.size() > 0]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="duongDanFileDinhKemOnline">
+					<subreportParameterExpression><![CDATA[$P{duongDanFileDinhKemOnline}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="duongDanFileDinhKem">
+					<subreportParameterExpression><![CDATA[$P{duongDanFileDinhKem}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{emrQuanLyFileDinhKemHatts})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{headerPath}+"/../FileDinhKem/Subreport_FileDinhKem.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="227" y="6" width="100" height="20" uuid="feaca7f0-e8a2-4d2b-b642-0d6955579db2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()==0)]]></printWhenExpression>
+			<staticText>
+				<reportElement x="128" y="12" width="298" height="20" forecolor="#FF0033" uuid="51d0053a-27d9-4838-8377-4daa516b6eba"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Không có hình ảnh tổn thương]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

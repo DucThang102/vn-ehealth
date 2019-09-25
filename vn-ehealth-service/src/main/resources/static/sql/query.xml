@@ -3,7 +3,7 @@
 		<name>DS_HS</name>
 		<sql>
 			<![CDATA[
-                select ba.id as id,
+                SELECT ba.id as id,
                     ba.matraodoi as so_benh_an, 
                     bn.idhis as ma_benh_nhan,
                     bn.tendaydu as ten_benh_nhan, 
@@ -25,7 +25,7 @@
                     ba.ngaysua as ngay_luutru, 
                     nguoisua.username as canbo_luutru,	
                     dm_ndl.ten as nguon_dulieu
-                from emr_danh_sach_ho_so_benh_an ba
+                FROM emr_danh_sach_ho_so_benh_an ba
                     join emr_benh_nhan bn on bn.id = ba.idbenhnhan
                     join emr_dm_loai_benh_an lba on lba.id = ba.idloaibenhan 
                     join emr_vao_khoa vk on vk.idhsba=ba.id
@@ -37,8 +37,11 @@
                     left join users nguoitao on nguoitao.user_id=ba.idnguoitao
                     left join users nguoisua on nguoisua.user_id=ba.idnguoisua
                     join emr_dm_tu_sinh dm_ndl on dm_ndl.id=ba.idnguondulieu
-                where ba.idtrangthai=? 
-                	  [MA_YTE_CHECK]			 
+                WHERE 
+                	(ba.daxoa IS NULL OR ba.daxoa = FALSE)
+                	AND ba.idtrangthai=? 
+                	[MA_YTE_CHECK]
+                	  			 
 			]]>			
 		</sql>
 	</item>
@@ -46,7 +49,7 @@
 		<name>HS_BY_MA</name>
 		<sql>
 			<![CDATA[
-                select ba.id as id,
+                SELECT ba.id as id,
                     ba.matraodoi as so_benh_an, 
                     bn.idhis as ma_benh_nhan,
                     bn.tendaydu as ten_benh_nhan, 
@@ -68,7 +71,7 @@
                     ba.ngaysua as ngay_luutru, 
                     nguoisua.username as canbo_luutru,	
                     dm_ndl.ten as nguon_dulieu
-                from emr_danh_sach_ho_so_benh_an ba
+                FROM emr_danh_sach_ho_so_benh_an ba
                     join emr_benh_nhan bn on bn.id = ba.idbenhnhan
                     join emr_dm_loai_benh_an lba on lba.id = ba.idloaibenhan 
                     join emr_vao_khoa vk on vk.idhsba=ba.id
@@ -80,7 +83,9 @@
                     left join users nguoitao on nguoitao.user_id=ba.idnguoitao
                     left join users nguoisua on nguoisua.user_id=ba.idnguoisua
                     join emr_dm_tu_sinh dm_ndl on dm_ndl.id=ba.idnguondulieu
-                where mayte=?
+                WHERE 
+                	(ba.daxoa IS NULL OR ba.daxoa = FALSE) 
+                    AND mayte=?
 			]]>			
 		</sql>
 	</item>	
@@ -89,13 +94,14 @@
 		<name>THONGTIN_HOSO</name>
 		<sql>
 			<![CDATA[
-				select mayte as ma_yte, 
+				SELECT mayte as ma_yte, 
 			    	ba.bacsylambenhan as bacsy_lam_benhanh, 
 					ba.ngaykybenhan as  ngayky_benhan
-				from emr_danh_sach_ho_so_benh_an hs_ba 
+				FROM emr_danh_sach_ho_so_benh_an hs_ba 
 					join emr_benh_an ba on hs_ba.id=ba.idhsba
-				where 
-					hs_ba.id=?
+				WHERE
+				    (ba.daxoa IS NULL OR ba.daxoa = FALSE) 
+					AND hs_ba.id=?
 			]]>			
 		</sql>
 	</item>
@@ -104,7 +110,7 @@
 		<name>THONGTIN_BENHNHAN</name>
 		<sql>
 			<![CDATA[
-				select
+				SELECT
 					tendaydu as hoten, 
 					ngaysinh as ngaysinj, 
 					idgioitinh as gioitinh_id, 
@@ -131,8 +137,10 @@
 					tennguoibaotin as hoten_nguoi_lien_he, 
 					diachinguoibaotin as diachi_nguoi_lien_he, 
 					sodienthoainguoibaotin as sdt_nguoi_lien_he
-				from emr_benh_nhan bn
-				where bn.id=?
+				FROM emr_benh_nhan bn
+				WHERE
+					(daxoa IS NULL OR daxoa = FALSE)
+					AND bn.id=?
 			]]>			
 		</sql>
 	</item>
@@ -141,7 +149,7 @@
 		<name>THONGTIN_VAOVIEN</name>
 		<sql>
 			<![CDATA[
-				select 
+				SELECT 
 				    ngaygiovaovien as ngaygio_vaovien, 
 				    idnoitructiepvao as noi_tructiep_vao_id, 
 				    vaovienlanthu as lan_vao_vien, 
@@ -149,8 +157,10 @@
 				    iddoituongtaichinh as doituong_hanhchinh_id,
 				    tenbacsikham as bacsy_kham,
 				    idloaivaovien as loai_vaovien_id
-				from emr_quan_ly_nguoi_benh 
-				where idhsba=?								
+				FROM emr_quan_ly_nguoi_benh 
+				WHERE 
+					(daxoa IS NULL OR daxoa = FALSE)
+					AND idhsba=?								
 			]]>			
 		</sql>
 	</item>
@@ -159,7 +169,7 @@
 		<name>THONGTIN_VAOKHOA</name>
 		<sql>
 			<![CDATA[
-				select 
+				SELECT 
 					idkhoadieutri as khoadieutri_id,
 					tentruongkhoa as truong_khoa, 
 					bacsidieutri as bacsy_dieutri,
@@ -167,7 +177,10 @@
 					ngayketthucdieutri as ngay_ketthuc_dieutri,
 					phong as so_phong, 
 					giuong as so_giuong
-				from emr_vao_khoa where idhsba=?								
+				FROM emr_vao_khoa 
+				WHERE
+					(daxoa IS NULL OR daxoa = FALSE) 
+					AND idhsba=?								
 			]]>			
 		</sql>
 	</item>
@@ -176,13 +189,15 @@
 		<name>THONGTIN_RAVIEN</name>
 		<sql>
 			<![CDATA[
-				select 
+				SELECT 
 					ngaygiovaovien as ngaygio_ravien, 
 					idloairavien as loairavien_id,
 					tenbacsichoravien as bacsy_cho_ravien, 
 					idloaichuyenvien as loaichuyenvien_id
-				from emr_quan_ly_nguoi_benh 
-				where idhsba=?								
+				FROM emr_quan_ly_nguoi_benh 
+				WHERE 
+					(daxoa IS NULL OR daxoa = FALSE)
+					AND idhsba=?								
 			]]>			
 		</sql>
 	</item>
@@ -192,13 +207,15 @@
 		<name>THONGTIN_RAVIEN</name>
 		<sql>
 			<![CDATA[
-				select 
+				SELECT 
 					ngaygiovaovien as ngaygio_ravien, 
 					idloairavien as loairavien_id,
 					tenbacsichoravien as bacsy_cho_ravien, 
 					idloaichuyenvien as loaichuyenvien_id
-				from emr_quan_ly_nguoi_benh 
-				where idhsba=?								
+				FROM emr_quan_ly_nguoi_benh 
+				WHERE 
+					(daxoa IS NULL OR daxoa = FALSE)
+					AND idhsba=?								
 			]]>			
 		</sql>
 	</item>
@@ -207,14 +224,15 @@
 		<name>CHANDOAN_VAOVIEN</name>
 		<sql>
 			<![CDATA[
-				select 
+				SELECT 
 					idicd_chandoannoiden as chandoan_noiden_icd, 
 					motachandoannoiden as chandoan_noiden_mota, 
 					idicd_chandoankkb as chandoan_vaovien_icd, 
 					motachandoankkb  as chandoan_vaovien_mota
-				from emr_chan_doan 
-				where idhsba=?
-								
+				FROM emr_chan_doan 
+				WHERE
+					(daxoa IS NULL OR daxoa = FALSE)
+					AND idhsba=?								
 			]]>			
 		</sql>
 	</item>
@@ -224,14 +242,17 @@
 		<name>CHANDOAN_VAOKHOA</name>
 		<sql>
 			<![CDATA[
-				select 
+				SELECT 
 					idicd_chandoanbenhchinh as chandoan_benhchinh_icd, 
 					motachandoanbenhchinh as chandoan_benhchinh_mota,
 					idicd_chandoankemtheo  as chandoan_kemtheo_icd, 
 					motachandoankemtheo as chandoan_kemtheo_mota,
 					idicd_chandoanphanbiet as chandoan_phanbiet_icd,
 					motachandoanphanbiet as chandoan_phanbiet_mota
-				from emr_benh_an where idhsba=?
+				FROM emr_benh_an 
+				WHERE
+					(daxoa IS NULL OR daxoa = FALSE)
+					AND idhsba=?
 								
 			]]>			
 		</sql>
@@ -241,7 +262,7 @@
 		<name>CHANDOAN_RAVIEN</name>
 		<sql>
 			<![CDATA[
-				select 
+				SELECT 
 					idicd_chandoanravienchinh as chandoan_ravien_chinh_icd,
 					motachandoanravienchinh as chandoan_ravien_chinh_mota,
 					idicd_chandoanravienkemtheo as chandoan_ravien_kemtheo_icd,
@@ -257,8 +278,10 @@
 					idlydotbbc as lydo_taibien_bienchung_id,
 					tongsolanpt as solan_phauthuat, 
 					tongsongaysaupt as songay_dieutri_saupt
-				from emr_chan_doan 
-				where idhsba=?								
+				FROM emr_chan_doan 
+				WHERE
+					(daxoa IS NULL OR daxoa = FALSE)
+					AND idhsba=?								
 			]]>			
 		</sql>
 	</item>
@@ -267,7 +290,7 @@
 		<name>TINHTRANG_RAVIEN</name>
 		<sql>
 			<![CDATA[
-				select 
+				SELECT 
 					idketquadieutri as ketqua_dieutri_id, 
 					idgiaiphaubenh as giaiphau_benh_id,
 					ngaygiotuvong as ngaygio_tuvong, 
@@ -277,8 +300,10 @@
 					motanguyennhantuvong as nguyennhan_tuvong_mota,
 					idicd_giaiphaututhi as giaiphau_tuthi_icd,	
 					motagiaiphaututhi as giaiphau_tuthi_mota
-				from emr_tinh_trang_ra_vien 
-				where idhsba=?
+				FROM emr_tinh_trang_ra_vien 
+				WHERE
+					(daxoa IS NULL OR daxoa = FALSE)
+					AND idhsba=?
 			]]>			
 		</sql>
 	</item>
@@ -287,11 +312,13 @@
 		<name>THONGTIN_LANHDAO</name>
 		<sql>
 			<![CDATA[
-				select 
+				SELECT 
 					giamdocbenhvien as giamdoc_benhvien, 
 					truongphongth as truongphong_khth 
-				from emr_danh_sach_ho_so_benh_an  
-				where id=?
+				FROM emr_danh_sach_ho_so_benh_an  
+				WHERE
+					(daxoa IS NULL OR daxoa = FALSE)
+					AND id=?
 			]]>			
 		</sql>
 	</item>

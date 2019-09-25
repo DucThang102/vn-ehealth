@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PhauThuatThuThuat" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" scriptletClass="vn.ehealth.emr.utils.JasperUtils" whenResourceMissingType="Empty" uuid="a6089458-45cc-4b86-8ef7-9b534a6d1577">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="34"/>
+	<property name="ireport.y" value="287"/>
+	<parameter name="danhSachHSBA" class="java.lang.Object"/>
+	<parameter name="headerPath" class="java.lang.String"/>
+	<parameter name="tenThongTin" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="duongDanFileDinhKem" class="java.lang.String"/>
+	<parameter name="duongDanFileDinhKemOnline" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="bacsygayme" class="java.lang.String">
+		<fieldDescription><![CDATA[bacsygayme]]></fieldDescription>
+	</field>
+	<field name="trinhtuptt" class="java.lang.String">
+		<fieldDescription><![CDATA[trinhtuptt]]></fieldDescription>
+	</field>
+	<field name="ngaygiopttt" class="java.util.Date">
+		<fieldDescription><![CDATA[ngaygiopttt]]></fieldDescription>
+	</field>
+	<field name="phuongphapvocam" class="java.lang.String">
+		<fieldDescription><![CDATA[phuongphapvocam]]></fieldDescription>
+	</field>
+	<field name="emrDmMaBenhByIdicdchandoansau" class="vn.ehealth.emr.EmrDm">
+		<fieldDescription><![CDATA[emrDmMaBenhByIdicdchandoansau]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="emrQuanLyFileDinhKemPttt" class="java.util.List">
+		<fieldDescription><![CDATA[emrQuanLyFileDinhKemPttt]]></fieldDescription>
+	</field>
+	<field name="bacsithuchien" class="java.lang.String">
+		<fieldDescription><![CDATA[bacsithuchien]]></fieldDescription>
+	</field>
+	<field name="motachandoansaupt" class="java.lang.String">
+		<fieldDescription><![CDATA[motachandoansaupt]]></fieldDescription>
+	</field>
+	<field name="emrHoiDongPttts" class="java.util.List">
+		<fieldDescription><![CDATA[emrHoiDongPttts]]></fieldDescription>
+	</field>
+	<field name="chidinhptt" class="java.lang.String">
+		<fieldDescription><![CDATA[chidinhptt]]></fieldDescription>
+	</field>
+	<field name="luocdoptt" class="java.lang.String">
+		<fieldDescription><![CDATA[luocdoptt]]></fieldDescription>
+	</field>
+	<field name="motachandoantruocpt" class="java.lang.String">
+		<fieldDescription><![CDATA[motachandoantruocpt]]></fieldDescription>
+	</field>
+	<field name="emrDmPhauThuThuat" class="vn.ehealth.emr.EmrDm">
+		<fieldDescription><![CDATA[emrDmPhauThuThuat]]></fieldDescription>
+	</field>
+	<field name="emrDmMaBenhByIdicdchandoantruoc" class="vn.ehealth.emr.EmrDm">
+		<fieldDescription><![CDATA[emrDmMaBenhByIdicdchandoantruoc]]></fieldDescription>
+	</field>
+	<variable name="RowCount" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{id}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="127">
+			<subreport>
+				<reportElement x="7" y="10" width="538" height="109" uuid="d64897c1-077c-4a35-8ad4-97c19b2600e8"/>
+				<subreportParameter name="danhSachHSBA">
+					<subreportParameterExpression><![CDATA[$P{danhSachHSBA}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tenThongTin">
+					<subreportParameterExpression><![CDATA[$P{tenThongTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{headerPath} + "/Header_SubReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<detail>
+		<band height="378" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="42" y="3" width="495" height="17" uuid="a462f9c8-3bd0-4a2c-875a-b5d18aa02652"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{emrDmPhauThuThuat}.getTen()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="107" y="38" width="184" height="17" uuid="a1b3365b-f437-4a5d-a1a0-6bcb99fb2a7b"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bacsithuchien}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy hh:mm:ss" isBlankWhenNull="true">
+				<reportElement x="136" y="21" width="155" height="17" uuid="7b98d922-6a4b-4746-856d-a7b61e97882b"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ngaygiopttt}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="11" y="0" width="530" height="1" uuid="4204d292-f5c1-4ea0-841b-d3edefeb86b8"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="95" y="55" width="196" height="17" uuid="43d070de-f7ff-42e2-a52e-eb62c5f5df13"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bacsygayme}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement x="39" y="143" width="496" height="17" uuid="ac4cb0ce-8acb-44b9-8412-de8f32d51058"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{chidinhptt}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="20" y="3" width="20" height="17" uuid="fa4e2863-6d11-466a-9f0e-7bd3679c7c07"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{RowCount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="21" y="38" width="86" height="17" uuid="eaf5b9bc-5b15-4e0b-8cd8-2425b1a32d76"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[- Bác sỹ thực hiện:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="55" width="75" height="17" uuid="9c251e96-44d9-4434-a55e-d9ca2e374a9f"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[- Bác sĩ gây mê:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="124" width="129" height="17" uuid="bfa1c1eb-0d8d-4ac6-a11e-56e0c58190c5"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[- Thông tin chỉ định:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="72" width="178" height="17" uuid="a6a3c65d-f97b-4dce-84d0-8892250d930a"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[- Chẩn đoán trước phẫu thuật, thủ thuật:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="89" width="168" height="17" uuid="0e0f97f4-f5c6-4904-978d-7d74a1af62ef"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[- Chẩn đoán sau phẫu thuật, thủ thuật:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="21" y="162" width="129" height="17" uuid="7da4bd4b-49c5-49eb-8ad7-8f3a5ebbd532"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[- Phương pháp vô cảm:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="21" y="200" width="206" height="17" uuid="12c69194-0330-4763-a580-52ce36091571"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[- Thông tin lược đồ phẫu thuật, thủ thuật:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="21" y="238" width="206" height="17" uuid="4d7d6147-ac12-47f8-bfea-156010996f13"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[- Thông tin trình tự phẫu thuật, thủ thuật:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="198" y="72" width="339" height="17" uuid="23182735-55ed-4748-abaf-9702060159dc"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_SCRIPTLET}.getTextChanDoanYhhd(
+    $F{motachandoantruocpt},
+    $F{emrDmMaBenhByIdicdchandoantruoc})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="188" y="89" width="349" height="17" uuid="ab59c286-1bed-4421-bd17-44c1c6ba6e93"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_SCRIPTLET}.getTextChanDoanYhhd(
+    $F{motachandoansaupt},
+    $F{emrDmMaBenhByIdicdchandoansau})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="36" y="181" width="499" height="17" uuid="c4231b4b-9659-4808-a4cf-baec84949495"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{phuongphapvocam}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="33" y="219" width="502" height="17" uuid="1c87b064-f3fd-44da-b964-dd7562ecc14b"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{luocdoptt}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="37" y="257" width="498" height="17" uuid="b09faf7f-72b0-4c91-9cf9-4490c64f8b25"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{trinhtuptt}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement positionType="Float" x="45" y="323" width="510" height="47" isRemoveLineWhenBlank="true" uuid="cddcf972-6430-43bc-bce3-f511d914c090">
+					<printWhenExpression><![CDATA[$F{emrQuanLyFileDinhKemPttt}.size() > 0]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="duongDanFileDinhKemOnline">
+					<subreportParameterExpression><![CDATA[$P{duongDanFileDinhKemOnline}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="duongDanFileDinhKem">
+					<subreportParameterExpression><![CDATA[$P{duongDanFileDinhKem}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{emrQuanLyFileDinhKemPttt})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{headerPath}+"/../FileDinhKem/Subreport_FileDinhKem.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="21" y="21" width="107" height="17" uuid="44d41098-0a62-4178-86c0-ed70462822ee"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[- Ngày giờ thực hiện:]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="45" y="279" width="510" height="38" uuid="716c2492-7c95-4144-a134-b1939c30645f"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{emrHoiDongPttts})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "/PhauThuatThuThuat_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="227" y="5" width="100" height="20" uuid="d9a24d11-e583-4ff8-9f29-aca6ce51dd2f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()==0)]]></printWhenExpression>
+			<staticText>
+				<reportElement x="128" y="10" width="298" height="20" forecolor="#FF0033" uuid="83054737-90f0-4374-a1c9-b5e71c381c58"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Không có thông tin phẫu thuật, thủ thuật]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

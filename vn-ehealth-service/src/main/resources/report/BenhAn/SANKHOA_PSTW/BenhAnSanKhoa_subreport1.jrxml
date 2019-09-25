@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BenhAnSanKhoa_subreport1" pageWidth="555" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="4b3515b3-9273-4515-9192-78889fab522e">
+	<property name="ireport.zoom" value="1.1289478601075547"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="hausan" class="java.lang.String">
+		<fieldDescription><![CDATA[hausan]]></fieldDescription>
+	</field>
+	<field name="paraDenon" class="java.lang.String">
+		<fieldDescription><![CDATA[paraDenon]]></fieldDescription>
+	</field>
+	<field name="cachde" class="java.lang.String">
+		<fieldDescription><![CDATA[cachde]]></fieldDescription>
+	</field>
+	<field name="dienbienthai" class="java.lang.String">
+		<fieldDescription><![CDATA[dienbienthai]]></fieldDescription>
+	</field>
+	<field name="paraDuthang" class="java.lang.String">
+		<fieldDescription><![CDATA[paraDuthang]]></fieldDescription>
+	</field>
+	<field name="paraSay" class="java.lang.String">
+		<fieldDescription><![CDATA[paraSay]]></fieldDescription>
+	</field>
+	<field name="paraSong" class="java.lang.String">
+		<fieldDescription><![CDATA[paraSong]]></fieldDescription>
+	</field>
+	<field name="solancothai" class="java.lang.Integer">
+		<fieldDescription><![CDATA[solancothai]]></fieldDescription>
+	</field>
+	<field name="thoigiandiadiem" class="java.lang.String">
+		<fieldDescription><![CDATA[thoigiandiadiem]]></fieldDescription>
+	</field>
+	<field name="tresosinh" class="java.lang.String">
+		<fieldDescription><![CDATA[tresosinh]]></fieldDescription>
+	</field>
+	<field name="tuoithai" class="java.lang.String">
+		<fieldDescription><![CDATA[tuoithai]]></fieldDescription>
+	</field>
+	<columnHeader>
+		<band height="63" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="3" width="90" height="59" uuid="c3219588-78e3-4721-a86c-cffc7771784a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Thời gian, nơi kết thúc thai nghén]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="3" width="1" height="59" uuid="90501ba7-ac68-46a8-98d9-73e416d0c575"/>
+			</line>
+			<staticText>
+				<reportElement x="90" y="3" width="66" height="59" uuid="bcb33563-9780-42ac-802b-10823fe4654c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tuổi thai
+( sảy , đẻ non, đủ tháng , già tháng)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="156" y="3" width="120" height="59" uuid="10a52d85-bd12-41b1-b711-aac96b97fa9b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Diễn biến khi có thai]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="62" width="551" height="1" uuid="a6231708-63ff-43f1-bcb0-b78b9b4fb6e9"/>
+			</line>
+			<staticText>
+				<reportElement x="276" y="3" width="69" height="59" uuid="106f2d61-3c7b-44f5-b6c6-9dcb7daaa494"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cách đẻ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="2" width="551" height="1" uuid="8d37ad95-7fd5-4c5c-9188-875078e01ff9"/>
+			</line>
+			<staticText>
+				<reportElement x="411" y="3" width="142" height="59" uuid="41ad5b94-d2f3-4536-b396-0be4cb755e16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hậu sản]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="3" width="66" height="59" uuid="0625909b-9c69-48ec-92d2-318f10c4adc6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Trẻ sơ sinh
+(Cân nặng bệnh tật)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="90" y="3" width="1" height="59" uuid="a0ddd0ce-9048-40b8-8581-1ae94d64dfb8"/>
+			</line>
+			<line>
+				<reportElement x="156" y="3" width="1" height="59" uuid="18f0dcaf-162e-4110-8be0-4d5aa566c060"/>
+			</line>
+			<line>
+				<reportElement x="276" y="3" width="1" height="59" uuid="04cc5a0b-3fce-4dc3-a00e-2d33cd875b8b"/>
+			</line>
+			<line>
+				<reportElement x="345" y="3" width="1" height="59" uuid="a6d09fb3-c9c0-4695-842a-2155e67825d4"/>
+			</line>
+			<line>
+				<reportElement x="411" y="3" width="1" height="59" uuid="e38f0fa0-0237-4518-9030-c763932f38b3"/>
+			</line>
+			<line>
+				<reportElement x="552" y="3" width="1" height="59" uuid="3fdb2d99-2434-4c32-b72b-84efec89dc60"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<printWhenExpression><![CDATA[$V{REPORT_COUNT}.intValue()<10]]></printWhenExpression>
+			<line>
+				<reportElement x="2" y="-1" width="551" height="1" uuid="51e511d2-b104-432b-8ac1-f34b1465b815"/>
+			</line>
+			<line>
+				<reportElement x="2" y="26" width="551" height="1" uuid="24ddc397-ad54-414a-bd40-790d520d9e9c"/>
+			</line>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="1" y="0" width="89" height="26" uuid="dda5136d-83d2-4dd0-a20d-2e066d635d32"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{thoigiandiadiem}!=null)?$F{thoigiandiadiem}:""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="91" y="-1" width="62" height="26" uuid="3a85edf0-0b6c-4534-b741-d9d0a63063a0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{tuoithai}!=null)?$F{tuoithai}:""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="-1" width="116" height="27" uuid="f4c51e87-8c57-4067-a8be-644dcdfc9e5d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{dienbienthai}!=null)?$F{dienbienthai}:""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="282" y="-1" width="64" height="28" uuid="219e47ee-d610-4303-8a5e-2c2a3290d574"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{cachde}!=null)?$F{cachde}:""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="346" y="-1" width="62" height="27" uuid="932ec1de-30cb-4eb6-aa67-7a2a437e23b2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{tresosinh}!=null)?$F{tresosinh}:""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="0" width="137" height="26" uuid="6efb0bb4-2c0e-4857-9905-cc5ead0f4a80"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{hausan}!=null)?$F{hausan}:""]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="0" width="1" height="26" uuid="61688923-8d94-4688-9454-21f146bacb62"/>
+			</line>
+			<line>
+				<reportElement x="90" y="0" width="1" height="26" uuid="35b2e219-31f4-4c60-9826-93eef889b18c"/>
+			</line>
+			<line>
+				<reportElement x="156" y="0" width="1" height="26" uuid="92e09f80-eaa9-4dac-b305-2c4cb9a287cb"/>
+			</line>
+			<line>
+				<reportElement x="276" y="-1" width="1" height="26" uuid="53f142d6-e1db-4765-a9b3-ecbcda6805ca"/>
+			</line>
+			<line>
+				<reportElement x="345" y="0" width="1" height="26" uuid="2416cc62-a7a6-4fe9-adc7-2e0bac1bcb82"/>
+			</line>
+			<line>
+				<reportElement x="411" y="0" width="1" height="26" uuid="9125467f-763b-4028-a367-229bf8acb7d4"/>
+			</line>
+			<line>
+				<reportElement x="552" y="0" width="1" height="26" uuid="e4d8b133-224b-4094-b08c-2c162fb298f8"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

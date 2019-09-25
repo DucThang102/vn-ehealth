@@ -70,6 +70,10 @@ public class ServiceSecurityConfig {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http.antMatcher("/api/**")
+                .headers()
+                    .frameOptions()
+                    .disable()
+                    .and()
                 .csrf()
                     .disable()
                 .exceptionHandling()
