@@ -128,19 +128,21 @@ public class HsbaController {
 	    }
 	    
 	    System.out.println(coSoKhamBenh.ten);
-        System.out.println(dsHsba.emrBenhNhan.tendaydu);
 	    
-	    try {
-    	    var data = ExportUtil.exportPdf(dsHsba, coSoKhamBenh, loaiReport, "");
-    	    var resource = new ByteArrayResource(data);
-    	    
-    	    return ResponseEntity.ok()
-    	            .contentLength(data.length)
-    	            .contentType(MediaType.parseMediaType("application/pdf"))
-    	            .body(resource);
-	    }catch(JRException | IOException  | NullPointerException e) {
-	        logger.error("Error exporting pdf :", e);
+	    if(dsHsba.isPresent()) {
+	        try {
+	            var data = ExportUtil.exportPdf(dsHsba.get(), coSoKhamBenh, loaiReport, "");
+	            var resource = new ByteArrayResource(data);
+	            
+	            return ResponseEntity.ok()
+	                    .contentLength(data.length)
+	                    .contentType(MediaType.parseMediaType("application/pdf"))
+	                    .body(resource);
+	        }catch(JRException | IOException  | NullPointerException e) {
+	            logger.error("Error exporting pdf :", e);
+	        }	        
 	    }
+	    
 	    
 	    return ResponseEntity.badRequest().build();
 	}

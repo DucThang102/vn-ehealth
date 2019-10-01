@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import vn.ehealth.emr.EmrBenhAn;
@@ -122,137 +124,136 @@ public class HsbaService {
         return result;
     }
     
-    <T> T getRecord(Class<T> cl, String table, String fieldName, Integer fieldValue, boolean checkDaXoa) {
+    <T> Optional<T> getRecord(Class<T> cl, String table, String fieldName, Integer fieldValue, boolean checkDaXoa) {
         var records = getRecords(cl, table, fieldName, fieldValue, checkDaXoa);
         
         if(records.size() > 0) {
-            return records.get(0);
+            return Optional.of(records.get(0));
         }else {
-            return null;
+            return Optional.ofNullable(null);
         }
         
     }    
     
-    <T> T getRecordById(Class<T> cl, String table, Integer id, boolean checkDaXoa) {        
+    <T> Optional<T> getRecordById(Class<T> cl, String table, Integer id, boolean checkDaXoa) {        
         return getRecord(cl, table, "id", id, checkDaXoa);
     }
     
-    public EmrDm getEmrDm(String table, Integer id) {
+    public Optional<EmrDm> getEmrDm(String table, Integer id) {
         return getRecordById(EmrDm.class, table, id, false);
     }    
     
-    public EmrCoSoKhamBenh getCoSoKhamBenh() {
+    public @NonNull EmrCoSoKhamBenh getCoSoKhamBenh() {
         var record = jdbcTemplate.queryForMap("SELECT * FROM emr_co_so_kham_benh LIMIT 1");
         var coSoKhamBenh = new EmrCoSoKhamBenh();
         FieldUtil.setFields(coSoKhamBenh, record);
         return coSoKhamBenh;        
     }
     
-    public EmrBenhNhan getEmrBenhNhanById(Integer id) {
+    public Optional<EmrBenhNhan> getEmrBenhNhanById(Integer id) {
         var emrBenhNhan = getRecordById(EmrBenhNhan.class, "emr_benh_nhan", id, true);
         
-        if(emrBenhNhan != null) {
-            emrBenhNhan.emrDmGioiTinh = getEmrDm("emr_dm_gioi_tinh", emrBenhNhan.idgioitinh);
-            emrBenhNhan.emrDmDanToc = getEmrDm("emr_dm_dan_toc", emrBenhNhan.iddantoc);
-            emrBenhNhan.emrDmQuocGia = getEmrDm("emr_dm_quoc_gia", emrBenhNhan.idquocgia);
-            emrBenhNhan.emrDmNgheNghiep = getEmrDm("emr_dm_nghe_nghiep", emrBenhNhan.idnghenghiep);
-            emrBenhNhan.emrDmPhuongXa = getEmrDm("emr_dm_don_vi_hanh_chinh", emrBenhNhan.idphuongxa);
-            emrBenhNhan.emrDmQuanHuyen = getEmrDm("emr_dm_don_vi_hanh_chinh", emrBenhNhan.idquanhuyen);
-            emrBenhNhan.emrDmTinhThanh = getEmrDm("emr_dm_don_vi_hanh_chinh", emrBenhNhan.idtinhthanh);
-            emrBenhNhan.emrDmNgheNghiepBo = getEmrDm("emr_dm_nghe_nghiep", emrBenhNhan.idnghebo);
-            emrBenhNhan.emrDmNgheNghiepMe = getEmrDm("emr_dm_nghe_nghiep", emrBenhNhan.idngheme);
-        }
+        emrBenhNhan.ifPresent(x -> {
+            x.emrDmGioiTinh = getEmrDm("emr_dm_gioi_tinh", x.idgioitinh).orElse(null);
+            x.emrDmDanToc = getEmrDm("emr_dm_dan_toc", x.iddantoc).orElse(null);
+            x.emrDmQuocGia = getEmrDm("emr_dm_quoc_gia", x.idquocgia).orElse(null);
+            x.emrDmNgheNghiep = getEmrDm("emr_dm_nghe_nghiep", x.idnghenghiep).orElse(null);
+            x.emrDmPhuongXa = getEmrDm("emr_dm_don_vi_hanh_chinh", x.idphuongxa).orElse(null);
+            x.emrDmQuanHuyen = getEmrDm("emr_dm_don_vi_hanh_chinh", x.idquanhuyen).orElse(null);
+            x.emrDmTinhThanh = getEmrDm("emr_dm_don_vi_hanh_chinh", x.idtinhthanh).orElse(null);
+            x.emrDmNgheNghiepBo = getEmrDm("emr_dm_nghe_nghiep", x.idnghebo).orElse(null);
+            x.emrDmNgheNghiepMe = getEmrDm("emr_dm_nghe_nghiep", x.idngheme).orElse(null);
+        });
                 
         return emrBenhNhan;
     }    
     
-    EmrQuanLyNguoiBenh getEmrQuanLyNguoiBenh(int idhsba) {
+    Optional<EmrQuanLyNguoiBenh> getEmrQuanLyNguoiBenh(int idhsba) {
         var emrQuanLyNguoiBenh = getRecord(EmrQuanLyNguoiBenh.class, "emr_quan_ly_nguoi_benh", "idhsba", idhsba, true);
         
-        if(emrQuanLyNguoiBenh != null) {
-            emrQuanLyNguoiBenh.emrDmCoSoKhamBenh = getEmrDm("emr_dm_co_so_kham_benh", emrQuanLyNguoiBenh.idnoichuyenden);
-            emrQuanLyNguoiBenh.emrDmLoaiChuyenVien = getEmrDm("emr_dm_loai_chuyen_vien", emrQuanLyNguoiBenh.idloaichuyenvien);
-            emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh = getEmrDm("emr_dm_loai_doi_tuong_tai_chinh", emrQuanLyNguoiBenh.iddoituongtaichinh);
-            emrQuanLyNguoiBenh.emrDmLoaiRaVien = getEmrDm("emr_dm_loai_ra_vien", emrQuanLyNguoiBenh.idloairavien);
-            emrQuanLyNguoiBenh.emrDmLoaiVaoVien = getEmrDm("emr_dm_loai_vao_vien", emrQuanLyNguoiBenh.idloaivaovien);
-            emrQuanLyNguoiBenh.emrDmNoiGioiThieu = getEmrDm("emr_dm_noi_gioi_thieu", emrQuanLyNguoiBenh.idnoigioithieu);
-            emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao = getEmrDm("emr_dm_noi_truc_tiep_vao", emrQuanLyNguoiBenh.idnoitructiepvao);            
-        }
+        emrQuanLyNguoiBenh.ifPresent(x -> {
+            x.emrDmCoSoKhamBenh = getEmrDm("emr_dm_co_so_kham_benh", x.idnoichuyenden).orElse(null);
+            x.emrDmLoaiChuyenVien = getEmrDm("emr_dm_loai_chuyen_vien", x.idloaichuyenvien).orElse(null);
+            x.emrDmLoaiDoiTuongTaiChinh = getEmrDm("emr_dm_loai_doi_tuong_tai_chinh", x.iddoituongtaichinh).orElse(null);
+            x.emrDmLoaiRaVien = getEmrDm("emr_dm_loai_ra_vien", x.idloairavien).orElse(null);
+            x.emrDmLoaiVaoVien = getEmrDm("emr_dm_loai_vao_vien", x.idloaivaovien).orElse(null);
+            x.emrDmNoiGioiThieu = getEmrDm("emr_dm_noi_gioi_thieu", x.idnoigioithieu).orElse(null);
+            x.emrDmNoiTrucTiepVao = getEmrDm("emr_dm_noi_truc_tiep_vao", x.idnoitructiepvao).orElse(null);            
+        });
         
         return emrQuanLyNguoiBenh;
     }
     
-    EmrTongKetRaVien getEmrTongKetRaVien(int idhsba) {
+    Optional<EmrTongKetRaVien> getEmrTongKetRaVien(int idhsba) {
         
         var emrTongKetRaVien = getRecord(EmrTongKetRaVien.class, "emr_tong_ket_ra_vien", "idhsba", idhsba, true);
-        
-        if(emrTongKetRaVien != null) {
-            emrTongKetRaVien.emrCkPhuongPhapDieuTriUngBuou = getRecord(EmrCkPhuongPhapDieuTriUngBuou.class, "emr_ck_phuong_phap_dieu_tri_ung_buou", "idhsba", idhsba, false);
-            emrTongKetRaVien.emrCkTinhTrangRaVienMat = getRecord(EmrCkTinhTrangRaVienMat.class, "emr_ck_tinh_trang_ra_vien_mat", "idhsba", idhsba, false);            
-        }
+        emrTongKetRaVien.ifPresent(x -> {
+            x.emrCkPhuongPhapDieuTriUngBuou = getRecord(EmrCkPhuongPhapDieuTriUngBuou.class, "emr_ck_phuong_phap_dieu_tri_ung_buou", "idhsba", idhsba, false).orElse(null);
+            x.emrCkTinhTrangRaVienMat = getRecord(EmrCkTinhTrangRaVienMat.class, "emr_ck_tinh_trang_ra_vien_mat", "idhsba", idhsba, false).orElse(null);
+        });
         
         return emrTongKetRaVien;
     }
     
-    EmrChanDoan getEmrChanDoan(int idhsba) {
+    Optional<EmrChanDoan> getEmrChanDoan(int idhsba) {
         
         var emrChanDoan = getRecord(EmrChanDoan.class, "emr_chan_doan", "idhsba", idhsba, true);
         
-        if(emrChanDoan != null) {
-            emrChanDoan.emrDmLyDoTaiBienBienChung =  getEmrDm("emr_dm_ly_do_tai_bien_bien_chung", emrChanDoan.idlydotbbc);
-            emrChanDoan.emrDmMaBenhChandoandieutri =  getEmrDm("emr_dm_ma_benh", emrChanDoan.idicdChandoandieutri);
-            emrChanDoan.emrDmMaBenhChandoankkb =  getEmrDm("emr_dm_ma_benh", emrChanDoan.idicdChandoankkb);
-            emrChanDoan.emrDmMaBenhChandoannoiden =  getEmrDm("emr_dm_ma_benh", emrChanDoan.idicdChandoannoiden);
-            emrChanDoan.emrDmMaBenhChandoanravienchinh =  getEmrDm("emr_dm_ma_benh", emrChanDoan.idicdChandoanravienchinh);
-            emrChanDoan.emrDmMaBenhChandoanravienkemtheo =  getEmrDm("emr_dm_ma_benh", emrChanDoan.idicdChandoanravienkemtheo);
-            emrChanDoan.emrDmMaBenhChandoanraviennguyennhan =  getEmrDm("emr_dm_ma_benh", emrChanDoan.idicdChandoanraviennguyennhan);
-            emrChanDoan.emrDmMaBenhChandoansaupt =  getEmrDm("emr_dm_ma_benh", emrChanDoan.idicdChandoansaupt);
-            emrChanDoan.emrDmMaBenhChandoantruocpt =  getEmrDm("emr_dm_ma_benh", emrChanDoan.idicdChandoantruocpt);            
-        }
-        
+        emrChanDoan.ifPresent(x -> {
+            x.emrDmLyDoTaiBienBienChung =  getEmrDm("emr_dm_ly_do_tai_bien_bien_chung", x.idlydotbbc).orElse(null);
+            x.emrDmMaBenhChandoandieutri =  getEmrDm("emr_dm_ma_benh", x.idicdChandoandieutri).orElse(null);
+            x.emrDmMaBenhChandoankkb =  getEmrDm("emr_dm_ma_benh", x.idicdChandoankkb).orElse(null);
+            x.emrDmMaBenhChandoannoiden =  getEmrDm("emr_dm_ma_benh", x.idicdChandoannoiden).orElse(null);
+            x.emrDmMaBenhChandoanravienchinh =  getEmrDm("emr_dm_ma_benh", x.idicdChandoanravienchinh).orElse(null);
+            x.emrDmMaBenhChandoanravienkemtheo =  getEmrDm("emr_dm_ma_benh", x.idicdChandoanravienkemtheo).orElse(null);
+            x.emrDmMaBenhChandoanraviennguyennhan =  getEmrDm("emr_dm_ma_benh", x.idicdChandoanraviennguyennhan).orElse(null);
+            x.emrDmMaBenhChandoansaupt =  getEmrDm("emr_dm_ma_benh", x.idicdChandoansaupt).orElse(null);
+            x.emrDmMaBenhChandoantruocpt =  getEmrDm("emr_dm_ma_benh", x.idicdChandoantruocpt).orElse(null);
+        });
+
         return emrChanDoan;
     }
     
-    EmrYhctChanDoan getEmrYhctChanDoan(int idhsba) {
+    Optional<EmrYhctChanDoan> getEmrYhctChanDoan(int idhsba) {
         var emrYhctChanDoan = getRecord(EmrYhctChanDoan.class, "emr_yhct_chan_doan", "idhsba", idhsba, true);
-        
-        if(emrYhctChanDoan != null) {
-            emrYhctChanDoan.emrDmYhctBenhdanhRavien = getEmrDm("emr_dm_yhct_benh_danh", emrYhctChanDoan.idbenhdanhyhctravien);
-            emrYhctChanDoan.emrDmYhctBenhdanhVaovien= getEmrDm("emr_dm_yhct_benh_danh", emrYhctChanDoan.idbenhdanhyhctvaovien);
-            emrYhctChanDoan.emrDmYhctBenhdanhVk = getEmrDm("emr_dm_yhct_benh_danh", emrYhctChanDoan.idbenhdanh_vk);            
-        }
+
+        emrYhctChanDoan.ifPresent(x -> {
+            x.emrDmYhctBenhdanhRavien = getEmrDm("emr_dm_yhct_benh_danh", x.idbenhdanhyhctravien).orElse(null);
+            x.emrDmYhctBenhdanhVaovien= getEmrDm("emr_dm_yhct_benh_danh", x.idbenhdanhyhctvaovien).orElse(null);
+            x.emrDmYhctBenhdanhVk = getEmrDm("emr_dm_yhct_benh_danh", x.idbenhdanh_vk).orElse(null);
+        });
         
         return emrYhctChanDoan;
     }
     
-    EmrTinhTrangRaVien getEmrTinhTrangRaVien(int idhsba) {
+    Optional<EmrTinhTrangRaVien> getEmrTinhTrangRaVien(int idhsba) {
         
-        EmrTinhTrangRaVien emrTinhTrangRaVien = getRecord(EmrTinhTrangRaVien.class, "emr_tinh_trang_ra_vien", "idhsba", idhsba, true);
+        var emrTinhTrangRaVien = getRecord(EmrTinhTrangRaVien.class, "emr_tinh_trang_ra_vien", "idhsba", idhsba, true);
         
-        if(emrTinhTrangRaVien != null) {
-            emrTinhTrangRaVien.emrDmKetQuaDieuTri = getEmrDm("emr_dm_ket_qua_dieu_tri", emrTinhTrangRaVien.idketquadieutri);
-            emrTinhTrangRaVien.emrDmKetQuaGiaiPhauBenh = getEmrDm("emr_dm_ket_qua_giai_phau_benh", emrTinhTrangRaVien.idgiaiphaubenh);
-            emrTinhTrangRaVien.emrDmLyDoTuVong = getEmrDm("emr_dm_ly_do_tu_vong", emrTinhTrangRaVien.idlydotuvong);
-            emrTinhTrangRaVien.emrDmGiaiphaututhi = getEmrDm("emr_dm_ma_benh", emrTinhTrangRaVien.idicdGiaiphaututhi);
-            emrTinhTrangRaVien.emrDmLyDoTuVong = getEmrDm("emr_dm_ly_do_tu_vong", emrTinhTrangRaVien.idlydotuvong);
-            emrTinhTrangRaVien.emrDmNguyennhantuvong = getEmrDm("emr_dm_ma_benh", emrTinhTrangRaVien.idicdNguyennhantuvong);
-            emrTinhTrangRaVien.emrDmThoiDiemTuVong = getEmrDm("emr_dm_thoi_diem_tu_vong", emrTinhTrangRaVien.idthoidiemtuvong);
-            emrTinhTrangRaVien.emrDmYhctKetQuaDieuTri = getEmrDm("emr_dm_yhct_ket_qua_dieu_tri", emrTinhTrangRaVien.idyhctketquadieutri);
-        }
+        emrTinhTrangRaVien.ifPresent(x -> {
+            x.emrDmKetQuaDieuTri = getEmrDm("emr_dm_ket_qua_dieu_tri", x.idketquadieutri).orElse(null);
+            x.emrDmKetQuaGiaiPhauBenh = getEmrDm("emr_dm_ket_qua_giai_phau_benh", x.idgiaiphaubenh).orElse(null);
+            x.emrDmLyDoTuVong = getEmrDm("emr_dm_ly_do_tu_vong", x.idlydotuvong).orElse(null);
+            x.emrDmGiaiphaututhi = getEmrDm("emr_dm_ma_benh", x.idicdGiaiphaututhi).orElse(null);
+            x.emrDmLyDoTuVong = getEmrDm("emr_dm_ly_do_tu_vong", x.idlydotuvong).orElse(null);
+            x.emrDmNguyennhantuvong = getEmrDm("emr_dm_ma_benh", x.idicdNguyennhantuvong).orElse(null);
+            x.emrDmThoiDiemTuVong = getEmrDm("emr_dm_thoi_diem_tu_vong", x.idthoidiemtuvong).orElse(null);
+            x.emrDmYhctKetQuaDieuTri = getEmrDm("emr_dm_yhct_ket_qua_dieu_tri", x.idyhctketquadieutri).orElse(null);
+        });
         
         return emrTinhTrangRaVien;
     }
     
-    EmrTongKetSanKhoa getEmrTongKetSanKhoa(int idhsba) {
-        EmrTongKetSanKhoa emrTongKetSanKhoa = getRecord(EmrTongKetSanKhoa.class, "emr_tong_ket_san_khoa", "idhsba", idhsba, false);
+    Optional<EmrTongKetSanKhoa> getEmrTongKetSanKhoa(int idhsba) {
+        var emrTongKetSanKhoa = getRecord(EmrTongKetSanKhoa.class, "emr_tong_ket_san_khoa", "idhsba", idhsba, false);
         
-        if(emrTongKetSanKhoa != null) {
-            emrTongKetSanKhoa.emrDmCachDe = getEmrDm("emr_dm_cach_de", emrTongKetSanKhoa.idcachde);
-            emrTongKetSanKhoa.emrDmTrangThaiAmdao = getEmrDm("emr_dm_trang_thai_mo_de", emrTongKetSanKhoa.idtrangthaiamdao);
-            emrTongKetSanKhoa.emrDmTrangThaiCoTucung = getEmrDm("emr_dm_trang_thai_mo_de", emrTongKetSanKhoa.idtrangthaicotucung);
-            emrTongKetSanKhoa.emrDmTrangThaiSinhmon = getEmrDm("emr_dm_trang_thai_mo_de", emrTongKetSanKhoa.idtrangthaisinhmon);            
-        }
-        
+        emrTongKetSanKhoa.ifPresent(x -> {
+            x.emrDmCachDe = getEmrDm("emr_dm_cach_de", x.idcachde).orElse(null);
+            x.emrDmTrangThaiAmdao = getEmrDm("emr_dm_trang_thai_mo_de", x.idtrangthaiamdao).orElse(null);
+            x.emrDmTrangThaiCoTucung = getEmrDm("emr_dm_trang_thai_mo_de", x.idtrangthaicotucung).orElse(null);
+            x.emrDmTrangThaiSinhmon = getEmrDm("emr_dm_trang_thai_mo_de", x.idtrangthaisinhmon).orElse(null);
+        });
+                
         return emrTongKetSanKhoa;
         
     }
@@ -321,7 +322,7 @@ public class HsbaService {
         var lst = getRecords(EmrVaoKhoa.class, "emr_vao_khoa", "idhsba", idhsba, true);
         
         for(var item : lst) {
-            item.emrDmKhoaDieuTri = getEmrDm("emr_dm_khoa_dieu_tri", item.idkhoadieutri);
+            item.emrDmKhoaDieuTri = getEmrDm("emr_dm_khoa_dieu_tri", item.idkhoadieutri).orElse(null);
             item.emrChamSocs = getEmrChamSocs(item);
             item.emrChucNangSongs = getEmrChucNangSongs(item);
             item.emrDieuTris = getEmrDieuTris(item);
@@ -343,7 +344,7 @@ public class HsbaService {
         var lst = getRecords(EmrQuaTrinhSuDungThuoc.class, "emr_qua_trinh_su_dung_thuoc", "idhsba", idhsba, true);
         
         for(var item : lst) {
-            item.emrDmThuoc = getEmrDm("emr_dm_thuoc", item.idthuoc);
+            item.emrDmThuoc = getEmrDm("emr_dm_thuoc", item.idthuoc).orElse(null);
         }
         
         return lst;
@@ -364,10 +365,10 @@ public class HsbaService {
         
         for(var item : lst) {
             item.emrQuanLyFileDinhKemGpbs = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_gpb", item.id);
-            item.emrDmGiaiPhauBenh = getEmrDm("emr_dm_giai_phau_benh", item.iddichvugiaiphau);
-            item.emrDmKetQuaGiaiPhauBenh = getEmrDm("emr_dm_ket_qua_giai_phau_benh", item.idloaigiaiphau);
-            item.emrDmLoaiGiaiPhauBenh = getEmrDm("emr_dm_loai_giai_phau_benh", item.idloaigiaiphau);
-            item.emrDmViTriLayMau = getEmrDm("emr_dm_vi_tri_lay_mau", item.idvitrilaymau);
+            item.emrDmGiaiPhauBenh = getEmrDm("emr_dm_giai_phau_benh", item.iddichvugiaiphau).orElse(null);
+            item.emrDmKetQuaGiaiPhauBenh = getEmrDm("emr_dm_ket_qua_giai_phau_benh", item.idloaigiaiphau).orElse(null);
+            item.emrDmLoaiGiaiPhauBenh = getEmrDm("emr_dm_loai_giai_phau_benh", item.idloaigiaiphau).orElse(null);
+            item.emrDmViTriLayMau = getEmrDm("emr_dm_vi_tri_lay_mau", item.idvitrilaymau).orElse(null);
         }
         
         return lst;
@@ -377,8 +378,8 @@ public class HsbaService {
         var lst = getRecords(EmrThamDoChucNang.class, "emr_tham_do_chuc_nang", "idhsba", idhsba, true);
         
         for(var item : lst) {
-            item.emrDmLoaiThamDoChucNang = getEmrDm("emr_dm_loai_tham_do_chuc_nang", item.idloaithamdochucnang);
-            item.emrDmThamDoChucNang = getEmrDm("emr_dm_tham_do_chuc_nang", item.idthamdochucnang);
+            item.emrDmLoaiThamDoChucNang = getEmrDm("emr_dm_loai_tham_do_chuc_nang", item.idloaithamdochucnang).orElse(null);
+            item.emrDmThamDoChucNang = getEmrDm("emr_dm_tham_do_chuc_nang", item.idthamdochucnang).orElse(null);
             item.emrQuanLyFileDinhKemTdcns = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_tdcn", item.id);
         }
         
@@ -391,9 +392,9 @@ public class HsbaService {
         
         for(var item : lst) {
             item.emrHoiDongPttts = getRecords(EmrHoiDongPttt.class, "emr_hoi_dong_pttt", "idpttt", item.id, true);
-            item.emrDmMaBenhChandoansau = getEmrDm("emr_dm_ma_benh", item.idicdchandoansau);
-            item.emrDmMaBenhChandoantruoc = getEmrDm("emr_dm_ma_benh", item.idicdchandoantruoc);
-            item.emrDmPhauThuThuat = getEmrDm("emr_dm_phau_thu_thuat", item.idphauthuat);
+            item.emrDmMaBenhChandoansau = getEmrDm("emr_dm_ma_benh", item.idicdchandoansau).orElse(null);
+            item.emrDmMaBenhChandoantruoc = getEmrDm("emr_dm_ma_benh", item.idicdchandoantruoc).orElse(null);
+            item.emrDmPhauThuThuat = getEmrDm("emr_dm_phau_thu_thuat", item.idphauthuat).orElse(null);
             item.emrQuanLyFileDinhKemPttt = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_pttt", item.id);
         }
         
@@ -404,8 +405,8 @@ public class HsbaService {
         var lst = getRecords(EmrChanDoanHinhAnh.class, "emr_chan_doan_hinh_anh", "idhsba", idhsba, true);
         
         for(var item : lst) {
-            item.emrDmChanDoanHinhAnh = getEmrDm("emr_dm_chan_doan_hinh_anh", item.iddichvuchandoan);
-            item.emrDmLoaiChanDoanHinhAnh = getEmrDm("emr_dm_loai_chan_doan_hinh_anh", item.idloaichandoan);
+            item.emrDmChanDoanHinhAnh = getEmrDm("emr_dm_chan_doan_hinh_anh", item.iddichvuchandoan).orElse(null);
+            item.emrDmLoaiChanDoanHinhAnh = getEmrDm("emr_dm_loai_chan_doan_hinh_anh", item.idloaichandoan).orElse(null);
             item.emrQuanLyFileDinhKemCdha = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_cdha", item.id);
         }
         
@@ -416,9 +417,9 @@ public class HsbaService {
         var lst = getRecords(EmrDonThuocChiTiet.class, "emr_don_thuoc_chi_tiet", "iddonthuoc", iddonthuoc, true);
         
         for(var item : lst) {            
-            item.emrDmDuongDungThuoc = getEmrDm("emr_dm_duong_dung_thuoc", item.idloaiduongdung);
-            item.emrDmTanXuatDungThuoc = getEmrDm("emr_dm_tan_xuat_dung_thuoc", item.idtanxuatdung);
-            item.emrDmThuoc = getEmrDm("emr_dm_thuoc", item.idthuoc);
+            item.emrDmDuongDungThuoc = getEmrDm("emr_dm_duong_dung_thuoc", item.idloaiduongdung).orElse(null);
+            item.emrDmTanXuatDungThuoc = getEmrDm("emr_dm_tan_xuat_dung_thuoc", item.idtanxuatdung).orElse(null);
+            item.emrDmThuoc = getEmrDm("emr_dm_thuoc", item.idthuoc).orElse(null);
         }
         
         return lst;
@@ -441,9 +442,9 @@ public class HsbaService {
         var lst = getRecords(EmrXetNghiemKetQua.class, "emr_xet_nghiem_ket_qua", "iddichvuxetnghiem", idxetnghiemdichvu, true);
         
         for(var item : lst) {
-            item.emrDmChiSoXetNghiem = getEmrDm("emr_dm_chi_so_xet_nghiem", item.idchisoxetnghiem);
-            item.emrDmDichKetQuaXetNghiem = getEmrDm("emr_dm_dich_ket_qua_xet_nghiem", item.idthongdich);
-            item.emrDmXetNghiem = getEmrDm("emr_dm_xet_nghiem", item.idxetnghiem);
+            item.emrDmChiSoXetNghiem = getEmrDm("emr_dm_chi_so_xet_nghiem", item.idchisoxetnghiem).orElse(null);
+            item.emrDmDichKetQuaXetNghiem = getEmrDm("emr_dm_dich_ket_qua_xet_nghiem", item.idthongdich).orElse(null);
+            item.emrDmXetNghiem = getEmrDm("emr_dm_xet_nghiem", item.idxetnghiem).orElse(null);
         }
         
         return lst;
@@ -453,7 +454,7 @@ public class HsbaService {
     List<EmrXetNghiemDichVu> getEmrXetNghiemDichVus(int idxetnghiem) {
         var lst = getRecords(EmrXetNghiemDichVu.class, "emr_xet_nghiem_dich_vu", "idxetnghiem", idxetnghiem, true);
         for(var item : lst) {
-            item.emrDmXetNghiem = getEmrDm("emr_dm_xet_nghiem", item.iddmxetnghiem);
+            item.emrDmXetNghiem = getEmrDm("emr_dm_xet_nghiem", item.iddmxetnghiem).orElse(null);
             item.emrXetNghiemKetQuas = getEmrXetNghiemKetQuas(item.id);
         }
         return lst;
@@ -463,7 +464,7 @@ public class HsbaService {
         var lst = getRecords(EmrXetNghiem.class, "emr_xet_nghiem", "idhsba", idhsba, true);
         
         for(var item : lst) {
-            item.emrDmLoaiXetNghiem = getEmrDm("emr_dm_loai_xet_nghiem", item.idloaixetnghiem);
+            item.emrDmLoaiXetNghiem = getEmrDm("emr_dm_loai_xet_nghiem", item.idloaixetnghiem).orElse(null);
             item.emrQuanLyFileDinhKemXn = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_xn", item.id);
             item.emrXetNghiemDichVus = getEmrXetNghiemDichVus(item.id);
         }
@@ -471,65 +472,67 @@ public class HsbaService {
         return lst;        
     }
     
-    EmrCkTienSuSanKhoa getEmrCkTienSuSanKhoa(int idhsba) {
+    Optional<EmrCkTienSuSanKhoa> getEmrCkTienSuSanKhoa(int idhsba) {
         var emrCkTienSuSanKhoa = getRecord(EmrCkTienSuSanKhoa.class, "emr_ck_tien_su_san_khoa", "idhsba", idhsba, false);
-        emrCkTienSuSanKhoa.emrCkTienSuSanKhoaChiTiets = getRecords(EmrCkTienSuSanKhoaChiTiet.class, "emr_ck_tien_su_san_khoa_chi_tiet", "idhsba", idhsba, true);
+        emrCkTienSuSanKhoa.ifPresent(x -> {
+            x.emrCkTienSuSanKhoaChiTiets = getRecords(EmrCkTienSuSanKhoaChiTiet.class, "emr_ck_tien_su_san_khoa_chi_tiet", "idhsba", idhsba, true);
+        });
+        
         return emrCkTienSuSanKhoa;
     }
     
-    public EmrYhctBenhAn getEmrYhctBenhAn(int idhsba) {
+    public Optional<EmrYhctBenhAn> getEmrYhctBenhAn(int idhsba) {
         var emrYhctBenhAn = getRecord(EmrYhctBenhAn.class, "emr_yhct_benh_an", "idhsba", idhsba, true);
         
-        if(emrYhctBenhAn != null) {
-            emrYhctBenhAn.emrDmYhctCheDoChamSoc = getEmrDm("emr_dm_yhct_che_do_cham_soc", emrYhctBenhAn.idchamsoc);
-            emrYhctBenhAn.emrYhctBenhanThietChan = getRecord(EmrYhctBenhanThietChan.class, "emr_yhct_benhan_thiet_chan", "idhsba", idhsba, false);
-            emrYhctBenhAn.emrYhctBenhanVaanChan = getRecord(EmrYhctBenhanVaanChan.class, "emr_yhct_benhan_vaan_chan", "idhsba", idhsba, false);
-            emrYhctBenhAn.emrYhctBenhanVawnChan = getRecord(EmrYhctBenhanVawnChan.class, "emr_yhct_benhan_vawn_chan", "idhsba", idhsba, false);
-            emrYhctBenhAn.emrYhctBenhanVongChan = getRecord(EmrYhctBenhanVongChan.class, "emr_yhct_benhan_vong_chan", "idhsba", idhsba, false);            
-        }
+        emrYhctBenhAn.ifPresent(x -> {
+            x.emrDmYhctCheDoChamSoc = getEmrDm("emr_dm_yhct_che_do_cham_soc", x.idchamsoc).orElse(null);
+            x.emrYhctBenhanThietChan = getRecord(EmrYhctBenhanThietChan.class, "emr_yhct_benhan_thiet_chan", "idhsba", idhsba, false).orElse(null);
+            x.emrYhctBenhanVaanChan = getRecord(EmrYhctBenhanVaanChan.class, "emr_yhct_benhan_vaan_chan", "idhsba", idhsba, false).orElse(null);
+            x.emrYhctBenhanVawnChan = getRecord(EmrYhctBenhanVawnChan.class, "emr_yhct_benhan_vawn_chan", "idhsba", idhsba, false).orElse(null);
+            x.emrYhctBenhanVongChan = getRecord(EmrYhctBenhanVongChan.class, "emr_yhct_benhan_vong_chan", "idhsba", idhsba, false).orElse(null);
+        });
         
         return emrYhctBenhAn;
     }
     
-    public EmrBenhAn getEmrBenhAn(int idhsba) {
+    public Optional<EmrBenhAn> getEmrBenhAn(int idhsba) {
         var emrBenhAn = getRecord(EmrBenhAn.class, "emr_benh_an", "idhsba", idhsba, true);
         
-        if(emrBenhAn != null) {
-        
-            emrBenhAn.emrCkChanTayMieng = getRecord(EmrCkChanTayMieng.class, "emr_ck_chan_tay_mieng", "idhsba", idhsba, false);
-            emrBenhAn.emrCkChucNangSinhHoat = getRecord(EmrCkChucNangSinhHoat.class, "emr_ck_chuc_nang_sinh_hoat", "idhsba", idhsba, false);
-            emrBenhAn.emrCkCoXuongKhop = getRecord(EmrCkCoXuongKhop.class, "emr_ck_co_xuong_khop", "idhsba", idhsba, false);
-            emrBenhAn.emrCkHoHap = getRecord(EmrCkHoHap.class, "emr_ck_ho_hap", "idhsba", idhsba, false);
-            emrBenhAn.emrCkHuongDieuTriHuyetHoc = getRecord(EmrCkHuongDieuTriHuyetHoc.class, "emr_ck_huong_dieu_tri_huyet_hoc", "idhsba", idhsba, false);
-            emrBenhAn.emrCkHuongDieuTriTcm = getRecord(EmrCkHuongDieuTriTcm.class, "emr_ck_huong_dieu_tri_tcm", "idhsba", idhsba, false);
-            emrBenhAn.emrCkKhamPhuKhoa = getRecord(EmrCkKhamPhuKhoa.class, "emr_ck_kham_phu_khoa", "idhsba", idhsba, false);
-            emrBenhAn.emrCkKhamSanKhoa = getRecord(EmrCkKhamSanKhoa.class, "emr_ck_kham_san_khoa", "idhsba", idhsba, false);
-            emrBenhAn.emrCkKhamSoSinh = getRecord(EmrCkKhamSoSinh.class, "emr_ck_kham_so_sinh", "idhsba", idhsba, false);
+        emrBenhAn.ifPresent(x -> {
+            x.emrCkChanTayMieng = getRecord(EmrCkChanTayMieng.class, "emr_ck_chan_tay_mieng", "idhsba", idhsba, false).orElse(null);
+            x.emrCkChucNangSinhHoat = getRecord(EmrCkChucNangSinhHoat.class, "emr_ck_chuc_nang_sinh_hoat", "idhsba", idhsba, false).orElse(null);
+            x.emrCkCoXuongKhop = getRecord(EmrCkCoXuongKhop.class, "emr_ck_co_xuong_khop", "idhsba", idhsba, false).orElse(null);
+            x.emrCkHoHap = getRecord(EmrCkHoHap.class, "emr_ck_ho_hap", "idhsba", idhsba, false).orElse(null);
+            x.emrCkHuongDieuTriHuyetHoc = getRecord(EmrCkHuongDieuTriHuyetHoc.class, "emr_ck_huong_dieu_tri_huyet_hoc", "idhsba", idhsba, false).orElse(null);
+            x.emrCkHuongDieuTriTcm = getRecord(EmrCkHuongDieuTriTcm.class, "emr_ck_huong_dieu_tri_tcm", "idhsba", idhsba, false).orElse(null);
+            x.emrCkKhamPhuKhoa = getRecord(EmrCkKhamPhuKhoa.class, "emr_ck_kham_phu_khoa", "idhsba", idhsba, false).orElse(null);
+            x.emrCkKhamSanKhoa = getRecord(EmrCkKhamSanKhoa.class, "emr_ck_kham_san_khoa", "idhsba", idhsba, false).orElse(null);
+            x.emrCkKhamSoSinh = getRecord(EmrCkKhamSoSinh.class, "emr_ck_kham_so_sinh", "idhsba", idhsba, false).orElse(null);
                     
-            emrBenhAn.emrCkMat = getRecord(EmrCkMat.class, "emr_ck_mat", "idhsba", idhsba, false);
-            emrBenhAn.emrCkMoiSinh = getRecord(EmrCkMoiSinh.class, "emr_ck_moi_sinh", "idhsba", idhsba, false);
-            emrBenhAn.emrCkPhuongPhapHoiSinh = getRecord(EmrCkPhuongPhapHoiSinh.class, "emr_ck_phuong_phap_hoi_sinh", "idhsba", idhsba, false);                
-            emrBenhAn.emrCkQuaTrinhBenhLyTcm = getRecord(EmrCkQuaTrinhBenhLyTcm.class, "emr_ck_qua_trinh_benh_ly_tcm", "idhsba", idhsba, false);
-            emrBenhAn.emrCkQuaTrinhSinhTruong = getRecord(EmrCkQuaTrinhSinhTruong.class, "emr_ck_qua_trinh_sinh_truong", "idhsba", idhsba, false);
-            emrBenhAn.emrCkSkTinhTrangSanPhu = getRecord(EmrCkSkTinhTrangSanPhu.class, "emr_ck_sk_tinh_trang_san_phu", "idhsba", idhsba, false);
-            emrBenhAn.emrCkTamThan = getRecord(EmrCkTamThan.class, "emr_ck_tam_than", "idhsba", idhsba, false);
-            emrBenhAn.emrCkThanKinh = getRecord(EmrCkThanKinh.class, "emr_ck_than_kinh", "idhsba", idhsba, false);
-            emrBenhAn.emrCkTiemChung = getRecord(EmrCkTiemChung.class, "emr_ck_tiem_chung", "idhsba", idhsba, false);
-            emrBenhAn.emrCkTienSuBanThanSanKhoa = getRecord(EmrCkTienSuBanThanSanKhoa.class, "emr_ck_tien_su_ban_than_san_khoa", "idhsba", idhsba, false);
-            emrBenhAn.emrCkTienSuGiaDinh = getRecord(EmrCkTienSuGiaDinh.class, "emr_ck_tien_su_gia_dinh", "idhsba", idhsba, false);
-            emrBenhAn.emrCkTienSuPhuKhoa = getRecord(EmrCkTienSuPhuKhoa.class, "emr_ck_tien_su_phu_khoa", "idhsba", idhsba, false);
-            emrBenhAn.emrCkTienSuSanKhoa = getEmrCkTienSuSanKhoa(idhsba);
-            emrBenhAn.emrCkTieuHoa = getRecord(EmrCkTieuHoa.class, "emr_ck_tieu_hoa", "idhsba", idhsba, false);
-            emrBenhAn.emrCkTinhTrangSanPhu = getRecord(EmrCkTinhTrangSanPhu.class, "emr_ck_tinh_trang_san_phu", "idhsba", idhsba, false);
-            emrBenhAn.emrCkTinhTrangSoSinh = getRecord(EmrCkTinhTrangSoSinh.class, "emr_ck_tinh_trang_so_sinh", "idhsba", idhsba, false);
-            emrBenhAn.emrCkToanThan = getRecord(EmrCkToanThan.class, "emr_ck_toan_than", "idhsba", idhsba, false);
-            emrBenhAn.emrCkTomTatBenhAnTcm = getRecord(EmrCkTomTatBenhAnTcm.class, "emr_ck_tom_tat_benh_an_tcm", "idhsba", idhsba, false);        
-            emrBenhAn.emrCkTuanHoan = getRecord(EmrCkTuanHoan.class, "emr_ck_tuan_hoan", "idhsba", idhsba, false);
+            x.emrCkMat = getRecord(EmrCkMat.class, "emr_ck_mat", "idhsba", idhsba, false).orElse(null);
+            x.emrCkMoiSinh = getRecord(EmrCkMoiSinh.class, "emr_ck_moi_sinh", "idhsba", idhsba, false).orElse(null);
+            x.emrCkPhuongPhapHoiSinh = getRecord(EmrCkPhuongPhapHoiSinh.class, "emr_ck_phuong_phap_hoi_sinh", "idhsba", idhsba, false).orElse(null);                
+            x.emrCkQuaTrinhBenhLyTcm = getRecord(EmrCkQuaTrinhBenhLyTcm.class, "emr_ck_qua_trinh_benh_ly_tcm", "idhsba", idhsba, false).orElse(null);
+            x.emrCkQuaTrinhSinhTruong = getRecord(EmrCkQuaTrinhSinhTruong.class, "emr_ck_qua_trinh_sinh_truong", "idhsba", idhsba, false).orElse(null);
+            x.emrCkSkTinhTrangSanPhu = getRecord(EmrCkSkTinhTrangSanPhu.class, "emr_ck_sk_tinh_trang_san_phu", "idhsba", idhsba, false).orElse(null);
+            x.emrCkTamThan = getRecord(EmrCkTamThan.class, "emr_ck_tam_than", "idhsba", idhsba, false).orElse(null);
+            x.emrCkThanKinh = getRecord(EmrCkThanKinh.class, "emr_ck_than_kinh", "idhsba", idhsba, false).orElse(null);
+            x.emrCkTiemChung = getRecord(EmrCkTiemChung.class, "emr_ck_tiem_chung", "idhsba", idhsba, false).orElse(null);
+            x.emrCkTienSuBanThanSanKhoa = getRecord(EmrCkTienSuBanThanSanKhoa.class, "emr_ck_tien_su_ban_than_san_khoa", "idhsba", idhsba, false).orElse(null);
+            x.emrCkTienSuGiaDinh = getRecord(EmrCkTienSuGiaDinh.class, "emr_ck_tien_su_gia_dinh", "idhsba", idhsba, false).orElse(null);
+            x.emrCkTienSuPhuKhoa = getRecord(EmrCkTienSuPhuKhoa.class, "emr_ck_tien_su_phu_khoa", "idhsba", idhsba, false).orElse(null);
+            x.emrCkTienSuSanKhoa = getEmrCkTienSuSanKhoa(idhsba).orElse(null);
+            x.emrCkTieuHoa = getRecord(EmrCkTieuHoa.class, "emr_ck_tieu_hoa", "idhsba", idhsba, false).orElse(null);
+            x.emrCkTinhTrangSanPhu = getRecord(EmrCkTinhTrangSanPhu.class, "emr_ck_tinh_trang_san_phu", "idhsba", idhsba, false).orElse(null);
+            x.emrCkTinhTrangSoSinh = getRecord(EmrCkTinhTrangSoSinh.class, "emr_ck_tinh_trang_so_sinh", "idhsba", idhsba, false).orElse(null);
+            x.emrCkToanThan = getRecord(EmrCkToanThan.class, "emr_ck_toan_than", "idhsba", idhsba, false).orElse(null);
+            x.emrCkTomTatBenhAnTcm = getRecord(EmrCkTomTatBenhAnTcm.class, "emr_ck_tom_tat_benh_an_tcm", "idhsba", idhsba, false).orElse(null);        
+            x.emrCkTuanHoan = getRecord(EmrCkTuanHoan.class, "emr_ck_tuan_hoan", "idhsba", idhsba, false).orElse(null);
             
-            emrBenhAn.emrDmMaBenhChandoanbenhchinh = getEmrDm("emr_dm_ma_benh", emrBenhAn.idicdChandoanbenhchinh);
-            emrBenhAn.emrDmMaBenhChandoankemtheo = getEmrDm("emr_dm_ma_benh", emrBenhAn.idicdChandoankemtheo);
-            emrBenhAn.emrDmMaBenhChandoanphanbiet = getEmrDm("emr_dm_ma_benh", emrBenhAn.idicdChandoanphanbiet);
-        }        
+            x.emrDmMaBenhChandoanbenhchinh = getEmrDm("emr_dm_ma_benh", x.idicdChandoanbenhchinh).orElse(null);
+            x.emrDmMaBenhChandoankemtheo = getEmrDm("emr_dm_ma_benh", x.idicdChandoankemtheo).orElse(null);
+            x.emrDmMaBenhChandoanphanbiet = getEmrDm("emr_dm_ma_benh", x.idicdChandoanphanbiet).orElse(null);
+        });
         
         return emrBenhAn;        
     }
@@ -545,48 +548,51 @@ public class HsbaService {
         return lst;
     }
         
-    public EmrDanhSachHoSoBenhAn getEmrDanhSachHoSoBenhAnById(Integer id) {
+    public Optional<EmrDanhSachHoSoBenhAn> getEmrDanhSachHoSoBenhAnById(Integer id) {
         
         var dshsba = getRecordById(EmrDanhSachHoSoBenhAn.class, "emr_danh_sach_ho_so_benh_an", id, true);
         
-        if(dshsba != null) {
-            dshsba.emrBenhAn = getEmrBenhAn(id);
-            if(dshsba.emrBenhAn != null) {
-                dshsba.emrBenhAn.emrDanhSachHoSoBenhAn = dshsba;
-            }
+        dshsba.ifPresent(x -> {
+            var emrBenhAn = getEmrBenhAn(id);
+            emrBenhAn.ifPresent(y -> {
+                x.emrBenhAn = y;
+                y.emrDanhSachHoSoBenhAn = x;
+            });
             
-            dshsba.emrBenhNhan = getEmrBenhNhanById(dshsba.idbenhnhan);
-            dshsba.emrDmLoaiBenhAn = getEmrDm("emr_dm_loai_benh_an", dshsba.idloaibenhan);
-            dshsba.emrDmNguondulieu = getEmrDm("emr_dm_tu_sinh", dshsba.idnguondulieu);
-            dshsba.emrDmTrangthai = getEmrDm("emr_dm_tu_sinh", dshsba.idtrangthai);
+            x.emrBenhNhan = getEmrBenhNhanById(x.idbenhnhan).orElse(null);
+            x.emrDmLoaiBenhAn = getEmrDm("emr_dm_loai_benh_an", x.idloaibenhan).orElse(null);
+            x.emrDmNguondulieu = getEmrDm("emr_dm_tu_sinh", x.idnguondulieu).orElse(null);
+            x.emrDmTrangthai = getEmrDm("emr_dm_tu_sinh", x.idtrangthai).orElse(null);
             
-            dshsba.emrQuanLyNguoiBenh = getEmrQuanLyNguoiBenh(id);
-            dshsba.emrTongKetRaVien = getEmrTongKetRaVien(id);
-            dshsba.emrChanDoan = getEmrChanDoan(id);
+            x.emrQuanLyNguoiBenh = getEmrQuanLyNguoiBenh(id).orElse(null);
+            x.emrTongKetRaVien = getEmrTongKetRaVien(id).orElse(null);
+            x.emrChanDoan = getEmrChanDoan(id).orElse(null);
                         
-            dshsba.emrTinhTrangRaVien = getEmrTinhTrangRaVien(id);
-            dshsba.emrTongKetSanKhoa = getEmrTongKetSanKhoa(id);
-            dshsba.emrVaoKhoas = getEmrVaoKhoas(id);
-            dshsba.emrQuaTrinhSuDungThuocs = getEmrQuaTrinhSuDungThuocs(id);
-            dshsba.emrHinhAnhTonThuongs = getEmrHinhAnhTonThuongs(id);
-            dshsba.emrGiaiPhauBenhs = getEmrGiaiPhauBenhs(id);
-            dshsba.emrThamDoChucNangs = getEmrThamDoChucNangs(id);
-            dshsba.emrPhauThuatThuThuats = getEmrPhauThuatThuThuats(id);
-            dshsba.emrChanDoanHinhAnhs = getEmrChanDoanHinhAnhs(id);
-            dshsba.emrDonThuocs = getEmrDonThuocs(id);
-            dshsba.emrXetNghiems = getEmrXetNghiems(id);
-            dshsba.emrQuanLyFileDinhKemBenhAn = getRecords(EmrQuanLyFileDinhKemBenhAn.class, "emr_quan_ly_file_dinh_kem_benhan", "idhsba", id, false);
+            x.emrTinhTrangRaVien = getEmrTinhTrangRaVien(id).orElse(null);
+            x.emrTongKetSanKhoa = getEmrTongKetSanKhoa(id).orElse(null);
+            x.emrVaoKhoas = getEmrVaoKhoas(id);
+            x.emrQuaTrinhSuDungThuocs = getEmrQuaTrinhSuDungThuocs(id);
+            x.emrHinhAnhTonThuongs = getEmrHinhAnhTonThuongs(id);
+            x.emrGiaiPhauBenhs = getEmrGiaiPhauBenhs(id);
+            x.emrThamDoChucNangs = getEmrThamDoChucNangs(id);
+            x.emrPhauThuatThuThuats = getEmrPhauThuatThuThuats(id);
+            x.emrChanDoanHinhAnhs = getEmrChanDoanHinhAnhs(id);
+            x.emrDonThuocs = getEmrDonThuocs(id);
+            x.emrXetNghiems = getEmrXetNghiems(id);
+            x.emrQuanLyFileDinhKemBenhAn = getRecords(EmrQuanLyFileDinhKemBenhAn.class, "emr_quan_ly_file_dinh_kem_benhan", "idhsba", id, false);
             
-            dshsba.emrYhctBenhAn = getEmrYhctBenhAn(id);
-            if(dshsba.emrYhctBenhAn != null) {
-                dshsba.emrYhctBenhAn.emrDanhSachHoSoBenhAn = dshsba;
-            }
+            var emrYhctBenhAn = getEmrYhctBenhAn(id);
+            emrYhctBenhAn.ifPresent(y -> {
+                x.emrYhctBenhAn = y;
+                y.emrDanhSachHoSoBenhAn = x;
+            });
             
-            dshsba.emrYhctChanDoan = getEmrYhctChanDoan(id);
-            dshsba.emrYhctDonThuocs = getEmrYhctDonThuocs(id);
-            dshsba.emrYhctNhaBa = getRecord(EmrYhctNhaBa.class, "emr_yhct_nha_ba", "idhsba", id, true);
-            dshsba.emrYhctNhaBaGhiChus = getRecords(EmrYhctNhaBaGhiChu.class, "emr_yhct_ghi_chu_nha_ba", "idhsba", id, true);
-        }        
+            x.emrYhctChanDoan = getEmrYhctChanDoan(id).orElse(null);
+            x.emrYhctDonThuocs = getEmrYhctDonThuocs(id);
+            x.emrYhctNhaBa = getRecord(EmrYhctNhaBa.class, "emr_yhct_nha_ba", "idhsba", id, true).orElse(null);
+            x.emrYhctNhaBaGhiChus = getRecords(EmrYhctNhaBaGhiChu.class, "emr_yhct_ghi_chu_nha_ba", "idhsba", id, true);
+            
+        });        
         
         return dshsba;
     }
