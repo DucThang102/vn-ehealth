@@ -39,17 +39,17 @@
                     nguoisua.username as canbo_luutru,	
                     dm_ndl.ten as nguon_dulieu
                 FROM emr_danh_sach_ho_so_benh_an ba
-                    join emr_benh_nhan bn on bn.id = ba.idbenhnhan
-                    join emr_dm_loai_benh_an lba on lba.id = ba.idloaibenhan 
-                    join emr_vao_khoa vk on vk.idhsba=ba.id
-                    join emr_dm_khoa_dieu_tri khoa_dt on khoa_dt.id=vk.idkhoadieutri
-                    join emr_chan_doan cd on cd.idhsba = ba.id
-                    join emr_dm_ma_benh cd_vv on cd_vv.id=cd.idicd_chandoankkb
-                    join emr_dm_ma_benh cd_rv on cd_rv.id=cd.idicd_chandoanravienchinh
-                    join emr_quan_ly_nguoi_benh qlnb on qlnb.idhsba=ba.id
+                    left join emr_benh_nhan bn on bn.id = ba.idbenhnhan
+                    left join emr_dm_loai_benh_an lba on lba.id = ba.idloaibenhan 
+                    left join emr_vao_khoa vk on vk.idhsba=ba.id
+                    left join emr_dm_khoa_dieu_tri khoa_dt on khoa_dt.id=vk.idkhoadieutri
+                    left join emr_chan_doan cd on cd.idhsba = ba.id
+                    left join emr_dm_ma_benh cd_vv on cd_vv.id=cd.idicd_chandoankkb
+                    left join emr_dm_ma_benh cd_rv on cd_rv.id=cd.idicd_chandoanravienchinh
+                    left join emr_quan_ly_nguoi_benh qlnb on qlnb.idhsba=ba.id
                     left join users nguoitao on nguoitao.user_id=ba.idnguoitao
                     left join users nguoisua on nguoisua.user_id=ba.idnguoisua
-                    join emr_dm_tu_sinh dm_ndl on dm_ndl.id=ba.idnguondulieu
+                    left join emr_dm_tu_sinh dm_ndl on dm_ndl.id=ba.idnguondulieu
                 WHERE 
                 	(ba.daxoa IS NULL OR ba.daxoa = FALSE)
                 	AND ba.idtrangthai=? 
