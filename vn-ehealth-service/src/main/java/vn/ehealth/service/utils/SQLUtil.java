@@ -58,17 +58,6 @@ public class SQLUtil {
 		return SQLQueries.getOrDefault(name, "");
 	}
 	
-	public static int countRecords(JdbcTemplate jdbcTemplate, String queryStr, Object[] params) {
-		if(queryStr != null) {
-			int pos = queryStr.toUpperCase().indexOf("FROM");
-			if(pos > 0) {
-				queryStr = "SELECT COUNT(1) " + queryStr.substring(pos);
-				return jdbcTemplate.queryForObject(queryStr, params, Integer.class);
-			}			
-		}
-		return 0;		
-	}
-	
 	private static void formatField(Map<String, Object> record) {
 		for(String key : record.keySet()) {
 			Object value = record.get(key);

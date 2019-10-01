@@ -1,9 +1,22 @@
 <root>
 	<item>
+		<name>COUNT_HS</name>
+		<sql>
+			<![CDATA[
+                SELECT COUNT(DISTINCT(ba.id))
+                FROM emr_danh_sach_ho_so_benh_an ba
+                WHERE 
+                	(ba.daxoa IS NULL OR ba.daxoa = FALSE)
+                	AND ba.idtrangthai=? 
+                	[MA_YTE_CHECK]
+			]]>			
+		</sql>
+	</item>
+	<item>
 		<name>DS_HS</name>
 		<sql>
 			<![CDATA[
-                SELECT ba.id as id,
+                SELECT DISTINCT ON (ba.id) ba.id as id,
                     ba.matraodoi as so_benh_an, 
                     bn.idhis as ma_benh_nhan,
                     bn.tendaydu as ten_benh_nhan, 
@@ -41,7 +54,7 @@
                 	(ba.daxoa IS NULL OR ba.daxoa = FALSE)
                 	AND ba.idtrangthai=? 
                 	[MA_YTE_CHECK]
-                	  			 
+                	ORDER BY ba.id DESC
 			]]>			
 		</sql>
 	</item>
@@ -49,7 +62,7 @@
 		<name>HS_BY_MA</name>
 		<sql>
 			<![CDATA[
-                SELECT ba.id as id,
+                SELECT DISTINCT ON (ba.id) ba.id as id,
                     ba.matraodoi as so_benh_an, 
                     bn.idhis as ma_benh_nhan,
                     bn.tendaydu as ten_benh_nhan, 

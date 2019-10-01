@@ -32,10 +32,10 @@ public class RawHsbaService {
 	}
 	
 	public int countDsHoSo(int trangthai, String maYte) {
-		String sql = SQLUtil.getSQL("DS_HS");
+		String sql = SQLUtil.getSQL("COUNT_HS");
 		var params = new ArrayList<Object>();
 		sql = adjustDsHoSoSql(sql, trangthai, maYte, params);
-		return SQLUtil.countRecords(jdbcTemplate, sql, params.toArray());
+		return jdbcTemplate.queryForObject(sql, Integer.class, params.toArray());
 		
 	}
 
