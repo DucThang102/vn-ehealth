@@ -32,44 +32,44 @@ import vn.ehealth.emr.utils.Constants.VaiTroPTTT;
 @Component
 public class JasperUtils extends JRDefaultScriptlet  {
     
-    public static final String STR_TUOI = " tuổi";
-    public static final String STR_THANG = " tháng";
-    public static final String STR_NGAY = " ngày";
-    public static final String EMR_REPORT_DATE_FORMAT = "yyyyMMddHHmmss";
+    final String STR_TUOI = " tuổi";
+    final String STR_THANG = " tháng";
+    final String STR_NGAY = " ngày";
+    final String EMR_REPORT_DATE_FORMAT = "yyyyMMddHHmmss";
     
-    public static final String reportDateFormat_DDMMYYYY = "'Ngày' dd 'tháng' MM 'năm' yyyy";
-    public static SimpleDateFormat reportDf_DDMMYYYY = new SimpleDateFormat(reportDateFormat_DDMMYYYY);
-    public static final String STRING_NULL_VALUE_DateFormat_DDMMYYYY = "ngày ... tháng ... năm ...";
+    final String reportDateFormat_DDMMYYYY = "'Ngày' dd 'tháng' MM 'năm' yyyy";
+    SimpleDateFormat reportDf_DDMMYYYY = new SimpleDateFormat(reportDateFormat_DDMMYYYY);
+    final String STRING_NULL_VALUE_DateFormat_DDMMYYYY = "ngày ... tháng ... năm ...";
     
-    public static final String reportDateFormat_HHmmDDMMYYYY = "HH 'giờ' mm 'phút, ngày' dd/MM/yyyy";
-    public static final String STRING_NULL_VALUE_DateFormat_HHmmDDMMYYYY = ".. giờ ..phút, ngày ../../....";
-    public static SimpleDateFormat reportDf_HHmmDDMMYYYY = new SimpleDateFormat(reportDateFormat_HHmmDDMMYYYY);
+    final String reportDateFormat_HHmmDDMMYYYY = "HH 'giờ' mm 'phút, ngày' dd/MM/yyyy";
+    final String STRING_NULL_VALUE_DateFormat_HHmmDDMMYYYY = ".. giờ ..phút, ngày ../../....";
+    SimpleDateFormat reportDf_HHmmDDMMYYYY = new SimpleDateFormat(reportDateFormat_HHmmDDMMYYYY);
     
-    public static final String reportDateFormat_PTTT = "HH 'giờ,'dd/MM/yyyy";
-    public static SimpleDateFormat reportDf_PTTT = new SimpleDateFormat(reportDateFormat_PTTT);
+    final String reportDateFormat_PTTT = "HH 'giờ,'dd/MM/yyyy";
+    SimpleDateFormat reportDf_PTTT = new SimpleDateFormat(reportDateFormat_PTTT);
             
     final String reportDateFormat_VK= "HH':'mm dd/MM/yyyy";
     SimpleDateFormat reportDf_VK = new SimpleDateFormat(reportDateFormat_VK);
     
-    public static final String reportDateFormatShort = "dd/MM/yyyy";
-    public static SimpleDateFormat reportDfShort = new SimpleDateFormat(reportDateFormatShort);    
+    final String reportDateFormatShort = "dd/MM/yyyy";
+    SimpleDateFormat reportDfShort = new SimpleDateFormat(reportDateFormatShort);    
     
-    public static final String reportDateFormat_HHmmDDMMYYYY_Full = "HH 'giờ' mm 'ngày' dd 'tháng' MM 'năm' yyyy";
-    public static final String STRING_NULL_VALUE_DateFormat_HHmmDDMMYYYY_Full = "... giờ ... ngày ... tháng ... năm ....";
-    public static SimpleDateFormat reportDf_HHmmDDMMYYYY_Full = new SimpleDateFormat(reportDateFormat_HHmmDDMMYYYY_Full);
+    final String reportDateFormat_HHmmDDMMYYYY_Full = "HH 'giờ' mm 'ngày' dd 'tháng' MM 'năm' yyyy";
+    final String STRING_NULL_VALUE_DateFormat_HHmmDDMMYYYY_Full = "... giờ ... ngày ... tháng ... năm ....";
+    SimpleDateFormat reportDf_HHmmDDMMYYYY_Full = new SimpleDateFormat(reportDateFormat_HHmmDDMMYYYY_Full);
     
-    public static final String reportDateFormat_HHmmDDMMYYYY_Full2 = "HH 'Giờ' mm 'Phút' ... 'Ngày' dd 'Tháng' MM 'Năm' yyyy";
-    public static final String STRING_NULL_VALUE_DateFormat_HHmmDDMMYYYY_Full2 = ".....Giờ ....Phút......Ngày......Tháng.....Năm....";
-    public static SimpleDateFormat reportDf_HHmmDDMMYYYY_Full2 = new SimpleDateFormat(reportDateFormat_HHmmDDMMYYYY_Full2);
+    final String reportDateFormat_HHmmDDMMYYYY_Full2 = "HH 'Giờ' mm 'Phút' ... 'Ngày' dd 'Tháng' MM 'Năm' yyyy";
+    final String STRING_NULL_VALUE_DateFormat_HHmmDDMMYYYY_Full2 = ".....Giờ ....Phút......Ngày......Tháng.....Năm....";
+    SimpleDateFormat reportDf_HHmmDDMMYYYY_Full2 = new SimpleDateFormat(reportDateFormat_HHmmDDMMYYYY_Full2);
     
-    public static final String reportDateFormat_DDMMYYYY_1 = "'ngày' dd 'tháng' MM 'năm' yyyy";
-    public static SimpleDateFormat reportDf_DDMMYYYY_1 = new SimpleDateFormat(reportDateFormat_DDMMYYYY_1);
+    final String reportDateFormat_DDMMYYYY_1 = "'ngày' dd 'tháng' MM 'năm' yyyy";
+    SimpleDateFormat reportDf_DDMMYYYY_1 = new SimpleDateFormat(reportDateFormat_DDMMYYYY_1);
     
-    public static final String reportDateFormat_HHmmDDMMYYYY_1 = "HH 'giờ' mm 'ph ngày' dd/MM/yyyy";
-    public static final String reportDateFormat_HHmmDDMMYYYY_2 = "HH 'giờ' mm 'phút' dd/MM/yyyy";
-    public static final String STRING_NULL_VALUE_DateFormat_HHmmDDMMYYYY_1 = ".. giờ ...phút.../../....";
-    public static SimpleDateFormat reportDf_HHmmDDMMYYYY_1 = new SimpleDateFormat(reportDateFormat_HHmmDDMMYYYY_1);
-    public static SimpleDateFormat reportDf_HHmmDDMMYYYY_2 = new SimpleDateFormat(reportDateFormat_HHmmDDMMYYYY_2);
+    final String reportDateFormat_HHmmDDMMYYYY_1 = "HH 'giờ' mm 'ph ngày' dd/MM/yyyy";
+    final String reportDateFormat_HHmmDDMMYYYY_2 = "HH 'giờ' mm 'phút' dd/MM/yyyy";
+    final String STRING_NULL_VALUE_DateFormat_HHmmDDMMYYYY_1 = ".. giờ ...phút.../../....";
+    SimpleDateFormat reportDf_HHmmDDMMYYYY_1 = new SimpleDateFormat(reportDateFormat_HHmmDDMMYYYY_1);
+    SimpleDateFormat reportDf_HHmmDDMMYYYY_2 = new SimpleDateFormat(reportDateFormat_HHmmDDMMYYYY_2);
     
     public String getDonViChuQuan() {
         
@@ -481,7 +481,7 @@ public class JasperUtils extends JRDefaultScriptlet  {
                 .orElse("");
     }
     
-    public static final String[] ARR_MA_LOAI_BA_YHCT = {"27","28","33","34"};
+    final String[] ARR_MA_LOAI_BA_YHCT = {"27","28","33","34"};
     
     public boolean checkLoaiBAYHCT(String ma){
         boolean rs = false;
@@ -900,7 +900,7 @@ public class JasperUtils extends JRDefaultScriptlet  {
                 
                 switch (input) {
                     case 0: return StringtypeforInt(daytangdan[0]);
-                    case 1: return dataArr.length <= 1? "" :  StringtypeforInt(daytangdan[1]);
+                    case 1: return StringtypeforInt(daytangdan[1]);
                     case 2: return dataArr.length <= 2? "" :  StringtypeforInt(daytangdan[2]);
                     case 3: return dataArr.length <= 3? "" :  StringtypeforInt(daytangdan[3]);
                     case 4: return dataArr.length <= 4? "" :  StringtypeforInt(daytangdan[4]);
@@ -924,10 +924,10 @@ public class JasperUtils extends JRDefaultScriptlet  {
         return str;     
     }
     
-    public static String checkDaiTieuTienCuaVaanChan(EmrYhctBenhanVaanChan object){
+    public String checkDaiTieuTienCuaVaanChan(EmrYhctBenhanVaanChan object){
         
-        if(object != null && !StringUtils.isEmpty(object.lsttieutienHienthi) || 
-                !StringUtils.isEmpty(object.lstdaitienHienthi))
+        if(object != null && (!StringUtils.isEmpty(object.lsttieutienHienthi) || 
+                !StringUtils.isEmpty(object.lstdaitienHienthi)))
         {
             return "1";
         }
@@ -935,10 +935,10 @@ public class JasperUtils extends JRDefaultScriptlet  {
         return "2";
     }
     
-    public static String checkSinhDucCuaVaanChan(EmrYhctBenhanVaanChan object){
+    public String checkSinhDucCuaVaanChan(EmrYhctBenhanVaanChan object){
         
-        if(object != null && !StringUtils.isEmpty(object.lstsinhducHienthi) || 
-                !StringUtils.isEmpty(object.lstsinhducnuHienthi))
+        if(object != null && (!StringUtils.isEmpty(object.lstsinhducHienthi) || 
+                !StringUtils.isEmpty(object.lstsinhducnuHienthi)))
         {
             return "1";
         }

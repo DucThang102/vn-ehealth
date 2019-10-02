@@ -13,8 +13,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import javax.annotation.Nonnull;
+
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.lang.NonNull;
 import org.springframework.util.StringUtils;
 
 import net.sf.jasperreports.engine.JRException;
@@ -59,9 +60,9 @@ public class ExportUtil {
         return messages.getOrDefault(key, key);
     }
     
-    public static byte[] exportPdf(@NonNull EmrDanhSachHoSoBenhAn danhSachHSBA, @NonNull EmrCoSoKhamBenh coSoKhamBenh, 
-                                    @NonNull String loaiReport, 
-                                    @NonNull String serverBaseURL) throws JRException, IOException {        
+    public static byte[] exportPdf(@Nonnull EmrDanhSachHoSoBenhAn danhSachHSBA, @Nonnull EmrCoSoKhamBenh coSoKhamBenh, 
+                                    @Nonnull String loaiReport, 
+                                    @Nonnull String serverBaseURL) throws JRException, IOException {        
         
         String maCoSoKhamBenh = coSoKhamBenh.ma;
         

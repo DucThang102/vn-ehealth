@@ -121,11 +121,6 @@ public class HsbaController {
 	    
 	    var coSoKhamBenh = hsbaService.getCoSoKhamBenh();	    	    
 	    var dsHsba = hsbaService.getEmrDanhSachHoSoBenhAnById(idhsba);
-	    	    
-	    if(coSoKhamBenh == null || dsHsba == null) {
-	        logger.error("Null coSoKhamBenh or  dsHsba");
-	        return ResponseEntity.badRequest().build();
-	    }
 	    
 	    System.out.println(coSoKhamBenh.ten);
 	    

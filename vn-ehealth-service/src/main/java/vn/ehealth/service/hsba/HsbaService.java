@@ -7,11 +7,12 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
+import javax.annotation.Nonnull;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import vn.ehealth.emr.EmrBenhAn;
@@ -143,11 +144,11 @@ public class HsbaService {
         return getRecordById(EmrDm.class, table, id, false);
     }    
     
-    public @NonNull EmrCoSoKhamBenh getCoSoKhamBenh() {
+    public @Nonnull EmrCoSoKhamBenh getCoSoKhamBenh() {
         var record = jdbcTemplate.queryForMap("SELECT * FROM emr_co_so_kham_benh LIMIT 1");
         var coSoKhamBenh = new EmrCoSoKhamBenh();
         FieldUtil.setFields(coSoKhamBenh, record);
-        return coSoKhamBenh;        
+        return coSoKhamBenh;
     }
     
     public Optional<EmrBenhNhan> getEmrBenhNhanById(Integer id) {
@@ -262,7 +263,7 @@ public class HsbaService {
         return getRecords(EmrQuanLyFileDinhKem.class, table, "iddk", iddk, false);
     }
     
-    List<EmrChamSoc> getEmrChamSocs(EmrVaoKhoa emrVaoKhoa) {
+    List<EmrChamSoc> getEmrChamSocs(@Nonnull EmrVaoKhoa emrVaoKhoa) {
         var lst = getRecords(EmrChamSoc.class, "emr_cham_soc", "idvaokhoa", emrVaoKhoa.id, true);
         
         for(var item : lst) {
@@ -274,7 +275,7 @@ public class HsbaService {
         return lst;        
     }
 
-    List<EmrDieuTri> getEmrDieuTris(EmrVaoKhoa emrVaoKhoa) {
+    List<EmrDieuTri> getEmrDieuTris(@Nonnull EmrVaoKhoa emrVaoKhoa) {
         var lst = getRecords(EmrDieuTri.class, "emr_dieu_tri", "idvaokhoa", emrVaoKhoa.id, true);
         
         for(var item : lst) {
@@ -286,7 +287,7 @@ public class HsbaService {
         return lst;        
     }
   
-    List<EmrChucNangSong> getEmrChucNangSongs(EmrVaoKhoa emrVaoKhoa) {
+    List<EmrChucNangSong> getEmrChucNangSongs(@Nonnull EmrVaoKhoa emrVaoKhoa) {
         var lst = getRecords(EmrChucNangSong.class, "emr_chuc_nang_song", "idvaokhoa", emrVaoKhoa.id, true);
         
         for(var item : lst) {
@@ -298,7 +299,7 @@ public class HsbaService {
         return lst;        
     }
     
-    List<EmrHoiDongHoiChan> getEmrHoiDongHoiChans(EmrHoiChan emrHoiChan) {
+    List<EmrHoiDongHoiChan> getEmrHoiDongHoiChans(@Nonnull EmrHoiChan emrHoiChan) {
         var lst = getRecords(EmrHoiDongHoiChan.class, "emr_hoi_dong_hoi_chan", "idhoichan", emrHoiChan.id, true);
         for(var item : lst) {
             item.emrHoiChan = emrHoiChan;
@@ -306,7 +307,7 @@ public class HsbaService {
         return lst;        
     }
 
-    List<EmrHoiChan> getEmrHoiChans(EmrVaoKhoa emrVaoKhoa) {
+    List<EmrHoiChan> getEmrHoiChans(@Nonnull EmrVaoKhoa emrVaoKhoa) {
         var lst = getRecords(EmrHoiChan.class, "emr_hoi_chan", "idvaokhoa", emrVaoKhoa.id, true);
         
         for(var item : lst) {
@@ -548,7 +549,7 @@ public class HsbaService {
         return lst;
     }
         
-    public Optional<EmrDanhSachHoSoBenhAn> getEmrDanhSachHoSoBenhAnById(Integer id) {
+    public Optional<EmrDanhSachHoSoBenhAn> getEmrDanhSachHoSoBenhAnById(int id) {
         
         var dshsba = getRecordById(EmrDanhSachHoSoBenhAn.class, "emr_danh_sach_ho_so_benh_an", id, true);
         

@@ -7,7 +7,7 @@ var thamdo_chucnang_script = {
 
   computed: {
     pdfURL : function() {
-      return "http://34.87.51.9:8000/api/hsba/view_pdf?loai_report=thamdochucnang&idhsba=" + this.hsId;
+      return "http://localhost:8000/api/hsba/view_pdf?loai_report=thamdochucnang&idhsba=" + this.hsId;
     }
   },
   

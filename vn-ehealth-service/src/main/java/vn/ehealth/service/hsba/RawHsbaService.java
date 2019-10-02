@@ -35,7 +35,8 @@ public class RawHsbaService {
 		String sql = SQLUtil.getSQL("COUNT_HS");
 		var params = new ArrayList<Object>();
 		sql = adjustDsHoSoSql(sql, trangthai, maYte, params);
-		return jdbcTemplate.queryForObject(sql, Integer.class, params.toArray());
+		var count = jdbcTemplate.queryForObject(sql, Integer.class, params.toArray());
+		return count != null? count : 0;
 		
 	}
 
