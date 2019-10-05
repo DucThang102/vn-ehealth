@@ -84,8 +84,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{danhSachHSBA}.emrBenhNhan.emrDmGioiTinh != null)?
-$P{danhSachHSBA}.emrBenhNhan.emrDmGioiTinh.ten:
+				<textFieldExpression><![CDATA[($P{danhSachHSBA}.emrBenhNhan.emrDmGioiTinh != null)?$P{danhSachHSBA}.emrBenhNhan.emrDmGioiTinh.ten:
 ""]]></textFieldExpression>
 			</textField>
 			<staticText>

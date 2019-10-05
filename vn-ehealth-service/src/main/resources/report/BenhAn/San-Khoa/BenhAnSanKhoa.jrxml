@@ -39,41 +39,17 @@
 	<field name="emrChanDoan" class="vn.ehealth.emr.EmrChanDoan">
 		<fieldDescription><![CDATA[emrChanDoan]]></fieldDescription>
 	</field>
-	<field name="emrChanDoanHinhAnhs" class="java.util.List">
-		<fieldDescription><![CDATA[emrChanDoanHinhAnhs]]></fieldDescription>
-	</field>
 	<field name="emrDmLoaiBenhAn" class="vn.ehealth.emr.EmrDm">
 		<fieldDescription><![CDATA[emrDmLoaiBenhAn]]></fieldDescription>
 	</field>
-	<field name="emrDmNguondulieu" class="vn.ehealth.emr.EmrDm">
-		<fieldDescription><![CDATA[emrDmNguondulieu]]></fieldDescription>
-	</field>
-	<field name="emrDmTrangthai" class="vn.ehealth.emr.EmrDm">
-		<fieldDescription><![CDATA[emrDmTrangthai]]></fieldDescription>
-	</field>
-	<field name="emrDonThuocs" class="java.util.List">
-		<fieldDescription><![CDATA[emrDonThuocs]]></fieldDescription>
-	</field>
-	<field name="emrGiaiPhauBenhs" class="java.util.List">
-		<fieldDescription><![CDATA[emrGiaiPhauBenhs]]></fieldDescription>
-	</field>
-	<field name="emrHinhAnhTonThuongs" class="java.util.List">
-		<fieldDescription><![CDATA[emrHinhAnhTonThuongs]]></fieldDescription>
-	</field>
 	<field name="emrPhauThuatThuThuats" class="vn.ehealth.emr.EmrPhauThuatThuThuat[]">
 		<fieldDescription><![CDATA[emrPhauThuatThuThuats]]></fieldDescription>
-	</field>
-	<field name="emrQuaTrinhSuDungThuocs" class="java.util.List">
-		<fieldDescription><![CDATA[emrQuaTrinhSuDungThuocs]]></fieldDescription>
 	</field>
 	<field name="emrQuanLyFileDinhKemBenhAn" class="java.util.List">
 		<fieldDescription><![CDATA[emrQuanLyFileDinhKemBenhAn]]></fieldDescription>
 	</field>
 	<field name="emrQuanLyNguoiBenh" class="vn.ehealth.emr.EmrQuanLyNguoiBenh">
 		<fieldDescription><![CDATA[emrQuanLyNguoiBenh]]></fieldDescription>
-	</field>
-	<field name="emrThamDoChucNangs" class="java.util.List">
-		<fieldDescription><![CDATA[emrThamDoChucNangs]]></fieldDescription>
 	</field>
 	<field name="emrTinhTrangRaVien" class="vn.ehealth.emr.EmrTinhTrangRaVien">
 		<fieldDescription><![CDATA[emrTinhTrangRaVien]]></fieldDescription>
@@ -87,20 +63,11 @@
 	<field name="emrVaoKhoas" class="vn.ehealth.emr.EmrVaoKhoa[]">
 		<fieldDescription><![CDATA[emrVaoKhoas]]></fieldDescription>
 	</field>
-	<field name="emrXetNghiems" class="java.util.List">
-		<fieldDescription><![CDATA[emrXetNghiems]]></fieldDescription>
-	</field>
-	<field name="emrYeuCauTruyCapHsbaChiTiets" class="java.util.List">
-		<fieldDescription><![CDATA[emrYeuCauTruyCapHsbaChiTiets]]></fieldDescription>
-	</field>
 	<field name="emrYhctBenhAn" class="vn.ehealth.emr.EmrYhctBenhAn">
 		<fieldDescription><![CDATA[emrYhctBenhAn]]></fieldDescription>
 	</field>
 	<field name="emrYhctChanDoan" class="vn.ehealth.emr.EmrYhctChanDoan">
 		<fieldDescription><![CDATA[emrYhctChanDoan]]></fieldDescription>
-	</field>
-	<field name="emrYhctDonThuocs" class="java.util.List">
-		<fieldDescription><![CDATA[emrYhctDonThuocs]]></fieldDescription>
 	</field>
 	<field name="emrYhctNhaBa" class="vn.ehealth.emr.EmrYhctNhaBa">
 		<fieldDescription><![CDATA[emrYhctNhaBa]]></fieldDescription>
@@ -114,50 +81,17 @@
 	<field name="id" class="java.lang.Integer">
 		<fieldDescription><![CDATA[id]]></fieldDescription>
 	</field>
-	<field name="idnguoisua" class="java.lang.Integer">
-		<fieldDescription><![CDATA[idnguoisua]]></fieldDescription>
-	</field>
-	<field name="idnguoitao" class="java.lang.Integer">
-		<fieldDescription><![CDATA[idnguoitao]]></fieldDescription>
-	</field>
-	<field name="isLocked" class="java.lang.Boolean">
-		<fieldDescription><![CDATA[isLocked]]></fieldDescription>
-	</field>
 	<field name="maluutru" class="java.lang.String">
 		<fieldDescription><![CDATA[maluutru]]></fieldDescription>
-	</field>
-	<field name="matraodoi" class="java.lang.String">
-		<fieldDescription><![CDATA[matraodoi]]></fieldDescription>
 	</field>
 	<field name="mayte" class="java.lang.String">
 		<fieldDescription><![CDATA[mayte]]></fieldDescription>
 	</field>
-	<field name="ngaysua" class="java.util.Date">
-		<fieldDescription><![CDATA[ngaysua]]></fieldDescription>
-	</field>
-	<field name="ngaytao" class="java.util.Date">
-		<fieldDescription><![CDATA[ngaytao]]></fieldDescription>
-	</field>
-	<field name="phangui" class="java.lang.Integer">
-		<fieldDescription><![CDATA[phangui]]></fieldDescription>
-	</field>
 	<field name="tenbenhvien" class="java.lang.String">
 		<fieldDescription><![CDATA[tenbenhvien]]></fieldDescription>
 	</field>
-	<field name="tongketsankhoaCda" class="java.lang.String">
-		<fieldDescription><![CDATA[tongketsankhoaCda]]></fieldDescription>
-	</field>
-	<field name="transferPassword" class="java.lang.String">
-		<fieldDescription><![CDATA[transferPassword]]></fieldDescription>
-	</field>
-	<field name="transferUserName" class="java.lang.String">
-		<fieldDescription><![CDATA[transferUserName]]></fieldDescription>
-	</field>
 	<field name="truongphongth" class="java.lang.String">
 		<fieldDescription><![CDATA[truongphongth]]></fieldDescription>
-	</field>
-	<field name="validateCDAResult" class="java.lang.String">
-		<fieldDescription><![CDATA[validateCDAResult]]></fieldDescription>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
@@ -1623,7 +1557,7 @@ $P{Header_SCRIPTLET}.getTime_VK($F{emrVaoKhoas}[3].ngaygiovaokhoa):""]]></textFi
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getLoaiThoiGianTuVong$P{danhSachHSBA}> 1?"X":""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getLoaiThoiGianTuVong($P{danhSachHSBA})> 1?"X":""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="357" y="643" width="79" height="15" forecolor="#000000" uuid="087eb428-a294-4d9f-aab5-b20f5af0adae"/>
@@ -1672,7 +1606,7 @@ $P{Header_SCRIPTLET}.getTime_VK($F{emrVaoKhoas}[3].ngaygiovaokhoa):""]]></textFi
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getLoaiThoiGianTuVong$P{danhSachHSBA}==1?"X":""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getLoaiThoiGianTuVong($P{danhSachHSBA})==1?"X":""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="492" y="643" width="32" height="15" forecolor="#000000" uuid="e09cb846-429b-462a-a471-15db810165e3"/>
@@ -4489,8 +4423,7 @@ $P{Header_SCRIPTLET}.getTextICD10TuVongFromTTRaVien(
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[($F{emrPhauThuatThuThuats}!= null && $F{emrPhauThuatThuThuats}.length> 1
-    && $F{emrPhauThuatThuThuats}[1]!=null)?
-($F{emrPhauThuatThuThuats}[1]).bacsygayme:""]]></textFieldExpression>
+    && $F{emrPhauThuatThuThuats}[1]!=null)?($F{emrPhauThuatThuThuats}[1]).bacsygayme:""]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="10" y="485" width="1" height="93" uuid="62c27579-ff8d-4a47-a6f2-068afd8a93a2"/>
@@ -4501,8 +4434,7 @@ $P{Header_SCRIPTLET}.getTextICD10TuVongFromTTRaVien(
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[($F{emrPhauThuatThuThuats}!= null && $F{emrPhauThuatThuThuats}.length> 1
-    && $F{emrPhauThuatThuThuats}[1]!=null)?
-($F{emrPhauThuatThuThuats}[1]).emrDmPhauThuThuat.ten:""]]></textFieldExpression>
+    && $F{emrPhauThuatThuThuats}[1]!=null)?($F{emrPhauThuatThuThuats}[1]).emrDmPhauThuThuat.ten:""]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="342" y="513" width="95" height="17" uuid="d97e779d-5cca-47f6-b6ea-8e62f94f6a58"/>
@@ -4510,8 +4442,7 @@ $P{Header_SCRIPTLET}.getTextICD10TuVongFromTTRaVien(
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[($F{emrPhauThuatThuThuats}!= null && $F{emrPhauThuatThuThuats}.length>0
-    && $F{emrPhauThuatThuThuats}[0]!=null)?
-($F{emrPhauThuatThuThuats}[0]).bacsithuchien:""]]></textFieldExpression>
+    && $F{emrPhauThuatThuThuats}[0]!=null)?($F{emrPhauThuatThuThuats}[0]).bacsithuchien:""]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="342" y="556" width="95" height="17" uuid="47a1a0f2-1f38-4d7d-aa1d-d4237a2dbd51"/>
@@ -4519,8 +4450,7 @@ $P{Header_SCRIPTLET}.getTextICD10TuVongFromTTRaVien(
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[($F{emrPhauThuatThuThuats}!= null && $F{emrPhauThuatThuThuats}.length> 2
-    && $F{emrPhauThuatThuThuats}[2]!=null)?
-($F{emrPhauThuatThuThuats}[2]).bacsithuchien:""]]></textFieldExpression>
+    && $F{emrPhauThuatThuThuats}[2]!=null)?($F{emrPhauThuatThuThuats}[2]).bacsithuchien:""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="446" y="490" width="81" height="17" uuid="32f5df9d-0215-432d-ba75-af70500f2a05"/>
@@ -4538,8 +4468,7 @@ $P{Header_SCRIPTLET}.getTextICD10TuVongFromTTRaVien(
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[($F{emrPhauThuatThuThuats}!= null && $F{emrPhauThuatThuThuats}.length>0
-    && $F{emrPhauThuatThuThuats}[0]!=null)?
-($F{emrPhauThuatThuThuats}[0]).bacsygayme:""]]></textFieldExpression>
+    && $F{emrPhauThuatThuThuats}[0]!=null)?($F{emrPhauThuatThuThuats}[0]).bacsygayme:""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="342" y="490" width="95" height="17" uuid="2bd78952-234f-4617-a5d1-da5f53d98d42"/>
@@ -4560,8 +4489,7 @@ $P{Header_SCRIPTLET}.getTextICD10TuVongFromTTRaVien(
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[($F{emrPhauThuatThuThuats}!= null && $F{emrPhauThuatThuThuats}.length>0
-    && $F{emrPhauThuatThuThuats}[0]!=null)?
-$P{Header_SCRIPTLET}.getTime_PTTT(($F{emrPhauThuatThuThuats}[0]).ngaygiopttt):""]]></textFieldExpression>
+    && $F{emrPhauThuatThuThuats}[0]!=null)?$P{Header_SCRIPTLET}.getTime_PTTT(($F{emrPhauThuatThuThuats}[0]).ngaygiopttt):""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="140" y="490" width="188" height="17" uuid="9ba7ade2-5d96-48bd-b767-e15e0e04d525"/>
@@ -4576,8 +4504,7 @@ $P{Header_SCRIPTLET}.getTime_PTTT(($F{emrPhauThuatThuThuats}[0]).ngaygiopttt):""
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[($F{emrPhauThuatThuThuats}!= null && $F{emrPhauThuatThuThuats}.length> 1
-    && $F{emrPhauThuatThuThuats}[1]!=null)?
-($F{emrPhauThuatThuThuats}[1]).bacsithuchien:""]]></textFieldExpression>
+    && $F{emrPhauThuatThuThuats}[1]!=null)?($F{emrPhauThuatThuThuats}[1]).bacsithuchien:""]]></textFieldExpression>
 			</textField>
 			<textField pattern="HH:mm dd/MM/yyyy" isBlankWhenNull="true">
 				<reportElement x="21" y="535" width="89" height="17" uuid="01682c76-bf38-4003-94e3-b598f041f29e"/>
@@ -4585,8 +4512,7 @@ $P{Header_SCRIPTLET}.getTime_PTTT(($F{emrPhauThuatThuThuats}[0]).ngaygiopttt):""
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[($F{emrPhauThuatThuThuats}!= null && $F{emrPhauThuatThuThuats}.length>1
-    && $F{emrPhauThuatThuThuats}[1]!=null)?
-$P{Header_SCRIPTLET}.getTime_PTTT(($F{emrPhauThuatThuThuats}[1]).ngaygiopttt):""]]></textFieldExpression>
+    && $F{emrPhauThuatThuThuats}[1]!=null)?$P{Header_SCRIPTLET}.getTime_PTTT(($F{emrPhauThuatThuThuats}[1]).ngaygiopttt):""]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="439" y="485" width="1" height="94" uuid="5e94a57d-b185-44c2-8288-b1641cab3665"/>
@@ -4603,8 +4529,7 @@ $P{Header_SCRIPTLET}.getTime_PTTT(($F{emrPhauThuatThuThuats}[1]).ngaygiopttt):""
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[($F{emrPhauThuatThuThuats}!= null && $F{emrPhauThuatThuThuats}.length>2
-    && $F{emrPhauThuatThuThuats}[2]!=null)?
-$P{Header_SCRIPTLET}.getTime_PTTT(($F{emrPhauThuatThuThuats}[2]).ngaygiopttt):""]]></textFieldExpression>
+    && $F{emrPhauThuatThuThuats}[2]!=null)?$P{Header_SCRIPTLET}.getTime_PTTT(($F{emrPhauThuatThuThuats}[2]).ngaygiopttt):""]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="111" y="486" width="1" height="92" uuid="001e29ee-1da1-4854-b3de-519972e3771c"/>
@@ -4615,8 +4540,7 @@ $P{Header_SCRIPTLET}.getTime_PTTT(($F{emrPhauThuatThuThuats}[2]).ngaygiopttt):""
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[($F{emrPhauThuatThuThuats}!= null && $F{emrPhauThuatThuThuats}.length> 2
-    && $F{emrPhauThuatThuThuats}[2]!=null)?
-($F{emrPhauThuatThuThuats}[2]).bacsygayme:""]]></textFieldExpression>
+    && $F{emrPhauThuatThuThuats}[2]!=null)?($F{emrPhauThuatThuThuats}[2]).bacsygayme:""]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="116" y="513" width="220" height="17" uuid="f48b8a2c-49f3-4eb8-b7c8-b0b34250d228"/>
@@ -4624,8 +4548,7 @@ $P{Header_SCRIPTLET}.getTime_PTTT(($F{emrPhauThuatThuThuats}[2]).ngaygiopttt):""
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[($F{emrPhauThuatThuThuats}!= null && $F{emrPhauThuatThuThuats}.length>0
-    && $F{emrPhauThuatThuThuats}[0]!=null)?
-($F{emrPhauThuatThuThuats}[0]).emrDmPhauThuThuat.ten:""]]></textFieldExpression>
+    && $F{emrPhauThuatThuThuats}[0]!=null)?($F{emrPhauThuatThuThuats}[0]).emrDmPhauThuThuat.ten:""]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="116" y="556" width="220" height="17" uuid="2f666da7-39ca-4f32-891d-9f4a7f973e71"/>
@@ -4633,8 +4556,7 @@ $P{Header_SCRIPTLET}.getTime_PTTT(($F{emrPhauThuatThuThuats}[2]).ngaygiopttt):""
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[($F{emrPhauThuatThuThuats}!= null && $F{emrPhauThuatThuThuats}.length> 2
-    && $F{emrPhauThuatThuThuats}[2]!=null)?
-($F{emrPhauThuatThuThuats}[2]).emrDmPhauThuThuat.ten:""]]></textFieldExpression>
+    && $F{emrPhauThuatThuThuats}[2]!=null)?($F{emrPhauThuatThuThuats}[2]).emrDmPhauThuThuat.ten:""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="8" y="11" width="193" height="20" uuid="67f7bbe1-62c4-4b73-ad24-9326c977db22"/>

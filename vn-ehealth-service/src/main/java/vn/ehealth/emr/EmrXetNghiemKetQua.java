@@ -1,5 +1,8 @@
 package vn.ehealth.emr;
 
+import lombok.Data;
+
+@Data
 public class EmrXetNghiemKetQua {
 
     public int id;

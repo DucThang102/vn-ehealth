@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import lombok.Data;
 import vn.ehealth.emr.file.EmrQuanLyFileDinhKem;
 
+@Data
 public class EmrChanDoanHinhAnh {
 
     public int id;
@@ -27,5 +29,6 @@ public class EmrChanDoanHinhAnh {
     public String bacsichuyenkhoa;
     public Boolean daxoa;
     
-    public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemCdha = new ArrayList<>(); 
+    public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemCdha = new ArrayList<>();
+
 }

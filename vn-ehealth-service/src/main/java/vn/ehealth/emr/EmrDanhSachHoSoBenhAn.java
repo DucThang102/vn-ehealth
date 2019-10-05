@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import lombok.Data;
 import vn.ehealth.emr.file.EmrQuanLyFileDinhKemBenhAn;
 
+@Data
 public class EmrDanhSachHoSoBenhAn {
 
     public int id;
@@ -25,9 +27,6 @@ public class EmrDanhSachHoSoBenhAn {
     public String mayte;
     public String maluutru;
     public Boolean daxoa;
-    
-    // Them 25/05/2015
-    public Boolean isLocked;
     
     public Date ngaytao;
     public Integer idnguoitao;
@@ -64,24 +63,9 @@ public class EmrDanhSachHoSoBenhAn {
     // NoiPD add 2016/03/18
     public List<EmrQuanLyFileDinhKemBenhAn> emrQuanLyFileDinhKemBenhAn = new ArrayList<>();
     
-    // For validate CDA
-    public String validateCDAResult;
-    
-    // For storing cda text of tong ket san khoa
-    public String tongketsankhoaCda;
-    
     // For transfer HSBA from WS    
     public String matraodoi;   
-    public String transferUserName;    
-    public String transferPassword;
     
     public Boolean coPhauThuat;
     public Boolean coThuThuat;
-    
-    //ngay 29/6/2015
-    public Boolean guimotphan;
-    public Integer phangui;
-    
-    // Add new by SonVu 05/09/2016
-    public String maLienQuan;
 }

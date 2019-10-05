@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import lombok.Data;
 import vn.ehealth.emr.file.EmrQuanLyFileDinhKem;
 
+@Data
 public class EmrThamDoChucNang {
     public int id;
     

@@ -23,38 +23,14 @@
 	<field name="emrChanDoan" class="vn.ehealth.emr.EmrChanDoan">
 		<fieldDescription><![CDATA[emrChanDoan]]></fieldDescription>
 	</field>
-	<field name="emrChanDoanHinhAnhs" class="java.util.List">
-		<fieldDescription><![CDATA[emrChanDoanHinhAnhs]]></fieldDescription>
-	</field>
 	<field name="emrDmLoaiBenhAn" class="vn.ehealth.emr.EmrDm">
 		<fieldDescription><![CDATA[emrDmLoaiBenhAn]]></fieldDescription>
-	</field>
-	<field name="emrDmNguondulieu" class="vn.ehealth.emr.EmrDm">
-		<fieldDescription><![CDATA[emrDmNguondulieu]]></fieldDescription>
-	</field>
-	<field name="emrDmTrangthai" class="vn.ehealth.emr.EmrDm">
-		<fieldDescription><![CDATA[emrDmTrangthai]]></fieldDescription>
-	</field>
-	<field name="emrDonThuocs" class="java.util.List">
-		<fieldDescription><![CDATA[emrDonThuocs]]></fieldDescription>
-	</field>
-	<field name="emrGiaiPhauBenhs" class="java.util.List">
-		<fieldDescription><![CDATA[emrGiaiPhauBenhs]]></fieldDescription>
-	</field>
-	<field name="emrHinhAnhTonThuongs" class="java.util.List">
-		<fieldDescription><![CDATA[emrHinhAnhTonThuongs]]></fieldDescription>
 	</field>
 	<field name="emrPhauThuatThuThuats" class="vn.ehealth.emr.EmrPhauThuatThuThuat[]">
 		<fieldDescription><![CDATA[emrPhauThuatThuThuats]]></fieldDescription>
 	</field>
-	<field name="emrQuaTrinhSuDungThuocs" class="java.util.List">
-		<fieldDescription><![CDATA[emrQuaTrinhSuDungThuocs]]></fieldDescription>
-	</field>
 	<field name="emrQuanLyNguoiBenh" class="vn.ehealth.emr.EmrQuanLyNguoiBenh">
 		<fieldDescription><![CDATA[emrQuanLyNguoiBenh]]></fieldDescription>
-	</field>
-	<field name="emrThamDoChucNangs" class="java.util.List">
-		<fieldDescription><![CDATA[emrThamDoChucNangs]]></fieldDescription>
 	</field>
 	<field name="emrTinhTrangRaVien" class="vn.ehealth.emr.EmrTinhTrangRaVien">
 		<fieldDescription><![CDATA[emrTinhTrangRaVien]]></fieldDescription>
@@ -68,12 +44,6 @@
 	<field name="emrVaoKhoas" class="vn.ehealth.emr.EmrVaoKhoa[]">
 		<fieldDescription><![CDATA[emrVaoKhoas]]></fieldDescription>
 	</field>
-	<field name="emrXetNghiems" class="java.util.List">
-		<fieldDescription><![CDATA[emrXetNghiems]]></fieldDescription>
-	</field>
-	<field name="emrYeuCauTruyCapHsbaChiTiets" class="java.util.List">
-		<fieldDescription><![CDATA[emrYeuCauTruyCapHsbaChiTiets]]></fieldDescription>
-	</field>
 	<field name="emrYhctBenhAn" class="vn.ehealth.emr.EmrYhctBenhAn">
 		<fieldDescription><![CDATA[emrYhctBenhAn]]></fieldDescription>
 	</field>
@@ -86,29 +56,14 @@
 	<field name="id" class="java.lang.Integer">
 		<fieldDescription><![CDATA[id]]></fieldDescription>
 	</field>
-	<field name="idnguoisua" class="java.lang.Integer">
-		<fieldDescription><![CDATA[idnguoisua]]></fieldDescription>
-	</field>
-	<field name="idnguoitao" class="java.lang.Integer">
-		<fieldDescription><![CDATA[idnguoitao]]></fieldDescription>
-	</field>
 	<field name="maluutru" class="java.lang.String">
 		<fieldDescription><![CDATA[maluutru]]></fieldDescription>
 	</field>
 	<field name="mayte" class="java.lang.String">
 		<fieldDescription><![CDATA[mayte]]></fieldDescription>
 	</field>
-	<field name="ngaysua" class="java.util.Date">
-		<fieldDescription><![CDATA[ngaysua]]></fieldDescription>
-	</field>
-	<field name="ngaytao" class="java.util.Date">
-		<fieldDescription><![CDATA[ngaytao]]></fieldDescription>
-	</field>
 	<field name="tenbenhvien" class="java.lang.String">
 		<fieldDescription><![CDATA[tenbenhvien]]></fieldDescription>
-	</field>
-	<field name="validateCDAResult" class="java.lang.String">
-		<fieldDescription><![CDATA[validateCDAResult]]></fieldDescription>
 	</field>
 	<field name="emrBenhAn" class="vn.ehealth.emr.EmrBenhAn">
 		<fieldDescription><![CDATA[emrBenhAn]]></fieldDescription>
@@ -400,10 +355,8 @@ $P{Header_SCRIPTLET}.getTime_VK($F{emrVaoKhoas}[0].ngaygiovaokhoa):""]]></textFi
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrVaoKhoas} != null && $F{emrVaoKhoas}.length > 1 && $F{emrVaoKhoas}[1].emrDmKhoaDieuTri != null)?
-($F{emrVaoKhoas}[1].emrDmKhoaDieuTri).ten:
-($F{emrVaoKhoas} != null && $F{emrVaoKhoas}.length > 1 && $F{emrVaoKhoas}[1].emrDmKhoaDieuTri == null)?
-$F{emrVaoKhoas}[1].tenkhoa:
+				<textFieldExpression><![CDATA[($F{emrVaoKhoas} != null && $F{emrVaoKhoas}.length > 1 && $F{emrVaoKhoas}[1].emrDmKhoaDieuTri != null)?($F{emrVaoKhoas}[1].emrDmKhoaDieuTri).ten:
+($F{emrVaoKhoas} != null && $F{emrVaoKhoas}.length > 1 && $F{emrVaoKhoas}[1].emrDmKhoaDieuTri == null)?$F{emrVaoKhoas}[1].tenkhoa:
 ""]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -418,10 +371,8 @@ $F{emrVaoKhoas}[1].tenkhoa:
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrVaoKhoas} != null && $F{emrVaoKhoas}.length > 2 && $F{emrVaoKhoas}[2].emrDmKhoaDieuTri != null)?
-($F{emrVaoKhoas}[2].emrDmKhoaDieuTri).ten:
-($F{emrVaoKhoas} != null && $F{emrVaoKhoas}.length > 2 && $F{emrVaoKhoas}[2].emrDmKhoaDieuTri == null)?
-$F{emrVaoKhoas}[2].tenkhoa:
+				<textFieldExpression><![CDATA[($F{emrVaoKhoas} != null && $F{emrVaoKhoas}.length > 2 && $F{emrVaoKhoas}[2].emrDmKhoaDieuTri != null)?($F{emrVaoKhoas}[2].emrDmKhoaDieuTri).ten:
+($F{emrVaoKhoas} != null && $F{emrVaoKhoas}.length > 2 && $F{emrVaoKhoas}[2].emrDmKhoaDieuTri == null)?$F{emrVaoKhoas}[2].tenkhoa:
 ""]]></textFieldExpression>
 			</textField>
 			<textField pattern="hh:mm:ss dd/MM/yyyy" isBlankWhenNull="true">
@@ -710,7 +661,7 @@ $F{emrVaoKhoas}[0].tentruongkhoa:""]]></textFieldExpression>
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrChanDoan}.getEmrDmMaBenhChandoandieutri().ma]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrChanDoan}.emrDmMaBenhChandoandieutri.ma]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="14" y="537" width="100" height="15" uuid="7b25b438-f1ae-4a14-814b-31fa44034f23"/>
@@ -809,8 +760,7 @@ $F{emrVaoKhoas}[0].tentruongkhoa:""]]></textFieldExpression>
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrTinhTrangRaVien}.emrDmGiaiphaututhi != null)?
-$F{emrTinhTrangRaVien}.emrDmGiaiphaututhi.ten:
+				<textFieldExpression><![CDATA[($F{emrTinhTrangRaVien}.emrDmGiaiphaututhi != null)?$F{emrTinhTrangRaVien}.emrDmGiaiphaututhi.ten:
 $F{emrTinhTrangRaVien}.motagiaiphaututhi]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
@@ -818,8 +768,7 @@ $F{emrTinhTrangRaVien}.motagiaiphaututhi]]></textFieldExpression>
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrTinhTrangRaVien}.emrDmNguyennhantuvong != null)?
-$F{emrTinhTrangRaVien}.emrDmNguyennhantuvong.ten:
+				<textFieldExpression><![CDATA[($F{emrTinhTrangRaVien}.emrDmNguyennhantuvong != null)?$F{emrTinhTrangRaVien}.emrDmNguyennhantuvong.ten:
 $F{emrTinhTrangRaVien}.motanguyennhantuvong]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
@@ -929,8 +878,7 @@ $F{emrVaoKhoas}[0].giuong:""]]></textFieldExpression>
 				<textElement>
 					<font fontName="Times New Roman" size="11" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrBenhNhan}.emrDmGioiTinh != null)?
-$F{emrBenhNhan}.emrDmGioiTinh.ten:""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{emrBenhNhan}.emrDmGioiTinh != null)?$F{emrBenhNhan}.emrDmGioiTinh.ten:""]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="370" y="114" width="180" height="17" uuid="d9548c37-0299-4280-a367-d8a4a7e8f0a2"/>
@@ -1000,10 +948,8 @@ $F{emrBenhNhan}.emrDmGioiTinh.ten:""]]></textFieldExpression>
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrVaoKhoas} != null && $F{emrVaoKhoas}.length > 0 && $F{emrVaoKhoas}[0].emrDmKhoaDieuTri != null)?
-($F{emrVaoKhoas}[0].emrDmKhoaDieuTri).ten:
-($F{emrVaoKhoas} != null && $F{emrVaoKhoas}.length > 0 && $F{emrVaoKhoas}[0].emrDmKhoaDieuTri == null)?
-$F{emrVaoKhoas}[0].tenkhoa:
+				<textFieldExpression><![CDATA[($F{emrVaoKhoas} != null && $F{emrVaoKhoas}.length > 0 && $F{emrVaoKhoas}[0].emrDmKhoaDieuTri != null)?($F{emrVaoKhoas}[0].emrDmKhoaDieuTri).ten:
+($F{emrVaoKhoas} != null && $F{emrVaoKhoas}.length > 0 && $F{emrVaoKhoas}[0].emrDmKhoaDieuTri == null)?$F{emrVaoKhoas}[0].tenkhoa:
 ""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
@@ -1051,10 +997,8 @@ $P{Header_SCRIPTLET}.getSoNgayDieuTri(
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrVaoKhoas} != null && $F{emrVaoKhoas}.length > 3 && $F{emrVaoKhoas}[3].emrDmKhoaDieuTri != null)?
-($F{emrVaoKhoas}[3].emrDmKhoaDieuTri).ten:
-($F{emrVaoKhoas} != null && $F{emrVaoKhoas}.length > 3 && $F{emrVaoKhoas}[3].emrDmKhoaDieuTri == null)?
-$F{emrVaoKhoas}[3].tenkhoa:
+				<textFieldExpression><![CDATA[($F{emrVaoKhoas} != null && $F{emrVaoKhoas}.length > 3 && $F{emrVaoKhoas}[3].emrDmKhoaDieuTri != null)?($F{emrVaoKhoas}[3].emrDmKhoaDieuTri).ten:
+($F{emrVaoKhoas} != null && $F{emrVaoKhoas}.length > 3 && $F{emrVaoKhoas}[3].emrDmKhoaDieuTri == null)?$F{emrVaoKhoas}[3].tenkhoa:
 ""]]></textFieldExpression>
 			</textField>
 			<textField pattern="hh:mm:ss dd/MM/yyyy" isBlankWhenNull="true">
@@ -1254,7 +1198,7 @@ $P{Header_SCRIPTLET}.getTime_VK($F{emrVaoKhoas}[3].ngaygiovaokhoa):""]]></textFi
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getLoaiThoiGianTuVong$P{danhSachHSBA}> 1?"X":""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getLoaiThoiGianTuVong($P{danhSachHSBA})> 1?"X":""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="360" y="622" width="79" height="15" forecolor="#000000" uuid="c4a5cdd5-c692-4b5a-9d36-6d2f91ad3cdd"/>
@@ -1303,7 +1247,7 @@ $P{Header_SCRIPTLET}.getTime_VK($F{emrVaoKhoas}[3].ngaygiovaokhoa):""]]></textFi
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getLoaiThoiGianTuVong$P{danhSachHSBA}==1?"X":""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getLoaiThoiGianTuVong($P{danhSachHSBA})==1?"X":""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="481" y="622" width="28" height="15" forecolor="#000000" uuid="7a1d491a-f989-42e3-bc17-f1b86c80fc44"/>
@@ -2032,8 +1976,7 @@ $P{Header_SCRIPTLET}.getTime_VK($F{emrVaoKhoas}[3].ngaygiovaokhoa):""]]></textFi
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrBenhAn}.emrDmMaBenhChandoanphanbiet != null)?
-$F{emrBenhAn}.emrDmMaBenhChandoanphanbiet.ten:
+				<textFieldExpression><![CDATA[($F{emrBenhAn}.emrDmMaBenhChandoanphanbiet != null)?$F{emrBenhAn}.emrDmMaBenhChandoanphanbiet.ten:
 $F{emrBenhAn}.motachandoanphanbiet]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -2062,8 +2005,7 @@ $F{emrBenhAn}.motachandoanphanbiet]]></textFieldExpression>
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrBenhAn}.emrDmMaBenhChandoanbenhchinh != null)?
-$F{emrBenhAn}.emrDmMaBenhChandoanbenhchinh.ten:
+				<textFieldExpression><![CDATA[($F{emrBenhAn}.emrDmMaBenhChandoanbenhchinh != null)?$F{emrBenhAn}.emrDmMaBenhChandoanbenhchinh.ten:
 $F{emrBenhAn}.motachandoanbenhchinh]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
@@ -2071,8 +2013,7 @@ $F{emrBenhAn}.motachandoanbenhchinh]]></textFieldExpression>
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrBenhAn}.emrDmMaBenhChandoankemtheo != null)?
-$F{emrBenhAn}.emrDmMaBenhChandoankemtheo.ten:
+				<textFieldExpression><![CDATA[($F{emrBenhAn}.emrDmMaBenhChandoankemtheo != null)?$F{emrBenhAn}.emrDmMaBenhChandoankemtheo.ten:
 $F{emrBenhAn}.motachandoankemtheo]]></textFieldExpression>
 			</textField>
 			<staticText>
