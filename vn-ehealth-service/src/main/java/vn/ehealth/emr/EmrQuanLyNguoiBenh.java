@@ -2,9 +2,6 @@ package vn.ehealth.emr;
 
 import java.util.Date;
 
-import lombok.Data;
-
-@Data
 public class EmrQuanLyNguoiBenh {
 
     public int idhsba;

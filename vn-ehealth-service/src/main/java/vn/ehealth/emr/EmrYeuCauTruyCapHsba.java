@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import lombok.Data;
-
-@Data
 public class EmrYeuCauTruyCapHsba {
 
     public int id;
@@ -21,7 +18,6 @@ public class EmrYeuCauTruyCapHsba {
     public Integer idnguoisua;
     public Date ngaysua;
     public Boolean daxoa;
-    public User user;
     public EmrDm trangThai;
     public List<EmrYeuCauTruyCapHsbaChiTiet> emrYeuCauTruyCapHsbaChiTiets = new ArrayList<>();
     public List<EmrCommentYeuCauTruyCapHsba> emrCommentYeuCauTruyCapHsbas = new ArrayList<>();

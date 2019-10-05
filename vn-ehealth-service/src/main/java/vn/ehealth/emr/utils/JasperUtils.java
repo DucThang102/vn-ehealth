@@ -236,26 +236,26 @@ public class JasperUtils extends JRDefaultScriptlet  {
     public String getBacSiDieuTri(EmrDanhSachHoSoBenhAn emrDanhSachHoSoBenhAn) {
         
         if (emrDanhSachHoSoBenhAn == null) return "";
-        var vaoKhoas = emrDanhSachHoSoBenhAn.getEmrVaoKhoas();
+        var vaoKhoas = emrDanhSachHoSoBenhAn.emrVaoKhoas;
         
         // Tim ra doi tuong khoa ra vien
         EmrVaoKhoa emrKhoaRaVien = null;
         Date ngayKetThucDieuTri = new Date(0);
         for (EmrVaoKhoa emrVaoKhoa : vaoKhoas) {
             
-            if (emrVaoKhoa.getNgayketthucdieutri() == null || (emrVaoKhoa.getDaxoa() != null && emrVaoKhoa.getDaxoa() == true)) continue;
+            if (emrVaoKhoa.ngayketthucdieutri == null || (emrVaoKhoa.daxoa != null && emrVaoKhoa.daxoa == true)) continue;
             
-            if (emrVaoKhoa.getNgayketthucdieutri().after(ngayKetThucDieuTri)) {
-                ngayKetThucDieuTri = emrVaoKhoa.getNgayketthucdieutri();
+            if (emrVaoKhoa.ngayketthucdieutri.after(ngayKetThucDieuTri)) {
+                ngayKetThucDieuTri = emrVaoKhoa.ngayketthucdieutri;
                 emrKhoaRaVien = emrVaoKhoa;
             }
         }
         
-        if(!emrDanhSachHoSoBenhAn.getEmrQuanLyNguoiBenh().getTenbacsichoravien().equals("")){
-            return emrDanhSachHoSoBenhAn.getEmrQuanLyNguoiBenh().getTenbacsichoravien();
+        if(!"".equals(emrDanhSachHoSoBenhAn.emrQuanLyNguoiBenh.tenbacsichoravien)){
+            return emrDanhSachHoSoBenhAn.emrQuanLyNguoiBenh.tenbacsichoravien;
         }else{
             if (emrKhoaRaVien == null) return "";
-            else return emrKhoaRaVien.getBacsidieutri();
+            else return emrKhoaRaVien.bacsidieutri;
         }
     }
     
@@ -309,8 +309,8 @@ public class JasperUtils extends JRDefaultScriptlet  {
         String tuoi = "";
         if(danhSachHSBA != null){
             EmrTuoi object = getEmrTuoi(danhSachHSBA);
-            if (object != null && object.isFlagTuoi()){
-                String vTuoi = object.getTuoi();
+            if (object != null && object.flagTuoi){
+                String vTuoi = object.tuoi;
                 int length = vTuoi.length();                
                 if(index <= 2){
                     if(index == 0 || index == 1){
@@ -348,11 +348,11 @@ public class JasperUtils extends JRDefaultScriptlet  {
         if(ttsp != null){
             int vDenon      = 0;
             int vDuThang    = 0;
-            Integer denon   = convertStringToInteger(ttsp.getParaDenon());
+            Integer denon   = convertStringToInteger(ttsp.paraDenon);
             if(denon != null){
                 vDenon = denon.intValue();
             }
-            Integer duthang = convertStringToInteger(ttsp.getParaDuthang());
+            Integer duthang = convertStringToInteger(ttsp.paraDuthang);
             if(duthang != null){
                 vDuThang = duthang.intValue();
             }
@@ -379,8 +379,8 @@ public class JasperUtils extends JRDefaultScriptlet  {
         String tuoi = "Tuổi";
         if(danhSachHSBA != null){
             EmrTuoi object = getEmrTuoi(danhSachHSBA);
-            if (object != null && object.isFlagTuoi()){
-                int loai = object.getLoaiTuoi();
+            if (object != null && object.flagTuoi){
+                int loai = object.loaiTuoi;
                 if(loai == 1){
                     tuoi = "Tuổi";
                 }else if(loai == 2){
@@ -676,10 +676,10 @@ public class JasperUtils extends JRDefaultScriptlet  {
         Integer iNgayVaoVienThu = null;
         
         // lay ngay vao vien thu
-        iNgayVaoVienThu = danhSachHSBA.getEmrBenhAn().getVaongaythu();
+        iNgayVaoVienThu = danhSachHSBA.emrBenhAn.vaongaythu;
         
         // lay ngay gio vao vien
-        Date dNgayVaoVien = danhSachHSBA.getEmrQuanLyNguoiBenh().getNgaygiovaovien();
+        Date dNgayVaoVien = danhSachHSBA.emrQuanLyNguoiBenh.ngaygiovaovien;
         
         if ( iNgayVaoVienThu == null ) {
             return result;
@@ -791,27 +791,27 @@ public class JasperUtils extends JRDefaultScriptlet  {
         StringBuilder sb = new StringBuilder();
         
         int count = 0;
-        if ("on".equals(emrBenhAn.getThuocla())||"1".equals(emrBenhAn.getThuocla())||"TRUE".equals(emrBenhAn.getThuocla().toLowerCase())) {
+        if ("on".equals(emrBenhAn.thuocla)||"1".equals(emrBenhAn.thuocla)||"TRUE".equals(emrBenhAn.thuocla.toLowerCase())) {
             sb.append("1,");
             count++;
         }
         
-        if ("on".equals(emrBenhAn.getRuoubia())||"1".equals(emrBenhAn.getRuoubia())||"TRUE".equals(emrBenhAn.getRuoubia().toLowerCase())) {
+        if ("on".equals(emrBenhAn.ruoubia)||"1".equals(emrBenhAn.ruoubia)||"TRUE".equals(emrBenhAn.ruoubia.toLowerCase())) {
             sb.append("2,");
             count++;
         }
         
-        if ("on".equals(emrBenhAn.getMatuy())||"1".equals(emrBenhAn.getMatuy())||"TRUE".equals(emrBenhAn.getMatuy().toLowerCase())) {
+        if ("on".equals(emrBenhAn.matuy)||"1".equals(emrBenhAn.matuy)||"TRUE".equals(emrBenhAn.matuy.toLowerCase())) {
             sb.append("3,");
             count++;
         }
         
-        if ("on".equals(emrBenhAn.getDiung())||"1".equals(emrBenhAn.getDiung())||"TRUE".equals(emrBenhAn.getDiung().toLowerCase())) {
+        if ("on".equals(emrBenhAn.diung)||"1".equals(emrBenhAn.diung)||"TRUE".equals(emrBenhAn.diung.toLowerCase())) {
             sb.append("4,");
             count++;
         }
         
-        if ("on".equals(emrBenhAn.getDacdiemkhac())||"1".equals(emrBenhAn.getDacdiemkhac())||"TRUE".equals(emrBenhAn.getDacdiemkhac().toLowerCase())) {
+        if ("on".equals(emrBenhAn.dacdiemkhac)||"1".equals(emrBenhAn.dacdiemkhac)||"TRUE".equals(emrBenhAn.dacdiemkhac.toLowerCase())) {
             sb.append("5,");
             count++;
         }
@@ -828,7 +828,7 @@ public class JasperUtils extends JRDefaultScriptlet  {
     
     public String getTextChanDoanYhct(String thongTinMoTa, EmrDm benhDanh) {
         if (StringUtils.isEmpty(thongTinMoTa))
-            return benhDanh == null ? "":benhDanh.getTen();
+            return benhDanh == null ? "":benhDanh.ten;
         else return thongTinMoTa;
     }
     

@@ -2,11 +2,9 @@ package vn.ehealth.emr;
 
 import java.util.Date;
 
-import lombok.Data;
 import vn.ehealth.emr.ck.EmrCkPhuongPhapDieuTriUngBuou;
 import vn.ehealth.emr.ck.EmrCkTinhTrangRaVienMat;
 
-@Data
 public class EmrTongKetRaVien {
 
 public int idhsba;

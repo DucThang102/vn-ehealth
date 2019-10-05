@@ -2,9 +2,7 @@ package vn.ehealth.emr.ck;
 
 import java.util.Date;
 
-import lombok.Data;
 
-@Data
 public class EmrCkTienSuSanKhoaChiTiet {
     
     public int id;

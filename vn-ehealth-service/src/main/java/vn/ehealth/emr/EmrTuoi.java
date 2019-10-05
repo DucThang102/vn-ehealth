@@ -1,8 +1,5 @@
 package vn.ehealth.emr;
 
-import lombok.Data;
-
-@Data
 public class EmrTuoi {
 
     public String tuoi;

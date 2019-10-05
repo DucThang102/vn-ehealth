@@ -1,9 +1,8 @@
 package vn.ehealth.emr.ck;
 
-import lombok.Data;
 import vn.ehealth.emr.EmrTongKetRaVien;
 
-@Data
+
 public class EmrCkPhuongPhapDieuTriUngBuou {
 
     public int idhsba;

@@ -1,8 +1,6 @@
 package vn.ehealth.emr.ck;
 
-import lombok.Data;
 
-@Data
 public class EmrCkMoiSinh {
 
     public int idhsba;

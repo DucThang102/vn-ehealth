@@ -1,9 +1,7 @@
 package vn.ehealth.emr.ck;
 
-import lombok.Data;
 import vn.ehealth.emr.EmrBenhAn;
 
-@Data
 public class EmrCkHoHap {
 
     public int idhsba;
