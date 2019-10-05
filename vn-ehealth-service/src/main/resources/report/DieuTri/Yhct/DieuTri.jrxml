@@ -3,11 +3,11 @@
 	<property name="ireport.zoom" value="1.771561000000001"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<scriptlet name="DieuTri" class="vn.ehealth.emr.utils.JasperUtils"/>
+	<scriptlet name="Header" class="vn.ehealth.emr.utils.JasperUtils"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="danhSachHSBA" class="java.lang.Object"/>
+	<parameter name="danhSachHSBA" class="vn.ehealth.emr.EmrDanhSachHoSoBenhAn"/>
 	<parameter name="headerPath" class="java.lang.String"/>
 	<parameter name="tenThongTin" class="java.lang.String"/>
 	<parameter name="duongDanFileDinhKem" class="java.lang.String"/>
@@ -44,7 +44,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrBenhNhan().getTendaydu()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrBenhNhan.tendaydu]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="48" y="42" width="85" height="17" uuid="01adc8ab-fea0-4695-96f5-ae46e9a245ae"/>
@@ -52,7 +52,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrVaoKhoa}.getTenkhoa() != null )?$F{emrVaoKhoa}.getTenkhoa():$F{emrVaoKhoa}.getEmrDmKhoaDieuTri().getTen()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{emrVaoKhoa}.tenkhoa != null )?$F{emrVaoKhoa}.tenkhoa:$F{emrVaoKhoa}.emrDmKhoaDieuTri.ten]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="17" y="8" width="150" height="17" uuid="9b02bf68-c108-4e67-9b31-9f737d1e7e9b"/>
@@ -74,7 +74,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrVaoKhoa}.getPhong()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrVaoKhoa}.phong]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="429" y="26" width="50" height="17" uuid="5623d199-f747-4ff7-b231-2a390cd10ae9"/>
@@ -89,7 +89,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrVaoKhoa}.getGiuong()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrVaoKhoa}.giuong]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="429" y="9" width="50" height="17" uuid="bf3ac109-1977-455e-878d-e68743cc3138"/>
@@ -167,8 +167,8 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[(((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrBenhNhan().getEmrDmGioiTinh() != null)?
-((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrBenhNhan().getEmrDmGioiTinh().getTen():
+				<textFieldExpression><![CDATA[($P{danhSachHSBA}.emrBenhNhan.emrDmGioiTinh != null)?
+$P{danhSachHSBA}.emrBenhNhan.emrDmGioiTinh.ten:
 ""]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -191,7 +191,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{DieuTri_SCRIPTLET}.getTuoi( (vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA} )]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getTuoi( $P{danhSachHSBA} )]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="-368" y="71" width="84" height="17" uuid="13803ec4-dc90-4189-b449-5106a8ab6401"/>
@@ -213,7 +213,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrBenhNhan().getTendaydu()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrBenhNhan.tendaydu]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="-285" y="71" width="200" height="17" uuid="0728d32b-24e0-44cd-b2d3-7156597fe926"/>
@@ -221,7 +221,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrBenhNhan().getTendaydu()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrBenhNhan.tendaydu]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="-285" y="71" width="200" height="17" uuid="55ffd366-76d1-4b14-b0cf-51e911a4faaf"/>
@@ -229,7 +229,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrBenhNhan().getTendaydu()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrBenhNhan.tendaydu]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="102" y="92" width="433" height="17" uuid="e454ed72-763a-4f39-a8bd-09e943e8d692"/>
@@ -237,9 +237,9 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{DieuTri_SCRIPTLET}.getTextChanDoanYhhd(
-    $F{emrVaoKhoa}.getEmrDanhSachHoSoBenhAn().getEmrBenhAn().getMotachandoanbenhchinh(),
-    $F{emrVaoKhoa}.getEmrDanhSachHoSoBenhAn().getEmrBenhAn().getEmrDmMaBenhChandoanbenhchinh())]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getTextChanDoanYhhd(
+    $F{emrVaoKhoa}.emrDanhSachHoSoBenhAn.emrBenhAn.motachandoanbenhchinh,
+    $F{emrVaoKhoa}.emrDanhSachHoSoBenhAn.emrBenhAn.emrDmMaBenhChandoanbenhchinh)]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="-369" y="42" width="32" height="17" uuid="58cd5c27-232a-4c8d-b9c9-b3ee907287d2"/>
@@ -279,7 +279,7 @@
 					<printWhenExpression><![CDATA[$F{emrQuaTrinhDieuTris}.size()>0]]></printWhenExpression>
 				</reportElement>
 				<subreportParameter name="maLoaiBA">
-					<subreportParameterExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrDmLoaiBenhAn().getMa()]]></subreportParameterExpression>
+					<subreportParameterExpression><![CDATA[$P{danhSachHSBA}.emrDmLoaiBenhAn.ma]]></subreportParameterExpression>
 				</subreportParameter>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{emrQuaTrinhDieuTris})]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "/Yhct/DieuTri_subreport1.jasper"]]></subreportExpression>

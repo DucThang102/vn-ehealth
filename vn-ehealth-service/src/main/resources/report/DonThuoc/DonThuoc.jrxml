@@ -7,7 +7,7 @@
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="danhSachHSBA" class="java.lang.Object"/>
+	<parameter name="danhSachHSBA" class="vn.ehealth.emr.EmrDanhSachHoSoBenhAn"/>
 	<parameter name="headerPath" class="java.lang.String"/>
 	<parameter name="tenThongTin" class="java.lang.String"/>
 	<parameter name="duongDanHost" class="java.lang.String"/>

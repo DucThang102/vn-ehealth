@@ -3,12 +3,11 @@
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="384"/>
-	<scriptlet name="GiayChuyenVien" class="vn.ehealth.emr.utils.JasperUtils"/>
 	<scriptlet name="Header" class="vn.ehealth.emr.utils.JasperUtils"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="danhSachHSBA" class="java.lang.Object"/>
+	<parameter name="danhSachHSBA" class="vn.ehealth.emr.EmrDanhSachHoSoBenhAn"/>
 	<parameter name="emrDanhSachVetTraoDoi" class="java.lang.Object"/>
 	<queryString>
 		<![CDATA[]]>
@@ -46,7 +45,7 @@
 	<field name="emrHinhAnhTonThuongs" class="java.util.List">
 		<fieldDescription><![CDATA[emrHinhAnhTonThuongs]]></fieldDescription>
 	</field>
-	<field name="emrPhauThuatThuThuats" class="java.util.List">
+	<field name="emrPhauThuatThuThuats" class="vn.ehealth.emr.EmrPhauThuatThuThuat[]">
 		<fieldDescription><![CDATA[emrPhauThuatThuThuats]]></fieldDescription>
 	</field>
 	<field name="emrQuaTrinhSuDungThuocs" class="java.util.List">
@@ -67,7 +66,7 @@
 	<field name="emrTongKetSanKhoa" class="vn.ehealth.emr.EmrTongKetSanKhoa">
 		<fieldDescription><![CDATA[emrTongKetSanKhoa]]></fieldDescription>
 	</field>
-	<field name="emrVaoKhoas" class="java.util.List">
+	<field name="emrVaoKhoas" class="vn.ehealth.emr.EmrVaoKhoa[]">
 		<fieldDescription><![CDATA[emrVaoKhoas]]></fieldDescription>
 	</field>
 	<field name="emrXetNghiems" class="java.util.List">
@@ -190,7 +189,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrBenhNhan}.getTendaydu().toUpperCase()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhNhan}.tendaydu.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="295" y="137" width="65" height="17" uuid="f901ff2b-6333-4fc8-bf47-c46677b4aa0e"/>
@@ -253,30 +252,28 @@
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getTuoi( (vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA} )]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getTuoi( $P{danhSachHSBA} )]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
 				<reportElement x="136" y="170" width="144" height="17" uuid="4a04becf-831f-433f-8795-f0b5a39c3e4e"/>
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getTime_DDMMYYYY($F{emrBenhNhan}.getNgayhethanthebhyt())]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getTime_DDMMYYYY($F{emrBenhNhan}.ngayhethanthebhyt)]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="12" y="9" width="176" height="16" uuid="61658815-91dc-400a-8f02-e09fea5093b2"/>
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{donvichuquan} == null?
-$P{GiayChuyenVien_SCRIPTLET}.getDonViChuQuan():$F{donvichuquan}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{donvichuquan}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="32" y="25" width="156" height="17" uuid="e8cba6a1-2da0-4aea-98f5-ec00318f5bb7"/>
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tenbenhvien} == null ?
-$P{GiayChuyenVien_SCRIPTLET}.getTenBenhVien():$F{tenbenhvien}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tenbenhvien}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="455" y="25" width="90" height="17" uuid="ce9be992-049c-49fc-af62-839d1505376a"/>
@@ -297,80 +294,78 @@ $P{GiayChuyenVien_SCRIPTLET}.getTenBenhVien():$F{tenbenhvien}]]></textFieldExpre
 				<textElement>
 					<font fontName="Times New Roman" size="11" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrBenhNhan}.getEmrDmGioiTinh() != null)?
-$F{emrBenhNhan}.getEmrDmGioiTinh().getTen():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{emrBenhNhan}.emrDmGioiTinh != null)?
+$F{emrBenhNhan}.emrDmGioiTinh.ten:""]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="85" y="154" width="195" height="17" uuid="d9548c37-0299-4280-a367-d8a4a7e8f0a2"/>
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrBenhNhan}.getEmrDmNgheNghiep().getTen()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhNhan}.emrDmNgheNghiep.ten]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="62" y="138" width="218" height="17" uuid="c95a3b52-0eb2-4308-a9a5-09aeefa90bdb"/>
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrBenhNhan}.getEmrDmDanToc().getTen()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhNhan}.emrDmDanToc.ten]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="360" y="137" width="185" height="17" uuid="19c2afec-ae60-4a5c-8747-a68e6d0f63d5"/>
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrBenhNhan}.getEmrDmQuocGia().getTen()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhNhan}.emrDmQuocGia.ten]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="367" y="154" width="178" height="17" uuid="732d3bd7-077a-40bf-9ecc-6ad4f8cc81c6"/>
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrBenhNhan}.getNoilamviec()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhNhan}.noilamviec]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
 				<reportElement x="146" y="219" width="399" height="17" uuid="224b1b8a-12b7-43b6-af3a-e2bae41b3eb6"/>
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tenbenhvien} == null ?
-$P{GiayChuyenVien_SCRIPTLET}.getTenBenhVien():$F{tenbenhvien}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tenbenhvien}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="372" y="732" width="154" height="17" uuid="fd60e073-4144-4e9f-adc5-a91608ea6a39"/>
 				<textElement textAlignment="Center" markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{giamdocbenhvien} == null ?
-$P{GiayChuyenVien_SCRIPTLET}.getGiamDoc():$F{giamdocbenhvien}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{giamdocbenhvien}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="62" y="186" width="163" height="17" uuid="f5cff468-5d8d-40c8-b539-58e469e96c16"/>
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrBenhNhan}.getDiachi()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhNhan}.diachi]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="226" y="186" width="164" height="17" uuid="759eabed-ac65-404d-b02e-44e97e9e0fad"/>
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrBenhNhan}.getEmrDmPhuongXa().getTen()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhNhan}.emrDmPhuongXa.ten]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="391" y="186" width="154" height="17" uuid="ce4ae050-7462-4a41-8c13-f5ccc48350a3"/>
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrBenhNhan}.getEmrDmQuanHuyen().getTen()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhNhan}.emrDmQuanHuyen.ten]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="62" y="202" width="230" height="17" uuid="f66f94bb-2676-423f-9945-5bb0353516df"/>
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrBenhNhan}.getEmrDmTinhThanh().getTen()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhNhan}.emrDmTinhThanh.ten]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="264" y="780" width="27" height="17" uuid="f680a5f3-83fb-4a1f-8f14-23deb8e7ad8a"/>
@@ -384,14 +379,14 @@ $P{GiayChuyenVien_SCRIPTLET}.getGiamDoc():$F{giamdocbenhvien}]]></textFieldExpre
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrBenhAn}.getNgaykybenhan().getDate()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhAn}.ngaykybenhan.getDate()]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="410" y="-520" width="15" height="17" uuid="96bfdb62-1ae4-44c8-8ebe-c63ebfdba64b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrBenhAn}.getNgaykybenhan().getMonth() + 1]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhAn}.ngaykybenhan.getMonth() + 1]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="383" y="-520" width="26" height="17" uuid="fb0b0d25-687b-4bab-b45b-78b0c780accb"/>
@@ -405,7 +400,7 @@ $P{GiayChuyenVien_SCRIPTLET}.getGiamDoc():$F{giamdocbenhvien}]]></textFieldExpre
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrBenhAn}.getNgaykybenhan().getYear() + 1990]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhAn}.ngaykybenhan.getYear() + 1990]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="426" y="-520" width="19" height="17" uuid="e9fa681c-d8b5-4c04-9cc9-b372684123a5"/>
@@ -419,7 +414,7 @@ $P{GiayChuyenVien_SCRIPTLET}.getGiamDoc():$F{giamdocbenhvien}]]></textFieldExpre
 				<textElement>
 					<font fontName="Times New Roman" size="11" isItalic="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getTime_DDMMYYYY($F{emrQuanLyNguoiBenh}.getNgaygioravien())]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getTime_DDMMYYYY($F{emrQuanLyNguoiBenh}.ngaygioravien)]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="198" y="9" width="187" height="14" uuid="799b5f35-072c-464e-8d22-1ddf9428bff3"/>
@@ -447,7 +442,7 @@ $P{GiayChuyenVien_SCRIPTLET}.getGiamDoc():$F{giamdocbenhvien}]]></textFieldExpre
 				<textElement textAlignment="Center" markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrTongKetRaVien}.getBacsydieutri()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrTongKetRaVien}.bacsydieutri]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="126" y="85" width="53" height="17" uuid="1ca775a4-90da-414e-af7f-9ba9b7315b4c"/>
@@ -461,8 +456,8 @@ $P{GiayChuyenVien_SCRIPTLET}.getGiamDoc():$F{giamdocbenhvien}]]></textFieldExpre
 				<textElement>
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachVetTraoDoi) $P{emrDanhSachVetTraoDoi}) != null
-? ((vn.ehealth.emr.EmrDanhSachVetTraoDoi) $P{emrDanhSachVetTraoDoi}).getTendiemden()
+				<textFieldExpression><![CDATA[($P{emrDanhSachVetTraoDoi}) != null
+? ($P{emrDanhSachVetTraoDoi}).tendiemden
 : "KHÔNG"]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -477,7 +472,7 @@ $P{GiayChuyenVien_SCRIPTLET}.getGiamDoc():$F{giamdocbenhvien}]]></textFieldExpre
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrQuanLyNguoiBenh}.getNgaygiovaovien()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrQuanLyNguoiBenh}.ngaygiovaovien]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="12" y="235" width="56" height="17" uuid="cc06443c-10f3-478f-948a-313ec4c60941"/>
@@ -498,7 +493,7 @@ $P{GiayChuyenVien_SCRIPTLET}.getGiamDoc():$F{giamdocbenhvien}]]></textFieldExpre
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrQuanLyNguoiBenh}.getNgaygioravien()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrQuanLyNguoiBenh}.ngaygioravien]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="407" y="121" width="67" height="17" uuid="33238fa2-814b-42f1-a52b-557fae575609"/>
@@ -519,14 +514,14 @@ $P{GiayChuyenVien_SCRIPTLET}.getGiamDoc():$F{giamdocbenhvien}]]></textFieldExpre
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrTongKetRaVien}.getDienbienlamsang()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrTongKetRaVien}.dienbienlamsang]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
 				<reportElement x="13" y="365" width="532" height="34" uuid="d41545b1-d793-4c55-b73e-7ff57e46f815"/>
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrTongKetRaVien}.getCanlamsang()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrTongKetRaVien}.canlamsang]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="13" y="349" width="88" height="17" uuid="b8a06a46-31af-41ea-91f8-ef5c553ba699"/>
@@ -568,7 +563,7 @@ $P{GiayChuyenVien_SCRIPTLET}.getGiamDoc():$F{giamdocbenhvien}]]></textFieldExpre
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrTongKetRaVien}.getTinhtrangnguoibenh()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrTongKetRaVien}.tinhtrangnguoibenh]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
 				<reportElement x="14" y="558" width="532" height="31" uuid="de814ac8-ebde-4c3a-ba06-89cfc3b18dad"/>
@@ -637,29 +632,29 @@ $P{GiayChuyenVien_SCRIPTLET}.getGiamDoc():$F{giamdocbenhvien}]]></textFieldExpre
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrChanDoan}.getEmrDmMaBenhChandoanravienchinh() == null
-? "" : $F{emrChanDoan}.getEmrDmMaBenhChandoanravienchinh().getMaicd() + " - ")
+				<textFieldExpression><![CDATA[($F{emrChanDoan}.emrDmMaBenhChandoanravienchinh == null
+? "" : $F{emrChanDoan}.emrDmMaBenhChandoanravienchinh.maicd + " - ")
 + $P{Header_SCRIPTLET}.getTextChanDoanYhhd(
-    $F{emrChanDoan}.getMotachandoanravienchinh(),
-    $F{emrChanDoan}.getEmrDmMaBenhChandoanravienchinh())]]></textFieldExpression>
+    $F{emrChanDoan}.motachandoanravienchinh,
+    $F{emrChanDoan}.emrDmMaBenhChandoanravienchinh)]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="13" y="430" width="531" height="17" uuid="0cf27386-8093-43c1-8a3d-fa0a8bcd2e63"/>
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrChanDoan}.getEmrDmMaBenhChandoanravienkemtheo() == null
-? "" : $F{emrChanDoan}.getEmrDmMaBenhChandoanravienkemtheo().getMaicd() + " - ")
+				<textFieldExpression><![CDATA[($F{emrChanDoan}.emrDmMaBenhChandoanravienkemtheo == null
+? "" : $F{emrChanDoan}.emrDmMaBenhChandoanravienkemtheo.maicd + " - ")
 + $P{Header_SCRIPTLET}.getTextChanDoanYhhd(
-    $F{emrChanDoan}.getMotachandoanravienkemtheo(),
-    $F{emrChanDoan}.getEmrDmMaBenhChandoanravienkemtheo())]]></textFieldExpression>
+    $F{emrChanDoan}.motachandoanravienkemtheo,
+    $F{emrChanDoan}.emrDmMaBenhChandoanravienkemtheo)]]></textFieldExpression>
 			</textField>
 			<textField pattern="yyyy" isBlankWhenNull="true">
 				<reportElement x="101" y="588" width="163" height="17" uuid="31672156-8f82-4688-90df-e2ceafe23438"/>
 				<textElement>
 					<font fontName="Times New Roman" size="11" isItalic="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY($F{emrQuanLyNguoiBenh}.getNgaygioravien())]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY($F{emrQuanLyNguoiBenh}.ngaygioravien)]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="389" y="171" width="15" height="15" forecolor="#000000" uuid="9c7ad68e-0d9b-4f04-bf43-7a2601f5da5b"/>
@@ -673,7 +668,7 @@ $P{GiayChuyenVien_SCRIPTLET}.getGiamDoc():$F{giamdocbenhvien}]]></textFieldExpre
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrBenhNhan}.getSobhyt() != null&&$F{emrBenhNhan}.getSobhyt().length() >3)?$F{emrBenhNhan}.getSobhyt().substring(2, 3):""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{emrBenhNhan}.sobhyt != null&&$F{emrBenhNhan}.sobhyt.length() >3)?$F{emrBenhNhan}.sobhyt.substring(2, 3):""]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="493" y="171" width="51" height="15" forecolor="#000000" uuid="e58214b1-6650-4219-9c1a-cba28db45287"/>
@@ -687,7 +682,7 @@ $P{GiayChuyenVien_SCRIPTLET}.getGiamDoc():$F{giamdocbenhvien}]]></textFieldExpre
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrBenhNhan}.getSobhyt() != null&&$F{emrBenhNhan}.getSobhyt().length() >14)?$F{emrBenhNhan}.getSobhyt().substring(10, 15):""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{emrBenhNhan}.sobhyt != null&&$F{emrBenhNhan}.sobhyt.length() >14)?$F{emrBenhNhan}.sobhyt.substring(10, 15):""]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="362" y="171" width="25" height="15" forecolor="#000000" uuid="63cb5b1a-3b37-41ba-95b7-4bb601020c3f"/>
@@ -701,7 +696,7 @@ $P{GiayChuyenVien_SCRIPTLET}.getGiamDoc():$F{giamdocbenhvien}]]></textFieldExpre
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrBenhNhan}.getSobhyt() != null&&$F{emrBenhNhan}.getSobhyt().length() >2)?$F{emrBenhNhan}.getSobhyt().substring(0, 2):""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{emrBenhNhan}.sobhyt != null&&$F{emrBenhNhan}.sobhyt.length() >2)?$F{emrBenhNhan}.sobhyt.substring(0, 2):""]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="460" y="171" width="31" height="15" forecolor="#000000" uuid="4326e985-d1a7-4144-be1b-9a45b060bfae"/>
@@ -715,7 +710,7 @@ $P{GiayChuyenVien_SCRIPTLET}.getGiamDoc():$F{giamdocbenhvien}]]></textFieldExpre
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrBenhNhan}.getSobhyt() != null&&$F{emrBenhNhan}.getSobhyt().length() >10)?$F{emrBenhNhan}.getSobhyt().substring(7, 10):""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{emrBenhNhan}.sobhyt != null&&$F{emrBenhNhan}.sobhyt.length() >10)?$F{emrBenhNhan}.sobhyt.substring(7, 10):""]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="433" y="171" width="25" height="15" forecolor="#000000" uuid="774126a8-89ba-4365-a1f7-9320e20dfc98"/>
@@ -729,7 +724,7 @@ $P{GiayChuyenVien_SCRIPTLET}.getGiamDoc():$F{giamdocbenhvien}]]></textFieldExpre
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrBenhNhan}.getSobhyt() != null&&$F{emrBenhNhan}.getSobhyt().length() >7)?$F{emrBenhNhan}.getSobhyt().substring(5,7):""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{emrBenhNhan}.sobhyt != null&&$F{emrBenhNhan}.sobhyt.length() >7)?$F{emrBenhNhan}.sobhyt.substring(5,7):""]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="406" y="171" width="25" height="15" forecolor="#000000" uuid="c03e4bfb-ef53-43ac-b11d-96df7df21d3d"/>
@@ -743,7 +738,7 @@ $P{GiayChuyenVien_SCRIPTLET}.getGiamDoc():$F{giamdocbenhvien}]]></textFieldExpre
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrBenhNhan}.getSobhyt() != null&&$F{emrBenhNhan}.getSobhyt().length() >5)?$F{emrBenhNhan}.getSobhyt().substring(3, 5):""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{emrBenhNhan}.sobhyt != null&&$F{emrBenhNhan}.sobhyt.length() >5)?$F{emrBenhNhan}.sobhyt.substring(3, 5):""]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

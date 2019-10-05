@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -152,7 +153,7 @@ public class ExportUtil {
                     jasperIs = new FileInputStream(new File(jrxmlFile));
                     
                      jasperPrint = JasperFillManager.fillReport(jasperIs,
-                        params, new JRBeanCollectionDataSource(danhSachHSBA.emrPhauThuatThuThuats));
+                        params, new JRBeanCollectionDataSource(Arrays.asList(danhSachHSBA.emrPhauThuatThuThuats)));
                 }
              }else if ("chandoanhinhanh".equalsIgnoreCase(loaiReport)){
                  if(hasPrivilege("EMR_REPORT_CHANDOANHINHANH")) {
@@ -207,7 +208,7 @@ public class ExportUtil {
                         }
                         jasperIs = new FileInputStream(new File(jrxmlFile));
                         
-                        var emrHoiChans = danhSachHSBA.emrVaoKhoas.stream()
+                        var emrHoiChans = Arrays.stream(danhSachHSBA.emrVaoKhoas)
                                                 .flatMap(x -> x.emrHoiChans.stream())
                                                 .collect(Collectors.toList());
                                                 
@@ -223,7 +224,7 @@ public class ExportUtil {
                     params.put("SUBREPORT_DIR", getRealPath("report/DieuTri"));
                     jrxmlFile = getRealPath("report/DieuTri/DieuTri.jasper");
                     
-                    var emrDieuTris = danhSachHSBA.emrVaoKhoas.stream()
+                    var emrDieuTris = Arrays.stream(danhSachHSBA.emrVaoKhoas)
                                                    .flatMap(x -> x.emrDieuTris.stream())
                                                    .collect(Collectors.toList());
                     
@@ -241,7 +242,7 @@ public class ExportUtil {
                     jrxmlFile = getRealPath("report/ChucNangSong/ChucNangSong.jasper");
                     jasperIs = new FileInputStream(new File(jrxmlFile));
                     
-                    var emrChucNangSongs = danhSachHSBA.emrVaoKhoas.stream()
+                    var emrChucNangSongs = Arrays.stream(danhSachHSBA.emrVaoKhoas)
                                                         .flatMap(x -> x.emrChucNangSongs.stream())
                                                         .collect(Collectors.toList());
                 
@@ -297,7 +298,7 @@ public class ExportUtil {
                     
                     jasperIs = new FileInputStream(new File(jrxmlFile));
                     
-                    var emrChamSocs = danhSachHSBA.emrVaoKhoas.stream()
+                    var emrChamSocs = Arrays.stream(danhSachHSBA.emrVaoKhoas)
                             .flatMap(x -> x.emrChamSocs.stream())
                             .collect(Collectors.toList());
                 

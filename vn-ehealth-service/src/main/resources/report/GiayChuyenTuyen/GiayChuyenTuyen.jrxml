@@ -3,7 +3,6 @@
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="109"/>
 	<property name="ireport.y" value="864"/>
-	<scriptlet name="TaiHuiHong" class="vn.ehealth.emr.utils.JasperUtils"/>
 	<scriptlet name="Header" class="vn.ehealth.emr.utils.JasperUtils"/>
 	<queryString>
 		<![CDATA[]]>
@@ -53,7 +52,7 @@
 	<field name="emrHinhAnhTonThuongs" class="java.util.List">
 		<fieldDescription><![CDATA[emrHinhAnhTonThuongs]]></fieldDescription>
 	</field>
-	<field name="emrPhauThuatThuThuats" class="java.util.List">
+	<field name="emrPhauThuatThuThuats" class="vn.ehealth.emr.EmrPhauThuatThuThuat[]">
 		<fieldDescription><![CDATA[emrPhauThuatThuThuats]]></fieldDescription>
 	</field>
 	<field name="emrQuaTrinhSuDungThuocs" class="java.util.List">
@@ -77,7 +76,7 @@
 	<field name="emrTongKetSanKhoa" class="vn.ehealth.emr.EmrTongKetSanKhoa">
 		<fieldDescription><![CDATA[emrTongKetSanKhoa]]></fieldDescription>
 	</field>
-	<field name="emrVaoKhoas" class="java.util.List">
+	<field name="emrVaoKhoas" class="vn.ehealth.emr.EmrVaoKhoa[]">
 		<fieldDescription><![CDATA[emrVaoKhoas]]></fieldDescription>
 	</field>
 	<field name="emrXetNghiems" class="java.util.List">
@@ -188,8 +187,7 @@
 				<textElement textAlignment="Center" markup="none">
 					<font fontName="Times New Roman" size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tenbenhvien} == null ?
-$P{Header_SCRIPTLET}.getTenBenhVien():$F{tenbenhvien}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tenbenhvien}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="12" y="33" width="18" height="10" uuid="224503bc-7675-4ad2-a92c-9ab6797b26d3"/>
@@ -265,8 +263,7 @@ $P{Header_SCRIPTLET}.getTenBenhVien():$F{tenbenhvien}]]></textFieldExpression>
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tenbenhvien} == null ?
-$P{Header_SCRIPTLET}.getTenBenhVien().toUpperCase():$F{tenbenhvien}.toUpperCase()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tenbenhvien}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="17" y="114" width="85" height="12" uuid="87b368ec-73b0-4f4d-99c6-7547f79f1457"/>
@@ -334,7 +331,7 @@ $P{Header_SCRIPTLET}.getTenBenhVien().toUpperCase():$F{tenbenhvien}.toUpperCase(
 			</textField>
 			<textField>
 				<reportElement x="104" y="114" width="171" height="12" uuid="efcd5c01-32f3-43f6-8344-7781e76414e2"/>
-				<textFieldExpression><![CDATA[$F{emrBenhNhan}.getTendaydu().toUpperCase()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhNhan}.tendaydu.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="61" y="131" width="480" height="12" uuid="e624701f-b00d-4541-a3a7-30eff50c09c5"/>
@@ -397,11 +394,11 @@ $P{Header_SCRIPTLET}.getTenBenhVien().toUpperCase():$F{tenbenhvien}.toUpperCase(
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="427" y="114" width="114" height="12" uuid="9f63db3d-2551-4f87-83b6-a544da67fd56"/>
-				<textFieldExpression><![CDATA[$F{emrBenhNhan}.getEmrDmGioiTinh().getTen()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhNhan}.emrDmGioiTinh.ten]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="327" y="114" width="60" height="12" uuid="955f6e9a-95bf-4217-90c5-8aa21ff30eac"/>
-				<textFieldExpression><![CDATA[$F{emrBenhNhan}.getNgaysinh()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhNhan}.ngaysinh]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="335" y="148" width="206" height="12" uuid="f391fc8a-5224-4c75-bc65-a35c7324e036"/>
@@ -419,7 +416,7 @@ $P{Header_SCRIPTLET}.getTenBenhVien().toUpperCase():$F{tenbenhvien}.toUpperCase(
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["- Dấu hiệu lâm sàng: " +$F{emrTongKetRaVien}.getDienbienlamsang()]]></textFieldExpression>
+				<textFieldExpression><![CDATA["- Dấu hiệu lâm sàng: " +$F{emrTongKetRaVien}.dienbienlamsang]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="14" y="320" width="473" height="64" uuid="c9bb551d-f1ed-4ff1-b31a-4ce5458224a3"/>
@@ -427,7 +424,7 @@ $P{Header_SCRIPTLET}.getTenBenhVien().toUpperCase():$F{tenbenhvien}.toUpperCase(
 					<font fontName="Times New Roman" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["- Kết quả xét nghiệm, cận lâm sàng: "
-+ $F{emrTongKetRaVien}.getCanlamsang()]]></textFieldExpression>
++ $F{emrTongKetRaVien}.canlamsang]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="13" y="384" width="474" height="25" uuid="157d3709-d21c-46e7-9681-17920a6898b6"/>
@@ -436,10 +433,10 @@ $P{Header_SCRIPTLET}.getTenBenhVien().toUpperCase():$F{tenbenhvien}.toUpperCase(
 				</textElement>
 				<textFieldExpression><![CDATA["- Chẩn đoán: "
 + $P{Header_SCRIPTLET}.getTextChanDoanYhhd(
-    $F{emrChanDoan}.getMotachandoanravienchinh(),
-    $F{emrChanDoan}.getEmrDmMaBenhChandoanravienchinh())
+    $F{emrChanDoan}.motachandoanravienchinh,
+    $F{emrChanDoan}.emrDmMaBenhChandoanravienchinh)
 + " Mã ICD: "
-+ $F{emrChanDoan}.getEmrDmMaBenhChandoanravienchinh().getMa()]]></textFieldExpression>
++ $F{emrChanDoan}.emrDmMaBenhChandoanravienchinh.ma]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="13" y="409" width="473" height="45" uuid="34f570c1-c3b0-463f-87eb-4824cd0745d6"/>

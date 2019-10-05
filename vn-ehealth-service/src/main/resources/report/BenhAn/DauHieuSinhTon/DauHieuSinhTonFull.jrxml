@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="danhSachHSBA" class="java.lang.Object"/>
+	<parameter name="danhSachHSBA" class="vn.ehealth.emr.EmrDanhSachHoSoBenhAn"/>
 	<title>
 		<band height="98">
 			<rectangle>
@@ -21,14 +21,14 @@
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11" isItalic="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrBenhAn().getHuyetapcao()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrBenhAn.huyetapcao]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="56" y="16" width="40" height="17" uuid="9391bd79-a2ff-4864-a3c9-d45c2e1f357e"/>
 				<textElement textAlignment="Center" markup="none">
 					<font fontName="Times New Roman" size="11" isItalic="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrBenhAn().getNhietdo()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrBenhAn.nhietdo]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="99" y="48" width="37" height="17" uuid="abfb6d11-8d26-4ecd-a085-b77676203499"/>
@@ -49,7 +49,7 @@
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11" isItalic="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrBenhAn().getHuyetapthap()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrBenhAn.huyetapthap]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="99" y="16" width="37" height="17" uuid="23e94a95-8ee8-486f-a4fc-804c41fbacd0"/>
@@ -63,7 +63,7 @@
 				<textElement textAlignment="Center" markup="none">
 					<font fontName="Times New Roman" size="11" isItalic="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrBenhAn().getCannang()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrBenhAn.cannang]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="7" y="80" width="49" height="17" uuid="9c6ed550-d52a-4297-b6cd-0049dd476f0e"/>
@@ -91,14 +91,14 @@
 				<textElement textAlignment="Center" markup="none">
 					<font fontName="Times New Roman" size="11" isItalic="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrBenhAn().getNhiptho()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrBenhAn.nhiptho]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="56" y="0" width="40" height="17" uuid="a17f32e2-3af0-450a-b2e1-5995db982a39"/>
 				<textElement textAlignment="Center" markup="none">
 					<font fontName="Times New Roman" size="11" isItalic="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrBenhAn().getMach()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrBenhAn.mach]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="7" y="0" width="29" height="17" uuid="ec20c961-c93a-4bc6-8f3d-1b667148b7a3"/>
@@ -147,7 +147,7 @@
 				<textElement textAlignment="Center" markup="none">
 					<font fontName="Times New Roman" size="11" isItalic="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrBenhAn().getChieucao()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrBenhAn.chieucao]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>

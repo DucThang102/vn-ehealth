@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="458"/>
-	<parameter name="danhSachHSBA" class="java.lang.Object"/>
+	<parameter name="danhSachHSBA" class="vn.ehealth.emr.EmrDanhSachHoSoBenhAn"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["D:\\EMR_Project\\openmrs-core\\webapp\\src\\main\\webapp\\WEB-INF\\report\\ChanDoanHinhAnh\\"]]></defaultValueExpression>
 	</parameter>
@@ -78,7 +78,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrDmLoaiChanDoanHinhAnh}.getTen()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrDmLoaiChanDoanHinhAnh}.ten]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
 				<reportElement x="100" y="71" width="90" height="17" uuid="7b98d922-6a4b-4746-856d-a7b61e97882b"/>
@@ -120,7 +120,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrDmChanDoanHinhAnh}.getTen()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrDmChanDoanHinhAnh}.ten]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="21" y="37" width="74" height="17" uuid="9c251e96-44d9-4434-a55e-d9ca2e374a9f"/>

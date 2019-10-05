@@ -3,10 +3,11 @@
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="350"/>
+	<scriptlet name="Header" class="vn.ehealth.emr.utils.JasperUtils"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="danhSachHSBA" class="java.lang.Object"/>
+	<parameter name="danhSachHSBA" class="vn.ehealth.emr.EmrDanhSachHoSoBenhAn"/>
 	<parameter name="headerPath" class="java.lang.String"/>
 	<parameter name="tenThongTin" class="java.lang.String"/>
 	<parameter name="duongDanFileDinhKem" class="java.lang.String"/>
@@ -79,7 +80,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrDmLoaiXetNghiem}.getTen()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrDmLoaiXetNghiem}.ten]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
 				<reportElement x="102" y="72" width="153" height="17" uuid="43d070de-f7ff-42e2-a52e-eb62c5f5df13"/>

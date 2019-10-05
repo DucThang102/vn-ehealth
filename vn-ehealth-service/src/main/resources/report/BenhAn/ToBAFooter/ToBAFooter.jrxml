@@ -3,7 +3,8 @@
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="440"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="danhSachHSBA" class="java.lang.Object"/>
+	<scriptlet name="Header" class="vn.ehealth.emr.utils.JasperUtils"/>
+	<parameter name="danhSachHSBA" class="vn.ehealth.emr.EmrDanhSachHoSoBenhAn"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -28,8 +29,8 @@
 				<textElement textAlignment="Left" markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{REPORT_SCRIPTLET}.getBacSiDieuTri(
-    (vn.ehealth.emr.EmrDanhSachHoSoBenhAn) $P{danhSachHSBA})]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getBacSiDieuTri(
+    $P{danhSachHSBA})]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="278" y="6" width="100" height="17" uuid="54d868fb-b621-4c2e-95bf-c6a51ccf7b42"/>
@@ -43,7 +44,7 @@
 				<textElement textAlignment="Left" markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrTongKetRaVien().getNguoinhanhoso()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrTongKetRaVien.nguoinhanhoso]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="279" y="83" width="100" height="17" uuid="bd4b806c-ccc4-4df6-9a38-aa92feb4a84a"/>
@@ -120,7 +121,7 @@
 				<textElement textAlignment="Left" markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrTongKetRaVien().getNguoigiaohoso()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrTongKetRaVien.nguoigiaohoso]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="14" y="66" width="142" height="17" uuid="5e2872e1-1361-4b77-8f46-7aecff27d2aa"/>
@@ -141,58 +142,53 @@
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{REPORT_SCRIPTLET}.getTime_DDMMYYYY(
-    ((vn.ehealth.emr.EmrQuanLyNguoiBenh)
-     (((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)
-         $P{danhSachHSBA}).getEmrQuanLyNguoiBenh()
-    )).getNgaygioravien()
-)]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getTime_DDMMYYYY($P{danhSachHSBA}.emrQuanLyNguoiBenh.ngaygioravien)]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="217" y="49" width="27" height="17" uuid="e40799dc-a3c5-426d-93da-f076885e6d25"/>
 				<textElement textAlignment="Center" markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrTongKetRaVien().getSo_to_x_quang()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrTongKetRaVien.so_to_x_quang]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="217" y="66" width="27" height="17" uuid="61dc7028-bd70-4191-ad45-60fe79cd0da8"/>
 				<textElement textAlignment="Center" markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrTongKetRaVien().getSoToCTScanner()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrTongKetRaVien.soToCTScanner]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="217" y="83" width="27" height="17" uuid="727b6080-e9ae-407f-b61d-f6d8b6c98efc"/>
 				<textElement textAlignment="Center" markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrTongKetRaVien().getSoToSieuAm()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrTongKetRaVien.soToSieuAm]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="217" y="101" width="27" height="17" uuid="2239cde3-2eac-46cf-b5ed-995a7f8dd879"/>
 				<textElement textAlignment="Center" markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrTongKetRaVien().getSoToXetNghiem()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrTongKetRaVien.soToXetNghiem]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="217" y="118" width="27" height="17" uuid="6332edfb-152f-4d45-88f7-18b55656cd7a"/>
 				<textElement textAlignment="Center" markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrTongKetRaVien().getSoToKhac()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrTongKetRaVien.soToKhac]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="217" y="136" width="27" height="20" uuid="6d0eb491-1889-4042-81e4-eff8ab4ea84c"/>
 				<textElement textAlignment="Center" markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrTongKetRaVien().getSo_to_x_quang()+
-((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrTongKetRaVien().getSoToCTScanner()+
-((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrTongKetRaVien().getSoToSieuAm()+
-((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrTongKetRaVien().getSoToXetNghiem()+
-((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrTongKetRaVien().getSoToKhac()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrTongKetRaVien.so_to_x_quang+
+$P{danhSachHSBA}.emrTongKetRaVien.soToCTScanner+
+$P{danhSachHSBA}.emrTongKetRaVien.soToSieuAm+
+$P{danhSachHSBA}.emrTongKetRaVien.soToXetNghiem+
+$P{danhSachHSBA}.emrTongKetRaVien.soToKhac]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="265" y="63" width="33" height="17" uuid="7a5c8dcb-064c-424f-88a9-06a892050ecb"/>

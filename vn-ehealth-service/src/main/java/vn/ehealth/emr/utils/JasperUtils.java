@@ -71,25 +71,6 @@ public class JasperUtils extends JRDefaultScriptlet  {
     SimpleDateFormat reportDf_HHmmDDMMYYYY_1 = new SimpleDateFormat(reportDateFormat_HHmmDDMMYYYY_1);
     SimpleDateFormat reportDf_HHmmDDMMYYYY_2 = new SimpleDateFormat(reportDateFormat_HHmmDDMMYYYY_2);
     
-    public String getDonViChuQuan() {
-        
-        return "";
-    }
-    
-    public String getTenBenhVien() {
-
-        return "";
-    }
-    
-    public String getGiamDoc() {
-        return "";
-    }
-    
-    
-    public String getTruongPhongKHTH() { 
-        return "";
-    }
-    
     public String getThongTinChuyeNKhoa(String inputCk) {
         if (inputCk == null) return "";
         else return inputCk.replaceAll("[\r\n]+", "; ");
@@ -157,9 +138,9 @@ public class JasperUtils extends JRDefaultScriptlet  {
         }
     }
     
-    public String getTenKhoaDieuTri(List<EmrVaoKhoa> vaoKhoas, int index){
-        if(vaoKhoas != null && index < vaoKhoas.size()){
-            EmrVaoKhoa object = vaoKhoas.get(index);
+    public String getTenKhoaDieuTri(EmrVaoKhoa[] vaoKhoas, int index){
+        if(vaoKhoas != null && index < vaoKhoas.length){
+            EmrVaoKhoa object = vaoKhoas[index];
             if(object != null){
                 if (!StringUtils.isEmpty(object.tenkhoa)){
                     return object.tenkhoa;
@@ -255,7 +236,7 @@ public class JasperUtils extends JRDefaultScriptlet  {
     public String getBacSiDieuTri(EmrDanhSachHoSoBenhAn emrDanhSachHoSoBenhAn) {
         
         if (emrDanhSachHoSoBenhAn == null) return "";
-        List<EmrVaoKhoa> vaoKhoas = emrDanhSachHoSoBenhAn.getEmrVaoKhoas();
+        var vaoKhoas = emrDanhSachHoSoBenhAn.getEmrVaoKhoas();
         
         // Tim ra doi tuong khoa ra vien
         EmrVaoKhoa emrKhoaRaVien = null;
@@ -674,17 +655,17 @@ public class JasperUtils extends JRDefaultScriptlet  {
         }
     }
     
-    public String getChuandoanSauPTTT(List<EmrPhauThuatThuThuat> list){
-        if(list != null && list.size() > 0){
-            var emrPTTT = list.get(list.size()-1);
+    public String getChuandoanSauPTTT(EmrPhauThuatThuThuat[] emrPTTTs){
+        if(emrPTTTs != null && emrPTTTs.length > 0){
+            var emrPTTT = emrPTTTs[emrPTTTs.length - 1];
             return getTextChanDoanYhhd(emrPTTT.motachandoansaupt, emrPTTT.emrDmMaBenhChandoansau);
         }
         return "";
     }
     
-    public String getChuandoanTruocPTTT(List<EmrPhauThuatThuThuat> list){
-        if(list != null && list.size() > 0){
-            var emrPTTT = list.get(0);
+    public String getChuandoanTruocPTTT(EmrPhauThuatThuThuat[] emrPTTTs){
+        if(emrPTTTs != null && emrPTTTs.length > 0){
+            var emrPTTT = emrPTTTs[0];
             return getTextChanDoanYhhd(emrPTTT.motachandoantruocpt, emrPTTT.emrDmMaBenhChandoantruoc);
         }
         return "";

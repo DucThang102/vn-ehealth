@@ -34,10 +34,10 @@
 					<textElement textAlignment="Center">
 						<font fontName="Times New Roman" size="11"/>
 					</textElement>
-					<textFieldExpression><![CDATA[($F{emrDmChiSoXetNghiem}.getChisobt_nam() == null ? "":
-"Nam: "+$F{emrDmChiSoXetNghiem}.getChisobt_nam())+
-($F{emrDmChiSoXetNghiem}.getChisobt_nu() == null ? "":
-" / Nữ: "+$F{emrDmChiSoXetNghiem}.getChisobt_nu())]]></textFieldExpression>
+					<textFieldExpression><![CDATA[($F{emrDmChiSoXetNghiem}.chisobt_nam == null ? "":
+"Nam: "+$F{emrDmChiSoXetNghiem}.chisobt_nam)+
+($F{emrDmChiSoXetNghiem}.chisobt_nu == null ? "":
+" / Nữ: "+$F{emrDmChiSoXetNghiem}.chisobt_nu)]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 					<reportElement x="96" y="0" width="55" height="20" uuid="e86458a8-f725-4a70-8b1d-922f35412a91"/>
@@ -53,7 +53,7 @@
 					<textElement>
 						<font fontName="Times New Roman" size="11"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{emrDmChiSoXetNghiem}.getTen().trim().indexOf('-') == 0 ? $F{emrDmChiSoXetNghiem}.getTen().trim() : "- " + $F{emrDmChiSoXetNghiem}.getTen().trim()]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{emrDmChiSoXetNghiem}.ten.trim().indexOf('-') == 0 ? $F{emrDmChiSoXetNghiem}.ten.trim() : "- " + $F{emrDmChiSoXetNghiem}.ten.trim()]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 					<reportElement x="152" y="0" width="70" height="20" uuid="5b70016e-aaf0-4a78-9f92-d21301104668"/>
@@ -61,7 +61,7 @@
 					<textElement textAlignment="Center">
 						<font fontName="Times New Roman" size="11"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{emrDmChiSoXetNghiem}.getDonvi()]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{emrDmChiSoXetNghiem}.donvi]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>

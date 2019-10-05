@@ -5,7 +5,7 @@
 	<property name="ireport.y" value="0"/>
 	<scriptlet name="Header" class="vn.ehealth.emr.utils.JasperUtils"/>
 	<parameter name="tenThongTin" class="java.lang.String"/>
-	<parameter name="danhSachHSBA" class="java.lang.Object"/>
+	<parameter name="danhSachHSBA" class="vn.ehealth.emr.EmrDanhSachHoSoBenhAn"/>
 	<title>
 		<band height="138" splitType="Stretch">
 			<staticText>

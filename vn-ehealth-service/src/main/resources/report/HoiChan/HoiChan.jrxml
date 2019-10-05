@@ -3,11 +3,11 @@
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="240"/>
-	<scriptlet name="HoiChan" class="vn.ehealth.emr.utils.JasperUtils"/>
+	<scriptlet name="Header" class="vn.ehealth.emr.utils.JasperUtils"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="danhSachHSBA" class="java.lang.Object"/>
+	<parameter name="danhSachHSBA" class="vn.ehealth.emr.EmrDanhSachHoSoBenhAn"/>
 	<parameter name="tenThongTin" class="java.lang.String"/>
 	<parameter name="headerPath" class="java.lang.String"/>
 	<parameter name="duongDanFileDinhKem" class="java.lang.String"/>
@@ -69,7 +69,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Hội chẩn lúc: " +$P{HoiChan_SCRIPTLET}.getTime_HHmmDDMMYYYY($F{ngaythuchien})]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Hội chẩn lúc: " +$P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY($F{ngaythuchien})]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="93" y="39" width="173" height="17" uuid="a1b3365b-f437-4a5d-a1a0-6bcb99fb2a7b"/>
@@ -77,7 +77,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{HoiChan_SCRIPTLET}.getBacSyChuToa( $F{emrHoiDongHoiChans} )]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getBacSyChuToa( $F{emrHoiDongHoiChans} )]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="15" y="0" width="520" height="1" uuid="4204d292-f5c1-4ea0-841b-d3edefeb86b8"/>
@@ -88,7 +88,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrVaoKhoa}.getTenkhoa() != null )?$F{emrVaoKhoa}.getTenkhoa():$F{emrVaoKhoa}.getEmrDmKhoaDieuTri().getTen()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{emrVaoKhoa}.tenkhoa != null )?$F{emrVaoKhoa}.tenkhoa:$F{emrVaoKhoa}.emrDmKhoaDieuTri.ten]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="19" y="136" width="92" height="15" uuid="11c768e4-aec4-4276-a34b-727a376ff636"/>
@@ -141,7 +141,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{HoiChan_SCRIPTLET}.getBacSyThuKy( $F{emrHoiDongHoiChans} )]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getBacSyThuKy( $F{emrHoiDongHoiChans} )]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="19" y="297" width="175" height="17" uuid="a0dfa87d-aa8a-48b9-a423-6a086a55acf9"/>

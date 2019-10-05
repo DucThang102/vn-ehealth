@@ -7,7 +7,7 @@
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="danhSachHSBA" class="java.lang.Object"/>
+	<parameter name="danhSachHSBA" class="vn.ehealth.emr.EmrDanhSachHoSoBenhAn"/>
 	<parameter name="SUBREPORT_DAUHIEUSINHTON_DIR" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
@@ -51,7 +51,7 @@
 	<field name="emrHinhAnhTonThuongs" class="java.util.List">
 		<fieldDescription><![CDATA[emrHinhAnhTonThuongs]]></fieldDescription>
 	</field>
-	<field name="emrPhauThuatThuThuats" class="java.util.List">
+	<field name="emrPhauThuatThuThuats" class="vn.ehealth.emr.EmrPhauThuatThuThuat[]">
 		<fieldDescription><![CDATA[emrPhauThuatThuThuats]]></fieldDescription>
 	</field>
 	<field name="emrQuaTrinhSuDungThuocs" class="java.util.List">
@@ -72,7 +72,7 @@
 	<field name="emrTongKetSanKhoa" class="vn.ehealth.emr.EmrTongKetSanKhoa">
 		<fieldDescription><![CDATA[emrTongKetSanKhoa]]></fieldDescription>
 	</field>
-	<field name="emrVaoKhoas" class="java.util.List">
+	<field name="emrVaoKhoas" class="vn.ehealth.emr.EmrVaoKhoa[]">
 		<fieldDescription><![CDATA[emrVaoKhoas]]></fieldDescription>
 	</field>
 	<field name="emrXetNghiems" class="java.util.List">
@@ -164,7 +164,7 @@
 				<textElement verticalAlignment="Top">
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrBenhNhan}.getTendaydu().toUpperCase()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhNhan}.tendaydu.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="367" y="89" width="138" height="18" uuid="8fb16b4d-afc5-46d3-82d0-5c74ddd2024b"/>
@@ -178,17 +178,17 @@
 				<textElement verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Chức vụ hoặc nghề nghiệp : "+($F{emrBenhNhan}.getEmrDmNgheNghiep()!=null?$F{emrBenhNhan}.getEmrDmNgheNghiep().getTen():"")]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Chức vụ hoặc nghề nghiệp : "+($F{emrBenhNhan}.emrDmNgheNghiep!=null?$F{emrBenhNhan}.emrDmNgheNghiep.ten:"")]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="56" y="335" width="449" height="54" uuid="732d3bd7-077a-40bf-9ecc-6ad4f8cc81c6"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Địa chỉ hoặc cơ quan:"+($F{emrBenhNhan}.getDiachi()!=null?$F{emrBenhNhan}.getDiachi():"")+" "+
-($F{emrBenhNhan}.getEmrDmPhuongXa()!=null?$F{emrBenhNhan}.getEmrDmPhuongXa().getTen():"")+" "+
-($F{emrBenhNhan}.getEmrDmQuanHuyen()!=null?$F{emrBenhNhan}.getEmrDmQuanHuyen().getTen():"")+" "+
-($F{emrBenhNhan}.getEmrDmTinhThanh()!=null?$F{emrBenhNhan}.getEmrDmTinhThanh().getTen():"")
+				<textFieldExpression><![CDATA["Địa chỉ hoặc cơ quan:"+($F{emrBenhNhan}.diachi!=null?$F{emrBenhNhan}.diachi:"")+" "+
+($F{emrBenhNhan}.emrDmPhuongXa!=null?$F{emrBenhNhan}.emrDmPhuongXa.ten:"")+" "+
+($F{emrBenhNhan}.emrDmQuanHuyen!=null?$F{emrBenhNhan}.emrDmQuanHuyen.ten:"")+" "+
+($F{emrBenhNhan}.emrDmTinhThanh!=null?$F{emrBenhNhan}.emrDmTinhThanh.ten:"")
 
 ]]></textFieldExpression>
 			</textField>
@@ -197,15 +197,14 @@
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY($F{emrYhctNhaBa}.getNgaybatdauchua_nhaba())]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY($F{emrYhctNhaBa}.ngaybatdauchua_nhaba)]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="56" y="429" width="449" height="90" uuid="0880065d-6c61-4f7c-ab8d-6b45b7ec8b4c"/>
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Căn bệnh :  "+($F{emrYhctNhaBa}.getChandoan_nhaba() != null ?
-    $F{emrYhctNhaBa}.getChandoan_nhaba() : "Căn bệnh:")]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Căn bệnh :  "+($F{emrYhctNhaBa}.chandoan_nhaba != null ?    $F{emrYhctNhaBa}.chandoan_nhaba : "Căn bệnh:")]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="185" y="129" width="189" height="31" uuid="639073f2-811c-49c7-98ad-71fd7586be8a"/>
@@ -233,7 +232,7 @@
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrYhctNhaBa}.getTenbacsichua_nhaba()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrYhctNhaBa}.tenbacsichua_nhaba]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="184" y="161" width="189" height="23" uuid="0824e6c4-ebbb-47ca-922b-f8e32e74491f"/>
@@ -247,7 +246,7 @@
 					<printWhenExpression><![CDATA[$F{emrYhctNhaBaGhiChus}.size() > 0]]></printWhenExpression>
 				</reportElement>
 				<subreportParameter name="maLoaiBA">
-					<subreportParameterExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrDmLoaiBenhAn().getMa()]]></subreportParameterExpression>
+					<subreportParameterExpression><![CDATA[$P{danhSachHSBA}.emrDmLoaiBenhAn.ma]]></subreportParameterExpression>
 				</subreportParameter>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{emrYhctNhaBaGhiChus})]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "/NhaBaYHCT_subreport1.jasper"]]></subreportExpression>

@@ -52,12 +52,12 @@ public class EmrDanhSachHoSoBenhAn {
     public EmrYhctNhaBa emrYhctNhaBa;
     public List<EmrYhctNhaBaGhiChu> emrYhctNhaBaGhiChus = new ArrayList<>();
     // NoiPham add 21/07/2016
-    public List<EmrVaoKhoa> emrVaoKhoas = new ArrayList<EmrVaoKhoa>();
+    public EmrVaoKhoa[] emrVaoKhoas = new EmrVaoKhoa[0];
     public List<EmrQuaTrinhSuDungThuoc> emrQuaTrinhSuDungThuocs = new ArrayList<>();
     public List<EmrHinhAnhTonThuong> emrHinhAnhTonThuongs = new ArrayList<>();
     public List<EmrGiaiPhauBenh> emrGiaiPhauBenhs = new ArrayList<>();
     public List<EmrThamDoChucNang> emrThamDoChucNangs = new ArrayList<>();
-    public List<EmrPhauThuatThuThuat> emrPhauThuatThuThuats = new ArrayList<>();
+    public EmrPhauThuatThuThuat[] emrPhauThuatThuThuats = new EmrPhauThuatThuThuat[0];
     public List<EmrYeuCauTruyCapHsbaChiTiet> emrYeuCauTruyCapHsbaChiTiets = new ArrayList<>();
     public List<EmrChanDoanHinhAnh> emrChanDoanHinhAnhs = new ArrayList<>();
     public List<EmrDonThuoc> emrDonThuocs = new ArrayList<>();  

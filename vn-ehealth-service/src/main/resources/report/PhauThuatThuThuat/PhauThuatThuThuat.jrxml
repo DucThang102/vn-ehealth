@@ -3,7 +3,8 @@
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="34"/>
 	<property name="ireport.y" value="287"/>
-	<parameter name="danhSachHSBA" class="java.lang.Object"/>
+	<scriptlet name="Header" class="vn.ehealth.emr.utils.JasperUtils"/>
+	<parameter name="danhSachHSBA" class="vn.ehealth.emr.EmrDanhSachHoSoBenhAn"/>
 	<parameter name="headerPath" class="java.lang.String"/>
 	<parameter name="tenThongTin" class="java.lang.String"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
@@ -87,7 +88,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrDmPhauThuThuat}.getTen()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrDmPhauThuThuat}.ten]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="107" y="38" width="184" height="17" uuid="a1b3365b-f437-4a5d-a1a0-6bcb99fb2a7b"/>
@@ -193,7 +194,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{REPORT_SCRIPTLET}.getTextChanDoanYhhd(
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getTextChanDoanYhhd(
     $F{motachandoantruocpt},
     $F{emrDmMaBenhChandoantruoc})]]></textFieldExpression>
 			</textField>
@@ -203,7 +204,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{REPORT_SCRIPTLET}.getTextChanDoanYhhd(
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getTextChanDoanYhhd(
     $F{motachandoansaupt},
     $F{emrDmMaBenhChandoansau})]]></textFieldExpression>
 			</textField>

@@ -10,7 +10,7 @@ import net.sf.jasperreports.engine.util.JRSaver;
 
 public class CompileReport {
 
-    static String[] paths = {
+    static String[] paths = {            
             "src\\main\\resources\\report\\BenhAn\\BenhAn.jasper",
             "src\\main\\resources\\report\\BenhAn\\BAXP\\BenhAn-BAXP.jasper",
             "src\\main\\resources\\report\\BenhAn\\BONG\\BenhAn-BONG.jasper",

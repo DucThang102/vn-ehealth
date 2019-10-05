@@ -3,7 +3,8 @@
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="384"/>
-	<parameter name="danhSachHSBA" class="java.lang.Object"/>
+	<scriptlet name="Header" class="vn.ehealth.emr.utils.JasperUtils"/>
+	<parameter name="danhSachHSBA" class="vn.ehealth.emr.EmrDanhSachHoSoBenhAn"/>
 	<parameter name="tenThongTin" class="java.lang.String"/>
 	<parameter name="headerPath" class="java.lang.String"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
@@ -76,7 +77,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrDmLoaiThamDoChucNang}.getTen()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrDmLoaiThamDoChucNang}.ten]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="33" y="3" width="503" height="17" uuid="a1b3365b-f437-4a5d-a1a0-6bcb99fb2a7b"/>
@@ -84,7 +85,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrDmThamDoChucNang}.getTen()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrDmThamDoChucNang}.ten]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
 				<reportElement x="98" y="71" width="112" height="17" uuid="7b98d922-6a4b-4746-856d-a7b61e97882b"/>

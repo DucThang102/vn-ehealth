@@ -6,18 +6,18 @@ import lombok.Data;
 public class EmrDm {
 
     public int id;
-    public String ma;
-    public String ten;
-    public String kieu;
+    public String ma = "";
+    public String ten = "";
+    public String kieu = "";
     
-    public String tenta;
-    public Integer idcha;
-    public Integer capdo;
-    public String codecda;
-    public String donvi;
-    public String maicd;
-    public String chisobt_nu;
-    public String chisobt_nam;
+    public String tenta = "";
+    public Integer idcha = 0;
+    public Integer capdo = 0;
+    public String codecda = "";
+    public String donvi = "";
+    public String maicd = "";
+    public String chisobt_nu = "";
+    public String chisobt_nam = "";
     
     /*    
     public Integer landau;

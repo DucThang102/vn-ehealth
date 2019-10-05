@@ -6,7 +6,7 @@
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="danhSachHSBA" class="java.lang.Object"/>
+	<parameter name="danhSachHSBA" class="vn.ehealth.emr.EmrDanhSachHoSoBenhAn"/>
 	<parameter name="tenThongTin" class="java.lang.String"/>
 	<parameter name="headerPath" class="java.lang.String"/>
 	<parameter name="duongDanFileDinhKem" class="java.lang.String"/>
@@ -80,7 +80,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrVaoKhoa}.getTenkhoa() != null )?$F{emrVaoKhoa}.getTenkhoa():$F{emrVaoKhoa}.getEmrDmKhoaDieuTri().getTen()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{emrVaoKhoa}.tenkhoa != null )?$F{emrVaoKhoa}.tenkhoa:$F{emrVaoKhoa}.emrDmKhoaDieuTri.ten]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="14" y="0" width="520" height="1" uuid="7687aac1-05e7-42fb-8a54-d362c7b227ba"/>
@@ -90,7 +90,7 @@
 					<printWhenExpression><![CDATA[$F{emrQuaTrinhChamSocs}.size()>0]]></printWhenExpression>
 				</reportElement>
 				<subreportParameter name="maLoaiBA">
-					<subreportParameterExpression><![CDATA[((vn.ehealth.emr.EmrDanhSachHoSoBenhAn)$P{danhSachHSBA}).getEmrDmLoaiBenhAn().getMa()]]></subreportParameterExpression>
+					<subreportParameterExpression><![CDATA[$P{danhSachHSBA}.emrDmLoaiBenhAn.ma]]></subreportParameterExpression>
 				</subreportParameter>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{emrQuaTrinhChamSocs})]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "/ChamSoc_subreport1.jasper"]]></subreportExpression>

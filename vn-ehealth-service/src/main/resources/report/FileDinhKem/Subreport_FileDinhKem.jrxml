@@ -3,6 +3,7 @@
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="106"/>
 	<property name="ireport.y" value="0"/>
+	<scriptlet name="Header" class="vn.ehealth.emr.utils.JasperUtils"/>
 	<parameter name="duongDanFileDinhKem" class="java.lang.String"/>
 	<parameter name="duongDanFileDinhKemOnline" class="java.lang.String"/>
 	<queryString>
@@ -68,7 +69,7 @@
 				<textElement markup="html">
 					<font fontName="Times New Roman" size="11" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["<a target='_blank' href='" + $P{duongDanFileDinhKem} + $P{REPORT_SCRIPTLET}.encodeUrl($F{duongdan}) + "'>" + $F{tenfile} + "</a>"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["<a target='_blank' href='" + $P{duongDanFileDinhKem} + $P{Header_SCRIPTLET}.encodeUrl($F{duongdan}) + "'>" + $F{tenfile} + "</a>"]]></textFieldExpression>
 				<hyperlinkTooltipExpression><![CDATA[$F{duongdan}]]></hyperlinkTooltipExpression>
 			</textField>
 			<textField>

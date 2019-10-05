@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<scriptlet name="PTTT" class="vn.ehealth.emr.utils.JasperUtils"/>
+	<scriptlet name="Header" class="vn.ehealth.emr.utils.JasperUtils"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -90,7 +90,7 @@
 					<textElement>
 						<font fontName="Times New Roman" size="11"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$P{PTTT_SCRIPTLET}.getVaiTroPTTT($F{idvaitro})]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getVaiTroPTTT($F{idvaitro})]]></textFieldExpression>
 				</textField>
 				<line>
 					<reportElement positionType="FixRelativeToBottom" x="6" y="19" width="510" height="1" uuid="e2652587-b606-42e4-867a-a41ecc424582"/>

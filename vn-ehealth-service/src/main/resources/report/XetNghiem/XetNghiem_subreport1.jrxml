@@ -150,7 +150,7 @@
 					<textElement>
 						<font fontName="Times New Roman" size="11"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{emrDmXetNghiem}.getTen()]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{emrDmXetNghiem}.ten]]></textFieldExpression>
 				</textField>
 				<line>
 					<reportElement stretchType="RelativeToTallestObject" x="420" y="0" width="1" height="20" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="e0f75a4d-9aab-40c4-9a26-6ff5323a3b72"/>

@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="599"/>
-	<parameter name="danhSachHSBA" class="java.lang.Object"/>
+	<parameter name="danhSachHSBA" class="vn.ehealth.emr.EmrDanhSachHoSoBenhAn"/>
 	<parameter name="headerPath" class="java.lang.String"/>
 	<parameter name="tenThongTin" class="java.lang.String"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
@@ -84,14 +84,14 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrDmLoaiGiaiPhauBenh}.getTen()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrDmLoaiGiaiPhauBenh}.ten]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="39" y="3" width="482" height="17" uuid="6794ca9c-b578-412e-9f16-b3d0cd2bc1be"/>
 				<textElement>
 					<font fontName="Times New Roman" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrDmGiaiPhauBenh}.getTen()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrDmGiaiPhauBenh}.ten]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="98" y="54" width="129" height="17" uuid="a1b3365b-f437-4a5d-a1a0-6bcb99fb2a7b"/>
@@ -197,7 +197,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrDmViTriLayMau}.getTen()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrDmViTriLayMau}.ten]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="103" y="122" width="418" height="17" uuid="541e724d-353b-4e50-be70-db01e5990ba9"/>

@@ -99,7 +99,7 @@
 					<textElement>
 						<font fontName="Times New Roman" size="11"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{emrDmYhctViThuoc}.getTen()]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{emrDmYhctViThuoc}.ten]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 					<reportElement x="281" y="0" width="230" height="20" isPrintWhenDetailOverflows="true" uuid="4ca84dfb-94b1-49f8-add9-b1c38f22c942"/>
