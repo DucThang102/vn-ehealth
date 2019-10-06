@@ -2,9 +2,6 @@ package vn.ehealth.emr;
 
 import java.util.Date;
 
-import lombok.Data;
-
-@Data
 public class EmrYhctNhaBaGhiChu {
 
     public int id;
@@ -13,4 +10,24 @@ public class EmrYhctNhaBaGhiChu {
     public String ghichu;
     public int stt;
     public Boolean daxoa;
+    
+    
+    public int getId() {
+        return id;
+    }
+    public Integer getIdhsba() {
+        return idhsba;
+    }
+    public Date getNgayhgiohen() {
+        return ngayhgiohen;
+    }
+    public String getGhichu() {
+        return ghichu;
+    }
+    public int getStt() {
+        return stt;
+    }
+    public Boolean getDaxoa() {
+        return daxoa;
+    }    
 }

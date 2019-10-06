@@ -5,7 +5,7 @@ import java.util.Date;
 public class EmrTraoDoiDanhMuc {
 
     public int idvettraodoi;
-    public EmrDanhSachVetTraoDoi emrDanhSachVetTraoDoi;
+    //public EmrDanhSachVetTraoDoi emrDanhSachVetTraoDoi;
     public int iddanhmuc;
     public Date ngayxuatban;
     public Date ngaycohieuluc;

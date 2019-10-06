@@ -2,9 +2,6 @@ package vn.ehealth.emr.ck;
 
 import java.util.Date;
 
-import lombok.Data;
-
-@Data
 public class EmrCkTienSuSanKhoaChiTiet {
     
     public int id;
@@ -32,5 +29,70 @@ public class EmrCkTienSuSanKhoaChiTiet {
     public String hausan;
     public Date ngayketthucthainghen;
     public Integer tuoithai;
-
+    public int getId() {
+        return id;
+    }
+    public Integer getIdhsba() {
+        return idhsba;
+    }
+    public int getLancothai() {
+        return lancothai;
+    }
+    public Integer getNam() {
+        return nam;
+    }
+    public Boolean getDuthang() {
+        return duthang;
+    }
+    public Boolean getDenon() {
+        return denon;
+    }
+    public Boolean getSay() {
+        return say;
+    }
+    public Boolean getSong() {
+        return song;
+    }
+    public Boolean getHut() {
+        return hut;
+    }
+    public Boolean getNao() {
+        return nao;
+    }
+    public Boolean getCovac() {
+        return covac;
+    }
+    public Boolean getChuangoaitucung() {
+        return chuangoaitucung;
+    }
+    public Boolean getChuatrung() {
+        return chuatrung;
+    }
+    public Boolean getThaichetluu() {
+        return thaichetluu;
+    }
+    public Double getCannang() {
+        return cannang;
+    }
+    public String getPhuongphapde() {
+        return phuongphapde;
+    }
+    public String getTaibien() {
+        return taibien;
+    }
+    public Boolean getDaxoa() {
+        return daxoa;
+    }
+    public String getDienbien() {
+        return dienbien;
+    }
+    public String getHausan() {
+        return hausan;
+    }
+    public Date getNgayketthucthainghen() {
+        return ngayketthucthainghen;
+    }
+    public Integer getTuoithai() {
+        return tuoithai;
+    }
 }

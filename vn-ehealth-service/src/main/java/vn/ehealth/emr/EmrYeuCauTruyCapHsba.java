@@ -7,6 +7,7 @@ import java.util.List;
 public class EmrYeuCauTruyCapHsba {
 
     public int id;
+    public int idhsba;
     public String lydoyeucau;
     public String lydohuy;
     public Date ngayyeucau;

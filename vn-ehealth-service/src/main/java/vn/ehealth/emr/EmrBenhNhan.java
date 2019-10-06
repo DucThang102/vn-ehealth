@@ -1,8 +1,6 @@
 package vn.ehealth.emr;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class EmrBenhNhan {
     
@@ -60,7 +58,5 @@ public class EmrBenhNhan {
     public String trinhDoVanHoaCuaBo;
     public String trinhDoVanHoaCuaMe;
     public String tuoi;
-    
-    public List<EmrDanhSachHoSoBenhAn> emrDanhSachHoSoBenhAns = new ArrayList<>();
 
 }

@@ -5,7 +5,7 @@ import java.util.Date;
 public class EmrCommentYeuCauTruyCapHsba {
 
     public int id;
-    public EmrYeuCauTruyCapHsba emrYeuCauTruyCapHsba;
+    //public EmrYeuCauTruyCapHsba emrYeuCauTruyCapHsba;
     public Date ngayghichu;
     public String noidung;
     public Integer idnguoitao;

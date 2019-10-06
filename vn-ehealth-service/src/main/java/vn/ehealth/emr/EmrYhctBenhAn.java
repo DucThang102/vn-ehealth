@@ -5,7 +5,6 @@ import java.util.Date;
 public class EmrYhctBenhAn {
 
     public int idhsba;
-    public EmrDanhSachHoSoBenhAn emrDanhSachHoSoBenhAn;
     
     public Integer idchamsoc;
     public EmrDm emrDmYhctCheDoChamSoc;

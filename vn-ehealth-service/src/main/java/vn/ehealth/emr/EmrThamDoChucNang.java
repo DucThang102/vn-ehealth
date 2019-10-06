@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import lombok.Data;
 import vn.ehealth.emr.file.EmrQuanLyFileDinhKem;
 
-@Data
 public class EmrThamDoChucNang {
     public int id;
     
@@ -30,5 +28,71 @@ public class EmrThamDoChucNang {
     public Boolean daxoa;
     
     public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemTdcns = new ArrayList<>();
+
+    public int getId() {
+        return id;
+    }
+
+    public Integer getIdhsba() {
+        return idhsba;
+    }
+
+    public Integer getIdthamdochucnang() {
+        return idthamdochucnang;
+    }
+
+    public EmrDm getEmrDmThamDoChucNang() {
+        return emrDmThamDoChucNang;
+    }
+
+    public Integer getIdloaithamdochucnang() {
+        return idloaithamdochucnang;
+    }
+
+    public EmrDm getEmrDmLoaiThamDoChucNang() {
+        return emrDmLoaiThamDoChucNang;
+    }
+
+    public Date getNgayyeucau() {
+        return ngayyeucau;
+    }
+
+    public String getBacsiyeucau() {
+        return bacsiyeucau;
+    }
+
+    public String getNoidungyeucau() {
+        return noidungyeucau;
+    }
+
+    public Date getNgaythuchien() {
+        return ngaythuchien;
+    }
+
+    public String getKetqua() {
+        return ketqua;
+    }
+
+    public String getKetluan() {
+        return ketluan;
+    }
+
+    public String getLoidan() {
+        return loidan;
+    }
+
+    public String getBacsichuyenkhoa() {
+        return bacsichuyenkhoa;
+    }
+
+    public Boolean getDaxoa() {
+        return daxoa;
+    }
+
+    public List<EmrQuanLyFileDinhKem> getEmrQuanLyFileDinhKemTdcns() {
+        return emrQuanLyFileDinhKemTdcns;
+    }
+    
+    
 
 }

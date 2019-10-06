@@ -49,6 +49,14 @@ public class HsbaController {
 		return ResponseEntity.ok(result);
 	}
 	
+	@GetMapping("/get_hs")
+    public ResponseEntity<?> getHs(@RequestParam("hoso_id") int hoSoId) {
+        
+        var result = hsbaService.getEmrDanhSachHoSoBenhAnById(hoSoId);
+        
+        return ResponseEntity.of(result);
+    }
+	
 	@GetMapping("/get_thongtin_hoso")
     public ResponseEntity<?> getThongTinHoSo(@RequestParam("hoso_id") int hoSoId) {
         var hsba = rawHsbaService.getHsba(hoSoId);

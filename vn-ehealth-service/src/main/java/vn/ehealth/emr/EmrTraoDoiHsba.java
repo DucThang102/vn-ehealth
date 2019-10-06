@@ -7,8 +7,8 @@ public class EmrTraoDoiHsba {
     public int idvettraodoi;
     
     public EmrDm emrDmCoSoKhamBenhByIdbenhviennhan;
-    public EmrDanhSachHoSoBenhAn emrDanhSachHoSoBenhAn;
-    public EmrDanhSachVetTraoDoi emrDanhSachVetTraoDoi;
+    //public EmrDanhSachHoSoBenhAn emrDanhSachHoSoBenhAn;
+    //public EmrDanhSachVetTraoDoi emrDanhSachVetTraoDoi;
     public EmrDm emrDmLoaiRaVien;
     public EmrDm emrDmLoaiVaoVien;
     public EmrDm emrDmLoaiBenhAn;

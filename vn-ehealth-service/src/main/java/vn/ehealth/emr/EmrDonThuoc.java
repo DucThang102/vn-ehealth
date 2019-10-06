@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import lombok.Data;
 import vn.ehealth.emr.file.EmrQuanLyFileDinhKem;
 
-@Data
 public class EmrDonThuoc {
     public int id;
     
@@ -23,4 +21,38 @@ public class EmrDonThuoc {
     
     public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemDonThuocs = new ArrayList<>();
 
+    public int getId() {
+        return id;
+    }
+
+    public Integer getIdhsba() {
+        return idhsba;
+    }
+
+    public Date getNgaykedon() {
+        return ngaykedon;
+    }
+
+    public String getBacsikedon() {
+        return bacsikedon;
+    }
+
+    public String getSodon() {
+        return sodon;
+    }
+
+    public Boolean getDaxoa() {
+        return daxoa;
+    }
+
+    public List<EmrDonThuocChiTiet> getEmrDonThuocChiTiets() {
+        return emrDonThuocChiTiets;
+    }
+
+    public List<EmrQuanLyFileDinhKem> getEmrQuanLyFileDinhKemDonThuocs() {
+        return emrQuanLyFileDinhKemDonThuocs;
+    }
+
+    
+    
 }

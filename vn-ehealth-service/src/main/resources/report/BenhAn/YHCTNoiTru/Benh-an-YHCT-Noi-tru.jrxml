@@ -5318,15 +5318,15 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA["- Bệnh danh:  " + (($F{emrYhctBenhAn}.emrDanhSachHoSoBenhAn.emrDmLoaiBenhAn.ma.equals("27")
-    || $F{emrYhctBenhAn}.emrDanhSachHoSoBenhAn.emrDmLoaiBenhAn.ma.equals("28")
-    || $F{emrYhctBenhAn}.emrDanhSachHoSoBenhAn.emrDmLoaiBenhAn.ma.equals("33")
-    || $F{emrYhctBenhAn}.emrDanhSachHoSoBenhAn.emrDmLoaiBenhAn.ma.equals("34"))
-? ($F{emrYhctBenhAn}.emrDanhSachHoSoBenhAn.emrYhctChanDoan.emrDmYhctBenhdanhVk == null
-    ? $F{emrYhctBenhAn}.emrDanhSachHoSoBenhAn.emrYhctChanDoan.motabenhdanhyhctvaokhoa
-    : ( $F{emrYhctBenhAn}.emrDanhSachHoSoBenhAn.emrYhctChanDoan.motabenhdanhyhctvaokhoa.length() == 0
-        ? $F{emrYhctBenhAn}.emrDanhSachHoSoBenhAn.emrYhctChanDoan.emrDmYhctBenhdanhVk.ten
-        : $F{emrYhctBenhAn}.emrDanhSachHoSoBenhAn.emrYhctChanDoan.motabenhdanhyhctvaokhoa) )
+				<textFieldExpression><![CDATA["- Bệnh danh:  " + (($P{danhSachHSBA}.emrDmLoaiBenhAn.ma.equals("27")
+    || $P{danhSachHSBA}.emrDmLoaiBenhAn.ma.equals("28")
+    || $P{danhSachHSBA}.emrDmLoaiBenhAn.ma.equals("33")
+    || $P{danhSachHSBA}.emrDmLoaiBenhAn.ma.equals("34"))
+? ($P{danhSachHSBA}.emrYhctChanDoan.emrDmYhctBenhdanhVk == null
+    ? $P{danhSachHSBA}.emrYhctChanDoan.motabenhdanhyhctvaokhoa
+    : ( $P{danhSachHSBA}.emrYhctChanDoan.motabenhdanhyhctvaokhoa.length() == 0
+        ? $P{danhSachHSBA}.emrYhctChanDoan.emrDmYhctBenhdanhVk.ten
+        : $P{danhSachHSBA}.emrYhctChanDoan.motabenhdanhyhctvaokhoa) )
 : $P{Header_SCRIPTLET}.getTextChanDoanYhct(
     $F{emrYhctChanDoan}.motabenhdanhyhctvaovien,
     $F{emrYhctChanDoan}.emrDmYhctBenhdanhVaovien))]]></textFieldExpression>

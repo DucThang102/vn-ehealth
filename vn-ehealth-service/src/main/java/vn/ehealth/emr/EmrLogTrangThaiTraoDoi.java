@@ -6,7 +6,7 @@ public class EmrLogTrangThaiTraoDoi {
     
     public int id;
     public EmrDm trangThaiTraoDoi;
-    public EmrDanhSachVetTraoDoi emrDanhSachVetTraoDoi;
+    //public EmrDanhSachVetTraoDoi emrDanhSachVetTraoDoi;
     public Date thoigianthuchien;
     public Integer idnguoitao;
     public Date ngaytao;

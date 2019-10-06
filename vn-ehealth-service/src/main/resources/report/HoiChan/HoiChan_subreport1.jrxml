@@ -30,7 +30,6 @@
 	</variable>
 	<columnHeader>
 		<band height="17">
-			<printWhenExpression><![CDATA[$F{emrHoiChan}.emrHoiDongHoiChans.size() > 2]]></printWhenExpression>
 			<staticText>
 				<reportElement x="0" y="0" width="119" height="17" uuid="3e340ab7-30c2-4990-97e6-d5d3ecff9772"/>
 				<textElement>

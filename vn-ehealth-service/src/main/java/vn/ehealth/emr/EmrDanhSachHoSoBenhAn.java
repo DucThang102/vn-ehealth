@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import lombok.Data;
 import vn.ehealth.emr.file.EmrQuanLyFileDinhKemBenhAn;
 
-@Data
 public class EmrDanhSachHoSoBenhAn {
 
     public int id;
@@ -68,4 +66,142 @@ public class EmrDanhSachHoSoBenhAn {
     
     public Boolean coPhauThuat;
     public Boolean coThuThuat;
+    public int getId() {
+        return id;
+    }
+    public Integer getIdtrangthai() {
+        return idtrangthai;
+    }
+    public EmrDm getEmrDmTrangthai() {
+        return emrDmTrangthai;
+    }
+    public Integer getIdloaibenhan() {
+        return idloaibenhan;
+    }
+    public EmrDm getEmrDmLoaiBenhAn() {
+        return emrDmLoaiBenhAn;
+    }
+    public Integer getIdbenhnhan() {
+        return idbenhnhan;
+    }
+    public EmrBenhNhan getEmrBenhNhan() {
+        return emrBenhNhan;
+    }
+    public Integer getIdnguondulieu() {
+        return idnguondulieu;
+    }
+    public EmrDm getEmrDmNguondulieu() {
+        return emrDmNguondulieu;
+    }
+    public String getMayte() {
+        return mayte;
+    }
+    public String getMaluutru() {
+        return maluutru;
+    }
+    public Boolean getDaxoa() {
+        return daxoa;
+    }
+    public Date getNgaytao() {
+        return ngaytao;
+    }
+    public Integer getIdnguoitao() {
+        return idnguoitao;
+    }
+    public Date getNgaysua() {
+        return ngaysua;
+    }
+    public Integer getIdnguoisua() {
+        return idnguoisua;
+    }
+    public String getGiamdocbenhvien() {
+        return giamdocbenhvien;
+    }
+    public String getTenbenhvien() {
+        return tenbenhvien;
+    }
+    public String getDonvichuquan() {
+        return donvichuquan;
+    }
+    public String getTruongphongth() {
+        return truongphongth;
+    }
+    public EmrQuanLyNguoiBenh getEmrQuanLyNguoiBenh() {
+        return emrQuanLyNguoiBenh;
+    }
+    public EmrTongKetRaVien getEmrTongKetRaVien() {
+        return emrTongKetRaVien;
+    }
+    public EmrBenhAn getEmrBenhAn() {
+        return emrBenhAn;
+    }
+    public EmrYhctBenhAn getEmrYhctBenhAn() {
+        return emrYhctBenhAn;
+    }
+    public EmrChanDoan getEmrChanDoan() {
+        return emrChanDoan;
+    }
+    public EmrYhctChanDoan getEmrYhctChanDoan() {
+        return emrYhctChanDoan;
+    }
+    public EmrTinhTrangRaVien getEmrTinhTrangRaVien() {
+        return emrTinhTrangRaVien;
+    }
+    public EmrTongKetSanKhoa getEmrTongKetSanKhoa() {
+        return emrTongKetSanKhoa;
+    }
+    public EmrYhctNhaBa getEmrYhctNhaBa() {
+        return emrYhctNhaBa;
+    }
+    public List<EmrYhctNhaBaGhiChu> getEmrYhctNhaBaGhiChus() {
+        return emrYhctNhaBaGhiChus;
+    }
+    public EmrVaoKhoa[] getEmrVaoKhoas() {
+        return emrVaoKhoas;
+    }
+    public List<EmrQuaTrinhSuDungThuoc> getEmrQuaTrinhSuDungThuocs() {
+        return emrQuaTrinhSuDungThuocs;
+    }
+    public List<EmrHinhAnhTonThuong> getEmrHinhAnhTonThuongs() {
+        return emrHinhAnhTonThuongs;
+    }
+    public List<EmrGiaiPhauBenh> getEmrGiaiPhauBenhs() {
+        return emrGiaiPhauBenhs;
+    }
+    public List<EmrThamDoChucNang> getEmrThamDoChucNangs() {
+        return emrThamDoChucNangs;
+    }
+    public EmrPhauThuatThuThuat[] getEmrPhauThuatThuThuats() {
+        return emrPhauThuatThuThuats;
+    }
+    public List<EmrYeuCauTruyCapHsbaChiTiet> getEmrYeuCauTruyCapHsbaChiTiets() {
+        return emrYeuCauTruyCapHsbaChiTiets;
+    }
+    public List<EmrChanDoanHinhAnh> getEmrChanDoanHinhAnhs() {
+        return emrChanDoanHinhAnhs;
+    }
+    public List<EmrDonThuoc> getEmrDonThuocs() {
+        return emrDonThuocs;
+    }
+    public List<EmrYhctDonThuoc> getEmrYhctDonThuocs() {
+        return emrYhctDonThuocs;
+    }
+    public List<EmrXetNghiem> getEmrXetNghiems() {
+        return emrXetNghiems;
+    }
+    public List<EmrQuanLyFileDinhKemBenhAn> getEmrQuanLyFileDinhKemBenhAn() {
+        return emrQuanLyFileDinhKemBenhAn;
+    }
+    public String getMatraodoi() {
+        return matraodoi;
+    }
+    public Boolean getCoPhauThuat() {
+        return coPhauThuat;
+    }
+    public Boolean getCoThuThuat() {
+        return coThuThuat;
+    }
+    
+    
+    
 }

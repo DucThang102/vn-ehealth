@@ -1,8 +1,5 @@
 package vn.ehealth.emr.file;
 
-import lombok.Data;
-
-@Data
 public class EmrQuanLyFileDinhKemBenhAn {
 
     public int id;
@@ -12,4 +9,30 @@ public class EmrQuanLyFileDinhKemBenhAn {
     public Boolean daxoa;
     
     public byte[] noiDungFile;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTenfile() {
+        return tenfile;
+    }
+
+    public String getDuongdan() {
+        return duongdan;
+    }
+
+    public Integer getIdhsba() {
+        return idhsba;
+    }
+
+    public Boolean getDaxoa() {
+        return daxoa;
+    }
+
+    public byte[] getNoiDungFile() {
+        return noiDungFile;
+    }
+    
+    
 }

@@ -34,7 +34,6 @@ import vn.ehealth.emr.ck.EmrCkTuanHoan;
 public class EmrBenhAn {
 
     public int idhsba;
-    public EmrDanhSachHoSoBenhAn emrDanhSachHoSoBenhAn;
     
     public Integer idicdChandoanphanbiet;
     public EmrDm emrDmMaBenhChandoanphanbiet;

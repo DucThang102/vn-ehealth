@@ -2,9 +2,6 @@ package vn.ehealth.emr;
 
 import java.util.Date;
 
-import lombok.Data;
-
-@Data
 public class EmrQuaTrinhChamSoc {
 
     public int id;
@@ -16,4 +13,28 @@ public class EmrQuaTrinhChamSoc {
     public String theodoidienbien;
     public String thuchienylenh;
     public Boolean daxoa;
+    
+    public int getId() {
+        return id;
+    }
+    public Integer getIdchamsoc() {
+        return idchamsoc;
+    }
+    public Date getNgaychamsoc() {
+        return ngaychamsoc;
+    }
+    public String getYtachamsoc() {
+        return ytachamsoc;
+    }
+    public String getTheodoidienbien() {
+        return theodoidienbien;
+    }
+    public String getThuchienylenh() {
+        return thuchienylenh;
+    }
+    public Boolean getDaxoa() {
+        return daxoa;
+    }
+    
+    
 }

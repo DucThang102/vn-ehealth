@@ -1,12 +1,9 @@
 package vn.ehealth.emr.ck;
 
-import vn.ehealth.emr.EmrTongKetRaVien;
-
 
 public class EmrCkPhuongPhapDieuTriUngBuou {
 
     public int idhsba;
-    public EmrTongKetRaVien emrTongKetRaVien;  
     
     public Integer kieudieutri;
     

@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import vn.ehealth.emr.EmrBenhAn;
 import vn.ehealth.emr.EmrBenhNhan;
@@ -268,9 +269,11 @@ public class HsbaService {
         var lst = getRecords(EmrChamSoc.class, "emr_cham_soc", "idvaokhoa", emrVaoKhoa.id, true);
         
         for(var item : lst) {
-            item.emrVaoKhoa = emrVaoKhoa;
             item.emrQuaTrinhChamSocs = getRecords(EmrQuaTrinhChamSoc.class, "emr_qua_trinh_cham_soc", "idchamsoc", item.id, true);
             item.emrQuanLyFileDinhKemChamSocs = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_cham_soc", item.id);
+            item.tenKhoa = StringUtils.isEmpty(emrVaoKhoa.tenkhoa) ? emrVaoKhoa.emrDmKhoaDieuTri.ten : emrVaoKhoa.tenkhoa;
+            item.phong = emrVaoKhoa.phong;
+            item.giuong = emrVaoKhoa.giuong;
         }
         
         return lst;        
@@ -279,10 +282,12 @@ public class HsbaService {
     List<EmrDieuTri> getEmrDieuTris(@Nonnull EmrVaoKhoa emrVaoKhoa) {
         var lst = getRecords(EmrDieuTri.class, "emr_dieu_tri", "idvaokhoa", emrVaoKhoa.id, true);
         
-        for(var item : lst) {
-            item.emrVaoKhoa = emrVaoKhoa;
+        for(var item : lst) {            
             item.emrQuaTrinhDieuTris = getRecords(EmrQuaTrinhDieuTri.class, "emr_qua_trinh_dieu_tri", "iddieutri", item.id, true);
             item.emrQuanLyFileDinhKemDieuTris = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_dieu_tri", item.id);
+            item.tenKhoa = StringUtils.isEmpty(emrVaoKhoa.tenkhoa) ? emrVaoKhoa.emrDmKhoaDieuTri.ten : emrVaoKhoa.tenkhoa;
+            item.phong = emrVaoKhoa.phong;
+            item.giuong = emrVaoKhoa.giuong;
         }
         
         return lst;        
@@ -291,10 +296,12 @@ public class HsbaService {
     List<EmrChucNangSong> getEmrChucNangSongs(@Nonnull EmrVaoKhoa emrVaoKhoa) {
         var lst = getRecords(EmrChucNangSong.class, "emr_chuc_nang_song", "idvaokhoa", emrVaoKhoa.id, true);
         
-        for(var item : lst) {
-            item.emrVaoKhoa = emrVaoKhoa;
+        for(var item : lst) {            
             item.emrChucNangSongChiTiets = getRecords(EmrChucNangSongChiTiet.class, "emr_chuc_nang_song_chi_tiet", "idchucnangsong", item.id, true);
             item.emrQuanLyFileDinhKemChucNangSongs = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_chuc_nang_song", item.id);
+            item.tenKhoa = StringUtils.isEmpty(emrVaoKhoa.tenkhoa) ? emrVaoKhoa.emrDmKhoaDieuTri.ten : emrVaoKhoa.tenkhoa;
+            item.phong = emrVaoKhoa.phong;
+            item.giuong = emrVaoKhoa.giuong;
         }
         
         return lst;        
@@ -302,19 +309,18 @@ public class HsbaService {
     
     List<EmrHoiDongHoiChan> getEmrHoiDongHoiChans(@Nonnull EmrHoiChan emrHoiChan) {
         var lst = getRecords(EmrHoiDongHoiChan.class, "emr_hoi_dong_hoi_chan", "idhoichan", emrHoiChan.id, true);
-        for(var item : lst) {
-            item.emrHoiChan = emrHoiChan;
-        }
         return lst;        
     }
 
     List<EmrHoiChan> getEmrHoiChans(@Nonnull EmrVaoKhoa emrVaoKhoa) {
         var lst = getRecords(EmrHoiChan.class, "emr_hoi_chan", "idvaokhoa", emrVaoKhoa.id, true);
         
-        for(var item : lst) {
-            item.emrVaoKhoa = emrVaoKhoa;
+        for(var item : lst) {            
             item.emrHoiDongHoiChans = getEmrHoiDongHoiChans(item);
             item.emrQuanLyFileDinhKemHoiChans = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_hoi_chan", item.id);
+            item.tenKhoa = StringUtils.isEmpty(emrVaoKhoa.tenkhoa) ? emrVaoKhoa.emrDmKhoaDieuTri.ten : emrVaoKhoa.tenkhoa;
+            item.phong = emrVaoKhoa.phong;
+            item.giuong = emrVaoKhoa.giuong;
         }
         
         return lst;        
@@ -555,12 +561,7 @@ public class HsbaService {
         var dshsba = getRecordById(EmrDanhSachHoSoBenhAn.class, "emr_danh_sach_ho_so_benh_an", id, true);
         
         dshsba.ifPresent(x -> {
-            var emrBenhAn = getEmrBenhAn(id);
-            emrBenhAn.ifPresent(y -> {
-                x.emrBenhAn = y;
-                y.emrDanhSachHoSoBenhAn = x;
-            });
-            
+            x.emrBenhAn = getEmrBenhAn(id).orElse(null);
             x.emrBenhNhan = getEmrBenhNhanById(x.idbenhnhan).orElse(null);
             x.emrDmLoaiBenhAn = getEmrDm("emr_dm_loai_benh_an", x.idloaibenhan);
             x.emrDmNguondulieu = getEmrDm("emr_dm_tu_sinh", x.idnguondulieu);
@@ -582,13 +583,7 @@ public class HsbaService {
             x.emrDonThuocs = getEmrDonThuocs(id);
             x.emrXetNghiems = getEmrXetNghiems(id);
             x.emrQuanLyFileDinhKemBenhAn = getRecords(EmrQuanLyFileDinhKemBenhAn.class, "emr_quan_ly_file_dinh_kem_benhan", "idhsba", id, false);
-            
-            var emrYhctBenhAn = getEmrYhctBenhAn(id);
-            emrYhctBenhAn.ifPresent(y -> {
-                x.emrYhctBenhAn = y;
-                y.emrDanhSachHoSoBenhAn = x;
-            });
-            
+            x.emrYhctBenhAn = getEmrYhctBenhAn(id).orElse(null);
             x.emrYhctChanDoan = getEmrYhctChanDoan(id).orElse(null);
             x.emrYhctDonThuocs = getEmrYhctDonThuocs(id);
             x.emrYhctNhaBa = getRecord(EmrYhctNhaBa.class, "emr_yhct_nha_ba", "idhsba", id, true).orElse(null);
