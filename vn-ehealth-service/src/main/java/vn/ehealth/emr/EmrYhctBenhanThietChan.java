@@ -1,47 +1,54 @@
 package vn.ehealth.emr;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "emr_yhct_benhan_thiet_chan")
 public class EmrYhctBenhanThietChan {
 
-    public int idhsba;
-    public String lstxucchan;
-    public String lstxucchanTen;
-    public String lstconhuc;
-    public String lstconhucTen;
-    public String lstphucchan;
-    public String lstphucchanTen;
-    public String lstmachchantongquat;
-    public String lstmachchantongquatTen;
-    public String lstmachchanThonTaytrai;
-    public String lstmachchanThonTaytraiTen;
-    public String lstmachchanQuanTaytrai;
-    public String lstmachchanQuanTaytraiTen;
-    public String lstmachchanXichTaytrai;
-    public String lstmachchanXichTaytraiTen;
-    public String lstmachchanQuanTayphai;
-    public String lstmachchanQuanTayphaiTen;
-    public String lstmachchanThonTayphai;
-    public String lstmachchanThonTayphaiTen;
-    public String lstmachchanXichTayphai;
-    public String lstmachchanXichTayphaiTen;
-    public String motathietchan;
+    @Id public int idhsba;
+    @Column public String lstxucchan;
+    @Column public String lstxucchanTen;
+    @Column public String lstconhuc;
+    @Column public String lstconhucTen;
+    @Column public String lstphucchan;
+    @Column public String lstphucchanTen;
+    @Column public String lstmachchantongquat;
+    @Column public String lstmachchantongquatTen;
+    @Column public String lstmachchanThonTaytrai;
+    @Column public String lstmachchanThonTaytraiTen;
+    @Column public String lstmachchanQuanTaytrai;
+    @Column public String lstmachchanQuanTaytraiTen;
+    @Column public String lstmachchanXichTaytrai;
+    @Column public String lstmachchanXichTaytraiTen;
+    @Column public String lstmachchanQuanTayphai;
+    @Column public String lstmachchanQuanTayphaiTen;
+    @Column public String lstmachchanThonTayphai;
+    @Column public String lstmachchanThonTayphaiTen;
+    @Column public String lstmachchanXichTayphai;
+    @Column public String lstmachchanXichTayphaiTen;
+    @Column public String motathietchan;
     
-    public String motamachchanTayphai;
-    public String motamachchanTaytrai;
+    @Column public String motamachchanTayphai;
+    @Column public String motamachchanTaytrai;
     
-    public String motaxucchan;
+    @Column public String motaxucchan;
     
-    public String lstxucchanHienthi;
-    public String lstconhucHienthi;
-    public String lstphucchanHienthi;
-    public String lstmachchantongquatHienthi;
-    public String lstmachchanThonTaytraiHienthi;
-    public String lstmachchanQuanTaytraiHienthi;
-    public String lstmachchanXichTaytraiHienthi;
-    public String lstmachchanQuanTayphaiHienthi;
-    public String lstmachchanThonTayphaiHienthi;
-    public String lstmachchanXichTayphaiHienthi;
+    @Column public String lstxucchanHienthi;
+    @Column public String lstconhucHienthi;
+    @Column public String lstphucchanHienthi;
+    @Column public String lstmachchantongquatHienthi;
+    @Column public String lstmachchanThonTaytraiHienthi;
+    @Column public String lstmachchanQuanTaytraiHienthi;
+    @Column public String lstmachchanXichTaytraiHienthi;
+    @Column public String lstmachchanQuanTayphaiHienthi;
+    @Column public String lstmachchanThonTayphaiHienthi;
+    @Column public String lstmachchanXichTayphaiHienthi;
     
-    public String lstxucchanmohoi;
-    public String lstxucchanmohoiTen;
-    public String lstxucchanmohoiHienthi;
+    @Column public String lstxucchanmohoi;
+    @Column public String lstxucchanmohoiTen;
+    @Column public String lstxucchanmohoiHienthi;
 }

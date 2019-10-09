@@ -1,15 +1,23 @@
 package vn.ehealth.emr;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "emr_hoi_dong_pttt")
 public class EmrHoiDongPttt {
 
-    public int id;
+    @Id public int id;
     
-    public Integer idpttt;
+    @Column public Integer idpttt;
     
-    public Integer idvaitro;
-    public String tenbacsi;
+    @Column public Integer idvaitro;
     
-    public Boolean daxoa;
+    @Column public String tenbacsi;
+    
+    @Column public Boolean daxoa;
 
     public int getId() {
         return id;
@@ -30,6 +38,4 @@ public class EmrHoiDongPttt {
     public Boolean getDaxoa() {
         return daxoa;
     }
-    
-    
 }

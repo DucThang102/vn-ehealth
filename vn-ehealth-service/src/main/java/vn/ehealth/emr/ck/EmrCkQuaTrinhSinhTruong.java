@@ -1,59 +1,65 @@
 package vn.ehealth.emr.ck;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "emr_ck_qua_trinh_sinh_truong")
 public class EmrCkQuaTrinhSinhTruong {
 
-    public int idhsba;
-    public Integer idchuyenkhoa;
+    @Id public int idhsba;
+    @Column public Integer idchuyenkhoa;
     
-    public Integer conthu;
+    @Column public Integer conthu;
     
-    public Boolean duthang;
+    @Column public Boolean duthang;
     
-    public Boolean denon;
+    @Column public Boolean denon;
     
-    public Boolean say;
+    @Column public Boolean say;
     
-    public Boolean song;
+    @Column public Boolean song;
     
-    public Boolean dethuong;
+    @Column public Boolean dethuong;
     
-    public Boolean forceps;
+    @Column public Boolean forceps;
     
-    public Boolean giachut;
+    @Column public Boolean giachut;
     
-    public Boolean dephauthuat;
+    @Column public Boolean dephauthuat;
     
-    public Boolean dechihuy;
+    @Column public Boolean dechihuy;
     
-    public Boolean dekhac;
+    @Column public Boolean dekhac;
     
-    public Double cannangsinh;
+    @Column public Double cannangsinh;
     
-    public Boolean coditat;
+    @Column public Boolean coditat;
     
-    public String motaditat;
+    @Column public String motaditat;
     
-    public String phattrientinhthan;
+    @Column public String phattrientinhthan;
     
-    public String phattrienvandong;
+    @Column public String phattrienvandong;
     
-    public String benhlykhac;
+    @Column public String benhlykhac;
     
-    public Boolean suame;
+    @Column public Boolean suame;
     
-    public Boolean suagoai;
+    @Column public Boolean suagoai;
     
-    public Boolean honhop;
+    @Column public Boolean honhop;
     
-    public Integer thangcaisua;
+    @Column public Integer thangcaisua;
     
-    public Boolean tainha;
+    @Column public Boolean tainha;
     
-    public Boolean vuontre;
+    @Column public Boolean vuontre;
     
-    public String paraDuthang;
-    public String paraDenon;
-    public String paraSay;
-    public String paraSong;
+    @Column public String paraDuthang;
+    @Column public String paraDenon;
+    @Column public String paraSay;
+    @Column public String paraSong;
 }

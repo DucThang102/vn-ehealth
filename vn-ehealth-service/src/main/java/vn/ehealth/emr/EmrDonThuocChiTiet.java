@@ -2,32 +2,41 @@ package vn.ehealth.emr;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "emr_don_thuoc_chi_tiet")
 public class EmrDonThuocChiTiet {
 
-    public int id;
+    @Id public int id;
     
-    public Integer iddonthuoc;    
+    @Column public Integer iddonthuoc;    
     
-    public Integer idloaiduongdung;
-    public EmrDm emrDmDuongDungThuoc;
+    @Column public Integer idloaiduongdung;
+    @Transient public EmrDm emrDmDuongDungThuoc;
     
-    public Integer idthuoc;
-    public EmrDm emrDmThuoc;
+    @Column public Integer idthuoc;
+    @Transient public EmrDm emrDmThuoc;
     
-    public Integer idtanxuatdung;
-    public EmrDm emrDmTanXuatDungThuoc;
+    @Column public Integer idtanxuatdung;
+    @Transient public EmrDm emrDmTanXuatDungThuoc;
     
-    public Date ngaybatdau;
-    public Date ngayketthuc;
-    public String lieuluongdung;
+    @Column public Date ngaybatdau;
+    @Column public Date ngayketthuc;
+    @Column public String lieuluongdung;
     
-    public String chidandungthuoc;
+    @Column public String chidandungthuoc;
     
-    public Boolean daxoa;
+    @Column public Boolean daxoa;
     
-    public String bietduoc;
+    @Column public String bietduoc;
     
-    public Integer idchidandungthuoc;
+    @Column public Integer idchidandungthuoc;
+    @Transient public EmrDm emrDmChiDanDungThuoc;
 
     public int getId() {
         return id;
@@ -88,6 +97,4 @@ public class EmrDonThuocChiTiet {
     public Integer getIdchidandungthuoc() {
         return idchidandungthuoc;
     }
-    
-    
 }

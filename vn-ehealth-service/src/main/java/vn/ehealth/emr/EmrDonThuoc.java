@@ -4,22 +4,31 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import vn.ehealth.emr.file.EmrQuanLyFileDinhKem;
 
+@Entity
+@Table(name = "emr_don_thuoc")
 public class EmrDonThuoc {
-    public int id;
     
-    public Integer idhsba;
+    @Id public int id;
     
-    public Date ngaykedon;
-    public String bacsikedon;
-    public String sodon;
+    @Column public Integer idhsba;
     
-    public Boolean daxoa;
+    @Column public Date ngaykedon;
+    @Column public String bacsikedon;
+    @Column public String sodon;
     
-    public List<EmrDonThuocChiTiet> emrDonThuocChiTiets = new ArrayList<>(); 
+    @Column public Boolean daxoa;
     
-    public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemDonThuocs = new ArrayList<>();
+    @Transient public List<EmrDonThuocChiTiet> emrDonThuocChiTiets = new ArrayList<>(); 
+    
+    @Transient public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemDonThuocs = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -52,7 +61,4 @@ public class EmrDonThuoc {
     public List<EmrQuanLyFileDinhKem> getEmrQuanLyFileDinhKemDonThuocs() {
         return emrQuanLyFileDinhKemDonThuocs;
     }
-
-    
-    
 }

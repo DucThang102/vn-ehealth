@@ -1,29 +1,36 @@
 package vn.ehealth.emr;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "emr_yhct_benhan_vong_chan")
 public class EmrYhctBenhanVongChan {
 
-    public int idhsba;
-    public String lsthinhthai;
-    public String lsthinhthaiTen;
-    public String lstthan;
-    public String lstthanTen;
-    public String lstsac;
-    public String lstsacTen;
-    public String lsttrach;
-    public String lsttrachTen;
-    public String lstchatluoi;
-    public String lstchatluoiTen;
-    public String lstsacluoi;
-    public String lstsacluoiTen;
-    public String lstreuluoi;
-    public String lstreuluoiTen;
-    public String motavongchan;
+    @Id public int idhsba;
+    @Column public String lsthinhthai;
+    @Column public String lsthinhthaiTen;
+    @Column public String lstthan;
+    @Column public String lstthanTen;
+    @Column public String lstsac;
+    @Column public String lstsacTen;
+    @Column public String lsttrach;
+    @Column public String lsttrachTen;
+    @Column public String lstchatluoi;
+    @Column public String lstchatluoiTen;
+    @Column public String lstsacluoi;
+    @Column public String lstsacluoiTen;
+    @Column public String lstreuluoi;
+    @Column public String lstreuluoiTen;
+    @Column public String motavongchan;
     
-    public String lsthinhthaiHienthi;
-    public String lstthanHienthi;
-    public String lstsacHienthi;
-    public String lsttrachHienthi;
-    public String lstchatluoiHienthi;
-    public String lstsacluoiHienthi;
-    public String lstreuluoiHienthi;
+    @Column public String lsthinhthaiHienthi;
+    @Column public String lstthanHienthi;
+    @Column public String lstsacHienthi;
+    @Column public String lsttrachHienthi;
+    @Column public String lstchatluoiHienthi;
+    @Column public String lstsacluoiHienthi;
+    @Column public String lstreuluoiHienthi;
 }

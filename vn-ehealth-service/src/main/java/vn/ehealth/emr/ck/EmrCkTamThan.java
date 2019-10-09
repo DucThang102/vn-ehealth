@@ -1,40 +1,46 @@
 package vn.ehealth.emr.ck;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "emr_ck_tam_than")
 public class EmrCkTamThan {
 
-    public int idhsba;
-    public Integer idchuyenkhoa;
-    public String bieuhienchung;
+    @Id public int idhsba;
+    @Column public Integer idchuyenkhoa;
+    @Column public String bieuhienchung;
     
-    public String dinhhuongkhonggian;
+    @Column public String dinhhuongkhonggian;
     
-    public String dinhhuongthoigian;
+    @Column public String dinhhuongthoigian;
     
-    public String dinhhuongbanthan;
+    @Column public String dinhhuongbanthan;
     
-    public String camxuc;
+    @Column public String camxuc;
     
-    public String trigiac;
+    @Column public String trigiac;
     
-    public String tuduyhinhthuc;
+    @Column public String tuduyhinhthuc;
     
-    public String tuduynoidung;
+    @Column public String tuduynoidung;
     
-    public String hoatdongcoychi;
+    @Column public String hoatdongcoychi;
     
-    public String hoatdongbannang;
+    @Column public String hoatdongbannang;
     
-    public String trinhomaymoc;
+    @Column public String trinhomaymoc;
     
-    public String trinhothonghieu;
+    @Column public String trinhothonghieu;
     
-    public String trinangphantich;
+    @Column public String trinangphantich;
     
-    public String trinangtonghop;
+    @Column public String trinangtonghop;
     
-    public String khanangchuy; 
-    public String roiloanythuc;
+    @Column public String khanangchuy; 
+    @Column public String roiloanythuc;
     
-    public String hoichungroiloanythuc;
+    @Column public String hoichungroiloanythuc;
 }

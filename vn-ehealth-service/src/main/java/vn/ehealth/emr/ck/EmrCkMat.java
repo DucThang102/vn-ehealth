@@ -1,112 +1,118 @@
 package vn.ehealth.emr.ck;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "emr_ck_mat")
 public class EmrCkMat {
 
-    public int idhsba;
-    public Integer idchuyenkhoa;
+    @Id public int idhsba;
+    @Column public Integer idchuyenkhoa;
     
-    public String thiluckhongkinhtrai;
+    @Column public String thiluckhongkinhtrai;
     
-    public String thiluckhongkinhphai;
+    @Column public String thiluckhongkinhphai;
     
-    public String thiluccokinhtrai;
+    @Column public String thiluccokinhtrai;
     
-    public String thiluccokinhphai;
+    @Column public String thiluccokinhphai;
     
-    public String nhanaptrai;
+    @Column public String nhanaptrai;
     
-    public String nhanapphai;
+    @Column public String nhanapphai;
     
-    public String thitruongtrai;
+    @Column public String thitruongtrai;
     
-    public String thitruongphai;
+    @Column public String thitruongphai;
     
-    public Boolean choimattrai;
+    @Column public Boolean choimattrai;
     
-    public Boolean choimatphai;
+    @Column public Boolean choimatphai;
     
-    public Boolean chaynuocmattrai;
+    @Column public Boolean chaynuocmattrai;
     
-    public Boolean chaynuocmatphai;
+    @Column public Boolean chaynuocmatphai;
     
-    public Boolean sosangmattrai;
+    @Column public Boolean sosangmattrai;
     
-    public Boolean sosangmatphai;
+    @Column public Boolean sosangmatphai;
     
-    public Boolean momattrai;
+    @Column public Boolean momattrai;
     
-    public Boolean momatphai;
+    @Column public Boolean momatphai;
     
-    public Boolean rucmattrai;
+    @Column public Boolean rucmattrai;
     
-    public Boolean rucmatphai;
+    @Column public Boolean rucmatphai;
     
     
     
-    public String trieuchungmattrai;
+    @Column public String trieuchungmattrai;
     
-    public String trieuchungmatphai;
+    @Column public String trieuchungmatphai;
     //le dao
-    public String ledaotrai;   
-    public String ledaophai;
+    @Column public String ledaotrai;   
+    @Column public String ledaophai;
     //mi mat
-    public String mimattrai;   
-    public String mimatphai;
+    @Column public String mimattrai;   
+    @Column public String mimatphai;
     
     //ket mac
-    public String ketmacmattrai;   
-    public String ketmacmatphai;
+    @Column public String ketmacmattrai;   
+    @Column public String ketmacmatphai;
     
     //tinh hinh mat hoi
-    public String mathoitrai;  
-    public String mathoiphai;
+    @Column public String mathoitrai;  
+    @Column public String mathoiphai;
     //giac mac
-    public String giaccungmacmattrai;  
-    public String giaccungmacmatphai;
+    @Column public String giaccungmacmattrai;  
+    @Column public String giaccungmacmatphai;
     //cung  mac
-    public String cungmacmattrai;  
-    public String cungmacmatphai;
+    @Column public String cungmacmattrai;  
+    @Column public String cungmacmatphai;
     
     //tien phong
-    public String tienphongmattrai;    
-    public String tienphongmatphai;
+    @Column public String tienphongmattrai;    
+    @Column public String tienphongmatphai;
     
     //mong mat
-    public String mongmattrai; 
-    public String mongmatphai;
+    @Column public String mongmattrai; 
+    @Column public String mongmatphai;
     
     //dong tu phan xa
-    public String dongtumattrai;   
-    public String dongtumatphai;
+    @Column public String dongtumattrai;   
+    @Column public String dongtumatphai;
     
     //dich kinh(thuy tinh dich)
-    public String dichkinhmattrai; 
-    public String dichkinhmatphai;
+    @Column public String dichkinhmattrai; 
+    @Column public String dichkinhmatphai;
     
     //thuy tinh the
-    public String thethuytinhmattrai;  
-    public String thethuytinhmatphai;
+    @Column public String thethuytinhmattrai;  
+    @Column public String thethuytinhmatphai;
     
     //soi sang dong tu
-    public String soisangdongtumattrai;    
-    public String soisangdongtumatphai;
+    @Column public String soisangdongtumattrai;    
+    @Column public String soisangdongtumatphai;
     //goc tien phong 
-    public String goctienphongmattrai; 
-    public String goctienphongmatphai; 
+    @Column public String goctienphongmattrai; 
+    @Column public String goctienphongmatphai; 
     
     //nhan cau 
-    public String nhancaumattrai;  
-    public String nhancaumatphai;
+    @Column public String nhancaumattrai;  
+    @Column public String nhancaumatphai;
     
     //van nhan
-    public String vannhanmattrai;  
-    public String vannhanmatphai;
+    @Column public String vannhanmattrai;  
+    @Column public String vannhanmatphai;
     
     //ho mat
-    public String homattrai;   
-    public String homatphai;   
+    @Column public String homattrai;   
+    @Column public String homatphai;   
     //day mat
-    public String daymattrai;  
-    public String daymatphai;  
+    @Column public String daymattrai;  
+    @Column public String daymatphai;  
 }

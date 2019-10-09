@@ -1,34 +1,40 @@
 package vn.ehealth.emr.ck;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "emr_ck_phuong_phap_dieu_tri_ung_buou")
 public class EmrCkPhuongPhapDieuTriUngBuou {
 
-    public int idhsba;
+    @Id public int idhsba;
     
-    public Integer kieudieutri;
+    @Column public Integer kieudieutri;
     
-    public Double tiaxatienphautaiu;
+    @Column public Double tiaxatienphautaiu;
 
-    public Double tiaxatienphautaihach;
+    @Column public Double tiaxatienphautaihach;
 
-    public Double tiaxadonthuantaiu;
+    @Column public Double tiaxadonthuantaiu;
 
-    public Double tiaxadonthuantaihach;
+    @Column public Double tiaxadonthuantaihach;
 
-    public String phauthuatu;
+    @Column public String phauthuatu;
 
-    public Double tiaxahauphautaiu;
+    @Column public Double tiaxahauphautaiu;
 
-    public Double tiaxahauphautaihach;
+    @Column public Double tiaxahauphautaihach;
 
-    public String hoachat;
+    @Column public String hoachat;
 
-    public Integer sodot;
+    @Column public Integer sodot;
 
     
-    public Integer dapung;
+    @Column public Integer dapung;
 
-    public String dieutrikhac; 
+    @Column public String dieutrikhac; 
     
-    public Integer idchuyenkhoa;
+    @Column public Integer idchuyenkhoa;
 }

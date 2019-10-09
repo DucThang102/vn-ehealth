@@ -4,35 +4,43 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import vn.ehealth.emr.file.EmrQuanLyFileDinhKem;
 
+@Entity
+@Table(name = "emr_giai_phau_benh")
 public class EmrGiaiPhauBenh {
 
-    public int id;
+    @Id public int id;
     
-    public Integer idhsba;
+    @Column public Integer idhsba;
     
-    public Integer idvitrilaymau;
-    public EmrDm emrDmViTriLayMau;
+    @Column public Integer idvitrilaymau;
+    @Transient public EmrDm emrDmViTriLayMau;
     
-    public Integer idloaigiaiphau;
-    public EmrDm emrDmLoaiGiaiPhauBenh;
-    public EmrDm emrDmKetQuaGiaiPhauBenh;
+    @Column public Integer idloaigiaiphau;
+    @Transient public EmrDm emrDmLoaiGiaiPhauBenh;
+    @Transient public EmrDm emrDmKetQuaGiaiPhauBenh;
     
-    public Integer iddichvugiaiphau;
-    public EmrDm emrDmGiaiPhauBenh;
+    @Column public Integer iddichvugiaiphau;
+    @Transient public EmrDm emrDmGiaiPhauBenh;
     
-    public Date ngayyeucau;
-    public String bacsiyeucau;
-    public String bacsichuyenkhoa;
-    public Date ngaythuchien;
-    public String nhanxetdaithe;
-    public String nhanxetvithe;
-    public String motachandoangiaiphau;
-    public Date ngaylaymausinhthiet;
-    public Boolean daxoa;
+    @Column public Date ngayyeucau;
+    @Column public String bacsiyeucau;
+    @Column public String bacsichuyenkhoa;
+    @Column public Date ngaythuchien;
+    @Column public String nhanxetdaithe;
+    @Column public String nhanxetvithe;
+    @Column public String motachandoangiaiphau;
+    @Column public Date ngaylaymausinhthiet;
+    @Column public Boolean daxoa;
     
-    public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemGpbs = new ArrayList<>();
+    @Transient public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemGpbs = new ArrayList<>();
 
     public int getId() {
         return id;

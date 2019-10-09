@@ -4,30 +4,38 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import vn.ehealth.emr.file.EmrQuanLyFileDinhKem;
 
+@Entity
+@Table(name = "emr_chan_doan_hinh_anh")
 public class EmrChanDoanHinhAnh {
 
-    public int id;
+    @Id public int id;
     
-    public Integer idhsba;
+    @Column public Integer idhsba;
     
-    public Integer idloaichandoan;
-    public EmrDm emrDmLoaiChanDoanHinhAnh;
+    @Column public Integer idloaichandoan;
+    @Transient public EmrDm emrDmLoaiChanDoanHinhAnh;
     
-    public Integer iddichvuchandoan;
-    public EmrDm emrDmChanDoanHinhAnh;
+    @Column public Integer iddichvuchandoan;
+    @Transient public EmrDm emrDmChanDoanHinhAnh;
     
-    public Date ngayyeucau;
-    public String bacsiyeucau;
-    public Date ngaythuchien;
-    public String ketqua;
-    public String ketluan;
-    public String loidan;
-    public String bacsichuyenkhoa;
-    public Boolean daxoa;
+    @Column public Date ngayyeucau;
+    @Column public String bacsiyeucau;
+    @Column public Date ngaythuchien;
+    @Column public String ketqua;
+    @Column public String ketluan;
+    @Column public String loidan;
+    @Column public String bacsichuyenkhoa;
+    @Column public Boolean daxoa;
     
-    public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemCdha = new ArrayList<>();
+    @Transient public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemCdha = new ArrayList<>();
 
     public int getId() {
         return id;

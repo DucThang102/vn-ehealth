@@ -1,55 +1,73 @@
 package vn.ehealth.emr;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "emr_xet_nghiem_ket_qua")
 public class EmrXetNghiemKetQua {
 
-    public int id;
+    @Id public int id;
     
-    public Integer idthongdich;
-    public EmrDm emrDmDichKetQuaXetNghiem;
+    @Column public Integer idthongdich;
+    @Transient public EmrDm emrDmDichKetQuaXetNghiem;
     
-    public Integer idchisoxetnghiem;
-    public EmrDm emrDmChiSoXetNghiem;
+    @Column public Integer idchisoxetnghiem;
+    @Transient public EmrDm emrDmChiSoXetNghiem;
     
-    public Integer iddmxetnghiem;
-    public EmrDm emrDmXetNghiem;
+    @Column public Integer iddmxetnghiem;
+    @Transient public EmrDm emrDmXetNghiem;
     
-    public Integer iddichvuxetnghiem;
+    @Column public Integer iddichvuxetnghiem;
     
-    public Integer idxetnghiem;
+    @Column public Integer idxetnghiem;
     
-    public String giatrido;
-    public Boolean daxoa;
+    @Column public String giatrido;
+    
+    @Column public Boolean daxoa;
     
     public int getId() {
         return id;
     }
+    
     public Integer getIdthongdich() {
         return idthongdich;
     }
+    
     public EmrDm getEmrDmDichKetQuaXetNghiem() {
         return emrDmDichKetQuaXetNghiem;
     }
+    
     public Integer getIdchisoxetnghiem() {
         return idchisoxetnghiem;
     }
+    
     public EmrDm getEmrDmChiSoXetNghiem() {
         return emrDmChiSoXetNghiem;
     }
+    
     public Integer getIddmxetnghiem() {
         return iddmxetnghiem;
     }
+    
     public EmrDm getEmrDmXetNghiem() {
         return emrDmXetNghiem;
     }
+    
     public Integer getIddichvuxetnghiem() {
         return iddichvuxetnghiem;
     }
     public Integer getIdxetnghiem() {
         return idxetnghiem;
     }
+    
     public String getGiatrido() {
         return giatrido;
     }
+    
     public Boolean getDaxoa() {
         return daxoa;
     }    

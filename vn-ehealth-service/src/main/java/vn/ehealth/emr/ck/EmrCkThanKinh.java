@@ -1,34 +1,40 @@
 package vn.ehealth.emr.ck;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "emr_ck_than_kinh")
 public class EmrCkThanKinh {
 
-    public int idhsba;
-    public Integer idchuyenkhoa;
+    @Id public int idhsba;
+    @Column public Integer idchuyenkhoa;
     
-    public String daythankinhsonao;
+    @Column public String daythankinhsonao;
     
-    public String daymat;
+    @Column public String daymat;
     
-    public String vandong;
+    @Column public String vandong;
     
-    public String truonglucco;
+    @Column public String truonglucco;
     
-    public String camgiac;
+    @Column public String camgiac;
     
-    public String phanxa;
+    @Column public String phanxa;
     
-    public String roiloanchucnang; 
+    @Column public String roiloanchucnang; 
     
     // Add moi 15/04/2015
-    public Integer kichthuocDongtu;
-    public String phanxaAnhsang;
-    public Boolean coguong;
-    public Boolean giatminhluckham;
-    public Boolean le;
-    public Boolean yeuchi;
-    public Boolean thatdieu;
-    public Boolean runggiatnhancau;
-    public Boolean lietthankinhso;
-    public Boolean nguga;
+    @Column public Integer kichthuocDongtu;
+    @Column public String phanxaAnhsang;
+    @Column public Boolean coguong;
+    @Column public Boolean giatminhluckham;
+    @Column public Boolean le;
+    @Column public Boolean yeuchi;
+    @Column public Boolean thatdieu;
+    @Column public Boolean runggiatnhancau;
+    @Column public Boolean lietthankinhso;
+    @Column public Boolean nguga;
 }

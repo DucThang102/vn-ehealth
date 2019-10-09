@@ -4,30 +4,39 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import vn.ehealth.emr.file.EmrQuanLyFileDinhKem;
 
+@Entity
+@Table(name = "emr_tham_do_chuc_nang")
 public class EmrThamDoChucNang {
-    public int id;
     
-    public Integer idhsba;
+    @Id public int id;
     
-    public Integer idthamdochucnang;
-    public EmrDm emrDmThamDoChucNang;
+    @Column public Integer idhsba;
     
-    public Integer idloaithamdochucnang;
-    public EmrDm emrDmLoaiThamDoChucNang;
+    @Column public Integer idthamdochucnang;
+    @Transient public EmrDm emrDmThamDoChucNang;
     
-    public Date ngayyeucau;
-    public String bacsiyeucau;
-    public String noidungyeucau;
-    public Date ngaythuchien;
-    public String ketqua;
-    public String ketluan;
-    public String loidan;
-    public String bacsichuyenkhoa;
-    public Boolean daxoa;
+    @Column public Integer idloaithamdochucnang;
+    @Transient public EmrDm emrDmLoaiThamDoChucNang;
     
-    public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemTdcns = new ArrayList<>();
+    @Column public Date ngayyeucau;
+    @Column public String bacsiyeucau;
+    @Column public String noidungyeucau;
+    @Column public Date ngaythuchien;
+    @Column public String ketqua;
+    @Column public String ketluan;
+    @Column public String loidan;
+    @Column public String bacsichuyenkhoa;
+    @Column public Boolean daxoa;
+    
+    @Transient public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemTdcns = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -92,7 +101,4 @@ public class EmrThamDoChucNang {
     public List<EmrQuanLyFileDinhKem> getEmrQuanLyFileDinhKemTdcns() {
         return emrQuanLyFileDinhKemTdcns;
     }
-    
-    
-
 }

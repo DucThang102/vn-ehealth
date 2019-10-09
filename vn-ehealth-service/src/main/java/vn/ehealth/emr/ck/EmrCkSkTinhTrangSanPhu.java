@@ -2,32 +2,39 @@ package vn.ehealth.emr.ck;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name = "emr_ck_sk_tinh_trang_san_phu")
 public class EmrCkSkTinhTrangSanPhu {
 
-    public int idhsba;
-    public Integer idchuyenkhoa;
-    public Integer tinhthan;
-    public Boolean phu;
-    public String proteinnieu;
-    public Boolean seomocu;
-    public Boolean dauvetmo;
-    public Double chieucaotucung;
-    public Integer timthai;
-    public Integer tinhtrangtimthai;
-    public Integer cotucung;
-    public Integer domo;
-    public Integer chisobishop;
-    public Integer dauoi;
-    public Date thoidiemvooi;
-    public Integer maunuocoi;
+    @Id public int idhsba;
+    @Column public Integer idchuyenkhoa;
+    @Column public Integer tinhthan;
+    @Column public Boolean phu;
+    @Column public String proteinnieu;
+    @Column public Boolean seomocu;
+    @Column public Boolean dauvetmo;
+    @Column public Double chieucaotucung;
+    @Column public Integer timthai;
+    @Column public Integer tinhtrangtimthai;
+    @Column public Integer cotucung;
+    @Column public Integer domo;
+    @Column public Integer chisobishop;
+    @Column public Integer dauoi;
+    @Column public Date thoidiemvooi;
+    @Column public Integer maunuocoi;
     
     // Add moi 16/04/2015
-    public String nhietdo;
-    public String mach;
-    public String huyetap;
-    public String nhiptho;
-    public String vongbung;
-    public String ngoithai;
-    public String concotucung;
+    @Column public String nhietdo;
+    @Column public String mach;
+    @Column public String huyetap;
+    @Column public String nhiptho;
+    @Column public String vongbung;
+    @Column public String ngoithai;
+    @Column public String concotucung;
 }

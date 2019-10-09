@@ -1,51 +1,57 @@
 package vn.ehealth.emr.ck;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "emr_ck_toan_than")
 public class EmrCkToanThan {
 
-    public int idhsba;
-    public Integer idchuyenkhoa;
-    public String tinhthan;
-    public String hinhdang;
-    public String thetrang;
-    public String da;
-    public String niemmac;
-    public Boolean biphu;
-    public Boolean phutoanthan;
-    public String trieuchungphu;
-    public String trieuchungxuathuyet;
-    public String longtocmong;
-    public String tuyengiap;
-    public String ganKichthuoc;
-    public String ganMatdo;
-    public String ganBogan;
-    public String ganDau;
-    public String ganThongtinbosung;
-    public String lachKichthuoc;
-    public String lachMatdo;
-    public String lachBolach;
-    public String lachMatlach;
-    public String lachDaulach;
-    public String lachThongtinbosung;
-    public String hachKichthuoc;
-    public String hachSoluong;
-    public String hachDodidong;
-    public String hachDodauhach;
-    public String hachThongtinbosung;
-    public String thanMota;
-    public String timMota;
-    public String phoiMota;
-    public String vuMota;
+    @Id public int idhsba;
+    @Column public Integer idchuyenkhoa;
+    @Column public String tinhthan;
+    @Column public String hinhdang;
+    @Column public String thetrang;
+    @Column public String da;
+    @Column public String niemmac;
+    @Column public Boolean biphu;
+    @Column public Boolean phutoanthan;
+    @Column public String trieuchungphu;
+    @Column public String trieuchungxuathuyet;
+    @Column public String longtocmong;
+    @Column public String tuyengiap;
+    @Column public String ganKichthuoc;
+    @Column public String ganMatdo;
+    @Column public String ganBogan;
+    @Column public String ganDau;
+    @Column public String ganThongtinbosung;
+    @Column public String lachKichthuoc;
+    @Column public String lachMatdo;
+    @Column public String lachBolach;
+    @Column public String lachMatlach;
+    @Column public String lachDaulach;
+    @Column public String lachThongtinbosung;
+    @Column public String hachKichthuoc;
+    @Column public String hachSoluong;
+    @Column public String hachDodidong;
+    @Column public String hachDodauhach;
+    @Column public String hachThongtinbosung;
+    @Column public String thanMota;
+    @Column public String timMota;
+    @Column public String phoiMota;
+    @Column public String vuMota;
     
-    public String thieumau;
+    @Column public String thieumau;
     
-    public String khuyetTatDacBiet;
+    @Column public String khuyetTatDacBiet;
     
-    public String matGan;
-    public String hachViTri;
-    public Integer tyletonthuongloai1;
-    public Integer tyletonthuongloai2;
-    public Integer tyletonthuongloai3;
-    public Integer tyletonthuongloai4;
-    public Integer tyletonthuongloai5;
+    @Column public String matGan;
+    @Column public String hachViTri;
+    @Column public Integer tyletonthuongloai1;
+    @Column public Integer tyletonthuongloai2;
+    @Column public Integer tyletonthuongloai3;
+    @Column public Integer tyletonthuongloai4;
+    @Column public Integer tyletonthuongloai5;
 }

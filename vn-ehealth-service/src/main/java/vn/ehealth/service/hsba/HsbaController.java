@@ -12,11 +12,17 @@ import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import net.sf.jasperreports.engine.JRException;
+import vn.ehealth.emr.EmrDanhSachHoSoBenhAn;
 import vn.ehealth.emr.utils.ExportUtil;
 
 
@@ -27,11 +33,17 @@ public class HsbaController {
 	static Logger logger = LoggerFactory.getLogger(HsbaController.class);
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	
+	Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
 		
 	@Autowired RawHsbaService rawHsbaService;
 	
 	@Autowired HsbaService hsbaService;
 	
+	@GetMapping("/test")
+	public String test() {
+	    return "";	    
+	}
 
 	@GetMapping("/count_ds_hs")
 	public int countHsba(@RequestParam int trangthai, @RequestParam("ma_yte")String maYte) {
@@ -148,5 +160,12 @@ public class HsbaController {
 	    
 	    
 	    return ResponseEntity.badRequest().build();
+	}
+	
+	@PostMapping("/add_hoso")
+	public String addHoSo(@RequestBody String jsonSt) {
+	    var hsba = gson.fromJson(jsonSt, EmrDanhSachHoSoBenhAn.class);
+	    System.out.println(hsba.mayte);
+	    return "OK";
 	}
 }

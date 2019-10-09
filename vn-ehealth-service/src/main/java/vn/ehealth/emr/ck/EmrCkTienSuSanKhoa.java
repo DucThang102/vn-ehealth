@@ -3,25 +3,33 @@ package vn.ehealth.emr.ck;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
+@Entity
+@Table(name = "emr_ck_tien_su_san_khoa")
 public class EmrCkTienSuSanKhoa {
     
-    public int idhsba;
-    public Integer idchuyenkhoa;
-    public String thoigiandiadiem;
-    public String tuoithai;
-    public String dienbienthai;
-    public String cachde;
-    public String tresosinh;
-    public String hausan;
+    @Id public int idhsba;
+    @Column public Integer idchuyenkhoa;
+    @Column public String thoigiandiadiem;
+    @Column public String tuoithai;
+    @Column public String dienbienthai;
+    @Column public String cachde;
+    @Column public String tresosinh;
+    @Column public String hausan;
     
-    public String paraDuthang;
-    public String paraDenon;
-    public String paraSay;
-    public String paraSong;
-    public List<EmrCkTienSuSanKhoaChiTiet> emrCkTienSuSanKhoaChiTiets = new ArrayList<>();
+    @Column public String paraDuthang;
+    @Column public String paraDenon;
+    @Column public String paraSay;
+    @Column public String paraSong;
+    
+    @Transient public List<EmrCkTienSuSanKhoaChiTiet> emrCkTienSuSanKhoaChiTiets = new ArrayList<>();
 
     //add SonVT 08042016
-    public Integer solancothai;
+    @Column public Integer solancothai;
 
 }

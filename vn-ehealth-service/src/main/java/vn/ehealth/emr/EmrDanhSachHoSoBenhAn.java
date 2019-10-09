@@ -4,204 +4,274 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import vn.ehealth.emr.file.EmrQuanLyFileDinhKemBenhAn;
 
+
+@Entity
+@Table(name = "emr_danh_sach_ho_so_benh_an")
 public class EmrDanhSachHoSoBenhAn {
 
-    public int id;
+    @Id public int id;
     
-    public Integer idtrangthai;
-    public EmrDm emrDmTrangthai;
+    @Column public Integer idtrangthai;
+    @Transient public EmrDm emrDmTrangthai;
     
-    public Integer idloaibenhan;
-    public EmrDm emrDmLoaiBenhAn;
+    @Column public Integer idloaibenhan;
+    @Transient public EmrDm emrDmLoaiBenhAn;
     
-    public Integer idbenhnhan;
-    public EmrBenhNhan emrBenhNhan;
+    @Column public int idbenhnhan;
+    @Transient public EmrBenhNhan emrBenhNhan;
     
-    public Integer idnguondulieu;
-    public EmrDm emrDmNguondulieu;
+    @Column public Integer idnguondulieu;
+    @Transient public EmrDm emrDmNguondulieu;
     
-    public String mayte;
-    public String maluutru;
-    public Boolean daxoa;
+    @Column public String mayte;
+    @Column public String maluutru;
+    @Column public Boolean daxoa;
     
-    public Date ngaytao;
-    public Integer idnguoitao;
-    public Date ngaysua;
-    public Integer idnguoisua;
-    public String giamdocbenhvien;
-    public String tenbenhvien;
-    public String donvichuquan;
-    public String truongphongth;
+    @Column public Date ngaytao;
+    @Column public Integer idnguoitao;
+    @Column public Date ngaysua;
+    @Column public Integer idnguoisua;
+    @Column public String giamdocbenhvien;
+    @Column public String tenbenhvien;
+    @Column public String donvichuquan;
+    @Column public String truongphongth;
     
-    public EmrQuanLyNguoiBenh emrQuanLyNguoiBenh;
-    public EmrTongKetRaVien emrTongKetRaVien;
-    public EmrBenhAn emrBenhAn;
-    public EmrYhctBenhAn emrYhctBenhAn;
-    public EmrChanDoan emrChanDoan;
-    public EmrYhctChanDoan emrYhctChanDoan;
-    public EmrTinhTrangRaVien emrTinhTrangRaVien;
-    public EmrTongKetSanKhoa emrTongKetSanKhoa;
+    @Transient public EmrQuanLyNguoiBenh emrQuanLyNguoiBenh;
+    
+    @Transient public EmrTongKetRaVien emrTongKetRaVien;
+    
+    @Transient public EmrBenhAn emrBenhAn;
+    
+    @Transient public EmrYhctBenhAn emrYhctBenhAn;
+    
+    @Transient public EmrChanDoan emrChanDoan;
+    
+    @Transient public EmrYhctChanDoan emrYhctChanDoan;
+    
+    @Transient public EmrTinhTrangRaVien emrTinhTrangRaVien;
+    
+    @Transient public EmrTongKetSanKhoa emrTongKetSanKhoa;
     // NoiPham add 21/07/2016
-    public EmrYhctNhaBa emrYhctNhaBa;
-    public List<EmrYhctNhaBaGhiChu> emrYhctNhaBaGhiChus = new ArrayList<>();
+    
+    @Transient public EmrYhctNhaBa emrYhctNhaBa;
+    
+    @Transient public List<EmrYhctNhaBaGhiChu> emrYhctNhaBaGhiChus = new ArrayList<>();
     // NoiPham add 21/07/2016
-    public EmrVaoKhoa[] emrVaoKhoas = new EmrVaoKhoa[0];
-    public List<EmrQuaTrinhSuDungThuoc> emrQuaTrinhSuDungThuocs = new ArrayList<>();
-    public List<EmrHinhAnhTonThuong> emrHinhAnhTonThuongs = new ArrayList<>();
-    public List<EmrGiaiPhauBenh> emrGiaiPhauBenhs = new ArrayList<>();
-    public List<EmrThamDoChucNang> emrThamDoChucNangs = new ArrayList<>();
-    public EmrPhauThuatThuThuat[] emrPhauThuatThuThuats = new EmrPhauThuatThuThuat[0];
-    public List<EmrYeuCauTruyCapHsbaChiTiet> emrYeuCauTruyCapHsbaChiTiets = new ArrayList<>();
-    public List<EmrChanDoanHinhAnh> emrChanDoanHinhAnhs = new ArrayList<>();
-    public List<EmrDonThuoc> emrDonThuocs = new ArrayList<>();  
-    public List<EmrYhctDonThuoc> emrYhctDonThuocs = new ArrayList<>();  
-    public List<EmrXetNghiem> emrXetNghiems = new ArrayList<>();
+    
+    @Transient public EmrVaoKhoa[] emrVaoKhoas = new EmrVaoKhoa[0];
+    
+    @Transient public List<EmrQuaTrinhSuDungThuoc> emrQuaTrinhSuDungThuocs = new ArrayList<>();
+    
+    @Transient public List<EmrHinhAnhTonThuong> emrHinhAnhTonThuongs = new ArrayList<>();
+    
+    @Transient public List<EmrGiaiPhauBenh> emrGiaiPhauBenhs = new ArrayList<>();
+    
+    @Transient public List<EmrThamDoChucNang> emrThamDoChucNangs = new ArrayList<>();
+    
+    @Transient public List<EmrPhauThuatThuThuat> _emrPhauThuatThuThuats = new ArrayList<>();
+    
+    @Transient public EmrPhauThuatThuThuat[] emrPhauThuatThuThuats = new EmrPhauThuatThuThuat[0];
+    
+    @Transient public List<EmrYeuCauTruyCapHsbaChiTiet> emrYeuCauTruyCapHsbaChiTiets = new ArrayList<>();
+    
+    @Transient public List<EmrChanDoanHinhAnh> emrChanDoanHinhAnhs = new ArrayList<>();
+    
+    @Transient public List<EmrDonThuoc> emrDonThuocs = new ArrayList<>();
+    
+    @Transient public List<EmrYhctDonThuoc> emrYhctDonThuocs = new ArrayList<>();
+    
+    @Transient public List<EmrXetNghiem> emrXetNghiems = new ArrayList<>();
+
     // NoiPD add 2016/03/18
-    public List<EmrQuanLyFileDinhKemBenhAn> emrQuanLyFileDinhKemBenhAn = new ArrayList<>();
+    @Transient public List<EmrQuanLyFileDinhKemBenhAn> emrQuanLyFileDinhKemBenhAn = new ArrayList<>();
     
     // For transfer HSBA from WS    
-    public String matraodoi;   
+    @Column public String matraodoi;   
     
-    public Boolean coPhauThuat;
-    public Boolean coThuThuat;
+    @Transient public Boolean coPhauThuat;
+    @Transient public Boolean coThuThuat;
+    
     public int getId() {
         return id;
     }
+    
     public Integer getIdtrangthai() {
         return idtrangthai;
     }
+    
     public EmrDm getEmrDmTrangthai() {
         return emrDmTrangthai;
     }
+    
     public Integer getIdloaibenhan() {
         return idloaibenhan;
     }
+    
     public EmrDm getEmrDmLoaiBenhAn() {
         return emrDmLoaiBenhAn;
     }
-    public Integer getIdbenhnhan() {
-        return idbenhnhan;
-    }
+    
     public EmrBenhNhan getEmrBenhNhan() {
         return emrBenhNhan;
     }
+    
     public Integer getIdnguondulieu() {
         return idnguondulieu;
     }
+    
     public EmrDm getEmrDmNguondulieu() {
         return emrDmNguondulieu;
     }
+    
     public String getMayte() {
         return mayte;
     }
+    
     public String getMaluutru() {
         return maluutru;
     }
+    
     public Boolean getDaxoa() {
         return daxoa;
     }
+    
     public Date getNgaytao() {
         return ngaytao;
     }
+    
     public Integer getIdnguoitao() {
         return idnguoitao;
     }
+    
     public Date getNgaysua() {
         return ngaysua;
     }
+    
     public Integer getIdnguoisua() {
         return idnguoisua;
     }
+    
     public String getGiamdocbenhvien() {
         return giamdocbenhvien;
     }
+    
     public String getTenbenhvien() {
         return tenbenhvien;
     }
+    
     public String getDonvichuquan() {
         return donvichuquan;
     }
+    
     public String getTruongphongth() {
         return truongphongth;
     }
+    
     public EmrQuanLyNguoiBenh getEmrQuanLyNguoiBenh() {
         return emrQuanLyNguoiBenh;
     }
+    
     public EmrTongKetRaVien getEmrTongKetRaVien() {
         return emrTongKetRaVien;
     }
+    
     public EmrBenhAn getEmrBenhAn() {
         return emrBenhAn;
     }
+    
     public EmrYhctBenhAn getEmrYhctBenhAn() {
         return emrYhctBenhAn;
     }
+    
     public EmrChanDoan getEmrChanDoan() {
         return emrChanDoan;
     }
+    
     public EmrYhctChanDoan getEmrYhctChanDoan() {
         return emrYhctChanDoan;
     }
+    
     public EmrTinhTrangRaVien getEmrTinhTrangRaVien() {
         return emrTinhTrangRaVien;
     }
+    
     public EmrTongKetSanKhoa getEmrTongKetSanKhoa() {
         return emrTongKetSanKhoa;
     }
+        
     public EmrYhctNhaBa getEmrYhctNhaBa() {
         return emrYhctNhaBa;
     }
+    
     public List<EmrYhctNhaBaGhiChu> getEmrYhctNhaBaGhiChus() {
         return emrYhctNhaBaGhiChus;
     }
+    
     public EmrVaoKhoa[] getEmrVaoKhoas() {
         return emrVaoKhoas;
     }
+    
     public List<EmrQuaTrinhSuDungThuoc> getEmrQuaTrinhSuDungThuocs() {
         return emrQuaTrinhSuDungThuocs;
     }
+    
     public List<EmrHinhAnhTonThuong> getEmrHinhAnhTonThuongs() {
         return emrHinhAnhTonThuongs;
     }
+    
     public List<EmrGiaiPhauBenh> getEmrGiaiPhauBenhs() {
         return emrGiaiPhauBenhs;
     }
+    
     public List<EmrThamDoChucNang> getEmrThamDoChucNangs() {
         return emrThamDoChucNangs;
     }
+    
     public EmrPhauThuatThuThuat[] getEmrPhauThuatThuThuats() {
         return emrPhauThuatThuThuats;
     }
+    
     public List<EmrYeuCauTruyCapHsbaChiTiet> getEmrYeuCauTruyCapHsbaChiTiets() {
         return emrYeuCauTruyCapHsbaChiTiets;
     }
+    
     public List<EmrChanDoanHinhAnh> getEmrChanDoanHinhAnhs() {
         return emrChanDoanHinhAnhs;
     }
+    
     public List<EmrDonThuoc> getEmrDonThuocs() {
         return emrDonThuocs;
     }
+    
     public List<EmrYhctDonThuoc> getEmrYhctDonThuocs() {
         return emrYhctDonThuocs;
     }
+    
     public List<EmrXetNghiem> getEmrXetNghiems() {
         return emrXetNghiems;
     }
+    
     public List<EmrQuanLyFileDinhKemBenhAn> getEmrQuanLyFileDinhKemBenhAn() {
         return emrQuanLyFileDinhKemBenhAn;
     }
+    
     public String getMatraodoi() {
         return matraodoi;
     }
+    
     public Boolean getCoPhauThuat() {
         return coPhauThuat;
     }
+    
     public Boolean getCoThuThuat() {
         return coThuThuat;
-    }
-    
-    
-    
+    }    
 }

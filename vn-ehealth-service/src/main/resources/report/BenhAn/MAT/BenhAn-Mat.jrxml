@@ -4281,7 +4281,7 @@ $P{Header_SCRIPTLET}.getTextICD10TuVongFromTTRaVien(
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrTongKetRaVien}.emrCkTinhTrangRaVienMat.thiluckhongkinhphai]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhAn}.emrCkTinhTrangRaVienMat.thiluckhongkinhphai]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="9" y="16" width="193" height="20" forecolor="#000000" uuid="e3aaae3d-bcc4-42c0-959d-c576c84a7017"/>
@@ -4351,14 +4351,14 @@ $P{Header_SCRIPTLET}.getTextICD10TuVongFromTTRaVien(
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrTongKetRaVien}.emrCkTinhTrangRaVienMat.thiluccokinhphai]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhAn}.emrCkTinhTrangRaVienMat.thiluccokinhphai]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="480" y="506" width="56" height="17" forecolor="#000000" uuid="4f0e4fba-2f17-49ce-87cb-7af8b2cf11ce"/>
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrTongKetRaVien}.emrCkTinhTrangRaVienMat.thiluccokinhtrai]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhAn}.emrCkTinhTrangRaVienMat.thiluccokinhtrai]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="446" y="506" width="32" height="17" forecolor="#000000" uuid="1a3eb779-0b9e-4ade-b428-d2927b99beb9"/>
@@ -4372,7 +4372,7 @@ $P{Header_SCRIPTLET}.getTextICD10TuVongFromTTRaVien(
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrTongKetRaVien}.emrCkTinhTrangRaVienMat.thiluckhongkinhtrai]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhAn}.emrCkTinhTrangRaVienMat.thiluckhongkinhtrai]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="446" y="488" width="32" height="17" forecolor="#000000" uuid="bf2f841e-31e2-4260-be41-9b6c37d76ddc"/>
@@ -4393,7 +4393,7 @@ $P{Header_SCRIPTLET}.getTextICD10TuVongFromTTRaVien(
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrTongKetRaVien}.emrCkTinhTrangRaVienMat.nhanapphai]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhAn}.emrCkTinhTrangRaVienMat.nhanapphai]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="199" y="525" width="81" height="17" forecolor="#000000" uuid="848a930a-3ed9-4180-a412-8cae303b9239"/>
@@ -4414,7 +4414,7 @@ $P{Header_SCRIPTLET}.getTextICD10TuVongFromTTRaVien(
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrTongKetRaVien}.emrCkTinhTrangRaVienMat.nhanaptrai]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrBenhAn}.emrCkTinhTrangRaVienMat.nhanaptrai]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="15" y="406" width="526" height="1" forecolor="#000000" uuid="71da9eb8-e992-4964-9181-4854525428e0"/>

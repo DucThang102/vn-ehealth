@@ -16,80 +16,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import vn.ehealth.emr.EmrBenhAn;
-import vn.ehealth.emr.EmrBenhNhan;
-import vn.ehealth.emr.EmrChamSoc;
-import vn.ehealth.emr.EmrChanDoan;
-import vn.ehealth.emr.EmrChanDoanHinhAnh;
-import vn.ehealth.emr.EmrChucNangSong;
-import vn.ehealth.emr.EmrChucNangSongChiTiet;
-import vn.ehealth.emr.EmrCoSoKhamBenh;
-import vn.ehealth.emr.EmrDanhSachHoSoBenhAn;
-import vn.ehealth.emr.EmrDieuTri;
-import vn.ehealth.emr.EmrDm;
-import vn.ehealth.emr.EmrDonThuoc;
-import vn.ehealth.emr.EmrDonThuocChiTiet;
-import vn.ehealth.emr.EmrGiaiPhauBenh;
-import vn.ehealth.emr.EmrHinhAnhTonThuong;
-import vn.ehealth.emr.EmrHoiChan;
-import vn.ehealth.emr.EmrHoiDongHoiChan;
-import vn.ehealth.emr.EmrHoiDongPttt;
-import vn.ehealth.emr.EmrPhauThuatThuThuat;
-import vn.ehealth.emr.EmrQuaTrinhChamSoc;
-import vn.ehealth.emr.EmrQuaTrinhDieuTri;
-import vn.ehealth.emr.EmrQuaTrinhSuDungThuoc;
-import vn.ehealth.emr.EmrQuanLyNguoiBenh;
-import vn.ehealth.emr.EmrThamDoChucNang;
-import vn.ehealth.emr.EmrTinhTrangRaVien;
-import vn.ehealth.emr.EmrTongKetRaVien;
-import vn.ehealth.emr.EmrTongKetSanKhoa;
-import vn.ehealth.emr.EmrVaoKhoa;
-import vn.ehealth.emr.EmrXetNghiem;
-import vn.ehealth.emr.EmrXetNghiemDichVu;
-import vn.ehealth.emr.EmrXetNghiemKetQua;
-import vn.ehealth.emr.EmrYhctBenhAn;
-import vn.ehealth.emr.EmrYhctBenhanThietChan;
-import vn.ehealth.emr.EmrYhctBenhanVaanChan;
-import vn.ehealth.emr.EmrYhctBenhanVawnChan;
-import vn.ehealth.emr.EmrYhctBenhanVongChan;
-import vn.ehealth.emr.EmrYhctChanDoan;
-import vn.ehealth.emr.EmrYhctDonThuoc;
-import vn.ehealth.emr.EmrYhctDonThuocChiTiet;
-import vn.ehealth.emr.EmrYhctNhaBa;
-import vn.ehealth.emr.EmrYhctNhaBaGhiChu;
-import vn.ehealth.emr.ck.EmrCkChanTayMieng;
-import vn.ehealth.emr.ck.EmrCkChucNangSinhHoat;
-import vn.ehealth.emr.ck.EmrCkCoXuongKhop;
-import vn.ehealth.emr.ck.EmrCkHoHap;
-import vn.ehealth.emr.ck.EmrCkHuongDieuTriHuyetHoc;
-import vn.ehealth.emr.ck.EmrCkHuongDieuTriTcm;
-import vn.ehealth.emr.ck.EmrCkKhamPhuKhoa;
-import vn.ehealth.emr.ck.EmrCkKhamSanKhoa;
-import vn.ehealth.emr.ck.EmrCkKhamSoSinh;
-import vn.ehealth.emr.ck.EmrCkMat;
-import vn.ehealth.emr.ck.EmrCkMoiSinh;
-import vn.ehealth.emr.ck.EmrCkPhuongPhapDieuTriUngBuou;
-import vn.ehealth.emr.ck.EmrCkPhuongPhapHoiSinh;
-import vn.ehealth.emr.ck.EmrCkQuaTrinhBenhLyTcm;
-import vn.ehealth.emr.ck.EmrCkQuaTrinhSinhTruong;
-import vn.ehealth.emr.ck.EmrCkSkTinhTrangSanPhu;
-import vn.ehealth.emr.ck.EmrCkTamThan;
-import vn.ehealth.emr.ck.EmrCkThanKinh;
-import vn.ehealth.emr.ck.EmrCkTiemChung;
-import vn.ehealth.emr.ck.EmrCkTienSuBanThanSanKhoa;
-import vn.ehealth.emr.ck.EmrCkTienSuGiaDinh;
-import vn.ehealth.emr.ck.EmrCkTienSuPhuKhoa;
-import vn.ehealth.emr.ck.EmrCkTienSuSanKhoa;
-import vn.ehealth.emr.ck.EmrCkTienSuSanKhoaChiTiet;
-import vn.ehealth.emr.ck.EmrCkTieuHoa;
-import vn.ehealth.emr.ck.EmrCkTinhTrangRaVienMat;
-import vn.ehealth.emr.ck.EmrCkTinhTrangSanPhu;
-import vn.ehealth.emr.ck.EmrCkTinhTrangSoSinh;
-import vn.ehealth.emr.ck.EmrCkToanThan;
-import vn.ehealth.emr.ck.EmrCkTomTatBenhAnTcm;
-import vn.ehealth.emr.ck.EmrCkTuanHoan;
-import vn.ehealth.emr.file.EmrQuanLyFileDinhKem;
-import vn.ehealth.emr.file.EmrQuanLyFileDinhKemBenhAn;
+import vn.ehealth.emr.*;
+import vn.ehealth.emr.ck.*;
+import vn.ehealth.repository.*;
+import vn.ehealth.service.Constants.TRANGTHAI_HOSO;
+import vn.ehealth.emr.file.*;
 import vn.ehealth.emr.utils.FieldUtil;
 
 @Service
@@ -97,6 +28,37 @@ public class HsbaService {
     
     @Autowired
     JdbcTemplate jdbcTemplate;
+    
+    @Autowired EmrBenhNhanRepository emrBenhNhanRepository;
+    @Autowired EmrQuanLyNguoiBenhRepository emrQuanLyNguoiBenhRepository;
+    @Autowired EmrChanDoanRepository emrChanDoanRepository;
+    @Autowired EmrYhctChanDoanRepository emrYhctChanDoanRepository;
+    @Autowired EmrTinhTrangRaVienRepository emrTinhTrangRaVienRepository;
+    @Autowired EmrTongKetRaVienRepository emrTongKetRaVienRepository;
+    @Autowired EmrTongKetSanKhoaRepository emrTongKetSanKhoaRepository;
+    @Autowired EmrCkTienSuSanKhoaRepository emrCkTienSuSanKhoaRepository;
+    @Autowired EmrBenhAnRepository emrBenhAnRepository;
+    @Autowired EmrVaoKhoaRespository emrVaoKhoaRespository;    
+    @Autowired EmrChamSocRepository emrChamSocRepository;
+    @Autowired EmrDieuTriRepository emrDieuTriRepository;
+    @Autowired EmrChucNangSongRepository emrChucNangSongRepository;
+    @Autowired EmrHoiChanRepository emrHoiChanRepository;
+    @Autowired EmrYhctBenhAnRepository emrYhctBenhAnRepository;
+    @Autowired EmrYhctBenhanVaanChanRepository emrYhctBenhanVaanChanRepository;
+    @Autowired EmrYhctBenhanThietChanRepository emrYhctBenhanThietChanRepository;
+    @Autowired EmrYhctBenhanVongChanRepository emrYhctBenhanVongChanRepository;
+    @Autowired EmrYhctBenhanVawnChanRepository emrYhctBenhanVawnChanRepository;
+    @Autowired EmrDanhSachHoSoBenhAnRepository emrDanhSachHoSoBenhAnRepository;    
+    @Autowired EmrChanDoanHinhAnhRepository emrChanDoanHinhAnhRepository;
+    @Autowired EmrDonThuocRepository emrDonThuocRepository;
+    @Autowired EmrDonThuocChiTietRepository emrDonThuocChiTietRepository;
+    @Autowired EmrYhctDonThuocRepository emrYhctDonThuocRepository;
+    @Autowired EmrYhctDonThuocChiTietRepository emrYhctDonThuocChiTietRepository;
+    @Autowired EmrHinhAnhTonThuongRepository emrHinhAnhTonThuongRepository;
+    @Autowired EmrThamDoChucNangRepository emrThamDoChucNangRepository;
+    @Autowired EmrYhctNhaBaRepository emrYhctNhaBaRepository;
+    @Autowired EmrYhctNhaBaGhiChuRepository emrYhctNhaBaGhiChuRepository;
+    
     
     static Logger logger = LoggerFactory.getLogger(HsbaService.class);
     
@@ -135,14 +97,10 @@ public class HsbaService {
             return Optional.ofNullable(null);
         }
         
-    }    
-    
-    <T> Optional<T> getRecordById(Class<T> cl, String table, Integer id, boolean checkDaXoa) {        
-        return getRecord(cl, table, "id", id, checkDaXoa);
     }
     
     public @Nonnull EmrDm getEmrDm(String table, Integer id) {
-        var emrDm = getRecordById(EmrDm.class, table, id, false);
+        var emrDm = getRecord(EmrDm.class, table, "id", id, false);
         return emrDm.orElse(new EmrDm());
     }    
     
@@ -154,7 +112,7 @@ public class HsbaService {
     }
     
     public Optional<EmrBenhNhan> getEmrBenhNhanById(Integer id) {
-        var emrBenhNhan = getRecordById(EmrBenhNhan.class, "emr_benh_nhan", id, true);
+        var emrBenhNhan = emrBenhNhanRepository.findById(id);
         
         emrBenhNhan.ifPresent(x -> {
             x.emrDmGioiTinh = getEmrDm("emr_dm_gioi_tinh", x.idgioitinh);
@@ -172,7 +130,7 @@ public class HsbaService {
     }    
     
     Optional<EmrQuanLyNguoiBenh> getEmrQuanLyNguoiBenh(int idhsba) {
-        var emrQuanLyNguoiBenh = getRecord(EmrQuanLyNguoiBenh.class, "emr_quan_ly_nguoi_benh", "idhsba", idhsba, true);
+        var emrQuanLyNguoiBenh = emrQuanLyNguoiBenhRepository.findById(idhsba);
         
         emrQuanLyNguoiBenh.ifPresent(x -> {
             x.emrDmCoSoKhamBenh = getEmrDm("emr_dm_co_so_kham_benh", x.idnoichuyenden);
@@ -187,20 +145,9 @@ public class HsbaService {
         return emrQuanLyNguoiBenh;
     }
     
-    Optional<EmrTongKetRaVien> getEmrTongKetRaVien(int idhsba) {
-        
-        var emrTongKetRaVien = getRecord(EmrTongKetRaVien.class, "emr_tong_ket_ra_vien", "idhsba", idhsba, true);
-        emrTongKetRaVien.ifPresent(x -> {
-            x.emrCkPhuongPhapDieuTriUngBuou = getRecord(EmrCkPhuongPhapDieuTriUngBuou.class, "emr_ck_phuong_phap_dieu_tri_ung_buou", "idhsba", idhsba, false).orElse(null);
-            x.emrCkTinhTrangRaVienMat = getRecord(EmrCkTinhTrangRaVienMat.class, "emr_ck_tinh_trang_ra_vien_mat", "idhsba", idhsba, false).orElse(null);
-        });
-        
-        return emrTongKetRaVien;
-    }
-    
     Optional<EmrChanDoan> getEmrChanDoan(int idhsba) {
         
-        var emrChanDoan = getRecord(EmrChanDoan.class, "emr_chan_doan", "idhsba", idhsba, true);
+        var emrChanDoan = emrChanDoanRepository.findById(idhsba);
         
         emrChanDoan.ifPresent(x -> {
             x.emrDmLyDoTaiBienBienChung =  getEmrDm("emr_dm_ly_do_tai_bien_bien_chung", x.idlydotbbc);
@@ -218,7 +165,7 @@ public class HsbaService {
     }
     
     Optional<EmrYhctChanDoan> getEmrYhctChanDoan(int idhsba) {
-        var emrYhctChanDoan = getRecord(EmrYhctChanDoan.class, "emr_yhct_chan_doan", "idhsba", idhsba, true);
+        var emrYhctChanDoan = emrYhctChanDoanRepository.findById(idhsba);
 
         emrYhctChanDoan.ifPresent(x -> {
             x.emrDmYhctBenhdanhRavien = getEmrDm("emr_dm_yhct_benh_danh", x.idbenhdanhyhctravien);
@@ -231,7 +178,7 @@ public class HsbaService {
     
     Optional<EmrTinhTrangRaVien> getEmrTinhTrangRaVien(int idhsba) {
         
-        var emrTinhTrangRaVien = getRecord(EmrTinhTrangRaVien.class, "emr_tinh_trang_ra_vien", "idhsba", idhsba, true);
+        var emrTinhTrangRaVien = emrTinhTrangRaVienRepository.findById(idhsba);
         
         emrTinhTrangRaVien.ifPresent(x -> {
             x.emrDmKetQuaDieuTri = getEmrDm("emr_dm_ket_qua_dieu_tri", x.idketquadieutri);
@@ -248,7 +195,7 @@ public class HsbaService {
     }
     
     Optional<EmrTongKetSanKhoa> getEmrTongKetSanKhoa(int idhsba) {
-        var emrTongKetSanKhoa = getRecord(EmrTongKetSanKhoa.class, "emr_tong_ket_san_khoa", "idhsba", idhsba, false);
+        var emrTongKetSanKhoa = emrTongKetSanKhoaRepository.findById(idhsba);
         
         emrTongKetSanKhoa.ifPresent(x -> {
             x.emrDmCachDe = getEmrDm("emr_dm_cach_de", x.idcachde);
@@ -427,6 +374,7 @@ public class HsbaService {
         for(var item : lst) {            
             item.emrDmDuongDungThuoc = getEmrDm("emr_dm_duong_dung_thuoc", item.idloaiduongdung);
             item.emrDmTanXuatDungThuoc = getEmrDm("emr_dm_tan_xuat_dung_thuoc", item.idtanxuatdung);
+            item.emrDmChiDanDungThuoc =  getEmrDm("emr_dm_chi_dan_dung_thuoc", item.idchidandungthuoc);
             item.emrDmThuoc = getEmrDm("emr_dm_thuoc", item.idthuoc);
         }
         
@@ -481,7 +429,7 @@ public class HsbaService {
     }
     
     Optional<EmrCkTienSuSanKhoa> getEmrCkTienSuSanKhoa(int idhsba) {
-        var emrCkTienSuSanKhoa = getRecord(EmrCkTienSuSanKhoa.class, "emr_ck_tien_su_san_khoa", "idhsba", idhsba, false);
+        var emrCkTienSuSanKhoa = emrCkTienSuSanKhoaRepository.findById(idhsba);
         emrCkTienSuSanKhoa.ifPresent(x -> {
             x.emrCkTienSuSanKhoaChiTiets = getRecords(EmrCkTienSuSanKhoaChiTiet.class, "emr_ck_tien_su_san_khoa_chi_tiet", "idhsba", idhsba, true);
         });
@@ -490,21 +438,21 @@ public class HsbaService {
     }
     
     public Optional<EmrYhctBenhAn> getEmrYhctBenhAn(int idhsba) {
-        var emrYhctBenhAn = getRecord(EmrYhctBenhAn.class, "emr_yhct_benh_an", "idhsba", idhsba, true);
+        var emrYhctBenhAn = emrYhctBenhAnRepository.findById(idhsba);
         
         emrYhctBenhAn.ifPresent(x -> {
             x.emrDmYhctCheDoChamSoc = getEmrDm("emr_dm_yhct_che_do_cham_soc", x.idchamsoc);
-            x.emrYhctBenhanThietChan = getRecord(EmrYhctBenhanThietChan.class, "emr_yhct_benhan_thiet_chan", "idhsba", idhsba, false).orElse(null);
-            x.emrYhctBenhanVaanChan = getRecord(EmrYhctBenhanVaanChan.class, "emr_yhct_benhan_vaan_chan", "idhsba", idhsba, false).orElse(null);
-            x.emrYhctBenhanVawnChan = getRecord(EmrYhctBenhanVawnChan.class, "emr_yhct_benhan_vawn_chan", "idhsba", idhsba, false).orElse(null);
-            x.emrYhctBenhanVongChan = getRecord(EmrYhctBenhanVongChan.class, "emr_yhct_benhan_vong_chan", "idhsba", idhsba, false).orElse(null);
+            x.emrYhctBenhanThietChan = emrYhctBenhanThietChanRepository.findById(idhsba).orElse(null);
+            x.emrYhctBenhanVaanChan = emrYhctBenhanVaanChanRepository.findById(idhsba).orElse(null);
+            x.emrYhctBenhanVawnChan = emrYhctBenhanVawnChanRepository.findById(idhsba).orElse(null);
+            x.emrYhctBenhanVongChan = emrYhctBenhanVongChanRepository.findById(idhsba).orElse(null);
         });
         
         return emrYhctBenhAn;
     }
     
     public Optional<EmrBenhAn> getEmrBenhAn(int idhsba) {
-        var emrBenhAn = getRecord(EmrBenhAn.class, "emr_benh_an", "idhsba", idhsba, true);
+        var emrBenhAn = emrBenhAnRepository.findById(idhsba);
         
         emrBenhAn.ifPresent(x -> {
             x.emrCkChanTayMieng = getRecord(EmrCkChanTayMieng.class, "emr_ck_chan_tay_mieng", "idhsba", idhsba, false).orElse(null);
@@ -536,7 +484,8 @@ public class HsbaService {
             x.emrCkToanThan = getRecord(EmrCkToanThan.class, "emr_ck_toan_than", "idhsba", idhsba, false).orElse(null);
             x.emrCkTomTatBenhAnTcm = getRecord(EmrCkTomTatBenhAnTcm.class, "emr_ck_tom_tat_benh_an_tcm", "idhsba", idhsba, false).orElse(null);        
             x.emrCkTuanHoan = getRecord(EmrCkTuanHoan.class, "emr_ck_tuan_hoan", "idhsba", idhsba, false).orElse(null);
-            
+            x.emrCkPhuongPhapDieuTriUngBuou = getRecord(EmrCkPhuongPhapDieuTriUngBuou.class, "emr_ck_phuong_phap_dieu_tri_ung_buou", "idhsba", idhsba, false).orElse(null);
+            x.emrCkTinhTrangRaVienMat = getRecord(EmrCkTinhTrangRaVienMat.class, "emr_ck_tinh_trang_ra_vien_mat", "idhsba", idhsba, false).orElse(null);
             x.emrDmMaBenhChandoanbenhchinh = getEmrDm("emr_dm_ma_benh", x.idicdChandoanbenhchinh);
             x.emrDmMaBenhChandoankemtheo = getEmrDm("emr_dm_ma_benh", x.idicdChandoankemtheo);
             x.emrDmMaBenhChandoanphanbiet = getEmrDm("emr_dm_ma_benh", x.idicdChandoanphanbiet);
@@ -545,11 +494,24 @@ public class HsbaService {
         return emrBenhAn;        
     }
     
+    List<EmrYhctDonThuocChiTiet> getEmrYhctDonThuocChiTiets(int idyhctdonthuoc) {
+        var lst = getRecords(EmrYhctDonThuocChiTiet.class, "emr_yhct_don_thuoc_chi_tiet", "idyhctdonthuoc", idyhctdonthuoc, true);
+        
+        for(var item : lst) {            
+            item.emrDmDuongDungThuoc = getEmrDm("emr_dm_duong_dung_thuoc", item.idloaiduongdung);
+            item.emrDmTanXuatDungThuoc = getEmrDm("emr_dm_tan_xuat_dung_thuoc", item.idtanxuatdung);
+            item.emrDmChiDanDungThuoc =  getEmrDm("emr_dm_chi_dan_dung_thuoc", item.idchidandungthuoc);
+            item.emrDmYhctViThuoc = getEmrDm("emr_dm_yhct_vi_thuoc", item.idvithuoc);
+        }
+        
+        return lst;
+    }
+    
     List<EmrYhctDonThuoc> getEmrYhctDonThuocs(int idhsba) {
         var lst = (List<EmrYhctDonThuoc>) getRecords(EmrYhctDonThuoc.class, "emr_yhct_don_thuoc", "idhsba", idhsba, true);
         
         for(var item : lst) {
-            item.emrYhctDonThuocChiTiets = getRecords(EmrYhctDonThuocChiTiet.class, "emr_yhct_don_thuoc_chi_tiet", "idyhctdonthuoc", item.id, true);
+            item.emrYhctDonThuocChiTiets = getEmrYhctDonThuocChiTiets(item.id);
             item.emrQuanLyFileDinhKemDonThuocYhcts = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_don_thuoc_yhct", item.id);
         }
         
@@ -558,7 +520,7 @@ public class HsbaService {
         
     public Optional<EmrDanhSachHoSoBenhAn> getEmrDanhSachHoSoBenhAnById(int id) {
         
-        var dshsba = getRecordById(EmrDanhSachHoSoBenhAn.class, "emr_danh_sach_ho_so_benh_an", id, true);
+        var dshsba = emrDanhSachHoSoBenhAnRepository.findById(id);
         
         dshsba.ifPresent(x -> {
             x.emrBenhAn = getEmrBenhAn(id).orElse(null);
@@ -568,7 +530,7 @@ public class HsbaService {
             x.emrDmTrangthai = getEmrDm("emr_dm_tu_sinh", x.idtrangthai);
             
             x.emrQuanLyNguoiBenh = getEmrQuanLyNguoiBenh(id).orElse(null);
-            x.emrTongKetRaVien = getEmrTongKetRaVien(id).orElse(null);
+            x.emrTongKetRaVien = emrTongKetRaVienRepository.findById(id).orElse(null);
             x.emrChanDoan = getEmrChanDoan(id).orElse(null);
                         
             x.emrTinhTrangRaVien = getEmrTinhTrangRaVien(id).orElse(null);
@@ -586,12 +548,470 @@ public class HsbaService {
             x.emrYhctBenhAn = getEmrYhctBenhAn(id).orElse(null);
             x.emrYhctChanDoan = getEmrYhctChanDoan(id).orElse(null);
             x.emrYhctDonThuocs = getEmrYhctDonThuocs(id);
-            x.emrYhctNhaBa = getRecord(EmrYhctNhaBa.class, "emr_yhct_nha_ba", "idhsba", id, true).orElse(null);
+            x.emrYhctNhaBa = emrYhctNhaBaRepository.findById(id).orElse(null);
             x.emrYhctNhaBaGhiChus = getRecords(EmrYhctNhaBaGhiChu.class, "emr_yhct_ghi_chu_nha_ba", "idhsba", id, true);
             
         });        
         
         return dshsba;
     }
-
+    
+    int getDmIdByMa(String table, String ma) {
+        var lst = jdbcTemplate.queryForList("SELECT id FROM " + table + " WHERE ma=?", new Object[] {ma}, Integer.class);
+        if(lst.size() > 0) {
+            return (int) lst.get(0);
+        }
+        return 0;
+    }
+    
+    @Nonnull EmrBenhAn saveEmrBenhAn(int idhsba, @Nonnull EmrBenhAn emrBenhAn) {        
+        emrBenhAn.idhsba = idhsba;
+        
+        var optEmrBenhAn = Optional.of(emrBenhAn);
+        
+        emrBenhAn.idicdChandoanbenhchinh = optEmrBenhAn.map(x -> x.emrDmMaBenhChandoanbenhchinh)
+                                            .map(x -> getDmIdByMa("emr_dm_ma_benh", x.ma)).orElse(0);
+        
+        emrBenhAn.idicdChandoankemtheo = optEmrBenhAn.map(x -> x.emrDmMaBenhChandoankemtheo)
+                                            .map(x -> getDmIdByMa("emr_dm_ma_benh", x.ma)).orElse(0);
+        
+        emrBenhAn.idicdChandoanphanbiet = optEmrBenhAn.map(x -> x.emrDmMaBenhChandoanphanbiet)
+                                            .map(x -> getDmIdByMa("emr_dm_ma_benh", x.ma)).orElse(0);
+        
+        return emrBenhAnRepository.save(emrBenhAn);
+    }
+    
+    @Nonnull EmrYhctBenhAn saveEmrYhctBenhAn(int idhsba, @Nonnull EmrYhctBenhAn emrYhctBenhAn) {
+        emrYhctBenhAn.idhsba = idhsba;
+        
+        var optEmrYhctBenhAnh = Optional.of(emrYhctBenhAn);
+        
+        emrYhctBenhAn.idchamsoc = optEmrYhctBenhAnh.map(x -> x.emrDmYhctCheDoChamSoc)
+                                                    .map(x -> getDmIdByMa("emr_dm_yhct_che_do_cham_soc", x.ma)).orElse(0);
+        
+        if(emrYhctBenhAn.emrYhctBenhanThietChan != null) {
+            emrYhctBenhAn.emrYhctBenhanThietChan.idhsba = idhsba;
+            emrYhctBenhAn.emrYhctBenhanThietChan = emrYhctBenhanThietChanRepository.save(emrYhctBenhAn.emrYhctBenhanThietChan);
+        }
+        
+        if(emrYhctBenhAn.emrYhctBenhanVaanChan != null) {
+            emrYhctBenhAn.emrYhctBenhanVaanChan.idhsba = idhsba;
+            emrYhctBenhAn.emrYhctBenhanVaanChan = emrYhctBenhanVaanChanRepository.save(emrYhctBenhAn.emrYhctBenhanVaanChan);
+        }
+        
+        if(emrYhctBenhAn.emrYhctBenhanVawnChan != null) {
+            emrYhctBenhAn.emrYhctBenhanVawnChan.idhsba = idhsba;
+            emrYhctBenhAn.emrYhctBenhanVawnChan = emrYhctBenhanVawnChanRepository.save(emrYhctBenhAn.emrYhctBenhanVawnChan);
+        }
+        
+        if(emrYhctBenhAn.emrYhctBenhanVongChan != null) {
+            emrYhctBenhAn.emrYhctBenhanVongChan.idhsba = idhsba;
+            emrYhctBenhAn.emrYhctBenhanVongChan = emrYhctBenhanVongChanRepository.save(emrYhctBenhAn.emrYhctBenhanVongChan);
+        }
+        
+        return emrYhctBenhAnRepository.save(emrYhctBenhAn);
+    }
+    
+    
+    @Nonnull EmrChanDoan saveEmrChanDoan(int idhsba, @Nonnull EmrChanDoan emrChanDoan) {
+               
+        emrChanDoan.idhsba = idhsba;
+        
+        var optEmrChanDoan = Optional.of(emrChanDoan);
+        
+        emrChanDoan.idlydotbbc = optEmrChanDoan.map(x -> x.emrDmLyDoTaiBienBienChung)
+                                                .map(x -> getDmIdByMa("emr_dm_ly_do_tai_bien_bien_chung", x.ma)).orElse(0);
+        
+        emrChanDoan.idicdChandoandieutri = optEmrChanDoan.map(x -> x.emrDmMaBenhChandoandieutri)
+                                                .map(x -> getDmIdByMa("emr_dm_ma_benh", x.ma)).orElse(0);
+        
+        emrChanDoan.idicdChandoankkb = optEmrChanDoan.map(x -> x.emrDmMaBenhChandoankkb)
+                                                .map(x -> getDmIdByMa("emr_dm_ma_benh", x.ma)).orElse(0);
+        
+        emrChanDoan.idicdChandoannoiden = optEmrChanDoan.map(x -> x.emrDmMaBenhChandoannoiden)
+                                                .map(x -> getDmIdByMa("emr_dm_ma_benh", x.ma)).orElse(0);
+        
+        emrChanDoan.idicdChandoanravienchinh = optEmrChanDoan.map(x -> x.emrDmMaBenhChandoanravienchinh)
+                                                .map(x -> getDmIdByMa("emr_dm_ma_benh", x.ma)).orElse(0);
+        
+        emrChanDoan.idicdChandoanravienkemtheo = optEmrChanDoan.map(x -> x.emrDmMaBenhChandoanravienkemtheo)
+                                                .map(x -> getDmIdByMa("emr_dm_ma_benh", x.ma)).orElse(0);
+        
+        emrChanDoan.idicdChandoanraviennguyennhan = optEmrChanDoan.map(x -> x.emrDmMaBenhChandoanraviennguyennhan)
+                                                .map(x -> getDmIdByMa("emr_dm_ma_benh", x.ma)).orElse(0);
+        
+        emrChanDoan.idicdChandoansaupt = optEmrChanDoan.map(x -> x.emrDmMaBenhChandoansaupt)
+                                                .map(x -> getDmIdByMa("emr_dm_ma_benh", x.ma)).orElse(0);
+        
+        emrChanDoan.idicdChandoantruocpt = optEmrChanDoan.map(x -> x.emrDmMaBenhChandoantruocpt)
+                                                .map(x -> getDmIdByMa("emr_dm_ma_benh", x.ma)).orElse(0);
+        
+        
+        return emrChanDoanRepository.save(emrChanDoan);
+    }
+    
+    @Nonnull EmrYhctChanDoan saveEmrYhctChanDoan(int idhsba, @Nonnull EmrYhctChanDoan emrYhctChanDoan) {
+        
+        emrYhctChanDoan.idhsba = idhsba;
+        
+        var optEmrYhctChanDoan = Optional.of(emrYhctChanDoan);
+        
+        emrYhctChanDoan.idbenhdanh_vk = optEmrYhctChanDoan.map(x -> x.emrDmYhctBenhdanhVk)
+                                            .map(x -> getDmIdByMa("emr_dm_yhct_benh_danh", x.ma)).orElse(0);
+        
+        emrYhctChanDoan.idbenhdanhyhctravien = optEmrYhctChanDoan.map(x -> x.emrDmYhctBenhdanhRavien)
+                                            .map(x -> getDmIdByMa("emr_dm_yhct_benh_danh", x.ma)).orElse(0);
+        
+        emrYhctChanDoan.idbenhdanhyhctvaovien = optEmrYhctChanDoan.map(x -> x.emrDmYhctBenhdanhVaovien)
+                                            .map(x -> getDmIdByMa("emr_dm_yhct_benh_danh", x.ma)).orElse(0);
+        
+        return emrYhctChanDoanRepository.save(emrYhctChanDoan);
+    }
+    
+    void saveEmrChanDoanHinhAnhs(int idhsba, @Nonnull List<EmrChanDoanHinhAnh> emrChanDoanHinhAnhs) {
+        for(int i = 0; i < emrChanDoanHinhAnhs.size(); i++) {
+            var item = emrChanDoanHinhAnhs.get(i);
+            
+            item.idhsba = idhsba;
+            
+            var optItem = Optional.of(item);
+            
+            item.iddichvuchandoan = optItem.map(x -> x.emrDmChanDoanHinhAnh)
+                                           .map(x -> getDmIdByMa("emr_dm_chan_doan_hinh_anh", x.ma)).orElse(0);
+            
+            item.idloaichandoan = optItem.map(x -> x.emrDmLoaiChanDoanHinhAnh)
+                                           .map(x -> getDmIdByMa("emr_dm_loai_chan_doan_hinh_anh", x.ma)).orElse(0);
+            
+            emrChanDoanHinhAnhs.set(i, emrChanDoanHinhAnhRepository.save(item)); 
+        }             
+    }
+    
+    void saveEmrDonThuocChiTiets(int idhsba, @Nonnull List<EmrDonThuocChiTiet> emrDonThuocChiTiets) {
+        for(int i = 0; i < emrDonThuocChiTiets.size(); i++) {
+            var item = emrDonThuocChiTiets.get(i);
+            item.id = idhsba;
+            
+            var optItem = Optional.of(item);
+            
+            item.idchidandungthuoc = optItem.map(x -> x.emrDmChiDanDungThuoc)
+                                            .map(x -> getDmIdByMa("emr_dm_chi_dan_dung_thuoc", x.ma)).orElse(0);
+            
+            item.idloaiduongdung = optItem.map(x -> x.emrDmChiDanDungThuoc)
+                                            .map(x -> getDmIdByMa("emr_dm_duong_dung_thuoc", x.ma)).orElse(0);
+            
+            item.idtanxuatdung = optItem.map(x -> x.emrDmChiDanDungThuoc)
+                                            .map(x -> getDmIdByMa("emr_dm_tan_xuat_dung_thuoc", x.ma)).orElse(0);
+            
+            emrDonThuocChiTiets.set(i, emrDonThuocChiTietRepository.save(item));
+        }
+    }
+    
+    void saveEmrYhctDonThuocs(int idhsba, @Nonnull List<EmrYhctDonThuoc> emrYhctDonThuocs) {
+        for(int i = 0; i < emrYhctDonThuocs.size(); i++) {
+            var item = emrYhctDonThuocs.get(i);
+            
+            item.idhsba = idhsba;
+            
+            if(item.emrYhctDonThuocChiTiets != null) {
+                saveEmrYhctDonThuocChiTiets(idhsba, item.emrYhctDonThuocChiTiets);                
+            }
+            
+            emrYhctDonThuocs.set(i, emrYhctDonThuocRepository.save(item));
+        }
+    }
+    
+    void saveEmrYhctDonThuocChiTiets(int idhsba, @Nonnull List<EmrYhctDonThuocChiTiet> emrYhctDonThuocChiTiets) {
+        for(int i = 0; i < emrYhctDonThuocChiTiets.size(); i++) {
+            var item = emrYhctDonThuocChiTiets.get(i);
+            
+            item.id = idhsba;
+            
+            var optItem = Optional.of(item);
+            
+            item.idchidandungthuoc = optItem.map(x -> x.emrDmChiDanDungThuoc)
+                                            .map(x -> getDmIdByMa("emr_dm_chi_dan_dung_thuoc", x.ma)).orElse(0);
+            
+            item.idloaiduongdung = optItem.map(x -> x.emrDmChiDanDungThuoc)
+                                            .map(x -> getDmIdByMa("emr_dm_duong_dung_thuoc", x.ma)).orElse(0);
+            
+            item.idtanxuatdung = optItem.map(x -> x.emrDmChiDanDungThuoc)
+                                            .map(x -> getDmIdByMa("emr_dm_tan_xuat_dung_thuoc", x.ma)).orElse(0);
+            
+            emrYhctDonThuocChiTiets.set(i, emrYhctDonThuocChiTietRepository.save(item));
+        }
+    }
+    
+    void saveEmrDonThuocs(int idhsba, @Nonnull List<EmrDonThuoc> emrDonThuocs) {
+        for(int i = 0; i < emrDonThuocs.size(); i++) {
+            var item = emrDonThuocs.get(i);
+                    
+            item.idhsba = idhsba;
+            
+            if(item.emrDonThuocChiTiets != null) {
+                saveEmrDonThuocChiTiets(idhsba, item.emrDonThuocChiTiets);                
+            }
+            
+            emrDonThuocs.set(i, emrDonThuocRepository.save(item));
+        }
+    }
+    
+    void saveEmrHinhAnhTonThuongs(int idhsba, @Nonnull List<EmrHinhAnhTonThuong> emrHinhAnhTonThuongs) {
+        for(int i = 0; i < emrHinhAnhTonThuongs.size(); i++) {
+            var item = emrHinhAnhTonThuongs.get(i);
+            item.idhsba = idhsba;
+            //TODO: save file
+            
+            emrHinhAnhTonThuongs.set(i, emrHinhAnhTonThuongRepository.save(item));
+        }
+    }
+    
+    @Nonnull EmrQuanLyNguoiBenh saveEmrQuanLyNguoiBenh(int idhsba, @Nonnull EmrQuanLyNguoiBenh emrQuanLyNguoiBenh) {
+        emrQuanLyNguoiBenh.idhsba = idhsba;
+        var optEmrQuanlyNguoiBenh = Optional.of(emrQuanLyNguoiBenh);
+        
+        emrQuanLyNguoiBenh.iddoituongtaichinh = optEmrQuanlyNguoiBenh.map(x -> x.emrDmLoaiDoiTuongTaiChinh)
+                                                    .map(x -> getDmIdByMa("emr_dm_loai_doi_tuong_tai_chinh", x.ma)).orElse(0);
+        
+        emrQuanLyNguoiBenh.idloaichuyenvien = optEmrQuanlyNguoiBenh.map(x -> x.emrDmLoaiChuyenVien)
+                                                    .map(x -> getDmIdByMa("emr_dm_loai_chuyen_vien", x.ma)).orElse(0);
+        
+        emrQuanLyNguoiBenh.idloairavien = optEmrQuanlyNguoiBenh.map(x -> x.emrDmLoaiRaVien)
+                                                    .map(x -> getDmIdByMa("emr_dm_loai_ra_vien", x.ma)).orElse(0);
+        
+        emrQuanLyNguoiBenh.idloaivaovien = optEmrQuanlyNguoiBenh.map(x -> x.emrDmLoaiVaoVien)
+                                                    .map(x -> getDmIdByMa("emr_dm_loai_vao_vien", x.ma)).orElse(0);
+        
+        emrQuanLyNguoiBenh.idnoichuyenden = optEmrQuanlyNguoiBenh.map(x -> x.emrDmCoSoKhamBenh)
+                                                    .map(x -> getDmIdByMa("emr_dm_co_so_kham_benh", x.ma)).orElse(0);
+        
+        emrQuanLyNguoiBenh.idnoigioithieu = optEmrQuanlyNguoiBenh.map(x -> x.emrDmNoiGioiThieu)
+                                                    .map(x -> getDmIdByMa("emr_dm_noi_gioi_thieu", x.ma)).orElse(0);
+                
+        emrQuanLyNguoiBenh.idnoitructiepvao = optEmrQuanlyNguoiBenh.map(x -> x.emrDmNoiTrucTiepVao)
+                                                    .map(x -> getDmIdByMa("emr_dm_noi_truc_tiep_vao", x.ma)).orElse(0);
+        
+        return emrQuanLyNguoiBenhRepository.save(emrQuanLyNguoiBenh);
+    }
+    
+    void saveEmrThamDoChucNangs(int idhsba, @Nonnull List<EmrThamDoChucNang> emrThamDoChucNangs) {
+        for(int i = 0; i < emrThamDoChucNangs.size(); i++) {
+            var item = emrThamDoChucNangs.get(i);
+            
+            item.idhsba = idhsba;
+            var optItem = Optional.of(item);
+            
+            item.idloaithamdochucnang = optItem.map(x -> x.emrDmLoaiThamDoChucNang)
+                                                .map(x -> getDmIdByMa("emr_dm_loai_tham_do_chuc_nang", x.ma)).orElse(0);
+            
+            item.idthamdochucnang = optItem.map(x -> x.emrDmThamDoChucNang)
+                                                .map(x -> getDmIdByMa("emr_dm_tham_do_chuc_nang", x.ma)).orElse(0);
+            
+            
+            emrThamDoChucNangs.set(i, emrThamDoChucNangRepository.save(item));
+        }        
+    }
+    
+    @Nonnull EmrTinhTrangRaVien saveEmrTinhTrangRaVien(int idhsba, @Nonnull EmrTinhTrangRaVien emrTinhTrangRaVien) {
+        emrTinhTrangRaVien.idhsba = idhsba;                
+        
+        var optEmrTinhTrangRaVien = Optional.of(emrTinhTrangRaVien);
+        
+        emrTinhTrangRaVien.idgiaiphaubenh = optEmrTinhTrangRaVien.map(x -> x.emrDmKetQuaGiaiPhauBenh)
+                                                .map(x -> getDmIdByMa("emr_dm_ket_qua_giai_phau_benh", x.ma)).orElse(0);
+        
+        emrTinhTrangRaVien.idicdGiaiphaututhi = optEmrTinhTrangRaVien.map(x -> x.emrDmGiaiphaututhi)
+                                                .map(x -> getDmIdByMa("emr_dm_ma_benh", x.ma)).orElse(0);
+        
+        emrTinhTrangRaVien.idicdNguyennhantuvong = optEmrTinhTrangRaVien.map(x -> x.emrDmNguyennhantuvong)
+                                                .map(x -> getDmIdByMa("emr_dm_ma_benh", x.ma)).orElse(0);
+        
+        emrTinhTrangRaVien.idketquadieutri = optEmrTinhTrangRaVien.map(x -> x.emrDmKetQuaDieuTri)
+                                                .map(x -> getDmIdByMa("emr_dm_ket_qua_dieu_tri", x.ma)).orElse(0);
+        
+        emrTinhTrangRaVien.idlydotuvong = optEmrTinhTrangRaVien.map(x -> x.emrDmLyDoTuVong)
+                                                .map(x -> getDmIdByMa("emr_dm_ly_do_tu_vong", x.ma)).orElse(0);
+        
+        emrTinhTrangRaVien.idthoidiemtuvong = optEmrTinhTrangRaVien.map(x -> x.emrDmThoiDiemTuVong)
+                                                .map(x -> getDmIdByMa("emr_dm_thoi_diem_tu_vong", x.ma)).orElse(0);
+        
+        emrTinhTrangRaVien.idyhctketquadieutri = optEmrTinhTrangRaVien.map(x -> x.emrDmYhctKetQuaDieuTri)
+                                                .map(x -> getDmIdByMa("emr_dm_yhct_ket_qua_dieu_tri", x.ma)).orElse(0);
+        
+        return emrTinhTrangRaVienRepository.save(emrTinhTrangRaVien);
+    }
+    
+    @Nonnull EmrTongKetRaVien saveEmrTongKetRaVien(int idhsba, @Nonnull EmrTongKetRaVien emrTongKetRaVien) {
+        emrTongKetRaVien.idhsba = idhsba;
+        return emrTongKetRaVienRepository.save(emrTongKetRaVien);
+    }
+    
+    @Nonnull EmrTongKetSanKhoa saveEmrTongKetSanKhoa(int idhsba, @Nonnull EmrTongKetSanKhoa emrTongKetSanKhoa) {
+        emrTongKetSanKhoa.idhsba = idhsba;
+        
+        var optEmrTongKetSanKhoa = Optional.of(emrTongKetSanKhoa);
+        
+        emrTongKetSanKhoa.idcachde = optEmrTongKetSanKhoa.map(x -> x.emrDmCachDe)
+                                                 .map(x -> getDmIdByMa("emr_dm_cach_de", x.ma)).orElse(0);
+        
+        emrTongKetSanKhoa.idtrangthaiamdao = optEmrTongKetSanKhoa.map(x -> x.emrDmTrangThaiAmdao)
+                                                .map(x -> getDmIdByMa("emr_dm_trang_thai_mo_de", x.ma)).orElse(0);
+        
+        emrTongKetSanKhoa.idtrangthaicotucung = optEmrTongKetSanKhoa.map(x -> x.emrDmTrangThaiCoTucung)
+                                                .map(x -> getDmIdByMa("emr_dm_trang_thai_mo_de", x.ma)).orElse(0);
+        
+        emrTongKetSanKhoa.idtrangthaisinhmon = optEmrTongKetSanKhoa.map(x -> x.emrDmTrangThaiSinhmon)
+                                                .map(x -> getDmIdByMa("emr_dm_trang_thai_mo_de", x.ma)).orElse(0);
+        
+        return emrTongKetSanKhoaRepository.save(emrTongKetSanKhoa);
+    }
+    
+    void saveEmrChamSocs(int idvk, @Nonnull List<EmrChamSoc> emrChamSocs) {
+        for(int i = 0; i < emrChamSocs.size(); i++) {
+            var item  = emrChamSocs.get(i);            
+            item.idvaokhoa =idvk;            
+            emrChamSocs.set(i, emrChamSocRepository.save(item));
+        }
+        
+    }
+    
+    void saveEmrDieuTris(int idvk, @Nonnull List<EmrDieuTri> emrDieuTris) {
+        for(int i = 0; i < emrDieuTris.size(); i++) {
+            var item  = emrDieuTris.get(i);            
+            item.idvaokhoa =idvk;            
+            emrDieuTris.set(i, emrDieuTriRepository.save(item));
+        }
+        
+    }
+    
+    void saveEmrChucNangSongs(int idvk, @Nonnull List<EmrChucNangSong> emrChucNangSongs) {
+        for(int i = 0; i < emrChucNangSongs.size(); i++) {
+            var item  = emrChucNangSongs.get(i);            
+            item.idvaokhoa =idvk;            
+            emrChucNangSongs.set(i, emrChucNangSongRepository.save(item));
+        }
+        
+    }
+    
+    void saveEmrHoiChans(int idvk, @Nonnull List<EmrHoiChan> emrHoiChans) {
+        for(int i = 0; i < emrHoiChans.size(); i++) {
+            var item  = emrHoiChans.get(i);            
+            item.idvaokhoa =idvk;            
+            emrHoiChans.set(i, emrHoiChanRepository.save(item));
+        }
+        
+    }
+    
+    void saveEmrVaoKhoas(int idhsba, @Nonnull EmrVaoKhoa[] emrVaoKhoas) {
+        for(int i = 0; i < emrVaoKhoas.length; i++) {
+            var item = emrVaoKhoas[i];
+            var optItem = Optional.of(item);
+            
+            item.idhsba = idhsba;
+            item.idkhoadieutri = optItem.map(x -> x.emrDmKhoaDieuTri)
+                                        .map(x -> getDmIdByMa("emr_dm_khoa_dieu_tri", x.ma)).orElse(0);
+            
+            if(item.emrChamSocs != null) {
+                saveEmrChamSocs(item.id, item.emrChamSocs);
+            }
+            
+            if(item.emrChucNangSongs != null) {
+                saveEmrChucNangSongs(item.id, item.emrChucNangSongs);
+            }
+            
+            if(item.emrDieuTris != null) {
+                saveEmrDieuTris(item.id, item.emrDieuTris);
+            }
+            
+            if(item.emrHoiChans != null) {
+                saveEmrHoiChans(item.id, item.emrHoiChans);
+            }
+            
+            emrVaoKhoas[i] = emrVaoKhoaRespository.save(item);            
+        }
+    }    
+    
+    @Nonnull EmrDanhSachHoSoBenhAn saveEmrDanhSachHoSoBenhAn(@Nonnull EmrDanhSachHoSoBenhAn hsba) {
+        var optHsba = Optional.of(hsba);
+        
+        var benhNhanIdChinh = optHsba.map(x -> x.emrBenhNhan).map(x -> x.iddinhdanhchinh).orElse("");
+        var emrBenhNhan = emrBenhNhanRepository.findByIddinhdanhchinh(benhNhanIdChinh);
+        
+        hsba.idbenhnhan = emrBenhNhan.map(x -> x.id).orElse(0);
+        
+        hsba.idloaibenhan = optHsba.map(x -> x.emrDmLoaiBenhAn)
+                                    .map(x -> getDmIdByMa("emr_dm_loai_benh_an",x.ma)) .orElse(0);
+        
+        hsba.idtrangthai = TRANGTHAI_HOSO.CHUA_XULY;
+        hsba = emrDanhSachHoSoBenhAnRepository.save(hsba);
+        
+        if(hsba.emrBenhAn != null) {
+            saveEmrBenhAn(hsba.id, hsba.emrBenhAn);
+        }
+        
+        if(hsba.emrChanDoan != null) {
+            saveEmrChanDoan(hsba.id, hsba.emrChanDoan);
+        }
+        
+        if(hsba.emrChanDoanHinhAnhs != null) {
+            saveEmrChanDoanHinhAnhs(hsba.id, hsba.emrChanDoanHinhAnhs);
+        }
+        
+        if(hsba.emrDonThuocs != null) {
+            saveEmrDonThuocs(hsba.id, hsba.emrDonThuocs);
+        }
+        
+        if(hsba.emrHinhAnhTonThuongs != null) {
+            saveEmrHinhAnhTonThuongs(hsba.id, hsba.emrHinhAnhTonThuongs);
+        }
+        
+        if(hsba.emrQuanLyNguoiBenh != null) {
+            saveEmrQuanLyNguoiBenh(hsba.id, hsba.emrQuanLyNguoiBenh);
+        }
+        
+        if(hsba.emrThamDoChucNangs != null) {
+            saveEmrThamDoChucNangs(hsba.id, hsba.emrThamDoChucNangs);
+        }
+        
+        if(hsba.emrTinhTrangRaVien != null) {
+            saveEmrTinhTrangRaVien(hsba.id, hsba.emrTinhTrangRaVien);
+        }
+        
+        if(hsba.emrTongKetRaVien != null) {
+            saveEmrTongKetRaVien(hsba.id, hsba.emrTongKetRaVien);
+        }
+        
+        if(hsba.emrTongKetSanKhoa != null) {
+            saveEmrTongKetSanKhoa(hsba.id, hsba.emrTongKetSanKhoa);
+        }
+        
+        if(hsba.emrYhctBenhAn != null) {
+            saveEmrYhctBenhAn(hsba.id, hsba.emrYhctBenhAn);
+        }
+        
+        if(hsba.emrYhctDonThuocs != null) {
+            saveEmrYhctDonThuocs(hsba.id, hsba.emrYhctDonThuocs);
+        }
+        
+        if(hsba.emrYhctChanDoan != null) {
+            saveEmrYhctChanDoan(hsba.id, hsba.emrYhctChanDoan);
+        }
+        
+        if(hsba.emrYhctNhaBa != null) {
+            hsba.emrYhctNhaBa.idhsba = hsba.id;
+            hsba.emrYhctNhaBa = emrYhctNhaBaRepository.save(hsba.emrYhctNhaBa);            
+        }
+        
+        if(hsba.emrYhctNhaBaGhiChus != null) {
+            for(int i = 0; i < hsba.emrYhctNhaBaGhiChus.size(); i++) {
+                var item = hsba.emrYhctNhaBaGhiChus.get(i);
+                item.idhsba = hsba.id;
+                hsba.emrYhctNhaBaGhiChus.set(i, emrYhctNhaBaGhiChuRepository.save(item));
+            }
+        }
+        
+        if(hsba.emrVaoKhoas != null) {
+            saveEmrVaoKhoas(hsba.id, hsba.emrVaoKhoas);
+        }
+        return hsba;
+    }
 }

@@ -2,68 +2,78 @@ package vn.ehealth.emr;
 
 import java.util.Date;
 
-import vn.ehealth.emr.ck.EmrCkPhuongPhapDieuTriUngBuou;
-import vn.ehealth.emr.ck.EmrCkTinhTrangRaVienMat;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "emr_tong_ket_ra_vien")
 public class EmrTongKetRaVien {
 
-public int idhsba;
+    @Id
+    public int idhsba;
    
-    /** The dienbienlamsang. */
+    @Column
     public String dienbienlamsang;
     
-    /** The canlamsang. */
+    @Column
     public String canlamsang;
     
-    /** The phuongphapdieutri. */
+    @Column
     public String phuongphapdieutri;
     
-    /** The tinhtrangnguoibenh. */
+    @Column
     public String tinhtrangnguoibenh;
     
-    /** The chidandieutri. */
+    @Column
     public String chidandieutri;
     
-    /** The daxoa. */
+    @Column
     public Boolean daxoa;
     
-    /** The ngaytao. */
+    @Column
     public Date ngaytao;
     
-    /** The idnguoitao. */
+    @Column
     public Integer idnguoitao;
     
-    /** The ngaysua. */
+    @Column
     public Date ngaysua;
     
-    /** The idnguoisua. */
+    @Column
     public Integer idnguoisua;
     
-    /** The nguoigiaohoso. */
+    @Column
     public String nguoigiaohoso;
     
-    /** The ngaygiaohoso. */
+    @Column
     public Date ngaygiaohoso;
     
-    /** The nguoinhanhoso. */
+    @Column
     public String nguoinhanhoso;
     
-    /** The ngaynhanhoso. */
+    @Column
     public Date ngaynhanhoso;
     
-    /** The bacsydieutri. */
+    @Column
     public String bacsydieutri;
     
-    /** The ngaybacsydieutriky. */
+    @Column
     public Date ngaybacsydieutriky;
     
-    public EmrCkPhuongPhapDieuTriUngBuou emrCkPhuongPhapDieuTriUngBuou;
-    public EmrCkTinhTrangRaVienMat emrCkTinhTrangRaVienMat;
-
-    //Cuongln 17/05
+    @Column
     public Integer so_to_x_quang;
+    
+    @Column(name = "so_to_ct_scanner")  
     public Integer soToCTScanner;
+    
+    @Column(name = "so_to_sieu_am") 
     public Integer soToSieuAm;
+    
+    @Column(name = "so_to_xet_nghiem")
     public Integer soToXetNghiem;
+    
+    @Column(name = "so_to_khac")
     public Integer soToKhac;
 }

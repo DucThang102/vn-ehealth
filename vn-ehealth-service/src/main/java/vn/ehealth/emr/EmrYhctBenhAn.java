@@ -2,39 +2,66 @@ package vn.ehealth.emr;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "emr_yhct_benh_an")
 public class EmrYhctBenhAn {
 
-    public int idhsba;
+    @Id public int idhsba;
     
-    public Integer idchamsoc;
-    public EmrDm emrDmYhctCheDoChamSoc;
+    @Column public Integer idchamsoc;    
+    @Transient public EmrDm emrDmYhctCheDoChamSoc;
     
-    public String tomtattuchan;
-    public String luantri;
-    public String phapdieutri;
-    public String phuongthuoc;
-    public String phuonghuyet;
-    public String phuongphapkhac;
-    public String tienluong;
-    public String lstchedodinhduong;
-    public String lstchedodinhduongTen;
-    public Boolean daxoa;
-    public Date ngaytao;
-    public Integer idnguoitao;
-    public Date ngaysua;
-    public Integer idnguoisua;
-    public String motachedodinhduong;
-    public String motachamsoc;
+    @Column public String tomtattuchan;
+    
+    @Column public String luantri;
+    
+    @Column public String phapdieutri;
+    
+    @Column public String phuongthuoc;
+    
+    @Column public String phuonghuyet;
+    
+    @Column public String phuongphapkhac;
+    
+    @Column public String tienluong;
+    
+    @Column public String lstchedodinhduong;    
+    
+    @Column public String lstchedodinhduongTen;
+    
+    @Column public Boolean daxoa;
+    
+    @Column public Date ngaytao;
+    
+    @Column public Integer idnguoitao;
+    
+    @Column public Date ngaysua;
+    
+    @Column public Integer idnguoisua;
+    
+    @Column public String motachedodinhduong;
+    
+    @Column public String motachamsoc;
     
     // Add new 03/04/2015
-    public String dieutriXoabopbamhuyet;
-    public String dieutriKethopyhhd;
     
-    public EmrYhctBenhanVaanChan emrYhctBenhanVaanChan;
-    public EmrYhctBenhanThietChan emrYhctBenhanThietChan;
-    public EmrYhctBenhanVongChan emrYhctBenhanVongChan;
-    public EmrYhctBenhanVawnChan emrYhctBenhanVawnChan;
+    @Column public String dieutriXoabopbamhuyet;
     
+    @Column public String dieutriKethopyhhd;
     
-    public String lstchedodinhduongHienthi;
+    @Transient public EmrYhctBenhanVaanChan emrYhctBenhanVaanChan;
+    
+    @Transient public EmrYhctBenhanThietChan emrYhctBenhanThietChan;
+    
+    @Transient public EmrYhctBenhanVongChan emrYhctBenhanVongChan;
+    
+    @Transient public EmrYhctBenhanVawnChan emrYhctBenhanVawnChan;
+        
+    @Column public String lstchedodinhduongHienthi;
 }

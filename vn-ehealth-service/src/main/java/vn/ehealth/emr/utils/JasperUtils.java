@@ -478,7 +478,7 @@ public class JasperUtils extends JRDefaultScriptlet  {
     String getText_ICD10(String maICD, int index) {
         String kiTu = "";
         
-        if(maICD != null){
+        if(maICD != null && maICD.length() > index){
             if(index == 1){
                 kiTu = maICD.charAt(0) + "";
             }else if(index == 2){
