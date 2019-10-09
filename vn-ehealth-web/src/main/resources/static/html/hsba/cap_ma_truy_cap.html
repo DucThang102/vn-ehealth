@@ -1,1 +1,145 @@
-Cấp mã truy cập
+<style>
+  #app {
+    overflow: scroll;
+    width: 100%;
+  }
+</style>
+
+<div id="app">
+  <template v-if="total == 0">
+    <b>Không có dữ liệu</b>
+  </template>
+  
+  <template>
+	    <form @submit.prevent="timKiemHoso()" class="mb-3">
+	      <div class="row">
+		     	<div class="box-content">
+		     	 <div class="row">
+			        <div class="col-6">
+			          <input v-model="ma_yte" class="form-control" placeholder="Nhập thông tin tìm kiếm"></input>
+			        </div>
+			        <div class="col-3">
+				          <select class="form-control" id="trangThai" name="trangThai">
+								<option value="0">--Trạng thái --</option>
+								<option value="7">Chờ duyệt</option>
+								<option value="10">Đã duyệt</option>
+								<option value="125">Hết hạn truy cập</option>
+								<option value="9">Hủy bởi quản trị</option>
+								<option value="8">Tự hủy</option>
+						    </select>
+			        </div>
+			        <div class="col-3">
+			        	<b-button variant="primary" class="search" type="submit">Tìm kiếm</b-button>
+			        </div>
+		        </div>
+		        <div class="row">
+			        <div class="col-3">
+			        	<label for="input-none">Ngày đến từ:</label><br/>
+			        	<b-form-input  id="type-date" type="date"></b-form-input>
+			        </div>
+			        <div class="col-3">
+			        	<label for="input-none">Đến:</label><br/>
+			        	<b-form-input  id="type-date" type="date"></b-form-input>
+			        </div>
+			        <div class="col-3">
+			        	<label for="input-none">Ngày hết hạn từ:</label><br/>
+			        	<b-form-input  id="type-date" type="date"></b-form-input>
+			        </div>
+			        <div class="col-3">
+			        	<label for="input-none">Đến:</label><br/>
+			        	<b-form-input  id="type-date" type="date"></b-form-input>
+			        </div>
+		        </div>
+		     </div>
+	      </div>
+	    </form>
+    <table class="table table-bordered table-width-100" v-if="total > 0">
+      <thead>
+        <tr>
+          <th style="width:5%">STT</th>
+          <th style="width:2%">Mã</th>
+          <th style="width:12%">Người yêu cầu</th>
+          <th style="width:25%">Lý do</th>
+          <th style="width:7%">Ngày yêu cầu</th>
+          <th style="width:10%">Ngày cấp phép</th>
+          <th style="width:10%">Ngày hết hạn</th>
+          <th style="width:10%">Trạng thái</th>
+          <th  style="width:5%">Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(hs, index) in items">
+          <td>{{ index + offset + 1 }}</td>
+          <td>{{ hs.so_benh_an }}</td>
+          <td>{{ hs.ten_benh_nhan }}</td>
+          <td>{{ hs.loai_benh_an }}</td>
+          <td>{{ hs.ngay_vaovien }}</td>
+          <td>{{ hs.ngay_tiepnhan }}</td>
+          <td>{{ hs.ngay_ravien }}</td>
+          <td>{{ hs.ma_yte }}</td>
+           <td>
+           <a :href="createURL('/html/hsba/detail/vet-trao-doi-detail/cap_ma_truy_cap_detail.html', {yeucau_id: hs.id, backURL: currentURL})"><i class="fa fa-file-o"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <b-pagination v-if="total > perPage" size="sm" v-model="currentPage" :total-rows="total" :per-page="perPage"></b-pagination>
+    <label class="label">Tổng số : {{ total }} bản ghi</label>
+  </template>
+</div>
+<script>
+  new Vue({
+    el: "#app",
+    data: {  
+    	perPage: 5,
+    	currentPage: null,
+    	items: [],
+    	total : null,
+    	ma_yte : '',
+    	listNoiGuiDen: ['NguyenVanA', 'NguyenVanB', 'NguyenVanC', 'NguyenVanD'],
+    	listLoaiBenhAn: ['Điều trị tự nguyện - S1', 'Điều trị tự nguyện - S2', 'Điều trị tự nguyện - S3', 'Điều trị tự nguyện - S4']
+    },
+    
+    methods: {
+	  getTotal: async function() {
+		this.total = await this.get("/api/hsba/count_ds_hs", {trangthai: 1, ma_yte : this.ma_yte});
+
+	  },
+
+	  getItems : async function() {
+		this.items = await this.get("/api/hsba/get_ds_hs", 
+				{ trangthai: 1, start: this.offset, count: this.perPage, ma_yte : this.ma_yte });		
+	  },
+	  
+	  timKiemHoso : async function() {
+	    this.currentPage = 1;
+	    location.href = this.currentURL;
+	  }
+    },
+    
+    computed: {      
+      offset() {
+        return (this.currentPage - 1) * this.perPage;
+	  },
+
+	  currentURL() {
+		return this.createURL("", {ma_yte: this.ma_yte, currentPage: this.currentPage})
+	  }
+    },
+    
+    watch: {
+      currentPage : async function(newVal, oldVal) {
+		if(oldVal){	  
+		  location.href = this.currentURL;
+		}
+      }
+    },
+    
+    created: async function () {
+      this.currentPage = this.getParam("currentPage") || 1;
+      this.ma_yte = this.getParam("ma_yte") || "";
+      await this.getTotal();
+      await this.getItems();	  
+    }
+  });
+</script>

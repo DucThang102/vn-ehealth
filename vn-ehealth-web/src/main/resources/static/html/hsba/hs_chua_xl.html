@@ -11,13 +11,45 @@
   </template>
   
   <template>
-    <form @submit.prevent="timKiemHoso()" class="mb-3">
-      <div class="row">
-        <div class="col-12">
-          <input v-model="ma_yte" class="form-control" placeholder="Tìm theo mã y tế"></input>
-        </div>
-      </div>
-    </form>
+	    <form @submit.prevent="timKiemHoso()" class="mb-3">
+	      <div class="row">
+		     	<div class="box-content">
+		     	 <div class="row">
+			        <div class="col-4">
+			        <label for="input-none">Tìm theo mã y tế:</label><br/>
+			          <input v-model="ma_yte" class="form-control" placeholder="Mã y tế"></input>
+			        </div>
+			        <div class="col-4">
+			        	<label for="input-none">Tìm kiếm theo cán bộ:</label><br/>
+				           <b-form-input list="my-list-id"></b-form-input>
+	
+						  <datalist id="my-list-id">
+						    <option>--Tên cán bộ--</option>
+						    <option v-for="canBo in listCanBo">{{ canBo }}</option>
+						  </datalist>
+			        </div>
+			        <div class="col-4">
+			        	<label for="input-none">&nbsp;&nbsp;</label><br/>
+			        	<b-button variant="primary" class="search" type="submit">Tìm kiếm</b-button>
+			        </div>
+		        </div>
+		        <div class="row">
+			        <div class="col-4">
+			        	<label for="input-none">Ngày vào viện từ:</label><br/>
+			        	<b-form-input  id="type-date" type="date"></b-form-input>
+			        </div>
+			        <div class="col-4">
+			        	<label for="input-none">Đến:</label><br/>
+			        	<b-form-input  id="type-date" type="date"></b-form-input>
+			        </div>
+			        <div class="col-4">
+			        	<label for="input-none">Khoa ra viện:</label><br/>
+			        	 <b-form-select size="sm" class="mt-3" v-model="selected" :options="listKhoaRaVien"></b-form-select>
+			        </div>
+		        </div>
+		     </div>
+	      </div>
+	    </form>
     <table style="width:150%" class="table table-bordered" v-if="total > 0">
       <thead>
         <tr>
@@ -90,7 +122,15 @@
     	currentPage: null,
     	items: [],
     	total : null,
-    	ma_yte : ''    	  
+    	ma_yte : '',
+   	 	listCanBo: ['NguyenVanA', 'NguyenVanB', 'NguyenVanC', 'NguyenVanD'],
+  		listKhoaRaVien: [ 
+			{ value: null, text: '--Tất cả các khoa--' },
+		    { value: '1', text: 'Điều trị tự nguyện - S1' },
+		    { value: '2', text: 'Điều trị tự nguyện - S2' },
+		    { value: '3', text: 'Điều trị tự nguyện - S3' },
+	  ],
+	  selected : null
     },
     
     methods: {

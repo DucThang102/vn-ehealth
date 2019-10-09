@@ -1,0 +1,178 @@
+<style>
+  #app {
+    overflow: scroll;
+    width: 100%;
+  }
+</style>
+
+<div id="app">
+  <template v-if="total == 0">
+    <b>Không có dữ liệu</b>
+  </template>
+  
+  <template>
+	    <form @submit.prevent="timKiemHoso()" class="mb-3">
+	      <div class="row">
+		     	<div class="box-content">
+		     	 <div class="row">
+			        <div class="col-4">
+				       	  <div class="form-check form-check-inline">
+				         	 <b-form-radio v-model="radioSelected" name="some-radios" value="1">Tất cả</b-form-radio>
+							</div>
+							<div class="form-check form-check-inline">
+							  <b-form-radio v-model="radioSelected" name="some-radios" value="2">Chuyển đến</b-form-radio>
+							</div>
+							<div class="form-check form-check-inline">
+							 <b-form-radio v-model="radioSelected" name="some-radios" value="3">Chuyển đi</b-form-radio>
+							</div>
+			        </div>
+			        <div class="col-4">
+	 					<b-form-select size="sm" class="mt-3" v-model="selected" :options="loaiBenhAn"></b-form-select>
+			        </div>
+			        <div class="col-4">
+			        	<b-button variant="primary" class="search" type="submit">Tìm kiếm</b-button>
+			        </div>
+		        </div>
+		        <div class="row">
+			        <div class="col-4">
+			        	<label for="input-none">&ensp;</label><br/>
+				          <b-form-select size="sm" class="mt-3 noLabel" v-model="selected2" :options="listBenhVien"></b-form-select>
+			        </div>
+			        <div class="col-4">
+			        	<label for="input-none">Ngày gửi từ:</label><br/>
+			        	<b-form-input v-model="guiTu"  id="type-date" type="date"></b-form-input>
+			        </div>
+			        <div class="col-4">
+			        	<label for="input-none">Đến:</label><br/>
+			        	<b-form-input v-model="guiDen"  id="type-date" type="date"></b-form-input>
+			        </div>
+		        </div>
+		     </div>
+	      </div>
+	    </form>
+    <table class="table table-bordered table-width-100" v-if="total > 0">
+      <thead>
+        <tr>
+          <th style="width:5%">STT</th>
+          <th style="width:10%">Mã loại danh mục</th>
+          <th style="width:30%">Tên danh mục</th>
+          <th style="width:10%">Phiên bản mới nhất</th>
+          <th style="width:10%">Ngày đồng bộ</th>
+          <th style="width:10%">Hiệu lực</th>
+          <th style="width:10%">Trạng thái</th>
+          <th style="width:5%">Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(hs, index) in items">
+          <td>{{ index + offset + 1 }}</td>
+          <td>{{ hs.ma_yte }}</td>
+          <td>{{ hs.ma_yte }}</td>
+          <td>{{ hs.ten_benh_nhan }}</td>
+          <td>{{ hs.ngay_vaovien }}</td>
+          <td>{{ hs.ma_yte }}</td>
+          <td>{{ hs.loai_benh_an }}</td>
+           <td>
+	           <a :href="createURL('/html/danhmuc/dm_dungchung_detail/chitiet.html', {danhmuc_id: hs.id, backURL: currentURL})" title="Xem chi tiết danh mục"><i class="fa fa-eye"></i></a>
+	           <a :href="createURL('/html/danhmuc/dm_dungchung_detail/quan_ly_phien_ban.html', {danhmuc_id: hs.id, backURL: currentURL})" title="Quản lý phiên bản"><i class="fa fa-cog"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <b-pagination v-if="total > perPage" size="sm" v-model="currentPage" :total-rows="total" :per-page="perPage"></b-pagination>
+    <label class="label">Tổng số : {{ total }} bản ghi</label>
+  </template>
+</div>
+<script>
+  new Vue({
+    el: "#app",
+    data: {  
+    	perPage: 5,
+    	currentPage: null,
+    	items: [],
+    	total : null,
+    	ma_yte : '',
+    	loaiBenhAn: [ 
+    		{ value: null, text: '--Tất cả các lại bệnh án--' },
+            { value: '1', text: '1' },
+            { value: '2', text: '2' },
+            { value: '3', text: '3' },
+        ],
+        listBenhVien: [ 
+    		{ value: null, text: '--Tất cả cả bệnh viện--' },
+            { value: '1', text: '1' },
+            { value: '2', text: '2' },
+            { value: '3', text: '3' },
+        ],
+        selected:null,
+        selected2: null,
+        radioSelected : '',
+        guiTu : "01/01/2019",
+        guiDen : "01/02/2019",
+        
+    },
+    
+    methods: {
+	  getTotal: async function() {
+		this.total = await this.get("/api/hsba/count_ds_hs", {trangthai: 1, ma_yte : this.ma_yte});
+
+	  },
+
+	  getItems : async function() {
+		this.items = await this.get("/api/hsba/get_ds_hs", 
+				{ trangthai: 1, start: this.offset, count: this.perPage, ma_yte : this.ma_yte });		
+	  },
+	  
+	  timKiemHoso : async function() {
+	    this.currentPage = 1;
+	    location.href = this.currentURL;
+	  }
+    },
+    
+    computed: {      
+      offset() {
+        return (this.currentPage - 1) * this.perPage;
+	  },
+
+	  currentURL() {
+		return this.createURL("", 
+			{
+			ma_yte: this.ma_yte, 
+			currentPage: this.currentPage,
+			radioSelected : this.radioSelected,
+			selected : this.selected,
+			selected2 : this.selected2,
+			guiDen : this.guiDen,
+			guiTu : this.guiTu
+			}
+		)
+	  }
+    },
+    
+    watch: {
+      currentPage : async function(newVal, oldVal) {
+		if(oldVal){	  
+		  location.href = this.currentURL;
+		}
+      }
+    },
+    
+    created: async function () {
+      this.currentPage = this.getParam("currentPage") || 1;
+      this.ma_yte = this.getParam("ma_yte") || "";
+      this.radioSelected = this.getParam("radioSelected" || '');
+      this.selected = this.getParam("selected");
+      if(this.selected == undefined){
+    	  this.selected = null;
+      }
+      this.selected2 = this.getParam("selected2");
+      if(this.selected2 == undefined){
+    	  this.selected2 = null;
+      }
+      this.guiTu = this.getParam("guiTu" || '');
+      this.guiDen = this.getParam("guiDen" || '');
+      await this.getTotal();
+      await this.getItems();	  
+    }
+  });
+</script>

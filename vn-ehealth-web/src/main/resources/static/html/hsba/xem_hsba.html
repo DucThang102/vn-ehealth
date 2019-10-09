@@ -104,7 +104,8 @@
     created : async function() {
 	   this.backURL = this.getParam("backURL");
 	   this.hsId = this.getParam("hs_id");
-	   var hoso = await this.get("/api/hsba/get_hs", {id : this.hsId });
+	   var thongtin_hanhchinh = await this.get(`/api/hsba/get_thongtin_hanhchinh?hoso_id=${this.hsId}`);
+	   var hoso = thongtin_hanhchinh.thongtin_hoso;
 	   this.maHs = hoso.ma_yte;
     }
   });
