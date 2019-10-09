@@ -1,0 +1,184 @@
+<style>
+  #app {
+    overflow: scroll;
+    width: 100%;
+  }
+</style>
+
+<div id="app">
+  <template v-if="total == 0">
+    <b>Không có dữ liệu</b>
+  </template>
+  <div v-if="backURL">
+			<a class="btn btn-sm btn-secondary" :href="backURL">
+				<i class="fas fa-fw fa-arrow-left"></i>Quay lại
+			</a>
+	</div>
+  <template>
+	     <div class="row">
+	     	<div class="box-content">
+	        <div class="row">
+		        <div class="col-3">
+		        	<label class="label-bold" for="input-none">Tên danh mục:</label><br/>
+		        </div>
+		        <div class="col-3">
+		        	<label for="input-none"></label><br/>
+		        </div>
+		        <div class="col-3">
+		        	<label class="label-bold" for="input-none">Số phiên bản mới nhất:</label><br/>
+		        </div>
+		        <div class="col-3">
+		        	<label for="input-none"></label><br/>
+		        </div>
+	        </div>
+	        <div class="row">
+		        <div class="col-3">
+		        	<label class="label-bold" for="input-none">Mã danh mục:</label><br/>
+		        </div>
+		        <div class="col-3">
+		        	<label for="input-none"></label><br/>
+		        </div>
+		        <div class="col-3">
+		        	<label class="label-bold" for="input-none">Ngày cập nhật từ GateWay:</label><br/>
+		        </div>
+		        <div class="col-3">
+		        	<label for="input-none"></label><br/>
+		        </div>
+	        </div>
+	          <div class="row">
+		        <div class="col-3">
+		        	<label class="label-bold" for="input-none">Đơn vị ban hành:</label><br/>
+		        </div>
+		        <div class="col-3">
+		        	<label for="input-none"></label><br/>
+		        </div>
+		        <div class="col-3">
+		        	<label class="label-bold" for="input-none">	HL7 CDA System Code:</label><br/>
+		        </div>
+		        <div class="col-3">
+		        	<label for="input-none"></label><br/>
+		        </div>
+	        </div>
+	         <div class="row">
+		        <div class="col-3">
+		        	<label class="label-bold" for="input-none">Ngày xuất bản:</label>
+		        </div>
+		        <div class="col-3">
+		        	<label for="input-none"></label><br/>
+		        </div>
+		        <div class="col-3">
+		        	<label class="label-bold" for="input-none">Ngày bắt đầu hiệu lực:</label><br/>
+		        </div>
+		        <div class="col-3">
+		        	<label for="input-none"></label><br/>
+		        </div>
+	        </div>
+	         <div class="row">
+		        <div class="col-3">
+		        	<label for="input-none" class="label-bold">Mô tả việc bổ sung</label><br/>
+		        </div>
+		        <div class="col-9">
+		        	<label for="input-none"></label><br/>
+		        </div>
+	        </div>
+	     </div>
+      </div>
+      <br/>
+   <form @submit.prevent="timKiemHoso()" class="mb-3">
+    <div class="row">
+	    	<div class="col-4">
+		      </div>
+		      <div class="col-4">
+		      		 <input v-model="ma_yte" class="form-control" placeholder="Mã/Tên/Cha/CDA"></input>
+		      </div>
+		      <div class="col-4">
+		      		<b-button variant="primary" class="search" type="submit">Tìm kiếm</b-button>
+		      </div>
+     </div>
+     </form>
+    <table class="table table-bordered table-width-100" v-if="total > 0">
+      <thead>
+        <tr>
+          <th style="width:5%">STT</th>
+          <th style="width:10%">Mã</th>
+          <th style="width:30%">Tên</th>
+          <th style="width:10%">Tên tiếng anh</th>
+          <th style="width:10%">Cha</th>
+          <th style="width:10%">Mã CDA</th>
+          <th style="width:5%">Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(hs, index) in items">
+          <td>{{ index + offset + 1 }}</td>
+          <td>{{ hs.ma_yte }}</td>
+          <td>{{ hs.ma_yte }}</td>
+          <td>{{ hs.ten_benh_nhan }}</td>
+          <td>{{ hs.ngay_vaovien }}</td>
+          <td>{{ hs.ma_yte }}</td>
+           <td>
+	           <a href="" title="Xem chi tiết danh mục"><i class="fa fa-eye"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <b-pagination v-if="total > perPage" size="sm" v-model="currentPage" :total-rows="total" :per-page="perPage"></b-pagination>
+    <label class="label">Tổng số : {{ total }} bản ghi</label>
+  </template>
+</div>
+<script>
+  new Vue({
+    el: "#app",
+    data: {  
+    	perPage: 5,
+    	currentPage: null,
+    	items: [],
+    	total : null,
+    	ma_yte : '',
+    	backURL : null
+    },
+    
+    methods: {
+	  getTotal: async function() {
+		this.total = await this.get("/api/hsba/count_ds_hs", {trangthai: 1, ma_yte : this.ma_yte});
+
+	  },
+
+	  getItems : async function() {
+		this.items = await this.get("/api/hsba/get_ds_hs", 
+				{ trangthai: 1, start: this.offset, count: this.perPage, ma_yte : this.ma_yte });		
+	  },
+	  
+	  timKiemHoso : async function() {
+	    this.currentPage = 1;
+	    location.href = this.currentURL;
+	  }
+    },
+    
+    computed: {      
+      offset() {
+        return (this.currentPage - 1) * this.perPage;
+	  },
+
+	  currentURL() {
+		return this.createURL("", {ma_yte: this.ma_yte, currentPage: this.currentPage})
+	  }
+    },
+    
+    watch: {
+      currentPage : async function(newVal, oldVal) {
+		if(oldVal){	  
+		  location.href = this.currentURL;
+		}
+      }
+    },
+    
+    created: async function () {
+    	this.backURL = this.getParam("backURL");
+      this.currentPage = this.getParam("currentPage") || 1;
+      this.ma_yte = this.getParam("ma_yte") || "";
+      await this.getTotal();
+      await this.getItems();	  
+    }
+  });
+</script>

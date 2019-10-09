@@ -1,3 +1,70 @@
-<div>
-	Điều trị
+<div id="app">
+	<div class="box-content">
+		<b class="mb-3">Thông tin tìm kiếm:</b>
+		 <form @submit.prevent="timKiemDieuTri()" class="mb-3">
+	      <div class="row">
+	        <div class="col-3">
+	       		<label class="search-form-label">Khoa điều trị:</label>
+		         <select v-model="khoaDieuTri" class="form-control" >
+	         		<option selected="true">-Khoa ra viện-</option>
+				   	<option>Điều trị tự nguyên - S2</option>
+			    	<option>Điều trị tự nguyên - S3</option>
+		    		<option>Điều trị tự nguyên - S4</option>
+	    			<option>Điều trị tự nguyên - S5</option>
+				  </select>
+	        </div>
+	         <div class="col-3">
+	       		<label class="search-form-label">Ngày điều trị từ:</label>
+	       		 <div class="form-group">
+	                <div class='input-group date' id='datetimepicker1'>
+	                    <input v-model="ngayDieuTriTu" type='text' class="form-control" />
+	                    <span class="input-group-addon">
+	                        <span class="glyphicon glyphicon-calendar"></span>
+	                    </span>
+	                </div>
+	            </div>
+	   		</div>
+	   		 <div class="col-3">
+	       		<label class="search-form-label">Ngày điều trị đến:</label>
+	       		 <div class="form-group">
+	                <div class='input-group date' id='datetimepicker2'>
+	                    <input v-model="ngayDieuTriDen" type='text' class="form-control" />
+	                    <span class="input-group-addon">
+	                        <span class="glyphicon glyphicon-calendar"></span>
+	                    </span>
+	                </div>
+	            </div>
+	   		</div>
+	   		 <div class="col-3">
+	   		 	<br/>
+	   		 	<button type="submit" class="btn btn-primary">Tìm kiếm</button>
+	   		 </div>
+	      </div>
+	    </form>
+	</div>
+	<div class="box-content">
+		 <table style="width:100%" class="table table-bordered">
+      <thead>
+        <tr>
+          <th rowspan="2" style="width:5%">STT</th>
+          <th rowspan="2" style="width:10%">Thao tác</th>
+          <th rowspan="2" style="width:20%">Phiếu điều trị số</th>
+          <th rowspan="2" style="width:20%">Khoa điều trị</th>
+          <th rowspan="2" style="width:25%">Ngày điều trị</th>
+          <th rowspan="2" style="width:20%">File đính kèm từ His</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>Phiếu điểu trị số 2001419	</td>
+          <td>Khoa Sơ sinh</td>
+          <td>28/06/2018 05:06 đến 29/06/2018 04:06</td>
+          <td>Không có file đính kèm từ His</td>
+        </tr>
+      </tbody>
+    </table>
+		
+	</div>
 </div>

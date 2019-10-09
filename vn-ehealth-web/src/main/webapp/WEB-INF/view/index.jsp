@@ -35,12 +35,15 @@
   <!-- Custom styles for this template-->
   <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link href="/css/style.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
   <script src="/js/jquery.min.js"></script>
   <script src="/js/popper.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
   <script src="http://unpkg.com/vue@latest/dist/vue.js"></script>
   <script src="http://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
   <script src="/js/common.js"></script>  
+
 
 </head>
 

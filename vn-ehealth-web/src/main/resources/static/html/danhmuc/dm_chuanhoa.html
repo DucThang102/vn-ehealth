@@ -15,25 +15,28 @@
 	      <div class="row">
 		     	<div class="box-content">
 		     	 <div class="row">
-			        <div class="col-8">
-			          <input v-model="ma_yte" class="form-control" placeholder="Tên người truy cập"></input>
+			        <div class="col-3">
+			        	<label class="label-bold" for="input-none">Mã danh mục:</label><br/>
+			          <input v-model="ma_yte" class="form-control" placeholder="Mã danh mục"></input>
 			        </div>
-			        <div class="col-4">
+			        <div class="col-3">
+			        	<label class="label-bold" for="input-none">Tên danh mục đề xuất:</label><br/>
+			          <input v-model="ma_yte" class="form-control" placeholder="Tên danh mục đề xuất"></input>
+			        </div>
+			         <div class="col-3">
+			        	 <label class="label-bold" for="input-none">Trạng thái:</label><br/>
+				          <select class="form-control" id="trangThai" name="trangThai">
+								<option value="0">--Trạng thái --</option>
+								<option value="7">Chờ duyệt</option>
+								<option value="10">Đã duyệt</option>
+								<option value="125">Hết hạn truy cập</option>
+								<option value="9">Hủy bởi quản trị</option>
+								<option value="8">Tự hủy</option>
+						    </select>
+			        </div>
+			        <div class="col-3">
+			        	<label for="input-none">&nbsp;&nbsp;</label><br/>
 			        	<b-button variant="primary" class="search" type="submit">Tìm kiếm</b-button>
-			        </div>
-		        </div>
-		        <div class="row">
-			        <div class="col-4">
-			        	<label for="input-none">Nhập mã y tế</label><br/>
-			        	 <input v-model="ma_yte" class="form-control" placeholder="Nhập mã y tế"></input>
-			        </div>
-			        <div class="col-4">
-			        	<label for="input-none">Thời gian truy cập từ ngày:</label><br/>
-			        	<b-form-input  id="type-date" type="date"></b-form-input>
-			        </div>
-			        <div class="col-4">
-			        	<label for="input-none">Đến:</label><br/>
-			        	<b-form-input  id="type-date" type="date"></b-form-input>
 			        </div>
 		        </div>
 		     </div>
@@ -43,19 +46,28 @@
       <thead>
         <tr>
           <th style="width:5%">STT</th>
-          <th style="width:20%">Thời gian truy cập</th>
-          <th style="width:25%">Người truy cập</th>
-          <th style="width:25%">Mã y tế</th>
-          <th style="width:20%">Các mục thông tin đã truy cập</th>
+          <th style="width:7%">Mã</th>
+          <th style="width:20%">Tên danh mục đề xuất</th>
+          <th style="width:20%">Danh mục dùng chung được đề xuất chuẩn hóa</th>
+          <th style="width:10%">Phiên bản</th>
+          <th style="width:10%">Ngày yêu cầu</th>
+          <th style="width:10%">Tình trạng</th>
+          <th style="width:5%">Thao tác</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(hs, index) in items">
           <td>{{ index + offset + 1 }}</td>
-          <td>{{ hs.ngay_vaovien }}</td>
+          <td>{{ hs.ma_yte }}</td>
+          <td>{{ hs.ma_yte }}</td>
           <td>{{ hs.ten_benh_nhan }}</td>
+          <td>{{ hs.ngay_vaovien }}</td>
           <td>{{ hs.ma_yte }}</td>
           <td>{{ hs.loai_benh_an }}</td>
+           <td>
+	           <a :href="createURL('/html/danhmuc/dm_dungchung_detail/chitiet.html', {danhmuc_id: hs.id, backURL: currentURL})" title="Xem chi tiết danh mục"><i class="fa fa-eye"></i></a>
+	           <a :href="createURL('/html/danhmuc/dm_dungchung_detail/quan_ly_phien_ban.html', {danhmuc_id: hs.id, backURL: currentURL})" title="Quản lý phiên bản"><i class="fa fa-cog"></i></a>
+          </td>
         </tr>
       </tbody>
     </table>
