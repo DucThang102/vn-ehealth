@@ -1,3 +1,52 @@
-<div v-if="hsId">
-  <iframe width="100%" height="1000px" frameBorder="0" :src="pdfURL">
+<div v-if="hsId" class="frame">
+  <div class="row">
+    <div class="col-8">
+      <span>Bộ Y Tế</span><br>
+      <span>BV: Bệnh viện Đa khoa Trung ương Cần Thơ<span>
+    </div>
+    <div class="col-4">
+      <span>Số lưu trữ:</span><br>
+      <span>Mã y tế:</span> <span>180340024</span>
+    </div>
+  </div>
+  <div style="text-align: center;" class="mt-3 mb-3">
+    <h3>TỜ ĐIỀU TRỊ</h3>
+  </div>
+  <div class="row">
+
+    <div class="col-8">
+      <span>Tên bệnh nhân:</span> <b><span class='text-uppercase'>LÊ HỒNG PHÚC</span></b><br>
+      <span>Ngày sinh:</span> <span>13/06/2018</span><br>
+      <span>Ngày vào viện:</span> <span>28/06/2018 05:06</span><br>
+    </div>
+    <div class="col-4">
+      <span>Giới tính:</span> <span>Nam</span><br>
+      <span>Tuổi:</span> <span>16 ngày</span><br>
+      <span>Ngày ra viện:</span> <span>29/06/2018 04:06</span><br>
+    </div>
+  </div>
+  <hr>
+
+  <div class="row">
+    <div class="col-12">
+      <b>Tờ điều trị số: <span>2001419</span></b><br>
+      <span>- Tại khoa:</span> <span>Khoa Sơ sinh</span><br>
+    </div>
+  </div>
+  <table class='table table-bordered mt-3'>
+    <tr>
+      <th style='width:5%'>STT</th>
+      <th style='width:15%'>Ngày thực hiện</th>
+      <th style='width:35%'>Diễn biến người bệnh</th>
+      <th style='width:25%'>Y lệnh </th>
+      <th style='width:20%'>Bác sĩ ra y lệnh</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>29/06/2018</td>
+      <td></td>
+      <td></td>
+      <td>Nguyễn Thị Lam Hồng</td>
+    </tr>
+  </table>
 </div>

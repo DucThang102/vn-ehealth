@@ -175,3 +175,8 @@ footer p{font-size: 14px;}
 footer p {
   margin: 0 0 10px;
 }
+
+.frame {
+  border: 1px solid #AAA;
+  padding: 15px;
+}
