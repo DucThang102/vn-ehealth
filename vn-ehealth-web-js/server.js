@@ -47,4 +47,4 @@ server.all("*", function(req, res, next) {
 
  server.use(express.static(__dirname + '/www', { maxAge: oneDay }));
 
- server.listen(process.env.PORT || 8081);
+ server.listen(process.env.PORT || 8080);
