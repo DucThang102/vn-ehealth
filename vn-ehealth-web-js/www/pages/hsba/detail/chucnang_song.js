@@ -1,17 +1,22 @@
 var chucnang_song_script = {
   data: function() {
     return {
-      hsId: 0
+      hsba: null,
+      khoadieutri: null,
+      chucnangsong: null
     }
   },  
   
-  computed: {
-    pdfURL : function() {
-      return this.API_URL + "/api/hsba/view_pdf?loai_report=chucnangsong&idhsba=" + this.hsId;
+  mounted: async function () {
+    var idhsba = getParam('hs_id');
+    var vk_index = getParam('vk_index') || 0;
+    var chucnangsong_index = getParam('chucnangsong_index') || 0;
+    this.hsba = await this.get('/api/hsba/get_hs', {hoso_id : idhsba});
+    if(this.hsba && vk_index < this.hsba.emrVaoKhoas.length) {
+      this.khoadieutri = this.hsba.emrVaoKhoas[vk_index];
+      if(chucnangsong_index < this.khoadieutri.emrChucNangSongs.length) {
+        this.chucnangsong = this.khoadieutri.emrChucNangSongs[chucnangsong_index];
+      }
     }
-  },
-
-  mounted: function () {
-    this.hsId = getParam('hs_id');
   }
 };

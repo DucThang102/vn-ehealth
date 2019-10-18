@@ -22,9 +22,12 @@ import vn.ehealth.repository.*;
 import vn.ehealth.service.Constants.TRANGTHAI_HOSO;
 import vn.ehealth.emr.file.*;
 import vn.ehealth.emr.utils.FieldUtil;
+import vn.ehealth.emr.utils.JasperUtils;
 
 @Service
 public class HsbaService {
+    
+    JasperUtils jasperUtils = new JasperUtils();
     
     @Autowired
     JdbcTemplate jdbcTemplate;
@@ -340,13 +343,18 @@ public class HsbaService {
         
         return lst;
     }
-
     
     List<EmrPhauThuatThuThuat> getEmrPhauThuatThuThuats(int idhsba) {
         var lst = getRecords(EmrPhauThuatThuThuat.class, "emr_phau_thuat_thu_thuat", "idhsba", idhsba, true);
         
         for(var item : lst) {
             item.emrHoiDongPttts = getRecords(EmrHoiDongPttt.class, "emr_hoi_dong_pttt", "idpttt", item.id, true);
+            item.emrHoiDongPttts.forEach(x -> {
+                x.emrDmVaiTro = new EmrDm();
+                if(x.idvaitro != null) {                    
+                    x.emrDmVaiTro.ten = jasperUtils.getVaiTroPTTT(x.idvaitro);
+                }
+            });
             item.emrDmMaBenhChandoansau = getEmrDm("emr_dm_ma_benh", item.idicdchandoansau);
             item.emrDmMaBenhChandoantruoc = getEmrDm("emr_dm_ma_benh", item.idicdchandoantruoc);
             item.emrDmPhauThuThuat = getEmrDm("emr_dm_phau_thu_thuat", item.idphauthuat);

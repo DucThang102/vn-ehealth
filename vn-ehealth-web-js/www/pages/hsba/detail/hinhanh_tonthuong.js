@@ -1,17 +1,17 @@
 var hinhanh_tonthuong_script = {
   data: function() {
     return {
-      hsId: 0
-    }
-  },  
-  
-  computed: {
-    pdfURL : function() {
-      return this.API_URL + "/api/hsba/view_pdf?loai_report=hinhanhtonthuong&idhsba=" + this.hsId;
+      hsba : null,
+      hatt: null
     }
   },
   
-  mounted: function () {
-    this.hsId = getParam('hs_id');
+  mounted: async function () {
+    var idhsba = getParam('hs_id');
+    var hatt_index = getParam('hatt_index') || 0;
+    this.hsba = await this.get('/api/hsba/get_hs', {hoso_id : idhsba});
+    if(this.hsba && this.hsba.emrHinhAnhTonThuongs.length > hatt_index) {
+      this.hatt = this.hsba.emrHinhAnhTonThuongs[hatt_index];
+    }
   }
 };

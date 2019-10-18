@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import javax.persistence.Transient;
+
 @Entity
 @Table(name = "emr_hoi_dong_pttt")
 public class EmrHoiDongPttt {
@@ -14,6 +16,8 @@ public class EmrHoiDongPttt {
     @Column public Integer idpttt;
     
     @Column public Integer idvaitro;
+    
+    @Transient public EmrDm emrDmVaiTro;
     
     @Column public String tenbacsi;
     

@@ -1,28 +1,27 @@
-<div v-if="hsId" class="frame">
+<div v-if="hsba" class="frame">
   <div class="row">
     <div class="col-8">
-      <span>Bộ Y Tế</span><br>
-      <span>BV: Bệnh viện Đa khoa Trung ương Cần Thơ<span>
+      <span>{{ hsba.donvichuquan }}</span><br>
+      <span>BV: {{ hsba.tenbenhvien }}</span>
     </div>
     <div class="col-4">
       <span>Số lưu trữ:</span><br>
-      <span>Mã y tế:</span> <span>180340024</span>
+      <span>Mã y tế:</span> <span>{{ hsba.mayte }}</span>
     </div>
   </div>
   <div style="text-align: center;" class="mt-3 mb-3">
     <h3>TỜ ĐIỀU TRỊ</h3>
   </div>
   <div class="row">
-
     <div class="col-8">
-      <span>Tên bệnh nhân:</span> <b><span class='text-uppercase'>LÊ HỒNG PHÚC</span></b><br>
-      <span>Ngày sinh:</span> <span>13/06/2018</span><br>
-      <span>Ngày vào viện:</span> <span>28/06/2018 05:06</span><br>
+      <span>Tên bệnh nhân:</span> <b><span class='text-uppercase'>{{ hsba.emrBenhNhan.tendaydu }}</span></b><br>
+      <span>Ngày sinh:</span> <span>{{ formatDate(hsba.emrBenhNhan.ngaysinh) }}</span><br>
+      <span>Ngày vào viện:</span> <span>{{ formatDateTime(hsba.emrQuanLyNguoiBenh.ngaygiovaovien) }}</span><br>
     </div>
     <div class="col-4">
-      <span>Giới tính:</span> <span>Nam</span><br>
-      <span>Tuổi:</span> <span>16 ngày</span><br>
-      <span>Ngày ra viện:</span> <span>29/06/2018 04:06</span><br>
+      <span>Giới tính:</span> <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span><br>
+      <span>Tuổi:</span> <span>{{ hsba.emrBenhNhan.tuoi }}</span><br>
+      <span>Ngày ra viện:</span> <span>{{ formatDateTime(hsba.emrQuanLyNguoiBenh.ngaygioravien) }}</span><br>
     </div>
   </div>
   <hr>

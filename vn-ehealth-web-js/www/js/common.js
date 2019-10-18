@@ -1,18 +1,33 @@
-var API_URL = 'http://34.87.51.9:8000';
+var API_URL = 'http://localhost:8000';
 
 Vue.mixin({
   data: function () {
     return {
-      API_URL: 'http://34.87.51.9:8000'
+      API_URL: 'http://localhost:8000'
     }
   },
 
   methods: {
     formatDate: function (dateStr) {
-      var yyyy = dateStr.substring(0, 4);
-      var mm = dateStr.substring(5, 7);
-      var dd = dateStr.substring(8, 10);
-      return `${dd}/${mm}/${yyyy}`;
+      if(dateStr != null) {
+        var yyyy = dateStr.substring(0, 4);
+        var mm = dateStr.substring(5, 7);
+        var dd = dateStr.substring(8, 10);
+        return `${dd}/${mm}/${yyyy}`;
+      }
+      return "";
+    },
+
+    formatDateTime: function (dateStr) {
+      if(dateStr != null) {
+        var yyyy = dateStr.substring(0, 4);
+        var mm = dateStr.substring(5, 7);
+        var dd = dateStr.substring(8, 10);
+        HH = dateStr.substring(11, 13);
+        MM = dateStr.substring(14, 16);
+        return `${dd}/${mm}/${yyyy} ${HH}:${MM}`;
+      }
+      return "";
     },
 
     getParam: function (name) {

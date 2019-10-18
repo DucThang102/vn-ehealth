@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +25,7 @@ import com.google.gson.GsonBuilder;
 import net.sf.jasperreports.engine.JRException;
 import vn.ehealth.emr.EmrDanhSachHoSoBenhAn;
 import vn.ehealth.emr.utils.ExportUtil;
+import vn.ehealth.emr.utils.JasperUtils;
 
 
 @RestController
@@ -33,6 +35,8 @@ public class HsbaController {
 	static Logger logger = LoggerFactory.getLogger(HsbaController.class);
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	
+	JasperUtils jasperUtils = new JasperUtils();
 	
 	Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
 		
@@ -66,12 +70,27 @@ public class HsbaController {
         
         var result = hsbaService.getEmrDanhSachHoSoBenhAnById(hoSoId);
         
+        result.ifPresent(x -> {
+            var coSoKhamBenh = hsbaService.getCoSoKhamBenh();
+            
+            x.emrBenhNhan.tuoi = jasperUtils.getTuoi(x);
+            
+            if(StringUtils.isEmpty(x.donvichuquan)) 
+                x.donvichuquan = coSoKhamBenh.donvichuquan;
+            
+            if(StringUtils.isEmpty(x.tenbenhvien)) 
+                x.tenbenhvien = coSoKhamBenh.ten;
+            
+            if(StringUtils.isEmpty(x.truongphongth)) 
+                x.truongphongth = coSoKhamBenh.truongphongth;
+        });        
+        
         return ResponseEntity.of(result);
     }
 	
 	@GetMapping("/get_thongtin_hoso")
     public ResponseEntity<?> getThongTinHoSo(@RequestParam("hoso_id") int hoSoId) {
-        var hsba = rawHsbaService.getHsba(hoSoId);
+        var hsba = rawHsbaService.getHsba(hoSoId);        
         return ResponseEntity.ok(hsba);
 	}
 	

@@ -1,17 +1,22 @@
 var dieu_tri_script = {
   data: function() {
     return {
-      hsId: 0
+      hsba: null,
+      khoadieutri: null,
+      dieutri: null
     }
   },  
-  
-  computed: {
-    pdfURL : function() {
-      return this.API_URL + "/api/hsba/view_pdf?loai_report=dieutri&idhsba=" + this.hsId;
+ 
+  mounted: async function () {
+    var idhsba = getParam('hs_id');
+    var vk_index = getParam('vk_index') || 0;
+    var dieutri_index = getParam('dieutri_index') || 0;
+    this.hsba = await this.get('/api/hsba/get_hs', {hoso_id : idhsba});
+    if(this.hsba && vk_index < this.hsba.emrVaoKhoas.length) {
+      this.khoadieutri = this.hsba.emrVaoKhoas[vk_index];
+      if(dieutri_index < this.khoadieutri.emrDieuTris.length) {
+        this.dieutri = this.khoadieutri.emrDieuTris[dieutri_index];
+      }
     }
-  },
-
-  mounted: function () {
-    this.hsId = getParam('hs_id');
   }
 };
