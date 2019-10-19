@@ -28,8 +28,8 @@
 
   <div class="row">
     <div class="col-12">
-      <b>Tờ điều trị số: <span>2001419</span></b><br>
-      <span>- Tại khoa:</span> <span>Khoa Sơ sinh</span><br>
+      <b>Tờ điều trị số: {{ dieutri.sotodieutri }}</b><br>
+      <span>- Tại khoa: {{ khoadieutri.emrDmKhoaDieuTri.ten }}</span><br>
     </div>
   </div>
   <table class='table table-bordered mt-3'>
@@ -40,12 +40,27 @@
       <th style='width:25%'>Y lệnh </th>
       <th style='width:20%'>Bác sĩ ra y lệnh</th>
     </tr>
-    <tr>
-      <td>1</td>
-      <td>29/06/2018</td>
-      <td></td>
-      <td></td>
-      <td>Nguyễn Thị Lam Hồng</td>
+    <tr v-for="(qtdt, i) in dieutri.emrQuaTrinhDieuTris">
+      <td>{{ i + 1 }}</td>
+      <td>{{ formatDateTime(qtdt.ngaydieutri) }}</td>
+      <td>{{ qtdt.dienbien }}</td>
+      <td>{{ qtdt.ylenh }}</td>
+      <td>{{ qtdt.bacsiraylenh }}</td>
     </tr>
   </table>
+
+  <div v-if="dieutri.emrQuanLyFileDinhKemDieuTris.length > 0">
+    <hr>
+    <b>Danh sách file đính kèm:</b> 
+    <table class='table table-bordered mt-3'>
+      <tr>
+        <th style='width:10%'>STT</th>
+        <th style='width:90%'>Tên file</th>
+      </tr>
+      <tr v-for="(file, i) in dieutri.emrQuanLyFileDinhKemDieuTris">
+        <td>{{ i + 1 }}</td>
+        <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+      </tr>
+    </table>
+  </div>
 </div>

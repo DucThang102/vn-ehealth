@@ -28,23 +28,22 @@
 
   <div class="row">
     <div class="col-12">
-      <b>Hội chẩn lúc:<span> 00 giờ 00 phút, ngày 28/06/2018</span></b><br>
-      <span>- Tại khoa:</span> <span>Khoa Sơ sinh</span><br>
+      <b>Hội chẩn lúc: {{ formatDateTime(hoichan.ngaythuchien) }}</b><br>
+      <span>- Tại khoa: {{ khoadieutri.emrDmKhoaDieuTri.ten }}</span><br>
       <div class="row">
         <div class="col-6">
           <span>- Bác sĩ chủ tọa:</span>
-          <span>Bác sĩ A</span>
+          <span>{{ bacsichutoa }}</span>
         </div>
         <div class="col-6">
           <span>- Thư ký:</span>
-          <span>Bác sĩ B</span>
+          <span>{{ thuky }}</span>
         </div>
         <div class="col-6"></div>
       </div>
       <span>- Thành viên tham gia:</span>
       <ul>
-        <li>Bác sĩ C</li>
-        <li>Bác sĩ D</li>
+        <li v-for="bs in hoichan.emrHoiDongHoiChans">{{ bs.bacsihoichan }}</li>
       </ul>
     </div>
   </div>
@@ -53,7 +52,7 @@
   <div class="row">
     <div class="col-12">
       <b><span>Tóm tắt diễn biến</span> <br></b>
-      <span>Nội dung tóm tắt diễn biến chi tiết ....</span>
+      <span>{{ hoichan.tomtatdienbien }}</span>
     </div>
   </div>
   <hr>
@@ -61,7 +60,7 @@
   <div class="row">
     <div class="col-12">
       <b><span>Kết luận</span> <br></b>
-      <span>Nội dung kết luận chi tiết ....</span>
+      <span>{{ hoichan.ketluanhoichan }}</span>
     </div>
   </div>
   <hr>
@@ -69,7 +68,22 @@
   <div class="row">
     <div class="col-12">
       <b><span>Hướng điều trị tiếp theo</span> <br></b>
-      <span> Hướng điều trị tiếp theo chi tiết ....</span>
+      <span>{{ hoichan.huongdieutri }}</span>
     </div>
+  </div>
+
+  <div v-if="hoichan.emrQuanLyFileDinhKemHoiChans.length > 0">
+    <hr>
+    <b>Danh sách file đính kèm:</b> 
+    <table class='table table-bordered mt-3'>
+      <tr>
+        <th style='width:10%'>STT</th>
+        <th style='width:90%'>Tên file</th>
+      </tr>
+      <tr v-for="(file, i) in hoichan.emrQuanLyFileDinhKemHoiChans">
+        <td>{{ i + 1 }}</td>
+        <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+      </tr>
+    </table>
   </div>
 </div>

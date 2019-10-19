@@ -7,6 +7,25 @@ var hoi_chan_script = {
     }
   },  
 
+  computed : {
+    bacsichutoa : function() {
+      var bs = this.hoichan.emrHoiDongHoiChans.find(x => x.idvaitro == 1);
+      if(bs) {
+        return bs.bacsihoichan;
+      }else{
+        return "";
+      }
+    },
+    thuky : function() {
+      var bs = this.hoichan.emrHoiDongHoiChans.find(x => x.idvaitro == 2);
+      if(bs) {
+        return bs.bacsihoichan;
+      }else{
+        return "";
+      }
+    }
+  },
+
   mounted: async function () {
     var idhsba = getParam('hs_id');
     var vk_index = getParam('vk_index') || 0;

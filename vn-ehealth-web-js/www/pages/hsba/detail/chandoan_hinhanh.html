@@ -28,12 +28,12 @@
 
   <div class="row">
     <div class="col-12">
-      <b><span>Chẩn đoán hình ảnh:</span> <span>Chụp cắt lớp vi tính ruột non (entero-scan) có dùng sonde</span></b><br>
-      <span>- Loại chẩn đoán:</span> <span>Cộng hưởng từ</span><br>
-      <span>- Ngày yêu cầu:</span> <span>28/06/2018</span><br>
-      <span>- Bác sĩ yêu cầu:</span> <span>Bac sy C</span><br>
-      <span>- Ngày thực hiện:</span> <span>28/06/2018</span><br>
-      <span>- Bác sĩ thực hiện:</span> <span>Bac sy D</span><br>
+      <b>Chẩn đoán hình ảnh: {{ cdha.emrDmChanDoanHinhAnh.ten }}</b><br>
+      <span>- Loại chẩn đoán: {{ cdha.emrDmLoaiChanDoanHinhAnh.ten }}</span><br>
+      <span>- Ngày yêu cầu: {{ formatDateTime(cdha.ngayyeucau) }}</span><br>
+      <span>- Bác sĩ yêu cầu: {{ cdha.bacsiyeucau }}</span><br>
+      <span>- Ngày thực hiện: {{ formatDateTime(cdha.ngaythuchien) }}</span><br>
+      <span>- Bác sĩ thực hiện: {{ cdha.bacsichuyenkhoa }}</span><br>
     </div>
   </div>
   <hr>
@@ -41,7 +41,7 @@
   <div class="row">
     <div class="col-12">
       <b><span>Kết quả</span> <br></b>
-      <span>Nội dung kết quả chi tiết ....</span>
+      <span>{{ cdha.ketqua }}</span>
     </div>
   </div>
   <hr>
@@ -49,7 +49,7 @@
   <div class="row">
     <div class="col-12">
       <b><span>Kết luận</span> <br></b>
-      <span>Nội dung kết luận chi tiết ....</span>
+      <span>{{ cdha.ketluan }}</span>
     </div>
   </div>
   <hr>
@@ -57,7 +57,22 @@
   <div class="row">
     <div class="col-12">
       <b><span>Lời dặn</span> <br></b>
-      <span> Lời dặn chi tiết ....</span>
+      <span>{{ cdha.loidan }}</span>
     </div>
+  </div>
+
+  <div v-if="cdha.emrQuanLyFileDinhKemCdha.length > 0">
+    <hr>
+    <b>Danh sách file đính kèm:</b> 
+    <table class='table table-bordered mt-3'>
+      <tr>
+        <th style='width:10%'>STT</th>
+        <th style='width:90%'>Tên file</th>
+      </tr>
+      <tr v-for="(file, i) in cdha.emrQuanLyFileDinhKemCdha">
+        <td>{{ i + 1 }}</td>
+        <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+      </tr>
+    </table>
   </div>
 </div>

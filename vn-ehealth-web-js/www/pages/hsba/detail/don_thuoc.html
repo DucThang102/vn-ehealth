@@ -28,9 +28,9 @@
 
   <div class="row">
     <div class="col-12">
-      <b>Đơn thuốc số:<span></span></b><br>
-      <span>- Ngày kê đơn:</span> <span>29/06/2018</span><br>
-      <span>- Bác sỹ kê đơn:</span> <span>Nguyễn Thị Lam Hồng</span><br>
+      <b>Đơn thuốc số: {{ donthuoc.sodon }}</b><br>
+      <span>- Ngày kê đơn: {{ formatDateTime(donthuoc.ngaykedon) }} </span><br>
+      <span>- Bác sỹ kê đơn: {{ donthuoc.bacsikedon }}</span><br>
     </div>
   </div>
   <table class='table table-bordered mt-3'>
@@ -45,16 +45,31 @@
       <th style='width:12%'>Tần suất</th>
       <th style='width:12%'>Chỉ dẫn</th>
     </tr>
-    <tr>
-      <td>1</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+    <tr v-for="(dtct, i) in donthuoc.emrDonThuocChiTiets">
+      <td>{{ i + 1 }}</td>
+      <td>{{ dtct.bietduoc }}</td>
+      <td>{{ dtct.emrDmThuoc.ten }}</td>
+      <td>{{ formatDate(dtct.ngaybatdau) }}</td>
+      <td>{{ formatDate(dtct.ngayketthuc) }}</td>
+      <td>{{ dtct.emrDmDuongDungThuoc.ten }}</td>
+      <td>{{ dtct.lieuluongdung }}</td>
+      <td>{{ dtct.emrDmTanXuatDungThuoc.ten }}</td>
+      <td>{{ dtct.emrDmChiDanDungThuoc.ten || dtct.chidandungthuoc }}</td>      
     </tr>
   </table>
+
+  <div v-if="donthuoc.emrQuanLyFileDinhKemDonThuocs.length > 0">
+    <hr>
+    <b>Danh sách file đính kèm:</b> 
+    <table class='table table-bordered mt-3'>
+      <tr>
+        <th style='width:10%'>STT</th>
+        <th style='width:90%'>Tên file</th>
+      </tr>
+      <tr v-for="(file, i) in donthuoc.emrQuanLyFileDinhKemDonThuocs">
+        <td>{{ i + 1 }}</td>
+        <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+      </tr>
+    </table>
+  </div>
 </div>

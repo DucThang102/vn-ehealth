@@ -28,24 +28,40 @@
   
   <div class="row">
     <div class="col-12">
-      <b>Phiếu chăm sóc số: <span></span></b><br>
-      <span>- Tại khoa:</span> <span>Khoa Sơ sinh</span><br>
+      <b>Phiếu chăm sóc số: {{ chamsoc.sotochamsoc }}</b><br>
+      <span>- Tại khoa: {{ khoadieutri.emrDmKhoaDieuTri.ten }}</span><br>
     </div>
   </div>
+
   <table class='table table-bordered mt-3'>
-   <tr>
-     <th style='width:5%'>STT</th>
-     <th style='width:15%'>Ngày thực hiện</th>
-     <th style='width:35%'>Diễn biến người bệnh</th>
-     <th style='width:25%'>Thực hiện y lệnh/chăm sóc</th>
-     <th style='width:20%'>Y tá chăm sóc</th>
-   </tr>
-   <tr>
-     <td>1</td>
-     <td>29/06/2018</td>
-     <td></td>
-     <td></td>
-     <td>Nguyễn Thị Lam Hồng</td>
-   </tr>     
+    <tr>
+      <th style='width:5%'>STT</th>
+      <th style='width:15%'>Ngày thực hiện</th>
+      <th style='width:35%'>Diễn biến người bệnh</th>
+      <th style='width:25%'>Thực hiện y lệnh/chăm sóc</th>
+      <th style='width:20%'>Y tá chăm sóc</th>
+    </tr>
+    <tr v-for="(qtcs, i) in chamsoc.emrQuaTrinhChamSocs">
+      <td>{{ i + 1}}</td>
+      <td>{{ formatDateTime(qtcs.ngaychamsoc) }}</td>
+      <td>{{ qtcs.theodoidienbien }}</td>
+      <td>{{ qtcs.thuchienylenh }}</td>
+      <td>{{ qtcs.ytachamsoc }}</td>
+    </tr>     
   </table>
+
+  <div v-if="chamsoc.emrQuanLyFileDinhKemChamSocs.length > 0">
+    <hr>
+    <b>Danh sách file đính kèm:</b> 
+    <table class='table table-bordered mt-3'>
+      <tr>
+        <th style='width:10%'>STT</th>
+        <th style='width:90%'>Tên file</th>
+      </tr>
+      <tr v-for="(file, i) in chamsoc.emrQuanLyFileDinhKemChamSocs">
+        <td>{{ i + 1 }}</td>
+        <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+      </tr>
+    </table>
+  </div>
 </div>

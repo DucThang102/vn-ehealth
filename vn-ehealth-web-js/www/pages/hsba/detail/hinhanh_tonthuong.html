@@ -29,8 +29,8 @@
 
   <div class="row" v-if="hatt">
     <div class="col-12">
-      <b>Hình ảnh tổn thương:</span> <span>{{ hatt.anhtonthuong }}</span></b><br>
-      <span>- Mô tả:</span> <span>{{ hatt.motatonthuong }}</span> <br>
+      <b>Hình ảnh tổn thương: {{ hatt.anhtonthuong }}</b><br>
+      <span>- Mô tả: {{ hatt.motatonthuong }}</span> <br>
       
       <div v-if="hatt.emrQuanLyFileDinhKemHatts.length > 0">
         <hr>
