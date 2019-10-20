@@ -1,0 +1,17 @@
+<div>
+  <table class="table table-bordered">
+    <tr>
+      <th style="width: 5%;" class="text-center">STT</th>
+      <th style="width: 15%;" class="text-center">Thao tác</th>
+      <th style="width: 30%;" class="text-center">Ảnh tổn thương</th>
+      <th style="width: 50%;" class="text-center">Mô tả tổn thương</th>
+    </tr>
+    <tr v-for="(hatt, i) in hatt_list">
+      <td class="text-center">{{ i + 1 }}</td>
+      <td class="text-center"><a href="#" v-on:click="xemHatt(hatt)"><i class="fas fa-fw fa-binoculars"></i>
+          Xem</a></td>
+      <td class="text-center">{{ hatt.anhtonthuong }}</td>
+      <td class="text-center">{{ hatt.motatonthuong }}</td>
+    </tr>
+  </table>
+</div>

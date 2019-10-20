@@ -1,0 +1,4 @@
+<div v-if="hsba">
+  <hatt-list :hsba="hsba" v-on:xemHatt="xemHatt" v-if="hatt == null"></hatt-list>
+  <hatt-view :hsba="hsba" :hatt="hatt" v-on:xemDsHatt="xemDsHatt" v-if="hatt != null"></hatt-view>
+</div>

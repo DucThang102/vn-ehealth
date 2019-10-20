@@ -8,6 +8,12 @@ Vue.mixin({
   },
 
   methods: {
+    parseDate: function(dateStr) {
+      if(dateStr != null){
+        return new Date(dateStr.substring(0, 10));
+      }
+      return null;
+    },
     formatDate: function (dateStr) {
       if(dateStr != null) {
         var yyyy = dateStr.substring(0, 4);
@@ -89,6 +95,23 @@ Vue.mixin({
     }
   }
 })
+
+function parseDate(dateStr) {
+  if(dateStr != null){
+    return new Date(dateStr.substring(0, 10));
+  }
+  return null;
+}
+
+function formatDate(dateStr) {
+  if(dateStr != null) {
+    var yyyy = dateStr.substring(0, 4);
+    var mm = dateStr.substring(5, 7);
+    var dd = dateStr.substring(8, 10);
+    return `${dd}/${mm}/${yyyy}`;
+  }
+  return "";
+}
 
 function getParam(name) {
   if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search))

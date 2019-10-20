@@ -1,0 +1,4 @@
+<div v-if="hsba">
+  <xetnghiem-list :hsba="hsba" v-on:xemXetnghiem="xemXetnghiem" v-if="xetnghiem == null"></xetnghiem-list>
+  <xetnghiem-view :hsba="hsba" :xetnghiem="xetnghiem" v-on:xemDsXetnghiem="xemDsXetnghiem" v-if="xetnghiem != null"></xetnghiem-view>
+</div>

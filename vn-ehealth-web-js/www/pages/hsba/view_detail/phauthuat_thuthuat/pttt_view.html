@@ -1,0 +1,113 @@
+<div v-if="pttt">
+  <a href="#" v-on:click="xemDsPttt"><i class="fas fa-fw fa-arrow-left"></i> Quay lại</a>
+  <div class="frame mt-3">
+    <div class="row">
+      <div class="col-8">
+        <span>{{ hsba.donvichuquan }}</span><br>
+        <span>BV: {{ hsba.tenbenhvien }}</span>
+      </div>
+      <div class="col-4">
+        <span>Số lưu trữ:</span><br>
+        <span>Mã y tế:</span> <span>{{ hsba.mayte }}</span>
+      </div>
+    </div>
+    <div style="text-align: center;" class="mt-3 mb-3">
+      <h3>PHIẾU PHẪU THUẬT, THỦ THUẬT</h3>
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <span>Tên bệnh nhân:</span> <b><span class='text-uppercase'>{{ hsba.emrBenhNhan.tendaydu }}</span></b><br>
+        <span>Ngày sinh:</span> <span>{{ formatDate(hsba.emrBenhNhan.ngaysinh) }}</span><br>
+        <span>Ngày vào viện:</span>
+        <span>{{ formatDateTime(hsba.emrQuanLyNguoiBenh.ngaygiovaovien) }}</span><br>
+      </div>
+      <div class="col-4">
+        <span>Giới tính:</span> <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span><br>
+        <span>Tuổi:</span> <span>{{ hsba.emrBenhNhan.tuoi }}</span><br>
+        <span>Ngày ra viện:</span> <span>{{ formatDateTime(hsba.emrQuanLyNguoiBenh.ngaygioravien) }}</span><br>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row" v-if="pttt">
+      <div class="col-12">
+        <b>Phẫu thuật/thủ thuật: {{ pttt.emrDmPhauThuThuat.ten }}</b><br>
+        <span>- Ngày thực hiện: {{ formatDateTime(pttt.ngaygiopttt) }} </span><br>
+        <span>- Bác sĩ thực hiện: {{ pttt.bacsithuchien }}</span><br>
+        <span>- Bác sĩ gây mê: {{ pttt.bacsygayme }}</span><br>
+        <span>- Chẩn đoán trước phẫu thuật, thủ thuật:
+          {{ this.pttt.emrDmMaBenhChandoantruoc.ten || this.pttt.motachandoantruocpt }}
+        </span><br>
+        <span>- Chẩn đoán sau phẫu thuật, thủ thuật:
+          {{ this.pttt.emrDmMaBenhChandoansau.ten || this.pttt.motachandoansaupt }}
+        </span><br>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row">
+      <div class="col-12">
+        <b><span>Thông tin chỉ định</span> <br></b>
+        <span>{{ pttt.chidinhptt }} </span>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row">
+      <div class="col-12">
+        <b><span>Phương pháp vô cảm</span> <br></b>
+        <span>{{ pttt.phuongphapvocam }}</span>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row">
+      <div class="col-12">
+        <b><span>Thông tin lược đồ phẫu thuật, thủ thuật</span> <br></b>
+        <span>{{ pttt.luocdoptt }}</span>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row">
+      <div class="col-12">
+        <b><span>Thông tin trình tự phẫu thuật, thủ thuật</span> <br></b>
+        <span>{{ pttt.trinhtuptt }}</span>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row">
+      <div class="col-12">
+        <b><span>Thành viên tham gia</span> <br></b>
+      </div>
+    </div>
+    <table class='table table-bordered mt-3'>
+      <tr>
+        <th style='width:7%'>STT</th>
+        <th style='width:45%'>Tên bác sĩ</th>
+        <th style='width:48%'>Vai trò</th>
+      </tr>
+      <tr v-for="(tvpttt, i) in pttt.emrHoiDongPttts">
+        <td>{{ i + 1}} </td>
+        <td>{{ tvpttt.tenbacsi }}</td>
+        <td>{{ tvpttt.emrDmVaiTro.ten }}</td>
+      </tr>
+    </table>
+
+    <div v-if="pttt.emrQuanLyFileDinhKemPttt.length > 0">
+      <hr>
+      <b>Danh sách file đính kèm:</b>
+      <table class='table table-bordered mt-3'>
+        <tr>
+          <th style='width:10%'>STT</th>
+          <th style='width:90%'>Tên file</th>
+        </tr>
+        <tr v-for="(file, i) in pttt.emrQuanLyFileDinhKemPttt">
+          <td>{{ i + 1 }}</td>
+          <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div>
+  <table class="table table-bordered">
+    <tr>
+      <th style="width: 5%;" class="text-center">STT</th>
+      <th style="width: 15%;" class="text-center">Thao tác</th>
+      <th style="width: 30%;" class="text-center">Thăm dò chức năng</th>
+      <th style="width: 30%;" class="text-center">Loại thăm dò chức năng</th>
+      <th style="width: 20%;" class="text-center">Ngày thực hiện</th>
+    </tr>
+    <tr v-for="(tdcn, i) in tdcn_list">
+      <td class="text-center">{{ i + 1 }}</td>
+      <td class="text-center"><a href="#" v-on:click="xemTdcn(tdcn)"><i class="fas fa-fw fa-binoculars"></i>
+          Xem</a></td>
+      <td class="text-center">{{ tdcn.emrDmThamDoChucNang.ten }}</td>
+      <td class="text-center">{{ tdcn.emrDmLoaiThamDoChucNang.ten }}</td>
+      <td class="text-center">{{ formatDateTime(tdcn.ngaythuchien) }}</td>
+    </tr>
+  </table>
+</div>

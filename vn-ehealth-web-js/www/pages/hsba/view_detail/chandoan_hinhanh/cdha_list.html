@@ -1,0 +1,19 @@
+<div>
+  <table class="table table-bordered">
+    <tr>
+      <th style="width: 5%;" class="text-center">STT</th>
+      <th style="width: 15%;" class="text-center">Thao tác</th>
+      <th style="width: 30%;" class="text-center">Chẩn đoán hình ảnh</th>
+      <th style="width: 30%;" class="text-center">Loại chẩn đoán hình ảnh</th>
+      <th style="width: 20%;" class="text-center">Ngày thực hiện</th>
+    </tr>
+    <tr v-for="(cdha, i) in cdha_list">
+      <td class="text-center">{{ i + 1 }}</td>
+      <td class="text-center"><a href="#" v-on:click="xemCdha(cdha)"><i class="fas fa-fw fa-binoculars"></i>
+          Xem</a></td>
+      <td class="text-center">{{ cdha.emrDmChanDoanHinhAnh.ten }}</td>
+      <td class="text-center">{{ cdha.emrDmLoaiChanDoanHinhAnh.ten }}</td>
+      <td class="text-center">{{ formatDateTime(cdha.ngaythuchien) }}</td>
+    </tr>
+  </table>
+</div>

@@ -22,43 +22,43 @@
           <b-card no-body>
             <b-tabs content-class="mt-3" card vertical v-model="step">
               <b-tab title="Tờ bệnh án">
-                <to-benh-an v-if="step==0"></to-benh-an>
+                <benh-an v-if="step==0"></benh-an>
               </b-tab>
               <b-tab title="Hình ảnh tổn thương">
-                <hinhanh-tonthuong v-if="step==1"></hinhanh-tonthuong>
+                <hatt :hsba="hsba" v-if="step==1"></hatt>
               </b-tab>
               <b-tab title="Phẫu thuật thủ thuật">
-                <phauthuat-thuthuat v-if="step==2"></phauthuat-thuthuat>
+                <pttt :hsba="hsba" v-if="step==2"></pttt>
               </b-tab>
               <b-tab title="Xét nghiệm">
-                <xet-nghiem v-if="step==3"></xet-nghiem>
+                <xetnghiem :hsba="hsba" v-if="step==3"></xetnghiem>
               </b-tab>
               <b-tab title="Chẩn đoán hình ảnh">
-                <chandoan-hinhanh v-if="step==4"></chandoan-hinhanh>
+                <cdha :hsba="hsba" v-if="step==4"></cdha>
               </b-tab>
               <b-tab title="Thăm dò chức năng">
-                <thamdo-chucnang v-if="step==5"></thamdo-chucnang>
+                <tdcn :hsba="hsba" v-if="step==5"></tdcn>
               </b-tab>
               <b-tab title="Giải phẫu bệnh">
-                <giaiphau-benh v-if="step==6"></giaiphau-benh>
+                <gpb :hsba="hsba" v-if="step==6"></gpb>
               </b-tab>
               <b-tab title="Hội chẩn">
-                <hoi-chan v-if="step==7"></hoi-chan>
+                <hoichan :hsba="hsba" v-if="step==7"></hoichan>
               </b-tab>
               <b-tab title="Điều trị">
-                <dieu-tri v-if="step==8"></dieu-tri>
+                <dieutri :hsba="hsba" v-if="step==8"></dieutri>
               </b-tab>
               <b-tab title="Chăm sóc">
-                <cham-soc v-if="step==9"></cham-soc>
+                <chamsoc :hsba="hsba" v-if="step==9"></chamsoc>
               </b-tab>
               <b-tab title="Theo dõi chức năng sống">
-                <chucnang-song v-if="step==10"></chucnang-song>
+                <chucnangsong :hsba="hsba" v-if="step==10"></chucnangsong>
               </b-tab>
               <b-tab title="Đơn thuốc">
-                <don-thuoc v-if="step==11"></don-thuoc>
+                <donthuoc :hsba="hsba" v-if="step==11"></donthuoc>
               </b-tab>
               <b-tab title="Các giấy tờ đi kèm khác">
-                <giay-to v-if="step==12"></giay-to>
+                <giayto :hsba="hsba" v-if="step==12"></giayto>
               </b-tab>
             </b-tabs>
           </b-card>
@@ -68,52 +68,37 @@
   </div>
 </div>
 
-<script src="/pages/hsba/detail/to_benh_an.js"></script>
-<script src="/pages/hsba/detail/hinhanh_tonthuong.js"></script>
-<script src="/pages/hsba/detail/phauthuat_thuthuat.js"></script>
-<script src="/pages/hsba/detail/xet_nghiem.js"></script>
-<script src="/pages/hsba/detail/chandoan_hinhanh.js"></script>
-<script src="/pages/hsba/detail/thamdo_chucnang.js"></script>
-<script src="/pages/hsba/detail/giaiphau_benh.js"></script>
-<script src="/pages/hsba/detail/hoi_chan.js"></script>
-<script src="/pages/hsba/detail/dieu_tri.js"></script>
-<script src="/pages/hsba/detail/cham_soc.js"></script>
-<script src="/pages/hsba/detail/chucnang_song.js"></script>
-<script src="/pages/hsba/detail/don_thuoc.js"></script>
-<script src="/pages/hsba/detail/giay_to.js"></script>
+<script src="/pages/hsba/view_detail/benh_an/benh_an.js"></script>
+<script src="/pages/hsba/view_detail/hinhanh_tonthuong/hatt.js"></script>
+<script src="/pages/hsba/view_detail/phauthuat_thuthuat/pttt.js"></script>
+<script src="/pages/hsba/view_detail/xetnghiem/xetnghiem.js"></script>
+<script src="/pages/hsba/view_detail/chandoan_hinhanh/cdha.js"></script>
+<script src="/pages/hsba/view_detail/thamdo_chucnang/tdcn.js"></script>
+<script src="/pages/hsba/view_detail/giaiphau_benh/gpb.js"></script>
+<script src="/pages/hsba/view_detail/hoichan/hoichan.js"></script>
+<script src="/pages/hsba/view_detail/dieutri/dieutri.js"></script>
+<script src="/pages/hsba/view_detail/chamsoc/chamsoc.js"></script>
+<script src="/pages/hsba/view_detail/chucnangsong/chucnangsong.js"></script>
+<script src="/pages/hsba/view_detail/donthuoc/donthuoc.js"></script>
+<script src="/pages/hsba/view_detail/giayto/giayto.js"></script>
 
 <script>
-  VueAsyncComponent('to-benh-an', '/pages/hsba/detail/to_benh_an.html', to_benh_an_script);
-  VueAsyncComponent('hinhanh-tonthuong', '/pages/hsba/detail/hinhanh_tonthuong.html', hinhanh_tonthuong_script);
-  VueAsyncComponent('phauthuat-thuthuat', '/pages/hsba/detail/phauthuat_thuthuat.html', phauthuat_thuthuat_script);
-  VueAsyncComponent('xet-nghiem', '/pages/hsba/detail/xet_nghiem.html', xet_nghiem_script);
-  VueAsyncComponent('chandoan-hinhanh', '/pages/hsba/detail/chandoan_hinhanh.html', chandoan_hinhanh_script);
-  VueAsyncComponent('thamdo-chucnang', '/pages/hsba/detail/thamdo_chucnang.html', thamdo_chucnang_script);
-  VueAsyncComponent('giaiphau-benh', '/pages/hsba/detail/giaiphau_benh.html', giaiphau_benh_script);
-  VueAsyncComponent('hoi-chan', '/pages/hsba/detail/hoi_chan.html', hoi_chan_script);
-  VueAsyncComponent('dieu-tri', '/pages/hsba/detail/dieu_tri.html', dieu_tri_script);
-  VueAsyncComponent('cham-soc', '/pages/hsba/detail/cham_soc.html', cham_soc_script);
-  VueAsyncComponent('chucnang-song', '/pages/hsba/detail/chucnang_song.html', chucnang_song_script);
-  VueAsyncComponent('don-thuoc', '/pages/hsba/detail/don_thuoc.html', don_thuoc_script);
-  VueAsyncComponent('giay-to', '/pages/hsba/detail/giay_to.html', giay_to_script);
-
   new Vue({
     el: "#app",
     data: {
-      step : 0,
+      step: 0,
       backURL: null,
       hsId: null,
       maHs: '',
     },
 
-    methods: {
-    },
+    props: ["hsba"],
 
     created: async function () {
       this.backURL = this.getParam("backURL");
       this.hsId = this.getParam("hs_id");
-      var hoso = await this.get("/api/hsba/get_thongtin_hoso", { hoso_id: this.hsId });
-      this.maHs = hoso.mayte;
+      this.hsba = await this.get('/api/hsba/get_hs', { hoso_id: this.hsId });
+      this.maHs = this.hsba.mayte;
     }
   });
 </script>

@@ -1,0 +1,20 @@
+<div>
+  <table class="table table-bordered">
+    <tr>
+      <th style="width: 5%;" class="text-center">STT</th>
+      <th style="width: 15%;" class="text-center">Thao tác</th>
+      <th style="width: 20%;" class="text-center">Số tờ chăm sóc</th>
+      <th style="width: 30%;" class="text-center">Khoa điều trị</th>
+      <th style="width: 30%;" class="text-center">Ngày chăm sóc</th>
+
+    </tr>
+    <tr v-for="(chamsoc, i) in chamsoc_list">
+      <td class="text-center">{{ i + 1 }}</td>
+      <td class="text-center"><a href="#" v-on:click="xemChamSoc(chamsoc)"><i class="fas fa-fw fa-binoculars"></i>
+          Xem</a></td>
+      <td class="text-center">{{ chamsoc.sotochamsoc }}</td>
+      <td class="text-center">{{ chamsoc.emrVaoKhoa.tenkhoa }}</td>
+      <td class="text-center">{{ chamsoc.ngaychamsoc }}</td>
+    </tr>
+  </table>
+</div>

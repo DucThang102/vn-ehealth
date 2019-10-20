@@ -1,0 +1,85 @@
+<div v-if="xetnghiem">
+    <a href="#" v-on:click="xemDsXetnghiem"><i class="fas fa-fw fa-arrow-left"></i> Quay lại</a>
+  <div class="frame mt-3">
+    <div class="row">
+      <div class="col-8">
+        <span>{{ hsba.donvichuquan }}</span><br>
+        <span>BV: {{ hsba.tenbenhvien }}</span>
+      </div>
+      <div class="col-4">
+        <span>Số lưu trữ:</span><br>
+        <span>Mã y tế:</span> <span>{{ hsba.mayte }}</span>
+      </div>
+    </div>
+    <div style="text-align: center;" class="mt-3 mb-3">
+      <h3>PHIẾU XÉT NGHIỆM</h3>
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <span>Tên bệnh nhân:</span> <b><span class='text-uppercase'>{{ hsba.emrBenhNhan.tendaydu }}</span></b><br>
+        <span>Ngày sinh:</span> <span>{{ formatDate(hsba.emrBenhNhan.ngaysinh) }}</span><br>
+        <span>Ngày vào viện:</span> <span>{{ formatDateTime(hsba.emrQuanLyNguoiBenh.ngaygiovaovien) }}</span><br>
+      </div>
+      <div class="col-4">
+        <span>Giới tính:</span> <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span><br>
+        <span>Tuổi:</span> <span>{{ hsba.emrBenhNhan.tuoi }}</span><br>
+        <span>Ngày ra viện:</span> <span>{{ formatDateTime(hsba.emrQuanLyNguoiBenh.ngaygioravien) }}</span><br>
+      </div>
+    </div>
+    <hr>
+    <div v-if="xetnghiem">
+      <div class="row">
+        <div class="col-12">
+          <b>Xét nghiệm: {{xetnghiem.emrDmLoaiXetNghiem.ten}}</b><br>
+          <span>- Ngày yêu cầu: {{ formatDateTime(xetnghiem.ngayyeucau) }}</span><br>
+          <span>- Bác sĩ yêu cầu: {{ xetnghiem.bacsiyeucau }}</span><br>
+          <span>- Ngày thực hiện: {{ formatDateTime(xetnghiem.ngaythuchien) }}</span><br>
+          <span>- Bác sĩ thực hiện: {{ xetnghiem.bacsixetnghiem }}</span><br>
+          <span>- Nhận xét chung: {{ xetnghiem.nhanxet }}</span><br>
+        </div>
+      </div>
+      <table class='table table-bordered mt-3'>
+        <tr>
+          <th style='width:5%'>STT</th>
+          <th style='width:25%'>Dịch vụ xét nghiệm</th>
+          <th style='width:20%'>Chỉ số xét nghiệm</th>
+          <th style='width:15%'>Kết quả đo</th>
+          <th style='width:15%'>Đơn vị</th>
+          <th style='width:20%'>Chỉ số bình thường</th>
+        </tr>
+        <tbody v-for="(xndv, i) in xetnghiem.emrXetNghiemDichVus">
+          <tr>
+            <td :rowspan="3">{{ i + 1 }}</td>
+            <td :rowspan="3">{{ xndv.emrDmXetNghiem.ten }}</td>
+            <td class="d-none"></td>
+            <td class="d-none"></td>
+            <td class="d-none"></td>
+            <td class="d-none"></td>
+          </tr>
+          <tr v-for="xnkq in xndv.emrXetNghiemKetQuas">
+            <td>{{ xnkq.emrDmChiSoXetNghiem.ten }}</td>
+            <td>{{ xnkq.giatrido }}</td>
+            <td>{{ xnkq.emrDmChiSoXetNghiem.donvi }}</td>
+            <td>Nam: {{xnkq.emrDmChiSoXetNghiem.chisobt_nam}} /
+              Nữ: {{xnkq.emrDmChiSoXetNghiem.chisobt_nu}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div v-if="xetnghiem.emrQuanLyFileDinhKemXn.length > 0">
+        <hr>
+        <b>Danh sách file đính kèm:</b>
+        <table class='table table-bordered mt-3'>
+          <tr>
+            <th style='width:10%'>STT</th>
+            <th style='width:90%'>Tên file</th>
+          </tr>
+          <tr v-for="(file, i) in xetnghiem.emrQuanLyFileDinhKemXn">
+            <td>{{ i + 1 }}</td>
+            <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
