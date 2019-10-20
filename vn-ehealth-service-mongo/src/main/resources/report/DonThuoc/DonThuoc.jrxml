@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DonThuoc" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b1f8d545-3079-4fa6-901d-54f5c61bd90f">
+	<property name="ireport.zoom" value="1.652892561983471"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="85"/>
+	<scriptlet name="Header" class="vn.ehealth.emr.utils.JasperUtils"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="danhSachHSBA" class="vn.ehealth.emr.EmrHoSoBenhAn"/>
+	<parameter name="headerPath" class="java.lang.String"/>
+	<parameter name="tenThongTin" class="java.lang.String"/>
+	<parameter name="duongDanHost" class="java.lang.String"/>
+	<parameter name="duongDanFileDinhKem" class="java.lang.String"/>
+	<parameter name="duongDanFileDicom" class="java.lang.String"/>
+	<parameter name="duongDanFileDinhKemOnline" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="emrDonThuocChiTiets" class="java.util.List">
+		<fieldDescription><![CDATA[emrDonThuocChiTiets]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="ngaykedon" class="java.util.Date">
+		<fieldDescription><![CDATA[ngaykedon]]></fieldDescription>
+	</field>
+	<field name="emrQuanLyFileDinhKemDonThuocs" class="java.util.List">
+		<fieldDescription><![CDATA[emrQuanLyFileDinhKemDonThuocs]]></fieldDescription>
+	</field>
+	<field name="sodon" class="java.lang.String">
+		<fieldDescription><![CDATA[sodon]]></fieldDescription>
+	</field>
+	<field name="bacsikedon" class="java.lang.String">
+		<fieldDescription><![CDATA[bacsikedon]]></fieldDescription>
+	</field>
+	<variable name="RowCount" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{id}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="124" splitType="Stretch">
+			<subreport>
+				<reportElement x="7" y="10" width="538" height="109" uuid="1bfd8217-be0b-4133-969a-16dad113a2a4"/>
+				<subreportParameter name="danhSachHSBA">
+					<subreportParameterExpression><![CDATA[$P{danhSachHSBA}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tenThongTin">
+					<subreportParameterExpression><![CDATA[$P{tenThongTin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{headerPath} + "/Header_SubReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<detail>
+		<band height="162" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="89" y="22" width="151" height="17" uuid="91edb980-9695-4f08-beac-09189af3f3ce"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ngaykedon}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="94" y="40" width="146" height="17" uuid="91d49e4e-e27d-4d00-b96f-5caa4fa9d66c"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bacsikedon}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="103" y="4" width="129" height="17" uuid="f7bce174-1f92-41dc-a49c-1e648ffc811a"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sodon}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="35" y="4" width="68" height="17" uuid="b9789a91-21c7-408d-b012-2f8f59c92c56"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Đơn thuốc số:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="40" width="75" height="17" uuid="2658fbcd-fcc4-4268-84a5-5bfa82366159"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[- Bác sỹ kê đơn:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="22" width="70" height="17" uuid="bb62f8b9-9d63-4038-97aa-441e17d842d3"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[- Ngày kê đơn:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="18" y="0" width="522" height="1" uuid="0a475e51-98b2-49a1-bd63-81933f90c066"/>
+			</line>
+			<textField>
+				<reportElement x="18" y="4" width="18" height="17" uuid="fccd3c8a-7aef-4040-95f4-3bfc1fc3aba8"/>
+				<textElement markup="none">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{RowCount}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement positionType="Float" x="9" y="59" width="514" height="42" isRemoveLineWhenBlank="true" uuid="c9e0f621-f258-4fec-9751-2a76a61198e3">
+					<printWhenExpression><![CDATA[$F{emrDonThuocChiTiets}.size()>0]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{emrDonThuocChiTiets})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "/DonThuoc_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="9" y="103" width="514" height="48" isRemoveLineWhenBlank="true" uuid="5daac13b-1559-4e55-950f-73e3d22220e1">
+					<printWhenExpression><![CDATA[$F{emrQuanLyFileDinhKemDonThuocs}.size() > 0]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="duongDanFileDinhKemOnline">
+					<subreportParameterExpression><![CDATA[$P{duongDanFileDinhKemOnline}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="duongDanFileDinhKem">
+					<subreportParameterExpression><![CDATA[$P{duongDanFileDinhKem}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="duongDanFileDicom">
+					<subreportParameterExpression><![CDATA[$P{duongDanFileDicom}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="duongDanHost">
+					<subreportParameterExpression><![CDATA[$P{duongDanHost}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{emrQuanLyFileDinhKemDonThuocs})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{headerPath}+"/../FileDinhKem/Subreport_FileDinhKem.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="30">
+			<textField>
+				<reportElement x="227" y="5" width="100" height="20" uuid="011719bb-b567-4081-9454-4e617b26c31c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="30">
+			<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()==0)]]></printWhenExpression>
+			<staticText>
+				<reportElement x="128" y="5" width="298" height="20" forecolor="#FF0033" uuid="1a006d95-fbdd-4930-957e-424f639cfe66"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Không có thông tin đơn thuốc]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

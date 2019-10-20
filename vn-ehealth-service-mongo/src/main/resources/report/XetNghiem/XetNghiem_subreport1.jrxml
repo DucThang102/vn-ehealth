@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="XetNghiem_subreport1" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="bd94b5ad-9a00-4911-97bd-3aa92829d8aa">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="emrXetNghiemKetQuas" class="java.util.List">
+		<fieldDescription><![CDATA[emrXetNghiemKetQuas]]></fieldDescription>
+	</field>
+	<field name="emrDmXetNghiem" class="vn.ehealth.emr.EmrDm">
+		<fieldDescription><![CDATA[emrDmXetNghiem]]></fieldDescription>
+	</field>
+	<field name="daxoa" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[daxoa]]></fieldDescription>
+	</field>
+	<variable name="RowCount" class="java.lang.Integer">
+		<variableExpression><![CDATA[($F{daxoa} == null || $F{daxoa} == false) ? ($V{RowCount}+1): $V{RowCount}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<columnHeader>
+		<band height="22">
+			<line>
+				<reportElement x="19" y="0" width="510" height="1" uuid="9f7ce271-23e7-4f13-8f3a-933a231a0ef5"/>
+			</line>
+			<staticText>
+				<reportElement x="79" y="1" width="94" height="20" uuid="9d32964c-f995-4869-a76f-92eee8ffcb44"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dịch vụ xét nghiệm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="1" width="26" height="20" uuid="cffa3f14-226b-4787-b4f9-37741dfb10ff"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[STT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="1" width="90" height="20" uuid="732d6a9c-a363-4069-968b-0b540e1db200"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Chỉ số xét nghiệm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="433" y="1" width="95" height="20" uuid="344a9630-3c89-479d-bc74-e1d19d77daf5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Chỉ số bình thường]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="301" y="1" width="55" height="20" uuid="86f9abc4-9698-4685-b4ac-5f037d0d2c96"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kết quả đo]]></text>
+			</staticText>
+			<line>
+				<reportElement x="19" y="21" width="510" height="1" isPrintWhenDetailOverflows="true" uuid="e55485fd-554f-45f8-9beb-1edb23b12e57"/>
+			</line>
+			<line>
+				<reportElement x="529" y="1" width="1" height="20" isPrintWhenDetailOverflows="true" uuid="26b39d3a-e31e-4229-9a3a-8ef43d8bf372"/>
+			</line>
+			<line>
+				<reportElement x="19" y="1" width="1" height="20" isPrintWhenDetailOverflows="true" uuid="537428e0-df6f-4800-851b-0c334b77f0ab"/>
+			</line>
+			<line>
+				<reportElement x="58" y="0" width="1" height="20" isPrintWhenDetailOverflows="true" uuid="02cf11ec-f82e-4148-ac09-2f66edf3afe2"/>
+			</line>
+			<line>
+				<reportElement x="206" y="1" width="1" height="20" isPrintWhenDetailOverflows="true" uuid="b1c83ee7-1904-41c3-a244-f84ec147ec76"/>
+			</line>
+			<line>
+				<reportElement x="299" y="2" width="1" height="20" isPrintWhenDetailOverflows="true" uuid="9484f1bb-05b1-4019-a4c1-ae3fd9dd35c1"/>
+			</line>
+			<line>
+				<reportElement x="357" y="1" width="1" height="20" isPrintWhenDetailOverflows="true" uuid="38702fa4-be31-4c30-a655-0c677b5b7f91"/>
+			</line>
+			<line>
+				<reportElement x="431" y="2" width="1" height="20" isPrintWhenDetailOverflows="true" uuid="f0505941-742e-422e-8139-3304df4cf957"/>
+			</line>
+			<staticText>
+				<reportElement x="360" y="1" width="70" height="20" uuid="4c895a7b-5299-4957-9ae2-d40ec94f96b6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Đơn vị ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement positionType="Float" x="11" y="0" width="522" height="20" isPrintWhenDetailOverflows="true" uuid="a73ce9cc-a1cb-4246-b006-eb1bc0290bd6"/>
+				<textField>
+					<reportElement x="10" y="0" width="35" height="20" uuid="2767de7f-91e4-40cf-bffe-ae62676eff28"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="422" y="0" width="95" height="20" isPrintWhenDetailOverflows="true" uuid="b1ea8ca0-7531-495c-85ed-1d332f20a95c"/>
+					<textElement>
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				</textField>
+				<line>
+					<reportElement positionType="FixRelativeToBottom" x="9" y="19" width="510" height="1" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="33fdabdb-391b-4773-8448-9562a3b7a971"/>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToTallestObject" x="8" y="0" width="1" height="20" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="80c8230e-9eff-4b81-90b8-b045779be494"/>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToTallestObject" x="47" y="0" width="1" height="20" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="91a2d689-ecba-4ad5-a45c-c47a5c0bafb4"/>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToTallestObject" x="195" y="0" width="1" height="20" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="34322ce9-2a53-4319-a96f-00d7ae12e4f4"/>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToTallestObject" x="288" y="0" width="1" height="20" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="c6394532-61db-4d4a-9cbd-e7c577c069d4"/>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToTallestObject" x="346" y="0" width="1" height="20" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="2132286b-9aed-4f36-ad82-b27a950313b2"/>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToTallestObject" x="518" y="0" width="1" height="20" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="f7af5669-8ebe-4b47-a154-2a53c51f7d84"/>
+				</line>
+				<subreport>
+					<reportElement x="197" y="0" width="320" height="20" uuid="2b5b66cc-5052-452f-949c-4bb7a429e927"/>
+					<subreportParameter name="SUBREPORT_DIR">
+						<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+					</subreportParameter>
+					<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{emrXetNghiemKetQuas})]]></dataSourceExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "/XetNghiem_subreport1_subreport1.jasper"]]></subreportExpression>
+				</subreport>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement stretchType="RelativeToBandHeight" x="51" y="0" width="138" height="20" uuid="2ab444ac-7306-4f85-ac70-e4a80f7e0b4c"/>
+					<box bottomPadding="2"/>
+					<textElement>
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{emrDmXetNghiem}.ten]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement stretchType="RelativeToTallestObject" x="420" y="0" width="1" height="20" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="e0f75a4d-9aab-40c4-9a26-6ff5323a3b72"/>
+				</line>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

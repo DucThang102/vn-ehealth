@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Header_SubReport" pageWidth="555" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="16761d0a-1e73-4db4-b0ba-dbe1f78b448f">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<scriptlet name="Header" class="vn.ehealth.emr.utils.JasperUtils"/>
+	<parameter name="tenThongTin" class="java.lang.String"/>
+	<parameter name="danhSachHSBA" class="vn.ehealth.emr.EmrHoSoBenhAn"/>
+	<title>
+		<band height="138" splitType="Stretch">
+			<staticText>
+				<reportElement x="66" y="15" width="388" height="24" forecolor="#FF3333" uuid="87bddc15-0cb1-4433-811e-b03571740c06"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bạn không có quyền xem loại báo cáo này]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="39" width="388" height="22" forecolor="#FF3333" uuid="1a0d6df0-cd8e-4bb2-a761-981fe29f56bc"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Liên hệ quản trị để biết thêm chi tiết]]></text>
+			</staticText>
+		</band>
+	</title>
+</jasperReport>

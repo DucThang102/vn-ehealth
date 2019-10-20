@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Header_SubReport" pageWidth="555" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="16761d0a-1e73-4db4-b0ba-dbe1f78b448f">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<scriptlet name="Header" class="vn.ehealth.emr.utils.JasperUtils"/>
+	<parameter name="tenThongTin" class="java.lang.String"/>
+	<parameter name="danhSachHSBA" class="vn.ehealth.emr.EmrHoSoBenhAn"/>
+	<title>
+		<band height="138" splitType="Stretch">
+			<staticText>
+				<reportElement x="398" y="99" width="26" height="17" uuid="fa0b4e22-2ee7-421f-ad42-045b4e0a7c83"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tuổi:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="99" width="50" height="17" uuid="87bddc15-0cb1-4433-811e-b03571740c06"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Ngày sinh:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="30" y="27" width="318" height="17" uuid="8c865a8d-91c0-44a7-881e-7d1da419bfb0"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.tenbenhvien]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="60" y="99" width="129" height="17" uuid="c21a232c-9676-4d72-94cc-ec34dc5cff85"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrBenhNhan.ngaysinh]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="423" y="99" width="125" height="17" uuid="639eb9b3-3131-4c74-b45b-da7fb2bffecd"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.getTuoi( $P{danhSachHSBA} )]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="79" y="82" width="295" height="17" uuid="46eede27-3a1a-48c1-aec6-d11b3e23b84a"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrBenhNhan.tendaydu]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy HH:mm" isBlankWhenNull="true">
+				<reportElement x="78" y="116" width="111" height="17" uuid="b4a2c07e-2ab4-49d9-9b06-452870f90845"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrQuanLyNguoiBenh.ngaygiovaovien]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy HH:mm" isBlankWhenNull="true">
+				<reportElement x="458" y="116" width="90" height="17" uuid="4402a3df-22fa-42a3-8064-a8d32d358d79"/>
+				<box leftPadding="2"/>
+				<textElement markup="none">
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrQuanLyNguoiBenh.ngaygioravien]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="434" y="27" width="114" height="17" uuid="cf1eb8f8-2461-4f12-b11c-f9dec11a6545"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.mayte]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="443" y="82" width="105" height="17" uuid="49fe2f91-e674-4364-86e3-c09028326a16"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{danhSachHSBA}.emrBenhNhan.emrDmGioiTinh != null)?$P{danhSachHSBA}.emrBenhNhan.emrDmGioiTinh.ten:
+""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="116" width="68" height="17" uuid="1a0d6df0-cd8e-4bb2-a761-981fe29f56bc"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Ngày vào viện:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="27" width="39" height="17" uuid="b2d74e4b-99a7-4987-a0db-90b5d2d8a47a"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Mã y tế:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="398" y="82" width="45" height="17" uuid="35b6f264-95f7-4509-bffb-b079b2c8733a"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Giới tính:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="10" y="10" width="279" height="17" uuid="751fa7f9-4107-4064-9219-ec8b27a2aa83"/>
+				<box leftPadding="0"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.donvichuquan]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="398" y="116" width="60" height="17" uuid="c617e459-556e-4e37-a532-e9e3e0e637f5"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Ngày ra viện:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="445" y="10" width="101" height="17" uuid="d40b6ab9-6bce-4a4c-8085-acb4d4078af3"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.maluutru]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="27" width="20" height="17" uuid="1a369b1f-8f60-4f6e-9f9a-b772b72619bc"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[BV:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="10" y="48" width="538" height="31" isPrintInFirstWholeBand="true" uuid="7075fb4f-e3af-4641-8ff8-6a7e965e3f7a"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Times New Roman" size="16" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tenThongTin}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="82" width="70" height="17" uuid="57783480-d2ef-454c-bdb1-7a0c97118148"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tên bệnh nhân:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="10" width="50" height="17" uuid="66d11aad-b9ad-48eb-b63a-6d33cf74dd1d"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Số lưu trữ:]]></text>
+			</staticText>
+		</band>
+	</title>
+</jasperReport>

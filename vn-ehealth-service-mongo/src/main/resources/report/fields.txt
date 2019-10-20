@@ -1,0 +1,705 @@
+public Integer idvaokhoa;
+public EmrVaoKhoa emrVaoKhoa;
+
+public String sotochamsoc;
+public List<EmrQuaTrinhChamSoc> emrQuaTrinhChamSocs;
+public Boolean daxoa;
+
+public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemChamSocs;
+
+public Integer idicdChandoandieutri;
+public EmrDm emrDmMaBenhChandoandieutri;
+    
+public Integer idicdChandoantruocpt;
+public EmrDm emrDmMaBenhChandoantruocpt;
+
+public Integer idicdChandoansaupt;
+public EmrDm emrDmMaBenhChandoansaupt;
+
+public Integer idicdChandoankkb;
+public EmrDm emrDmMaBenhChandoankkb;
+
+public Integer idlydotbbc;
+public EmrDm emrDmLyDoTaiBienBienChung; //LyDoTaiBienBienChung
+
+public Integer idicdChandoannoiden;
+public EmrDm emrDmMaBenhChandoannoiden;
+
+public Integer idicdChandoanraviennguyennhan;
+public EmrDm emrDmMaBenhChandoanraviennguyennhan;
+
+public Integer idicdChandoanravienkemtheo;
+public EmrDm emrDmMaBenhChandoanravienkemtheo;
+
+public Integer idicdChandoanravienchinh;
+public EmrDm emrDmMaBenhChandoanravienchinh;
+
+public String motachandoannoiden;
+public String motachandoankkb;
+public String motachandoandieutri;
+public String motachandoanravienchinh;
+public String motachandoanraviennguyennhan;
+public String motachandoanravienkemtheo;
+public String motachandoantruocpt;
+public String motachandoansaupt;
+public Boolean bitaibien;
+public Boolean bibienchung;
+public Integer tongsongaysaupt;
+public Integer tongsolanpt;
+public Boolean daxoa;
+public Date ngaytao;
+public Integer idnguoitao;
+public Date ngaysua;
+public Integer idnguoisua;
+
+public Integer idhsba;
+    
+public Integer idloaichandoan;
+public EmrDm emrDmLoaiChanDoanHinhAnh;
+
+public Integer iddichvuchandoan;
+public EmrDm emrDmChanDoanHinhAnh;
+
+public Date ngayyeucau;
+public String bacsiyeucau;
+public Date ngaythuchien;
+public String ketqua;
+public String ketluan;
+public String loidan;
+public String bacsichuyenkhoa;
+public Boolean daxoa;
+
+public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemCdha;
+
+public int soLanCoThai;
+public int soLanSayThai;
+public int soLanNaoHut;
+public int soLanDe;
+public int soConSong;
+
+public Integer idvaokhoa;
+public EmrVaoKhoa emrVaoKhoa;
+
+public String sophieu;
+public List<EmrChucNangSongChiTiet> emrChucNangSongChiTiets;
+public Boolean daxoa;
+
+public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemChucNangSongs;
+
+public Integer idchucnangsong;
+    
+public Date ngaytheodoi;
+public Double mach;
+public Double nhietdo;
+public Integer huyetapthap;
+public Integer huyetapcao;
+public Integer nhiptho;
+public Integer cannang;
+public String ytatheodoi;
+public Boolean daxoa;
+
+public User nguoiComment;
+public EmrYeuCauTruyCapHsba emrYeuCauTruyCapHsba;
+public Date ngayghichu;
+public String noidung;
+public Integer idnguoitao;
+public Date ngaytao;
+public Integer idnguoisua;
+public Date ngaysua;
+public Boolean daxoa;
+
+public Integer idphuongxa;
+public Integer idquanhuyen;
+public Integer idtinhthanh;
+public Integer iddmcosokhambenh;
+public String ma;
+public String ten;
+public Short tuyen;
+public String diachi;
+public String donvichuquan;
+public String giamdoc;
+public String dienthoai;
+public String truongphongth;
+
+
+public EmrDm emrDmTuSinhByIdtrangthai;
+public EmrDm emrDmTuSinhByIdloaitailieu;
+public String tendiemdi;
+public String tendiemden;
+public String madiemden;
+public String madiemdi;
+public String maphientraodoi;
+public Date ngaygui;
+public Date ngayhoanthanh;
+public String thongtinbosung;
+public String tenfile;
+public String duongdanfile;
+public EmrTraoDoiDanhMuc emrTraoDoiDanhMuc;
+public List<EmrLogTrangThaiTraoDoi> emrLogTrangThaiTraoDois;
+public EmrTraoDoiHsba emrTraoDoiHsba;
+
+//them ngay 22/4/2015: chu ky so
+public Boolean chukyso;
+public Boolean trangthaiky;
+public String nguoiky;
+public String chucvunguoiky;
+public String tochucky;
+public String emailnguoiky;
+
+public Integer idvaokhoa;
+public EmrVaoKhoa emrVaoKhoa;
+
+public String sotodieutri;
+public List<EmrQuaTrinhDieuTri> emrQuaTrinhDieuTris;
+public Boolean daxoa;
+
+public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemDieuTris;
+
+public Date ngaykedon;
+public String bacsikedon;
+public String sodon;
+
+public Boolean daxoa;
+
+public List<EmrDonThuocChiTiet> emrDonThuocChiTiets;
+public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemDonThuocs;
+
+
+public Integer iddonthuoc;    
+    
+public Integer idloaiduongdung;
+public EmrDm emrDmDuongDungThuoc;
+
+public Integer idthuoc;
+public EmrDm emrDmThuoc;
+
+public Integer idtanxuatdung;
+public EmrDm emrDmTanXuatDungThuoc;
+
+public Date ngaybatdau;
+public Date ngayketthuc;
+public String lieuluongdung;
+
+public String chidandungthuoc;
+
+public Boolean daxoa;
+
+public String bietduoc;
+
+public Integer idchidandungthuoc;
+
+
+public Integer idvitrilaymau;
+public EmrDm emrDmViTriLayMau;
+
+public Integer idloaigiaiphau;
+public EmrDm emrDmLoaiGiaiPhauBenh;
+public EmrDm emrDmKetQuaGiaiPhauBenh;
+
+public Integer iddichvugiaiphau;
+public EmrDm emrDmGiaiPhauBenh;
+
+public Date ngayyeucau;
+public String bacsiyeucau;
+public String bacsichuyenkhoa;
+public Date ngaythuchien;
+public String nhanxetdaithe;
+public String nhanxetvithe;
+public String motachandoangiaiphau;
+public Date ngaylaymausinhthiet;
+public Boolean daxoa;
+
+public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemGpbs;
+
+public String motatonthuong;
+public String anhtonthuong;
+public String dinhdanganh;
+public Boolean daxoa;
+public Date ngaytao;
+public Integer idnguoitao;
+public Date ngaysua;
+public Integer idnguoisua;
+
+public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemHatts;
+
+public Integer idvaokhoa;
+public EmrVaoKhoa emrVaoKhoa;
+
+public Date ngaythuchien;
+public String tomtatdienbien;
+public String ketluanhoichan;
+public String huongdieutri;
+public Boolean daxoa;
+public List<EmrHoiDongHoiChan> emrThanhVienHoiChans;
+
+public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemHoiChans;
+
+public Integer idhoichan;
+public EmrHoiChan emrHoiChan;
+
+public String ten;
+public Integer idvaitro;
+
+public Boolean daxoa;
+
+public Integer idpttt;
+    
+public Integer idvaitro;
+public String tenbacsi;
+
+public Boolean daxoa;
+
+public EmrDm trangThaiTraoDoi;
+public EmrDanhSachVetTraoDoi emrDanhSachVetTraoDoi;
+public Date thoigianthuchien;
+public Integer idnguoitao;
+public Date ngaytao;
+public Integer idnguoisua;
+public Date ngaysua;
+public Boolean daxoa;
+public String errorMessage;
+
+public Integer idicdchandoansau;
+public EmrDm emrDmMaBenhChandoansau;
+
+public Integer idicdchandoantruoc;
+public EmrDm emrDmMaBenhChandoantruoc;
+
+public Integer idphauthuat;
+public EmrDm emrDmPhauThuThuat;
+
+public Date ngaygiopttt;
+public String bacsithuchien;
+public String bacsygayme;
+public String chidinhptt;
+public String phuongphapvocam;
+public String luocdoptt;
+public String trinhtuptt;
+public Boolean daxoa;
+public Date ngaytao;
+public Integer idnguoitao;
+public Date ngaysua;
+public Integer idnguoisua;
+
+public String motachandoantruocpt;
+public String motachandoansaupt;
+
+public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemPttt;
+public List<EmrHoiDongPttt> emrThanhVienPttts;
+
+public Boolean loaipttt;
+public String loaimoChklist;  
+
+public Integer idnoigioithieu;
+public EmrDm emrDmNoiGioiThieu;
+
+public Integer iddoituongtaichinh;
+public EmrDm emrDmLoaiDoiTuongTaiChinh;
+
+public Integer idloairavien;
+public EmrDm emrDmLoaiRaVien;
+
+public Integer idnoitructiepvao; 
+public EmrDm emrDmNoiTrucTiepVao;
+
+public Integer idloaichuyenvien;
+public EmrDm emrDmLoaiChuyenVien;
+
+public EmrDm emrDmCoSoKhamBenh;
+
+public Integer idloaivaovien;
+public EmrDm emrDmLoaiVaoVien;
+
+public Integer idnoichuyenden;
+public Integer idloaidieutri;
+
+public String sovaovien;
+public Date ngaygiovaovien;
+public Integer vaovienlanthu;
+public String tenbacsikham;
+public Date ngaygioravien;
+public Integer tongsongaydieutri;
+public String tenbacsichoravien;
+public String noichuyenden;
+public Boolean daxoa;
+public Date ngaytao;
+public Integer idnguoitao;
+public Date ngaysua;
+public Integer idnguoisua; 
+
+public Integer idchamsoc;
+    
+public Date ngaychamsoc;
+public String ytachamsoc;
+public String theodoidienbien;
+public String thuchienylenh;
+public Boolean daxoa;
+
+public Integer iddieutri;
+    
+public Date ngaydieutri;
+public String dienbien;
+public String chamsoc;
+public String ylenh;
+public String bacsiraylenh;
+public Boolean daxoa;
+
+public Integer idthuoc;
+public EmrDm emrDmThuoc;
+
+public String mathuoc;
+public String phienbandmthuoc;
+public String cachdung;
+public Date ngaysudungthuoc;
+public Integer soluong;
+public Integer idnguoitao;
+public Date ngaytao;
+public Integer idnguoisua;
+public Date ngaysua;
+public Boolean daxoa;
+
+public Integer idthamdochucnang;
+public EmrDm emrDmThamDoChucNang;
+
+public Integer idloaithamdochucnang;
+public EmrDm emrDmLoaiThamDoChucNang;
+
+public Date ngayyeucau;
+public String bacsiyeucau;
+public String noidungyeucau;
+public Date ngaythuchien;
+public String ketqua;
+public String ketluan;
+public String loidan;
+public String bacsichuyenkhoa;
+public Boolean daxoa;
+
+public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemTdcns;
+
+public Integer idicdNguyennhantuvong;
+public EmrDm emrDmNguyennhantuvong;
+
+public Integer idketquadieutri;
+public EmrDm emrDmKetQuaDieuTri;
+
+public Integer idyhctketquadieutri;
+public EmrDm emrDmYhctKetQuaDieuTri;
+
+public Integer idicdGiaiphaututhi;
+public EmrDm emrDmGiaiphaututhi;
+
+public Integer idgiaiphaubenh;
+public EmrDm emrDmKetQuaGiaiPhauBenh;
+
+public Integer idthoidiemtuvong;
+public EmrDm emrDmThoiDiemTuVong;
+
+public Integer idlydotuvong;
+public EmrDm emrDmLyDoTuVong;
+
+public Date ngaygiotuvong;
+public Boolean khamnghiemtuthi;
+public String motanguyennhantuvong;
+public String motagiaiphaututhi;
+public Boolean daxoa;
+public Date ngaytao;
+public Integer idnguoitao;
+public Date ngaysua;
+public Integer idnguoisua;
+
+public String dienbienlamsang;
+    
+/** The canlamsang. */
+public String canlamsang;
+
+/** The phuongphapdieutri. */
+public String phuongphapdieutri;
+
+/** The tinhtrangnguoibenh. */
+public String tinhtrangnguoibenh;
+
+/** The chidandieutri. */
+public String chidandieutri;
+
+/** The daxoa. */
+public Boolean daxoa;
+
+/** The ngaytao. */
+public Date ngaytao;
+
+/** The idnguoitao. */
+public Integer idnguoitao;
+
+/** The ngaysua. */
+public Date ngaysua;
+
+/** The idnguoisua. */
+public Integer idnguoisua;
+
+/** The nguoigiaohoso. */
+public String nguoigiaohoso;
+
+/** The ngaygiaohoso. */
+public Date ngaygiaohoso;
+
+/** The nguoinhanhoso. */
+public String nguoinhanhoso;
+
+/** The ngaynhanhoso. */
+public Date ngaynhanhoso;
+
+/** The bacsydieutri. */
+public String bacsydieutri;
+
+/** The ngaybacsydieutriky. */
+public Date ngaybacsydieutriky;
+
+public EmrCkPhuongPhapDieuTriUngBuou emrCkPhuongPhapDieuTriUngBuou;
+public EmrCkTinhTrangRaVienMat emrCkTinhTrangRaVienMat;
+
+//Cuongln 17/05
+public Integer so_to_x_quang;
+public Integer soToCTScanner;
+public Integer soToSieuAm;
+public Integer soToXetNghiem;
+public Integer soToKhac;
+
+public Integer idtrangthaicotucung;
+public EmrDm emrDmTrangThaiCoTucung;
+
+public Integer idtrangthaiamdao;
+public EmrDm emrDmTrangThaiAmdao;
+
+public Integer idtrangthaisinhmon;
+public EmrDm emrDmTrangThaiSinhmon;
+
+public Integer idcachde;
+public EmrDm emrDmCachDe;
+
+public Date deluc;
+public Integer apgar01;
+public Integer apgar05;
+public Integer apgar10;
+public String sscannang;
+public Integer sschieucao;
+public Integer ssvongdau;
+public Boolean ssdathai;
+public Integer sssotrai;
+public Integer sssogai;
+public Boolean ssditathaumon;
+public Boolean ssditatkhac;
+public String ssmotaditat;
+public String sstinhtrang;
+public Boolean sshutdich;
+public Boolean ssxoaboptim;
+public Boolean ssthoo2;
+public Boolean ssnoikhiquan;
+public Boolean ssbopbongo2;
+public Boolean sshoisinhkhac;
+public Date rausoluc;
+public Boolean somatmang;
+public Boolean somatmui;
+public Boolean raubongnon;
+public Integer thoigiansorau;
+public Integer chieudairau;
+public Boolean raucuonso;
+public Boolean kiemsoattucung;
+public String lydokiemsoat;
+public Boolean bocraunhantao;
+public String lydobocrau;
+public Boolean chaymausauso;
+public Integer luongmaumat;
+public String toantrang;
+public Integer mach;
+public Integer nhietdo;
+public Integer huyetapthap;
+public Integer huyetapcao;
+public Integer nhiptho;
+public String lydocanthiep;
+public String canthiepkhac;
+
+// Add moi 13/04/2015
+public String tennguoitheodoi;
+public String chucdanhnguoitheodoi;
+public String motachamsoctresosinh;
+public Integer loaisorau;
+public String motasorau;
+public String motamatmang;
+public String motamatmui;
+public String motabanhrau;
+public String cannangrau;
+public String luongmaubimat;
+public String xulysorau;
+public String motatoantrang;
+public String lydocanthiepkhac;
+public String phuongphapkhauloaichi;
+public Integer somuikhau;
+public String tennguoimo;
+public String tennguoidode;
+public String thoigianchuyenda;
+public String thoigiantheodoikhoade;
+public Integer apgar1pTim;
+public Integer apgar1pTho;
+public Integer apgar1pMausacda;
+public Integer apgar1pTruonglucco;
+public Integer apgar1pPhanxa;
+public Integer apgar5pTim;
+public Integer apgar5pTho;
+public Integer apgar5pMausacda;
+public Integer apgar5pTruonglucco;
+public Integer apgar5pPhanxa;
+
+//ngay27/7/2015
+public Integer soluongsong;
+public Integer soluongchet;
+
+public int idvettraodoi;
+public EmrDanhSachVetTraoDoi emrDanhSachVetTraoDoi;
+public int iddanhmuc;
+public Date ngayxuatban;
+public Date ngaycohieuluc;
+public Date ngayhethieuluc;
+public String phienban;
+
+public int idvettraodoi;
+    
+public EmrDm emrDmCoSoKhamBenhByIdbenhviennhan;
+public EmrHoSoBenhAn emrHoSoBenhAn;
+public EmrDanhSachVetTraoDoi emrDanhSachVetTraoDoi;
+public EmrDm emrDmLoaiRaVien;
+public EmrDm emrDmLoaiVaoVien;
+public EmrDm emrDmLoaiBenhAn;
+public EmrDm emrDmCoSoKhamBenhByIdbenhviengui;
+public String mayte;
+public String mabenhnhan;
+public String tenbenhnhan;
+public Date ngayhethantruycap;
+public Date ngayvaovien;
+public Date ngayravien;
+public Integer idnguoitao;
+public Date ngaytao;
+public Integer idnguoisua;
+public Date ngaysua;
+public Boolean daxoa;
+
+public Integer loaithongtin;
+
+public String tuoi;
+/*
+ * 1. Tuoi
+ * 2. Thang tuoi
+ * 3. Ngay tuoi
+ * */
+public int loaiTuoi;
+
+/*
+ * true: ton tai du lieu
+ * flase: khong ton tai
+ * 
+ * */
+public boolean flagTuoi;
+
+public Integer idkhoadieutri;
+public EmrDm emrDmKhoaDieuTri;
+
+public Date ngaygiovaokhoa;
+public Date ngayketthucdieutri;
+public String tenkhoa;
+public String bacsidieutri;
+public String phong;
+public String giuong;
+public Integer songaydieutri;
+public String tentruongkhoa;
+public Boolean daxoa;
+public Date ngaytao;
+public Integer idnguoitao;
+public Date ngaysua;
+public Integer idnguoisua;
+
+public List<EmrHoiChan> emrHoiChans;
+public List<EmrChamSoc> emrChamSocs;
+public List<EmrDieuTri> emrDieuTris;
+public List<EmrChucNangSong> emrChucNangSongs;
+
+public Integer stt;
+
+public Integer idloaixetnghiem;
+public EmrDm emrDmLoaiXetNghiem;
+
+public Integer idhsba;
+
+public Integer idxetnghiem;
+
+public Date ngayyeucau;
+public String bacsiyeucau;
+public Date ngaythuchien;
+public String noidungyeucau;
+public String tailieudinhkem;
+public String nhanxet;
+public String bacsixetnghiem;
+
+public List<EmrXetNghiemDichVu> emrXetNghiemDichVus;
+
+public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemXn;
+
+public Boolean daxoa;
+
+public Integer idxetnghiem;
+    
+public Integer iddmxetnghiem;
+public EmrDm emrDmXetNghiem;
+
+public List<EmrXetNghiemKetQua> emrXetNghiemKetQuas;
+public Boolean daxoa;
+
+public Integer idthongdich;
+public EmrDm emrDmDichKetQuaXetNghiem;
+
+public Integer idchisoxetnghiem;
+public EmrDm emrDmChiSoXetNghiem;
+
+public Integer iddmxetnghiem;
+public EmrDm emrDmXetNghiem;
+
+public Integer iddichvuxetnghiem;
+
+public Integer idxetnghiem;
+
+public String giatrido;
+public Boolean daxoa;
+
+public String lydoyeucau;
+public String lydohuy;
+public Date ngayyeucau;
+public Date ngaycapphep;
+public Date thoihantruycap;
+public Date ngayhuyyeucau;
+public Integer idnguoitao;
+public Date ngaytao;
+public Integer idnguoisua;
+public Date ngaysua;
+public Boolean daxoa;
+public User user;
+public EmrDm trangThai;
+public List<EmrYeuCauTruyCapHsbaChiTiet> emrYeuCauTruyCapHsbaChiTiets;
+public List<EmrCommentYeuCauTruyCapHsba> emrCommentYeuCauTruyCapHsbas;
+
+public Boolean hsbaGiay;
+public String lydophanhoi;
+public String sodienthoainguoiyeucau;
+public String noicongtac;
+
+public EmrHoSoBenhAn emrHoSoBenhAn;
+public EmrYeuCauTruyCapHsba emrYeuCauTruyCapHsba;
+public Integer idnguoitao;
+public Date ngaytao;
+public Integer idnguoisua;
+public Date ngaysua;
+public Boolean daxoa;
+
+public Integer iddk;
+public String tenfile;
+public String duongdan;
+
+public byte[] noiDungFile;
+

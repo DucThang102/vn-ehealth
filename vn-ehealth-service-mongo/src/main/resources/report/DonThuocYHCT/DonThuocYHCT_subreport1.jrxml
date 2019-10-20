@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DonThuoc_subreport1" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="bc01fa15-1b9a-4cb7-aa73-c3fa29c7467c">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="emrDmDuongDungThuoc" class="vn.ehealth.emr.EmrDm">
+		<fieldDescription><![CDATA[emrDmDuongDungThuoc]]></fieldDescription>
+	</field>
+	<field name="emrDmYhctViThuoc" class="vn.ehealth.emr.EmrDm">
+		<fieldDescription><![CDATA[emrDmYhctViThuoc]]></fieldDescription>
+	</field>
+	<field name="lieuluongdung" class="java.lang.String">
+		<fieldDescription><![CDATA[lieuluongdung]]></fieldDescription>
+	</field>
+	<field name="emrDmChiDanDungThuoc" class="vn.ehealth.emr.EmrDm">
+		<fieldDescription><![CDATA[emrDmChiDanDungThuoc]]></fieldDescription>
+	</field>
+	<field name="ngaybatdau" class="java.util.Date">
+		<fieldDescription><![CDATA[ngaybatdau]]></fieldDescription>
+	</field>
+	<field name="emrDmTanXuatDungThuoc" class="vn.ehealth.emr.EmrDm">
+		<fieldDescription><![CDATA[emrDmTanXuatDungThuoc]]></fieldDescription>
+	</field>
+	<field name="chidandungthuoc" class="java.lang.String">
+		<fieldDescription><![CDATA[chidandungthuoc]]></fieldDescription>
+	</field>
+	<field name="ngayketthuc" class="java.util.Date">
+		<fieldDescription><![CDATA[ngayketthuc]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="daxoa" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[daxoa]]></fieldDescription>
+	</field>
+	<field name="emrYhctDonThuoc" class="vn.ehealth.emr.EmrYhctDonThuoc">
+		<fieldDescription><![CDATA[emrYhctDonThuoc]]></fieldDescription>
+	</field>
+	<variable name="RowCount" class="java.lang.Integer">
+		<variableExpression><![CDATA[($F{daxoa} == null || $F{daxoa} == false) ? ($V{RowCount}+1): $V{RowCount}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="20">
+			<staticText>
+				<reportElement x="40" y="0" width="239" height="20" uuid="84830f2b-6d6e-4f9b-8da0-0ab16f5480ae"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tên thuốc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="240" height="20" uuid="fe04a798-acb9-47d2-a695-0f889640a258"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Liều lượng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="0" width="26" height="20" uuid="4346b04c-64bc-4c16-b19e-ad1a10c83a4d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[STT]]></text>
+			</staticText>
+			<line>
+				<reportElement x="10" y="0" width="510" height="1" uuid="25526eba-5441-45b7-ab22-ebc53c1bd4a8"/>
+			</line>
+			<line>
+				<reportElement x="10" y="0" width="1" height="20" uuid="490b04e9-e72d-40ea-b8ac-a6a77930c7e7"/>
+			</line>
+			<line>
+				<reportElement x="38" y="0" width="1" height="20" uuid="790d4023-1bcd-4d58-9759-14cec01089a7"/>
+			</line>
+			<line>
+				<reportElement x="279" y="0" width="1" height="20" uuid="ebcc1627-0b27-4927-9885-1afe573ff5f6"/>
+			</line>
+			<line>
+				<reportElement x="520" y="0" width="1" height="20" uuid="c4868618-b3d9-4c19-bb99-cd41fa2ad3a8"/>
+			</line>
+			<line>
+				<reportElement x="10" y="19" width="510" height="1" uuid="71532483-a123-4811-8bda-e604735421ce"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement x="4" y="0" width="526" height="20" uuid="f70cee46-7885-4eab-a148-4affb96b748a"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="36" y="0" width="239" height="20" isPrintWhenDetailOverflows="true" uuid="93e4f8d7-780f-4007-adc8-abead187afcb"/>
+					<box bottomPadding="2"/>
+					<textElement>
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{emrDmYhctViThuoc}.ten]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="281" y="0" width="230" height="20" isPrintWhenDetailOverflows="true" uuid="4ca84dfb-94b1-49f8-add9-b1c38f22c942"/>
+					<box bottomPadding="2"/>
+					<textElement>
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{lieuluongdung}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="10" y="0" width="22" height="20" uuid="141e7421-cad3-4827-a0c8-8b4b15b8d957"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement positionType="FixRelativeToBottom" x="6" y="19" width="510" height="1" uuid="b1cb8811-923f-442b-9fdd-ca1642f712b1"/>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="6" y="0" width="1" height="20" isPrintWhenDetailOverflows="true" uuid="5396c95b-26e5-4f85-9933-e14ded1a95ed"/>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="34" y="0" width="1" height="20" isPrintWhenDetailOverflows="true" uuid="66566981-73fa-40db-81a0-dbf76ecaa2a4"/>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="275" y="0" width="1" height="20" isPrintWhenDetailOverflows="true" uuid="02d96ac4-977f-4712-ae82-a2dad681e06a"/>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="516" y="0" width="1" height="20" isPrintWhenDetailOverflows="true" uuid="fd1bc665-a9ba-4734-882a-f4d4508c0a5b"/>
+				</line>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

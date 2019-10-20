@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="XetNghiem_subreport1_subreport1" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="82405fc7-13c9-4f85-9bf1-6af6161b6c8d">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="giatrido" class="java.lang.String">
+		<fieldDescription><![CDATA[giatrido]]></fieldDescription>
+	</field>
+	<field name="emrDmXetNghiem" class="vn.ehealth.emr.EmrDm">
+		<fieldDescription><![CDATA[emrDmXetNghiem]]></fieldDescription>
+	</field>
+	<field name="emrDmDichKetQuaXetNghiem" class="vn.ehealth.emr.EmrDm">
+		<fieldDescription><![CDATA[emrDmDichKetQuaXetNghiem]]></fieldDescription>
+	</field>
+	<field name="emrDmChiSoXetNghiem" class="vn.ehealth.emr.EmrDm">
+		<fieldDescription><![CDATA[emrDmChiSoXetNghiem]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="522" height="20" isPrintWhenDetailOverflows="true" uuid="38a1fc32-0032-4939-b268-5d9e18d23b16"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="227" y="0" width="95" height="20" uuid="9fd607dd-d2a9-4f31-8130-f79bab3f5796"/>
+					<box bottomPadding="2"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{emrDmChiSoXetNghiem}.chisobt_nam == null ? "":
+"Nam: "+$F{emrDmChiSoXetNghiem}.chisobt_nam)+
+($F{emrDmChiSoXetNghiem}.chisobt_nu == null ? "":
+" / Nữ: "+$F{emrDmChiSoXetNghiem}.chisobt_nu)]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="96" y="0" width="55" height="20" uuid="e86458a8-f725-4a70-8b1d-922f35412a91"/>
+					<box bottomPadding="2"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{giatrido}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="6" y="0" width="90" height="20" uuid="2926f2f1-b905-474c-bef4-7eae72936915"/>
+					<box bottomPadding="2"/>
+					<textElement>
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{emrDmChiSoXetNghiem}.ten.trim().indexOf('-') == 0 ? $F{emrDmChiSoXetNghiem}.ten.trim() : "- " + $F{emrDmChiSoXetNghiem}.ten.trim()]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="152" y="0" width="70" height="20" uuid="5b70016e-aaf0-4a78-9f92-d21301104668"/>
+					<box bottomPadding="2"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{emrDmChiSoXetNghiem}.donvi]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="HoiChan_subreport1" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="126e09af-525f-4c68-8ea3-43eda35f3f2a">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="idvaitro" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idvaitro]]></fieldDescription>
+	</field>
+	<field name="daxoa" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[daxoa]]></fieldDescription>
+	</field>
+	<field name="emrHoiChan" class="vn.ehealth.emr.EmrHoiChan">
+		<fieldDescription><![CDATA[emrHoiChan]]></fieldDescription>
+	</field>
+	<field name="ten" class="java.lang.String">
+		<fieldDescription><![CDATA[ten]]></fieldDescription>
+	</field>
+	<variable name="RowCount" class="java.lang.Integer">
+		<variableExpression><![CDATA[(($F{daxoa} == null || $F{daxoa} == false) && ($F{idvaitro} != 1 && $F{idvaitro} != 2))? ($V{RowCount}+1): $V{RowCount}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="vprint" class="java.lang.Boolean">
+		<variableExpression><![CDATA[($F{daxoa} == null || $F{daxoa} == false) && ($F{idvaitro} == 3)]]></variableExpression>
+	</variable>
+	<columnHeader>
+		<band height="17">
+			<staticText>
+				<reportElement x="0" y="0" width="119" height="17" uuid="3e340ab7-30c2-4990-97e6-d5d3ecff9772"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Thành viên tham gia:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{idvaitro} != 1 &&  $F{idvaitro} != 2]]></printWhenExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement x="35" y="0" width="116" height="20" uuid="150a3be7-b1bb-4933-b6f9-c379e5264d01"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ten}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="25" y="0" width="8" height="20" uuid="0e33ab66-2cf5-4d80-b335-de0ccf1276d6"/>
+				<textElement markup="none">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<text><![CDATA[+]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>
