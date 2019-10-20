@@ -37,14 +37,14 @@
     </div>
     <table class='table table-bordered mt-3'>
       <tr>
-        <th style='width:5%'>STT</th>
-        <th style='width:20%'>Ngày thực hiện</th>
-        <th style='width:10%'>Mạch</th>
-        <th style='width:10%'>Nhiệt độ</th>
-        <th style='width:10%'>Huyết áp</th>
-        <th style='width:10%'>Cân nặng</th>
-        <th style='width:10%'>Nhịp thở</th>
-        <th style='width:25%'>Y tá thực hiện</th>
+        <th style='width:5%' class="text-center">STT</th>
+        <th style='width:20%' class="text-center">Ngày thực hiện</th>
+        <th style='width:10%' class="text-center">Mạch</th>
+        <th style='width:10%' class="text-center">Nhiệt độ</th>
+        <th style='width:10%' class="text-center">Huyết áp</th>
+        <th style='width:10%' class="text-center">Cân nặng</th>
+        <th style='width:10%' class="text-center">Nhịp thở</th>
+        <th style='width:25%' class="text-center">Y tá thực hiện</th>
       </tr>
       <tr v-for="(cnsct, i) in chucnangsong.emrChucNangSongChiTiets">
         <td>{{ i + 1}}</td>
@@ -63,8 +63,8 @@
       <b>Danh sách file đính kèm:</b>
       <table class='table table-bordered mt-3'>
         <tr>
-          <th style='width:10%'>STT</th>
-          <th style='width:90%'>Tên file</th>
+          <th style='width:10%' class="text-center">STT</th>
+          <th style='width:90%' class="text-center">Tên file</th>
         </tr>
         <tr v-for="(file, i) in chucnangsong.emrQuanLyFileDinhKemChucNangSongs">
           <td>{{ i + 1 }}</td>

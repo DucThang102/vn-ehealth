@@ -84,9 +84,9 @@
     </div>
     <table class='table table-bordered mt-3'>
       <tr>
-        <th style='width:7%'>STT</th>
-        <th style='width:45%'>Tên bác sĩ</th>
-        <th style='width:48%'>Vai trò</th>
+        <th style='width:7%' class="text-center">STT</th>
+        <th style='width:45%' class="text-center">Tên bác sĩ</th>
+        <th style='width:48%' class="text-center">Vai trò</th>
       </tr>
       <tr v-for="(tvpttt, i) in pttt.emrHoiDongPttts">
         <td>{{ i + 1}} </td>
@@ -100,8 +100,8 @@
       <b>Danh sách file đính kèm:</b>
       <table class='table table-bordered mt-3'>
         <tr>
-          <th style='width:10%'>STT</th>
-          <th style='width:90%'>Tên file</th>
+          <th style='width:10%' class="text-center">STT</th>
+          <th style='width:90%' class="text-center">Tên file</th>
         </tr>
         <tr v-for="(file, i) in pttt.emrQuanLyFileDinhKemPttt">
           <td>{{ i + 1 }}</td>

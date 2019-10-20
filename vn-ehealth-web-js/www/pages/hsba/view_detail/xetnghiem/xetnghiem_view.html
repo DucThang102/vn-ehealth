@@ -38,41 +38,39 @@
           <span>- Nhận xét chung: {{ xetnghiem.nhanxet }}</span><br>
         </div>
       </div>
-      <table class='table table-bordered mt-3'>
-        <tr>
-          <th style='width:5%'>STT</th>
-          <th style='width:25%'>Dịch vụ xét nghiệm</th>
-          <th style='width:20%'>Chỉ số xét nghiệm</th>
-          <th style='width:15%'>Kết quả đo</th>
-          <th style='width:15%'>Đơn vị</th>
-          <th style='width:20%'>Chỉ số bình thường</th>
-        </tr>
-        <tbody v-for="(xndv, i) in xetnghiem.emrXetNghiemDichVus">
+      <hr>
+      <b>Dịch vụ xét nghiệm :</b>
+      <div v-for="(xndv, i) in xetnghiem.emrXetNghiemDichVus">
+        <b>{{ i + 1 }}. {{ xndv.emrDmXetNghiem.ten }}</b>
+        <table class='table table-bordered mt-3'>
           <tr>
-            <td :rowspan="3">{{ i + 1 }}</td>
-            <td :rowspan="3">{{ xndv.emrDmXetNghiem.ten }}</td>
-            <td class="d-none"></td>
-            <td class="d-none"></td>
-            <td class="d-none"></td>
-            <td class="d-none"></td>
+            <th style='width:5%' class="text-center">STT</th>
+            <th style='width:25%' class="text-center">Chỉ số xét nghiệm</th>
+            <th style='width:20%' class="text-center">Kết quả đo</th>
+            <th style='width:20%' class="text-center">Đơn vị</th>
+            <th style='width:30%' class="text-center">Chỉ số bình thường</th>
           </tr>
-          <tr v-for="xnkq in xndv.emrXetNghiemKetQuas">
+          <tr v-for="(xnkq,j) in xndv.emrXetNghiemKetQuas">
+            <td>{{ j + 1 }}</td>
             <td>{{ xnkq.emrDmChiSoXetNghiem.ten }}</td>
             <td>{{ xnkq.giatrido }}</td>
             <td>{{ xnkq.emrDmChiSoXetNghiem.donvi }}</td>
             <td>Nam: {{xnkq.emrDmChiSoXetNghiem.chisobt_nam}} /
               Nữ: {{xnkq.emrDmChiSoXetNghiem.chisobt_nu}}</td>
           </tr>
-        </tbody>
-      </table>
-
+          <tr v-if="xndv.emrXetNghiemKetQuas.length == 0">
+            <td colspan="5">Không có dữ liệu</td>            
+          </tr>
+        </table>
+      </div>
+      
       <div v-if="xetnghiem.emrQuanLyFileDinhKemXn.length > 0">
         <hr>
         <b>Danh sách file đính kèm:</b>
         <table class='table table-bordered mt-3'>
           <tr>
-            <th style='width:10%'>STT</th>
-            <th style='width:90%'>Tên file</th>
+            <th style='width:10%' class="text-center">STT</th>
+            <th style='width:90%' class="text-center">Tên file</th>
           </tr>
           <tr v-for="(file, i) in xetnghiem.emrQuanLyFileDinhKemXn">
             <td>{{ i + 1 }}</td>
