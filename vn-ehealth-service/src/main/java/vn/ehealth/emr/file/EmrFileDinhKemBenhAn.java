@@ -8,13 +8,15 @@ import javax.persistence.Transient;
 
 @Entity
 @Table(name = "emr_quan_ly_file_dinh_kem_benhan")
-public class EmrQuanLyFileDinhKemBenhAn {
+public class EmrFileDinhKemBenhAn {
 
     @Id public int id;
     @Column public String tenfile;
     @Column public String duongdan;
     @Column public Integer idhsba;
     @Column public Boolean daxoa;
+    
+    @Transient public String url;
     
     @Transient public byte[] noiDungFile;
 

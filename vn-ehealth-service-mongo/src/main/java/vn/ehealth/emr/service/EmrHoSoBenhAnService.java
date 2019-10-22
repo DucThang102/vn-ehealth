@@ -82,7 +82,8 @@ public class EmrHoSoBenhAnService {
             logger.error("Cannot save EmrHoSoBenhAn : emrBenhNhanId=" + emrBenhNhan.map(x->x.id).orElse(null) 
                             + ", emrCoSoKhamBenhId=" + emrCoSoKhamBenh.map(x -> x.id).orElse(null)
                             + ", maLoaiBenhAn=" + maLoaiBenhAn);
-            return null;
+            
+            throw new RuntimeException();
         }
         
         hsba.emrBenhNhan = emrBenhNhan.orElse(null);

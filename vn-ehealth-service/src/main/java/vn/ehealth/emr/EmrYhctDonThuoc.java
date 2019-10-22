@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import vn.ehealth.emr.file.EmrQuanLyFileDinhKem;
+import vn.ehealth.emr.file.EmrFileDinhKem;
 
 @Entity
 @Table(name = "emr_yhct_don_thuoc")
@@ -25,7 +25,7 @@ public class EmrYhctDonThuoc {
     
     @Transient public List<EmrYhctDonThuocChiTiet> emrYhctDonThuocChiTiets = new ArrayList<>();
     
-    @Transient public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemDonThuocYhcts = new ArrayList<>();
+    @Transient public List<EmrFileDinhKem> emrFileDinhKemYhctDonThuocs = new ArrayList<>();
     
     // NGAY 14.4.2015
     @Column public Date ngaybatdaudung;
@@ -61,8 +61,8 @@ public class EmrYhctDonThuoc {
         return emrYhctDonThuocChiTiets;
     }
     
-    public List<EmrQuanLyFileDinhKem> getEmrQuanLyFileDinhKemDonThuocYhcts() {
-        return emrQuanLyFileDinhKemDonThuocYhcts;
+    public List<EmrFileDinhKem> getEmrQuanLyFileDinhKemDonThuocYhcts() {
+        return emrFileDinhKemYhctDonThuocs;
     }
     
     public Date getNgaybatdaudung() {

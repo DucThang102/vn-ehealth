@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import vn.ehealth.emr.file.EmrQuanLyFileDinhKemBenhAn;
+import vn.ehealth.emr.file.EmrFileDinhKemBenhAn;
 
 
 @Entity
@@ -30,6 +30,8 @@ public class EmrDanhSachHoSoBenhAn {
     
     @Column public Integer idnguondulieu;
     @Transient public EmrDm emrDmNguondulieu;
+    
+    @Transient public EmrCoSoKhamBenh emrCoSoKhamBenh;
     
     @Column public String mayte;
     @Column public String maluutru;
@@ -91,7 +93,7 @@ public class EmrDanhSachHoSoBenhAn {
     @Transient public List<EmrXetNghiem> emrXetNghiems = new ArrayList<>();
 
     // NoiPD add 2016/03/18
-    @Transient public List<EmrQuanLyFileDinhKemBenhAn> emrQuanLyFileDinhKemBenhAn = new ArrayList<>();
+    @Transient public List<EmrFileDinhKemBenhAn> emrFileDinhKems = new ArrayList<>();
     
     // For transfer HSBA from WS    
     @Column public String matraodoi;   
@@ -259,8 +261,8 @@ public class EmrDanhSachHoSoBenhAn {
         return emrXetNghiems;
     }
     
-    public List<EmrQuanLyFileDinhKemBenhAn> getEmrQuanLyFileDinhKemBenhAn() {
-        return emrQuanLyFileDinhKemBenhAn;
+    public List<EmrFileDinhKemBenhAn> getEmrQuanLyFileDinhKemBenhAn() {
+        return emrFileDinhKems;
     }
     
     public String getMatraodoi() {

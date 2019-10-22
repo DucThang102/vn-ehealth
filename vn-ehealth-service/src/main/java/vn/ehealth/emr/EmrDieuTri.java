@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import vn.ehealth.emr.file.EmrQuanLyFileDinhKem;
+import vn.ehealth.emr.file.EmrFileDinhKem;
 
 @Entity
 @Table(name = "emr_dieu_tri")
@@ -25,7 +25,7 @@ public class EmrDieuTri {
     
     @Column public Boolean daxoa;
     
-    @Transient public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemDieuTris = new ArrayList<>();
+    @Transient public List<EmrFileDinhKem> emrFileDinhKemDieuTris = new ArrayList<>();
     
     // From EmrVaoKhoa
     @Transient public String tenKhoa;
@@ -52,8 +52,8 @@ public class EmrDieuTri {
         return daxoa;
     }
     
-    public List<EmrQuanLyFileDinhKem> getEmrQuanLyFileDinhKemDieuTris() {
-        return emrQuanLyFileDinhKemDieuTris;
+    public List<EmrFileDinhKem> getEmrQuanLyFileDinhKemDieuTris() {
+        return emrFileDinhKemDieuTris;
     }
     
     public String getTenKhoa() {

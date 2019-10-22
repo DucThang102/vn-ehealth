@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import vn.ehealth.emr.file.EmrQuanLyFileDinhKem;
+import vn.ehealth.emr.file.EmrFileDinhKem;
 
 @Entity
 @Table(name = "emr_phau_thuat_thu_thuat")
@@ -45,7 +45,7 @@ public class EmrPhauThuatThuThuat {
     @Column public String motachandoantruocpt;
     @Column public String motachandoansaupt;
     
-    @Transient public List<EmrQuanLyFileDinhKem> emrQuanLyFileDinhKemPttt = new ArrayList<>();
+    @Transient public List<EmrFileDinhKem> emrFileDinhKemPttts = new ArrayList<>();
     
     @Transient public List<EmrHoiDongPttt> emrHoiDongPttts = new ArrayList<EmrHoiDongPttt>(0);
 
@@ -141,8 +141,8 @@ public class EmrPhauThuatThuThuat {
         return motachandoansaupt;
     }
     
-    public List<EmrQuanLyFileDinhKem> getEmrQuanLyFileDinhKemPttt() {
-        return emrQuanLyFileDinhKemPttt;
+    public List<EmrFileDinhKem> getEmrQuanLyFileDinhKemPttt() {
+        return emrFileDinhKemPttts;
     }
     
     public List<EmrHoiDongPttt> getEmrHoiDongPttts() {

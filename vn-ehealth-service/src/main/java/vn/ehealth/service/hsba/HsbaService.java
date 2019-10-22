@@ -211,8 +211,10 @@ public class HsbaService {
         
     }
         
-    List<EmrQuanLyFileDinhKem> getEmrQuanLyFileDinhKems(String table, int iddk) {
-        return getRecords(EmrQuanLyFileDinhKem.class, table, "iddk", iddk, false);
+    List<EmrFileDinhKem> getEmrFileDinhKems(String table, int iddk) {
+        var fileDinhKems =  getRecords(EmrFileDinhKem.class, table, "iddk", iddk, false);
+        fileDinhKems.forEach(x -> x.url = x.duongdan);
+        return fileDinhKems;
     }
     
     List<EmrChamSoc> getEmrChamSocs(@Nonnull EmrVaoKhoa emrVaoKhoa) {
@@ -220,7 +222,7 @@ public class HsbaService {
         
         for(var item : lst) {
             item.emrQuaTrinhChamSocs = getRecords(EmrQuaTrinhChamSoc.class, "emr_qua_trinh_cham_soc", "idchamsoc", item.id, true);
-            item.emrQuanLyFileDinhKemChamSocs = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_cham_soc", item.id);
+            item.emrFileDinhKemChamSocs = getEmrFileDinhKems("emr_quan_ly_file_dinh_kem_cham_soc", item.id);
             item.tenKhoa = StringUtils.isEmpty(emrVaoKhoa.tenkhoa) ? emrVaoKhoa.emrDmKhoaDieuTri.ten : emrVaoKhoa.tenkhoa;
             item.phong = emrVaoKhoa.phong;
             item.giuong = emrVaoKhoa.giuong;
@@ -234,7 +236,7 @@ public class HsbaService {
         
         for(var item : lst) {            
             item.emrQuaTrinhDieuTris = getRecords(EmrQuaTrinhDieuTri.class, "emr_qua_trinh_dieu_tri", "iddieutri", item.id, true);
-            item.emrQuanLyFileDinhKemDieuTris = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_dieu_tri", item.id);
+            item.emrFileDinhKemDieuTris = getEmrFileDinhKems("emr_quan_ly_file_dinh_kem_dieu_tri", item.id);
             item.tenKhoa = StringUtils.isEmpty(emrVaoKhoa.tenkhoa) ? emrVaoKhoa.emrDmKhoaDieuTri.ten : emrVaoKhoa.tenkhoa;
             item.phong = emrVaoKhoa.phong;
             item.giuong = emrVaoKhoa.giuong;
@@ -248,7 +250,7 @@ public class HsbaService {
         
         for(var item : lst) {            
             item.emrChucNangSongChiTiets = getRecords(EmrChucNangSongChiTiet.class, "emr_chuc_nang_song_chi_tiet", "idchucnangsong", item.id, true);
-            item.emrQuanLyFileDinhKemChucNangSongs = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_chuc_nang_song", item.id);
+            item.emrFileDinhKemChucNangSongs = getEmrFileDinhKems("emr_quan_ly_file_dinh_kem_chuc_nang_song", item.id);
             item.tenKhoa = StringUtils.isEmpty(emrVaoKhoa.tenkhoa) ? emrVaoKhoa.emrDmKhoaDieuTri.ten : emrVaoKhoa.tenkhoa;
             item.phong = emrVaoKhoa.phong;
             item.giuong = emrVaoKhoa.giuong;
@@ -267,7 +269,7 @@ public class HsbaService {
         
         for(var item : lst) {            
             item.emrHoiDongHoiChans = getEmrHoiDongHoiChans(item);
-            item.emrQuanLyFileDinhKemHoiChans = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_hoi_chan", item.id);
+            item.emrFileDinhKemHoiChans = getEmrFileDinhKems("emr_quan_ly_file_dinh_kem_hoi_chan", item.id);
             item.tenKhoa = StringUtils.isEmpty(emrVaoKhoa.tenkhoa) ? emrVaoKhoa.emrDmKhoaDieuTri.ten : emrVaoKhoa.tenkhoa;
             item.phong = emrVaoKhoa.phong;
             item.giuong = emrVaoKhoa.giuong;
@@ -312,7 +314,7 @@ public class HsbaService {
         var lst = getRecords(EmrHinhAnhTonThuong.class, "emr_hinh_anh_ton_thuong", "idhsba", idhsba, true);
         
         for(var item : lst) {
-            item.emrQuanLyFileDinhKemHatts = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_hatt", item.id);
+            item.emrFileDinhKemHatts = getEmrFileDinhKems("emr_quan_ly_file_dinh_kem_hatt", item.id);
         }
         
         return lst;
@@ -322,7 +324,7 @@ public class HsbaService {
         var lst = getRecords(EmrGiaiPhauBenh.class, "emr_giai_phau_benh", "idhsba", idhsba, true);
         
         for(var item : lst) {
-            item.emrQuanLyFileDinhKemGpbs = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_gpb", item.id);
+            item.emrFileDinhKemGpbs = getEmrFileDinhKems("emr_quan_ly_file_dinh_kem_gpb", item.id);
             item.emrDmGiaiPhauBenh = getEmrDm("emr_dm_giai_phau_benh", item.iddichvugiaiphau);
             item.emrDmKetQuaGiaiPhauBenh = getEmrDm("emr_dm_ket_qua_giai_phau_benh", item.idloaigiaiphau);
             item.emrDmLoaiGiaiPhauBenh = getEmrDm("emr_dm_loai_giai_phau_benh", item.idloaigiaiphau);
@@ -338,7 +340,7 @@ public class HsbaService {
         for(var item : lst) {
             item.emrDmLoaiThamDoChucNang = getEmrDm("emr_dm_loai_tham_do_chuc_nang", item.idloaithamdochucnang);
             item.emrDmThamDoChucNang = getEmrDm("emr_dm_tham_do_chuc_nang", item.idthamdochucnang);
-            item.emrQuanLyFileDinhKemTdcns = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_tdcn", item.id);
+            item.emrFileDinhKemTdcns = getEmrFileDinhKems("emr_quan_ly_file_dinh_kem_tdcn", item.id);
         }
         
         return lst;
@@ -358,7 +360,7 @@ public class HsbaService {
             item.emrDmMaBenhChandoansau = getEmrDm("emr_dm_ma_benh", item.idicdchandoansau);
             item.emrDmMaBenhChandoantruoc = getEmrDm("emr_dm_ma_benh", item.idicdchandoantruoc);
             item.emrDmPhauThuThuat = getEmrDm("emr_dm_phau_thu_thuat", item.idphauthuat);
-            item.emrQuanLyFileDinhKemPttt = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_pttt", item.id);
+            item.emrFileDinhKemPttts = getEmrFileDinhKems("emr_quan_ly_file_dinh_kem_pttt", item.id);
         }
         
         return lst;        
@@ -370,7 +372,7 @@ public class HsbaService {
         for(var item : lst) {
             item.emrDmChanDoanHinhAnh = getEmrDm("emr_dm_chan_doan_hinh_anh", item.iddichvuchandoan);
             item.emrDmLoaiChanDoanHinhAnh = getEmrDm("emr_dm_loai_chan_doan_hinh_anh", item.idloaichandoan);
-            item.emrQuanLyFileDinhKemCdha = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_cdha", item.id);
+            item.emrFileDinhKemCdhas = getEmrFileDinhKems("emr_quan_ly_file_dinh_kem_cdha", item.id);
         }
         
         return lst;        
@@ -394,7 +396,7 @@ public class HsbaService {
         
         for(var item : lst) {
             item.emrDonThuocChiTiets = getEmrDonThuocChiTiets(item.id);
-            item.emrQuanLyFileDinhKemDonThuocs = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_don_thuoc", item.id);            
+            item.emrFileDinhKemDonThuocs = getEmrFileDinhKems("emr_quan_ly_file_dinh_kem_don_thuoc", item.id);            
         }
         
         return lst;        
@@ -429,7 +431,7 @@ public class HsbaService {
         
         for(var item : lst) {
             item.emrDmLoaiXetNghiem = getEmrDm("emr_dm_loai_xet_nghiem", item.idloaixetnghiem);
-            item.emrQuanLyFileDinhKemXn = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_xn", item.id);
+            item.emrFileDinhKemXetNghiems = getEmrFileDinhKems("emr_quan_ly_file_dinh_kem_xn", item.id);
             item.emrXetNghiemDichVus = getEmrXetNghiemDichVus(item.id);
         }
         
@@ -520,7 +522,7 @@ public class HsbaService {
         
         for(var item : lst) {
             item.emrYhctDonThuocChiTiets = getEmrYhctDonThuocChiTiets(item.id);
-            item.emrQuanLyFileDinhKemDonThuocYhcts = getEmrQuanLyFileDinhKems("emr_quan_ly_file_dinh_kem_don_thuoc_yhct", item.id);
+            item.emrFileDinhKemYhctDonThuocs = getEmrFileDinhKems("emr_quan_ly_file_dinh_kem_don_thuoc_yhct", item.id);
         }
         
         return lst;
@@ -552,7 +554,8 @@ public class HsbaService {
             x.emrChanDoanHinhAnhs = getEmrChanDoanHinhAnhs(id);
             x.emrDonThuocs = getEmrDonThuocs(id);
             x.emrXetNghiems = getEmrXetNghiems(id);
-            x.emrQuanLyFileDinhKemBenhAn = getRecords(EmrQuanLyFileDinhKemBenhAn.class, "emr_quan_ly_file_dinh_kem_benhan", "idhsba", id, false);
+            x.emrFileDinhKems = getRecords(EmrFileDinhKemBenhAn.class, "emr_quan_ly_file_dinh_kem_benhan", "idhsba", id, false);
+            x.emrFileDinhKems.forEach(f -> f.url = f.duongdan);
             x.emrYhctBenhAn = getEmrYhctBenhAn(id).orElse(null);
             x.emrYhctChanDoan = getEmrYhctChanDoan(id).orElse(null);
             x.emrYhctDonThuocs = getEmrYhctDonThuocs(id);

@@ -1,10 +1,13 @@
 package vn.ehealth.emr.file;
 
-public class EmrQuanLyFileDinhKem {
+public class EmrFileDinhKem {
 
     public int id;
     public Integer iddk;
+    
     public String tenfile;
+
+    public String url;
     public String duongdan;
     
     public byte[] noiDungFile;

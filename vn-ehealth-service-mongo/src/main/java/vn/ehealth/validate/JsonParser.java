@@ -2,8 +2,10 @@ package vn.ehealth.validate;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.annotation.Nonnull;
@@ -15,15 +17,18 @@ import org.springframework.util.StringUtils;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class JsonValidator {
+public class JsonParser {
     
-    Logger logger = LoggerFactory.getLogger(JsonValidator.class);
+    Logger logger = LoggerFactory.getLogger(JsonParser.class);
     
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+    SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
     
     ObjectMapper mapper = new ObjectMapper();
     
-    void validateJsonElement(String field, Optional<JsonNode> jsonElement, @Nonnull JsonNode schemaInfo, List<ErrorMessage> errors) {
+    Object parseJsonElement(String field, Optional<JsonNode> jsonElement, @Nonnull JsonNode schemaInfo, List<ErrorMessage> errors) {
+        
         String type = schemaInfo.get("type").asText();
         var requiredNode = Optional.ofNullable(schemaInfo.get("required"));
         boolean required = false;
@@ -35,9 +40,9 @@ public class JsonValidator {
         boolean isNull = jsonElement.map(x -> x.isNull()).orElse(true);
         if(isNull) {
             if(required) {
-                errors.add(new ErrorMessage(field, ErrorMessage.Code.MISSING_FIELD, String.format("Field not found : ", field)));
+                //errors.add(new ErrorMessage(field, ErrorMessage.Code.MISSING_FIELD, String.format("Field not found : %s", field)));
             }
-            return;
+            return null;
         }
         
         var element = jsonElement.orElseThrow();
@@ -45,37 +50,59 @@ public class JsonValidator {
         
         switch(type) {
             case DataType.TYPE_INTEGER:
-                errorType = !element.isInt();
+                if(element.isInt()) {
+                    return element.asInt();
+                }else {
+                    errorType = true;
+                }
                 break;
                 
             case DataType.TYPE_DOUBLE :
-                errorType = !element.isDouble() && !element.isInt();
+                if(element.isDouble() || element.isInt()) {
+                    return element.asDouble();
+                }else {
+                    errorType = true;
+                }
                 break;
                 
             case DataType.TYPE_BOOLEAN :
-                errorType = !element.isBoolean();
+                if(element.isBoolean()) {
+                    return element.asBoolean();
+                }else {
+                    errorType = true;
+                }
                 break;
                 
             case DataType.TYPE_STRING :
-                errorType = !element.isTextual();
-                if(!errorType) {
+                if(element.isTextual()) {
                     String st= element.asText();
                     if(required && StringUtils.isEmpty(st)) {
                         //errors.add(new ErrorMessage(field, ErrorMessage.Code.MISSING_FIELD, String.format("Field \"%s\" cannot be blank", field)));
                     }
+                    return st;
+                }else {
+                    errorType = true;
                 }
                 break;
                 
             case DataType.TYPE_DATE :
-                errorType = !element.isTextual();
-                if(!errorType) {
+                if(element.isTextual()) {
                     String st= element.asText();
                     try {
-                        sdf.parse(st);
+                        if(st.length() == 10) {
+                            return sdf1.parse(st);
+                        }else if(st.length() == 19) {
+                            return sdf2.parse(st);
+                        }else {
+                            return sdf3.parse(st);
+                        }
                     }catch(Exception e) {
                         errorType = true;
                     }
+                }else {
+                    errorType = true;
                 }
+                
                 break;
             
             default:
@@ -86,24 +113,35 @@ public class JsonValidator {
             errors.add(new ErrorMessage(field, ErrorMessage.Code.WRONG_DATA_TYPE, 
                             String.format("Wrong data type for field \"%s\" : expected data type %s", field, type)));
         }
+        
+        return null;
     }
     
-    void validateJsonArray(String field, Optional<JsonNode> jsonArr, @Nonnull JsonNode elementSchemaInfo, List<ErrorMessage> errors) {
+    List<Object> parseJsonArray(String field, Optional<JsonNode> jsonArr, @Nonnull JsonNode elementSchemaInfo, List<ErrorMessage> errors) {
+        final List<Object> result = new ArrayList<>();
+        
         jsonArr.ifPresent(arr -> {
             for(int i = 0; i < arr.size(); i++) {
                 var fieldElement = String.format("%s[%d]", field, i);
                 var element = Optional.ofNullable(arr.get(i));
                 
                 if(elementSchemaInfo.get("type") != null) {
-                    validateJsonElement(fieldElement, element, elementSchemaInfo, errors);
+                    var obj = parseJsonElement(fieldElement, element, elementSchemaInfo, errors);
+                    if(obj != null) {
+                        result.add(obj);
+                    }
                 }else {
-                    validateJsonNode(fieldElement, element, elementSchemaInfo, errors);
+                    var obj = parseJsonNode(fieldElement, element, elementSchemaInfo, errors);
+                    result.add(obj);
                 }
             }
-        });        
+        });
+        
+        return result;
     }
     
-    void validateJsonNode(String parentField, Optional<JsonNode> jsonNode, @Nonnull JsonNode schemaJsonNode, List<ErrorMessage> errors) {
+    Map<String, Object> parseJsonNode(String parentField, Optional<JsonNode> jsonNode, @Nonnull JsonNode schemaJsonNode, List<ErrorMessage> errors) {
+        var objMap = new HashMap<String, Object>();
         var keys = new HashSet<String>();
         schemaJsonNode.fieldNames().forEachRemaining(keys::add);
         
@@ -116,8 +154,8 @@ public class JsonValidator {
         for(var objKey : objKeys) {
             String field = !StringUtils.isEmpty(parentField)? parentField + "." + objKey : objKey;;
             if(!keys.contains(objKey)) {
-                errors.add(new ErrorMessage(field, ErrorMessage.Code.NOT_ALLOW_FIELD, 
-                                String.format("Not allowed fields : \"%s\"", field)));
+                //errors.add(new ErrorMessage(field, ErrorMessage.Code.NOT_ALLOW_FIELD, 
+                //                String.format("Not allowed fields : \"%s\"", field)));
             }
         }
         
@@ -136,7 +174,10 @@ public class JsonValidator {
                 var type = typeNode.asText("");
                 
                 if(!DataType.TYPE_ARRAY.equals(type)) {
-                    validateJsonElement(field, element, schemaInfo, errors);
+                    var obj = parseJsonElement(field, element, schemaInfo, errors);
+                    if(obj != null) {
+                        objMap.put(key,  obj);
+                    }                    
                 }else {
                     var isArray = element.map(x -> x.isArray()).orElse(true);
                     
@@ -147,17 +188,19 @@ public class JsonValidator {
                     
                     var elementSchemaInfo = schemaInfo.get("element");                    
                     if(elementSchemaInfo != null) {
-                        validateJsonArray(field, element, elementSchemaInfo, errors);
+                        var arr = parseJsonArray(field, element, elementSchemaInfo, errors);
+                        objMap.put(key, arr);
                     }
                 }
             }else {
-                validateJsonNode(field, element, schemaInfo, errors);
+                var obj = parseJsonNode(field, element, schemaInfo, errors);
+                objMap.put(key, obj);
             }
         }
+        return objMap;
     }
     
-    public List<ErrorMessage> validate(String jsonSt, String jsonSchema) {
-        var errors = new ArrayList<ErrorMessage>();
+    public Map<String, Object> parseJson(String jsonSt, String jsonSchema, List<ErrorMessage> errors) {
         JsonNode jsonNode = null;
         try {
             jsonNode = mapper.readTree(jsonSt);
@@ -174,9 +217,10 @@ public class JsonValidator {
         }
         
         if(jsonNode != null && schemaJsonNode != null) {
-            validateJsonNode("", Optional.of(jsonNode), schemaJsonNode, errors);
+            return parseJsonNode("", Optional.of(jsonNode), schemaJsonNode, errors);
         }
         
-        return errors;
+        return new HashMap<String, Object>();
+    
     }
 }

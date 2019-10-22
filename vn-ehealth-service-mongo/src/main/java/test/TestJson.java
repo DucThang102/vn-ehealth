@@ -1,8 +1,7 @@
 package test;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import org.springframework.core.io.ClassPathResource;
 
@@ -11,22 +10,19 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import vn.ehealth.emr.EmrHoSoBenhAn;
-import vn.ehealth.validate.JsonValidator;
+import vn.ehealth.validate.ErrorMessage;
+import vn.ehealth.validate.JsonParser;
 
 public class TestJson {
     static String hsbaJsonSt;
     static String hsbaSchemaJsonSt;
-    static DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    static JsonValidator validator = new JsonValidator();
+    static JsonParser jsonParser = new JsonParser();
     
     static ObjectMapper mapper = new ObjectMapper();
-    static class Test {
-        int val;
-    }
     
     static {
         try {
-            hsbaJsonSt = new String(new ClassPathResource("static/json/hsba2.json").getInputStream().readAllBytes());
+            hsbaJsonSt = new String(new ClassPathResource("static/json/hsba/2155.json").getInputStream().readAllBytes());
             hsbaSchemaJsonSt = new String(new ClassPathResource("static/json/hsba_schema.json").getInputStream().readAllBytes()); 
         }catch(IOException e) {
             e.printStackTrace();
@@ -34,17 +30,19 @@ public class TestJson {
     }
 
     public static void main(String[] args) throws JsonParseException, JsonMappingException, IOException {
-        mapper.setDateFormat(sdf);
         
         try {
-            var errors = validator.validate(hsbaJsonSt, hsbaSchemaJsonSt);
+            var errors = new ArrayList<ErrorMessage>();
+            var objMap = jsonParser.parseJson(hsbaJsonSt, hsbaSchemaJsonSt, errors);
             
             for(var error : errors) {
                 System.out.println(error.message);
             }
             
-            var hsba = mapper.readValue(hsbaJsonSt, EmrHoSoBenhAn.class);
-            System.out.println(hsba.mayte);
+            if(errors.size() == 0) {
+                var hsba = mapper.convertValue(objMap, EmrHoSoBenhAn.class);
+                System.out.println(hsba.mayte);
+            }
         }catch(Exception e) {
             e.printStackTrace();
         }

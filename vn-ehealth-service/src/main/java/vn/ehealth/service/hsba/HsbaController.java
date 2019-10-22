@@ -73,6 +73,7 @@ public class HsbaController {
         result.ifPresent(x -> {
             var coSoKhamBenh = hsbaService.getCoSoKhamBenh();
             
+            x.emrCoSoKhamBenh = coSoKhamBenh;
             x.emrBenhNhan.tuoi = jasperUtils.getTuoi(x);
             
             if(StringUtils.isEmpty(x.donvichuquan)) 

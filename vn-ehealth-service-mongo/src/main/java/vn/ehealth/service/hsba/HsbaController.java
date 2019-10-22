@@ -1,9 +1,8 @@
 package vn.ehealth.service.hsba;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.bson.types.ObjectId;
@@ -24,7 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import vn.ehealth.emr.EmrHoSoBenhAn;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
-import vn.ehealth.validate.JsonValidator;
+import vn.ehealth.validate.ErrorMessage;
+import vn.ehealth.validate.JsonParser;
 
 
 @RestController
@@ -33,9 +33,7 @@ public class HsbaController {
 	
 	private static Logger logger = LoggerFactory.getLogger(HsbaController.class);
 	
-	private JsonValidator validator = new JsonValidator();
-	
-	private DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");;
+	private JsonParser jsonParser = new JsonParser();
 	
 	private static String hsbaSchema = "";
 	
@@ -111,7 +109,9 @@ public class HsbaController {
 	@PostMapping("/add_hoso")
 	public ResponseEntity<?> addHoSo(@RequestBody String jsonSt) {
 	    
-	    var errors = validator.validate(jsonSt, hsbaSchema);
+	    var errors = new ArrayList<ErrorMessage>();
+	    var objMap = jsonParser.parseJson(jsonSt, hsbaSchema, errors);
+	    
 	    if(errors.size() > 0) {
 	        var result = Map.of(
 	            "success" , false,
@@ -122,8 +122,7 @@ public class HsbaController {
 	    
 	    try {
 	        var mapper = new ObjectMapper();
-	        mapper.setDateFormat(sdf);
-    	    var hsba = mapper.readValue(jsonSt, EmrHoSoBenhAn.class);
+	        var hsba = mapper.convertValue(objMap, EmrHoSoBenhAn.class);
     	    hsba = emrHoSoBenhAnService.save(hsba);
     	    System.out.println(hsba.mayte);
     	    
@@ -134,7 +133,12 @@ public class HsbaController {
     	            
     	    return ResponseEntity.ok(result);
 	    }catch(Exception e) {
-	        return ResponseEntity.badRequest().build();
+	        var result = Map.of(
+                "success" , false,
+                "errors", List.of(e.getMessage()) 
+            );
+	        logger.error("Error save hsba:", e);
+	        return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
 	    }
 	}
 }

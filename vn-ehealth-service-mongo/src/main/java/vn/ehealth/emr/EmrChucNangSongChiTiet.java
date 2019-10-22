@@ -1,3 +1,4 @@
+
 package vn.ehealth.emr;
 
 import java.util.Date;
@@ -9,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class EmrChucNangSongChiTiet {
     
     public Date ngaytheodoi;
-    public Integer mach;
+    public Double mach;
     public Double nhietdo;
     public Integer huyetapthap;
     public Integer huyetapcao;

@@ -34,7 +34,7 @@ public class EmrBenhAn {
     public String dichte;
     public String chucnangsinhhoat;
     public String toanthan;
-    public Integer mach;
+    public Double mach;
     public Double nhietdo;
     public Integer huyetapcao;
     public Integer huyetapthap;

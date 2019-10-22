@@ -114,7 +114,7 @@
     	"dichte": {"type" : "String"},
     	"chucnangsinhhoat": {"type" : "String"},
     	"toanthan": {"type" : "String"},
-    	"mach": {"type" : "Integer"},
+    	"mach": {"type" : "Double"},
     	"nhietdo": {"type" : "Double"},
     	"huyetapcao": {"type" : "Integer"},
     	"huyetapthap": {"type" : "Integer"},
@@ -726,7 +726,7 @@
                         "type": "Array",
                         "element" : {
                         	"ngaytheodoi": {"type" : "Date"},
-                        	"mach": {"type" : "Integer"},
+                        	"mach": {"type" : "Double"},
                         	"nhietdo": {"type" : "Double"},                            
                             "huyetapthap": {"type" : "Integer"},
                             "huyetapcao": {"type" : "Integer"},
@@ -913,7 +913,7 @@
     	"element" : {
     		"ngaykedon": {"type" : "Date"},            
             "bacsikedon": {"type" : "String"},
-            "sodon": {"type" : "Integer"},
+            "sodon": {"type" : "String"},
             
             "emrDonThuocChiTiets": {
             	"type" : "Array",
@@ -954,7 +954,7 @@
     	"element" : {
     		"ngaykedon": {"type" : "Date"},     		
             "bacsikedon": {"type" : "String"},
-            "sodon": {"type" : "Integer"},
+            "sodon": {"type" : "String"},
             "ngaybatdau": {"type" : "Date"}, 
             "ngayketthuc": {"type" : "Date"},
             "soluongthang":  {"type" : "Integer"},
@@ -1030,7 +1030,7 @@
                             "emrDmDichKetQuaXetNghiem": {
                                 "ma": {"type" : "String", "required" : true}
                             },
-                            "giatrido": {"type" : "Double"}
+                            "giatrido": {"type" : "String"}
                         }
                     }
                 }
