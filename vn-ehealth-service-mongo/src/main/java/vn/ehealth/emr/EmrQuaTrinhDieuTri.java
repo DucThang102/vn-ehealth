@@ -10,7 +10,7 @@ public class EmrQuaTrinhDieuTri {
 
     public Date ngaydieutri;
     public String dienbien;
-    //public String chamsoc;
+    public String chamsoc;
     public String ylenh;
     public String bacsiraylenh;        
 }

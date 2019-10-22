@@ -63,7 +63,7 @@ VueAsyncComponent('hoichan-view', '/pages/hsba/view_detail/hoichan/hoichan_view.
 
   computed: {
     bacsichutoa: function(){
-      var bacsi = this.hoichan.emrHoiDongHoiChans.find(x => x.emrVaiTro.ma == "01");
+      var bacsi = this.hoichan.emrHoiDongHoiChans.find(x => x.emrDmVaiTro.ma == "1");
       if(bacsi){
         return bacsi.bacsihoichan
       }
@@ -71,7 +71,7 @@ VueAsyncComponent('hoichan-view', '/pages/hsba/view_detail/hoichan/hoichan_view.
     },
 
     thuky: function() {
-      var bacsi = this.hoichan.emrHoiDongHoiChans.find(x => x.emrVaiTro.ma == "02");
+      var bacsi = this.hoichan.emrHoiDongHoiChans.find(x => x.emrDmVaiTro.ma == "2");
       if(bacsi){
         return bacsi.bacsihoichan
       }
