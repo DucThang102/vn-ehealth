@@ -13,7 +13,7 @@
       <td class="text-center"><a href="#" v-on:click="xemChamSoc(chamsoc)"><i class="fas fa-fw fa-binoculars"></i>
           Xem</a></td>
       <td class="text-center">{{ chamsoc.sotochamsoc }}</td>
-      <td class="text-center">{{ chamsoc.emrVaoKhoa.tenkhoa }}</td>
+      <td class="text-center">{{ getTenKhoa(chamsoc.emrVaoKhoa) }}</td>
       <td class="text-center">{{ chamsoc.ngaychamsoc }}</td>
     </tr>
   </table>

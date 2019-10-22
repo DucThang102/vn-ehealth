@@ -46,6 +46,9 @@ VueAsyncComponent('chamsoc-list', '/pages/hsba/view_detail/chamsoc/chamsoc_list.
       }else{
         return "Từ " + ngayBatDau + " đến " + ngayKetThuc;
       }
+    },
+    getTenKhoa: function(khoadieutri){
+      return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
     }
   },
 
@@ -72,6 +75,9 @@ VueAsyncComponent('chamsoc-view', '/pages/hsba/view_detail/chamsoc/chamsoc_view.
   methods: {
     xemDsChamSoc: function() {
       this.$emit('xemDsChamSoc');
+    },
+    getTenKhoa: function(khoadieutri){
+      return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
     }
   },
 });

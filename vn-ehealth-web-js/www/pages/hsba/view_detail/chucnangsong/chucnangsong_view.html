@@ -32,7 +32,7 @@
     <div class="row">
       <div class="col-12">
         <b>Phiếu theo dõi chức năng sống số: {{ chucnangsong.sophieu }}</b><br>
-        <span>- Tại khoa: {{ chucnangsong.emrVaoKhoa.emrDmKhoaDieuTri.ten }}</span><br>
+        <span>- Tại khoa: {{ getTenKhoa(chucnangsong.emrVaoKhoa) }}</span><br>
       </div>
     </div>
     <table class='table table-bordered mt-3'>

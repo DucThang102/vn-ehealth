@@ -22,7 +22,7 @@ public class TestJson {
     
     static {
         try {
-            hsbaJsonSt = new String(new ClassPathResource("static/json/hsba/2155.json").getInputStream().readAllBytes());
+            hsbaJsonSt = new String(new ClassPathResource("static/json/hsba/2154.json").getInputStream().readAllBytes());
             hsbaSchemaJsonSt = new String(new ClassPathResource("static/json/hsba_schema.json").getInputStream().readAllBytes()); 
         }catch(IOException e) {
             e.printStackTrace();

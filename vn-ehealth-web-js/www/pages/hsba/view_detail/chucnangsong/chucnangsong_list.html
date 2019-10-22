@@ -13,7 +13,7 @@
       <td class="text-center"><a href="#" v-on:click="xemChucNangSong(chucnangsong)"><i class="fas fa-fw fa-binoculars"></i>
           Xem</a></td>
       <td class="text-center">{{ chucnangsong.sophieu }}</td>
-      <td class="text-center">{{ chucnangsong.emrVaoKhoa.tenkhoa }}</td>
+      <td class="text-center">{{ getTenKhoa(chucnangsong.emrVaoKhoa) }}</td>
       <td class="text-center">{{ chucnangsong.ngaytheodoi }}</td>
     </tr>
   </table>

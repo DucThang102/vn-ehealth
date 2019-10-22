@@ -31,7 +31,7 @@
     <div class="row">
       <div class="col-12">
         <b>Hội chẩn lúc: {{ formatDateTime(hoichan.ngaythuchien) }}</b><br>
-        <span>- Tại khoa: {{ hoichan.emrVaoKhoa.emrDmKhoaDieuTri.ten }}</span><br>
+        <span>- Tại khoa: {{ getTenKhoa(hoichan.emrVaoKhoa) }}</span><br>
         <div class="row">
           <div class="col-6">
             <span>- Bác sĩ chủ tọa:</span>

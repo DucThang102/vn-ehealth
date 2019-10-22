@@ -46,6 +46,9 @@ VueAsyncComponent('chucnangsong-list', '/pages/hsba/view_detail/chucnangsong/chu
       }else{
         return "Từ " + ngayBatDau + " đến " + ngayKetThuc;
       }
+    },
+    getTenKhoa: function(khoadieutri){
+      return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
     }
   },
 
@@ -72,6 +75,9 @@ VueAsyncComponent('chucnangsong-view', '/pages/hsba/view_detail/chucnangsong/chu
   methods: {
     xemDsChucNangSong: function() {
       this.$emit('xemDsChucNangSong');
+    },
+    getTenKhoa: function(khoadieutri){
+      return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
     }
   },
 });

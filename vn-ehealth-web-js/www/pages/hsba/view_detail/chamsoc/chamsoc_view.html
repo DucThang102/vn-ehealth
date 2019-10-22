@@ -32,7 +32,7 @@
     <div class="row">
       <div class="col-12">
         <b>Phiếu chăm sóc số: {{ chamsoc.sotochamsoc }}</b><br>
-        <span>- Tại khoa: {{ chamsoc.emrVaoKhoa.emrDmKhoaDieuTri.ten }}</span><br>
+        <span>- Tại khoa: {{ chamsoc.emrVaoKhoa.tenkhoa || chamsoc.emrVaoKhoa.emrDmKhoaDieuTri.ten }}</span><br>
       </div>
     </div>
 

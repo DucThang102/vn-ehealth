@@ -41,7 +41,7 @@ public class EmrYhctBenhanVaanChan {
     //public String lstan;
     //public String lstanTen;
     //public String lstanHienthi;
-    public List<EmrDmContent> emrDmYhctTans;
+    public List<EmrDmContent> emrDmYhctAns;
     
     //public String lstuong;
     //public String lstuongTen;

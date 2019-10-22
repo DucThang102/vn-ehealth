@@ -261,6 +261,12 @@ public class HsbaService {
     
     List<EmrHoiDongHoiChan> getEmrHoiDongHoiChans(@Nonnull EmrHoiChan emrHoiChan) {
         var lst = getRecords(EmrHoiDongHoiChan.class, "emr_hoi_dong_hoi_chan", "idhoichan", emrHoiChan.id, true);
+        lst.forEach(x-> {
+            x.emrDmVaiTro = new EmrDm();
+            if(x.idvaitro != null) {                    
+                x.emrDmVaiTro.ma = String.valueOf(x.idvaitro);
+            }
+        });
         return lst;        
     }
 
@@ -353,7 +359,8 @@ public class HsbaService {
             item.emrHoiDongPttts = getRecords(EmrHoiDongPttt.class, "emr_hoi_dong_pttt", "idpttt", item.id, true);
             item.emrHoiDongPttts.forEach(x -> {
                 x.emrDmVaiTro = new EmrDm();
-                if(x.idvaitro != null) {                    
+                if(x.idvaitro != null) {
+                    x.emrDmVaiTro.ma = String.valueOf(x.idvaitro);
                     x.emrDmVaiTro.ten = jasperUtils.getVaiTroPTTT(x.idvaitro);
                 }
             });
