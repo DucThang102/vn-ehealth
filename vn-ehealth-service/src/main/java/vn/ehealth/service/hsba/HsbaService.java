@@ -262,6 +262,7 @@ public class HsbaService {
     List<EmrHoiDongHoiChan> getEmrHoiDongHoiChans(@Nonnull EmrHoiChan emrHoiChan) {
         var lst = getRecords(EmrHoiDongHoiChan.class, "emr_hoi_dong_hoi_chan", "idhoichan", emrHoiChan.id, true);
         lst.forEach(x-> {
+            x.tenbacsi = x.bacsihoichan;
             x.emrDmVaiTro = new EmrDm();
             if(x.idvaitro != null) {                    
                 x.emrDmVaiTro.ma = String.valueOf(x.idvaitro);

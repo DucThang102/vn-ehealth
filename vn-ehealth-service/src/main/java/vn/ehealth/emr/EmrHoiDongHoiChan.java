@@ -19,6 +19,8 @@ public class EmrHoiDongHoiChan {
     @Column
     public String bacsihoichan;
     
+    @Transient public String tenbacsi; 
+    
     @Column
     public Integer idvaitro;
     

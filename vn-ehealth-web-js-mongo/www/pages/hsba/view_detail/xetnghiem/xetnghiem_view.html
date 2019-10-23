@@ -3,8 +3,8 @@
   <div class="frame mt-3">
     <div class="row">
       <div class="col-8">
-        <span>{{ hsba.donvichuquan }}</span><br>
-        <span>BV: {{ hsba.tenbenhvien }}</span>
+        <span>{{ hsba.emrCoSoKhamBenh.donvichuquan }}</span><br>
+        <span>BV: {{ hsba.emrCoSoKhamBenh.ten }}</span>
       </div>
       <div class="col-4">
         <span>Số lưu trữ:</span><br>
@@ -64,7 +64,7 @@
         </table>
       </div>
       
-      <div v-if="xetnghiem.emrQuanLyFileDinhKemXn.length > 0">
+      <div v-if="xetnghiem.emrFileDinhKemXetNghiems.length > 0">
         <hr>
         <b>Danh sách file đính kèm:</b>
         <table class='table table-bordered mt-3'>
@@ -72,7 +72,7 @@
             <th style='width:10%' class="text-center">STT</th>
             <th style='width:90%' class="text-center">Tên file</th>
           </tr>
-          <tr v-for="(file, i) in xetnghiem.emrQuanLyFileDinhKemXn">
+          <tr v-for="(file, i) in xetnghiem.emrFileDinhKemXetNghiems">
             <td>{{ i + 1 }}</td>
             <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
           </tr>

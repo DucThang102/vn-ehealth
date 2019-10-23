@@ -33,6 +33,9 @@ public class EmrHoSoBenhAn {
     public String maluutru;
     public String matraodoi;
     
+    public Date ngaytiepnhan;
+    public String nguoitiepnhan;
+    
     public String giamdocbenhvien;
     public String tenbenhvien;
     public String donvichuquan;

@@ -47,7 +47,7 @@ public class EmrHoSoBenhAnService {
     @Autowired EmrCoSoKhamBenhService emrCoSoKhamBenhService;
     
     public List<EmrHoSoBenhAn> findByTrangThaiAndIsLatest(int trangThai, boolean isLatest, int offset, int limit){
-        var sort = new Sort(Sort.Direction.DESC, "ngaytao");
+        var sort = new Sort(Sort.Direction.DESC, "ngaytiepnhan");
         return emrHoSoBenhAnRepository.findByTrangThaiAndIsLatest(trangThai, isLatest, offset, limit, sort);
     }
     

@@ -1,6 +1,8 @@
 {
     "matraodoi": {"type" : "String", "required" : true},
     "mayte": {"type" : "String", "required" : true},
+    "ngaytiepnhan":  {"type" : "Date"},
+    "nguoitiepnhan": {"type": "String"},
     
     "emrDmLoaiBenhAn": {
         "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
