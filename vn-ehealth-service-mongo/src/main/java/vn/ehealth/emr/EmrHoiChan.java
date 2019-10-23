@@ -20,6 +20,8 @@ public class EmrHoiChan {
     public String getId() { return id.toHexString(); }
     
     public ObjectId emrVaoKhoaId;
+    
+    public String getEmrVaoKhoaId() { return emrVaoKhoaId.toHexString(); }
 
     public Date ngaythuchien;
 
@@ -32,5 +34,5 @@ public class EmrHoiChan {
     public List<EmrThanhVienHoiChan> emrThanhVienHoiChans = new ArrayList<>();
     
     public List<EmrFileDinhKem> emrFileDinhKemHoiChans = new ArrayList<>();
-            
+    
 }

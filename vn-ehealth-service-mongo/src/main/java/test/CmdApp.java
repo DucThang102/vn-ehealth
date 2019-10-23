@@ -29,7 +29,7 @@ public class CmdApp implements CommandLineRunner {
     
     @Override
     public void run(String... args) throws Exception {
-        var hsba = emrHoSoBenhAnService.getEmrHoSoBenhAnById(new ObjectId("5da544b74ece1e17ec0c0807"));
+        var hsba = emrHoSoBenhAnService.getById(new ObjectId("5da544b74ece1e17ec0c0807"));
         hsba.ifPresent(x -> {
             System.out.println(x.mayte);
         });

@@ -18,12 +18,8 @@ public class EmrHoSoBenhAn {
     @Id public ObjectId id;
     
     public String getId() { return id.toHexString(); }
-    
-    public EmrDmContent emrDmTrangthai;
-    
+        
     public EmrDmContent emrDmLoaiBenhAn;
-    
-    public EmrDmContent emrDmNguondulieu;
     
     public transient ObjectId emrBenhNhanId;
     @Transient public EmrBenhNhan emrBenhNhan;
@@ -31,6 +27,8 @@ public class EmrHoSoBenhAn {
     public transient ObjectId emrCoSoKhamBenhId;
     @Transient public EmrCoSoKhamBenh emrCoSoKhamBenh;
         
+    public int nguonDuLieu;    
+    public int trangThai;
     public String mayte;
     public String maluutru;
     public String matraodoi;
@@ -41,6 +39,8 @@ public class EmrHoSoBenhAn {
     public String truongphongth;
     
     public Date ngaytao;
+    
+    public boolean isLatest;
     
     public EmrQuanLyNguoiBenh emrQuanLyNguoiBenh;
     
