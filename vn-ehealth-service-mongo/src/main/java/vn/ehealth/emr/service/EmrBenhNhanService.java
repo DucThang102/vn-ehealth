@@ -1,5 +1,8 @@
 package vn.ehealth.emr.service;
 
+import java.util.Optional;
+
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +20,9 @@ public class EmrBenhNhanService {
             emrBenhNhan.id = x.id;
         });
         return emrBenhNhanRepository.save(emrBenhNhan);
+    }
+    
+    public Optional<EmrBenhNhan> getById(ObjectId id) {
+        return emrBenhNhanRepository.findById(id);
     }
 }

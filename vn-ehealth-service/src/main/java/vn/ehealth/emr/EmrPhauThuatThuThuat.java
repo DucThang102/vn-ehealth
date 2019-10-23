@@ -47,7 +47,7 @@ public class EmrPhauThuatThuThuat {
     
     @Transient public List<EmrFileDinhKem> emrFileDinhKemPttts = new ArrayList<>();
     
-    @Transient public List<EmrHoiDongPttt> emrHoiDongPttts = new ArrayList<EmrHoiDongPttt>(0);
+    @Transient public List<EmrHoiDongPttt> emrThanhVienPttts = new ArrayList<EmrHoiDongPttt>(0);
 
     @Column public Boolean loaipttt;
     @Column(name = "loaimo_chklist") public String loaimoChklist;
@@ -146,7 +146,7 @@ public class EmrPhauThuatThuThuat {
     }
     
     public List<EmrHoiDongPttt> getEmrHoiDongPttts() {
-        return emrHoiDongPttts;
+        return emrThanhVienPttts;
     }
     
     public Boolean getLoaipttt() {

@@ -274,7 +274,7 @@ public class HsbaService {
         var lst = getRecords(EmrHoiChan.class, "emr_hoi_chan", "idvaokhoa", emrVaoKhoa.id, true);
         
         for(var item : lst) {            
-            item.emrHoiDongHoiChans = getEmrHoiDongHoiChans(item);
+            item.emrThanhVienHoiChans = getEmrHoiDongHoiChans(item);
             item.emrFileDinhKemHoiChans = getEmrFileDinhKems("emr_quan_ly_file_dinh_kem_hoi_chan", item.id);
             item.tenKhoa = StringUtils.isEmpty(emrVaoKhoa.tenkhoa) ? emrVaoKhoa.emrDmKhoaDieuTri.ten : emrVaoKhoa.tenkhoa;
             item.phong = emrVaoKhoa.phong;
@@ -356,8 +356,8 @@ public class HsbaService {
         var lst = getRecords(EmrPhauThuatThuThuat.class, "emr_phau_thuat_thu_thuat", "idhsba", idhsba, true);
         
         for(var item : lst) {
-            item.emrHoiDongPttts = getRecords(EmrHoiDongPttt.class, "emr_hoi_dong_pttt", "idpttt", item.id, true);
-            item.emrHoiDongPttts.forEach(x -> {
+            item.emrThanhVienPttts = getRecords(EmrHoiDongPttt.class, "emr_hoi_dong_pttt", "idpttt", item.id, true);
+            item.emrThanhVienPttts.forEach(x -> {
                 x.emrDmVaiTro = new EmrDm();
                 if(x.idvaitro != null) {
                     x.emrDmVaiTro.ma = String.valueOf(x.idvaitro);

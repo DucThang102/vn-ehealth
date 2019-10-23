@@ -76,6 +76,9 @@ public class HsbaController {
             x.emrCoSoKhamBenh = coSoKhamBenh;
             x.emrBenhNhan.tuoi = jasperUtils.getTuoi(x);
             
+            x.ngaytiepnhan = x.ngaytao;
+            x.nguoitiepnhan = "";
+            
             if(StringUtils.isEmpty(x.donvichuquan)) 
                 x.donvichuquan = coSoKhamBenh.donvichuquan;
             

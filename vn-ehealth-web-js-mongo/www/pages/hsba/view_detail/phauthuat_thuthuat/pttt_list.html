@@ -1,0 +1,19 @@
+<div>
+  <table class="table table-bordered">
+    <tr>
+      <th style="width: 5%;" class="text-center">STT</th>
+      <th style="width: 15%;" class="text-center">Thao tác</th>
+      <th style="width: 30%;" class="text-center">Phẫu thuật/thủ thuật</th>
+      <th style="width: 30%;" class="text-center">Bác sĩ thực hiện</th>
+      <th style="width: 20%;" class="text-center">Ngày thực hiện</th>
+    </tr>
+    <tr v-for="(pttt, i) in pttt_list">
+      <td class="text-center">{{ i + 1 }}</td>
+      <td class="text-center"><a href="#" v-on:click="xemPttt(pttt)"><i class="fas fa-fw fa-binoculars"></i>
+          Xem</a></td>
+      <td class="text-center">{{ pttt.emrDmPhauThuThuat.ten }}</td>
+      <td class="text-center">{{ pttt.bacsithuchien }}</td>
+      <td class="text-center">{{ formatDateTime(pttt.ngaygiopttt) }}</td>
+    </tr>
+  </table>
+</div>

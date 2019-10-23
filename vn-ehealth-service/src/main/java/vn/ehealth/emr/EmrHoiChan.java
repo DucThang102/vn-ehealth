@@ -37,7 +37,7 @@ public class EmrHoiChan {
     @Column
     public Boolean daxoa;
     
-    @Transient public List<EmrHoiDongHoiChan> emrHoiDongHoiChans = new ArrayList<>();
+    @Transient public List<EmrHoiDongHoiChan> emrThanhVienHoiChans = new ArrayList<>();
     
     @Transient
     public List<EmrFileDinhKem> emrFileDinhKemHoiChans = new ArrayList<>();
@@ -75,7 +75,7 @@ public class EmrHoiChan {
     }
     
     public List<EmrHoiDongHoiChan> getEmrHoiDongHoiChans() {
-        return emrHoiDongHoiChans;
+        return emrThanhVienHoiChans;
     }
     
     public List<EmrFileDinhKem> getEmrQuanLyFileDinhKemHoiChans() {

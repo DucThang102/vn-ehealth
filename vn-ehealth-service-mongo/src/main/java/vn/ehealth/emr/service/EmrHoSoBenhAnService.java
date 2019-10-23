@@ -9,13 +9,12 @@ import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import vn.ehealth.emr.EmrHoSoBenhAn;
-import vn.ehealth.emr.repository.EmrBenhNhanRepository;
 import vn.ehealth.emr.repository.EmrChanDoanHinhAnhRepository;
-import vn.ehealth.emr.repository.EmrCoSoKhamBenhRepository;
 import vn.ehealth.emr.repository.EmrDonThuocRepository;
 import vn.ehealth.emr.repository.EmrGiaiPhauBenhRepository;
 import vn.ehealth.emr.repository.EmrHinhAnhTonThuongRepository;
@@ -24,7 +23,6 @@ import vn.ehealth.emr.repository.EmrPhauThuatThuThuatRepository;
 import vn.ehealth.emr.repository.EmrThamDoChucNangRepository;
 import vn.ehealth.emr.repository.EmrXetNghiemRepository;
 import vn.ehealth.emr.repository.EmrYhctDonThuocRepository;
-import vn.ehealth.service.Constants.MA_NHOM_DANH_MUC;
 import vn.ehealth.service.Constants.NGUON_DU_LIEU;
 import vn.ehealth.service.Constants.TRANGTHAI_HOSO;
 
@@ -34,8 +32,6 @@ public class EmrHoSoBenhAnService {
     Logger logger = LoggerFactory.getLogger(EmrHoSoBenhAnService.class);
             
     @Autowired EmrHoSoBenhAnRepository emrHoSoBenhAnRepository;  
-    @Autowired EmrBenhNhanRepository emrBenhNhanRepository;
-    @Autowired EmrCoSoKhamBenhRepository emrCoSoKhamBenhRepository;
     @Autowired EmrHinhAnhTonThuongRepository emrHinhAnhTonThuongRepository;
     @Autowired EmrGiaiPhauBenhRepository emrGiaiPhauBenhRepository;
     @Autowired EmrThamDoChucNangRepository emrThamDoChucNangRepository;
@@ -48,9 +44,11 @@ public class EmrHoSoBenhAnService {
     @Autowired EmrDmService emrDmService;
     @Autowired EmrVaoKhoaService emrVaoKhoaService;
     @Autowired EmrBenhNhanService emrBenhNhanService;
+    @Autowired EmrCoSoKhamBenhService emrCoSoKhamBenhService;
     
-    public List<EmrHoSoBenhAn> findByTrangThaiAndIsLatest(int trangThai, boolean isLatest){
-        return emrHoSoBenhAnRepository.findByTrangThaiAndIsLatest(trangThai, isLatest);
+    public List<EmrHoSoBenhAn> findByTrangThaiAndIsLatest(int trangThai, boolean isLatest, int offset, int limit){
+        var sort = new Sort(Sort.Direction.DESC, "ngaytao");
+        return emrHoSoBenhAnRepository.findByTrangThaiAndIsLatest(trangThai, isLatest, offset, limit, sort);
     }
     
     public int countByTrangThaiAndIsLatest(int trangThai, boolean isLatest) {
@@ -60,8 +58,8 @@ public class EmrHoSoBenhAnService {
     public Optional<EmrHoSoBenhAn> getById(ObjectId id){
         var emrHoSoBenhAn = emrHoSoBenhAnRepository.findById(id);
         emrHoSoBenhAn.ifPresent(x -> {
-           x.emrBenhNhan = emrBenhNhanRepository.findById(x.emrBenhNhanId).orElse(null);
-           x.emrCoSoKhamBenh = emrCoSoKhamBenhRepository.findById(x.emrCoSoKhamBenhId).orElse(null);
+           x.emrBenhNhan = emrBenhNhanService.getById(x.emrBenhNhanId).orElse(null);
+           x.emrCoSoKhamBenh = emrCoSoKhamBenhService.getById(x.emrCoSoKhamBenhId).orElse(null);
            x.emrVaoKhoas = emrVaoKhoaService.getEmrVaoKhoaByHsbaId(id);
            x.emrHinhAnhTonThuongs = emrHinhAnhTonThuongRepository.findByEmrHoSoBenhAnId(id);
            x.emrGiaiPhauBenhs = emrGiaiPhauBenhRepository.findByEmrHoSoBenhAnId(id) ;
@@ -79,7 +77,7 @@ public class EmrHoSoBenhAnService {
     
     public EmrHoSoBenhAn save(EmrHoSoBenhAn hsba) {
         var maCoSoKhamBenh = hsba.emrCoSoKhamBenh != null? hsba.emrCoSoKhamBenh.ma : "";
-        var emrCoSoKhamBenh = emrCoSoKhamBenhRepository.findByMa(maCoSoKhamBenh).orElse(null);
+        var emrCoSoKhamBenh = emrCoSoKhamBenhService.getByMa(maCoSoKhamBenh).orElse(null);
         
         if(hsba.emrBenhNhan == null || emrCoSoKhamBenh == null) {
             throw new RuntimeException();
@@ -97,8 +95,6 @@ public class EmrHoSoBenhAnService {
         
         emrBenhNhan = emrBenhNhanService.createOrUpdate(emrBenhNhan);
         
-        var maLoaiBenhAn = hsba.emrDmLoaiBenhAn != null? hsba.emrDmLoaiBenhAn.ma : null;
-        
         hsba.emrBenhNhan = emrBenhNhan;
         hsba.emrBenhNhanId = emrBenhNhan.id;
         
@@ -107,7 +103,8 @@ public class EmrHoSoBenhAnService {
         
         hsba.ngaytao = new Date();
         
-        hsba.emrDmLoaiBenhAn = emrDmService.getEmrDmByNhom_Ma(MA_NHOM_DANH_MUC.LOAI_BENH_AN, maLoaiBenhAn);
+        //var maLoaiBenhAn = hsba.emrDmLoaiBenhAn != null? hsba.emrDmLoaiBenhAn.ma : null;
+        //hsba.emrDmLoaiBenhAn = emrDmService.getEmrDmByNhom_Ma(MA_NHOM_DANH_MUC.LOAI_BENH_AN, maLoaiBenhAn);
         hsba.nguonDuLieu = NGUON_DU_LIEU.TU_HIS;
         hsba.trangThai = TRANGTHAI_HOSO.NHAP;
         hsba = emrHoSoBenhAnRepository.save(hsba);

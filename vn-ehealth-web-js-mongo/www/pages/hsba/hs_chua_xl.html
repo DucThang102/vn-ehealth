@@ -1,0 +1,162 @@
+<% include ../../header.html %>
+
+<style>
+  #app {
+    overflow: scroll;
+    width: 100%;
+  }
+</style>
+
+<div id="content-wrapper" class="bg-light">
+  <div class="font-weight-bold text-uppercase"><i class="far fa-file-alt"></i> DANH SÁCH HỒ SƠ BỆNH ÁN CHƯA XỬ LÝ</div>
+  <div id="content" class="bg-white mt-2">
+    <div id="app">
+      <template v-if="total == 0">
+        <b>Không có dữ liệu</b>
+      </template>
+
+      <template>
+        <form @submit.prevent="timKiemHoso()" class="mb-3">
+          <div class="row">
+            <div class="col-12">
+              <input v-model="ma_yte" class="form-control" placeholder="Tìm theo mã y tế"></input>
+            </div>
+          </div>
+        </form>
+        <table style="width:150%" class="table table-bordered" v-if="total > 0">
+          <thead>
+            <tr>
+              <th rowspan="2" style="width:2%">Thao tác</th>
+              <th rowspan="2" style="width:2%">STT</th>
+              <th rowspan="2" style="width:12%">Số bệnh án</th>
+              <th rowspan="2" style="width:7%">Tên bệnh nhân</th>
+              <th rowspan="2" style="width:10%">Địa chỉ</th>
+              <th rowspan="2" style="width:7%">Loại bệnh án</th>
+              <th rowspan="2" style="width:6%">Mã y tế</th>
+              <th colspan="2">Chẩn đoán vào viện</th>
+              <th colspan="2">Chẩn đoán ra viện</th>
+              <th rowspan="2" style="width:8%">Khoa ra viện</th>
+              <th rowspan="2" style="width:5%">Ngày vào viện</th>
+              <th rowspan="2" style="width:5%">Ngày ra viện</th>
+              <th rowspan="2" style="width:5%">Ngày tiếp nhận</th>
+              <th rowspan="2" style="width:6%">Cán bộ tiếp nhận</th>
+              <th rowspan="2" style="width:5%">Nguồn dữ liệu</th>
+            </tr>
+            <tr>
+              <th style="width:5%">Mã Bệnh</th>
+              <th style="width:5%">Mô tả</th>
+              <th style="width:5%">Mã Bệnh</th>
+              <th style="width:5%">Mô tả</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(hs, index) in items">
+              <td>
+                <button class="btn btn-small dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  <i class="fas fa-fw fa-tasks"></i>
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item"
+                    :href="createURL('/pages/hsba/xem_hsba.html', {hs_id: hs.id, backURL: currentURL})">Xem HSBA</a>
+                  <a class="dropdown-item" href="#">Chỉnh sửa</a>
+                  <a class="dropdown-item" href="#">Lưu trữ</a>
+                  <a class="dropdown-item" href="#">Thông tin gốc</a>
+                  <a class="dropdown-item" href="#">Xóa</a>
+                </div>
+              </td>
+              <td>{{ index + offset + 1 }}</td>
+              <td>{{ hs.matraodoi }}</td>
+              <td>{{ hs.emrBenhNhan.tendaydu }}</td>
+              <td>{{ hs.emrBenhNhan.diachi }}</td>
+              <td>{{ hs.emrDmLoaiBenhAn.ten }}</td>
+              <td>{{ hs.mayte }}</td>
+              <td>{{ hs.emrChanDoan.emrDmMaBenhChandoankkb.ma }} - {{ hs.emrChanDoan.emrDmMaBenhChandoankkb.ten }}</td>
+              <td>{{ hs.emrChanDoan.motachandoankkb }}</td>
+              <td>{{ hs.emrChanDoan.emrDmMaBenhChandoanravienchinh.ma }} - {{ hs.emrChanDoan.emrDmMaBenhChandoanravienchinh.ma }}</td>
+              <td>{{ hs.emrChanDoan.motachandoanravienchinh }}</td>
+              <td>{{ hs.emrKhoaRaVien.emrDmKhoaDieuTri.ten }}</td>
+              <td>{{ formatDateTime(hs.emrQuanLyNguoiBenh.ngaygiovaovien) }}</td>
+              <td>{{ formatDateTime(hs.emrQuanLyNguoiBenh.ngaygioravien) }}</td>
+              <td>{{ formatDateTime(hs.ngaytiepnhan) }}</td>
+              <td>{{ hs.nguoitiepnhan }}</td>
+              <td>{{ hs.nguonDuLieu }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <b-pagination v-if="total > perPage" size="sm" v-model="currentPage" :total-rows="total" :per-page="perPage">
+        </b-pagination>
+        <label class="label">Tổng số : {{ total }} bản ghi</label>
+      </template>
+    </div>
+  </div>
+</div>
+
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      perPage: 5,
+      currentPage: null,
+      items: [],
+      total: null,
+      ma_yte: ''
+    },
+
+    methods: {
+      getTotal: async function () {
+        this.total = await this.get("/api/hsba/count_ds_hs", { trangthai: 1, ma_yte: this.ma_yte });
+
+      },
+
+      getNguonDuLieuStr: function(nguonDuLieu) {
+        var m = {1: "Từ HIS"};
+        return m[nguonDuLieu];
+      },
+
+      getItems: async function () {
+        this.items = await this.get("/api/hsba/get_ds_hs",
+          { trangthai: 1, start: this.offset, count: this.perPage, ma_yte: this.ma_yte });
+
+        this.items.forEach(x => {
+          if(!x.emrKhoaRaVien) {
+            x.emrKhoaRaVien = {emrDmKhoaDieuTri: {}};
+          }
+          x.nguonDuLieu = this.getNguonDuLieuStr(x.nguonDuLieu);
+        });
+      },
+
+      timKiemHoso: async function () {
+        this.currentPage = 1;
+        location.href = this.currentURL;
+      }
+    },
+
+    computed: {
+      offset() {
+        return (this.currentPage - 1) * this.perPage;
+      },
+
+      currentURL() {
+        return this.createURL("/pages/hsba/hs_chua_xl.html", { ma_yte: this.ma_yte, currentPage: this.currentPage })
+      }
+    },
+
+    watch: {
+      currentPage: async function (newVal, oldVal) {
+        if (oldVal) {
+          location.href = this.currentURL;
+        }
+      }
+    },
+
+    created: async function () {
+      this.currentPage = this.getParam("currentPage") || 1;
+      this.ma_yte = this.getParam("ma_yte") || "";
+      await this.getTotal();
+      await this.getItems();
+    }
+  });
+</script>
+
+<% include ../../footer.html %>

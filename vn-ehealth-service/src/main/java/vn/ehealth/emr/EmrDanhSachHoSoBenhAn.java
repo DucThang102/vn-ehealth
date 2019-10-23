@@ -38,7 +38,11 @@ public class EmrDanhSachHoSoBenhAn {
     @Column public Boolean daxoa;
     
     @Column public Date ngaytao;
-    @Column public Integer idnguoitao;
+    @Transient public Date ngaytiepnhan;
+    
+    @Column public Integer idnguoitao;    
+    @Transient public String nguoitiepnhan;
+    
     @Column public Date ngaysua;
     @Column public Integer idnguoisua;
     @Column public String giamdocbenhvien;

@@ -14,7 +14,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +25,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import vn.ehealth.emr.EmrBenhNhan;
 import vn.ehealth.emr.EmrHoSoBenhAn;
 import vn.ehealth.emr.service.EmrBenhNhanService;
+import vn.ehealth.emr.service.EmrCoSoKhamBenhService;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
+import vn.ehealth.emr.service.EmrVaoKhoaService;
+import vn.ehealth.emr.utils.JasperUtils;
 import vn.ehealth.validate.ErrorMessage;
 import vn.ehealth.validate.JsonParser;
 
@@ -60,6 +62,12 @@ public class HsbaController {
 	
 	@Autowired EmrBenhNhanService emrBenhNhanService;
 	
+	@Autowired EmrCoSoKhamBenhService emrCoSoKhamBenhService;
+	
+	@Autowired EmrVaoKhoaService emrVaoKhoaService;
+	
+	JasperUtils jasperUtils = new JasperUtils();
+	
 	@GetMapping("/test")
 	public String test() {
 	    return "";	    
@@ -77,13 +85,20 @@ public class HsbaController {
 												@RequestParam int count) {
 		
 		
-	    var lst = emrHoSoBenhAnService.findByTrangThaiAndIsLatest(trangthai, true);
-	    var result = new ArrayList<EmrHoSoBenhAn>();// rawHsbaService.getDsHoSo(trangthai, maYte, start, count);
-	    for(int i = 0; i < count; i++) {
-	        if(i + start < lst.size()) {
-	            result.add(lst.get(i + start));
+	    var result =  emrHoSoBenhAnService.findByTrangThaiAndIsLatest(trangthai, true, start, count);
+	    
+	    result.forEach(x -> {
+	        x.emrCoSoKhamBenh = emrCoSoKhamBenhService.getById(x.emrCoSoKhamBenhId).orElse(null);
+	        x.emrBenhNhan = emrBenhNhanService.getById(x.emrBenhNhanId).orElse(null);
+	        if(x.emrBenhNhan != null) {
+	            x.emrBenhNhan.tuoi = jasperUtils.getTuoi(x);
 	        }
-	    }
+	        var emrVaoKhoas = emrVaoKhoaService.getEmrVaoKhoaByHsbaId(x.id);
+	        if(emrVaoKhoas.size() > 0) {
+	            x.emrKhoaRaVien = emrVaoKhoas.get(emrVaoKhoas.size() - 1); 
+	        }
+	        
+	    });
 		
 		return ResponseEntity.ok(result);
 	}
@@ -94,9 +109,15 @@ public class HsbaController {
 	@GetMapping("/get_hs")
 	public ResponseEntity<?> getHs(@RequestParam("hoso_id") String id) {
         
-        var result = emrHoSoBenhAnService.getById(new ObjectId(id));
+        var hsba = emrHoSoBenhAnService.getById(new ObjectId(id));
         
-        return ResponseEntity.of(result);
+        hsba.ifPresent(x -> {
+            if(x.emrBenhNhan != null) {
+                x.emrBenhNhan.tuoi = jasperUtils.getTuoi(x);
+            }
+        });
+        
+        return ResponseEntity.of(hsba);
     }
 	
 	@PostMapping("/create_or_update_benhnhan")
@@ -124,7 +145,6 @@ public class HsbaController {
             }
             
             benhNhan = emrBenhNhanService.createOrUpdate(benhNhan);
-            System.out.println(benhNhan.iddinhdanhchinh);
             
             var result = Map.of(
                 "success" , true,
@@ -158,14 +178,13 @@ public class HsbaController {
 	    
 	    try {
 	        var mapper = new ObjectMapper();
-	        var hsba = mapper.convertValue(objMap, EmrHoSoBenhAn.class);
-    	    hsba = emrHoSoBenhAnService.save(hsba);
+	        var hsba0 = mapper.convertValue(objMap, EmrHoSoBenhAn.class);
+    	    var hsba = emrHoSoBenhAnService.save(hsba0);
     	    emrHoSoBenhAnService.setAsLatest(hsba);
-    	    System.out.println(hsba.mayte);
     	    
     	    var result = Map.of(
 	            "success" , true,
-                "emrHoSoBenhAn", hsba 
+                "emrHoSoBenhAn", hsba0 
             );
     	            
     	    return ResponseEntity.ok(result);

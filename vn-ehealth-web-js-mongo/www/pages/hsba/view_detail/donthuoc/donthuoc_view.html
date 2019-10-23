@@ -1,0 +1,78 @@
+<div v-if="donthuoc">
+  <a href="#" v-on:click="xemDsDonThuoc"><i class="fas fa-fw fa-arrow-left"></i> Quay lại</a>
+  <div class="frame mt-3">
+    <div class="row">
+      <div class="col-8">
+        <span>{{ hsba.donvichuquan }}</span><br>
+        <span>BV: {{ hsba.tenbenhvien }}</span>
+      </div>
+      <div class="col-4">
+        <span>Số lưu trữ:</span><br>
+        <span>Mã y tế:</span> <span>{{ hsba.mayte }}</span>
+      </div>
+    </div>
+    <div style="text-align: center;" class="mt-3 mb-3">
+      <h3>PHIẾU ĐƠN THUỐC ĐIỀU TRỊ</h3>
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <span>Tên bệnh nhân:</span> <b><span class='text-uppercase'>{{ hsba.emrBenhNhan.tendaydu }}</span></b><br>
+        <span>Ngày sinh:</span> <span>{{ formatDate(hsba.emrBenhNhan.ngaysinh) }}</span><br>
+        <span>Ngày vào viện:</span> <span>{{ formatDateTime(hsba.emrQuanLyNguoiBenh.ngaygiovaovien) }}</span><br>
+      </div>
+      <div class="col-4">
+        <span>Giới tính:</span> <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span><br>
+        <span>Tuổi:</span> <span>{{ hsba.emrBenhNhan.tuoi }}</span><br>
+        <span>Ngày ra viện:</span> <span>{{ formatDateTime(hsba.emrQuanLyNguoiBenh.ngaygioravien) }}</span><br>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row">
+      <div class="col-12">
+        <b>Đơn thuốc số: {{ donthuoc.sodon }}</b><br>
+        <span>- Ngày kê đơn: {{ formatDateTime(donthuoc.ngaykedon) }} </span><br>
+        <span>- Bác sỹ kê đơn: {{ donthuoc.bacsikedon }}</span><br>
+      </div>
+    </div>
+    <table class='table table-bordered mt-3'>
+      <tr>
+        <th style='width:4%' class="text-center">STT</th>
+        <th style='width:12%' class="text-center">Biệt dược</th>
+        <th style='width:12%' class="text-center">Tên thuốc</th>
+        <th style='width:12%' class="text-center">Ngày bắt đầu</th>
+        <th style='width:12%' class="text-center">Ngày kết thúc</th>
+        <th style='width:12%' class="text-center">Đường dùng</th>
+        <th style='width:12%' class="text-center">Liều lượng</th>
+        <th style='width:12%' class="text-center">Tần suất</th>
+        <th style='width:12%' class="text-center">Chỉ dẫn</th>
+      </tr>
+      <tr v-for="(dtct, i) in donthuoc.emrDonThuocChiTiets">
+        <td>{{ i + 1 }}</td>
+        <td>{{ dtct.bietduoc }}</td>
+        <td>{{ dtct.emrDmThuoc.ten }}</td>
+        <td>{{ formatDate(dtct.ngaybatdau) }}</td>
+        <td>{{ formatDate(dtct.ngayketthuc) }}</td>
+        <td>{{ dtct.emrDmDuongDungThuoc.ten }}</td>
+        <td>{{ dtct.lieuluongdung }}</td>
+        <td>{{ dtct.emrDmTanXuatDungThuoc.ten }}</td>
+        <td>{{ dtct.emrDmChiDanDungThuoc.ten || dtct.chidandungthuoc }}</td>
+      </tr>
+    </table>
+
+    <div v-if="donthuoc.emrQuanLyFileDinhKemDonThuocs.length > 0">
+      <hr>
+      <b>Danh sách file đính kèm:</b>
+      <table class='table table-bordered mt-3'>
+        <tr>
+          <th style='width:10%' class="text-center">STT</th>
+          <th style='width:90%' class="text-center">Tên file</th>
+        </tr>
+        <tr v-for="(file, i) in donthuoc.emrQuanLyFileDinhKemDonThuocs">
+          <td>{{ i + 1 }}</td>
+          <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

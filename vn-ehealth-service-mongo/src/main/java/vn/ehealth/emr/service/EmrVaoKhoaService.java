@@ -7,6 +7,7 @@ import javax.annotation.Nonnull;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import vn.ehealth.emr.EmrVaoKhoa;
@@ -26,7 +27,9 @@ public class EmrVaoKhoaService {
     @Autowired EmrHoiChanRepository emrHoiChanRepository;
     
     public List<EmrVaoKhoa> getEmrVaoKhoaByHsbaId(ObjectId hsbaId) {
-        var lst = emrVaoKhoaRespository.findByEmrHoSoBenhAnId(hsbaId);
+        var sort = new Sort(Sort.Direction.ASC, "ngaygiovaokhoa");
+                
+        var lst = emrVaoKhoaRespository.findByEmrHoSoBenhAnId(hsbaId, sort);
         
         for(var item : lst) {
             item.emrChamSocs = emrChamSocRepository.findByEmrVaoKhoaId(item.id);
