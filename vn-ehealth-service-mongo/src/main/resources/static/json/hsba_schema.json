@@ -727,7 +727,7 @@
                     "emrThanhVienHoiChans": {
                     	"type" : "Array",
                     	"element" : {
-                            "ten": {"type" : "String"},
+                            "tenbacsi": {"type" : "String"},
                             "emrDmVaiTro": {
                                 "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
                             }

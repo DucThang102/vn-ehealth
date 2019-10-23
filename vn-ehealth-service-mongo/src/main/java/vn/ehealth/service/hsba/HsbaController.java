@@ -90,12 +90,19 @@ public class HsbaController {
 	    result.forEach(x -> {
 	        x.emrCoSoKhamBenh = emrCoSoKhamBenhService.getById(x.emrCoSoKhamBenhId).orElse(null);
 	        x.emrBenhNhan = emrBenhNhanService.getById(x.emrBenhNhanId).orElse(null);
+	        
 	        if(x.emrBenhNhan != null) {
 	            x.emrBenhNhan.tuoi = jasperUtils.getTuoi(x);
 	        }
+	        
 	        var emrVaoKhoas = emrVaoKhoaService.getEmrVaoKhoaByHsbaId(x.id);
+	        
 	        if(emrVaoKhoas.size() > 0) {
-	            x.emrKhoaRaVien = emrVaoKhoas.get(emrVaoKhoas.size() - 1); 
+	            var emrKhoaRaVien = emrVaoKhoas.get(emrVaoKhoas.size() - 1);
+	            x.khoaRaVien = emrKhoaRaVien.tenkhoa;
+	            if(StringUtils.isEmpty(x.khoaRaVien) && emrKhoaRaVien.emrDmKhoaDieuTri != null) {
+	                x.khoaRaVien = emrKhoaRaVien.emrDmKhoaDieuTri.ten;
+	            }
 	        }
 	        
 	    });

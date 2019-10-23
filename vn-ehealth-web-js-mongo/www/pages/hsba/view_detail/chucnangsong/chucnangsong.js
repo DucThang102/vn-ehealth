@@ -58,7 +58,7 @@ VueAsyncComponent('chucnangsong-list', '/pages/hsba/view_detail/chucnangsong/chu
     if(this.hsba) {
       this.chucnangsong_list = this.hsba.emrVaoKhoas.flatMap(x => x.emrChucNangSongs);
       this.chucnangsong_list.forEach(x => {
-        x.emrVaoKhoa = this.hsba.emrVaoKhoas.find(vk => vk.id = x.idvaokhoa);
+        x.emrVaoKhoa = this.hsba.emrVaoKhoas.find(vk => vk.id = x.emrVaoKhoaId);
         x.ngaytheodoi = this.getNgayTheoDoi(x);
       });
     }      

@@ -71,7 +71,7 @@ public class EmrHoSoBenhAn {
         
     @Transient public List<EmrVaoKhoa> emrVaoKhoas = new ArrayList<>();
     
-    @Transient public EmrVaoKhoa emrKhoaRaVien;
+    @Transient public String khoaRaVien;
     
     @Transient public List<EmrHinhAnhTonThuong> emrHinhAnhTonThuongs = new ArrayList<>();
     

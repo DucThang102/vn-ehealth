@@ -46,9 +46,12 @@ public class EmrHoSoBenhAnService {
     @Autowired EmrBenhNhanService emrBenhNhanService;
     @Autowired EmrCoSoKhamBenhService emrCoSoKhamBenhService;
     
+    
+    
     public List<EmrHoSoBenhAn> findByTrangThaiAndIsLatest(int trangThai, boolean isLatest, int offset, int limit){
         var sort = new Sort(Sort.Direction.DESC, "ngaytiepnhan");
-        return emrHoSoBenhAnRepository.findByTrangThaiAndIsLatest(trangThai, isLatest, offset, limit, sort);
+        var pageable = new OffsetBasedPageRequest(limit, offset, sort);        
+        return emrHoSoBenhAnRepository.findByTrangThaiAndIsLatest(trangThai, isLatest, pageable);
     }
     
     public int countByTrangThaiAndIsLatest(int trangThai, boolean isLatest) {

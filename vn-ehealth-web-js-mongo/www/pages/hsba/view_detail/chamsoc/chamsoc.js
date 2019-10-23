@@ -58,7 +58,7 @@ VueAsyncComponent('chamsoc-list', '/pages/hsba/view_detail/chamsoc/chamsoc_list.
     if(this.hsba) {
       this.chamsoc_list = this.hsba.emrVaoKhoas.flatMap(x => x.emrChamSocs);
       this.chamsoc_list.forEach(x => {
-        x.emrVaoKhoa = this.hsba.emrVaoKhoas.find(vk => vk.id = x.idvaokhoa);
+        x.emrVaoKhoa = this.hsba.emrVaoKhoas.find(vk => vk.id = x.emrVaoKhoaId);
         x.ngaychamsoc = this.getNgayChamSoc(x);
       });
     }      

@@ -58,7 +58,7 @@ VueAsyncComponent('dieutri-list', '/pages/hsba/view_detail/dieutri/dieutri_list.
     if(this.hsba) {
       this.dieutri_list = this.hsba.emrVaoKhoas.flatMap(x => x.emrDieuTris);
       this.dieutri_list.forEach(x => {
-        x.emrVaoKhoa = this.hsba.emrVaoKhoas.find(vk => vk.id = x.idvaokhoa);
+        x.emrVaoKhoa = this.hsba.emrVaoKhoas.find(vk => vk.id = x.emrVaoKhoaId);
         x.ngaydieutri = this.getNgayDieuTri(x);
       });
     }      

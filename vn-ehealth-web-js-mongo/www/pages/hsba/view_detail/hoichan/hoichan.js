@@ -65,7 +65,7 @@ VueAsyncComponent('hoichan-view', '/pages/hsba/view_detail/hoichan/hoichan_view.
     bacsichutoa: function(){
       var bacsi = this.hoichan.emrThanhVienHoiChans.find(x => x.emrDmVaiTro.ma == "1");
       if(bacsi){
-        return bacsi.bacsihoichan
+        return bacsi.tenbacsi;
       }
       return "";
     },
@@ -73,7 +73,7 @@ VueAsyncComponent('hoichan-view', '/pages/hsba/view_detail/hoichan/hoichan_view.
     thuky: function() {
       var bacsi = this.hoichan.emrThanhVienHoiChans.find(x => x.emrDmVaiTro.ma == "2");
       if(bacsi){
-        return bacsi.bacsihoichan
+        return bacsi.tenbacsi;
       }
       return "";
     }
