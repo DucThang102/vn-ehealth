@@ -196,8 +196,8 @@ public class HsbaController {
         }        
 	}
 	
-	@PostMapping("/create_hsba")
-	public ResponseEntity<?> createHsba(@RequestBody String jsonSt) {
+	@PostMapping("/create_or_update_hsba")
+	public ResponseEntity<?> createOrUpdateHsba(@RequestBody String jsonSt) {
 	    
 	    var errors = new ArrayList<ErrorMessage>();
 	    var objMap = jsonParser.parseJson(jsonSt, hsbaSchema, errors);
