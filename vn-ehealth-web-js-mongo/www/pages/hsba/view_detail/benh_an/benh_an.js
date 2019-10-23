@@ -7,7 +7,7 @@ var benh_an_script = {
 
   computed: {
     pdfURL : function() {
-      return this.API_URL + "/api/hsba/view_pdf?idhsba=" + this.hsId;
+      return this.API_URL + "/api/hsba/view_pdf?hoso_id=" + this.hsId;
     }
   },
   

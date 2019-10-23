@@ -11,5 +11,5 @@ public interface EmrHoSoBenhAnRepository extends MongoRepository<EmrHoSoBenhAn, 
 
     List<EmrHoSoBenhAn> findByMayte(String mayte);
     List<EmrHoSoBenhAn> findByTrangThaiAndIsLatest(int trangThai, boolean isLatest, Pageable pageable);
-    int countByTrangThaiAndIsLatest(int trangThai, boolean isLatest);
+    long countByTrangThaiAndIsLatest(int trangThai, boolean isLatest);
 }

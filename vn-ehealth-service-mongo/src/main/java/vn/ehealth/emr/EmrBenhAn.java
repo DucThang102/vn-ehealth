@@ -1,10 +1,40 @@
 package vn.ehealth.emr;
 
 import java.util.Date;
-import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+import vn.ehealth.emr.ck.EmrCkChanTayMieng;
+import vn.ehealth.emr.ck.EmrCkChucNangSinhHoat;
+import vn.ehealth.emr.ck.EmrCkCoXuongKhop;
+import vn.ehealth.emr.ck.EmrCkHoHap;
+import vn.ehealth.emr.ck.EmrCkHuongDieuTriHuyetHoc;
+import vn.ehealth.emr.ck.EmrCkHuongDieuTriTcm;
+import vn.ehealth.emr.ck.EmrCkKhamPhuKhoa;
+import vn.ehealth.emr.ck.EmrCkKhamSanKhoa;
+import vn.ehealth.emr.ck.EmrCkKhamSoSinh;
+import vn.ehealth.emr.ck.EmrCkMat;
+import vn.ehealth.emr.ck.EmrCkMoiSinh;
+import vn.ehealth.emr.ck.EmrCkPhuongPhapDieuTriUngBuou;
+import vn.ehealth.emr.ck.EmrCkPhuongPhapHoiSinh;
+import vn.ehealth.emr.ck.EmrCkQuaTrinhBenhLyTcm;
+import vn.ehealth.emr.ck.EmrCkQuaTrinhSinhTruong;
+import vn.ehealth.emr.ck.EmrCkSkTinhTrangSanPhu;
+import vn.ehealth.emr.ck.EmrCkTamThan;
+import vn.ehealth.emr.ck.EmrCkThanKinh;
+import vn.ehealth.emr.ck.EmrCkTiemChung;
+import vn.ehealth.emr.ck.EmrCkTienSuBanThanSanKhoa;
+import vn.ehealth.emr.ck.EmrCkTienSuGiaDinh;
+import vn.ehealth.emr.ck.EmrCkTienSuPhuKhoa;
+import vn.ehealth.emr.ck.EmrCkTienSuSanKhoa;
+import vn.ehealth.emr.ck.EmrCkTieuHoa;
+import vn.ehealth.emr.ck.EmrCkTinhTrangRaVienMat;
+import vn.ehealth.emr.ck.EmrCkTinhTrangSanPhu;
+import vn.ehealth.emr.ck.EmrCkTinhTrangSoSinh;
+import vn.ehealth.emr.ck.EmrCkToanThan;
+import vn.ehealth.emr.ck.EmrCkTomTatBenhAnTcm;
+import vn.ehealth.emr.ck.EmrCkTuanHoan;
 
 @JsonInclude(Include.NON_NULL)
 public class EmrBenhAn {
@@ -79,73 +109,73 @@ public class EmrBenhAn {
     
     public String nguonlay;     
     
-    public Map<String, Object> emrCkTinhTrangSanPhu;    
+    public EmrCkTinhTrangSanPhu emrCkTinhTrangSanPhu;    
     
-    public Map<String, Object> emrCkTinhTrangSoSinh;    
+    public EmrCkTinhTrangSoSinh emrCkTinhTrangSoSinh;    
     
-    public Map<String, Object> emrCkPhuongPhapHoiSinh;    
+    public EmrCkPhuongPhapHoiSinh emrCkPhuongPhapHoiSinh;    
     
-    public Map<String, Object> emrCkChucNangSinhHoat;    
+    public EmrCkChucNangSinhHoat emrCkChucNangSinhHoat;    
     
-    public Map<String, Object> emrCkTuanHoan;    
+    public EmrCkTuanHoan emrCkTuanHoan;    
     
-    public Map<String, Object> emrCkHoHap;      
+    public EmrCkHoHap emrCkHoHap;      
     
-    public Map<String, Object> emrCkThanKinh;
+    public EmrCkThanKinh emrCkThanKinh;
     
-    public Map<String, Object> emrCkCoXuongKhop;
+    public EmrCkCoXuongKhop emrCkCoXuongKhop;
     
-    public Map<String, Object> emrCkTamThan;    
+    public EmrCkTamThan emrCkTamThan;    
     
-    public Map<String, Object> emrCkMat;      
+    public EmrCkMat emrCkMat;      
     
-    public Map<String, Object> emrCkQuaTrinhSinhTruong;    
+    public EmrCkQuaTrinhSinhTruong emrCkQuaTrinhSinhTruong;    
     
-    public Map<String, Object> emrCkTiemChung;    
+    public EmrCkTiemChung emrCkTiemChung;    
     
-    public Map<String, Object> emrCkTienSuPhuKhoa;    
+    public EmrCkTienSuPhuKhoa emrCkTienSuPhuKhoa;    
     
-    public Map<String, Object> emrCkTienSuSanKhoa;    
+    public EmrCkTienSuSanKhoa emrCkTienSuSanKhoa;    
     
-    public Map<String, Object> emrCkKhamSanKhoa;    
+    public EmrCkKhamSanKhoa emrCkKhamSanKhoa;    
     
-    public Map<String, Object> emrCkTienSuBanThanSanKhoa;    
+    public EmrCkTienSuBanThanSanKhoa emrCkTienSuBanThanSanKhoa;    
     
-    public Map<String, Object> emrCkKhamPhuKhoa;    
+    public EmrCkKhamPhuKhoa emrCkKhamPhuKhoa;    
     
-    public Map<String, Object> emrCkTienSuGiaDinh;    
+    public EmrCkTienSuGiaDinh emrCkTienSuGiaDinh;    
     
-    public Map<String, Object> emrCkKhamSoSinh;    
+    public EmrCkKhamSoSinh emrCkKhamSoSinh;    
     
-    public Map<String, Object> emrCkSkTinhTrangSanPhu;
+    public EmrCkSkTinhTrangSanPhu emrCkSkTinhTrangSanPhu;
     
     // Add moi 02/04/2015
     
-    public Map<String, Object> emrCkMoiSinh;  
+    public EmrCkMoiSinh emrCkMoiSinh;  
     
     // Add moi 10/04/2015
     
-    public Map<String, Object> emrCkToanThan;    
+    public EmrCkToanThan emrCkToanThan;    
     
-    public Map<String, Object> emrCkTieuHoa;    
+    public EmrCkTieuHoa emrCkTieuHoa;    
     
-    public Map<String, Object> emrCkHuongDieuTriHuyetHoc;
+    public EmrCkHuongDieuTriHuyetHoc emrCkHuongDieuTriHuyetHoc;
     
     // Add moi 15/04/2015
     
-    public Map<String, Object> emrCkQuaTrinhBenhLyTcm;    
+    public EmrCkQuaTrinhBenhLyTcm emrCkQuaTrinhBenhLyTcm;    
     
-    public Map<String, Object> emrCkChanTayMieng;    
+    public EmrCkChanTayMieng emrCkChanTayMieng;    
     
-    public Map<String, Object> emrCkTomTatBenhAnTcm;
+    public EmrCkTomTatBenhAnTcm emrCkTomTatBenhAnTcm;
     
     // Add moi 16/04/2015
     
-    public Map<String, Object> emrCkHuongDieuTriTcm;    
+    public EmrCkHuongDieuTriTcm emrCkHuongDieuTriTcm;    
     
-    public Map<String, Object> emrCkPhuongPhapDieuTriUngBuou;    
+    public EmrCkPhuongPhapDieuTriUngBuou emrCkPhuongPhapDieuTriUngBuou;    
     
-    public Map<String, Object> emrCkTinhTrangRaVienMat;
+    public EmrCkTinhTrangRaVienMat emrCkTinhTrangRaVienMat;
     
     public String tyLeBaoHiem; //??
     

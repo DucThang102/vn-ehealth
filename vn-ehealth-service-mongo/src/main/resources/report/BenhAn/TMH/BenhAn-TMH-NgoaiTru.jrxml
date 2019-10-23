@@ -11,9 +11,6 @@
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
-	<field name="daxoa" class="java.lang.Boolean">
-		<fieldDescription><![CDATA[daxoa]]></fieldDescription>
-	</field>
 	<field name="donvichuquan" class="java.lang.String">
 		<fieldDescription><![CDATA[donvichuquan]]></fieldDescription>
 	</field>
@@ -52,9 +49,6 @@
 	</field>
 	<field name="giamdocbenhvien" class="java.lang.String">
 		<fieldDescription><![CDATA[giamdocbenhvien]]></fieldDescription>
-	</field>
-	<field name="id" class="java.lang.Integer">
-		<fieldDescription><![CDATA[id]]></fieldDescription>
 	</field>
 	<field name="maluutru" class="java.lang.String">
 		<fieldDescription><![CDATA[maluutru]]></fieldDescription>

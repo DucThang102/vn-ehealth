@@ -3,31 +3,23 @@ package test;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import org.springframework.core.io.ClassPathResource;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import vn.ehealth.emr.EmrCoSoKhamBenh;
 import vn.ehealth.emr.EmrHoSoBenhAn;
 import vn.ehealth.emr.utils.ExportUtil;
 
 public class TestExportPdf {
     
-    static DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    //static DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     static ObjectMapper mapper = new ObjectMapper();
+    static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
     
-    static EmrCoSoKhamBenh getCoSoKhamBenh() throws IOException {
-        var file = new ClassPathResource("static/json/cosokhambenh.json").getInputStream();
-        var jsonSt = new String(file.readAllBytes());
-        file.close();
-        
-        return mapper.readValue(jsonSt, EmrCoSoKhamBenh.class);
-    }
-    
-    static EmrHoSoBenhAn getDsHsba() throws IOException {
+    static EmrHoSoBenhAn getHsba() throws IOException {
+        mapper.setDateFormat(sdf);
         var file = new ClassPathResource("static/json/hsba.json").getInputStream();
         var jsonSt = new String(file.readAllBytes());
         file.close();
@@ -36,13 +28,11 @@ public class TestExportPdf {
     }
 
     public static void main(String[] args) throws Exception {
-        var coSoKhamBenh = getCoSoKhamBenh();
-        System.out.println(coSoKhamBenh.ten);
         
-        var dsHsba = getDsHsba();
-        System.out.println(dsHsba.emrBenhNhan.tendaydu);
+        var hsba = getHsba();
+        System.out.println(hsba.emrBenhNhan.tendaydu);
         
-        var bytes = ExportUtil.exportPdf(dsHsba, coSoKhamBenh, "", "http://localhost:8080");
+        var bytes = ExportUtil.exportPdf(hsba, "http://localhost:8080");
         var f = new FileOutputStream("C:/tmp/output.pdf");
         f.write(bytes);
         f.close();

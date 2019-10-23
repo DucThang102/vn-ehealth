@@ -10,11 +10,11 @@ import net.sf.jasperreports.engine.util.JRSaver;
 
 public class CompileReport {
 
-    static String[] paths = {
-            
+    static String[] paths1 = {
+            "src\\main\\resources\\report\\BenhAn\\SOSINH\\BenhAn-SOSINH.jasper",
     };
     
-    static String[] paths1 = {            
+    static String[] paths = {            
             "src\\main\\resources\\report\\BenhAn\\BenhAn.jasper",
             "src\\main\\resources\\report\\BenhAn\\BAXP\\BenhAn-BAXP.jasper",
             "src\\main\\resources\\report\\BenhAn\\BONG\\BenhAn-BONG.jasper",
@@ -49,30 +49,8 @@ public class CompileReport {
             "src\\main\\resources\\report\\BenhAn\\TRUYENNHIEM\\BenhAnTruyenNhiem.jasper",
             "src\\main\\resources\\report\\BenhAn\\UNGBUOU\\BenhAn-UngBuou.jasper",
             "src\\main\\resources\\report\\BenhAn\\YHCTNgoaiTru\\Benh-an-YHCT-Ngoai-tru.jasper",
-            "src\\main\\resources\\report\\BenhAn\\YHCTNoiTru\\Benh-an-YHCT-Noi-tru.jasper",
-            "src\\main\\resources\\report\\BenhAn\\YHCTNoiTruBanNgay\\Benh-an-YHCT-Noi-Tru-BN.jasper",
-            "src\\main\\resources\\report\\CacGiayToDiKemKhac\\CacGiayToDiKemKhac.jasper",
-            "src\\main\\resources\\report\\ChamSoc\\ChamSoc.jasper",
-            "src\\main\\resources\\report\\ChamSoc\\ChamSoc_subreport1.jasper",
-            "src\\main\\resources\\report\\ChanDoanHinhAnh\\ChanDoanHinhAnh.jasper",
-            "src\\main\\resources\\report\\ChucNangSong\\ChucNangSong.jasper",
-            "src\\main\\resources\\report\\ChucNangSong\\ChucNangSong_subreport1.jasper",
-            "src\\main\\resources\\report\\DieuTri\\DieuTri.jasper",
-            "src\\main\\resources\\report\\DieuTri\\DieuTri_subreport1.jasper",
-            "src\\main\\resources\\report\\DonThuoc\\DonThuoc.jasper",
-            "src\\main\\resources\\report\\DonThuoc\\DonThuoc_subreport1.jasper",
-            "src\\main\\resources\\report\\FileDinhKem\\Subreport_FileDinhKem.jasper",
-            "src\\main\\resources\\report\\GiaiPhauBenh\\GiaiPhauBenh.jasper",
-            "src\\main\\resources\\report\\Header\\Header_SubReport.jasper",
-            "src\\main\\resources\\report\\HinhAnhTonThuong\\HinhAnhTonThuong.jasper",
-            "src\\main\\resources\\report\\HoiChan\\HoiChan.jasper",
-            "src\\main\\resources\\report\\HoiChan\\HoiChan_subreport1.jasper",
-            "src\\main\\resources\\report\\PhauThuatThuThuat\\PhauThuatThuThuat.jasper",
-            "src\\main\\resources\\report\\PhauThuatThuThuat\\PhauThuatThuThuat_subreport1.jasper",
-            "src\\main\\resources\\report\\ThamDoChucNang\\ThamDoChucNang.jasper",
-            "src\\main\\resources\\report\\XetNghiem\\XetNghiem.jasper",
-            "src\\main\\resources\\report\\XetNghiem\\XetNghiem_subreport1.jasper",
-            "src\\main\\resources\\report\\XetNghiem\\XetNghiem_subreport1_subreport1.jasper"
+            /*"src\\main\\resources\\report\\BenhAn\\YHCTNoiTru\\Benh-an-YHCT-Noi-tru.jasper",*/
+            "src\\main\\resources\\report\\BenhAn\\YHCTNoiTruBanNgay\\Benh-an-YHCT-Noi-Tru-BN.jasper"            
     };
     
     public static void main(String[] args) throws JRException, IOException {

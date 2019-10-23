@@ -8,5 +8,7 @@ public class EmrDmContent {
     
     public String ma = "";
     public String ten = "";
+    
+    public String maicd = "";
 
 }

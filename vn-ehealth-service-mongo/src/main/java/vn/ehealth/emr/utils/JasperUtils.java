@@ -15,7 +15,6 @@ import net.sf.jasperreports.engine.JRDefaultScriptlet;
 import vn.ehealth.emr.EmrBenhAn;
 import vn.ehealth.emr.EmrChanDoan;
 import vn.ehealth.emr.EmrHoSoBenhAn;
-import vn.ehealth.emr.EmrDm;
 import vn.ehealth.emr.EmrDmContent;
 import vn.ehealth.emr.EmrThanhVienHoiChan;
 import vn.ehealth.emr.EmrThanhVienPttt;
@@ -829,7 +828,7 @@ public class JasperUtils extends JRDefaultScriptlet  {
         return result;
     }
     
-    public String getTextChanDoanYhct(String thongTinMoTa, EmrDm benhDanh) {
+    public String getTextChanDoanYhct(String thongTinMoTa, EmrDmContent benhDanh) {
         if (StringUtils.isEmpty(thongTinMoTa))
             return benhDanh == null ? "":benhDanh.ten;
         else return thongTinMoTa;

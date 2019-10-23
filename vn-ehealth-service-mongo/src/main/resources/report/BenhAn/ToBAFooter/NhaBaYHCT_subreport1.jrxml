@@ -8,17 +8,8 @@
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
-	<field name="daxoa" class="java.lang.Boolean">
-		<fieldDescription><![CDATA[daxoa]]></fieldDescription>
-	</field>
-	<field name="emrHoSoBenhAn" class="vn.ehealth.emr.EmrHoSoBenhAn">
-		<fieldDescription><![CDATA[emrHoSoBenhAn]]></fieldDescription>
-	</field>
 	<field name="ghichu" class="java.lang.String">
 		<fieldDescription><![CDATA[ghichu]]></fieldDescription>
-	</field>
-	<field name="id" class="java.lang.Integer">
-		<fieldDescription><![CDATA[id]]></fieldDescription>
 	</field>
 	<field name="ngayhgiohen" class="java.util.Date">
 		<fieldDescription><![CDATA[ngayhgiohen]]></fieldDescription>

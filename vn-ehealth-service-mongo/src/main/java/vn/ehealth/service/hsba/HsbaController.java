@@ -9,8 +9,10 @@ import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,12 +24,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import net.sf.jasperreports.engine.JRException;
 import vn.ehealth.emr.EmrBenhNhan;
 import vn.ehealth.emr.EmrHoSoBenhAn;
 import vn.ehealth.emr.service.EmrBenhNhanService;
 import vn.ehealth.emr.service.EmrCoSoKhamBenhService;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.service.EmrVaoKhoaService;
+import vn.ehealth.emr.utils.ExportUtil;
 import vn.ehealth.emr.utils.JasperUtils;
 import vn.ehealth.validate.ErrorMessage;
 import vn.ehealth.validate.JsonParser;
@@ -74,18 +78,18 @@ public class HsbaController {
 	}
 
 	@GetMapping("/count_ds_hs")
-	public int countHsba(@RequestParam int trangthai, @RequestParam("ma_yte")String maYte) {
-		return emrHoSoBenhAnService.countByTrangThaiAndIsLatest(trangthai, true);		
+	public long countHsba(@RequestParam int trangthai, @RequestParam String mayte) {
+	    return emrHoSoBenhAnService.countHoSo(trangthai, mayte);
 	}
 	
 	@GetMapping("/get_ds_hs")
 	public ResponseEntity<?> getDsHsba(@RequestParam int trangthai ,
-												@RequestParam("ma_yte")String maYte,
+												@RequestParam String mayte,
 												@RequestParam int start, 
 												@RequestParam int count) {
 		
 		
-	    var result =  emrHoSoBenhAnService.findByTrangThaiAndIsLatest(trangthai, true, start, count);
+	    var result =  emrHoSoBenhAnService.getDsHoSo(trangthai, mayte, start, count);
 	    
 	    result.forEach(x -> {
 	        x.emrCoSoKhamBenh = emrCoSoKhamBenhService.getById(x.emrCoSoKhamBenhId).orElse(null);
@@ -125,6 +129,29 @@ public class HsbaController {
         });
         
         return ResponseEntity.of(hsba);
+    }
+	
+	@GetMapping("/view_pdf")
+    public ResponseEntity<?> viewPdf(@RequestParam("hoso_id") String id) {
+        
+	    var hsba = emrHoSoBenhAnService.getById(new ObjectId(id));
+        
+        if(hsba.isPresent()) {
+            try {
+                var data = ExportUtil.exportPdf(hsba.get(), "");
+                var resource = new ByteArrayResource(data);
+                
+                return ResponseEntity.ok()
+                        .contentLength(data.length)
+                        .contentType(MediaType.parseMediaType("application/pdf"))
+                        .body(resource);
+            }catch(JRException | IOException  | NullPointerException e) {
+                logger.error("Error exporting pdf :", e);
+            }           
+        }
+        
+        
+        return ResponseEntity.badRequest().build();
     }
 	
 	@PostMapping("/create_or_update_benhnhan")
@@ -185,13 +212,13 @@ public class HsbaController {
 	    
 	    try {
 	        var mapper = new ObjectMapper();
-	        var hsba0 = mapper.convertValue(objMap, EmrHoSoBenhAn.class);
-    	    var hsba = emrHoSoBenhAnService.save(hsba0);
+	        var hsba = mapper.convertValue(objMap, EmrHoSoBenhAn.class);
+    	    emrHoSoBenhAnService.save(hsba);
     	    emrHoSoBenhAnService.setAsLatest(hsba);
     	    
     	    var result = Map.of(
 	            "success" , true,
-                "emrHoSoBenhAn", hsba0 
+                "emrHoSoBenhAn", objMap 
             );
     	            
     	    return ResponseEntity.ok(result);

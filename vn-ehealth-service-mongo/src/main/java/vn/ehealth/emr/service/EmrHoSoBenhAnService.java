@@ -10,6 +10,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -46,6 +49,27 @@ public class EmrHoSoBenhAnService {
     @Autowired EmrBenhNhanService emrBenhNhanService;
     @Autowired EmrCoSoKhamBenhService emrCoSoKhamBenhService;
     
+    @Autowired MongoTemplate mongoTemplate;
+    
+    public long countHoSo(int trangThai, String mayte) {
+        var query = new Query(Criteria.where("trangThai").is(trangThai)
+                                        .and("mayte").regex(mayte)
+                                        .and("isLatest").is(true)
+                             );
+        
+        return mongoTemplate.count(query, EmrHoSoBenhAn.class);
+    }
+    
+    public List<EmrHoSoBenhAn> getDsHoSo(int trangThai, String mayte, int offset, int limit) {
+        var sort = new Sort(Sort.Direction.DESC, "ngaytiepnhan");
+        var pageable = new OffsetBasedPageRequest(limit, offset, sort);
+        var query = new Query(Criteria.where("trangThai").is(trangThai)
+                                        .and("mayte").regex(mayte)
+                                        .and("isLatest").is(true)
+                             ).with(pageable);
+        
+        return mongoTemplate.find(query, EmrHoSoBenhAn.class);
+    }
     
     
     public List<EmrHoSoBenhAn> findByTrangThaiAndIsLatest(int trangThai, boolean isLatest, int offset, int limit){
@@ -54,7 +78,7 @@ public class EmrHoSoBenhAnService {
         return emrHoSoBenhAnRepository.findByTrangThaiAndIsLatest(trangThai, isLatest, pageable);
     }
     
-    public int countByTrangThaiAndIsLatest(int trangThai, boolean isLatest) {
+    public long countByTrangThaiAndIsLatest(int trangThai, boolean isLatest) {
         return emrHoSoBenhAnRepository.countByTrangThaiAndIsLatest(trangThai, isLatest);
     }
     

@@ -149,7 +149,7 @@
 				<textElement textAlignment="Center" markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrTongKetRaVien.so_to_x_quang]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrTongKetRaVien.soToXQuang]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="217" y="66" width="27" height="17" uuid="61dc7028-bd70-4191-ad45-60fe79cd0da8"/>
@@ -184,7 +184,7 @@
 				<textElement textAlignment="Center" markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrTongKetRaVien.so_to_x_quang+
+				<textFieldExpression><![CDATA[$P{danhSachHSBA}.emrTongKetRaVien.soToXQuang+
 $P{danhSachHSBA}.emrTongKetRaVien.soToCTScanner+
 $P{danhSachHSBA}.emrTongKetRaVien.soToSieuAm+
 $P{danhSachHSBA}.emrTongKetRaVien.soToXetNghiem+

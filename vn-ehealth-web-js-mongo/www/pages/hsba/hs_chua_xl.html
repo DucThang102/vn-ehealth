@@ -19,7 +19,7 @@
         <form @submit.prevent="timKiemHoso()" class="mb-3">
           <div class="row">
             <div class="col-12">
-              <input v-model="ma_yte" class="form-control" placeholder="Tìm theo mã y tế"></input>
+              <input v-model="mayte" class="form-control" placeholder="Tìm theo mã y tế"></input>
             </div>
           </div>
         </form>
@@ -100,12 +100,12 @@
       currentPage: null,
       items: [],
       total: null,
-      ma_yte: ''
+      mayte: ''
     },
 
     methods: {
       getTotal: async function () {
-        this.total = await this.get("/api/hsba/count_ds_hs", { trangthai: 1, ma_yte: this.ma_yte });
+        this.total = await this.get("/api/hsba/count_ds_hs", { trangthai: 1, mayte: this.mayte });
 
       },
 
@@ -116,12 +116,9 @@
 
       getItems: async function () {
         this.items = await this.get("/api/hsba/get_ds_hs",
-          { trangthai: 1, start: this.offset, count: this.perPage, ma_yte: this.ma_yte });
+          { trangthai: 1, start: this.offset, count: this.perPage, mayte: this.mayte });
 
         this.items.forEach(x => {
-          if(!x.emrKhoaRaVien) {
-            x.emrKhoaRaVien = {emrDmKhoaDieuTri: {}};
-          }
           x.nguonDuLieu = this.getNguonDuLieuStr(x.nguonDuLieu);
         });
       },
@@ -138,7 +135,7 @@
       },
 
       currentURL() {
-        return this.createURL("/pages/hsba/hs_chua_xl.html", { ma_yte: this.ma_yte, currentPage: this.currentPage })
+        return this.createURL("/pages/hsba/hs_chua_xl.html", { mayte: this.mayte, currentPage: this.currentPage })
       }
     },
 
@@ -152,7 +149,7 @@
 
     created: async function () {
       this.currentPage = this.getParam("currentPage") || 1;
-      this.ma_yte = this.getParam("ma_yte") || "";
+      this.mayte = this.getParam("mayte") || "";
       await this.getTotal();
       await this.getItems();
     }
