@@ -40,85 +40,85 @@ import vn.ehealth.validate.JsonParser;
 @RestController
 @RequestMapping("/api/hsba")
 public class HsbaController {
-	
-	private static Logger logger = LoggerFactory.getLogger(HsbaController.class);
-	
-	private JsonParser jsonParser = new JsonParser();
-	
-	private static String hsbaSchema = "";
-	private static String benhNhanSchema = "";
-	
-	static {
-	    try {
+    
+    private static Logger logger = LoggerFactory.getLogger(HsbaController.class);
+    
+    private JsonParser jsonParser = new JsonParser();
+    
+    private static String hsbaSchema = "";
+    private static String benhNhanSchema = "";
+    
+    static {
+        try {
             hsbaSchema = new String(new ClassPathResource("static/json/hsba_schema.json").getInputStream().readAllBytes());
         } catch (IOException e) {
             logger.error("Cannot read hsba schema", e);
         }
-	    
-	    try {
-	        benhNhanSchema = new String(new ClassPathResource("static/json/benhnhan_schema.json").getInputStream().readAllBytes());
+        
+        try {
+            benhNhanSchema = new String(new ClassPathResource("static/json/benhnhan_schema.json").getInputStream().readAllBytes());
         } catch (IOException e) {
             logger.error("Cannot read benhnhan schema", e);
         }
-	}
-	
-	@Autowired EmrHoSoBenhAnService emrHoSoBenhAnService;
-	
-	@Autowired EmrBenhNhanService emrBenhNhanService;
-	
-	@Autowired EmrCoSoKhamBenhService emrCoSoKhamBenhService;
-	
-	@Autowired EmrVaoKhoaService emrVaoKhoaService;
-	
-	JasperUtils jasperUtils = new JasperUtils();
-	
-	@GetMapping("/test")
-	public String test() {
-	    return "";	    
-	}
+    }
+    
+    @Autowired EmrHoSoBenhAnService emrHoSoBenhAnService;
+    
+    @Autowired EmrBenhNhanService emrBenhNhanService;
+    
+    @Autowired EmrCoSoKhamBenhService emrCoSoKhamBenhService;
+    
+    @Autowired EmrVaoKhoaService emrVaoKhoaService;
+    
+    JasperUtils jasperUtils = new JasperUtils();
+    
+    @GetMapping("/test")
+    public String test() {
+        return "";        
+    }
 
-	@GetMapping("/count_ds_hs")
-	public long countHsba(@RequestParam int trangthai, @RequestParam String mayte) {
-	    return emrHoSoBenhAnService.countHoSo(trangthai, mayte);
-	}
-	
-	@GetMapping("/get_ds_hs")
-	public ResponseEntity<?> getDsHsba(@RequestParam int trangthai ,
-												@RequestParam String mayte,
-												@RequestParam int start, 
-												@RequestParam int count) {
-		
-		
-	    var result =  emrHoSoBenhAnService.getDsHoSo(trangthai, mayte, start, count);
-	    
-	    result.forEach(x -> {
-	        x.emrCoSoKhamBenh = emrCoSoKhamBenhService.getById(x.emrCoSoKhamBenhId).orElse(null);
-	        x.emrBenhNhan = emrBenhNhanService.getById(x.emrBenhNhanId).orElse(null);
-	        
-	        if(x.emrBenhNhan != null) {
-	            x.emrBenhNhan.tuoi = jasperUtils.getTuoi(x);
-	        }
-	        
-	        var emrVaoKhoas = emrVaoKhoaService.getEmrVaoKhoaByHsbaId(x.id);
-	        
-	        if(emrVaoKhoas.size() > 0) {
-	            var emrKhoaRaVien = emrVaoKhoas.get(emrVaoKhoas.size() - 1);
-	            x.khoaRaVien = emrKhoaRaVien.tenkhoa;
-	            if(StringUtils.isEmpty(x.khoaRaVien) && emrKhoaRaVien.emrDmKhoaDieuTri != null) {
-	                x.khoaRaVien = emrKhoaRaVien.emrDmKhoaDieuTri.ten;
-	            }
-	        }
-	        
-	    });
-		
-		return ResponseEntity.ok(result);
-	}
-	
-	//@GetMapping("/get_hsba/{id}")
+    @GetMapping("/count_ds_hs")
+    public long countHsba(@RequestParam int trangthai, @RequestParam String mayte) {
+        return emrHoSoBenhAnService.countHoSo(trangthai, mayte);
+    }
+    
+    @GetMapping("/get_ds_hs")
+    public ResponseEntity<?> getDsHsba(@RequestParam int trangthai ,
+                                                @RequestParam String mayte,
+                                                @RequestParam int start, 
+                                                @RequestParam int count) {
+        
+        
+        var result =  emrHoSoBenhAnService.getDsHoSo(trangthai, mayte, start, count);
+        
+        result.forEach(x -> {
+            x.emrCoSoKhamBenh = emrCoSoKhamBenhService.getById(x.emrCoSoKhamBenhId).orElse(null);
+            x.emrBenhNhan = emrBenhNhanService.getById(x.emrBenhNhanId).orElse(null);
+            
+            if(x.emrBenhNhan != null) {
+                x.emrBenhNhan.tuoi = jasperUtils.getTuoi(x);
+            }
+            
+            var emrVaoKhoas = emrVaoKhoaService.getEmrVaoKhoaByHsbaId(x.id);
+            
+            if(emrVaoKhoas.size() > 0) {
+                var emrKhoaRaVien = emrVaoKhoas.get(emrVaoKhoas.size() - 1);
+                x.khoaRaVien = emrKhoaRaVien.tenkhoa;
+                if(StringUtils.isEmpty(x.khoaRaVien) && emrKhoaRaVien.emrDmKhoaDieuTri != null) {
+                    x.khoaRaVien = emrKhoaRaVien.emrDmKhoaDieuTri.ten;
+                }
+            }
+            
+        });
+        
+        return ResponseEntity.ok(result);
+    }
+    
+    //@GetMapping("/get_hsba/{id}")
     //public ResponseEntity<?> getHs(@PathVariable("id") String id) {
-	    
-	@GetMapping("/get_hs")
-	public ResponseEntity<?> getHs(@RequestParam("hoso_id") String id) {
+        
+    @GetMapping("/get_hs")
+    public ResponseEntity<?> getHs(@RequestParam("hoso_id") String id) {
         
         var hsba = emrHoSoBenhAnService.getById(new ObjectId(id));
         
@@ -130,11 +130,11 @@ public class HsbaController {
         
         return ResponseEntity.of(hsba);
     }
-	
-	@GetMapping("/view_pdf")
+    
+    @GetMapping("/view_pdf")
     public ResponseEntity<?> viewPdf(@RequestParam("hoso_id") String id) {
         
-	    var hsba = emrHoSoBenhAnService.getById(new ObjectId(id));
+        var hsba = emrHoSoBenhAnService.getById(new ObjectId(id));
         
         if(hsba.isPresent()) {
             try {
@@ -153,10 +153,10 @@ public class HsbaController {
         
         return ResponseEntity.badRequest().build();
     }
-	
-	@PostMapping("/create_or_update_benhnhan")
+    
+    @PostMapping("/create_or_update_benhnhan")
     public ResponseEntity<?> createOrUpdateBenhNhan(@RequestBody String jsonSt) {
-	    var errors = new ArrayList<ErrorMessage>();
+        var errors = new ArrayList<ErrorMessage>();
         var objMap = jsonParser.parseJson(jsonSt, benhNhanSchema, errors);
         
         if(errors.size() > 0) {
@@ -194,41 +194,41 @@ public class HsbaController {
             logger.error("Error create/update benhnhan:", e);
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }        
-	}
-	
-	@PostMapping("/create_or_update_hsba")
-	public ResponseEntity<?> createOrUpdateHsba(@RequestBody String jsonSt) {
-	    
-	    var errors = new ArrayList<ErrorMessage>();
-	    var objMap = jsonParser.parseJson(jsonSt, hsbaSchema, errors);
-	    
-	    if(errors.size() > 0) {
-	        var result = Map.of(
-	            "success" , false,
-	            "errors", errors 
-	        );
-	        return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
-	    }
-	    
-	    try {
-	        var mapper = new ObjectMapper();
-	        var hsba = mapper.convertValue(objMap, EmrHoSoBenhAn.class);
-    	    emrHoSoBenhAnService.save(hsba);
-    	    emrHoSoBenhAnService.setAsLatest(hsba);
-    	    
-    	    var result = Map.of(
-	            "success" , true,
+    }
+    
+    @PostMapping("/create_or_update_hsba")
+    public ResponseEntity<?> createOrUpdateHsba(@RequestBody String jsonSt) {
+        
+        var errors = new ArrayList<ErrorMessage>();
+        var objMap = jsonParser.parseJson(jsonSt, hsbaSchema, errors);
+        
+        if(errors.size() > 0) {
+            var result = Map.of(
+                "success" , false,
+                "errors", errors 
+            );
+            return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+        }
+        
+        try {
+            var mapper = new ObjectMapper();
+            var hsba = mapper.convertValue(objMap, EmrHoSoBenhAn.class);
+            emrHoSoBenhAnService.save(hsba);
+            emrHoSoBenhAnService.setAsLatest(hsba);
+            
+            var result = Map.of(
+                "success" , true,
                 "emrHoSoBenhAn", objMap 
             );
-    	            
-    	    return ResponseEntity.ok(result);
-	    } catch(Exception e) {
-	        var result = Map.of(
+                    
+            return ResponseEntity.ok(result);
+        } catch(Exception e) {
+            var result = Map.of(
                 "success" , false,
                 "errors", List.of(e.getMessage()) 
             );
-	        logger.error("Error save hsba:", e);
-	        return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
-	    }
-	}
+            logger.error("Error save hsba:", e);
+            return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+        }
+    }
 }
