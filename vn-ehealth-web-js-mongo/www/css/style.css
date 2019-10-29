@@ -180,3 +180,9 @@ footer p {
   border: 1px solid #AAA;
   padding: 15px;
 }
+
+@media (min-width: 992px) {
+  .modal-lg {
+    max-width: 1000px;
+  }
+}

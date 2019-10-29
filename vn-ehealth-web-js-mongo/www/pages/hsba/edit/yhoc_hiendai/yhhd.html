@@ -1,0 +1,13 @@
+<div>
+  <b-tabs v-model="step">
+    <b-tab title="HỎI BỆNH">
+      <hoibenh :hsba="hsba" v-if="step==0"></hoibenh>
+    </b-tab>
+    <b-tab title="KHÁM BỆNH">
+      <khambenh :hsba="hsba" v-if="step==1"></khambenh>
+    </b-tab>
+    <b-tab title="HƯỚNG ĐIỀU TRỊ">
+      <huongdieutri :hsba="hsba" v-if="step==2"></huongdieutri>
+    </b-tab>
+  </b-tabs>
+</div>

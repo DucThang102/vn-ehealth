@@ -1,0 +1,16 @@
+<div>
+  <b-tabs v-model="step">
+    <b-tab title="THÔNG TIN HÀNH CHÍNH">
+      <tthc :hsba="hsba" v-if="step==0"></tthc>
+    </b-tab>
+    <b-tab title="Thông tin người bệnh">
+      <ttnb :hsba="hsba" v-if="step==1"></ttnb>
+    </b-tab>
+    <b-tab title="Chẩn đoán">
+      <chandoan :hsba="hsba" v-if="step==2"></chandoan>
+    </b-tab>
+    <b-tab title="Tình trạng ra viện">
+      <ttrv :hsba="hsba" v-if="step==3"></ttrv>
+    </b-tab>
+  </b-tabs>
+</div>
