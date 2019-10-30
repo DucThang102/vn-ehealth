@@ -183,6 +183,10 @@ footer p {
 
 @media (min-width: 992px) {
   .modal-lg {
-    max-width: 1000px;
+    max-width: 900px;
   }
+}
+
+.label-bold {
+  font-weight: bold;
 }

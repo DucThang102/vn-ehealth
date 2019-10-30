@@ -1,3 +1,5 @@
 <div>
-    Phau thuat thu thuat
+  <pttt-list v-on:editPttt="editPttt" v-on:editFiles="editFiles" v-if="pttt == null"></pttt-list>
+  <pttt-edit :pttt="pttt" v-on:viewPtttList="viewPtttList" v-if="pttt != null && !fileEditing"></pttt-edit>
+  <pttt-files :pttt="pttt" v-on:viewPtttList="viewPtttList" v-if="pttt != null && fileEditing"></pttt-files>
 </div>

@@ -1,13 +1,23 @@
 <div>
-  <b-tabs v-model="step">
-    <b-tab title="HỎI BỆNH">
-      <hoibenh :hsba="hsba" v-if="step==0"></hoibenh>
-    </b-tab>
-    <b-tab title="KHÁM BỆNH">
-      <khambenh :hsba="hsba" v-if="step==1"></khambenh>
-    </b-tab>
-    <b-tab title="HƯỚNG ĐIỀU TRỊ">
-      <huongdieutri :hsba="hsba" v-if="step==2"></huongdieutri>
-    </b-tab>
-  </b-tabs>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" :class="{'active': tab==0}" href="#" v-on:click="changeTab(0)">
+        HỎI BỆNH
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" :class="{'active': tab==1}" href="#" v-on:click="changeTab(1)">
+        KHÁM BỆNH
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" :class="{'active': tab==2}" href="#" v-on:click="changeTab(2)">
+        HƯỚNG ĐIỀU TRỊ
+      </a>
+    </li>   
+  </ul>
+
+  <hoibenh v-if="tab==0"></hoibenh>
+  <khambenh v-if="tab==1"></khambenh>
+  <huongdieutri v-if="tab==2"></huongdieutri>
 </div>

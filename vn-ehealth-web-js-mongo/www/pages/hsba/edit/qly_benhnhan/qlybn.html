@@ -1,16 +1,29 @@
 <div>
-  <b-tabs v-model="step">
-    <b-tab title="THÔNG TIN HÀNH CHÍNH">
-      <tthc :hsba="hsba" v-if="step==0"></tthc>
-    </b-tab>
-    <b-tab title="Thông tin người bệnh">
-      <ttnb :hsba="hsba" v-if="step==1"></ttnb>
-    </b-tab>
-    <b-tab title="Chẩn đoán">
-      <chandoan :hsba="hsba" v-if="step==2"></chandoan>
-    </b-tab>
-    <b-tab title="Tình trạng ra viện">
-      <ttrv :hsba="hsba" v-if="step==3"></ttrv>
-    </b-tab>
-  </b-tabs>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" :class="{'active': tab==0}" href="#" v-on:click="changeTab(0)">
+        THÔNG TIN HÀNH CHÍNH
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" :class="{'active': tab==1}" href="#" v-on:click="changeTab(1)">
+        Thông tin người bệnh
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" :class="{'active': tab==2}" href="#" v-on:click="changeTab(2)">
+        Chẩn đoán
+      </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" :class="{'active': tab==3}" href="#" v-on:click="changeTab(3)">
+          Tình trạng ra viện
+        </a>
+      </li>
+  </ul>
+
+  <tthc v-if="tab==0"></tthc>
+  <ttnb v-if="tab==1"></ttnb>
+  <chandoan v-if="tab==2"></chandoan>
+  <ttrv v-if="tab==3"></ttrv>
 </div>
