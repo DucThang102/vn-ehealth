@@ -170,6 +170,7 @@
     
     "emrBenhAn": {
     	"lydovaovien": {"type" : "String"},
+    	"vaongaythu": {"type" : "Integer"},
     	"quatrinhbenhly": {"type" : "String"},
     	"tiensubanthan": {"type" : "String"},
     	"tiemchung": {"type" : "String"},

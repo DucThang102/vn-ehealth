@@ -187,6 +187,10 @@ footer p {
   }
 }
 
+.label-title {
+  font-size: 1.0rem;
+}
+
 .label-bold {
   font-weight: bold;
 }

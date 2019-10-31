@@ -27,7 +27,7 @@ VueAsyncComponent('hatt', '/pages/hsba/edit/hinhanh_tonthuong/hatt.html', {
 VueAsyncComponent('hatt-list', '/pages/hsba/edit/hinhanh_tonthuong/hatt_list.html', {
   data: function(){
     return {
-      hatt_list : [],
+      hatt_list : null,
     }    
   },
 

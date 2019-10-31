@@ -1,0 +1,57 @@
+<div v-if="xetnghiem">
+  <div class="row mt-3">
+    <div class="col-12">
+      <label class="label-title label-bold">Dịch vụ xét nghiệm</label>
+      <select class="form-control" v-model="maDvxn">
+        <option value="">--Chọn dịch vụ xét nghiệm</option>
+        <option v-for="dvxn in xetnghiem.emrXetNghiemDichVus" :value="dvxn.emrDmXetNghiem.ma">
+          {{ dvxn.emrDmXetNghiem.ten }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div v-if="dvxn">
+    <div class="row mt-3" v-if="dvxn">
+      <div class="col-12">
+        <label class="label-title">Danh sách kết quả xét nghiệm</label>
+        <a class="mt-1" href='#' title="Thêm"><i class="fas fa-fw fa-lg fa-plus-circle"></i></a>
+      </div>
+    </div>
+
+    <div class="row mt-3" v-if="dvxn">
+      <div class="col-12">
+        <table class='table table-bordered'>
+          <tr>
+            <th style='width:5%' class="text-center">STT</th>
+            <th style='width:38%' class="text-center">Chỉ số xét nghiệm</th>
+            <th style='width:17%' class="text-center">Kết quả đo</th>
+            <th style='width:15%' class="text-center">Đơn vị</th>
+            <th style='width:17%' class="text-center">Chỉ số bình thường</th>
+            <th style='width:8%' class="text-center">Thao tác</th>
+          </tr>
+          <tr v-for="(xnkq,i) in dvxn.emrXetNghiemKetQuas">
+            <td>{{ i + 1 }}</td>
+            <td><input class="form-control" :value='xnkq.emrDmChiSoXetNghiem.ten' :title='xnkq.emrDmChiSoXetNghiem.ten'></td>
+            <td><input class="form-control" :value='xnkq.giatrido'></td>
+            <td>{{ xnkq.emrDmChiSoXetNghiem.donvi }}</td>
+            <td>Nam: {{xnkq.emrDmChiSoXetNghiem.chisobt_nam}} /
+              Nữ: {{xnkq.emrDmChiSoXetNghiem.chisobt_nu}}</td>
+            <td class="text-center">
+              <a href='#' title="Xóa">
+                <i class="fas fa-fw fa-lg fa-trash" style="color:red"></i>
+              </a>
+            </td>
+          </tr>
+          <tr v-if="dvxn.emrXetNghiemKetQuas.length == 0">
+            <td colspan="6">Không có dữ liệu</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-3 mb-3">
+    <button type="button" v-on:click="viewXetnghiemList()" class="btn btn-sm btn-secondary">Quay lại</button>
+    <button type="button" class="btn btn-sm btn-primary">Lưu lại</button>
+  </div>
+</div>

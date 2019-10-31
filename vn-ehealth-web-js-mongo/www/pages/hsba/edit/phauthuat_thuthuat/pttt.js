@@ -27,7 +27,7 @@ VueAsyncComponent('pttt', '/pages/hsba/edit/phauthuat_thuthuat/pttt.html', {
 VueAsyncComponent('pttt-list', '/pages/hsba/edit/phauthuat_thuthuat/pttt_list.html', {
   data: function(){
     return {
-      pttt_list : [],
+      pttt_list : null,
     }    
   },
 

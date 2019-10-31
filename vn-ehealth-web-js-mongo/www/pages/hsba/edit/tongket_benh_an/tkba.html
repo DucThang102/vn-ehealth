@@ -1,48 +1,48 @@
-<div>
+<div v-if="hsba">
   <div class="row mt-3">
     <div class="col-12">
-      <b><label>TỔNG KẾT BỆNH ÁN</label></b>
+      <label class="label-title label-bold"><label>TỔNG KẾT BỆNH ÁN</label></label>
     </div>
   </div>
   <div class="row mt-3">
     <div class="col-12">
-      <label>Diễn biến lâm sàng</label>
-      <textarea rows="3" class="form-control"></textarea>
+      <label class="label-title">Diễn biến lâm sàng</label>
+      <textarea rows="3" class="form-control" v-model="hsba.emrTongKetRaVien.dienbienlamsang"></textarea>
     </div>
   </div>
   <div class="row mt-3">
     <div class="col-12">
-      <label>Kết quả cận lâm sàng</label>
-      <textarea rows="3" class="form-control"></textarea>
+      <label class="label-title">Kết quả cận lâm sàng</label>
+      <textarea rows="3" class="form-control" v-model="hsba.emrTongKetRaVien.canlamsang"></textarea>
     </div>
   </div>
   <div class="row mt-3">
     <div class="col-12">
-      <label>Phương pháp điều trị YHHĐ</label>
-      <textarea rows="3" class="form-control"></textarea>
+      <label class="label-title">Phương pháp điều trị YHHĐ</label>
+      <textarea rows="3" class="form-control" v-model="hsba.emrTongKetRaVien.phuongphapdieutri"></textarea>
     </div>
   </div>
   <div class="row mt-3">
     <div class="col-12">
-      <label>Tình trạng ra viện</label>
-      <textarea rows="3" class="form-control"></textarea>
+      <label class="label-title">Tình trạng ra viện</label>
+      <textarea rows="3" class="form-control" v-model="hsba.emrTongKetRaVien.tinhtrangnguoibenh"></textarea>
     </div>
   </div>
   <div class="row mt-3">
     <div class="col-12">
-      <label>Chỉ dẫn điều trị tiếp theo</label>
-      <textarea rows="3" class="form-control"></textarea>
+      <label class="label-title">Chỉ dẫn điều trị tiếp theo</label>
+      <textarea rows="3" class="form-control" v-model="hsba.emrTongKetRaVien.chidandieutri"></textarea>
     </div>
   </div>
   <div class="row mt-3">
     <div class="col-6">
-      <label>Người giao hồ sơ</label>
-      <input class="form-control">
+      <label class="label-title">Người giao hồ sơ</label>
+      <input class="form-control" v-model="hsba.emrTongKetRaVien.nguoigiaohoso">
     </div>
 
     <div class="col-6">
-      <label>Người nhận hồ sơ</label>
-      <input class="form-control">
+      <label class="label-title">Người nhận hồ sơ</label>
+      <input class="form-control" v-model="hsba.emrTongKetRaVien.nguoinhanhoso">
     </div>
   </div>
   <div class="row mt-3">
@@ -54,23 +54,33 @@
         </tr>
         <tr>
           <td>- X-quang</td>
-          <td><input type="number" class="form-control"></td>
+          <td>
+            <input type="number" class="form-control" v-model="hsba.emrTongKetRaVien.soToXQuang">
+          </td>
         </tr>
         <tr>
           <td>- CT Scanner</td>
-          <td><input type="number" class="form-control"></td>
+          <td>
+            <input type="number" class="form-control" v-model="hsba.emrTongKetRaVien.soToCTScanner">
+          </td>
         </tr>        
         <tr>
           <td>- Siêu âm</td>
-          <td><input type="number" class="form-control"></td>
+          <td>
+            <input type="number" class="form-control" v-model="hsba.emrTongKetRaVien.soToSieuAm">
+          </td>
         </tr>
         <tr>
           <td>- Xét nghiệm</td>
-          <td><input type="number" class="form-control"></td>
+          <td>
+            <input type="number" class="form-control" v-model="hsba.emrTongKetRaVien.soToXetNghiem">
+          </td>
         </tr>
         <tr>
           <td>- Khác</td>
-          <td><input type="number" class="form-control"></td>
+          <td>
+            <input type="number" class="form-control" v-model="hsba.emrTongKetRaVien.soToKhac">
+          </td>
         </tr>
       </table>
     </div>

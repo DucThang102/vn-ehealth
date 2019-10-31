@@ -1,83 +1,100 @@
 <div v-if="hsba">
   <div class="row mt-3">
     <div class="col-12">
-      <b>I. VÀO VIỆN</b>
+      <label class="label-title label-bold">I. VÀO VIỆN</label>
     </div>
   </div>
-  <div class="row mt-3">
+  <div class="row mt-2">
     <div class="col-4">
-      <label>Thời gian vào viện</label><span style="color: red;">(*)</span>
-      <date-picker value="" :config="{format: 'DD/MM/YYYY hh:mm', sideBySide:true}"></date-picker>
+      <label class="label-title">Thời gian vào viện</label><span style="color: red;">(*)</span>
+      <date-picker v-model="hsba.emrQuanLyNguoiBenh.ngaygiovaovien"
+        :config="{format: 'DD/MM/YYYY hh:mm', sideBySide:true}"></date-picker>
     </div>
     <div class="col-4">
-      <label>Vào viện do bệnh này lần thứ</label>
-      <input class="form-control">
+      <label class="label-title">Vào viện do bệnh này lần thứ</label>
+      <input class="form-control" v-model="hsba.emrQuanLyNguoiBenh.vaovienlanthu">
     </div>
     <div class="col-4">
-      <div class="mb-2"><label>Trực tiếp vào</label></div>
+      <div class="mb-2"><label class="label-title">Trực tiếp vào</label></div>
       <div class="radio">
-        <label><input type="radio" name="noivaovien">1.Cấp cứu</label>
+        <input type="radio" value="01" v-model="hsba.emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao.ma">
+        <label>1.Cấp cứu</label>
       </div>
       <div class="radio">
-        <label><input type="radio" name="noivaovien">2.Khoa khám bệnh</label>
+        <input type="radio" value="02" v-model="hsba.emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao.ma">
+        <label>2.Khoa khám bệnh</label>
       </div>
       <div class="radio">
-        <label><input type="radio" name="noivaovien">3.Khoa điều trị</label>
+        <input type="radio" value="03" v-model="hsba.emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao.ma">
+        <label>3.Khoa điều trị</label>
       </div>
     </div>
   </div>
   <div class="row mt-2">
     <div class="col-4">
-      <label>Nơi giới thiệu</label>
+      <label class="label-title">Nơi giới thiệu</label>
       <div class="radio">
-        <label><input type="radio" name="noigioithieu">1.Cơ quan y tế</label>
+        <input type="radio" value="01" v-model="hsba.emrQuanLyNguoiBenh.emrDmNoiGioiThieu.ma">
+        <label>1.Cơ quan y tế</label>
       </div>
       <div class="radio">
-        <label><input type="radio" name="noigioithieu">2.Tự đến</label>
+        <input type="radio" value="02" v-model="hsba.emrQuanLyNguoiBenh.emrDmNoiGioiThieu.ma">
+        <label>2.Tự đến</label>
       </div>
       <div class="radio">
-        <label><input type="radio" name="noigioithieu">3.Khác</label>
+        <input type="radio" value="03" v-model="hsba.emrQuanLyNguoiBenh.emrDmNoiGioiThieu.ma">
+        <label>3.Khác</label>
       </div>
     </div>
     <div class="col-4">
-      <label>Đối tượng tài chính</label><span style="color: red;">(*)</span>
+      <label class="label-title">Đối tượng tài chính</label><span style="color: red;">(*)</span>
       <div class="radio">
-        <label><input type="radio" name="doituongtaichinh">1.BHYT</label>
+        <input type="radio" value="01" v-model="hsba.emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma">
+        <label>1.BHYT</label>
       </div>
       <div class="radio">
-        <label><input type="radio" name="doituongtaichinh">2.Thu phí</label>
+        <input type="radio" value="02" v-model="hsba.emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma">
+        <label>2.Thu phí</label>
       </div>
       <div class="radio">
-        <label><input type="radio" name="doituongtaichinh">3.Miễn phí</label>
+        <input type="radio" value="03" v-model="hsba.emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma">
+        <label>3.Miễn phí</label>
       </div>
       <div class="radio">
-        <label><input type="radio" name="doituongtaichinh">4.Khác</label>
+        <input type="radio" value="04" v-model="hsba.emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma">
+        <label>4.Khác</label>
       </div>
     </div>
   </div>
   <div class="row mt-2">
     <div class="col-4">
-      <label>Loại vào viện</label><span style="color: red;">(*)</span>
+      <label class="label-title">Loại vào viện</label><span style="color: red;">(*)</span>
       <div class="radio">
-        <label><input type="radio" name="loaivaovien">1.Nội trú</label>
+        <input type="radio" value="1" v-model="hsba.emrQuanLyNguoiBenh.emrDmLoaiVaoVien.ma">
+        <label>1.Nội trú</label>
       </div>
       <div class="radio">
-        <label><input type="radio" name="loaivaovien">2.Ngoại trú</label>
+        <input type="radio" value="2" v-model="hsba.emrQuanLyNguoiBenh.emrDmLoaiVaoVien.ma">
+        <label>2.Ngoại trú</label>
       </div>
     </div>
     <div class="col-4">
-      <label>Bác sĩ khám bệnh</label>
-      <input class="form-control">
+      <label class="label-title">Bác sĩ khám bệnh</label>
+      <input class="form-control" v-model="hsba.emrQuanLyNguoiBenh.tenbacsikham">
     </div>
   </div>
 
   <div class="row mt-3">
     <div class="col-12">
-      <b>II. VÀO KHOA</b>
+      <label class="label-title label-bold">II. VÀO KHOA</label>
     </div>
   </div>
 
-  <div style="overflow-x:scroll;">
+  <div class="mt-2" style="overflow-x:scroll;">
+    <label class="label-title label-bold">Danh sách khoa điều trị</label>
+    <a class="mt-1" href='#' title="Thêm">
+      <i class="fas fa-fw fa-lg fa-plus-circle"></i>
+    </a>
     <table style="width:120% !important" class="table table-bordered">
       <tr>
         <th style="width: 6%;" class="text-center"></th>
@@ -89,65 +106,59 @@
         <th style="width: 10%;" class="text-center">Số phòng</th>
         <th style="width: 10%;" class="text-center">Số giường</th>
       </tr>
-      <tr>
+      <tr v-for="(khoa, i) in hsba.emrVaoKhoas">
         <td class="text-center">
-          <a href='#' data-toggle="modal" data-target="#vkModal"><i class="fas fa-fw fa-edit"></i></a>
+          <a href='#' v-on:click="khoadieutri=khoa" data-toggle="modal" data-target="#vkModal"><i class="fas fa-fw fa-edit"></i></a>
           <a href='#'><i class="fas fa-fw fa-trash" style="color:red"></i></a>
         </td>
-        <td>Khoa sơ sinh</td>
-        <td>Trưởng khoa</td>
-        <td>Bác sĩ đt</td>
-        <td class="text-center">29/10/2019 10:00</td>
-        <td class="text-center">29/10/2019 10:00</td>
-        <td class="text-center">B315</td>
-        <td class="text-center">B315-H00</td>
-      </tr>
-      <tr>
-        <td class="text-center">
-          <a href='#' data-toggle="modal" data-target="#vkModal"><i class="fas fa-fw fa-edit"></i></a>
-          <a href='#'><i class="fas fa-fw fa-trash" style="color:red"></i></a>
-        </td>
-        <td>Khoa sơ sinh</td>
-        <td>Trưởng khoa</td>
-        <td>Bác sĩ đt</td>
-        <td class="text-center">29/10/2019 10:00</td>
-        <td class="text-center">29/10/2019 10:00</td>
-        <td class="text-center">B315</td>
-        <td class="text-center">B315-H00</td>
-      </tr>
+        <td>{{ khoa.tenkhoa || khoa.emrDmKhoaDieuTri.ten }}</td>
+        <td>{{ khoa.tentruongkhoa }}</td>
+        <td>{{ khoa.bacsidieutri }}</td>
+        <td class="text-center">{{ khoa.ngaygiovaokhoa }}</td>
+        <td class="text-center">{{ khoa.ngayketthucdieutri }}</td>
+        <td class="text-center">{{ khoa.phong }}</td>
+        <td class="text-center">{{ khoa.giuong }}</td>
+      </tr>      
     </table>
-    <button class="btn btn-sm btn-secondary mb-2" data-toggle="modal" data-target="#vkModal">Thêm thông tin vào khoa</button>    
   </div>
 
   <div class="row mt-4">
     <div class="col-12">
-      <b>III. RA VIỆN</b>
+      <label class="label-title label-bold">III. RA VIỆN</label>
     </div>
   </div>
 
   <div class="row mt-2">
     <div class="col-4">
-      <label>Thời gian ra viện</label><span style="color: red;">(*)</span>
-      <date-picker value="" :config="{format: 'DD/MM/YYYY hh:mm', sideBySide:true}"></date-picker>
+      <label class="label-title">Thời gian ra viện</label><span style="color: red;">(*)</span>
+      <date-picker v-model="hsba.emrQuanLyNguoiBenh.ngaygioravien" :config="{format: 'DD/MM/YYYY hh:mm', sideBySide:true}"></date-picker>
     </div>
     <div class="col-4">
-      <label>Loại ra viện</label><span style="color: red;">(*)</span>
-      <select class="form-control">
-        <option>-----</option>
+      <label class="label-title">Loại ra viện</label><span style="color: red;">(*)</span>
+      <select class="form-control" v-model="hsba.emrQuanLyNguoiBenh.emrDmLoaiRaVien.ma">
+        <option>----</option>
+        <option value="01">Cho ra viện</option>
+        <option value="02">Xin về</option>
+        <option value="03">Tự bỏ về</option>
+        <option value="04">Gia đình đưa về</option>
       </select>
     </div>
   </div>
   <div class="row mt-2">
     <div class="col-4">
-      <label>Bác sĩ cho ra viện</label>
-      <input class="form-control">
+      <label class="label-title">Bác sĩ cho ra viện</label>
+      <input class="form-control" v-model="hsba.emrQuanLyNguoiBenh.tenbacsichoravien">
     </div>
     <div class="col-4">
-      <label>Loại chuyển viện</label>
-      <select class="form-control">
-        <option>-----</option>
+      <label class="label-title">Loại chuyển viện</label>
+      <select class="form-control" v-model="hsba.emrQuanLyNguoiBenh.emrDmLoaiChuyenVien.ma">
+        <option>----</option>
+        <option value="01">Tuyến trên</option>
+        <option value="02">Tuyến dưới</option>
+        <option value="03">Chuyên khoa</option>
+        <option value="04">Khác</option>
       </select>
-    </div>    
+    </div>
   </div>
 
   <div class="mt-3 mb-3">
@@ -163,43 +174,41 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" v-if="khoadieutri">
           <div class="row">
             <div class="col-6 form-group">
-              <label>Khoa điều trị</label> <span style="color: red;">(*)</span>
-              <select class="form-control">
-                <option>-----</option>
-              </select>
+              <label class="label-title">Khoa điều trị</label> <span style="color: red;">(*)</span>
+              <input class="form-control" :value="khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten">
             </div>
             <div class="col-6 form-group">
-              <label>Trưởng khoa</label>
-              <input class="form-control">
+              <label class="label-title">Trưởng khoa</label>
+              <input class="form-control" :value="khoadieutri.tentruongkhoa">
             </div>
           </div>
           <div class="row">
             <div class="col-12 form-group">
-              <label>Bác sỹ điều trị</label>
-              <input class="form-control">
+              <label class="label-title">Bác sỹ điều trị</label>
+              <input class="form-control" :value="khoadieutri.bacsidieutri">
             </div>
           </div>
           <div class="row">
             <div class="col-6 form-group">
-              <label>Ngày bắt đầu điều trị</label> <span style="color: red;">(*)</span>
-              <date-picker value="" :config="{format: 'DD/MM/YYYY hh:mm', sideBySide:true}"></date-picker>
+              <label class="label-title">Ngày bắt đầu điều trị</label> <span style="color: red;">(*)</span>
+              <date-picker v-model="khoadieutri.ngaygiovaokhoa" :config="{format: 'DD/MM/YYYY HH:mm', sideBySide:true}"></date-picker>
             </div>
             <div class="col-6 form-group">
-              <label>Ngày kết thúc điều trị</label> <span style="color: red;">(*)</span>
-              <date-picker value="" :config="{format: 'DD/MM/YYYY hh:mm', sideBySide:true}"></date-picker>
+              <label class="label-title">Ngày kết thúc điều trị</label> <span style="color: red;">(*)</span>
+              <date-picker v-model="khoadieutri.ngayketthucdieutri" :config="{format: 'DD/MM/YYYY HH:mm', sideBySide:true}"></date-picker>
             </div>
           </div>
           <div class="row">
             <div class="col-6 form-group">
-              <label>Số phòng</label>
-              <input class="form-control">
+              <label class="label-title">Số phòng</label>
+              <input class="form-control" v-model="khoadieutri.phong">
             </div>
             <div class="col-6 form-group">
-              <label>Số giường</label>
-              <input class="form-control">
+              <label class="label-title">Số giường</label>
+              <input class="form-control" v-model="khoadieutri.giuong">
             </div>
           </div>
         </div>

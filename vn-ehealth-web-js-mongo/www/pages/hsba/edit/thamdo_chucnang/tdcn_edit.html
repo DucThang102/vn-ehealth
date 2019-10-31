@@ -1,0 +1,56 @@
+<div v-if="tdcn" class="mt-3">
+  <div class="row mt-3">
+    <div class="col-4">
+      <label class="label-title">Ngày yêu cầu</label>
+      <date-picker v-model="tdcn.ngayyeucau" :config="{format: 'DD/MM/YYYY HH:mm', sideBySide:true}"></date-picker>
+    </div>
+    <div class="col-4">
+      <label class="label-title">Loại thăm dò</label> <span style="color:red">(*)</span>
+      <input class="form-control" :value="tdcn.emrDmLoaiThamDoChucNang.ten">
+    </div>
+    <div class="col-4">
+      <label class="label-title">Tên thăm dò</label> <span style="color:red">(*)</span>
+      <input class="form-control" :value="tdcn.emrDmThamDoChucNang.ten">
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-4">
+      <label class="label-title">Bác sĩ yêu cầu</label>
+      <input class="form-control" v-model="tdcn.bacsiyeucau">
+    </div>
+    <div class="col-4">
+      <label class="label-title">Bác sĩ thực hiện</label>
+      <input class="form-control" v-model="tdcn.bacsichuyenkhoa">
+    </div>
+    <div class="col-4">
+      <label class="label-title">Ngày thực hiện</label>
+      <date-picker v-model="tdcn.ngaythuchien" :config="{format: 'DD/MM/YYYY HH:mm', sideBySide:true}"></date-picker>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12">
+      <label class="label-title">Kết quả</label>
+      <textarea rows="3" class="form-control" v-model="tdcn.ketqua"></textarea>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12">
+      <label class="label-title">Kết luận</label>
+      <textarea rows="3" class="form-control" v-model="tdcn.ketluan"></textarea>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12">
+      <label class="label-title">Lời dặn</label>
+      <textarea rows="3" class="form-control" v-model="tdcn.loidan"></textarea>
+    </div>
+  </div>
+  <div class="mt-3 mb-3">
+    <button type="button" v-on:click="viewTdcnList()" class="btn btn-sm btn-secondary">Quay lại</button>
+    <button type="button" class="btn btn-sm btn-primary">Lưu lại</button>
+  </div>
+</div>

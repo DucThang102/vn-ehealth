@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -44,6 +45,7 @@ public class EmrBenhNhan {
 
     public String tendaydu;
     
+    @JsonFormat(pattern="dd/MM/yyyy")
     public Date ngaysinh;
 
     public String diachi;
@@ -52,6 +54,7 @@ public class EmrBenhNhan {
 
     public String sobhyt;
 
+    @JsonFormat(pattern="dd/MM/yyyy")
     public Date ngayhethanthebhyt;
 
     public String hotenbo;
@@ -64,8 +67,10 @@ public class EmrBenhNhan {
 
     public String sodienthoainguoibaotin;
     
+    @JsonFormat(pattern="dd/MM/yyyy")
     public Date ngaySinhCuaBo;
     
+    @JsonFormat(pattern="dd/MM/yyyy")
     public Date ngaySinhCuaMe;
     
     public String trinhDoVanHoaCuaBo;

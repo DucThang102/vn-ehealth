@@ -1,0 +1,34 @@
+<div v-if="xetnghiem_list">
+  <table class="table table-bordered">
+    <tr>
+      <th style="width: 5%;" class="text-center">STT</th>
+      <th style="width: 15%;" class="text-center">Thao tác</th>
+      <th style="width: 30%;" class="text-center">Xét nghiệm</th>
+      <th style="width: 30%;" class="text-center">Loại xét nghiệm</th>
+      <th style="width: 20%;" class="text-center">Ngày thực hiện</th>
+    </tr>
+    <tr v-for="(xetnghiem, i) in xetnghiem_list">
+      <td class="text-center">{{ i + 1 }}</td>      
+      <td class="text-center">
+        <a href='#' v-on:click="editXetnghiem(xetnghiem)" title="Chỉnh sửa">
+          <i class="fas fa-fw fa-lg fa-edit"></i>
+        </a>
+
+        <a href='#' v-on:click="editKetqua(xetnghiem)" title="Chỉnh sửa kết quả">
+          <i class="fas fa-fw fa-lg fa-syringe"></i>
+        </a>
+
+        <a href='#' v-on:click="editFiles(xetnghiem)" title="Quản lý file đính kèm">
+          <i class="fas fa-fw fa-lg fa-file"></i>
+        </a>
+
+        <a href='#' v-on:click='deleteXetnghiem(xetnghiem.id)' title="Xóa">
+          <i class="fas fa-fw fa-lg fa-trash" style="color:red"></i>
+        </a>
+      </td>
+      <td></td>
+      <td class="text-center">{{ xetnghiem.emrDmLoaiXetNghiem.ten }}</td>
+      <td class="text-center">{{ formatDateTime(xetnghiem.ngaythuchien) }}</td>
+    </tr>
+  </table>
+</div>

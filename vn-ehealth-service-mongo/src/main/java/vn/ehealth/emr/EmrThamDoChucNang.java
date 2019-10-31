@@ -8,6 +8,7 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -24,10 +25,15 @@ public class EmrThamDoChucNang {
     public EmrDmContent emrDmThamDoChucNang;
     public EmrDmContent emrDmLoaiThamDoChucNang;
     
+    @JsonFormat(pattern="dd/MM/yyyy HH:mm")
     public Date ngayyeucau;
+    
     public String bacsiyeucau;
     public String noidungyeucau;
+    
+    @JsonFormat(pattern="dd/MM/yyyy HH:mm")
     public Date ngaythuchien;
+    
     public String ketqua;
     public String ketluan;
     public String loidan;

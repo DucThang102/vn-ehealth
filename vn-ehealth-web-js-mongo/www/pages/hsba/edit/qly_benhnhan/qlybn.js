@@ -59,6 +59,7 @@ VueAsyncComponent('ttnb', '/pages/hsba/edit/qly_benhnhan/thongtin_nguoibenh.html
 
   data: function() {
     return {
+      khoadieutri: null
     }
   },
   methods: {

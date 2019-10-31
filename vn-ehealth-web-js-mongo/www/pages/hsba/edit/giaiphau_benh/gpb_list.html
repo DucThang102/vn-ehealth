@@ -1,0 +1,32 @@
+<div v-if="gpb_list">
+  <table class="table table-bordered">
+    <tr>
+      <th style="width: 5%;" class="text-center">STT</th>
+      <th style="width: 15%;" class="text-center">Thao tác</th>
+      <th style="width: 30%;" class="text-center">Giải phẫu bệnh</th>
+      <th style="width: 30%;" class="text-center">Loại giải phẫu bệnh</th>
+      <th style="width: 20%;" class="text-center">Ngày thực hiện</th>
+    </tr>
+    <tr v-for="(gpb, i) in gpb_list">
+      <td class="text-center">{{ i + 1 }}</td>
+
+      <td class="text-center">
+        <a href='#' v-on:click="editGpb(gpb)" title="Chỉnh sửa">
+          <i class="fas fa-fw fa-lg fa-edit"></i>
+        </a>
+
+        <a href='#' v-on:click="editFiles(gpb)" title="Quản lý file đính kèm">
+          <i class="fas fa-fw fa-lg fa-file"></i>
+        </a>
+
+        <a href='#' v-on:click='deleteGpb(gpb.id)' title="Xóa">
+          <i class="fas fa-fw fa-lg fa-trash" style="color:red"></i>
+        </a>
+      </td>
+
+      <td class="text-center">{{ gpb.emrDmGiaiPhauBenh.ten }}</td>
+      <td class="text-center">{{ gpb.emrDmLoaiGiaiPhauBenh.ten }}</td>
+      <td class="text-center">{{ gpb.ngaythuchien }}</td>
+    </tr>
+  </table>
+</div>

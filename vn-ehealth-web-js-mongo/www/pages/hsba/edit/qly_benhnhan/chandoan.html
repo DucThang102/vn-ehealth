@@ -1,79 +1,79 @@
 <div v-if="hsba">
   <div class="row mt-3">
     <div class="col-12">
-      <b>I. VÀO VIỆN HOẶC VÀO KHOA KHÁM BỆNH</b>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-6">
-      <label>Chẩn đoán nơi đến</label>
-      <input class="form-control">
-    </div>
-    <div class="col-6">
-      <label>Chẩn đoán vào viện</label>
-      <input class="form-control">
+      <label class="label-title label-bold">I. VÀO VIỆN HOẶC VÀO KHOA KHÁM BỆNH</label>
     </div>
   </div>
   <div class="row mt-2">
     <div class="col-6">
-      <label>Mô tả chẩn đoán nơi đến</label>
-      <textarea rows="3" class="form-control"></textarea>
+      <label class="label-title">Chẩn đoán nơi đến</label>
+      <input class="form-control" :value="hsba.emrChanDoan.emrDmMaBenhChandoannoiden.ten">
     </div>
     <div class="col-6">
-      <label>Mô tả chẩn đoán vào viện</label>
-      <textarea rows="3" class="form-control"></textarea>
+      <label class="label-title">Chẩn đoán vào viện</label>
+      <input class="form-control" :value="hsba.emrChanDoan.emrDmMaBenhChandoankkb.ten">
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-6">
+      <label class="label-title">Mô tả chẩn đoán nơi đến</label>
+      <textarea rows="3" class="form-control" v-model="hsba.emrChanDoan.motachandoannoiden"></textarea>
+    </div>
+    <div class="col-6">
+      <label class="label-title">Mô tả chẩn đoán vào viện</label>
+      <textarea rows="3" class="form-control" v-model="hsba.emrChanDoan.motachandoankkb"></textarea>
     </div>
   </div>
 
   <div class="row mt-3">
     <div class="col-12">
-      <b>II. VÀO KHOA ĐIỀU TRỊ</b>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-6">
-      <label>Bệnh chính</label>
-      <input class="form-control">
-    </div>
-    <div class="col-6">
-      <label>Bệnh kèm theo</label>
-      <input class="form-control">
+        <label class="label-title label-bold">II. VÀO KHOA ĐIỀU TRỊ</label>
     </div>
   </div>
   <div class="row mt-2">
     <div class="col-6">
-      <label>Mô tả chẩn đoán bệnh chính</label>
-      <textarea rows="3" class="form-control"></textarea>
+      <label class="label-title">Bệnh chính</label>
+      <input class="form-control" :value="hsba.emrBenhAn.emrDmMaBenhChandoanbenhchinh.ten">
     </div>
     <div class="col-6">
-      <label>Mô tả chẩn đoán bệnh kèm theo</label>
-      <textarea rows="3" class="form-control"></textarea>
+      <label class="label-title">Bệnh kèm theo</label>
+      <input class="form-control" :value="hsba.emrBenhAn.emrDmMaBenhChandoankemtheo.ten">
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-6">
+      <label class="label-title">Mô tả chẩn đoán bệnh chính</label>
+      <textarea rows="3" class="form-control" v-model="hsba.emrBenhAn.motachandoanbenhchinh"></textarea>
+    </div>
+    <div class="col-6">
+      <label class="label-title">Mô tả chẩn đoán bệnh kèm theo</label>
+      <textarea rows="3" class="form-control" v-model="hsba.emrBenhAn.motachandoankemtheo"></textarea>
     </div>
   </div>
 
   <div class="row mt-3">
     <div class="col-12">
-      <b>III. RA VIỆN</b>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-6">
-      <label>Bệnh chính</label>
-      <input class="form-control">
-    </div>
-    <div class="col-6">
-      <label>Bệnh kèm theo</label>
-      <input class="form-control">
+        <label class="label-title label-bold">III. RA VIỆN</label>
     </div>
   </div>
   <div class="row mt-2">
     <div class="col-6">
-      <label>Mô tả chẩn đoán bệnh chính</label>
-      <textarea rows="3" class="form-control"></textarea>
+      <label class="label-title">Bệnh chính</label>
+      <input class="form-control" :value="hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten">
     </div>
     <div class="col-6">
-      <label>Mô tả chẩn đoán bệnh kèm theo</label>
-      <textarea rows="3" class="form-control"></textarea>
+      <label class="label-title">Bệnh kèm theo</label>
+      <input class="form-control" :value="hsba.emrChanDoan.emrDmMaBenhChandoanravienkemtheo.ten">
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-6">
+      <label class="label-title">Mô tả chẩn đoán bệnh chính</label>
+      <textarea rows="3" class="form-control" v-model="hsba.emrChanDoan.motachandoanravienchinh"></textarea>
+    </div>
+    <div class="col-6">
+      <label class="label-title">Mô tả chẩn đoán bệnh kèm theo</label>
+      <textarea rows="3" class="form-control" v-model="hsba.emrChanDoan.motachandoanravienkemtheo"></textarea>
     </div>
   </div>
 

@@ -5,19 +5,27 @@
         <b><label>Kết quả điều trị</label><span style="color: red;">(*)</span></b>
       </div>
       <div class="radio">
-        <label><input type="radio" name="ketquadieutri">1.Khỏi bệnh</label>
+        <input type="radio" value="01" v-model="hsba.emrTinhTrangRaVien.emrDmKetQuaDieuTri.ma">
+        <label>1. Khỏi bệnh</label>
       </div>
       <div class="radio">
-        <label><input type="radio" name="ketquadieutri">2.Đỡ, giảm</label>
+        <input type="radio" value="02" v-model="hsba.emrTinhTrangRaVien.emrDmKetQuaDieuTri.ma">
+        <label>2. Đỡ, giảm</label>
       </div>
+
       <div class="radio">
-        <label><input type="radio" name="ketquadieutri">3.Không thay đổi</label>
+        <input type="radio" value="03" v-model="hsba.emrTinhTrangRaVien.emrDmKetQuaDieuTri.ma">
+        <label>3. Không thay đổi</label>
       </div>
+
       <div class="radio">
-        <label><input type="radio" name="ketquadieutri">4.Nặng hơn</label>
+        <input type="radio" value="04" v-model="hsba.emrTinhTrangRaVien.emrDmKetQuaDieuTri.ma">
+        <label>4. Nặng hơn</label>
       </div>
+
       <div class="radio">
-        <label><input type="radio" name="ketquadieutri">5.Tử vong</label>
+        <input type="radio" value="05" v-model="hsba.emrTinhTrangRaVien.emrDmKetQuaDieuTri.ma">
+        <label>5. Tử vong</label>
       </div>
     </div>
   </div>
@@ -28,7 +36,7 @@
     </div>
     <div class="col-4">
       <label>Trưởng phòng KHTH</label>
-      <input class="form-control">    
+      <input class="form-control">
     </div>
   </div>
 

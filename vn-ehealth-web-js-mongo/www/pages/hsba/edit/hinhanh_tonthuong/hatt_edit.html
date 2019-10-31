@@ -1,17 +1,17 @@
 <div v-if="hatt" class="mt-3">
   <div class="row">
     <div class="col-12">
-      <label>Ảnh tổn thương</label>
+      <label class="label-title">Ảnh tổn thương</label>
       <input class="form-control" v-model="hatt.anhtonthuong">
     </div>
   </div>
   <div class="row mt-3">
     <div class="col-12">
-      <label>Mô tả tổn thương</label>
+      <label class="label-title">Mô tả tổn thương</label>
       <textarea rows="3" class="form-control" v-model="hatt.motatonthuong"></textarea>
     </div>
   </div>
-  <div class="mt-3">
+  <div class="mt-3 mb-3">
       <button type="button" v-on:click="viewHattList()" class="btn btn-sm btn-secondary">Quay lại</button>
       <button type="button" class="btn btn-sm btn-primary">Lưu lại</button>
   </div>

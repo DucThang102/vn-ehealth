@@ -1,3 +1,5 @@
 <div>
-    Giai phau benh
+  <gpb-list v-on:editGpb="editGpb" v-on:editFiles="editFiles" v-if="gpb == null"></gpb-list>
+  <gpb-edit :gpb="gpb" v-on:viewGpbList="viewGpbList" v-if="gpb != null && !fileEditing"></gpb-edit>
+  <gpb-files :gpb="gpb" v-on:viewGpbList="viewGpbList" v-if="gpb != null && fileEditing"></gpb-files>
 </div>

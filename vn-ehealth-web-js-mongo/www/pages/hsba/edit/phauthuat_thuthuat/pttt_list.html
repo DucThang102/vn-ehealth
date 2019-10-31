@@ -1,4 +1,4 @@
-<div v-if="pttt_list.length > 0">
+<div v-if="pttt_list">
   <table class="table table-bordered">
     <tr>
       <th style="width: 5%;" class="text-center">STT</th>
@@ -24,7 +24,7 @@
       </td>
       <td class="text-center">{{ pttt.emrDmPhauThuThuat.ten }}</td>
       <td class="text-center">{{ pttt.bacsithuchien }}</td>
-      <td class="text-center">{{ formatDateTime(pttt.ngaygiopttt) }}</td>
+      <td class="text-center">{{ pttt.ngaygiopttt }}</td>
     </tr>
   </table>
 </div>

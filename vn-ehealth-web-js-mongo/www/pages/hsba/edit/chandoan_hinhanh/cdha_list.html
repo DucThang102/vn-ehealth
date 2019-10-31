@@ -1,0 +1,30 @@
+<div v-if="cdha_list">
+  <table class="table table-bordered">
+    <tr>
+      <th style="width: 5%;" class="text-center">STT</th>
+      <th style="width: 15%;" class="text-center">Thao tác</th>
+      <th style="width: 30%;" class="text-center">Chẩn đoán hình ảnh</th>
+      <th style="width: 30%;" class="text-center">Loại chẩn đoán hình ảnh</th>
+      <th style="width: 20%;" class="text-center">Ngày thực hiện</th>
+    </tr>
+    <tr v-for="(cdha, i) in cdha_list">
+      <td class="text-center">{{ i + 1 }}</td>
+      <td class="text-center">
+        <a href='#' v-on:click="editCdha(cdha)" title="Chỉnh sửa">
+          <i class="fas fa-fw fa-lg fa-edit"></i>
+        </a>
+
+        <a href='#' v-on:click="editFiles(cdha)" title="Quản lý file đính kèm">
+          <i class="fas fa-fw fa-lg fa-file"></i>
+        </a>
+
+        <a href='#' v-on:click='deleteCdha(cdha.id)' title="Xóa">
+          <i class="fas fa-fw fa-lg fa-trash" style="color:red"></i>
+        </a>
+      </td>
+      <td class="text-center">{{ cdha.emrDmChanDoanHinhAnh.ten }}</td>
+      <td class="text-center">{{ cdha.emrDmLoaiChanDoanHinhAnh.ten }}</td>
+      <td class="text-center">{{ cdha.ngaythuchien }}</td>
+    </tr>
+  </table>
+</div>

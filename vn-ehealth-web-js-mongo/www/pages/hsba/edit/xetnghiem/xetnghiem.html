@@ -1,3 +1,6 @@
 <div>
-    Xet nghiem
+  <xetnghiem-list v-on:editXetnghiem="editXetnghiem" v-on:editKetqua="editKetqua" v-on:editFiles="editFiles" v-if="xetnghiem == null"></xetnghiem-list>
+  <xetnghiem-edit :xetnghiem="xetnghiem" v-on:viewXetnghiemList="viewXetnghiemList" v-if="xetnghiem != null && editMode=='xetnghiem'"></xetnghiem-edit>
+  <xetnghiem-ketqua :xetnghiem="xetnghiem" v-on:viewXetnghiemList="viewXetnghiemList" v-if="xetnghiem != null && editMode=='ketqua'"></xetnghiem-ketqua>
+  <xetnghiem-files :xetnghiem="xetnghiem" v-on:viewXetnghiemList="viewXetnghiemList" v-if="xetnghiem != null && editMode=='files'"></xetnghiem-files>
 </div>
