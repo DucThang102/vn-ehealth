@@ -15,6 +15,7 @@ Vue.mixin({
       return null;
     },
     formatDate: function (dateStr) {
+      return dateStr;
       if(dateStr != null) {
         var yyyy = dateStr.substring(0, 4);
         var mm = dateStr.substring(5, 7);
@@ -25,6 +26,7 @@ Vue.mixin({
     },
 
     formatDateTime: function (dateStr) {
+      return dateStr;
       if(dateStr != null) {
         var yyyy = dateStr.substring(0, 4);
         var mm = dateStr.substring(5, 7);
@@ -97,6 +99,7 @@ Vue.mixin({
 })
 
 function parseDate(dateStr) {
+  return dateStr;
   if(dateStr != null){
     return new Date(dateStr.substring(0, 10));
   }
@@ -104,6 +107,7 @@ function parseDate(dateStr) {
 }
 
 function formatDate(dateStr) {
+  return dateStr;
   if(dateStr != null) {
     var yyyy = dateStr.substring(0, 4);
     var mm = dateStr.substring(5, 7);
