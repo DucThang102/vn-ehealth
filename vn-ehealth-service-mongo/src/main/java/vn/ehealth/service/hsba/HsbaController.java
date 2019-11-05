@@ -28,9 +28,16 @@ import net.sf.jasperreports.engine.JRException;
 import vn.ehealth.emr.EmrBenhNhan;
 import vn.ehealth.emr.EmrHoSoBenhAn;
 import vn.ehealth.emr.service.EmrBenhNhanService;
+import vn.ehealth.emr.service.EmrChanDoanHinhAnhService;
 import vn.ehealth.emr.service.EmrCoSoKhamBenhService;
+import vn.ehealth.emr.service.EmrDonThuocService;
+import vn.ehealth.emr.service.EmrGiaiPhauBenhService;
+import vn.ehealth.emr.service.EmrHinhAnhTonThuongService;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
+import vn.ehealth.emr.service.EmrPhauThuatThuThuatService;
+import vn.ehealth.emr.service.EmrThamDoChucNangService;
 import vn.ehealth.emr.service.EmrVaoKhoaService;
+import vn.ehealth.emr.service.EmrXetNghiemService;
 import vn.ehealth.emr.utils.ExportUtil;
 import vn.ehealth.emr.utils.JasperUtils;
 import vn.ehealth.validate.ErrorMessage;
@@ -62,14 +69,18 @@ public class HsbaController {
         }
     }
     
-    @Autowired EmrHoSoBenhAnService emrHoSoBenhAnService;
-    
+    @Autowired EmrHoSoBenhAnService emrHoSoBenhAnService;    
+    @Autowired EmrHinhAnhTonThuongService emrHinhAnhTonThuongService;    
+    @Autowired EmrPhauThuatThuThuatService emrPhauThuatThuThuatService;
+    @Autowired EmrXetNghiemService emrXetNghiemService;
+    @Autowired EmrChanDoanHinhAnhService emrChanDoanHinhAnhService;
+    @Autowired EmrThamDoChucNangService emrThamDoChucNangService;
+    @Autowired EmrGiaiPhauBenhService emrGiaiPhauBenhService;
     @Autowired EmrBenhNhanService emrBenhNhanService;
-    
-    @Autowired EmrCoSoKhamBenhService emrCoSoKhamBenhService;
-    
+    @Autowired EmrCoSoKhamBenhService emrCoSoKhamBenhService;    
     @Autowired EmrVaoKhoaService emrVaoKhoaService;
-    
+    @Autowired EmrDonThuocService emrDonThuocService;
+        
     JasperUtils jasperUtils = new JasperUtils();
     
     @GetMapping("/test")
@@ -99,7 +110,7 @@ public class HsbaController {
                 x.emrBenhNhan.tuoi = jasperUtils.getTuoi(x);
             }
             
-            var emrVaoKhoas = emrVaoKhoaService.getEmrVaoKhoaByHsbaId(x.id);
+            var emrVaoKhoas = emrVaoKhoaService.getByEmrHoSoBenhAnId(x.id);
             
             if(emrVaoKhoas.size() > 0) {
                 var emrKhoaRaVien = emrVaoKhoas.get(emrVaoKhoas.size() - 1);
@@ -114,11 +125,70 @@ public class HsbaController {
         return ResponseEntity.ok(result);
     }
     
-    //@GetMapping("/get_hsba/{id}")
-    //public ResponseEntity<?> getHs(@PathVariable("id") String id) {
+    @GetMapping("/get_ds_hatt")
+    public ResponseEntity<?> getDsHinhAnhTonThuong(@RequestParam("hsba_id") String id) {
+        var hattList = emrHinhAnhTonThuongService.getByEmrHoSoBenhAnId(new ObjectId(id));
+        return ResponseEntity.ok(hattList);
+    }
+    
+    @GetMapping("/get_ds_pttt")
+    public ResponseEntity<?> getDsPhauThuatThuThuat(@RequestParam("hsba_id") String id) {
+        var ptttList = emrPhauThuatThuThuatService.getByEmrHoSoBenhAnId(new ObjectId(id));
+        return ResponseEntity.ok(ptttList);
+    }
+    
+    @GetMapping("/get_ds_xetnghiem")
+    public ResponseEntity<?> getDsXetNghiem(@RequestParam("hsba_id") String id) {
+        var xetnghiemList = emrXetNghiemService.getByEmrHoSoBenhAnId(new ObjectId(id));
+        return ResponseEntity.ok(xetnghiemList);
+    }
+    
+    @GetMapping("/get_ds_cdha")
+    public ResponseEntity<?> getDsChanDoanHinhAnh(@RequestParam("hsba_id") String id) {
+        var cdhaList = emrChanDoanHinhAnhService.getByEmrHoSoBenhAnId(new ObjectId(id));
+        return ResponseEntity.ok(cdhaList);
+    }
+    
+    @GetMapping("/get_ds_tdcn")
+    public ResponseEntity<?> getDsThamDoChucNang(@RequestParam("hsba_id") String id) {
+        var tdcnList = emrThamDoChucNangService.getByEmrHoSoBenhAnId(new ObjectId(id));
+        return ResponseEntity.ok(tdcnList);
+    }
+    
+    @GetMapping("/get_ds_gpb")
+    public ResponseEntity<?> getDsGiaiPhauBenh(@RequestParam("hsba_id") String id) {
+        var gpbList = emrGiaiPhauBenhService.getByEmrHoSoBenhAnId(new ObjectId(id));
+        return ResponseEntity.ok(gpbList);
+    }
+    
+    @GetMapping("/get_ds_vaokhoa")
+    public ResponseEntity<?> getDsVaoKhoa(@RequestParam("hsba_id") String id) {
+        var vkList = emrVaoKhoaService.getByEmrHoSoBenhAnId(new ObjectId(id));
+        return ResponseEntity.ok(vkList);
+    }
+    
+    @GetMapping("/get_ds_donthuoc")
+    public ResponseEntity<?> getDsDonThuoc(@RequestParam("hsba_id") String id) {
+        var donthuocList = emrDonThuocService.getByEmrHoSoBenhAnId(new ObjectId(id));
+        return ResponseEntity.ok(donthuocList);
+    }
+    
+    @GetMapping("/get_hsba_by_ma")
+    public ResponseEntity<?> getHsbaByMa(@RequestParam("mayte") String mayte) {
         
-    @GetMapping("/get_hs")
-    public ResponseEntity<?> getHs(@RequestParam("hoso_id") String id) {
+        var hsba = emrHoSoBenhAnService.getByMayte(mayte);
+        
+        hsba.ifPresent(x -> {
+            if(x.emrBenhNhan != null) {
+                x.emrBenhNhan.tuoi = jasperUtils.getTuoi(x);
+            }
+        });
+        
+        return ResponseEntity.of(hsba);
+    }
+    
+    @GetMapping("/get_hsba_by_id")
+    public ResponseEntity<?> getHsbaById(@RequestParam("hsba_id") String id) {
         
         var hsba = emrHoSoBenhAnService.getById(new ObjectId(id));
         
@@ -132,7 +202,7 @@ public class HsbaController {
     }
     
     @GetMapping("/view_pdf")
-    public ResponseEntity<?> viewPdf(@RequestParam("hoso_id") String id) {
+    public ResponseEntity<?> viewPdf(@RequestParam("hsba_id") String id) {
         
         var hsba = emrHoSoBenhAnService.getById(new ObjectId(id));
         
@@ -147,9 +217,8 @@ public class HsbaController {
                         .body(resource);
             }catch(JRException | IOException  | NullPointerException e) {
                 logger.error("Error exporting pdf :", e);
-            }           
+            }
         }
-        
         
         return ResponseEntity.badRequest().build();
     }

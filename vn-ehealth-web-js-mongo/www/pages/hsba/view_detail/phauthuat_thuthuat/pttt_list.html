@@ -1,4 +1,4 @@
-<div>
+<div v-if="pttt_list">
   <table class="table table-bordered">
     <tr>
       <th style="width: 5%;" class="text-center">STT</th>
@@ -9,7 +9,7 @@
     </tr>
     <tr v-for="(pttt, i) in pttt_list">
       <td class="text-center">{{ i + 1 }}</td>
-      <td class="text-center"><a href="#" v-on:click="xemPttt(pttt)"><i class="fas fa-fw fa-binoculars"></i>
+      <td class="text-center"><a href="#" v-on:click="viewPttt(pttt)"><i class="fas fa-fw fa-binoculars"></i>
           Xem</a></td>
       <td class="text-center">{{ pttt.emrDmPhauThuThuat.ten }}</td>
       <td class="text-center">{{ pttt.bacsithuchien }}</td>

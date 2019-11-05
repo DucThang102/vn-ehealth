@@ -5,6 +5,8 @@ VueAsyncComponent('yhhd', '/pages/hsba/edit/yhoc_hiendai/yhhd.html', {
     }
   },  
 
+  props: ["hsba_id"],
+
   methods: {
     changeTab(tab){
       this.tab = tab;
@@ -21,13 +23,14 @@ VueAsyncComponent('hoibenh', '/pages/hsba/edit/yhoc_hiendai/hoibenh.html', {
     }
   },
 
+  props: ["hsba_id"],
+
   methods: {
     
   },
 
   created: async function() {
-    var hs_id = this.getParam("hs_id");
-    this.hsba = await this.get('/api/hsba/get_hs', { hoso_id: hs_id });
+    this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
     sessionStorage.setItem('dataChange', false);
   }
   
@@ -40,12 +43,13 @@ VueAsyncComponent('khambenh', '/pages/hsba/edit/yhoc_hiendai/khambenh.html', {
     }
   },
 
+  props: ["hsba_id"],
+
   methods: {
   },
 
   created: async function() {
-    var hs_id = this.getParam("hs_id");
-    this.hsba = await this.get('/api/hsba/get_hs', { hoso_id: hs_id });
+    this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
     sessionStorage.setItem('dataChange', false);
   }
 });
@@ -57,12 +61,13 @@ VueAsyncComponent('huongdieutri', '/pages/hsba/edit/yhoc_hiendai/huongdieutri.ht
     }
   },
 
+  props: ["hsba_id"],
+
   methods: {
   },
 
   created: async function() {
-    var hs_id = this.getParam("hs_id");
-    this.hsba = await this.get('/api/hsba/get_hs', { hoso_id: hs_id });
+    this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
     sessionStorage.setItem('dataChange', false);
   }
   

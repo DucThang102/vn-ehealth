@@ -58,9 +58,9 @@
                 </button>
                 <div class="dropdown-menu">
                   <a class="dropdown-item"
-                    :href="createURL('/pages/hsba/xem_hsba.html', {hs_id: hs.id, backURL: currentURL})">Xem HSBA</a>
+                    :href="createURL('/pages/hsba/xem_hsba.html', {mayte: hs.mayte, backURL: currentURL})">Xem HSBA</a>
                   <a class="dropdown-item" href="#"
-                    :href="createURL('/pages/hsba/chinhsua_hsba.html', {hs_id: hs.id, backURL: currentURL})">Chỉnh sửa</a>
+                    :href="createURL('/pages/hsba/chinhsua_hsba.html', {mayte: hs.mayte, backURL: currentURL})">Chỉnh sửa</a>
                   <a class="dropdown-item" href="#">Lưu trữ</a>
                   <a class="dropdown-item" href="#">Thông tin gốc</a>
                   <a class="dropdown-item" href="#">Xóa</a>

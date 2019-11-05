@@ -6,6 +6,8 @@ VueAsyncComponent('tdcn', '/pages/hsba/edit/thamdo_chucnang/tdcn.html', {
     }
   },
 
+  props: ["hsba_id"],
+
   methods: {
 
     editTdcn: function (tdcn) {
@@ -31,6 +33,8 @@ VueAsyncComponent('tdcn-list', '/pages/hsba/edit/thamdo_chucnang/tdcn_list.html'
     }
   },
 
+  props: ["hsba_id"],
+
   methods: {
     deleteTdcn: function (id) {
       if (confirm('Bạn có muốn xóa ảnh tổn thương này không?')) {
@@ -47,11 +51,7 @@ VueAsyncComponent('tdcn-list', '/pages/hsba/edit/thamdo_chucnang/tdcn_list.html'
   },
 
   created: async function () {
-    var hs_id = this.getParam("hs_id");
-    var hsba = await this.get('/api/hsba/get_hs', { hoso_id: hs_id });
-    if (hsba) {
-      this.tdcn_list = hsba.emrThamDoChucNangs;
-    }
+    this.tdcn_list = await this.get('/api/hsba/get_ds_tdcn', { hsba_id: this.hsba_id });
   }
 });
 

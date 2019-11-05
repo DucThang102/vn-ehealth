@@ -6,35 +6,35 @@ VueAsyncComponent('tdcn', '/pages/hsba/view_detail/thamdo_chucnang/tdcn.html', {
   },
 
   methods: {
-    xemTdcn: function(tdcn) {
+    viewTdcn: function(tdcn) {
       this.tdcn = tdcn;
     },
-    xemDsTdcn: function() {
+    viewTdcnList: function() {
       this.tdcn = null;
     }
   },
   
-  props: ["hsba"]
+  props: ["hsba_id"]
 });
 
 VueAsyncComponent('tdcn-list', '/pages/hsba/view_detail/thamdo_chucnang/tdcn_list.html', {
   data: function(){
     return {
-      tdcn_list : []
+      tdcn_list : null
     }    
   },
 
   methods:  {
-    xemTdcn : function(tdcn) {
-      this.$emit('xemTdcn', tdcn);
+    viewTdcn : function(tdcn) {
+      this.$emit('viewTdcn', tdcn);
     },
   },
 
-  props: ["hsba"],
+  props: ["hsba_id"],
 
-  mounted: function() {
-    if(this.hsba) {
-      this.tdcn_list = this.hsba.emrThamDoChucNangs;
+  created: async function() {
+    if(this.hsba_id) {
+      this.tdcn_list = await this.get('/api/hsba/get_ds_tdcn', { hsba_id: this.hsba_id });
     }
   }  
 });
@@ -42,13 +42,18 @@ VueAsyncComponent('tdcn-list', '/pages/hsba/view_detail/thamdo_chucnang/tdcn_lis
 VueAsyncComponent('tdcn-view', '/pages/hsba/view_detail/thamdo_chucnang/tdcn_view.html', {
   data: function() {
     return {
+      hsba: null
     }
   },
-  props: ["hsba", "tdcn"],
+  props: ["hsba_id", "tdcn"],
   
   methods: {
-    xemDsTdcn: function() {
-      this.$emit('xemDsTdcn');
+    viewTdcnList: function() {
+      this.$emit('viewTdcnList');
     }
   },
+
+  created: async function() {
+    this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
+  }
 });

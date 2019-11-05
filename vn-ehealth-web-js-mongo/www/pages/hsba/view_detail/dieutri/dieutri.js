@@ -6,27 +6,27 @@ VueAsyncComponent('dieutri', '/pages/hsba/view_detail/dieutri/dieutri.html', {
   },
 
   methods: {
-    xemDieuTri: function(dieutri) {
+    viewDieutri: function(dieutri) {
       this.dieutri = dieutri;
     },
-    xemDsDieuTri: function() {
+    viewDieutriList: function() {
       this.dieutri = null;
     }
   },
   
-  props: ["hsba"]
+  props: ["hsba_id"]
 });
 
 VueAsyncComponent('dieutri-list', '/pages/hsba/view_detail/dieutri/dieutri_list.html', {
   data: function(){
     return {
-      dieutri_list : []
+      dieutri_list : null
     }    
   },
 
   methods:  {
-    xemDieuTri : function(dieutri) {
-      this.$emit('xemDieuTri', dieutri);
+    viewDieutri : function(dieutri) {
+      this.$emit('viewDieutri', dieutri);
     },
     getNgayDieuTri : function(dieutri) {
       var ngayDieuTris = dieutri.emrQuaTrinhDieuTris.map(x => parseDate(x.ngaydieutri));
@@ -52,32 +52,38 @@ VueAsyncComponent('dieutri-list', '/pages/hsba/view_detail/dieutri/dieutri_list.
     }
   },
 
-  props: ["hsba"],
+  props: ["hsba_id"],
 
-  mounted: function() {
-    if(this.hsba) {
-      this.dieutri_list = this.hsba.emrVaoKhoas.flatMap(x => x.emrDieuTris);
+  created: async function() {
+    if(this.hsba_id) {
+      var emrVaoKhoas = await this.get('/api/hsba/get_ds_vaokhoa', { hsba_id: this.hsba_id });
+      this.dieutri_list = emrVaoKhoas.flatMap(x => x.emrDieuTris);
       this.dieutri_list.forEach(x => {
-        x.emrVaoKhoa = this.hsba.emrVaoKhoas.find(vk => vk.id = x.emrVaoKhoaId);
+        x.emrVaoKhoa = emrVaoKhoas.find(vk => vk.id = x.emrVaoKhoaId);
         x.ngaydieutri = this.getNgayDieuTri(x);
       });
-    }      
-  }  
+    }
+  } 
 });
 
 VueAsyncComponent('dieutri-view', '/pages/hsba/view_detail/dieutri/dieutri_view.html', {
   data: function() {
     return {
+      hsba: null
     }
   },
-  props: ["hsba", "dieutri"],
+  props: ["hsba_id", "dieutri"],
   
   methods: {
-    xemDsDieuTri: function() {
-      this.$emit('xemDsDieuTri');
+    viewDieutriList: function() {
+      this.$emit('viewDieutriList');
     },
     getTenKhoa: function(khoadieutri){
       return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
     }
   },
+
+  created: async function() {
+    this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
+  }
 });

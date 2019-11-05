@@ -5,15 +5,13 @@ var benh_an_script = {
     }
   },
 
+  props: ["hsba_id"],
+
   computed: {
     pdfURL : function() {
-      return this.API_URL + "/api/hsba/view_pdf?hoso_id=" + this.hsId;
+      return this.API_URL + "/api/hsba/view_pdf?hsba_id=" + this.hsba_id;
     }
-  },
-  
-  mounted: function () {
-    this.hsId = getParam('hs_id');
-  }
+  }  
 };
 
 VueAsyncComponent('benh-an', '/pages/hsba/view_detail/benh_an/benh_an.html', benh_an_script);

@@ -1,4 +1,4 @@
-<div v-if="hsba">
-  <hoichan-list :hsba="hsba" v-on:xemHoiChan="xemHoiChan" v-if="hoichan == null"></hoichan-list>
-  <hoichan-view :hsba="hsba" :hoichan="hoichan" v-on:xemDsHoiChan="xemDsHoiChan" v-if="hoichan != null"></hoichan-view>
+<div>
+  <hoichan-list :hsba_id="hsba_id" v-on:viewHoichan="viewHoichan" v-if="hoichan == null"></hoichan-list>
+  <hoichan-view :hsba_id="hsba_id" :hoichan="hoichan" v-on:viewHoichanList="viewHoichanList" v-if="hoichan != null"></hoichan-view>
 </div>

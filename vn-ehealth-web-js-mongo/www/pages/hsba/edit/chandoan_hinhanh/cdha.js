@@ -6,6 +6,8 @@ VueAsyncComponent('cdha', '/pages/hsba/edit/chandoan_hinhanh/cdha.html', {
     }
   },
 
+  props: ["hsba_id"],
+
   methods: {
 
     editCdha: function (cdha) {
@@ -31,6 +33,8 @@ VueAsyncComponent('cdha-list', '/pages/hsba/edit/chandoan_hinhanh/cdha_list.html
     }
   },
 
+  props: ["hsba_id"],
+
   methods: {
     deleteCdha: function (id) {
       if (confirm('Bạn có muốn xóa ảnh tổn thương này không?')) {
@@ -47,11 +51,7 @@ VueAsyncComponent('cdha-list', '/pages/hsba/edit/chandoan_hinhanh/cdha_list.html
   },
 
   created: async function () {
-    var hs_id = this.getParam("hs_id");
-    var hsba = await this.get('/api/hsba/get_hs', { hoso_id: hs_id });
-    if (hsba) {
-      this.cdha_list = hsba.emrChanDoanHinhAnhs;
-    }
+    this.cdha_list = await this.get('/api/hsba/get_ds_cdha', { hsba_id: this.hsba_id });
   }
 });
 

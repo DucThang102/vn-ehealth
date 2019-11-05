@@ -1,5 +1,5 @@
 <div>
-  <hoichan-list v-on:editHoichan="editHoichan" v-on:editFiles="editFiles" v-if="hoichan == null"></hoichan-list>
+  <hoichan-list :hsba_id="hsba_id" v-on:editHoichan="editHoichan" v-on:editFiles="editFiles" v-if="hoichan == null"></hoichan-list>
   <hoichan-edit :hoichan="hoichan" v-on:viewHoichanList="viewHoichanList" v-if="hoichan != null && !fileEditing"></hoichan-edit>
   <hoichan-files :hoichan="hoichan" v-on:viewHoichanList="viewHoichanList" v-if="hoichan != null && fileEditing"></hoichan-files>
 </div>

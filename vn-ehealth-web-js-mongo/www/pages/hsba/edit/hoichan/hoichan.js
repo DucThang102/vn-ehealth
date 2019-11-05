@@ -6,6 +6,8 @@ VueAsyncComponent('hoichan', '/pages/hsba/edit/hoichan/hoichan.html', {
     }
   },
 
+  props: ["hsba_id"],
+
   methods: {
     editHoichan: function(hoichan) {
       this.hoichan = hoichan;
@@ -31,6 +33,8 @@ VueAsyncComponent('hoichan-list', '/pages/hsba/edit/hoichan/hoichan_list.html', 
     }    
   },
 
+  props: ["hsba_id"],
+
   methods:  {
     editHoichan : function(hoichan) {
       this.$emit('editHoichan', hoichan);
@@ -54,11 +58,7 @@ VueAsyncComponent('hoichan-list', '/pages/hsba/edit/hoichan/hoichan_list.html', 
   },
 
   created: async function() {
-    var hs_id = this.getParam("hs_id");
-    var hsba = await this.get('/api/hsba/get_hs', { hoso_id: hs_id });
-    if(hsba) {
-      this.vaokhoa_list = hsba.emrVaoKhoas;
-    }
+    this.vaokhoa_list = await this.get('/api/hsba/get_ds_vaokhoa', { hsba_id: this.hsba_id });
   },
 });
 

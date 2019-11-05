@@ -1,4 +1,4 @@
-<div v-if="hsba">
-  <gpb-list :hsba="hsba" v-on:xemGpb="xemGpb" v-if="gpb == null"></gpb-list>
-  <gpb-view :hsba="hsba" :gpb="gpb" v-on:xemDsGpb="xemDsGpb" v-if="gpb != null"></gpb-view>
+<div>
+  <gpb-list :hsba_id="hsba_id" v-on:viewGpb="viewGpb" v-if="gpb == null"></gpb-list>
+  <gpb-view :hsba_id="hsba_id" :gpb="gpb" v-on:viewGpbList="viewGpbList" v-if="gpb != null"></gpb-view>
 </div>

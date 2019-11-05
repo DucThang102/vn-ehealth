@@ -17,15 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import vn.ehealth.emr.EmrHoSoBenhAn;
-import vn.ehealth.emr.repository.EmrChanDoanHinhAnhRepository;
-import vn.ehealth.emr.repository.EmrDonThuocRepository;
-import vn.ehealth.emr.repository.EmrGiaiPhauBenhRepository;
-import vn.ehealth.emr.repository.EmrHinhAnhTonThuongRepository;
 import vn.ehealth.emr.repository.EmrHoSoBenhAnRepository;
-import vn.ehealth.emr.repository.EmrPhauThuatThuThuatRepository;
-import vn.ehealth.emr.repository.EmrThamDoChucNangRepository;
-import vn.ehealth.emr.repository.EmrXetNghiemRepository;
-import vn.ehealth.emr.repository.EmrYhctDonThuocRepository;
 import vn.ehealth.service.Constants.NGUON_DU_LIEU;
 import vn.ehealth.service.Constants.TRANGTHAI_HOSO;
 
@@ -34,15 +26,16 @@ public class EmrHoSoBenhAnService {
    
     Logger logger = LoggerFactory.getLogger(EmrHoSoBenhAnService.class);
             
-    @Autowired EmrHoSoBenhAnRepository emrHoSoBenhAnRepository;  
-    @Autowired EmrHinhAnhTonThuongRepository emrHinhAnhTonThuongRepository;
-    @Autowired EmrGiaiPhauBenhRepository emrGiaiPhauBenhRepository;
-    @Autowired EmrThamDoChucNangRepository emrThamDoChucNangRepository;
-    @Autowired EmrPhauThuatThuThuatRepository emrPhauThuatThuThuatRepository;
-    @Autowired EmrChanDoanHinhAnhRepository emrChanDoanHinhAnhRepository;
-    @Autowired EmrDonThuocRepository emrDonThuocRepository;
-    @Autowired EmrYhctDonThuocRepository emrYhctDonThuocRepository;
-    @Autowired EmrXetNghiemRepository emrXetNghiemRepository;
+    @Autowired EmrHoSoBenhAnRepository emrHoSoBenhAnRepository;
+    
+    @Autowired EmrHinhAnhTonThuongService emrHinhAnhTonThuongService;
+    @Autowired EmrGiaiPhauBenhService emrGiaiPhauBenhService;
+    @Autowired EmrThamDoChucNangService emrThamDoChucNangService;
+    @Autowired EmrPhauThuatThuThuatService emrPhauThuatThuThuatService;
+    @Autowired EmrChanDoanHinhAnhService emrChanDoanHinhAnhService;
+    @Autowired EmrDonThuocService emrDonThuocService;
+    @Autowired EmrYhctDonThuocService emrYhctDonThuocService;
+    @Autowired EmrXetNghiemService emrXetNghiemService;
     
     @Autowired EmrDmService emrDmService;
     @Autowired EmrVaoKhoaService emrVaoKhoaService;
@@ -71,12 +64,12 @@ public class EmrHoSoBenhAnService {
         return mongoTemplate.find(query, EmrHoSoBenhAn.class);
     }
     
-    
-    public List<EmrHoSoBenhAn> findByTrangThaiAndIsLatest(int trangThai, boolean isLatest, int offset, int limit){
+    /*
+    public List<EmrHoSoBenhAn> getByTrangThaiAndIsLatest(int trangThai, boolean isLatest, int offset, int limit){
         var sort = new Sort(Sort.Direction.DESC, "ngaytiepnhan");
         var pageable = new OffsetBasedPageRequest(limit, offset, sort);        
         return emrHoSoBenhAnRepository.findByTrangThaiAndIsLatest(trangThai, isLatest, pageable);
-    }
+    }*/
     
     public long countByTrangThaiAndIsLatest(int trangThai, boolean isLatest) {
         return emrHoSoBenhAnRepository.countByTrangThaiAndIsLatest(trangThai, isLatest);
@@ -87,20 +80,23 @@ public class EmrHoSoBenhAnService {
         emrHoSoBenhAn.ifPresent(x -> {
            x.emrBenhNhan = emrBenhNhanService.getById(x.emrBenhNhanId).orElse(null);
            x.emrCoSoKhamBenh = emrCoSoKhamBenhService.getById(x.emrCoSoKhamBenhId).orElse(null);
-           x.emrVaoKhoas = emrVaoKhoaService.getEmrVaoKhoaByHsbaId(id);
-           x.emrHinhAnhTonThuongs = emrHinhAnhTonThuongRepository.findByEmrHoSoBenhAnId(id);
-           x.emrGiaiPhauBenhs = emrGiaiPhauBenhRepository.findByEmrHoSoBenhAnId(id) ;
-           x.emrThamDoChucNangs = emrThamDoChucNangRepository.findByEmrHoSoBenhAnId(id);
-           x.emrPhauThuatThuThuats = emrPhauThuatThuThuatRepository.findByEmrHoSoBenhAnId(id);
-           x.emrChanDoanHinhAnhs = emrChanDoanHinhAnhRepository.findByEmrHoSoBenhAnId(id);
-           x.emrDonThuocs = emrDonThuocRepository.findByEmrHoSoBenhAnId(id);
-           x.emrYhctDonThuocs = emrYhctDonThuocRepository.findByEmrHoSoBenhAnId(id);
-           x.emrXetNghiems = emrXetNghiemRepository.findByEmrHoSoBenhAnId(id);                   
+           /*x.emrVaoKhoas = emrVaoKhoaService.getByEmrHoSoBenhAnId(id);
+           x.emrHinhAnhTonThuongs = emrHinhAnhTonThuongService.getByEmrHoSoBenhAnId(id);
+           x.emrGiaiPhauBenhs = emrGiaiPhauBenhService.getByEmrHoSoBenhAnId(id) ;
+           x.emrThamDoChucNangs = emrThamDoChucNangService.getByEmrHoSoBenhAnId(id);
+           x.emrPhauThuatThuThuats = emrPhauThuatThuThuatService.getByEmrHoSoBenhAnId(id);
+           x.emrChanDoanHinhAnhs = emrChanDoanHinhAnhService.getByEmrHoSoBenhAnId(id);
+           x.emrDonThuocs = emrDonThuocService.getByEmrHoSoBenhAnId(id);
+           x.emrYhctDonThuocs = emrYhctDonThuocService.getByEmrHoSoBenhAnId(id);
+           x.emrXetNghiems = emrXetNghiemService.getByEmrHoSoBenhAnId(id);*/
         });
         
         return emrHoSoBenhAn;
     }
     
+    public Optional<EmrHoSoBenhAn> getByMayte(String mayte) {
+        return emrHoSoBenhAnRepository.findByMayteAndIsLatest(mayte, true);
+    }    
     
     public EmrHoSoBenhAn save(EmrHoSoBenhAn hsba) {
         var maCoSoKhamBenh = hsba.emrCoSoKhamBenh != null? hsba.emrCoSoKhamBenh.ma : "";
@@ -150,7 +146,7 @@ public class EmrHoSoBenhAnService {
             hsba.emrHinhAnhTonThuongs.forEach(x -> x.emrHoSoBenhAnId = hsbaId);
             
             hsba.emrHinhAnhTonThuongs = hsba.emrHinhAnhTonThuongs.stream()
-                                            .map(x -> emrHinhAnhTonThuongRepository.save(x))
+                                            .map(x -> emrHinhAnhTonThuongService.createOrUpdate(x))
                                             .collect(Collectors.toList());
         }
         
@@ -158,7 +154,7 @@ public class EmrHoSoBenhAnService {
             hsba.emrGiaiPhauBenhs.forEach(x -> x.emrHoSoBenhAnId = hsbaId);
             
             hsba.emrGiaiPhauBenhs = hsba.emrGiaiPhauBenhs.stream()
-                                            .map(x -> emrGiaiPhauBenhRepository.save(x))
+                                            .map(x -> emrGiaiPhauBenhService.createOrUpdate(x))
                                             .collect(Collectors.toList());
         }
         
@@ -166,7 +162,7 @@ public class EmrHoSoBenhAnService {
             hsba.emrThamDoChucNangs.forEach(x -> x.emrHoSoBenhAnId = hsbaId);
             
             hsba.emrThamDoChucNangs = hsba.emrThamDoChucNangs.stream()
-                                            .map(x -> emrThamDoChucNangRepository.save(x))
+                                            .map(x -> emrThamDoChucNangService.createOrUpdate(x))
                                             .collect(Collectors.toList());
         }
         
@@ -174,7 +170,7 @@ public class EmrHoSoBenhAnService {
             for(var item : hsba.emrPhauThuatThuThuats) item.emrHoSoBenhAnId = hsbaId;
             
             hsba.emrPhauThuatThuThuats = hsba.emrPhauThuatThuThuats.stream()
-                                            .map(x -> emrPhauThuatThuThuatRepository.save(x))
+                                            .map(x -> emrPhauThuatThuThuatService.createOrUpdate(x))
                                             .collect(Collectors.toList());
         }
         
@@ -182,7 +178,7 @@ public class EmrHoSoBenhAnService {
             hsba.emrChanDoanHinhAnhs.forEach(x -> x.emrHoSoBenhAnId = hsbaId);
             
             hsba.emrChanDoanHinhAnhs = hsba.emrChanDoanHinhAnhs.stream()
-                                            .map(x -> emrChanDoanHinhAnhRepository.save(x))
+                                            .map(x -> emrChanDoanHinhAnhService.createOrUpdate(x))
                                             .collect(Collectors.toList());
         }
         
@@ -190,7 +186,7 @@ public class EmrHoSoBenhAnService {
             hsba.emrDonThuocs.forEach(x -> x.emrHoSoBenhAnId = hsbaId);
             
             hsba.emrDonThuocs = hsba.emrDonThuocs.stream()
-                                            .map(x -> emrDonThuocRepository.save(x))
+                                            .map(x -> emrDonThuocService.createOrUpdate(x))
                                             .collect(Collectors.toList());
         }
         
@@ -198,7 +194,7 @@ public class EmrHoSoBenhAnService {
             hsba.emrYhctDonThuocs.forEach(x -> x.emrHoSoBenhAnId = hsbaId);
             
             hsba.emrYhctDonThuocs = hsba.emrYhctDonThuocs.stream()
-                                            .map(x -> emrYhctDonThuocRepository.save(x))
+                                            .map(x -> emrYhctDonThuocService.createOrUpdate(x))
                                             .collect(Collectors.toList());
         }
         
@@ -206,7 +202,7 @@ public class EmrHoSoBenhAnService {
             hsba.emrXetNghiems.forEach(x -> x.emrHoSoBenhAnId = hsbaId);
             
             hsba.emrXetNghiems = hsba.emrXetNghiems.stream()
-                                            .map(x -> emrXetNghiemRepository.save(x))
+                                            .map(x -> emrXetNghiemService.createOrUpdate(x))
                                             .collect(Collectors.toList());
         }
         

@@ -1,4 +1,4 @@
-<div v-if="hsba">
-  <cdha-list :hsba="hsba" v-on:xemCdha="xemCdha" v-if="cdha == null"></cdha-list>
-  <cdha-view :hsba="hsba" :cdha="cdha" v-on:xemDsCdha="xemDsCdha" v-if="cdha != null"></cdha-view>
+<div>
+  <cdha-list :hsba_id="hsba_id" v-on:viewCdha="viewCdha" v-if="cdha == null"></cdha-list>
+  <cdha-view :hsba_id="hsba_id" :cdha="cdha" v-on:viewCdhaList="viewCdhaList" v-if="cdha != null"></cdha-view>
 </div>

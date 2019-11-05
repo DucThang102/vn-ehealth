@@ -7,35 +7,35 @@ VueAsyncComponent('pttt', '/pages/hsba/view_detail/phauthuat_thuthuat/pttt.html'
   },
 
   methods: {
-    xemPttt: function(pttt) {
+    viewPttt: function(pttt) {
       this.pttt = pttt;
     },
-    xemDsPttt: function() {
+    viewPtttList: function() {
       this.pttt = null;
     }
   },
   
-  props: ["hsba"]
+  props: ["hsba_id"]
 });
 
 VueAsyncComponent('pttt-list', '/pages/hsba/view_detail/phauthuat_thuthuat/pttt_list.html', {
   data: function(){
     return {
-      pttt_list : []
+      pttt_list : null
     }    
   },
 
   methods:  {
-    xemPttt : function(pttt) {
-      this.$emit('xemPttt', pttt);
+    viewPttt : function(pttt) {
+      this.$emit('viewPttt', pttt);
     },
   },
 
-  props: ["hsba"],
+  props: ["hsba_id"],
 
-  mounted: function() {
-    if(this.hsba) {
-      this.pttt_list = this.hsba.emrPhauThuatThuThuats;
+  created: async function() {
+    if(this.hsba_id) {
+      this.pttt_list = await this.get('/api/hsba/get_ds_pttt', { hsba_id: this.hsba_id });
     }
   }  
 });
@@ -43,13 +43,18 @@ VueAsyncComponent('pttt-list', '/pages/hsba/view_detail/phauthuat_thuthuat/pttt_
 VueAsyncComponent('pttt-view', '/pages/hsba/view_detail/phauthuat_thuthuat/pttt_view.html', {
   data: function() {
     return {
+      hsba: null
     }
   },
-  props: ["hsba", "pttt"],
+  props: ["hsba_id", "pttt"],
   
   methods: {
-    xemDsPttt: function() {
-      this.$emit('xemDsPttt');
+    viewPtttList: function() {
+      this.$emit('viewPtttList');
     }
   },
+
+  created: async function() {
+    this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
+  }
 });

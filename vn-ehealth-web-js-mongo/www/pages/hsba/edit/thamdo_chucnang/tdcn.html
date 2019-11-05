@@ -1,5 +1,5 @@
 <div>
-  <tdcn-list v-on:editTdcn="editTdcn" v-on:editFiles="editFiles" v-if="tdcn == null"></tdcn-list>
+  <tdcn-list :hsba_id="hsba_id" v-on:editTdcn="editTdcn" v-on:editFiles="editFiles" v-if="tdcn == null"></tdcn-list>
   <tdcn-edit :tdcn="tdcn" v-on:viewTdcnList="viewTdcnList" v-if="tdcn != null && !fileEditing"></tdcn-edit>
   <tdcn-files :tdcn="tdcn" v-on:viewTdcnList="viewTdcnList" v-if="tdcn != null && fileEditing"></tdcn-files>
 </div>

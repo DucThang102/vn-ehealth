@@ -1,5 +1,5 @@
 <div>
-  <chucnangsong-list v-on:editChucnangsong="editChucnangsong" v-on:editFiles="editFiles" v-if="chucnangsong == null"></chucnangsong-list>
+  <chucnangsong-list :hsba_id="hsba_id" v-on:editChucnangsong="editChucnangsong" v-on:editFiles="editFiles" v-if="chucnangsong == null"></chucnangsong-list>
   <chucnangsong-edit :chucnangsong="chucnangsong" v-on:viewChucnangsongList="viewChucnangsongList" v-if="chucnangsong != null && !fileEditing"></chucnangsong-edit>
   <chucnangsong-files :chucnangsong="chucnangsong" v-on:viewChucnangsongList="viewChucnangsongList" v-if="chucnangsong != null && fileEditing"></chucnangsong-files>
 </div>

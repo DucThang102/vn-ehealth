@@ -6,27 +6,27 @@ VueAsyncComponent('chamsoc', '/pages/hsba/view_detail/chamsoc/chamsoc.html', {
   },
 
   methods: {
-    xemChamSoc: function(chamsoc) {
+    viewChamsoc: function(chamsoc) {
       this.chamsoc = chamsoc;
     },
-    xemDsChamSoc: function() {
+    viewChamsocList: function() {
       this.chamsoc = null;
     }
   },
   
-  props: ["hsba"]
+  props: ["hsba_id"]
 });
 
 VueAsyncComponent('chamsoc-list', '/pages/hsba/view_detail/chamsoc/chamsoc_list.html', {
   data: function(){
     return {
-      chamsoc_list : []
+      chamsoc_list : null
     }    
   },
 
   methods:  {
-    xemChamSoc : function(chamsoc) {
-      this.$emit('xemChamSoc', chamsoc);
+    viewChamsoc : function(chamsoc) {
+      this.$emit('viewChamsoc', chamsoc);
     },
     getNgayChamSoc : function(chamsoc) {
       var ngayChamSocs = chamsoc.emrQuaTrinhChamSocs.map(x => parseDate(x.ngaychamsoc));
@@ -52,32 +52,38 @@ VueAsyncComponent('chamsoc-list', '/pages/hsba/view_detail/chamsoc/chamsoc_list.
     }
   },
 
-  props: ["hsba"],
+  props: ["hsba_id"],
 
-  mounted: function() {
-    if(this.hsba) {
-      this.chamsoc_list = this.hsba.emrVaoKhoas.flatMap(x => x.emrChamSocs);
+  created: async function() {
+    if(this.hsba_id) {
+      var emrVaoKhoas = await this.get('/api/hsba/get_ds_vaokhoa', { hsba_id: this.hsba_id });
+      this.chamsoc_list = emrVaoKhoas.flatMap(x => x.emrChamSocs);
       this.chamsoc_list.forEach(x => {
-        x.emrVaoKhoa = this.hsba.emrVaoKhoas.find(vk => vk.id = x.emrVaoKhoaId);
+        x.emrVaoKhoa = emrVaoKhoas.find(vk => vk.id = x.emrVaoKhoaId);
         x.ngaychamsoc = this.getNgayChamSoc(x);
       });
-    }      
-  }  
+    }
+  } 
 });
 
 VueAsyncComponent('chamsoc-view', '/pages/hsba/view_detail/chamsoc/chamsoc_view.html', {
   data: function() {
     return {
+      hsba: null
     }
   },
-  props: ["hsba", "chamsoc"],
+  props: ["hsba_id", "chamsoc"],
   
   methods: {
-    xemDsChamSoc: function() {
-      this.$emit('xemDsChamSoc');
+    viewChamsocList: function() {
+      this.$emit('viewChamsocList');
     },
     getTenKhoa: function(khoadieutri){
       return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
     }
   },
+
+  created: async function() {
+    this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
+  }
 });

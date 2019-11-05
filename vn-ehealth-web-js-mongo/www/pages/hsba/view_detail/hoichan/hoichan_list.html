@@ -1,4 +1,4 @@
-<div>
+<div v-if="hoichan_list">
   <table class="table table-bordered">
     <tr>
       <th style="width: 5%;" class="text-center">STT</th>
@@ -8,7 +8,7 @@
     </tr>
     <tr v-for="(hoichan, i) in hoichan_list">
       <td class="text-center">{{ i + 1 }}</td>
-      <td class="text-center"><a href="#" v-on:click="xemHoiChan(hoichan)"><i class="fas fa-fw fa-binoculars"></i>
+      <td class="text-center"><a href="#" v-on:click="viewHoichan(hoichan)"><i class="fas fa-fw fa-binoculars"></i>
           Xem</a></td>
       <td class="text-center">{{ hoichan.ngaythuchien }}</td>
       <td class="text-center">{{ getTenKhoa(hoichan.emrVaoKhoa) }}</td>

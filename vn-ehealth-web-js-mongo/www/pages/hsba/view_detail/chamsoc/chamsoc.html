@@ -1,4 +1,4 @@
-<div v-if="hsba">
-  <chamsoc-list :hsba="hsba" v-on:xemChamSoc="xemChamSoc" v-if="chamsoc == null"></chamsoc-list>
-  <chamsoc-view :hsba="hsba" :chamsoc="chamsoc" v-on:xemDsChamSoc="xemDsChamSoc" v-if="chamsoc != null"></chamsoc-view>
+<div>
+  <chamsoc-list :hsba_id="hsba_id" v-on:viewChamsoc="viewChamsoc" v-if="chamsoc == null"></chamsoc-list>
+  <chamsoc-view :hsba_id="hsba_id" :chamsoc="chamsoc" v-on:viewChamsocList="viewChamsocList" v-if="chamsoc != null"></chamsoc-view>
 </div>

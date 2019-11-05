@@ -6,35 +6,35 @@ VueAsyncComponent('cdha', '/pages/hsba/view_detail/chandoan_hinhanh/cdha.html', 
   },
 
   methods: {
-    xemCdha: function(cdha) {
+    viewCdha: function(cdha) {
       this.cdha = cdha;
     },
-    xemDsCdha: function() {
+    viewCdhaList: function() {
       this.cdha = null;
     }
   },
   
-  props: ["hsba"]
+  props: ["hsba_id"]
 });
 
 VueAsyncComponent('cdha-list', '/pages/hsba/view_detail/chandoan_hinhanh/cdha_list.html', {
   data: function(){
     return {
-      cdha_list : []
+      cdha_list : null
     }    
   },
 
   methods:  {
-    xemCdha : function(cdha) {
-      this.$emit('xemCdha', cdha);
+    viewCdha : function(cdha) {
+      this.$emit('viewCdha', cdha);
     },
   },
 
-  props: ["hsba"],
+  props: ["hsba_id"],
 
-  mounted: function() {
-    if(this.hsba) {
-      this.cdha_list = this.hsba.emrChanDoanHinhAnhs;
+  created: async function() {
+    if(this.hsba_id) {
+      this.cdha_list = await this.get('/api/hsba/get_ds_cdha', { hsba_id: this.hsba_id });
     }
   }  
 });
@@ -42,13 +42,18 @@ VueAsyncComponent('cdha-list', '/pages/hsba/view_detail/chandoan_hinhanh/cdha_li
 VueAsyncComponent('cdha-view', '/pages/hsba/view_detail/chandoan_hinhanh/cdha_view.html', {
   data: function() {
     return {
+      hsba:null
     }
   },
-  props: ["hsba", "cdha"],
+  props: ["hsba_id", "cdha"],
   
   methods: {
-    xemDsCdha: function() {
-      this.$emit('xemDsCdha');
+    viewCdhaList: function() {
+      this.$emit('viewCdhaList');
     }
   },
+
+  created: async function() {
+    this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
+  }
 });

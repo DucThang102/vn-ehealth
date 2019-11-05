@@ -17,7 +17,7 @@
     </li>   
   </ul>
 
-  <hoibenh v-if="tab==0"></hoibenh>
-  <khambenh v-if="tab==1"></khambenh>
-  <huongdieutri v-if="tab==2"></huongdieutri>
+  <hoibenh :hsba_id="hsba_id" v-if="tab==0"></hoibenh>
+  <khambenh :hsba_id="hsba_id" v-if="tab==1"></khambenh>
+  <huongdieutri :hsba_id="hsba_id" v-if="tab==2"></huongdieutri>
 </div>

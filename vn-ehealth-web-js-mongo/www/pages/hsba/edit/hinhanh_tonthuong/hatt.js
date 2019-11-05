@@ -6,6 +6,8 @@ VueAsyncComponent('hatt', '/pages/hsba/edit/hinhanh_tonthuong/hatt.html', {
     }
   },
 
+  props: ["hsba_id"],
+
   methods: {
     
     editHatt: function(hatt) {
@@ -31,6 +33,8 @@ VueAsyncComponent('hatt-list', '/pages/hsba/edit/hinhanh_tonthuong/hatt_list.htm
     }    
   },
 
+  props: ["hsba_id"],
+
   methods:  {
     deleteHatt: function(id) {
       if(confirm('Bạn có muốn xóa ảnh tổn thương này không?')){
@@ -48,11 +52,7 @@ VueAsyncComponent('hatt-list', '/pages/hsba/edit/hinhanh_tonthuong/hatt_list.htm
   },
 
   created: async function() {
-    var hs_id = this.getParam("hs_id");
-    var hsba = await this.get('/api/hsba/get_hs', { hoso_id: hs_id });
-    if(hsba) {
-      this.hatt_list = hsba.emrHinhAnhTonThuongs;
-    }
+    this.hatt_list = await this.get('/api/hsba/get_ds_hatt', { hsba_id: this.hsba_id });
   }
 });
 

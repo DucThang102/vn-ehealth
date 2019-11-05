@@ -1,4 +1,4 @@
-<div v-if="hsba">
-  <tdcn-list :hsba="hsba" v-on:xemTdcn="xemTdcn" v-if="tdcn == null"></tdcn-list>
-  <tdcn-view :hsba="hsba" :tdcn="tdcn" v-on:xemDsTdcn="xemDsTdcn" v-if="tdcn != null"></tdcn-view>
+<div>
+  <tdcn-list :hsba_id="hsba_id" v-on:viewTdcn="viewTdcn" v-if="tdcn == null"></tdcn-list>
+  <tdcn-view :hsba_id="hsba_id" :tdcn="tdcn" v-on:viewTdcnList="viewTdcnList" v-if="tdcn != null"></tdcn-view>
 </div>

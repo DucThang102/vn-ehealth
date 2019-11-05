@@ -22,8 +22,8 @@
       </li>
   </ul>
 
-  <tthc v-if="tab==0"></tthc>
-  <ttnb v-if="tab==1"></ttnb>
-  <chandoan v-if="tab==2"></chandoan>
-  <ttrv v-if="tab==3"></ttrv>
+  <tthc :hsba_id="hsba_id" v-if="tab==0"></tthc>
+  <ttnb :hsba_id="hsba_id" v-if="tab==1"></ttnb>
+  <chandoan :hsba_id="hsba_id" v-if="tab==2"></chandoan>
+  <ttrv :hsba_id="hsba_id" v-if="tab==3"></ttrv>
 </div>

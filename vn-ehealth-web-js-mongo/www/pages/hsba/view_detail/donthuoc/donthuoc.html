@@ -1,4 +1,4 @@
-<div v-if="hsba">
-  <donthuoc-list :hsba="hsba" v-on:xemDonThuoc="xemDonThuoc" v-if="donthuoc == null"></donthuoc-list>
-  <donthuoc-view :hsba="hsba" :donthuoc="donthuoc" v-on:xemDsDonThuoc="xemDsDonThuoc" v-if="donthuoc != null"></donthuoc-view>
+<div>
+  <donthuoc-list :hsba_id="hsba_id" v-on:viewDonthuoc="viewDonthuoc" v-if="donthuoc == null"></donthuoc-list>
+  <donthuoc-view :hsba_id="hsba_id" :donthuoc="donthuoc" v-on:viewDonthuocList="viewDonthuocList" v-if="donthuoc != null"></donthuoc-view>
 </div>

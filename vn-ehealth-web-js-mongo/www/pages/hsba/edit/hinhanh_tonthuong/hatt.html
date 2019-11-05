@@ -1,5 +1,5 @@
 <div>
-  <hatt-list v-on:editHatt="editHatt" v-on:editFiles="editFiles" v-if="hatt == null"></hatt-list>
+  <hatt-list :hsba_id="hsba_id" v-on:editHatt="editHatt" v-on:editFiles="editFiles" v-if="hatt == null"></hatt-list>
   <hatt-edit :hatt="hatt" v-on:viewHattList="viewHattList" v-if="hatt != null && !fileEditing"></hatt-edit>
   <hatt-files :hatt="hatt" v-on:viewHattList="viewHattList" v-if="hatt != null && fileEditing"></hatt-files>
 </div>

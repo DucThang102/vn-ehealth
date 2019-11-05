@@ -6,6 +6,8 @@ VueAsyncComponent('gpb', '/pages/hsba/edit/giaiphau_benh/gpb.html', {
     }
   },
 
+  props: ["hsba_id"],
+
   methods: {
 
     editGpb: function (gpb) {
@@ -31,6 +33,8 @@ VueAsyncComponent('gpb-list', '/pages/hsba/edit/giaiphau_benh/gpb_list.html', {
     }
   },
 
+  props: ["hsba_id"],
+
   methods: {
     deleteGpb: function (id) {
       if (confirm('Bạn có muốn xóa ảnh tổn thương này không?')) {
@@ -47,11 +51,7 @@ VueAsyncComponent('gpb-list', '/pages/hsba/edit/giaiphau_benh/gpb_list.html', {
   },
 
   created: async function () {
-    var hs_id = this.getParam("hs_id");
-    var hsba = await this.get('/api/hsba/get_hs', { hoso_id: hs_id });
-    if (hsba) {
-      this.gpb_list = hsba.emrGiaiPhauBenhs;
-    }
+    this.gpb_list = await this.get('/api/hsba/get_ds_gpb', { hsba_id: this.hsba_id });
   }
 });
 

@@ -1,4 +1,4 @@
-<div v-if="hsba">
-  <pttt-list :hsba="hsba" v-on:xemPttt="xemPttt" v-if="pttt == null"></pttt-list>
-  <pttt-view :hsba="hsba" :pttt="pttt" v-on:xemDsPttt="xemDsPttt" v-if="pttt != null"></pttt-view>
+<div>
+  <pttt-list :hsba_id="hsba_id" v-on:viewPttt="viewPttt" v-if="pttt == null"></pttt-list>
+  <pttt-view :hsba_id="hsba_id" :pttt="pttt" v-on:viewPtttList="viewPtttList" v-if="pttt != null"></pttt-view>
 </div>

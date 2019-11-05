@@ -6,27 +6,27 @@ VueAsyncComponent('chucnangsong', '/pages/hsba/view_detail/chucnangsong/chucnang
   },
 
   methods: {
-    xemChucNangSong: function(chucnangsong) {
+    viewChucnangsong: function(chucnangsong) {
       this.chucnangsong = chucnangsong;
     },
-    xemDsChucNangSong: function() {
+    viewChucnangsongList: function() {
       this.chucnangsong = null;
     }
   },
   
-  props: ["hsba"]
+  props: ["hsba_id"]
 });
 
 VueAsyncComponent('chucnangsong-list', '/pages/hsba/view_detail/chucnangsong/chucnangsong_list.html', {
   data: function(){
     return {
-      chucnangsong_list : []
+      chucnangsong_list : null
     }    
   },
 
   methods:  {
-    xemChucNangSong : function(chucnangsong) {
-      this.$emit('xemChucNangSong', chucnangsong);
+    viewChucnangsong : function(chucnangsong) {
+      this.$emit('viewChucnangsong', chucnangsong);
     },
     getNgayTheoDoi : function(chucnangsong) {
       var ngayTheoDois = chucnangsong.emrChucNangSongChiTiets.map(x => parseDate(x.ngaytheodoi));
@@ -52,32 +52,38 @@ VueAsyncComponent('chucnangsong-list', '/pages/hsba/view_detail/chucnangsong/chu
     }
   },
 
-  props: ["hsba"],
+  props: ["hsba_id"],
 
-  mounted: function() {
-    if(this.hsba) {
-      this.chucnangsong_list = this.hsba.emrVaoKhoas.flatMap(x => x.emrChucNangSongs);
+  created: async function() {
+    if(this.hsba_id) {
+      var emrVaoKhoas = await this.get('/api/hsba/get_ds_vaokhoa', { hsba_id: this.hsba_id });
+      this.chucnangsong_list = emrVaoKhoas.flatMap(x => x.emrChucNangSongs);
       this.chucnangsong_list.forEach(x => {
-        x.emrVaoKhoa = this.hsba.emrVaoKhoas.find(vk => vk.id = x.emrVaoKhoaId);
+        x.emrVaoKhoa = emrVaoKhoas.find(vk => vk.id = x.emrVaoKhoaId);
         x.ngaytheodoi = this.getNgayTheoDoi(x);
       });
-    }      
-  }  
+    }
+  }
 });
 
 VueAsyncComponent('chucnangsong-view', '/pages/hsba/view_detail/chucnangsong/chucnangsong_view.html', {
   data: function() {
     return {
+      hsba: null
     }
   },
-  props: ["hsba", "chucnangsong"],
+  props: ["hsba_id", "chucnangsong"],
   
   methods: {
-    xemDsChucNangSong: function() {
-      this.$emit('xemDsChucNangSong');
+    viewChucnangsongList: function() {
+      this.$emit('viewChucnangsongList');
     },
     getTenKhoa: function(khoadieutri){
       return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
     }
   },
+
+  created: async function() {
+    this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
+  }
 });

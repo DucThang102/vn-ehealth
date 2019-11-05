@@ -1,4 +1,4 @@
-<div>
+<div v-if="gpb_list">
   <table class="table table-bordered">
     <tr>
       <th style="width: 5%;" class="text-center">STT</th>
@@ -9,7 +9,7 @@
     </tr>
     <tr v-for="(gpb, i) in gpb_list">
       <td class="text-center">{{ i + 1 }}</td>
-      <td class="text-center"><a href="#" v-on:click="xemGpb(gpb)"><i class="fas fa-fw fa-binoculars"></i>
+      <td class="text-center"><a href="#" v-on:click="viewGpb(gpb)"><i class="fas fa-fw fa-binoculars"></i>
           Xem</a></td>
       <td class="text-center">{{ gpb.emrDmGiaiPhauBenh.ten }}</td>
       <td class="text-center">{{ gpb.emrDmLoaiGiaiPhauBenh.ten }}</td>

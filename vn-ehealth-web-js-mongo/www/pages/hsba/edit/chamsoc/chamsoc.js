@@ -6,6 +6,8 @@ VueAsyncComponent('chamsoc', '/pages/hsba/edit/chamsoc/chamsoc.html', {
     }
   },
 
+  props: ["hsba_id"],
+
   methods: {
     editChamsoc: function(chamsoc) {
       this.chamsoc = chamsoc;
@@ -31,6 +33,8 @@ VueAsyncComponent('chamsoc-list', '/pages/hsba/edit/chamsoc/chamsoc_list.html', 
     }    
   },
 
+  props: ["hsba_id"],
+
   methods:  {
     editChamsoc : function(chamsoc) {
       this.$emit('editChamsoc', chamsoc);
@@ -54,11 +58,7 @@ VueAsyncComponent('chamsoc-list', '/pages/hsba/edit/chamsoc/chamsoc_list.html', 
   },
 
   created: async function() {
-    var hs_id = this.getParam("hs_id");
-    var hsba = await this.get('/api/hsba/get_hs', { hoso_id: hs_id });
-    if(hsba) {
-      this.vaokhoa_list = hsba.emrVaoKhoas;
-    }
+    this.vaokhoa_list = await this.get('/api/hsba/get_ds_vaokhoa', { hsba_id: this.hsba_id });
   },
 });
 
@@ -67,7 +67,7 @@ VueAsyncComponent('chamsoc-edit', '/pages/hsba/edit/chamsoc/chamsoc_edit.html', 
     return {
     }
   },
-  props: ["chamsoc"],
+  props: ["chamsoc", "hsba_id"],
   
   methods: {
     viewChamsocList: function() {

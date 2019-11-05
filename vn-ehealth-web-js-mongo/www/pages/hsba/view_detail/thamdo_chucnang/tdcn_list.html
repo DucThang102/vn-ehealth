@@ -9,7 +9,7 @@
     </tr>
     <tr v-for="(tdcn, i) in tdcn_list">
       <td class="text-center">{{ i + 1 }}</td>
-      <td class="text-center"><a href="#" v-on:click="xemTdcn(tdcn)"><i class="fas fa-fw fa-binoculars"></i>
+      <td class="text-center"><a href="#" v-on:click="viewTdcn(tdcn)"><i class="fas fa-fw fa-binoculars"></i>
           Xem</a></td>
       <td class="text-center">{{ tdcn.emrDmThamDoChucNang.ten }}</td>
       <td class="text-center">{{ tdcn.emrDmLoaiThamDoChucNang.ten }}</td>

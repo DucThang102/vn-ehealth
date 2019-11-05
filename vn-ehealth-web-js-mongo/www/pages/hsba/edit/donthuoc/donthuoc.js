@@ -6,6 +6,8 @@ VueAsyncComponent('donthuoc', '/pages/hsba/edit/donthuoc/donthuoc.html', {
     }
   },
 
+  props: ["hsba_id"],
+
   methods: {
     
     editDonthuoc: function(donthuoc) {
@@ -31,6 +33,8 @@ VueAsyncComponent('donthuoc-list', '/pages/hsba/edit/donthuoc/donthuoc_list.html
     }    
   },
 
+  props: ["hsba_id"],
+
   methods:  {
     deleteDonthuoc: function(id) {
       if(confirm('Bạn có muốn xóa ảnh tổn thương này không?')){
@@ -48,11 +52,7 @@ VueAsyncComponent('donthuoc-list', '/pages/hsba/edit/donthuoc/donthuoc_list.html
   },
 
   created: async function() {
-    var hs_id = this.getParam("hs_id");
-    var hsba = await this.get('/api/hsba/get_hs', { hoso_id: hs_id });
-    if(hsba) {
-      this.donthuoc_list = hsba.emrDonThuocs;
-    }
+    this.donthuoc_list = await this.get('/api/hsba/get_ds_donthuoc', { hsba_id: this.hsba_id });
   }
 });
 

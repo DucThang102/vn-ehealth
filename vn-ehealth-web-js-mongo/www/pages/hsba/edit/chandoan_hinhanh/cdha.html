@@ -1,5 +1,5 @@
 <div>
-  <cdha-list v-on:editCdha="editCdha" v-on:editFiles="editFiles" v-if="cdha == null"></cdha-list>
+  <cdha-list :hsba_id="hsba_id" v-on:editCdha="editCdha" v-on:editFiles="editFiles" v-if="cdha == null"></cdha-list>
   <cdha-edit :cdha="cdha" v-on:viewCdhaList="viewCdhaList" v-if="cdha != null && !fileEditing"></cdha-edit>
   <cdha-files :cdha="cdha" v-on:viewCdhaList="viewCdhaList" v-if="cdha != null && fileEditing"></cdha-files>
 </div>

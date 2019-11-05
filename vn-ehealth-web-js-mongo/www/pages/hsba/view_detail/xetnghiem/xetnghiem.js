@@ -6,35 +6,35 @@ VueAsyncComponent('xetnghiem', '/pages/hsba/view_detail/xetnghiem/xetnghiem.html
   },
 
   methods: {
-    xemXetnghiem: function(xetnghiem) {
+    viewXetnghiem: function(xetnghiem) {
       this.xetnghiem = xetnghiem;
     },
-    xemDsXetnghiem: function() {
+    viewXetnghiemList: function() {
       this.xetnghiem = null;
     }
   },
   
-  props: ["hsba"]
+  props: ["hsba_id"]
 });
 
 VueAsyncComponent('xetnghiem-list', '/pages/hsba/view_detail/xetnghiem/xetnghiem_list.html', {
   data: function(){
     return {
-      xetnghiem_list : []
+      xetnghiem_list : null
     }    
   },
 
   methods:  {
-    xemXetnghiem : function(xetnghiem) {
-      this.$emit('xemXetnghiem', xetnghiem);
+    viewXetnghiem : function(xetnghiem) {
+      this.$emit('viewXetnghiem', xetnghiem);
     },
   },
 
-  props: ["hsba"],
+  props: ["hsba_id"],
 
-  mounted: function() {
-    if(this.hsba) {
-      this.xetnghiem_list = this.hsba.emrXetNghiems;
+  created: async function() {
+    if(this.hsba_id) {
+      this.xetnghiem_list = await this.get('/api/hsba/get_ds_xetnghiem', { hsba_id: this.hsba_id });
     }
   }  
 });
@@ -42,13 +42,18 @@ VueAsyncComponent('xetnghiem-list', '/pages/hsba/view_detail/xetnghiem/xetnghiem
 VueAsyncComponent('xetnghiem-view', '/pages/hsba/view_detail/xetnghiem/xetnghiem_view.html', {
   data: function() {
     return {
+      hsba: null
     }
   },
-  props: ["hsba", "xetnghiem"],
+  props: ["hsba_id", "xetnghiem"],
   
   methods: {
-    xemDsXetnghiem: function() {
-      this.$emit('xemDsXetnghiem');
+    viewXetnghiemList: function() {
+      this.$emit('viewXetnghiemList');
     }
   },
+
+  created: async function() {
+    this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
+  }
 });

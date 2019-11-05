@@ -6,55 +6,57 @@ VueAsyncComponent('hoichan', '/pages/hsba/view_detail/hoichan/hoichan.html', {
   },
 
   methods: {
-    xemHoiChan: function(hoichan) {
+    viewHoichan: function(hoichan) {
       this.hoichan = hoichan;
     },
-    xemDsHoiChan: function() {
+    viewHoichanList: function() {
       this.hoichan = null;
     }
   },
   
-  props: ["hsba"]
+  props: ["hsba_id"]
 });
 
 VueAsyncComponent('hoichan-list', '/pages/hsba/view_detail/hoichan/hoichan_list.html', {
   data: function(){
     return {
-      hoichan_list : []
+      hoichan_list : null
     }    
   },
 
   methods:  {
-    xemHoiChan : function(hoichan) {
-      this.$emit('xemHoiChan', hoichan);
+    viewHoichan : function(hoichan) {
+      this.$emit('viewHoichan', hoichan);
     },
     getTenKhoa: function(khoadieutri){
       return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
     }
   },
 
-  props: ["hsba"],
+  props: ["hsba_id"],
 
-  mounted: function() {
-    if(this.hsba) {
-      this.hoichan_list = this.hsba.emrVaoKhoas.flatMap(x => x.emrHoiChans);
+  created: async function() {
+    if(this.hsba_id) {
+      var emrVaoKhoas = await this.get('/api/hsba/get_ds_vaokhoa', { hsba_id: this.hsba_id });
+      this.hoichan_list = emrVaoKhoas.flatMap(x => x.emrHoiChans);
       this.hoichan_list.forEach(x => {
-        x.emrVaoKhoa = this.hsba.emrVaoKhoas.find(vk => vk.id = x.emrVaoKhoaId);
+        x.emrVaoKhoa = emrVaoKhoas.find(vk => vk.id = x.emrVaoKhoaId);
       });
-    }      
-  }  
+    }
+  }
 });
 
 VueAsyncComponent('hoichan-view', '/pages/hsba/view_detail/hoichan/hoichan_view.html', {
   data: function() {
     return {
+      hsba: null
     }
   },
-  props: ["hsba", "hoichan"],
+  props: ["hsba_id", "hoichan"],
   
   methods: {
-    xemDsHoiChan: function() {
-      this.$emit('xemDsHoiChan');
+    viewHoichanList: function() {
+      this.$emit('viewHoichanList');
     },
     getTenKhoa: function(khoadieutri){
       return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
@@ -77,6 +79,9 @@ VueAsyncComponent('hoichan-view', '/pages/hsba/view_detail/hoichan/hoichan_view.
       }
       return "";
     }
-  }
+  },
 
+  created: async function() {
+    this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
+  }
 });

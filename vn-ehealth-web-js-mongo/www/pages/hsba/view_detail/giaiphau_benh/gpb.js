@@ -6,35 +6,35 @@ VueAsyncComponent('gpb', '/pages/hsba/view_detail/giaiphau_benh/gpb.html', {
   },
 
   methods: {
-    xemGpb: function(gpb) {
+    viewGpb: function(gpb) {
       this.gpb = gpb;
     },
-    xemDsGpb: function() {
+    viewGpbList: function() {
       this.gpb = null;
     }
   },
   
-  props: ["hsba"]
+  props: ["hsba_id"]
 });
 
 VueAsyncComponent('gpb-list', '/pages/hsba/view_detail/giaiphau_benh/gpb_list.html', {
   data: function(){
     return {
-      gpb_list : []
+      gpb_list : null
     }    
   },
 
   methods:  {
-    xemGpb : function(gpb) {
-      this.$emit('xemGpb', gpb);
+    viewGpb : function(gpb) {
+      this.$emit('viewGpb', gpb);
     },
   },
 
-  props: ["hsba"],
+  props: ["hsba_id"],
 
-  mounted: function() {
-    if(this.hsba) {
-      this.gpb_list = this.hsba.emrGiaiPhauBenhs;
+  created: async function() {
+    if(this.hsba_id) {
+      this.gpb_list = await this.get('/api/hsba/get_ds_gpb', { hsba_id: this.hsba_id });
     }
   }  
 });
@@ -42,13 +42,18 @@ VueAsyncComponent('gpb-list', '/pages/hsba/view_detail/giaiphau_benh/gpb_list.ht
 VueAsyncComponent('gpb-view', '/pages/hsba/view_detail/giaiphau_benh/gpb_view.html', {
   data: function() {
     return {
+      hsba: null
     }
   },
-  props: ["hsba", "gpb"],
+  props: ["hsba_id", "gpb"],
   
   methods: {
-    xemDsGpb: function() {
-      this.$emit('xemDsGpb');
+    viewGpbList: function() {
+      this.$emit('viewGpbList');
     }
   },
+
+  created: async function() {
+    this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
+  }
 });

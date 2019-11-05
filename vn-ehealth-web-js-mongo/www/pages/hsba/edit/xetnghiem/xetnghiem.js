@@ -6,6 +6,8 @@ VueAsyncComponent('xetnghiem', '/pages/hsba/edit/xetnghiem/xetnghiem.html', {
     }
   },
 
+  props: ["hsba_id"],
+
   methods: {
 
     editXetnghiem: function (xetnghiem) {
@@ -36,6 +38,8 @@ VueAsyncComponent('xetnghiem-list', '/pages/hsba/edit/xetnghiem/xetnghiem_list.h
     }
   },
 
+  props: ["hsba_id"],
+
   methods: {
     deleteXetnghiem: function (id) {
       if (confirm('Bạn có muốn xóa phẫu thuật/thủ thuật này không?')) {
@@ -57,11 +61,7 @@ VueAsyncComponent('xetnghiem-list', '/pages/hsba/edit/xetnghiem/xetnghiem_list.h
   },
 
   created: async function () {
-    var hs_id = this.getParam("hs_id");
-    var hsba = await this.get('/api/hsba/get_hs', { hoso_id: hs_id });
-    if (hsba) {
-      this.xetnghiem_list = hsba.emrXetNghiems;
-    }
+    this.xetnghiem_list = await this.get('/api/hsba/get_ds_xetnghiem', { hsba_id: this.hsba_id });
   }
 });
 

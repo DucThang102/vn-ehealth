@@ -6,6 +6,8 @@ VueAsyncComponent('chucnangsong', '/pages/hsba/edit/chucnangsong/chucnangsong.ht
     }
   },
 
+  props: ["hsba_id"],
+
   methods: {
     editChucnangsong: function(chucnangsong) {
       this.chucnangsong = chucnangsong;
@@ -31,6 +33,8 @@ VueAsyncComponent('chucnangsong-list', '/pages/hsba/edit/chucnangsong/chucnangso
     }    
   },
 
+  props: ["hsba_id"],
+
   methods:  {
     editChucnangsong : function(chucnangsong) {
       this.$emit('editChucnangsong', chucnangsong);
@@ -54,11 +58,7 @@ VueAsyncComponent('chucnangsong-list', '/pages/hsba/edit/chucnangsong/chucnangso
   },
 
   created: async function() {
-    var hs_id = this.getParam("hs_id");
-    var hsba = await this.get('/api/hsba/get_hs', { hoso_id: hs_id });
-    if(hsba) {
-      this.vaokhoa_list = hsba.emrVaoKhoas;
-    }
+    this.vaokhoa_list = await this.get('/api/hsba/get_ds_vaokhoa', { hsba_id: this.hsba_id });
   },
 });
 

@@ -1,5 +1,5 @@
 <div>
-  <donthuoc-list v-on:editDonthuoc="editDonthuoc" v-on:editFiles="editFiles" v-if="donthuoc == null"></donthuoc-list>
+  <donthuoc-list :hsba_id="hsba_id" v-on:editDonthuoc="editDonthuoc" v-on:editFiles="editFiles" v-if="donthuoc == null"></donthuoc-list>
   <donthuoc-edit :donthuoc="donthuoc" v-on:viewDonthuocList="viewDonthuocList" v-if="donthuoc != null && !fileEditing"></donthuoc-edit>
   <donthuoc-files :donthuoc="donthuoc" v-on:viewDonthuocList="viewDonthuocList" v-if="donthuoc != null && fileEditing"></donthuoc-files>
 </div>

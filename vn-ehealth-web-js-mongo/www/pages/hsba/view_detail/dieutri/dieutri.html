@@ -1,4 +1,5 @@
-<div v-if="hsba">
-    <dieutri-list :hsba="hsba" v-on:xemDieuTri="xemDieuTri" v-if="dieutri == null"></dieutri-list>
-    <dieutri-view :hsba="hsba" :dieutri="dieutri" v-on:xemDsDieuTri="xemDsDieuTri" v-if="dieutri != null"></dieutri-view>
+<div>
+  <dieutri-list :hsba_id="hsba_id" v-on:viewDieutri="viewDieutri" v-if="dieutri == null"></dieutri-list>
+  <dieutri-view :hsba_id="hsba_id" :dieutri="dieutri" v-on:viewDieutriList="viewDieutriList" v-if="dieutri != null">
+  </dieutri-view>
 </div>

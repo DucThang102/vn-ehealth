@@ -1,4 +1,4 @@
-<div>
+<div v-if="chucnangsong_list">
   <table class="table table-bordered">
     <tr>
       <th style="width: 5%;" class="text-center">STT</th>
@@ -10,7 +10,7 @@
     </tr>
     <tr v-for="(chucnangsong, i) in chucnangsong_list">
       <td class="text-center">{{ i + 1 }}</td>
-      <td class="text-center"><a href="#" v-on:click="xemChucNangSong(chucnangsong)"><i class="fas fa-fw fa-binoculars"></i>
+      <td class="text-center"><a href="#" v-on:click="viewChucnangsong(chucnangsong)"><i class="fas fa-fw fa-binoculars"></i>
           Xem</a></td>
       <td class="text-center">{{ chucnangsong.sophieu }}</td>
       <td class="text-center">{{ getTenKhoa(chucnangsong.emrVaoKhoa) }}</td>

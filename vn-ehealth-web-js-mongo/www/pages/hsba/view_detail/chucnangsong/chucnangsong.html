@@ -1,4 +1,4 @@
-<div v-if="hsba">
-  <chucnangsong-list :hsba="hsba" v-on:xemChucNangSong="xemChucNangSong" v-if="chucnangsong == null"></chucnangsong-list>
-  <chucnangsong-view :hsba="hsba" :chucnangsong="chucnangsong" v-on:xemDsChucNangSong="xemDsChucNangSong" v-if="chucnangsong != null"></chucnangsong-view>
+<div>
+  <chucnangsong-list :hsba_id="hsba_id" v-on:viewChucnangsong="viewChucnangsong" v-if="chucnangsong == null"></chucnangsong-list>
+  <chucnangsong-view :hsba_id="hsba_id" :chucnangsong="chucnangsong" v-on:viewChucnangsongList="viewChucnangsongList" v-if="chucnangsong != null"></chucnangsong-view>
 </div>

@@ -4,6 +4,8 @@ VueAsyncComponent('qlybn', '/pages/hsba/edit/qly_benhnhan/qlybn.html', {
         tab: 0,
       }
     },
+
+    props: ["hsba_id"],
   
     methods: {
       changeTab(tab){
@@ -24,6 +26,8 @@ var mixin = {
     }
   },
 
+  props: ["hsba_id"],
+
   watch: {
     hsba: {
       handler: function (val, oldVal) {
@@ -36,8 +40,7 @@ var mixin = {
   },
 
   created: async function() {
-    var hs_id = this.getParam("hs_id");
-    this.hsba = await this.get('/api/hsba/get_hs', { hoso_id: hs_id });
+    this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
     sessionStorage.removeItem('dataChange');
   }
 };

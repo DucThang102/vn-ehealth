@@ -6,6 +6,8 @@ VueAsyncComponent('dieutri', '/pages/hsba/edit/dieutri/dieutri.html', {
     }
   },
 
+  props: ["hsba_id"],
+
   methods: {
     editDieutri: function(dieutri) {
       this.dieutri = dieutri;
@@ -31,6 +33,8 @@ VueAsyncComponent('dieutri-list', '/pages/hsba/edit/dieutri/dieutri_list.html', 
     }    
   },
 
+  props: ["hsba_id"],
+
   methods:  {
     editDieutri : function(dieutri) {
       this.$emit('editDieutri', dieutri);
@@ -46,11 +50,7 @@ VueAsyncComponent('dieutri-list', '/pages/hsba/edit/dieutri/dieutri_list.html', 
   },
 
   created: async function() {
-    var hs_id = this.getParam("hs_id");
-    var hsba = await this.get('/api/hsba/get_hs', { hoso_id: hs_id });
-    if(hsba) {
-      this.vaokhoa_list = hsba.emrVaoKhoas;
-    }
+    this.vaokhoa_list = await this.get('/api/hsba/get_ds_vaokhoa', { hsba_id: this.hsba_id });
   },
 });
 

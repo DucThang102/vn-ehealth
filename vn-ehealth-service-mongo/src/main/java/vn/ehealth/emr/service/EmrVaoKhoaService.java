@@ -26,7 +26,7 @@ public class EmrVaoKhoaService {
     @Autowired EmrDieuTriRepository emrDieuTriRepository;
     @Autowired EmrHoiChanRepository emrHoiChanRepository;
     
-    public List<EmrVaoKhoa> getEmrVaoKhoaByHsbaId(ObjectId hsbaId) {
+    public List<EmrVaoKhoa> getByEmrHoSoBenhAnId(ObjectId hsbaId) {
         var sort = new Sort(Sort.Direction.ASC, "ngaygiovaokhoa");
                 
         var lst = emrVaoKhoaRespository.findByEmrHoSoBenhAnId(hsbaId, sort);

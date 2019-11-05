@@ -6,6 +6,8 @@ VueAsyncComponent('pttt', '/pages/hsba/edit/phauthuat_thuthuat/pttt.html', {
     }
   },
 
+  props: ["hsba_id"],
+
   methods: {
     
     editPttt: function(pttt) {
@@ -31,6 +33,8 @@ VueAsyncComponent('pttt-list', '/pages/hsba/edit/phauthuat_thuthuat/pttt_list.ht
     }    
   },
 
+  props: ["hsba_id"],
+
   methods:  {
     deletePttt: function(id) {
       if(confirm('Bạn có muốn xóa phẫu thuật/thủ thuật này không?')){
@@ -47,11 +51,7 @@ VueAsyncComponent('pttt-list', '/pages/hsba/edit/phauthuat_thuthuat/pttt_list.ht
   },
 
   created: async function() {
-    var hs_id = this.getParam("hs_id");
-    var hsba = await this.get('/api/hsba/get_hs', { hoso_id: hs_id });
-    if(hsba) {
-      this.pttt_list = hsba.emrPhauThuatThuThuats;
-    }
+    this.pttt_list = await this.get('/api/hsba/get_ds_pttt', { hsba_id: this.hsba_id });
   }
 });
 

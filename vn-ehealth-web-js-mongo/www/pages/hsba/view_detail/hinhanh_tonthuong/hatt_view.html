@@ -1,35 +1,8 @@
-<div v-if="hatt">
-  <a href="#" v-on:click="xemDsHatt"><i class="fas fa-fw fa-arrow-left"></i> Quay lại</a>
+<div v-if="hsba">
+  <a href="#" v-on:click="viewHattList"><i class="fas fa-fw fa-arrow-left"></i> Quay lại</a>
   <div class="frame mt-3">
-    <div class="row">
-      <div class="col-8">
-        <span>{{ hsba.emrCoSoKhamBenh.donvichuquan }}</span><br>
-        <span>BV: {{ hsba.emrCoSoKhamBenh.ten }}</span>
-      </div>
-      <div class="col-4">
-        <span>Số lưu trữ: {{ hsba.maluutru }}</span><br>
-        <span>Mã y tế:</span> <span>{{ hsba.mayte }}</span>
-      </div>
-    </div>
-    <div style="text-align: center;" class="mt-3 mb-3">
-      <h3>PHIẾU HÌNH ẢNH TỔN THƯƠNG</h3>
-    </div>
-    <div class="row">
-
-      <div class="col-8">
-        <span>Tên bệnh nhân:</span> <b><span class='text-uppercase'>{{ hsba.emrBenhNhan.tendaydu }}</span></b><br>
-        <span>Ngày sinh:</span> <span>{{ hsba.emrBenhNhan.ngaysinh }}</span><br>
-        <span>Ngày vào viện:</span>
-        <span>{{ hsba.emrQuanLyNguoiBenh.ngaygiovaovien }}</span><br>
-      </div>
-      <div class="col-4">
-        <span>Giới tính:</span> <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span><br>
-        <span>Tuổi:</span> <span>{{ hsba.emrBenhNhan.tuoi }}</span><br>
-        <span>Ngày ra viện:</span> <span>{{ hsba.emrQuanLyNguoiBenh.ngaygioravien }}</span><br>
-      </div>
-    </div>
+    <tomtat :hsba="hsba" title='PHIẾU HÌNH ẢNH TỔN THƯƠNG'></tomtat>    
     <hr>
-
     <div class="row" v-if="hatt">
       <div class="col-12">
         <b>Hình ảnh tổn thương: {{ hatt.anhtonthuong }}</b><br>
