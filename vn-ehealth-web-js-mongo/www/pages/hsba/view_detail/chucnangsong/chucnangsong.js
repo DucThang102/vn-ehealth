@@ -36,10 +36,10 @@ VueAsyncComponent('chucnangsong-list', '/pages/hsba/view_detail/chucnangsong/chu
         return "";
       }
       ngayBatDau = ngayTheoDois[0];
-      ngayBatDau = ngayBatDau? formatDate(ngayBatDau.toISOString()) : "";
+      ngayBatDau = ngayBatDau? ngayBatDau.substring(10) : "";
       
       ngayKetThuc = ngayTheoDois[ngayTheoDois.length-1];
-      ngayKetThuc = ngayKetThuc? formatDate(ngayKetThuc.toISOString()) : "";
+      ngayKetThuc = ngayKetThuc? ngayKetThuc.substring(10) : "";
 
       if(ngayBatDau == ngayKetThuc){
         return ngayBatDau

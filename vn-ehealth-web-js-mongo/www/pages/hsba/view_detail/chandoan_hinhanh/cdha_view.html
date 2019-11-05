@@ -17,14 +17,14 @@
     <div class="row">
       <div class="col-8">
         <span>Tên bệnh nhân:</span> <b><span class='text-uppercase'>{{ hsba.emrBenhNhan.tendaydu }}</span></b><br>
-        <span>Ngày sinh:</span> <span>{{ formatDate(hsba.emrBenhNhan.ngaysinh) }}</span><br>
+        <span>Ngày sinh:</span> <span>{{ hsba.emrBenhNhan.ngaysinh }}</span><br>
         <span>Ngày vào viện:</span>
-        <span>{{ formatDateTime(hsba.emrQuanLyNguoiBenh.ngaygiovaovien) }}</span><br>
+        <span>{{ hsba.emrQuanLyNguoiBenh.ngaygiovaovien }}</span><br>
       </div>
       <div class="col-4">
         <span>Giới tính:</span> <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span><br>
         <span>Tuổi:</span> <span>{{ hsba.emrBenhNhan.tuoi }}</span><br>
-        <span>Ngày ra viện:</span> <span>{{ formatDateTime(hsba.emrQuanLyNguoiBenh.ngaygioravien) }}</span><br>
+        <span>Ngày ra viện:</span> <span>{{ hsba.emrQuanLyNguoiBenh.ngaygioravien }}</span><br>
       </div>
     </div>
     <hr>
@@ -33,9 +33,9 @@
       <div class="col-12">
         <b>Chẩn đoán hình ảnh: {{ cdha.emrDmChanDoanHinhAnh.ten }}</b><br>
         <span>- Loại chẩn đoán: {{ cdha.emrDmLoaiChanDoanHinhAnh.ten }}</span><br>
-        <span>- Ngày yêu cầu: {{ formatDateTime(cdha.ngayyeucau) }}</span><br>
+        <span>- Ngày yêu cầu: {{ cdha.ngayyeucau }}</span><br>
         <span>- Bác sĩ yêu cầu: {{ cdha.bacsiyeucau }}</span><br>
-        <span>- Ngày thực hiện: {{ formatDateTime(cdha.ngaythuchien) }}</span><br>
+        <span>- Ngày thực hiện: {{ cdha.ngaythuchien }}</span><br>
         <span>- Bác sĩ thực hiện: {{ cdha.bacsichuyenkhoa }}</span><br>
       </div>
     </div>

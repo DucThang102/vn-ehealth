@@ -1,0 +1,32 @@
+<div v-if="vaokhoa_list">
+  <div class="mt-3" v-for="(khoadieutri,i) in vaokhoa_list ">
+    <label class="label-title label-bold">{{i+1}}. {{ getTenKhoa(khoadieutri) }}</label>
+    <table class="table table-bordered">
+      <tr>
+        <th style="width: 5%;" class="text-center">STT</th>
+        <th style="width: 15%;" class="text-center">Thao tác</th>
+        <th style="width: 80%;" class="text-center">Số tờ điều trị</th>
+      </tr>
+      <tr v-for="(dieutri, j) in khoadieutri.emrDieuTris">
+        <td class="text-center">{{ j + 1 }}</td>
+        <td class="text-center">
+          <a href='#' v-on:click="editDieutri(dieutri)" title="Chỉnh sửa">
+            <i class="fas fa-fw fa-lg fa-edit"></i>
+          </a>
+
+          <a href='#' v-on:click="editFiles(dieutri)" title="Quản lý file đính kèm">
+            <i class="fas fa-fw fa-lg fa-file"></i>
+          </a>
+
+          <a href='#' v-on:click='deleteDieutri(dieutri.id)' title="Xóa">
+            <i class="fas fa-fw fa-lg fa-trash" style="color:red"></i>
+          </a>
+        </td>
+        <td class="text-center">{{ dieutri.sotodieutri }}</td>
+      </tr>
+      <tr v-if="khoadieutri.emrDieuTris.length == 0">
+        <td colspan="3">Không có dữ liệu</td>
+      </tr>
+    </table>
+  </div>
+</div>

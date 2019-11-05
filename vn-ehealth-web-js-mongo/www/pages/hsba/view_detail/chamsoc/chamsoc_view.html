@@ -17,14 +17,14 @@
     <div class="row">
       <div class="col-8">
         <span>Tên bệnh nhân:</span> <b><span class='text-uppercase'>{{ hsba.emrBenhNhan.tendaydu }}</span></b><br>
-        <span>Ngày sinh:</span> <span>{{ formatDate(hsba.emrBenhNhan.ngaysinh) }}</span><br>
+        <span>Ngày sinh:</span> <span>{{ hsba.emrBenhNhan.ngaysinh }}</span><br>
         <span>Ngày vào viện:</span>
-        <span>{{ formatDateTime(hsba.emrQuanLyNguoiBenh.ngaygiovaovien) }}</span><br>
+        <span>{{ hsba.emrQuanLyNguoiBenh.ngaygiovaovien }}</span><br>
       </div>
       <div class="col-4">
         <span>Giới tính:</span> <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span><br>
         <span>Tuổi:</span> <span>{{ hsba.emrBenhNhan.tuoi }}</span><br>
-        <span>Ngày ra viện:</span> <span>{{ formatDateTime(hsba.emrQuanLyNguoiBenh.ngaygioravien) }}</span><br>
+        <span>Ngày ra viện:</span> <span>{{ hsba.emrQuanLyNguoiBenh.ngaygioravien }}</span><br>
       </div>
     </div>
     <hr>
@@ -46,7 +46,7 @@
       </tr>
       <tr v-for="(qtcs, i) in chamsoc.emrQuaTrinhChamSocs">
         <td>{{ i + 1}}</td>
-        <td>{{ formatDateTime(qtcs.ngaychamsoc) }}</td>
+        <td>{{ qtcs.ngaychamsoc }}</td>
         <td>{{ qtcs.theodoidienbien }}</td>
         <td>{{ qtcs.thuchienylenh }}</td>
         <td>{{ qtcs.ytachamsoc }}</td>

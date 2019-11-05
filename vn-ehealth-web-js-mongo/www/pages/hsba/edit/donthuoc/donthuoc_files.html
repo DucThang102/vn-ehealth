@@ -1,4 +1,4 @@
-<div v-if="giayto_list" class="mt-3">
+<div v-if="donthuoc" class="mt-3">
   <table class="table table-bordered">
     <tr>
       <th style="width:10%" class="text-center">STT</th>
@@ -30,5 +30,9 @@
         <a href='#' title="Xóa"><i class="fas fa-fw fa-lg fa-trash" style="color:red"></i></a>
       </td>
     </tr>
-  </table>  
+  </table>
+  <div class="mt-3 mb-3">
+    <button type="button" v-on:click="viewDonthuocList()" class="btn btn-sm btn-secondary">Quay lại</button>
+    <button type="button" class="btn btn-sm btn-primary">Lưu lại</button>
+  </div>
 </div>

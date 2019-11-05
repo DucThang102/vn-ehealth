@@ -1,4 +1,4 @@
-<div>
+<div v-if="donthuoc_list">
   <table class="table table-bordered">
     <tr>
       <th style="width: 5%;" class="text-center">STT</th>
@@ -9,11 +9,27 @@
     </tr>
     <tr v-for="(donthuoc, i) in donthuoc_list">
       <td class="text-center">{{ i + 1 }}</td>
-      <td class="text-center"><a href="#" v-on:click="xemDonThuoc(donthuoc)"><i class="fas fa-fw fa-binoculars"></i>
-          Xem</a></td>
+
+      <td class="text-center">
+        <a href='#' v-on:click="editDonthuoc(donthuoc)" title="Chỉnh sửa">
+          <i class="fas fa-fw fa-lg fa-edit"></i>
+        </a>
+
+        <a href='#' v-on:click="editFiles(donthuoc)" title="Quản lý file đính kèm">
+          <i class="fas fa-fw fa-lg fa-file"></i>
+        </a>
+
+        <a href='#' v-on:click='deleteDonthuoc(donthuoc.id)' title="Xóa">
+          <i class="fas fa-fw fa-lg fa-trash" style="color:red"></i>
+        </a>
+      </td>
+
       <td class="text-center">{{ donthuoc.sodon }}</td>
       <td class="text-center">{{ donthuoc.bacsikedon }}</td>
       <td class="text-center">{{ donthuoc.ngaykedon }}</td>
+    </tr>
+    <tr v-if="donthuoc_list.length == 0">
+      <td colspan="5">Không có dữ liệu</td>
     </tr>
   </table>
 </div>

@@ -41,6 +41,7 @@ VueAsyncComponent('hatt-list', '/pages/hsba/edit/hinhanh_tonthuong/hatt_list.htm
     editHatt : function(hatt) {
       this.$emit('editHatt', hatt);
     },
+    
     editFiles : function(hatt) {
       this.$emit('editFiles', hatt);
     },

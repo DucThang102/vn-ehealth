@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 @Entity
 @Table(name = "emr_qua_trinh_cham_soc")
@@ -18,6 +20,7 @@ public class EmrQuaTrinhChamSoc {
     @Column
     public Integer idchamsoc;
     
+    @JsonFormat(pattern="dd/MM/yyyy HH:mm")
     @Column
     public Date ngaychamsoc;
     

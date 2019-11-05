@@ -17,14 +17,14 @@
     <div class="row">
       <div class="col-8">
         <span>Tên bệnh nhân:</span> <b><span class='text-uppercase'>{{ hsba.emrBenhNhan.tendaydu }}</span></b><br>
-        <span>Ngày sinh:</span> <span>{{ formatDate(hsba.emrBenhNhan.ngaysinh) }}</span><br>
+        <span>Ngày sinh:</span> <span>{{ hsba.emrBenhNhan.ngaysinh }}</span><br>
         <span>Ngày vào viện:</span>
-        <span>{{ formatDateTime(hsba.emrQuanLyNguoiBenh.ngaygiovaovien) }}</span><br>
+        <span>{{ hsba.emrQuanLyNguoiBenh.ngaygiovaovien }}</span><br>
       </div>
       <div class="col-4">
         <span>Giới tính:</span> <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span><br>
         <span>Tuổi:</span> <span>{{ hsba.emrBenhNhan.tuoi }}</span><br>
-        <span>Ngày ra viện:</span> <span>{{ formatDateTime(hsba.emrQuanLyNguoiBenh.ngaygioravien) }}</span><br>
+        <span>Ngày ra viện:</span> <span>{{ hsba.emrQuanLyNguoiBenh.ngaygioravien }}</span><br>
       </div>
     </div>
     <hr>
@@ -32,7 +32,7 @@
     <div class="row" v-if="pttt">
       <div class="col-12">
         <b>Phẫu thuật/thủ thuật: {{ pttt.emrDmPhauThuThuat.ten }}</b><br>
-        <span>- Ngày thực hiện: {{ formatDateTime(pttt.ngaygiopttt) }} </span><br>
+        <span>- Ngày thực hiện: {{ pttt.ngaygiopttt }} </span><br>
         <span>- Bác sĩ thực hiện: {{ pttt.bacsithuchien }}</span><br>
         <span>- Bác sĩ gây mê: {{ pttt.bacsygayme }}</span><br>
         <span>- Chẩn đoán trước phẫu thuật, thủ thuật:

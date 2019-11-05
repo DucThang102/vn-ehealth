@@ -26,5 +26,8 @@
       <td class="text-center">{{ pttt.bacsithuchien }}</td>
       <td class="text-center">{{ pttt.ngaygiopttt }}</td>
     </tr>
+    <tr v-if="pttt_list.length == 0">
+      <td colspan="5">Không có dữ liệu</td>
+    </tr>
   </table>
 </div>

@@ -8,7 +8,7 @@
       <th style="width: 20%;" class="text-center">Ngày thực hiện</th>
     </tr>
     <tr v-for="(xetnghiem, i) in xetnghiem_list">
-      <td class="text-center">{{ i + 1 }}</td>      
+      <td class="text-center">{{ i + 1 }}</td>
       <td class="text-center">
         <a href='#' v-on:click="editXetnghiem(xetnghiem)" title="Chỉnh sửa">
           <i class="fas fa-fw fa-lg fa-edit"></i>
@@ -28,7 +28,10 @@
       </td>
       <td></td>
       <td class="text-center">{{ xetnghiem.emrDmLoaiXetNghiem.ten }}</td>
-      <td class="text-center">{{ formatDateTime(xetnghiem.ngaythuchien) }}</td>
+      <td class="text-center">{{ xetnghiem.ngaythuchien }}</td>
+    </tr>
+    <tr v-if="xetnghiem_list.length == 0">
+      <td colspan="5">Không có dữ liệu</td>
     </tr>
   </table>
 </div>

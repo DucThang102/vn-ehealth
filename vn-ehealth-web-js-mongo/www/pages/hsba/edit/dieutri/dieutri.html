@@ -1,3 +1,5 @@
 <div>
-    Dieu tri
+  <dieutri-list v-on:editDieutri="editDieutri" v-on:editFiles="editFiles" v-if="dieutri == null"></dieutri-list>
+  <dieutri-edit :dieutri="dieutri" v-on:viewDieutriList="viewDieutriList" v-if="dieutri != null && !fileEditing"></dieutri-edit>
+  <dieutri-files :dieutri="dieutri" v-on:viewDieutriList="viewDieutriList" v-if="dieutri != null && fileEditing"></dieutri-files>
 </div>

@@ -1,3 +1,7 @@
 VueAsyncComponent('giayto', '/pages/hsba/edit/giayto/giayto.html', {
-  props: ["hsba"]
+  data: function () {
+    return {
+      giayto_list: [],
+    }
+  },
 });

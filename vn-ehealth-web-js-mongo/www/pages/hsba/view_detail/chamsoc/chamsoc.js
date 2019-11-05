@@ -36,10 +36,10 @@ VueAsyncComponent('chamsoc-list', '/pages/hsba/view_detail/chamsoc/chamsoc_list.
         return "";
       }
       ngayBatDau = ngayChamSocs[0];
-      ngayBatDau = ngayBatDau? formatDate(ngayBatDau.toISOString()) : "";
+      ngayBatDau = ngayBatDau? ngayBatDau.substring(10) : "";
       
       ngayKetThuc = ngayChamSocs[ngayChamSocs.length-1];
-      ngayKetThuc = ngayKetThuc? formatDate(ngayKetThuc.toISOString()) : "";
+      ngayKetThuc = ngayKetThuc? ngayKetThuc.substring(10) : "";
 
       if(ngayBatDau == ngayKetThuc){
         return ngayBatDau

@@ -1,3 +1,5 @@
 <div>
-    Cham soc
+  <chamsoc-list v-on:editChamsoc="editChamsoc" v-on:editFiles="editFiles" v-if="chamsoc == null"></chamsoc-list>
+  <chamsoc-edit :chamsoc="chamsoc" v-on:viewChamsocList="viewChamsocList" v-if="chamsoc != null && !fileEditing"></chamsoc-edit>
+  <chamsoc-files :chamsoc="chamsoc" v-on:viewChamsocList="viewChamsocList" v-if="chamsoc != null && fileEditing"></chamsoc-files>
 </div>
