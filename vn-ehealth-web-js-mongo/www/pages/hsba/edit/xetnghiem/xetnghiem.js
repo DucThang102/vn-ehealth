@@ -61,7 +61,7 @@ VueAsyncComponent('xetnghiem-list', '/pages/hsba/edit/xetnghiem/xetnghiem_list.h
   },
 
   created: async function () {
-    this.xetnghiem_list = await this.get('/api/hsba/get_ds_xetnghiem', { hsba_id: this.hsba_id });
+    this.xetnghiem_list = await this.get('/api/xetnghiem/get_ds_xetnghiem', { hsba_id: this.hsba_id });
   }
 });
 

@@ -34,7 +34,7 @@ VueAsyncComponent('donthuoc-list', '/pages/hsba/view_detail/donthuoc/donthuoc_li
 
   created: async function() {
     if(this.hsba_id) {
-      this.donthuoc_list = await this.get('/api/hsba/get_ds_donthuoc', { hsba_id: this.hsba_id });
+      this.donthuoc_list = await this.get('/api/donthuoc/get_ds_donthuoc', { hsba_id: this.hsba_id });
     }
   }  
 });

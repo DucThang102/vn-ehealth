@@ -34,7 +34,7 @@ VueAsyncComponent('gpb-list', '/pages/hsba/view_detail/giaiphau_benh/gpb_list.ht
 
   created: async function() {
     if(this.hsba_id) {
-      this.gpb_list = await this.get('/api/hsba/get_ds_gpb', { hsba_id: this.hsba_id });
+      this.gpb_list = await this.get('/api/gpb/get_ds_gpb', { hsba_id: this.hsba_id });
     }
   }  
 });

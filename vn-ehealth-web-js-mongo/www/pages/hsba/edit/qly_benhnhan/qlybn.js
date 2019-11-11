@@ -28,6 +28,18 @@ var mixin = {
 
   props: ["hsba_id"],
 
+  methods : {
+    saveHsba : async function() {
+      var result = await this.post("/api/hsba/update_hsba", this.hsba);
+      if(result.success) {
+        console.log(result.emrHoSoBenhAn);
+        alert('Cập nhật thông tin thành công');
+      }else {
+        alert('Lỗi xảy ra quá trình lưu thông tin');
+      }
+    }
+  },
+
   watch: {
     hsba: {
       handler: function (val, oldVal) {
@@ -62,9 +74,15 @@ VueAsyncComponent('ttnb', '/pages/hsba/edit/qly_benhnhan/thongtin_nguoibenh.html
 
   data: function() {
     return {
+      emrVaoKhoas: [],
       khoadieutri: null
     }
   },
+
+  created: async function() {
+    this.emrVaoKhoas = await this.get('/api/vaokhoa/get_ds_vaokhoa', { hsba_id: this.hsba_id, detail: false });
+  },
+
   methods: {
   },
 });

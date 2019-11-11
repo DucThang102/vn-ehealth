@@ -56,10 +56,8 @@ VueAsyncComponent('chucnangsong-list', '/pages/hsba/view_detail/chucnangsong/chu
 
   created: async function() {
     if(this.hsba_id) {
-      var emrVaoKhoas = await this.get('/api/hsba/get_ds_vaokhoa', { hsba_id: this.hsba_id });
-      this.chucnangsong_list = emrVaoKhoas.flatMap(x => x.emrChucNangSongs);
+      this.chucnangsong_list = await this.get('/api/chucnangsong/get_ds_chucnangsong', { hsba_id: this.hsba_id });
       this.chucnangsong_list.forEach(x => {
-        x.emrVaoKhoa = emrVaoKhoas.find(vk => vk.id = x.emrVaoKhoaId);
         x.ngaytheodoi = this.getNgayTheoDoi(x);
       });
     }

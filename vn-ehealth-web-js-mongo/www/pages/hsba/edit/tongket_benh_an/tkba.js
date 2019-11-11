@@ -7,7 +7,16 @@ VueAsyncComponent('tkba', '/pages/hsba/edit/tongket_benh_an/tkba.html', {
 
     props: ["hsba_id"],
   
-    methods: {
+    methods : {
+      saveHsba : async function() {
+        var result = await this.post("/api/hsba/update_hsba", this.hsba);
+        if(result.success) {
+          console.log(result.emrHoSoBenhAn);
+          alert('Cập nhật thông tin thành công');
+        }else {
+          alert('Lỗi xảy ra quá trình lưu thông tin');
+        }
+      }
     },
     
     created: async function() {

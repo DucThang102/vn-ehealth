@@ -1,4 +1,10 @@
 <div v-if="tdcn_list">
+  <div class="row mt-3">
+    <div class="col-12">
+      <label class="label-title label-bold">Danh sách thăm dò chức năng</label>
+      <a v-on:click="addTdcn()" class="mt-1" href='#' title="Thêm"><i class="fas fa-fw fa-lg fa-plus-circle"></i></a>
+    </div>
+  </div>
   <table class="table table-bordered">
     <tr>
       <th style="width: 5%;" class="text-center">STT</th>

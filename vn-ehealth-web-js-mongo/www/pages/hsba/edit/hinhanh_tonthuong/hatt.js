@@ -36,23 +36,37 @@ VueAsyncComponent('hatt-list', '/pages/hsba/edit/hinhanh_tonthuong/hatt_list.htm
   props: ["hsba_id"],
 
   methods:  {
-    deleteHatt: function(id) {
+    getHattList: async function(){
+      this.hatt_list = await this.get('/api/hatt/get_ds_hatt', { hsba_id: this.hsba_id });
+    },
+
+    deleteHatt: async function(id) {
       if(confirm('Bạn có muốn xóa ảnh tổn thương này không?')){
-        alert(id);
+        var result = await this.get("/api/hatt/delete_hatt", {hatt_id: id});
+        if(result.success) {
+          this.getHattList();
+        }else {
+          alert('Lỗi xảy ra quá trình xóa');
+        }
       }
+    },
+
+    addHatt : function() {
+      var hatt = {emrHoSoBenhAnId: this.hsba_id};
+      this.$emit('editHatt', hatt);
     },
 
     editHatt : function(hatt) {
       this.$emit('editHatt', hatt);
     },
-    
+
     editFiles : function(hatt) {
       this.$emit('editFiles', hatt);
     },
   },
 
   created: async function() {
-    this.hatt_list = await this.get('/api/hsba/get_ds_hatt', { hsba_id: this.hsba_id });
+    this.getHattList();
   }
 });
 
@@ -66,6 +80,15 @@ VueAsyncComponent('hatt-edit', '/pages/hsba/edit/hinhanh_tonthuong/hatt_edit.htm
   methods: {
     viewHattList: function() {
       this.$emit('viewHattList');
+    },
+
+    saveHatt : async function() {
+      var result = await this.post("/api/hatt/create_or_update_hatt", this.hatt);
+      if(result.success) {
+        this.$emit('viewHattList');
+      }else {
+        alert('Lỗi xảy ra quá trình lưu thông tin');
+      }
     }
   },
 });

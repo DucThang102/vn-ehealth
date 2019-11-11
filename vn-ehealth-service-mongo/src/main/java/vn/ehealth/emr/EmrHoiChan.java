@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -18,9 +19,11 @@ public class EmrHoiChan {
 
     @Id public ObjectId id;
     
-    public String getId() { return id.toHexString(); }
+    public String getId() { return id != null? id.toHexString() : null; }
     
     public ObjectId emrVaoKhoaId;
+    
+    @Transient public EmrVaoKhoa emrVaoKhoa;
     
     public String getEmrVaoKhoaId() { return emrVaoKhoaId.toHexString(); }
 

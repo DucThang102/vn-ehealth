@@ -13,7 +13,7 @@ public class EmrDm {
 
     @Id public ObjectId id;
     
-    public String getId() { return id.toHexString(); }
+    public String getId() { return id != null? id.toHexString() : null; }
     
     public ObjectId nhomId;
     public String ma = "";

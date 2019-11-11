@@ -35,7 +35,7 @@ VueAsyncComponent('pttt-list', '/pages/hsba/view_detail/phauthuat_thuthuat/pttt_
 
   created: async function() {
     if(this.hsba_id) {
-      this.pttt_list = await this.get('/api/hsba/get_ds_pttt', { hsba_id: this.hsba_id });
+      this.pttt_list = await this.get('/api/pttt/get_ds_pttt', { hsba_id: this.hsba_id });
     }
   }  
 });

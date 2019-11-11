@@ -14,7 +14,7 @@ public class EmrCoSoKhamBenh {
     @Id    
     public transient ObjectId id;
     
-    public String getId() { return id.toHexString(); }
+    public String getId() { return id != null? id.toHexString() : null; }
     
     public EmrDmContent emrDmPhuongXa;
     public EmrDmContent emrDmQuanHuyen;

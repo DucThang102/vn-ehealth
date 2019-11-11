@@ -1,4 +1,4 @@
-package vn.ehealth.service.hsba;
+package vn.ehealth.service.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,19 +25,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import net.sf.jasperreports.engine.JRException;
-import vn.ehealth.emr.EmrBenhNhan;
 import vn.ehealth.emr.EmrHoSoBenhAn;
 import vn.ehealth.emr.service.EmrBenhNhanService;
-import vn.ehealth.emr.service.EmrChanDoanHinhAnhService;
 import vn.ehealth.emr.service.EmrCoSoKhamBenhService;
-import vn.ehealth.emr.service.EmrDonThuocService;
-import vn.ehealth.emr.service.EmrGiaiPhauBenhService;
-import vn.ehealth.emr.service.EmrHinhAnhTonThuongService;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
-import vn.ehealth.emr.service.EmrPhauThuatThuThuatService;
-import vn.ehealth.emr.service.EmrThamDoChucNangService;
 import vn.ehealth.emr.service.EmrVaoKhoaService;
-import vn.ehealth.emr.service.EmrXetNghiemService;
 import vn.ehealth.emr.utils.ExportUtil;
 import vn.ehealth.emr.utils.JasperUtils;
 import vn.ehealth.validate.ErrorMessage;
@@ -46,14 +38,14 @@ import vn.ehealth.validate.JsonParser;
 
 @RestController
 @RequestMapping("/api/hsba")
-public class HsbaController {
+public class EmrHoSoBenhAnController {
     
-    private static Logger logger = LoggerFactory.getLogger(HsbaController.class);
+    private static Logger logger = LoggerFactory.getLogger(EmrHoSoBenhAnController.class);
     
     private JsonParser jsonParser = new JsonParser();
     
     private static String hsbaSchema = "";
-    private static String benhNhanSchema = "";
+    
     
     static {
         try {
@@ -61,32 +53,14 @@ public class HsbaController {
         } catch (IOException e) {
             logger.error("Cannot read hsba schema", e);
         }
-        
-        try {
-            benhNhanSchema = new String(new ClassPathResource("static/json/benhnhan_schema.json").getInputStream().readAllBytes());
-        } catch (IOException e) {
-            logger.error("Cannot read benhnhan schema", e);
-        }
     }
     
     @Autowired EmrHoSoBenhAnService emrHoSoBenhAnService;    
-    @Autowired EmrHinhAnhTonThuongService emrHinhAnhTonThuongService;    
-    @Autowired EmrPhauThuatThuThuatService emrPhauThuatThuThuatService;
-    @Autowired EmrXetNghiemService emrXetNghiemService;
-    @Autowired EmrChanDoanHinhAnhService emrChanDoanHinhAnhService;
-    @Autowired EmrThamDoChucNangService emrThamDoChucNangService;
-    @Autowired EmrGiaiPhauBenhService emrGiaiPhauBenhService;
     @Autowired EmrBenhNhanService emrBenhNhanService;
-    @Autowired EmrCoSoKhamBenhService emrCoSoKhamBenhService;    
+    @Autowired EmrCoSoKhamBenhService emrCoSoKhamBenhService;
     @Autowired EmrVaoKhoaService emrVaoKhoaService;
-    @Autowired EmrDonThuocService emrDonThuocService;
         
     JasperUtils jasperUtils = new JasperUtils();
-    
-    @GetMapping("/test")
-    public String test() {
-        return "";        
-    }
 
     @GetMapping("/count_ds_hs")
     public long countHsba(@RequestParam int trangthai, @RequestParam String mayte) {
@@ -103,14 +77,19 @@ public class HsbaController {
         var result =  emrHoSoBenhAnService.getDsHoSo(trangthai, mayte, start, count);
         
         result.forEach(x -> {
-            x.emrCoSoKhamBenh = emrCoSoKhamBenhService.getById(x.emrCoSoKhamBenhId).orElse(null);
-            x.emrBenhNhan = emrBenhNhanService.getById(x.emrBenhNhanId).orElse(null);
+            if(x.emrCoSoKhamBenhId != null) {
+                x.emrCoSoKhamBenh = emrCoSoKhamBenhService.getById(x.emrCoSoKhamBenhId).orElse(null);
+            }
+            
+            if(x.emrBenhNhanId != null) {
+                x.emrBenhNhan = emrBenhNhanService.getById(x.emrBenhNhanId).orElse(null);
+            }
             
             if(x.emrBenhNhan != null) {
                 x.emrBenhNhan.tuoi = jasperUtils.getTuoi(x);
             }
             
-            var emrVaoKhoas = emrVaoKhoaService.getByEmrHoSoBenhAnId(x.id);
+            var emrVaoKhoas = emrVaoKhoaService.getByEmrHoSoBenhAnId(x.id, false);
             
             if(emrVaoKhoas.size() > 0) {
                 var emrKhoaRaVien = emrVaoKhoas.get(emrVaoKhoas.size() - 1);
@@ -123,55 +102,8 @@ public class HsbaController {
         });
         
         return ResponseEntity.ok(result);
-    }
-    
-    @GetMapping("/get_ds_hatt")
-    public ResponseEntity<?> getDsHinhAnhTonThuong(@RequestParam("hsba_id") String id) {
-        var hattList = emrHinhAnhTonThuongService.getByEmrHoSoBenhAnId(new ObjectId(id));
-        return ResponseEntity.ok(hattList);
-    }
-    
-    @GetMapping("/get_ds_pttt")
-    public ResponseEntity<?> getDsPhauThuatThuThuat(@RequestParam("hsba_id") String id) {
-        var ptttList = emrPhauThuatThuThuatService.getByEmrHoSoBenhAnId(new ObjectId(id));
-        return ResponseEntity.ok(ptttList);
-    }
-    
-    @GetMapping("/get_ds_xetnghiem")
-    public ResponseEntity<?> getDsXetNghiem(@RequestParam("hsba_id") String id) {
-        var xetnghiemList = emrXetNghiemService.getByEmrHoSoBenhAnId(new ObjectId(id));
-        return ResponseEntity.ok(xetnghiemList);
-    }
-    
-    @GetMapping("/get_ds_cdha")
-    public ResponseEntity<?> getDsChanDoanHinhAnh(@RequestParam("hsba_id") String id) {
-        var cdhaList = emrChanDoanHinhAnhService.getByEmrHoSoBenhAnId(new ObjectId(id));
-        return ResponseEntity.ok(cdhaList);
-    }
-    
-    @GetMapping("/get_ds_tdcn")
-    public ResponseEntity<?> getDsThamDoChucNang(@RequestParam("hsba_id") String id) {
-        var tdcnList = emrThamDoChucNangService.getByEmrHoSoBenhAnId(new ObjectId(id));
-        return ResponseEntity.ok(tdcnList);
-    }
-    
-    @GetMapping("/get_ds_gpb")
-    public ResponseEntity<?> getDsGiaiPhauBenh(@RequestParam("hsba_id") String id) {
-        var gpbList = emrGiaiPhauBenhService.getByEmrHoSoBenhAnId(new ObjectId(id));
-        return ResponseEntity.ok(gpbList);
-    }
-    
-    @GetMapping("/get_ds_vaokhoa")
-    public ResponseEntity<?> getDsVaoKhoa(@RequestParam("hsba_id") String id) {
-        var vkList = emrVaoKhoaService.getByEmrHoSoBenhAnId(new ObjectId(id));
-        return ResponseEntity.ok(vkList);
-    }
-    
-    @GetMapping("/get_ds_donthuoc")
-    public ResponseEntity<?> getDsDonThuoc(@RequestParam("hsba_id") String id) {
-        var donthuocList = emrDonThuocService.getByEmrHoSoBenhAnId(new ObjectId(id));
-        return ResponseEntity.ok(donthuocList);
-    }
+    }       
+   
     
     @GetMapping("/get_hsba_by_ma")
     public ResponseEntity<?> getHsbaByMa(@RequestParam("mayte") String mayte) {
@@ -190,7 +122,7 @@ public class HsbaController {
     @GetMapping("/get_hsba_by_id")
     public ResponseEntity<?> getHsbaById(@RequestParam("hsba_id") String id) {
         
-        var hsba = emrHoSoBenhAnService.getById(new ObjectId(id));
+        var hsba = emrHoSoBenhAnService.getById(new ObjectId(id), false);
         
         hsba.ifPresent(x -> {
             if(x.emrBenhNhan != null) {
@@ -204,7 +136,7 @@ public class HsbaController {
     @GetMapping("/view_pdf")
     public ResponseEntity<?> viewPdf(@RequestParam("hsba_id") String id) {
         
-        var hsba = emrHoSoBenhAnService.getById(new ObjectId(id));
+        var hsba = emrHoSoBenhAnService.getById(new ObjectId(id), true);
         
         if(hsba.isPresent()) {
             try {
@@ -223,10 +155,10 @@ public class HsbaController {
         return ResponseEntity.badRequest().build();
     }
     
-    @PostMapping("/create_or_update_benhnhan")
-    public ResponseEntity<?> createOrUpdateBenhNhan(@RequestBody String jsonSt) {
+    @PostMapping("/update_hsba")
+    public ResponseEntity<?> updateHsba(@RequestBody String jsonSt) {
         var errors = new ArrayList<ErrorMessage>();
-        var objMap = jsonParser.parseJson(jsonSt, benhNhanSchema, errors);
+        var objMap = jsonParser.parseJson(jsonSt, hsbaSchema, errors);
         
         if(errors.size() > 0) {
             var result = Map.of(
@@ -235,34 +167,27 @@ public class HsbaController {
             );
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
-        
         try {
             var mapper = new ObjectMapper();
-            var benhNhan = mapper.convertValue(objMap, EmrBenhNhan.class);
-            if(StringUtils.isEmpty(benhNhan.iddinhdanhchinh)) {
-                benhNhan.iddinhdanhchinh = benhNhan.idhis;
-            }
-            
-            if(StringUtils.isEmpty(benhNhan.iddinhdanhchinh)) {
-                throw new RuntimeException("Empty iddinhdanhchinh");
-            }
-            
-            benhNhan = emrBenhNhanService.createOrUpdate(benhNhan);
+            var hsba = mapper.convertValue(objMap, EmrHoSoBenhAn.class);
+            hsba.isLatest = true;
+            hsba = emrHoSoBenhAnService.save2(hsba);            
             
             var result = Map.of(
                 "success" , true,
-                "emrBenhNhan", benhNhan 
+                "emrHoSoBenhAn", hsba 
             );
-                    
-            return ResponseEntity.ok(result);
+                        
+            return ResponseEntity.ok(result);            
         }catch(Exception e) {
             var result = Map.of(
                 "success" , false,
                 "errors", List.of(e.getMessage()) 
             );
-            logger.error("Error create/update benhnhan:", e);
+            logger.error("Error save hsba:", e);
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
-        }        
+        }
+        
     }
     
     @PostMapping("/create_or_update_hsba")

@@ -106,7 +106,7 @@
         <th style="width: 10%;" class="text-center">Số phòng</th>
         <th style="width: 10%;" class="text-center">Số giường</th>
       </tr>
-      <tr v-for="(khoa, i) in hsba.emrVaoKhoas">
+      <tr v-for="(khoa, i) in emrVaoKhoas">
         <td class="text-center">
           <a href='#' v-on:click="khoadieutri=khoa" data-toggle="modal" data-target="#vkModal"><i class="fas fa-fw fa-edit"></i></a>
           <a href='#'><i class="fas fa-fw fa-trash" style="color:red"></i></a>
@@ -162,7 +162,7 @@
   </div>
 
   <div class="mt-3 mb-3">
-    <button class="btn btn-sm btn-primary">Lưu lại</button>
+    <button v-on:click="saveHsba()" class="btn btn-sm btn-primary">Lưu lại</button>
   </div>
 
   <div class="modal fade" id="vkModal" aria-hidden="true">

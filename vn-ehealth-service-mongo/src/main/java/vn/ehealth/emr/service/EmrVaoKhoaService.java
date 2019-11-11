@@ -11,34 +11,30 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import vn.ehealth.emr.EmrVaoKhoa;
-import vn.ehealth.emr.repository.EmrChamSocRepository;
-import vn.ehealth.emr.repository.EmrChucNangSongRepository;
-import vn.ehealth.emr.repository.EmrDieuTriRepository;
-import vn.ehealth.emr.repository.EmrHoiChanRepository;
 import vn.ehealth.emr.repository.EmrVaoKhoaRespository;
 
 @Service
 public class EmrVaoKhoaService {
 
     @Autowired EmrVaoKhoaRespository emrVaoKhoaRespository;
-    @Autowired EmrChamSocRepository emrChamSocRepository;
-    @Autowired EmrChucNangSongRepository emrChucNangSongRepository;
-    @Autowired EmrDieuTriRepository emrDieuTriRepository;
-    @Autowired EmrHoiChanRepository emrHoiChanRepository;
+    @Autowired EmrChamSocService emrChamSocService;
+    @Autowired EmrChucNangSongService emrChucNangSongService;
+    @Autowired EmrDieuTriService emrDieuTriService;
+    @Autowired EmrHoiChanService emrHoiChanService;
     
-    public List<EmrVaoKhoa> getByEmrHoSoBenhAnId(ObjectId hsbaId) {
-        var sort = new Sort(Sort.Direction.ASC, "ngaygiovaokhoa");
-                
+    public List<EmrVaoKhoa> getByEmrHoSoBenhAnId(ObjectId hsbaId, boolean detail) {
+        var sort = new Sort(Sort.Direction.ASC, "ngaygiovaokhoa");                
         var lst = emrVaoKhoaRespository.findByEmrHoSoBenhAnId(hsbaId, sort);
-        
-        for(var item : lst) {
-            item.emrChamSocs = emrChamSocRepository.findByEmrVaoKhoaId(item.id);
-            item.emrChucNangSongs = emrChucNangSongRepository.findByEmrVaoKhoaId(item.id);
-            item.emrDieuTris = emrDieuTriRepository.findByEmrVaoKhoaId(item.id);
-            item.emrHoiChans = emrHoiChanRepository.findByEmrVaoKhoaId(item.id);             
+        if(detail) {
+            lst.forEach(x -> {
+                x.emrChamSocs = emrChamSocService.getByEmrVaoKhoaId(x.id);
+                x.emrChucNangSongs = emrChucNangSongService.getByEmrVaoKhoaId(x.id);
+                x.emrDieuTris = emrDieuTriService.getByEmrVaoKhoaId(x.id);
+                x.emrHoiChans = emrHoiChanService.getByEmrVaoKhoaId(x.id);
+            });
         }
         
-        return lst;
+        return lst;        
     }
     
     public EmrVaoKhoa save(@Nonnull EmrVaoKhoa emrVaoKhoa) {
@@ -49,7 +45,7 @@ public class EmrVaoKhoaService {
             emrVaoKhoa.emrChamSocs.forEach(x -> x.emrVaoKhoaId = emrVaoKhoaId);
             
             emrVaoKhoa.emrChamSocs = emrVaoKhoa.emrChamSocs.stream()
-                                        .map(x -> emrChamSocRepository.save(x))
+                                        .map(x -> emrChamSocService.createOrUpdate(x))
                                         .collect(Collectors.toList());
         }
         
@@ -57,7 +53,7 @@ public class EmrVaoKhoaService {
             emrVaoKhoa.emrChucNangSongs.forEach(x -> x.emrVaoKhoaId = emrVaoKhoaId);
             
             emrVaoKhoa.emrChucNangSongs = emrVaoKhoa.emrChucNangSongs.stream()
-                                        .map(x -> emrChucNangSongRepository.save(x))
+                                        .map(x -> emrChucNangSongService.createOrUpdate(x))
                                         .collect(Collectors.toList());
         }
         
@@ -65,7 +61,7 @@ public class EmrVaoKhoaService {
             emrVaoKhoa.emrDieuTris.forEach(x -> x.emrVaoKhoaId = emrVaoKhoaId);
             
             emrVaoKhoa.emrDieuTris = emrVaoKhoa.emrDieuTris.stream()
-                                        .map(x -> emrDieuTriRepository.save(x))
+                                        .map(x -> emrDieuTriService.createOrUpdate(x))
                                         .collect(Collectors.toList());
         }
         
@@ -73,7 +69,7 @@ public class EmrVaoKhoaService {
             emrVaoKhoa.emrHoiChans.forEach(x -> x.emrVaoKhoaId = emrVaoKhoaId);
             
             emrVaoKhoa.emrHoiChans = emrVaoKhoa.emrHoiChans.stream()
-                                        .map(x -> emrHoiChanRepository.save(x))
+                                        .map(x -> emrHoiChanService.createOrUpdate(x))
                                         .collect(Collectors.toList());
         }
         

@@ -18,7 +18,15 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class EmrHoSoBenhAn {    
     @Id public ObjectId id;
     
-    public String getId() { return id.toHexString(); }
+    public String getId() { return id != null? id.toHexString() : null; }
+    
+    public void setId(String id) { 
+        if(id != null) {
+            this.id = new ObjectId(id);
+        }else {
+            this.id = null;
+        }
+    }
         
     public EmrDmContent emrDmLoaiBenhAn;
     
@@ -43,11 +51,6 @@ public class EmrHoSoBenhAn {
     public Date ngayluutru;
     
     public String nguoiluutru;
-    
-    public String giamdocbenhvien;
-    public String tenbenhvien;
-    public String donvichuquan;
-    public String truongphongth;
     
     public Date ngaytao;
     
@@ -104,105 +107,166 @@ public class EmrHoSoBenhAn {
     public EmrDmContent getEmrDmLoaiBenhAn() {
         return emrDmLoaiBenhAn;
     }
-    public ObjectId getEmrBenhNhanId() {
-        return emrBenhNhanId;
+    
+    public String getEmrBenhNhanId() {
+        return emrBenhNhanId != null? emrBenhNhanId.toHexString(): null;
     }
+    
+    public void setEmrBenhNhanId(String emrBenhNhanId) {
+        if(emrBenhNhanId != null) {
+            this.emrBenhNhanId = new ObjectId(emrBenhNhanId);
+        }else {
+            this.emrBenhNhanId = null;
+        }
+    }
+    
     public EmrBenhNhan getEmrBenhNhan() {
         return emrBenhNhan;
     }
-    public ObjectId getEmrCoSoKhamBenhId() {
-        return emrCoSoKhamBenhId;
+    
+    public String getEmrCoSoKhamBenhId() {
+        return emrCoSoKhamBenhId != null? emrCoSoKhamBenhId.toHexString(): null;
     }
+    
+    public void setEmrCoSoKhamBenhId(String emrCoSoKhamBenhId) {
+        if(emrCoSoKhamBenhId != null) {
+            this.emrCoSoKhamBenhId = new ObjectId(emrCoSoKhamBenhId);
+        }else {
+            this.emrCoSoKhamBenhId = null;
+        }
+    }
+    
     public EmrCoSoKhamBenh getEmrCoSoKhamBenh() {
         return emrCoSoKhamBenh;
     }
+    
     public String getMayte() {
         return mayte;
     }
+    
     public String getMaluutru() {
         return maluutru;
     }
+    
     public String getMatraodoi() {
         return matraodoi;
     }
+    
     public String getGiamdocbenhvien() {
-        return giamdocbenhvien;
+        if(emrCoSoKhamBenh != null) {
+            return emrCoSoKhamBenh.giamdoc;
+        }
+        return "";
     }
+    
     public String getTenbenhvien() {
-        return tenbenhvien;
+        if(emrCoSoKhamBenh != null) {
+            return emrCoSoKhamBenh.ten;
+        }
+        return "";
     }
+    
     public String getDonvichuquan() {
-        return donvichuquan;
+        if(emrCoSoKhamBenh != null) {
+            return emrCoSoKhamBenh.donvichuquan;
+        }
+        return "";
     }
+    
     public String getTruongphongth() {
-        return truongphongth;
+        if(emrCoSoKhamBenh != null) {
+            return emrCoSoKhamBenh.truongphongth;
+        }
+        return "";
     }
+    
     public EmrQuanLyNguoiBenh getEmrQuanLyNguoiBenh() {
         return emrQuanLyNguoiBenh;
     }
+    
     public EmrTongKetRaVien getEmrTongKetRaVien() {
         return emrTongKetRaVien;
     }
+    
     public EmrTinhTrangRaVien getEmrTinhTrangRaVien() {
         return emrTinhTrangRaVien;
     }
+    
     public EmrTongKetSanKhoa getEmrTongKetSanKhoa() {
         return emrTongKetSanKhoa;
     }
+    
     public EmrBenhAn getEmrBenhAn() {
         return emrBenhAn;
     }
+    
     public EmrYhctBenhAn getEmrYhctBenhAn() {
         return emrYhctBenhAn;
     }
+    
     public EmrChanDoan getEmrChanDoan() {
         return emrChanDoan;
     }
+    
     public EmrYhctChanDoan getEmrYhctChanDoan() {
         return emrYhctChanDoan;
-    }
+    }    
+    
     public EmrYhctNhaBa getEmrYhctNhaBa() {
         return emrYhctNhaBa;
     }
+    
     public List<EmrYhctNhaBaGhiChu> getEmrYhctNhaBaGhiChus() {
         return emrYhctNhaBaGhiChus;
     }
+    
     public List<EmrQuaTrinhSuDungThuoc> getEmrQuaTrinhSuDungThuocs() {
         return emrQuaTrinhSuDungThuocs;
     }
+    
     public List<EmrFileDinhKem> getEmrFileDinhKems() {
         return emrFileDinhKems;
     }
     public EmrVaoKhoa[] getEmrVaoKhoas() {
         return emrVaoKhoas.toArray(new EmrVaoKhoa[0]);
     }
+    
     public List<EmrHinhAnhTonThuong> getEmrHinhAnhTonThuongs() {
         return emrHinhAnhTonThuongs;
     }
+    
     public List<EmrGiaiPhauBenh> getEmrGiaiPhauBenhs() {
         return emrGiaiPhauBenhs;
     }
+    
     public List<EmrThamDoChucNang> getEmrThamDoChucNangs() {
         return emrThamDoChucNangs;
     }
+    
     public List<EmrPhauThuatThuThuat> getEmrPhauThuatThuThuats() {
         return emrPhauThuatThuThuats;
     }
+    
     public List<EmrChanDoanHinhAnh> getEmrChanDoanHinhAnhs() {
         return emrChanDoanHinhAnhs;
     }
+    
     public List<EmrDonThuoc> getEmrDonThuocs() {
         return emrDonThuocs;
     }
+    
     public List<EmrYhctDonThuoc> getEmrYhctDonThuocs() {
         return emrYhctDonThuocs;
     }
+    
     public List<EmrXetNghiem> getEmrXetNghiems() {
         return emrXetNghiems;
     }
+    
     public Boolean getCoPhauThuat() {
         return coPhauThuat;
     }
+    
     public Boolean getCoThuThuat() {
         return coThuThuat;
     }    

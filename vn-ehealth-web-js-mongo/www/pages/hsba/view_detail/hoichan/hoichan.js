@@ -37,11 +37,7 @@ VueAsyncComponent('hoichan-list', '/pages/hsba/view_detail/hoichan/hoichan_list.
 
   created: async function() {
     if(this.hsba_id) {
-      var emrVaoKhoas = await this.get('/api/hsba/get_ds_vaokhoa', { hsba_id: this.hsba_id });
-      this.hoichan_list = emrVaoKhoas.flatMap(x => x.emrHoiChans);
-      this.hoichan_list.forEach(x => {
-        x.emrVaoKhoa = emrVaoKhoas.find(vk => vk.id = x.emrVaoKhoaId);
-      });
+      this.hoichan_list = await this.get('/api/hoichan/get_ds_hoichan', { hsba_id: this.hsba_id });
     }
   }
 });

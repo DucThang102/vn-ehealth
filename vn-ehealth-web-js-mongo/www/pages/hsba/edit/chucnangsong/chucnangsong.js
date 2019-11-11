@@ -29,7 +29,7 @@ VueAsyncComponent('chucnangsong', '/pages/hsba/edit/chucnangsong/chucnangsong.ht
 VueAsyncComponent('chucnangsong-list', '/pages/hsba/edit/chucnangsong/chucnangsong_list.html', {
   data: function(){
     return {
-      vaokhoa_list : null
+      chucnangsong_list : null
     }    
   },
 
@@ -38,6 +38,22 @@ VueAsyncComponent('chucnangsong-list', '/pages/hsba/edit/chucnangsong/chucnangso
   methods:  {
     editChucnangsong : function(chucnangsong) {
       this.$emit('editChucnangsong', chucnangsong);
+    },
+
+    addChucnangsong: async function() {
+      var vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', {hsba_id: this.hsba_id, detail: false});
+      if(vaokhoa_list && vaokhoa_list.length > 0) {
+        
+        var chucnangsong = { 
+          emrVaoKhoaId: vaokhoa_list[0].id, 
+          emrVaoKhoa: vaokhoa_list[0],
+          emrChucNangSongChiTiets: []
+        };
+        
+        this.$emit('editChucnangsong', chucnangsong);
+      }else{
+        alert('Hồ sơ bệnh án chưa có khoa điều trị');
+      }
     },
 
     editFiles : function(chucnangsong) {
@@ -58,7 +74,7 @@ VueAsyncComponent('chucnangsong-list', '/pages/hsba/edit/chucnangsong/chucnangso
   },
 
   created: async function() {
-    this.vaokhoa_list = await this.get('/api/hsba/get_ds_vaokhoa', { hsba_id: this.hsba_id });
+    this.chucnangsong_list = await this.get('/api/chucnangsong/get_ds_chucnangsong', { hsba_id: this.hsba_id });
   },
 });
 
@@ -70,6 +86,27 @@ VueAsyncComponent('chucnangsong-edit', '/pages/hsba/edit/chucnangsong/chucnangso
   props: ["chucnangsong"],
   
   methods: {
+    getTenKhoa: function(khoadieutri){
+      return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
+    },
+
+    addCnsct: function() {
+      this.chucnangsong.emrChucNangSongChiTiets.push({});
+    },
+
+    deleteCnsct: function(index) {
+      this.chucnangsong.emrChucNangSongChiTiets.splice(index, 1);
+    },
+    
+    saveChucnangsong: async function() {
+      var result = await this.post("/api/chucnangsong/create_or_update_chucnangsong", this.chucnangsong);
+      if(result.success) {
+        this.$emit('viewChucnangsongList');
+      }else {
+        alert('Lỗi xảy ra quá trình lưu thông tin');
+      }
+    },
+
     viewChucnangsongList: function() {
       this.$emit('viewChucnangsongList');
     }    

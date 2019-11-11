@@ -16,14 +16,35 @@ public class EmrHinhAnhTonThuong {
     
     @Id public ObjectId id;
     
-    public String getId() { return id.toHexString(); }
-    
     public ObjectId emrHoSoBenhAnId;
-        
+    
     public String anhtonthuong;
     public String motatonthuong;
     public String dinhdanganh;
     
     public List<EmrFileDinhKem> emrFileDinhKemHatts = new ArrayList<>();
     
+    public String getId() { 
+        return id != null? id.toHexString() : null; 
+    }
+    
+    public void setId(String id) {
+        if(id != null) {
+            this.id = new ObjectId(id);
+        }else {
+            this.id = null;
+        }
+    }
+    
+    public String getEmrHoSoBenhAnId() {
+        return emrHoSoBenhAnId != null? emrHoSoBenhAnId.toHexString(): null;
+    }
+    
+    public void setEmrHoSoBenhAnId(String emrHoSoBenhAnId) {
+        if(emrHoSoBenhAnId != null) {
+            this.emrHoSoBenhAnId = new ObjectId(emrHoSoBenhAnId);
+        }else {
+            this.emrHoSoBenhAnId = null;
+        }            
+    }
 }

@@ -29,7 +29,7 @@ VueAsyncComponent('dieutri', '/pages/hsba/edit/dieutri/dieutri.html', {
 VueAsyncComponent('dieutri-list', '/pages/hsba/edit/dieutri/dieutri_list.html', {
   data: function(){
     return {
-      vaokhoa_list : null
+      dieutri_list : null
     }    
   },
 
@@ -38,6 +38,22 @@ VueAsyncComponent('dieutri-list', '/pages/hsba/edit/dieutri/dieutri_list.html', 
   methods:  {
     editDieutri : function(dieutri) {
       this.$emit('editDieutri', dieutri);
+    },
+
+    addDieutri: async function() {
+      var vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', {hsba_id: this.hsba_id, detail: false});
+      if(vaokhoa_list && vaokhoa_list.length > 0) {
+        
+        var dieutri = { 
+          emrVaoKhoaId: vaokhoa_list[0].id, 
+          emrVaoKhoa: vaokhoa_list[0],
+          emrQuaTrinhDieuTris: []
+        };
+        
+        this.$emit('editDieutri', dieutri);
+      }else{
+        alert('Hồ sơ bệnh án chưa có khoa điều trị');
+      }
     },
 
     editFiles : function(dieutri) {
@@ -50,7 +66,7 @@ VueAsyncComponent('dieutri-list', '/pages/hsba/edit/dieutri/dieutri_list.html', 
   },
 
   created: async function() {
-    this.vaokhoa_list = await this.get('/api/hsba/get_ds_vaokhoa', { hsba_id: this.hsba_id });
+    this.dieutri_list = await this.get('/api/dieutri/get_ds_dieutri', { hsba_id: this.hsba_id });
   },
 });
 
@@ -62,6 +78,27 @@ VueAsyncComponent('dieutri-edit', '/pages/hsba/edit/dieutri/dieutri_edit.html', 
   props: ["dieutri"],
   
   methods: {
+    getTenKhoa: function(khoadieutri){
+      return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
+    },
+
+    addQtdt: function() {
+      this.dieutri.emrQuaTrinhDieuTris.push({});
+    },
+
+    deleteQtdt: function(index) {
+      this.dieutri.emrQuaTrinhDieuTris.splice(index, 1);
+    },
+    
+    saveDieutri: async function() {
+      var result = await this.post("/api/dieutri/create_or_update_dieutri", this.dieutri);
+      if(result.success) {
+        this.$emit('viewDieutriList');
+      }else {
+        alert('Lỗi xảy ra quá trình lưu thông tin');
+      }
+    },
+
     viewDieutriList: function() {
       this.$emit('viewDieutriList');
     }    

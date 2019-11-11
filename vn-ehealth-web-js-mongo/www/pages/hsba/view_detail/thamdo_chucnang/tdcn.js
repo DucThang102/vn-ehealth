@@ -34,7 +34,7 @@ VueAsyncComponent('tdcn-list', '/pages/hsba/view_detail/thamdo_chucnang/tdcn_lis
 
   created: async function() {
     if(this.hsba_id) {
-      this.tdcn_list = await this.get('/api/hsba/get_ds_tdcn', { hsba_id: this.hsba_id });
+      this.tdcn_list = await this.get('/api/tdcn/get_ds_tdcn', { hsba_id: this.hsba_id });
     }
   }  
 });

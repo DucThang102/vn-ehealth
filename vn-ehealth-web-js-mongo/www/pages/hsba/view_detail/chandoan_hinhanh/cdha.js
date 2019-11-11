@@ -34,7 +34,7 @@ VueAsyncComponent('cdha-list', '/pages/hsba/view_detail/chandoan_hinhanh/cdha_li
 
   created: async function() {
     if(this.hsba_id) {
-      this.cdha_list = await this.get('/api/hsba/get_ds_cdha', { hsba_id: this.hsba_id });
+      this.cdha_list = await this.get('/api/cdha/get_ds_cdha', { hsba_id: this.hsba_id });
     }
   }  
 });

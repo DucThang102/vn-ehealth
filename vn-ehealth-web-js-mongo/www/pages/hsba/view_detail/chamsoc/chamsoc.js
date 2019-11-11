@@ -56,10 +56,8 @@ VueAsyncComponent('chamsoc-list', '/pages/hsba/view_detail/chamsoc/chamsoc_list.
 
   created: async function() {
     if(this.hsba_id) {
-      var emrVaoKhoas = await this.get('/api/hsba/get_ds_vaokhoa', { hsba_id: this.hsba_id });
-      this.chamsoc_list = emrVaoKhoas.flatMap(x => x.emrChamSocs);
+      this.chamsoc_list = await this.get('/api/chamsoc/get_ds_chamsoc', { hsba_id: this.hsba_id });
       this.chamsoc_list.forEach(x => {
-        x.emrVaoKhoa = emrVaoKhoas.find(vk => vk.id = x.emrVaoKhoaId);
         x.ngaychamsoc = this.getNgayChamSoc(x);
       });
     }

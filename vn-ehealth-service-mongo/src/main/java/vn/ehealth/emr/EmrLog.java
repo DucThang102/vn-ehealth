@@ -15,7 +15,7 @@ public class EmrLog {
     
     @Id public ObjectId id;
     
-    public String getId() { return id.toHexString(); }
+    public String getId() { return id != null? id.toHexString() : null; }
     
     public ObjectId nguoiThucHienId;
     public ObjectId hanhDongId;

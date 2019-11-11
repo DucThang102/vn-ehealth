@@ -51,7 +51,7 @@ VueAsyncComponent('gpb-list', '/pages/hsba/edit/giaiphau_benh/gpb_list.html', {
   },
 
   created: async function () {
-    this.gpb_list = await this.get('/api/hsba/get_ds_gpb', { hsba_id: this.hsba_id });
+    this.gpb_list = await this.get('/api/gpb/get_ds_gpb', { hsba_id: this.hsba_id });
   }
 });
 

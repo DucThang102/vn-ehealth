@@ -29,7 +29,7 @@ VueAsyncComponent('chamsoc', '/pages/hsba/edit/chamsoc/chamsoc.html', {
 VueAsyncComponent('chamsoc-list', '/pages/hsba/edit/chamsoc/chamsoc_list.html', {
   data: function(){
     return {
-      vaokhoa_list : null
+      chamsoc_list : null
     }    
   },
 
@@ -38,6 +38,22 @@ VueAsyncComponent('chamsoc-list', '/pages/hsba/edit/chamsoc/chamsoc_list.html', 
   methods:  {
     editChamsoc : function(chamsoc) {
       this.$emit('editChamsoc', chamsoc);
+    },
+
+    addChamsoc: async function() {
+      var vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', {hsba_id: this.hsba_id, detail: false});
+      if(vaokhoa_list && vaokhoa_list.length > 0) {
+        
+        var chamsoc = { 
+          emrVaoKhoaId: vaokhoa_list[0].id, 
+          emrVaoKhoa: vaokhoa_list[0],
+          emrQuaTrinhChamSocs: []
+        };
+        
+        this.$emit('editChamsoc', chamsoc);
+      }else{
+        alert('Hồ sơ bệnh án chưa có khoa điều trị');
+      }
     },
 
     editFiles : function(chamsoc) {
@@ -58,7 +74,7 @@ VueAsyncComponent('chamsoc-list', '/pages/hsba/edit/chamsoc/chamsoc_list.html', 
   },
 
   created: async function() {
-    this.vaokhoa_list = await this.get('/api/hsba/get_ds_vaokhoa', { hsba_id: this.hsba_id });
+    this.chamsoc_list = await this.get('/api/chamsoc/get_ds_chamsoc', { hsba_id: this.hsba_id });
   },
 });
 
@@ -70,6 +86,27 @@ VueAsyncComponent('chamsoc-edit', '/pages/hsba/edit/chamsoc/chamsoc_edit.html', 
   props: ["chamsoc", "hsba_id"],
   
   methods: {
+    getTenKhoa: function(khoadieutri){
+      return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
+    },
+
+    addQtcs: function() {
+      this.chamsoc.emrQuaTrinhChamSocs.push({});
+    },
+
+    deleteQtcs: function(index) {
+      this.chamsoc.emrQuaTrinhChamSocs.splice(index, 1);
+    },
+    
+    saveChamsoc: async function() {
+      var result = await this.post("/api/chamsoc/create_or_update_chamsoc", this.chamsoc);
+      if(result.success) {
+        this.$emit('viewChamsocList');
+      }else {
+        alert('Lỗi xảy ra quá trình lưu thông tin');
+      }
+    },
+
     viewChamsocList: function() {
       this.$emit('viewChamsocList');
     }    

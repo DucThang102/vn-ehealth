@@ -14,7 +14,6 @@ import java.util.Map;
 import javax.annotation.Nonnull;
 
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.util.StringUtils;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -72,15 +71,6 @@ public class ExportUtil {
             emrLogTruyCapHsba.setNgaytao(new Date());
             emrLogTruyCapHsba.setNguoiTruyCap(getAuthenticatedUser());
             emrLogTruyCapHsba.setThoidiemtruycap(new Date());*/
-            
-            if(StringUtils.isEmpty(hsba.donvichuquan)) 
-                hsba.donvichuquan = hsba.emrCoSoKhamBenh.donvichuquan;
-            
-            if(StringUtils.isEmpty(hsba.tenbenhvien)) 
-                hsba.tenbenhvien = hsba.emrCoSoKhamBenh.ten;
-            
-            if(StringUtils.isEmpty(hsba.truongphongth)) 
-                hsba.truongphongth = hsba.emrCoSoKhamBenh.truongphongth;
             
             params.put("danhSachHSBA", hsba);
             

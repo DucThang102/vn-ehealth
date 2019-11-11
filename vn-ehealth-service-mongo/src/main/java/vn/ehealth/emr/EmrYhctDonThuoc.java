@@ -17,7 +17,7 @@ public class EmrYhctDonThuoc {
 
     @Id public ObjectId id;
     
-    public String getId() { return id.toHexString(); }
+    public String getId() { return id != null? id.toHexString() : null; }
     
     public ObjectId emrHoSoBenhAnId;
     

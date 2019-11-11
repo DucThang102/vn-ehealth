@@ -56,10 +56,8 @@ VueAsyncComponent('dieutri-list', '/pages/hsba/view_detail/dieutri/dieutri_list.
 
   created: async function() {
     if(this.hsba_id) {
-      var emrVaoKhoas = await this.get('/api/hsba/get_ds_vaokhoa', { hsba_id: this.hsba_id });
-      this.dieutri_list = emrVaoKhoas.flatMap(x => x.emrDieuTris);
+      this.dieutri_list = await this.get('/api/dieutri/get_ds_dieutri', { hsba_id: this.hsba_id });
       this.dieutri_list.forEach(x => {
-        x.emrVaoKhoa = emrVaoKhoas.find(vk => vk.id = x.emrVaoKhoaId);
         x.ngaydieutri = this.getNgayDieuTri(x);
       });
     }

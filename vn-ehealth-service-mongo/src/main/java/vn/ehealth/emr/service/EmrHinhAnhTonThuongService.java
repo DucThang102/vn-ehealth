@@ -22,4 +22,7 @@ public class EmrHinhAnhTonThuongService {
         return emrHinhAnhTonThuongRepository.save(emrHinhAnhTonThuong);
     }
     
+    public void delete(ObjectId id) {
+        emrHinhAnhTonThuongRepository.deleteById(id);
+    }    
 }

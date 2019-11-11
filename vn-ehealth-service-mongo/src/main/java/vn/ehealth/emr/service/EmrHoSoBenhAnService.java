@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import javax.annotation.Nonnull;
+
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -75,28 +77,38 @@ public class EmrHoSoBenhAnService {
         return emrHoSoBenhAnRepository.countByTrangThaiAndIsLatest(trangThai, isLatest);
     }
     
-    public Optional<EmrHoSoBenhAn> getById(ObjectId id){
-        var emrHoSoBenhAn = emrHoSoBenhAnRepository.findById(id);
-        emrHoSoBenhAn.ifPresent(x -> {
-           x.emrBenhNhan = emrBenhNhanService.getById(x.emrBenhNhanId).orElse(null);
-           x.emrCoSoKhamBenh = emrCoSoKhamBenhService.getById(x.emrCoSoKhamBenhId).orElse(null);
-           /*x.emrVaoKhoas = emrVaoKhoaService.getByEmrHoSoBenhAnId(id);
-           x.emrHinhAnhTonThuongs = emrHinhAnhTonThuongService.getByEmrHoSoBenhAnId(id);
-           x.emrGiaiPhauBenhs = emrGiaiPhauBenhService.getByEmrHoSoBenhAnId(id) ;
-           x.emrThamDoChucNangs = emrThamDoChucNangService.getByEmrHoSoBenhAnId(id);
-           x.emrPhauThuatThuThuats = emrPhauThuatThuThuatService.getByEmrHoSoBenhAnId(id);
-           x.emrChanDoanHinhAnhs = emrChanDoanHinhAnhService.getByEmrHoSoBenhAnId(id);
-           x.emrDonThuocs = emrDonThuocService.getByEmrHoSoBenhAnId(id);
-           x.emrYhctDonThuocs = emrYhctDonThuocService.getByEmrHoSoBenhAnId(id);
-           x.emrXetNghiems = emrXetNghiemService.getByEmrHoSoBenhAnId(id);*/
+    public Optional<EmrHoSoBenhAn> getById(ObjectId id, boolean detail){
+        var hsba = emrHoSoBenhAnRepository.findById(id);
+        hsba.ifPresent(x -> {
+            x.emrBenhNhan = emrBenhNhanService.getById(x.emrBenhNhanId).orElse(null);
+            x.emrCoSoKhamBenh = emrCoSoKhamBenhService.getById(x.emrCoSoKhamBenhId).orElse(null);
         });
         
-        return emrHoSoBenhAn;
+        if(detail && hsba.isPresent()) {
+            getEmrHoSoBenhAnDetail(hsba.get());
+        }
+        return hsba;
+    }
+    
+    public void getEmrHoSoBenhAnDetail(@Nonnull EmrHoSoBenhAn hsba) {        
+        hsba.emrVaoKhoas = emrVaoKhoaService.getByEmrHoSoBenhAnId(hsba.id, true);
+        hsba.emrHinhAnhTonThuongs = emrHinhAnhTonThuongService.getByEmrHoSoBenhAnId(hsba.id);
+        hsba.emrGiaiPhauBenhs = emrGiaiPhauBenhService.getByEmrHoSoBenhAnId(hsba.id) ;
+        hsba.emrThamDoChucNangs = emrThamDoChucNangService.getByEmrHoSoBenhAnId(hsba.id);
+        hsba.emrPhauThuatThuThuats = emrPhauThuatThuThuatService.getByEmrHoSoBenhAnId(hsba.id);
+        hsba.emrChanDoanHinhAnhs = emrChanDoanHinhAnhService.getByEmrHoSoBenhAnId(hsba.id);
+        hsba.emrDonThuocs = emrDonThuocService.getByEmrHoSoBenhAnId(hsba.id);
+        hsba.emrYhctDonThuocs = emrYhctDonThuocService.getByEmrHoSoBenhAnId(hsba.id);
+        hsba.emrXetNghiems = emrXetNghiemService.getByEmrHoSoBenhAnId(hsba.id);  
     }
     
     public Optional<EmrHoSoBenhAn> getByMayte(String mayte) {
         return emrHoSoBenhAnRepository.findByMayteAndIsLatest(mayte, true);
-    }    
+    }   
+    
+    public EmrHoSoBenhAn save2(EmrHoSoBenhAn hsba) {
+        return emrHoSoBenhAnRepository.save(hsba);
+    }
     
     public EmrHoSoBenhAn save(EmrHoSoBenhAn hsba) {
         var maCoSoKhamBenh = hsba.emrCoSoKhamBenh != null? hsba.emrCoSoKhamBenh.ma : "";
@@ -223,6 +235,5 @@ public class EmrHoSoBenhAnService {
         hsba.isLatest = true;
         hsba.trangThai = TRANGTHAI_HOSO.CHUA_XULY;
         emrHoSoBenhAnRepository.save(hsba);
-    }
-    
+    }    
 }

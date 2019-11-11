@@ -21,9 +21,9 @@ public class JsonParser {
     
     Logger logger = LoggerFactory.getLogger(JsonParser.class);
     
-    SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
-    SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+    SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
+    SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+    SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
     
     ObjectMapper mapper = new ObjectMapper();
     
@@ -50,56 +50,52 @@ public class JsonParser {
         
         switch(type) {
             case DataType.TYPE_INTEGER:
-                if(element.isInt()) {
+                try {
                     return element.asInt();
-                }else {
+                }catch(Exception e) {
                     errorType = true;
                 }
                 break;
                 
             case DataType.TYPE_DOUBLE :
-                if(element.isDouble() || element.isInt()) {
+                try {
                     return element.asDouble();
-                }else {
+                } catch(Exception e) {
                     errorType = true;
                 }
                 break;
                 
             case DataType.TYPE_BOOLEAN :
-                if(element.isBoolean()) {
+                try {
                     return element.asBoolean();
-                }else {
+                }catch(Exception e) {
                     errorType = true;
                 }
                 break;
                 
             case DataType.TYPE_STRING :
-                if(element.isTextual()) {
+                try {
                     String st= element.asText();
                     if(required && StringUtils.isEmpty(st)) {
                         //errors.add(new ErrorMessage(field, ErrorMessage.Code.MISSING_FIELD, String.format("Field \"%s\" cannot be blank", field)));
                     }
                     return st;
-                }else {
+                }catch(Exception e) {
                     errorType = true;
                 }
                 break;
                 
             case DataType.TYPE_DATE :
-                if(element.isTextual()) {
+                try {
                     String st= element.asText();
-                    try {
-                        if(st.length() == 10) {
-                            return sdf1.parse(st);
-                        }else if(st.length() == 19) {
-                            return sdf2.parse(st);
-                        }else {
-                            return sdf3.parse(st);
-                        }
-                    }catch(Exception e) {
-                        errorType = true;
+                    if(st.length() == 10) {
+                        return sdf1.parse(st);
+                    }else if(st.length() == 16) {
+                        return sdf2.parse(st);
+                    }else {
+                        return sdf3.parse(st);
                     }
-                }else {
+                }catch(Exception e) {
                     errorType = true;
                 }
                 

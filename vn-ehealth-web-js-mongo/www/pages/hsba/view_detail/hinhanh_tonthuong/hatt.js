@@ -34,7 +34,7 @@ VueAsyncComponent('hatt-list', '/pages/hsba/view_detail/hinhanh_tonthuong/hatt_l
 
   created: async function() {
     if(this.hsba_id) {
-      this.hatt_list = await this.get('/api/hsba/get_ds_hatt', { hsba_id: this.hsba_id });
+      this.hatt_list = await this.get('/api/hatt/get_ds_hatt', { hsba_id: this.hsba_id });
     }
   }  
 });
