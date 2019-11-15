@@ -66,16 +66,7 @@ VueAsyncComponent('tthc', '/pages/hsba/edit/qly_benhnhan/thongtin_hanhchinh.html
     }
   },
 
-  computed: {
-    emrDmNgheNghiep: function() {
-      return store.state.emrDmNgheNghiep;
-    },
-    emrDmQuocGia: function() {
-      return store.state.emrDmQuocGia;
-    },
-    emrDmDanToc: function() {
-      return store.state.emrDmDanToc;
-    },
+  computed: {    
     emrDmTinhThanh: function() {
       return store.state.emrDmTinhThanh;
     },
@@ -88,15 +79,6 @@ VueAsyncComponent('tthc', '/pages/hsba/edit/qly_benhnhan/thongtin_hanhchinh.html
   },
 
   watch: {
-    emrDmNgheNghiep: function(val) {
-      this.hsba.emrBenhNhan.emrDmNgheNghiep = val;
-    },
-    emrDmQuocGia: function(val) {
-      this.hsba.emrBenhNhan.emrDmQuocGia = val;
-    },
-    emrDmDanToc: function(val) {
-      this.hsba.emrBenhNhan.emrDmDanToc = val;
-    },
     emrDmTinhThanh: function(val) {
       this.hsba.emrBenhNhan.emrDmTinhThanh = val;
     },
@@ -132,9 +114,58 @@ VueAsyncComponent('chandoan', '/pages/hsba/edit/qly_benhnhan/chandoan.html', {
 
   data: function() {
     return {
+      text:""
     }
   },
+  computed: {
+    emrDmMaBenhChandoannoidens: function() {
+      return store.state.emrDmMaBenhChandoannoidens;
+    },
+    emrDmMaBenhChandoankkbs: function() {
+      return store.state.emrDmMaBenhChandoankkbs;
+    },
+    emrDmMaBenhChandoanbenhchinhs: function() {
+      return store.state.emrDmMaBenhChandoanbenhchinhs;
+    },
+    emrDmMaBenhChandoankemtheos: function() {
+      return store.state.emrDmMaBenhChandoankemtheos;
+    },
+    emrDmMaBenhChandoanravienchinhs: function() {
+      return store.state.emrDmMaBenhChandoanravienchinhs;
+    },
+    emrDmMaBenhChandoanravienkemtheos: function() {
+      return store.state.emrDmMaBenhChandoanravienkemtheos;
+    },
+  },
+
+  watch: {
+    emrDmMaBenhChandoannoidens: function(val) {
+      this.hsba.emrChanDoan.emrDmMaBenhChandoannoidens = val;
+    },
+    emrDmMaBenhChandoankkbs: function(val) {
+      this.hsba.emrChanDoan.emrDmMaBenhChandoankkbs = val;
+    },
+    emrDmMaBenhChandoanbenhchinhs: function(val) {
+      this.hsba.emrBenhAn.emrDmMaBenhChandoanbenhchinhs = val;
+    },
+    emrDmMaBenhChandoankemtheos: function(val) {
+      this.hsba.emrBenhAn.emrDmMaBenhChandoankemtheos = val;
+    },
+    emrDmMaBenhChandoanravienchinhs: function(val) {
+      this.hsba.emrChanDoan.emrDmMaBenhChandoanravienchinhs = val;
+    },
+    emrDmMaBenhChandoanravienkemtheos: function(val) {
+      this.hsba.emrChanDoan.emrDmMaBenhChandoanravienkemtheos = val;
+    },
+  },
+
   methods: {
+    getTextChanDoan: function(chandoans){
+      if(chandoans){
+        return chandoans.map(x => x.ma + " - " + x.ten).join(' ; ');
+      }
+      return '';
+    },
   },
 });
 

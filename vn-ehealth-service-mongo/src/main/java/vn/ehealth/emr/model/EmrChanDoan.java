@@ -1,28 +1,31 @@
 package vn.ehealth.emr.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_NULL)
 public class EmrChanDoan {
 
-    public EmrDmContent emrDmMaBenhChandoandieutri;
+    public List<EmrDmContent> emrDmMaBenhChandoandieutris = new ArrayList<>();
         
-    public EmrDmContent emrDmMaBenhChandoantruocpt;
+    public List<EmrDmContent> emrDmMaBenhChandoantruocpts = new ArrayList<>();
     
-    public EmrDmContent emrDmMaBenhChandoansaupt;
+    public List<EmrDmContent> emrDmMaBenhChandoansaupts = new ArrayList<>();
     
-    public EmrDmContent emrDmMaBenhChandoankkb;
+    public List<EmrDmContent> emrDmMaBenhChandoankkbs = new ArrayList<>();
     
     public EmrDmContent emrDmLyDoTaiBienBienChung;
     
-    public EmrDmContent emrDmMaBenhChandoannoiden;
+    public List<EmrDmContent> emrDmMaBenhChandoannoidens = new ArrayList<>();
     
-    public EmrDmContent emrDmMaBenhChandoanraviennguyennhan;
+    public List<EmrDmContent> emrDmMaBenhChandoanraviennguyennhans = new ArrayList<>();
     
-    public EmrDmContent emrDmMaBenhChandoanravienkemtheo;
+    public List<EmrDmContent> emrDmMaBenhChandoanravienkemtheos = new ArrayList<>();
     
-    public EmrDmContent emrDmMaBenhChandoanravienchinh;
+    public List<EmrDmContent> emrDmMaBenhChandoanravienchinhs = new ArrayList<>();
     
     public String motachandoannoiden;
 

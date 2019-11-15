@@ -9,8 +9,9 @@
 
 <div id="content-wrapper" class="bg-light">
   <div class="font-weight-bold text-uppercase"><i class="far fa-file-alt"></i> DANH SÁCH HỒ SƠ BỆNH ÁN CHƯA XỬ LÝ</div>
-  <div id="content" class="bg-white mt-2">
+  <div id="content" class="bg-white mt-2">    
     <div id="app">
+      <div v-if="loading" style="position: absolute;left: 50%;top:50%" class="spinner-border"></div>
       <template v-if="total == 0">
         <b>Không có dữ liệu</b>
       </template>
@@ -72,9 +73,9 @@
               <td>{{ hs.emrBenhNhan.diachi }}</td>
               <td>{{ hs.emrDmLoaiBenhAn.ten }}</td>
               <td>{{ hs.mayte }}</td>
-              <td>{{ hs.emrChanDoan.emrDmMaBenhChandoankkb.ma }} - {{ hs.emrChanDoan.emrDmMaBenhChandoankkb.ten }}</td>
+              <td>{{ getTextChanDoan(hs.emrChanDoan.emrDmMaBenhChandoankkbs) }}</td>
               <td>{{ hs.emrChanDoan.motachandoankkb }}</td>
-              <td>{{ hs.emrChanDoan.emrDmMaBenhChandoanravienchinh.ma }} - {{ hs.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten }}</td>
+              <td>{{ getTextChanDoan(hs.emrChanDoan.emrDmMaBenhChandoanravienchinhs) }}</td>
               <td>{{ hs.emrChanDoan.motachandoanravienchinh }}</td>
               <td>{{ hs.khoaRaVien }}</td>
               <td>{{ hs.emrQuanLyNguoiBenh.ngaygiovaovien }}</td>
@@ -101,13 +102,20 @@
       currentPage: null,
       items: [],
       total: null,
-      mayte: ''
+      mayte: '',
+      loading: true
     },
 
     methods: {
       getTotal: async function () {
         this.total = await this.get("/api/hsba/count_ds_hs", { trangthai: 1, mayte: this.mayte });
+      },
 
+      getTextChanDoan: function(chandoans){
+        if(chandoans){
+          return chandoans.map(x => x.ma + " - " + x.ten).join(' ; ');
+        }
+        return '';
       },
 
       getNguonDuLieuStr: function(nguonDuLieu) {
@@ -148,11 +156,12 @@
       }
     },
 
-    created: async function () {
+    created: async function () {      
       this.currentPage = this.getParam("currentPage") || 1;
       this.mayte = this.getParam("mayte") || "";
       await this.getTotal();
       await this.getItems();
+      this.loading = false;      
     }
   });
 </script>

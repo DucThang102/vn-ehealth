@@ -511,16 +511,16 @@ public class JasperUtils extends JRDefaultScriptlet  {
     }
     
     public String getTextICD10(EmrChanDoan emrChanDoan, int index){
-        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoannoiden != null) {
-            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoannoiden.ma, index);
+        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoannoidens != null && emrChanDoan.emrDmMaBenhChandoannoidens.size() > 0) {
+            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoannoidens.get(0).ma, index);
         }
         
         return "";
     }
     
     public String getTextICD10FromKKB(EmrChanDoan emrChanDoan, int index){
-        if(emrChanDoan != null  && emrChanDoan.emrDmMaBenhChandoankkb != null) {
-            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoankkb.ma, index);
+        if(emrChanDoan != null  && emrChanDoan.emrDmMaBenhChandoankkbs != null && emrChanDoan.emrDmMaBenhChandoankkbs.size() > 0) {
+            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoankkbs.get(0).ma, index);
         }
         
         return "";
@@ -528,16 +528,16 @@ public class JasperUtils extends JRDefaultScriptlet  {
     
     
     public String getTextICD10BenhChinhFromBenhAN(EmrBenhAn emrBenhAn, int index){
-        if(emrBenhAn != null && emrBenhAn.emrDmMaBenhChandoanbenhchinh != null) {
-            return getText_ICD10(emrBenhAn.emrDmMaBenhChandoanbenhchinh.ma, index);
+        if(emrBenhAn != null && emrBenhAn.emrDmMaBenhChandoanbenhchinhs != null && emrBenhAn.emrDmMaBenhChandoanbenhchinhs.size() > 0) {
+            return getText_ICD10(emrBenhAn.emrDmMaBenhChandoanbenhchinhs.get(0).ma, index);
         }
         
         return "";
     }
     
     public String getTextICD10RaVienFromChanDoan(EmrChanDoan emrChanDoan, int index){
-        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoanravienchinh!= null){
-            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoanravienchinh.ma, index);
+        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoanravienchinhs!= null && emrChanDoan.emrDmMaBenhChandoanravienchinhs.size() > 0){
+            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoanravienchinhs.get(0).ma, index);
             
         }
         
@@ -562,32 +562,32 @@ public class JasperUtils extends JRDefaultScriptlet  {
     }
     
     public String getTextICD10TruocPhauThuatFromChanDoan(EmrChanDoan emrChanDoan, int index){
-        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoantruocpt != null) {
-            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoantruocpt.ma, index);
+        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoantruocpts != null && emrChanDoan.emrDmMaBenhChandoantruocpts.size() > 0) {
+            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoantruocpts.get(0).ma, index);
         }
         
         return "";        
     }    
    
     public String getTextICD10SauPhauThuatFromChanDoan(EmrChanDoan emrChanDoan, int index){
-        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoansaupt != null) {
-            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoansaupt.ma, index);
+        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoansaupts != null && emrChanDoan.emrDmMaBenhChandoansaupts.size() > 0) {
+            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoansaupts.get(0).ma, index);
         }
         
         return "";
     }
     
     public String getTextICD10NNRaVienFromChanDoan(EmrChanDoan emrChanDoan, int index){
-        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoanraviennguyennhan != null) {
-            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoanraviennguyennhan.ma, index);
+        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoanraviennguyennhans != null && emrChanDoan.emrDmMaBenhChandoanraviennguyennhans.size() > 0) {
+            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoanraviennguyennhans.get(0).ma, index);
         }
         
         return "";
     }
     
     public String getTextICD10KemTheoFromChanDoan(EmrChanDoan emrChanDoan, int index){
-        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoanravienkemtheo != null) {
-            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoanravienkemtheo.ma, index);
+        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoanravienkemtheos != null && emrChanDoan.emrDmMaBenhChandoanravienkemtheos.size() > 0) {
+            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoanravienkemtheos.get(0).ma, index);
             
         }
 
@@ -771,18 +771,18 @@ public class JasperUtils extends JRDefaultScriptlet  {
     public String getMaChanDoanYHCT(EmrChanDoan chanDoan) {
         StringBuilder result = new StringBuilder();
         
-        if (chanDoan.emrDmMaBenhChandoanravienchinh != null) {
-            result.append(chanDoan.emrDmMaBenhChandoanravienchinh.ma);
+        if (chanDoan.emrDmMaBenhChandoanravienchinhs != null && chanDoan.emrDmMaBenhChandoanravienchinhs.size() > 0) {
+            result.append(chanDoan.emrDmMaBenhChandoanravienchinhs.get(0).ma);
         }
         
-        if (chanDoan.emrDmMaBenhChandoanravienkemtheo != null) {
+        if (chanDoan.emrDmMaBenhChandoanravienkemtheos != null && chanDoan.emrDmMaBenhChandoanravienkemtheos.size() > 0) {
             if (result.length() > 0) result.append(", ");
-            result.append(chanDoan.emrDmMaBenhChandoanravienkemtheo.ma);
+            result.append(chanDoan.emrDmMaBenhChandoanravienkemtheos.get(0).ma);
         }
         
-        if (chanDoan.emrDmMaBenhChandoanraviennguyennhan != null) {
+        if (chanDoan.emrDmMaBenhChandoanraviennguyennhans != null && chanDoan.emrDmMaBenhChandoanraviennguyennhans.size() > 0) {
             if (result.length() > 0) result.append(", ");
-            result.append(chanDoan.emrDmMaBenhChandoanraviennguyennhan.ma);
+            result.append(chanDoan.emrDmMaBenhChandoanraviennguyennhans.get(0).ma);
         }
         
         return result.toString();

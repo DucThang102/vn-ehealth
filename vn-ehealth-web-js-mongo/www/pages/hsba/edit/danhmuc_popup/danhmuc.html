@@ -16,14 +16,17 @@
               </div>
             </div>
           </form>
-          <div class="row mt-1" v-for="dm in dmList">
-            <div class="col-12">
-              <input type="radio" :value="dm.ma" v-model='selectedItemCode'><label>{{ dm.ten }}</label>
+          <div class="row mt-1" v-for="(dm,i) in dmList">
+            <div class="col-12" v-if="!multi">
+              <input type="radio" :value="dm.ma" v-model='selectedItemCode'> <label>{{ dm.ten }}</label>
+            </div>
+            <div class="col-12" v-if="multi">
+              <input type="checkbox" :value="dm.ma" v-model='dmList[i].selected'> <label> {{ dm.ten }}</label>
             </div>
           </div>
         </div>
         <div v-if="loading" style="position: absolute;left: 50%;top:50%" class="spinner-border"></div>
-        <div class="row">
+        <div class="row" v-if="total > perPage">
           <div class="col-12 pl-4 pt-3">
             <b-pagination size="sm" :total-rows="total" v-model="currentPage" :per-page="perPage"></b-pagination>
           </div>

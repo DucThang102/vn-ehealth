@@ -233,14 +233,23 @@
         "ngaykybenhan": {"type" : "Date"},
         "bacsylambenhan": {"type" : "String"},       
         
-        "emrDmMaBenhChandoanbenhchinh": {
-            "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+        "emrDmMaBenhChandoanbenhchinhs": {
+        	"type": "Array",
+        	"element":{
+            	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+            }
         },
-        "emrDmMaBenhChandoankemtheo": {
-            "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+        "emrDmMaBenhChandoankemtheos": {
+        	"type": "Array",
+        	"element":{
+            	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+            }
         },
-        "emrDmMaBenhChandoanphanbiet": {
-            "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+        "emrDmMaBenhChandoanphanbiets": {
+        	"type": "Array",
+        	"element": {
+            	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+            }
         }
     },
     "emrYhctBenhAn": {        
@@ -534,29 +543,53 @@
         "emrDmLyDoTaiBienBienChung": {
             "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
         },
-        "emrDmMaBenhChandoandieutri": {
-            "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+        "emrDmMaBenhChandoandieutris": {
+        	"type" : "Array",
+        	"element": {
+            	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+            }
         },
-        "emrDmMaBenhChandoankkb": {
-            "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+        "emrDmMaBenhChandoankkbs": {
+        	"type" : "Array",
+        	"element": {
+            	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+            }
         },
-        "emrDmMaBenhChandoannoiden": {
-            "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+        "emrDmMaBenhChandoannoidens": {
+        	"type" : "Array",
+        	"element": {
+            	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+            }
         },
-        "emrDmMaBenhChandoanravienchinh": {
-            "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+        "emrDmMaBenhChandoanravienchinhs": {
+        	"type" : "Array",
+        	"element": {
+            	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+            }
         },
-        "emrDmMaBenhChandoanravienkemtheo": {
-            "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+        "emrDmMaBenhChandoanravienkemtheos": {
+        	"type" : "Array",
+        	"element": {
+            	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+            }
         },
-        "emrDmMaBenhChandoanraviennguyennhan": {
-            "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+        "emrDmMaBenhChandoanraviennguyennhans": {
+        	"type" : "Array",
+        	"element": {
+            	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+            }
         },
-        "emrDmMaBenhChandoansaupt": {
-            "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+        "emrDmMaBenhChandoansaupts": {
+        	"type" : "Array",
+        	"element": {
+            	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+            }
         },
-        "emrDmMaBenhChandoantruocpt": {
-            "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+        "emrDmMaBenhChandoantruocpts": {
+        	"type" : "Array",
+        	"elements": {
+            	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+            }
         },
         
         "motachandoannoiden": {"type" : "String"},

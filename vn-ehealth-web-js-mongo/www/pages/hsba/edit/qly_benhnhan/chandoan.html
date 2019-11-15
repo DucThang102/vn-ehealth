@@ -7,11 +7,13 @@
   <div class="row mt-2">
     <div class="col-6">
       <label class="label-title">Chẩn đoán nơi đến</label>
-      <input class="form-control" :value="hsba.emrChanDoan.emrDmMaBenhChandoannoiden.ten">
+      <input readonly data-toggle="modal" data-target="#dmChandoannoidensSelect" class="form-control" 
+          :value="getTextChanDoan(this.hsba.emrChanDoan.emrDmMaBenhChandoannoidens)">
     </div>
     <div class="col-6">
       <label class="label-title">Chẩn đoán vào viện</label>
-      <input class="form-control" :value="hsba.emrChanDoan.emrDmMaBenhChandoankkb.ten">
+      <input readonly data-toggle="modal" data-target="#dmChandoankkbsSelect" class="form-control" 
+          :value="getTextChanDoan(hsba.emrChanDoan.emrDmMaBenhChandoankkbs)">
     </div>
   </div>
   <div class="row mt-2">
@@ -23,8 +25,7 @@
       <label class="label-title">Mô tả chẩn đoán vào viện</label>
       <textarea rows="3" class="form-control" v-model="hsba.emrChanDoan.motachandoankkb"></textarea>
     </div>
-  </div>
-
+  </div>{{text}}
   <div class="row mt-3">
     <div class="col-12">
         <label class="label-title label-bold">II. VÀO KHOA ĐIỀU TRỊ</label>
@@ -33,11 +34,13 @@
   <div class="row mt-2">
     <div class="col-6">
       <label class="label-title">Bệnh chính</label>
-      <input class="form-control" :value="hsba.emrBenhAn.emrDmMaBenhChandoanbenhchinh.ten">
+      <input readonly data-toggle="modal" data-target="#dmChandoanbenhchinhsSelect" class="form-control" 
+          :value="getTextChanDoan(hsba.emrBenhAn.emrDmMaBenhChandoanbenhchinhs)">
     </div>
     <div class="col-6">
       <label class="label-title">Bệnh kèm theo</label>
-      <input class="form-control" :value="hsba.emrBenhAn.emrDmMaBenhChandoankemtheo.ten">
+      <input readonly data-toggle="modal" data-target="#dmChandoankemtheosSelect" class="form-control" 
+          :value="getTextChanDoan(hsba.emrBenhAn.emrDmMaBenhChandoankemtheos)">
     </div>
   </div>
   <div class="row mt-2">
@@ -59,11 +62,13 @@
   <div class="row mt-2">
     <div class="col-6">
       <label class="label-title">Bệnh chính</label>
-      <input class="form-control" :value="hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten">
+      <input readonly class="form-control" data-toggle="modal" data-target="#dmChandoanravienchinhsSelect"
+          :value="getTextChanDoan(hsba.emrChanDoan.emrDmMaBenhChandoanravienchinhs)">
     </div>
     <div class="col-6">
       <label class="label-title">Bệnh kèm theo</label>
-      <input class="form-control" :value="hsba.emrChanDoan.emrDmMaBenhChandoanravienkemtheo.ten">
+      <input readonly class="form-control" data-toggle="modal" data-target="#dmChandoanravienkemtheosSelect" 
+          :value="getTextChanDoan(hsba.emrChanDoan.emrDmMaBenhChandoanravienkemtheos)">
     </div>
   </div>
   <div class="row mt-2">
@@ -80,4 +85,12 @@
   <div class="mt-3 mb-3">
     <button v-on:click="saveHsba()" class="btn btn-sm btn-primary">Lưu lại</button>
   </div>
+
+  <danhmuc-popup id="dmChandoannoidensSelect" multi="true" name="emrDmMaBenhChandoannoidens" :value="hsba.emrChanDoan.emrDmMaBenhChandoannoidens" title="Chẩn đoán nơi đến" dm_type="DM_MA_BENH"></danhmuc-popup>
+  <danhmuc-popup id="dmChandoankkbsSelect" multi="true" name="emrDmMaBenhChandoankkbs" :value="hsba.emrChanDoan.emrDmMaBenhChandoankkbs" title="Chẩn đoán vào viện" dm_type="DM_MA_BENH"></danhmuc-popup>
+  <danhmuc-popup id="dmChandoanbenhchinhsSelect" multi="true" name="emrDmMaBenhChandoanbenhchinhs" :value="hsba.emrBenhAn.emrDmMaBenhChandoanbenhchinhs" title="Chẩn đoán bệnh chính" dm_type="DM_MA_BENH"></danhmuc-popup>
+  <danhmuc-popup id="dmChandoankemtheosSelect" multi="true" name="emrDmMaBenhChandoankemtheos" :value="hsba.emrBenhAn.emrDmMaBenhChandoankemtheos" title="Chẩn đoán bệnh kèm theo" dm_type="DM_MA_BENH"></danhmuc-popup>
+  <danhmuc-popup id="dmChandoanravienchinhsSelect" multi="true" name="emrDmMaBenhChandoanravienchinhs" :value="hsba.emrChanDoan.emrDmMaBenhChandoanravienchinhs" title="Chẩn đoán bệnh chính (ra viện)" dm_type="DM_MA_BENH"></danhmuc-popup>
+  <danhmuc-popup id="dmChandoanravienkemtheosSelect" multi="true" name="emrDmMaBenhChandoanravienkemtheos" :value="hsba.emrChanDoan.emrDmMaBenhChandoanravienkemtheos" title="Chẩn đoán bệnh kèm theo (ra viện)" dm_type="DM_MA_BENH"></danhmuc-popup>
+  
 </div>

@@ -1,6 +1,8 @@
 package vn.ehealth.emr.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -40,11 +42,11 @@ import vn.ehealth.emr.model.ck.EmrCkTuanHoan;
 @JsonInclude(Include.NON_NULL)
 public class EmrBenhAn {
 
-    public EmrDmContent emrDmMaBenhChandoanphanbiet;
+    public List<EmrDmContent> emrDmMaBenhChandoanphanbiets = new ArrayList<>();
     
-    public EmrDmContent emrDmMaBenhChandoankemtheo;
+    public List<EmrDmContent> emrDmMaBenhChandoankemtheos = new ArrayList<>();
     
-    public EmrDmContent emrDmMaBenhChandoanbenhchinh;
+    public List<EmrDmContent> emrDmMaBenhChandoanbenhchinhs = new ArrayList<>();
     
     public String lydovaovien;
     public Integer vaongaythu;              //??
