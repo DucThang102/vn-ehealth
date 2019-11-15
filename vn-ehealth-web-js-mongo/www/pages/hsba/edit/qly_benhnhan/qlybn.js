@@ -34,6 +34,7 @@ var mixin = {
       if(result.success) {
         console.log(result.emrHoSoBenhAn);
         alert('Cập nhật thông tin thành công');
+        sessionStorage.removeItem('dataChange');
       }else {
         alert('Lỗi xảy ra quá trình lưu thông tin');
       }
@@ -65,8 +66,47 @@ VueAsyncComponent('tthc', '/pages/hsba/edit/qly_benhnhan/thongtin_hanhchinh.html
     }
   },
 
-  methods: {
-  },  
+  computed: {
+    emrDmNgheNghiep: function() {
+      return store.state.emrDmNgheNghiep;
+    },
+    emrDmQuocGia: function() {
+      return store.state.emrDmQuocGia;
+    },
+    emrDmDanToc: function() {
+      return store.state.emrDmDanToc;
+    },
+    emrDmTinhThanh: function() {
+      return store.state.emrDmTinhThanh;
+    },
+    emrDmQuanHuyen: function() {
+      return store.state.emrDmQuanHuyen;
+    },
+    emrDmPhuongXa: function() {
+      return store.state.emrDmPhuongXa;
+    },
+  },
+
+  watch: {
+    emrDmNgheNghiep: function(val) {
+      this.hsba.emrBenhNhan.emrDmNgheNghiep = val;
+    },
+    emrDmQuocGia: function(val) {
+      this.hsba.emrBenhNhan.emrDmQuocGia = val;
+    },
+    emrDmDanToc: function(val) {
+      this.hsba.emrBenhNhan.emrDmDanToc = val;
+    },
+    emrDmTinhThanh: function(val) {
+      this.hsba.emrBenhNhan.emrDmTinhThanh = val;
+    },
+    emrDmQuanHuyen: function(val) {
+      this.hsba.emrBenhNhan.emrDmQuanHuyen = val;
+    },
+    emrDmPhuongXa: function(val) {
+      this.hsba.emrBenhNhan.emrDmPhuongXa = val;
+    },
+  }
 });
 
 VueAsyncComponent('ttnb', '/pages/hsba/edit/qly_benhnhan/thongtin_nguoibenh.html', {

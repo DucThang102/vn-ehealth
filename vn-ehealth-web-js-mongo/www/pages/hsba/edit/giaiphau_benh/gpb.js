@@ -24,6 +24,10 @@ VueAsyncComponent('gpb', '/pages/hsba/edit/giaiphau_benh/gpb.html', {
       this.gpb = null;
     }
   },
+
+  created: function() {
+    sessionStorage.removeItem('dataChange');
+  }
 });
 
 VueAsyncComponent('gpb-list', '/pages/hsba/edit/giaiphau_benh/gpb_list.html', {
@@ -62,8 +66,25 @@ VueAsyncComponent('gpb-edit', '/pages/hsba/edit/giaiphau_benh/gpb_edit.html', {
   },
   props: ["gpb"],
 
+  watch: {
+    gpb: {
+      handler: function (val, oldVal) {
+        if (oldVal) {
+          sessionStorage.setItem('dataChange', true);
+        }
+      },
+      deep: true
+    }
+  },
+
   methods: {
     viewGpbList: function () {
+      if(sessionStorage.getItem('dataChange')) {
+        if(!confirm('Bạn sẽ mất dữ liệu đang sửa, tiếp tục?')){
+          return;
+        }          
+      }
+      sessionStorage.removeItem('dataChange');
       this.$emit('viewGpbList');
     }
   },

@@ -25,7 +25,7 @@
                 <a class="nav-link" :class="{'active': tab==i}" v-on:click="changeTab(i)" href="#">
                   {{ tabname }}
                 </a>
-              </li>              
+              </li>
             </ul>
             <div style="flex-grow: 0.8">
               <qlybn :hsba_id="hsba_id" v-if="tab==0"></qlybn>
@@ -51,6 +51,26 @@
   </div>
 </div>
 
+<script>
+  const store = new Vuex.Store({
+    state: {
+      emrDmNgheNghiep: null,
+      emrDmQuocGia: null,
+      emrDmDanToc: null,
+      emrDmTinhThanh: null,
+      emrDmQuanHuyen: null,
+      emrDmPhuongXa: null
+    },
+
+    mutations: {
+      setValue: function (state, { key, value }) {
+        state[key] = value;
+      },
+    }
+  })
+</script>
+
+<script src="/pages/hsba/edit/danhmuc_popup/danhmuc.js"></script>
 <script src="/pages/hsba/edit/qly_benhnhan/qlybn.js"></script>
 <script src="/pages/hsba/edit/yhoc_hiendai/yhhd.js"></script>
 <script src="/pages/hsba/edit/tongket_benh_an/tkba.js"></script>
@@ -96,7 +116,12 @@
     },
 
     methods: {
-      changeTab: function (tab) {
+      changeTab(tab) {
+        if (tab != this.tab && sessionStorage.getItem('dataChange')) {
+          if (!confirm('Bạn sẽ mất dữ liệu đang sửa nếu chuyển tab, tiếp tục?')) {
+            return;
+          }
+        }
         this.tab = tab;
       }
     },

@@ -24,6 +24,10 @@ VueAsyncComponent('pttt', '/pages/hsba/edit/phauthuat_thuthuat/pttt.html', {
       this.pttt = null;
     }
   },
+
+  created: function() {
+    sessionStorage.removeItem('dataChange');
+  }
 });
 
 VueAsyncComponent('pttt-list', '/pages/hsba/edit/phauthuat_thuthuat/pttt_list.html', {
@@ -60,10 +64,28 @@ VueAsyncComponent('pttt-edit', '/pages/hsba/edit/phauthuat_thuthuat/pttt_edit.ht
     return {
     }
   },
+
   props: ["pttt"],
+
+  watch: {
+    pttt: {
+      handler: function (val, oldVal) {
+        if (oldVal) {
+          sessionStorage.setItem('dataChange', true);
+        }
+      },
+      deep: true
+    }
+  },
   
   methods: {
     viewPtttList: function() {
+      if(sessionStorage.getItem('dataChange')) {
+        if(!confirm('Bạn sẽ mất dữ liệu đang sửa, tiếp tục?')){
+          return;
+        }          
+      }
+      sessionStorage.removeItem('dataChange');
       this.$emit('viewPtttList');
     }
   },
@@ -78,6 +100,12 @@ VueAsyncComponent('pttt-files', '/pages/hsba/edit/phauthuat_thuthuat/pttt_files.
   
   methods: {
     viewPtttList: function() {
+      if(sessionStorage.getItem('dataChange')) {
+        if(!confirm('Bạn sẽ mất dữ liệu đang sửa, tiếp tục?')){
+          return;
+        }          
+      }
+      sessionStorage.removeItem('dataChange');
       this.$emit('viewPtttList');
     }
   },

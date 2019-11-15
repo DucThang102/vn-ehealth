@@ -29,6 +29,10 @@ VueAsyncComponent('xetnghiem', '/pages/hsba/edit/xetnghiem/xetnghiem.html', {
       this.xetnghiem = null;
     }
   },
+
+  created: function() {
+    sessionStorage.removeItem('dataChange');
+  }
 });
 
 VueAsyncComponent('xetnghiem-list', '/pages/hsba/edit/xetnghiem/xetnghiem_list.html', {
@@ -72,8 +76,25 @@ VueAsyncComponent('xetnghiem-edit', '/pages/hsba/edit/xetnghiem/xetnghiem_edit.h
   },
   props: ["xetnghiem"],
 
+  watch: {
+    xetnghiem: {
+      handler: function (val, oldVal) {
+        if (oldVal) {
+          sessionStorage.setItem('dataChange', true);
+        }
+      },
+      deep: true
+    }
+  },
+
   methods: {
     viewXetnghiemList: function () {
+      if(sessionStorage.getItem('dataChange')) {
+        if(!confirm('Bạn sẽ mất dữ liệu đang sửa, tiếp tục?')){
+          return;
+        }          
+      }
+      sessionStorage.removeItem('dataChange');
       this.$emit('viewXetnghiemList');
     }
   },
@@ -96,7 +117,7 @@ VueAsyncComponent('xetnghiem-ketqua', '/pages/hsba/edit/xetnghiem/xetnghiem_ketq
   },
 
   methods: {
-    viewXetnghiemList: function () {
+    viewXetnghiemList: function () {      
       this.$emit('viewXetnghiemList');
     }
   },

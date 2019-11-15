@@ -9,9 +9,9 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import vn.ehealth.emr.EmrHoSoBenhAn;
-import vn.ehealth.validate.ErrorMessage;
-import vn.ehealth.validate.JsonParser;
+import vn.ehealth.emr.model.EmrHoSoBenhAn;
+import vn.ehealth.emr.validate.ErrorMessage;
+import vn.ehealth.emr.validate.JsonParser;
 
 public class TestJson {
     static String hsbaJsonSt;

@@ -5,10 +5,9 @@ import java.util.Optional;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import vn.ehealth.emr.EmrDm;
+import vn.ehealth.emr.model.EmrDm;
 
 public interface EmrDmRepository extends MongoRepository<EmrDm, ObjectId> {
     
-    Optional<EmrDm> findByNhomIdAndMa(ObjectId nhomId, String ma);
-
+    Optional<EmrDm> findByEmrNhomDmIdAndMa(ObjectId emrNhomDmId, String ma);
 }

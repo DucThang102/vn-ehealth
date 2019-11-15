@@ -24,6 +24,10 @@ VueAsyncComponent('cdha', '/pages/hsba/edit/chandoan_hinhanh/cdha.html', {
       this.cdha = null;
     }
   },
+
+  created: function() {
+    sessionStorage.removeItem('dataChange');
+  }
 });
 
 VueAsyncComponent('cdha-list', '/pages/hsba/edit/chandoan_hinhanh/cdha_list.html', {
@@ -62,8 +66,25 @@ VueAsyncComponent('cdha-edit', '/pages/hsba/edit/chandoan_hinhanh/cdha_edit.html
   },
   props: ["cdha"],
 
+  watch: {
+    cdha: {
+      handler: function (val, oldVal) {
+        if (oldVal) {
+          sessionStorage.setItem('dataChange', true);
+        }
+      },
+      deep: true
+    }
+  },
+
   methods: {
     viewCdhaList: function () {
+      if(sessionStorage.getItem('dataChange')) {
+        if(!confirm('Bạn sẽ mất dữ liệu đang sửa, tiếp tục?')){
+          return;
+        }          
+      }
+      sessionStorage.removeItem('dataChange');
       this.$emit('viewCdhaList');
     }
   },

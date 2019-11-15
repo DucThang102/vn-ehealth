@@ -24,6 +24,10 @@ VueAsyncComponent('tdcn', '/pages/hsba/edit/thamdo_chucnang/tdcn.html', {
       this.tdcn = null;
     }
   },
+
+  created: function() {
+    sessionStorage.removeItem('dataChange');
+  }
 });
 
 VueAsyncComponent('tdcn-list', '/pages/hsba/edit/thamdo_chucnang/tdcn_list.html', {
@@ -62,8 +66,25 @@ VueAsyncComponent('tdcn-edit', '/pages/hsba/edit/thamdo_chucnang/tdcn_edit.html'
   },
   props: ["tdcn"],
 
+  watch: {
+    tdcn: {
+      handler: function (val, oldVal) {
+        if (oldVal) {
+          sessionStorage.setItem('dataChange', true);
+        }
+      },
+      deep: true
+    }
+  },
+
   methods: {
     viewTdcnList: function () {
+      if(sessionStorage.getItem('dataChange')) {
+        if(!confirm('Bạn sẽ mất dữ liệu đang sửa, tiếp tục?')){
+          return;
+        }          
+      }
+      sessionStorage.removeItem('dataChange');
       this.$emit('viewTdcnList');
     }
   },

@@ -6,7 +6,7 @@ import org.bson.types.ObjectId;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import vn.ehealth.emr.EmrVaoKhoa;
+import vn.ehealth.emr.model.EmrVaoKhoa;
 
 public interface EmrVaoKhoaRespository extends MongoRepository<EmrVaoKhoa, ObjectId> {
 

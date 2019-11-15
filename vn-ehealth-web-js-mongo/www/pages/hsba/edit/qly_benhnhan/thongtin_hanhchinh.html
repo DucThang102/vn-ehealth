@@ -53,17 +53,17 @@
     </div>
     <div class="col-4">
       <label class="label-title">Nghề nghiệp</label>
-      <input class="form-control" :value="hsba.emrBenhNhan.emrDmNgheNghiep.ten">
+      <input readonly data-toggle="modal" data-target="#dmNgheNghiepSelect" class="form-control" :value="hsba.emrBenhNhan.emrDmNgheNghiep.ten">
     </div>
   </div>
   <div class="row mt-2">
     <div class="col-4">
       <label class="label-title">Quốc tịch</label>
-      <input class="form-control" :value="hsba.emrBenhNhan.emrDmQuocGia.ten">
+      <input data-toggle="modal" data-target="#dmQuocGiaSelect" class="form-control" :value="hsba.emrBenhNhan.emrDmQuocGia.ten">
     </div>
     <div class="col-4">
       <label class="label-title">Dân tộc</label>
-      <input class="form-control" :value="hsba.emrBenhNhan.emrDmDanToc.ten">
+      <input data-toggle="modal" data-target="#dmDanTocSelect" class="form-control" :value="hsba.emrBenhNhan.emrDmDanToc.ten">
     </div>
   </div>
   <div class="row mt-2">
@@ -74,15 +74,15 @@
   <div class="row mt-2">
     <div class="col-4">
       <label class="label-title">Tỉnh/thành</label>
-      <input class="form-control" :value="hsba.emrBenhNhan.emrDmTinhThanh.ten">
+      <input data-toggle="modal" data-target="#dmTinhThanhSelect" class="form-control" :value="hsba.emrBenhNhan.emrDmTinhThanh.ten">
     </div>
     <div class="col-4">
       <label class="label-title">Quận/huyện</label>
-      <input class="form-control" :value="hsba.emrBenhNhan.emrDmQuanHuyen.ten">
+      <input data-toggle="modal" data-target="#dmQuanHuyenSelect" class="form-control" :value="hsba.emrBenhNhan.emrDmQuanHuyen.ten">
     </div>
     <div class="col-4">
       <label class="label-title">Phường/xã</label>
-      <input class="form-control" :value="hsba.emrBenhNhan.emrDmPhuongXa.ten">
+      <input data-toggle="modal" data-target="#dmPhuongXaSelect" class="form-control" :value="hsba.emrBenhNhan.emrDmPhuongXa.ten">
     </div>
   </div>
   <div class="row mt-2">
@@ -127,4 +127,11 @@
   <div class="mt-3 mb-3">
     <button class="btn btn-sm btn-primary" v-on:click="saveHsba()">Lưu lại</button>
   </div>
+{{hsba.emrBenhNhan.emrDmTinhThanh.ma}}
+  <danhmuc-popup id="dmNgheNghiepSelect" name="emrDmNgheNghiep" :value="hsba.emrBenhNhan.emrDmNgheNghiep" title="Chọn nghề nghiệp" dm_type="DM_NGHE_NGHIEP"></danhmuc-popup>
+  <danhmuc-popup id="dmQuocGiaSelect" name="emrDmQuocGia" :value="hsba.emrBenhNhan.emrDmQuocGia" title="Chọn quốc tịch" dm_type="DM_QUOC_GIA"></danhmuc-popup>
+  <danhmuc-popup id="dmDanTocSelect" name="emrDmDanToc" :value="hsba.emrBenhNhan.emrDmDanToc" title="Chọn dân tộc" dm_type="DM_DAN_TOC"></danhmuc-popup>
+  <danhmuc-popup id="dmTinhThanhSelect" name="emrDmTinhThanh" level="1" :value="hsba.emrBenhNhan.emrDmTinhThanh" title="Chọn tỉnh thành" dm_type="DM_DVHC"></danhmuc-popup>
+  <danhmuc-popup id="dmQuanHuyenSelect" name="emrDmQuanHuyen" level="2" :parent="hsba.emrBenhNhan.emrDmTinhThanh" :value="hsba.emrBenhNhan.emrDmQuanHuyen" title="Chọn quận huyện" dm_type="DM_DVHC"></danhmuc-popup>
+  <danhmuc-popup id="dmPhuongXaSelect" name="emrDmPhuongXa" level="3" :parent="hsba.emrBenhNhan.emrDmQuanHuyen" :value="hsba.emrBenhNhan.emrDmPhuongXa" title="Chọn phường xã" dm_type="DM_DVHC"></danhmuc-popup>
 </div>

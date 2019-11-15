@@ -24,6 +24,9 @@ VueAsyncComponent('chamsoc', '/pages/hsba/edit/chamsoc/chamsoc.html', {
     }
   },
 
+  created: function() {
+    sessionStorage.removeItem('dataChange');
+  }
 });
 
 VueAsyncComponent('chamsoc-list', '/pages/hsba/edit/chamsoc/chamsoc_list.html', {
@@ -84,6 +87,17 @@ VueAsyncComponent('chamsoc-edit', '/pages/hsba/edit/chamsoc/chamsoc_edit.html', 
     }
   },
   props: ["chamsoc", "hsba_id"],
+
+  watch: {
+    chamsoc: {
+      handler: function (val, oldVal) {
+        if (oldVal) {
+          sessionStorage.setItem('dataChange', true);
+        }
+      },
+      deep: true
+    }
+  },
   
   methods: {
     getTenKhoa: function(khoadieutri){
@@ -108,6 +122,12 @@ VueAsyncComponent('chamsoc-edit', '/pages/hsba/edit/chamsoc/chamsoc_edit.html', 
     },
 
     viewChamsocList: function() {
+      if(sessionStorage.getItem('dataChange')) {
+        if(!confirm('Bạn sẽ mất dữ liệu đang sửa, tiếp tục?')){
+          return;
+        }          
+      }
+      sessionStorage.removeItem('dataChange');
       this.$emit('viewChamsocList');
     }    
   },

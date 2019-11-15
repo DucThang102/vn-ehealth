@@ -6,7 +6,7 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import vn.ehealth.emr.EmrPhauThuatThuThuat;
+import vn.ehealth.emr.model.EmrPhauThuatThuThuat;
 import vn.ehealth.emr.repository.EmrPhauThuatThuThuatRepository;
 
 @Service

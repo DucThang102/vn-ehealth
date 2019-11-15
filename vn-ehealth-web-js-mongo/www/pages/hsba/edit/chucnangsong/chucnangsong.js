@@ -24,6 +24,9 @@ VueAsyncComponent('chucnangsong', '/pages/hsba/edit/chucnangsong/chucnangsong.ht
     }
   },
 
+  created: function() {
+    sessionStorage.removeItem('dataChange');
+  }
 });
 
 VueAsyncComponent('chucnangsong-list', '/pages/hsba/edit/chucnangsong/chucnangsong_list.html', {
@@ -84,6 +87,17 @@ VueAsyncComponent('chucnangsong-edit', '/pages/hsba/edit/chucnangsong/chucnangso
     }
   },
   props: ["chucnangsong"],
+
+  watch: {
+    chucnangsong: {
+      handler: function (val, oldVal) {
+        if (oldVal) {
+          sessionStorage.setItem('dataChange', true);
+        }
+      },
+      deep: true
+    }
+  },
   
   methods: {
     getTenKhoa: function(khoadieutri){
@@ -108,6 +122,12 @@ VueAsyncComponent('chucnangsong-edit', '/pages/hsba/edit/chucnangsong/chucnangso
     },
 
     viewChucnangsongList: function() {
+      if(sessionStorage.getItem('dataChange')) {
+        if(!confirm('Bạn sẽ mất dữ liệu đang sửa, tiếp tục?')){
+          return;
+        }          
+      }
+      sessionStorage.removeItem('dataChange');
       this.$emit('viewChucnangsongList');
     }    
   },

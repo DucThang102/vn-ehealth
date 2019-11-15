@@ -5,7 +5,7 @@ import java.util.List;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import vn.ehealth.emr.EmrXetNghiem;
+import vn.ehealth.emr.model.EmrXetNghiem;
 
 public interface EmrXetNghiemRepository extends MongoRepository<EmrXetNghiem, ObjectId> {
 

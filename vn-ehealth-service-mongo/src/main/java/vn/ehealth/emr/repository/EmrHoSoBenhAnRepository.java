@@ -7,7 +7,7 @@ import org.bson.types.ObjectId;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import vn.ehealth.emr.EmrHoSoBenhAn;
+import vn.ehealth.emr.model.EmrHoSoBenhAn;
 
 public interface EmrHoSoBenhAnRepository extends MongoRepository<EmrHoSoBenhAn, ObjectId> {
 

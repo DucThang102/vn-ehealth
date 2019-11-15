@@ -24,6 +24,9 @@ VueAsyncComponent('hoichan', '/pages/hsba/edit/hoichan/hoichan.html', {
     }
   },
 
+  created: function() {
+    sessionStorage.removeItem('dataChange');
+  }
 });
 
 VueAsyncComponent('hoichan-list', '/pages/hsba/edit/hoichan/hoichan_list.html', {
@@ -60,6 +63,17 @@ VueAsyncComponent('hoichan-edit', '/pages/hsba/edit/hoichan/hoichan_edit.html', 
     }
   },
   props: ["hoichan"],
+
+  watch: {
+    hoichan: {
+      handler: function (val, oldVal) {
+        if (oldVal) {
+          sessionStorage.setItem('dataChange', true);
+        }
+      },
+      deep: true
+    }
+  },
   
   methods: {
     getTenKhoa: function(khoadieutri){
@@ -67,6 +81,12 @@ VueAsyncComponent('hoichan-edit', '/pages/hsba/edit/hoichan/hoichan_edit.html', 
     },
 
     viewHoichanList: function() {
+      if(sessionStorage.getItem('dataChange')) {
+        if(!confirm('Bạn sẽ mất dữ liệu đang sửa, tiếp tục?')){
+          return;
+        }          
+      }
+      sessionStorage.removeItem('dataChange');
       this.$emit('viewHoichanList');
     }    
   },

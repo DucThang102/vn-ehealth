@@ -187,6 +187,12 @@ footer p {
   }
 }
 
+@media (min-width: 992px) {
+  .modal-md {
+    max-width: 600px;
+  }
+}
+
 .label-title {
   font-size: 1.0rem;
 }

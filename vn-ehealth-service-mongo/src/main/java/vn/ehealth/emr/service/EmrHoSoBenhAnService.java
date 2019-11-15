@@ -18,10 +18,10 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import vn.ehealth.emr.EmrHoSoBenhAn;
+import vn.ehealth.emr.Constants.NGUON_DU_LIEU;
+import vn.ehealth.emr.Constants.TRANGTHAI_HOSO;
+import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.repository.EmrHoSoBenhAnRepository;
-import vn.ehealth.service.Constants.NGUON_DU_LIEU;
-import vn.ehealth.service.Constants.TRANGTHAI_HOSO;
 
 @Service
 public class EmrHoSoBenhAnService {

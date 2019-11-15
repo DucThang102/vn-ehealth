@@ -9,7 +9,7 @@ import org.springframework.core.io.ClassPathResource;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import vn.ehealth.emr.EmrHoSoBenhAn;
+import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.utils.ExportUtil;
 
 public class TestExportPdf {

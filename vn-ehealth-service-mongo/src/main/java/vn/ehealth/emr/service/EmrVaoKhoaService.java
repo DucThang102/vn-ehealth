@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import vn.ehealth.emr.EmrVaoKhoa;
+import vn.ehealth.emr.model.EmrVaoKhoa;
 import vn.ehealth.emr.repository.EmrVaoKhoaRespository;
 
 @Service

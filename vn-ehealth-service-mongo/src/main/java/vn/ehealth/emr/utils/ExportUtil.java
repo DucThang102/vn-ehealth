@@ -22,7 +22,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
-import vn.ehealth.emr.EmrHoSoBenhAn;
+import vn.ehealth.emr.model.EmrHoSoBenhAn;
 
 public class ExportUtil {
     

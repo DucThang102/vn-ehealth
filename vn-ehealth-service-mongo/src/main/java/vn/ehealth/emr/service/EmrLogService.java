@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import vn.ehealth.emr.EmrLog;
+import vn.ehealth.emr.model.EmrLog;
 import vn.ehealth.emr.repository.EmrActionRepository;
 import vn.ehealth.emr.repository.EmrLogRepository;
 import vn.ehealth.emr.utils.FieldUtil;

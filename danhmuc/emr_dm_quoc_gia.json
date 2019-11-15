@@ -1,0 +1,1002 @@
+[
+	{
+		"ma" : "VIE",
+		"ten" : "Việt Nam"
+	},
+	{
+		"ma" : "AX",
+		"ten" : "And Islands"
+	},
+	{
+		"ma" : "AL",
+		"ten" : "An-ba-ni"
+	},
+	{
+		"ma" : "DZ",
+		"ten" : "An-giê-ri"
+	},
+	{
+		"ma" : "AS",
+		"ten" : "Samoa thuộc Mỹ"
+	},
+	{
+		"ma" : "AD",
+		"ten" : "An-đô-ra"
+	},
+	{
+		"ma" : "AO",
+		"ten" : "Ăng-gô-la"
+	},
+	{
+		"ma" : "AI",
+		"ten" : "Anguilla"
+	},
+	{
+		"ma" : "AQ",
+		"ten" : "Nam cực"
+	},
+	{
+		"ma" : "AG",
+		"ten" : "An-ti-goa và Bác-bu-đa"
+	},
+	{
+		"ma" : "AR",
+		"ten" : "Ác-hen-ti-na"
+	},
+	{
+		"ma" : "AM",
+		"ten" : "Ác-mê-ni-a"
+	},
+	{
+		"ma" : "AW",
+		"ten" : "Aruba"
+	},
+	{
+		"ma" : "AU",
+		"ten" : "Úc"
+	},
+	{
+		"ma" : "AT",
+		"ten" : "Áo"
+	},
+	{
+		"ma" : "AZ",
+		"ten" : "A-déc-bai-gian"
+	},
+	{
+		"ma" : "BS",
+		"ten" : "Ba-ha-mát"
+	},
+	{
+		"ma" : "BH",
+		"ten" : "Vương quốc Ba-ranh"
+	},
+	{
+		"ma" : "BD",
+		"ten" : "Băng-la-đét"
+	},
+	{
+		"ma" : "BB",
+		"ten" : "Bác-ba-đốt"
+	},
+	{
+		"ma" : "BY",
+		"ten" : "Bê-la-rút"
+	},
+	{
+		"ma" : "BE",
+		"ten" : "Bỉ"
+	},
+	{
+		"ma" : "BZ",
+		"ten" : "Bê-li-xê"
+	},
+	{
+		"ma" : "BJ",
+		"ten" : "Bê-nanh"
+	},
+	{
+		"ma" : "BM",
+		"ten" : "Quần đảo Bermuda"
+	},
+	{
+		"ma" : "BT",
+		"ten" : "Bu-tan"
+	},
+	{
+		"ma" : "BO",
+		"ten" : "Bô-li-vi-a"
+	},
+	{
+		"ma" : "BA",
+		"ten" : "Bosnia và herzegovina"
+	},
+	{
+		"ma" : "BW",
+		"ten" : "Bốt-xoa-na"
+	},
+	{
+		"ma" : "BV",
+		"ten" : "Đảo Bouvet"
+	},
+	{
+		"ma" : "BR",
+		"ten" : "Bra-xin"
+	},
+	{
+		"ma" : "IO",
+		"ten" : "Lãnh thổ Ấn Độ Dương"
+	},
+	{
+		"ma" : "BN",
+		"ten" : "Nhà nước Brunei Darussalam"
+	},
+	{
+		"ma" : "BG",
+		"ten" : "Bun-ga-ri"
+	},
+	{
+		"ma" : "BF",
+		"ten" : "Buốc-ki-na Pha-xô"
+	},
+	{
+		"ma" : "BI",
+		"ten" : "Cộng hòa Bu-run-đi"
+	},
+	{
+		"ma" : "KH",
+		"ten" : "Campuchia"
+	},
+	{
+		"ma" : "CM",
+		"ten" : "Cộng hòa Cameroon"
+	},
+	{
+		"ma" : "CA",
+		"ten" : "Ca-na-đa"
+	},
+	{
+		"ma" : "CV",
+		"ten" : "Cáp Ve"
+	},
+	{
+		"ma" : "KY",
+		"ten" : "Quần đảo Cayman"
+	},
+	{
+		"ma" : "CF",
+		"ten" : "Cộng hòa Trung Phi"
+	},
+	{
+		"ma" : "TD",
+		"ten" : "Sát"
+	},
+	{
+		"ma" : "CL",
+		"ten" : "Chi-lê"
+	},
+	{
+		"ma" : "CN",
+		"ten" : "Trung Quốc"
+	},
+	{
+		"ma" : "CX",
+		"ten" : "Đảo Christmas"
+	},
+	{
+		"ma" : "CC",
+		"ten" : "Tiểu bang và vùng lãnh thổ Úc"
+	},
+	{
+		"ma" : "CO",
+		"ten" : "Cộng hòa Cô-lôm-bi-a"
+	},
+	{
+		"ma" : "KM",
+		"ten" : "Cô-mo"
+	},
+	{
+		"ma" : "CG",
+		"ten" : "Công-gô"
+	},
+	{
+		"ma" : "CD",
+		"ten" : "Cộng hòa Dân chủ Công-gô"
+	},
+	{
+		"ma" : "CK",
+		"ten" : "Quần đảo Cook"
+	},
+	{
+		"ma" : "CR",
+		"ten" : "Cộng hoà Costa Rica"
+	},
+	{
+		"ma" : "CI",
+		"ten" : "Bờ Biển Ngà"
+	},
+	{
+		"ma" : "HR",
+		"ten" : "Crô-a-ti-a"
+	},
+	{
+		"ma" : "CU",
+		"ten" : "Cu Ba"
+	},
+	{
+		"ma" : "CY",
+		"ten" : "Cộng hòa Síp"
+	},
+	{
+		"ma" : "CZ",
+		"ten" : "Cộng hòa Séc"
+	},
+	{
+		"ma" : "DK",
+		"ten" : "Đan Mạch"
+	},
+	{
+		"ma" : "DJ",
+		"ten" : "Ả Rập"
+	},
+	{
+		"ma" : "DM",
+		"ten" : "Thịnh vượng chung Dominica"
+	},
+	{
+		"ma" : "DO",
+		"ten" : "Cộng hòa Đô-mi-ni-ca-na"
+	},
+	{
+		"ma" : "EC",
+		"ten" : "Cộng hòa Ê-cu-a-đo"
+	},
+	{
+		"ma" : "EG",
+		"ten" : "Ai Cập"
+	},
+	{
+		"ma" : "SV",
+		"ten" : "Cộng hòa En Xan-va-đo"
+	},
+	{
+		"ma" : "GQ",
+		"ten" : "Ghi-nê Xích Đạo"
+	},
+	{
+		"ma" : "ER",
+		"ten" : "Ê-ri-tơ-rê-a"
+	},
+	{
+		"ma" : "EE",
+		"ten" : "E-xtô-ni-a"
+	},
+	{
+		"ma" : "ET",
+		"ten" : "Ê-ti-ô-pi-a"
+	},
+	{
+		"ma" : "FK",
+		"ten" : "Quần đảo Falkland"
+	},
+	{
+		"ma" : "FO",
+		"ten" : "Quần đảo Faroe"
+	},
+	{
+		"ma" : "FJ",
+		"ten" : "Cộng hòa Quần đảo Phi-gi"
+	},
+	{
+		"ma" : "FI",
+		"ten" : "Phần Lan"
+	},
+	{
+		"ma" : "FR",
+		"ten" : "Pháp"
+	},
+	{
+		"ma" : "GF",
+		"ten" : "Guyane thuộc Pháp"
+	},
+	{
+		"ma" : "PF",
+		"ten" : "Polynesia thuộc Pháp"
+	},
+	{
+		"ma" : "TF",
+		"ten" : "Vùng đất phía nam thuộc Pháp"
+	},
+	{
+		"ma" : "GA",
+		"ten" : "Cộng hòa Ga-bông"
+	},
+	{
+		"ma" : "GM",
+		"ten" : "Cộng hòa Găm-bi-a"
+	},
+	{
+		"ma" : "GE",
+		"ten" : "Georgia, Hoa Kỳ"
+	},
+	{
+		"ma" : "DE",
+		"ten" : "Đức"
+	},
+	{
+		"ma" : "GH",
+		"ten" : "Ga-na"
+	},
+	{
+		"ma" : "GI",
+		"ten" : "Gibraltar"
+	},
+	{
+		"ma" : "GR",
+		"ten" : "Hy Lạp"
+	},
+	{
+		"ma" : "GL",
+		"ten" : "Greenland"
+	},
+	{
+		"ma" : "GD",
+		"ten" : "Grê-na-đa"
+	},
+	{
+		"ma" : "GP",
+		"ten" : "Goa-đê-lốp"
+	},
+	{
+		"ma" : "GU",
+		"ten" : "Lãnh thổ Guam"
+	},
+	{
+		"ma" : "GT",
+		"ten" : "Cộng hoà Guatemala"
+	},
+	{
+		"ma" : "GN",
+		"ten" : "Cộng hòa Ghi-nê"
+	},
+	{
+		"ma" : "GW",
+		"ten" : "Ghi-nê Bít-xao"
+	},
+	{
+		"ma" : "GY",
+		"ten" : "Guy-a-na"
+	},
+	{
+		"ma" : "HT",
+		"ten" : "Cộng hòa Ha-i-ti"
+	},
+	{
+		"ma" : "HM",
+		"ten" : "Đảo Heard và quần đảo McDonald"
+	},
+	{
+		"ma" : "VA",
+		"ten" : "Thành Quốc Vatican"
+	},
+	{
+		"ma" : "HN",
+		"ten" : "Cộng hoà Honduras"
+	},
+	{
+		"ma" : "HK",
+		"ten" : "Hồng Kông"
+	},
+	{
+		"ma" : "HU",
+		"ten" : "Hung-ga-ri"
+	},
+	{
+		"ma" : "IS",
+		"ten" : "Ai-xơ-len"
+	},
+	{
+		"ma" : "IN",
+		"ten" : "Ấn Độ"
+	},
+	{
+		"ma" : "ID",
+		"ten" : "In-đô-nê-xi-a"
+	},
+	{
+		"ma" : "IR",
+		"ten" : "Iran"
+	},
+	{
+		"ma" : "IQ",
+		"ten" : "Iraq"
+	},
+	{
+		"ma" : "IE",
+		"ten" : "Ai-len"
+	},
+	{
+		"ma" : "IL",
+		"ten" : "Israel"
+	},
+	{
+		"ma" : "IT",
+		"ten" : "Ý"
+	},
+	{
+		"ma" : "JM",
+		"ten" : "Gia-mai-ca"
+	},
+	{
+		"ma" : "JP",
+		"ten" : "Nhật"
+	},
+	{
+		"ma" : "JO",
+		"ten" : "Gioóc-đa-ni"
+	},
+	{
+		"ma" : "KZ",
+		"ten" : "Ca-dắc-xtan"
+	},
+	{
+		"ma" : "KE",
+		"ten" : "Cộng hòa Kenya"
+	},
+	{
+		"ma" : "KI",
+		"ten" : "Cộng hòa Kiribati"
+	},
+	{
+		"ma" : "KP",
+		"ten" : "Cộng hòa Dân chủ Nhân dân Triều Tiên"
+	},
+	{
+		"ma" : "KR",
+		"ten" : "Hàn Quốc"
+	},
+	{
+		"ma" : "KW",
+		"ten" : "Cô-oét"
+	},
+	{
+		"ma" : "KG",
+		"ten" : "Cư-rơ-gư-dơ-xtan"
+	},
+	{
+		"ma" : "LA",
+		"ten" : "Lào"
+	},
+	{
+		"ma" : "LV",
+		"ten" : "Lát-vi-a"
+	},
+	{
+		"ma" : "LB",
+		"ten" : "Li-băng"
+	},
+	{
+		"ma" : "LS",
+		"ten" : "Vương quốc Lesotho"
+	},
+	{
+		"ma" : "LR",
+		"ten" : "Cộng hòa Liberia"
+	},
+	{
+		"ma" : "LY",
+		"ten" : "Li-bi"
+	},
+	{
+		"ma" : "LI",
+		"ten" : "Thân vương quốc Liechtenstein"
+	},
+	{
+		"ma" : "LT",
+		"ten" : "Lít-va"
+	},
+	{
+		"ma" : "LU",
+		"ten" : "Lúc-xăm-bua"
+	},
+	{
+		"ma" : "MO",
+		"ten" : "Ma Cao"
+	},
+	{
+		"ma" : "MK",
+		"ten" : "Cộng hòa Macedonia"
+	},
+	{
+		"ma" : "MG",
+		"ten" : "Cộng hòa Madagascar"
+	},
+	{
+		"ma" : "MW",
+		"ten" : "Ma-la-uy"
+	},
+	{
+		"ma" : "MY",
+		"ten" : "Malaysia"
+	},
+	{
+		"ma" : "MV",
+		"ten" : "Man-đi-vơ"
+	},
+	{
+		"ma" : "ML",
+		"ten" : "Cộng hòa Mali"
+	},
+	{
+		"ma" : "MT",
+		"ten" : "Cộng hòa Malta"
+	},
+	{
+		"ma" : "MH",
+		"ten" : "Quần đảo Marshall"
+	},
+	{
+		"ma" : "MQ",
+		"ten" : "Martinique"
+	},
+	{
+		"ma" : "MR",
+		"ten" : "Mô-ri-ta-ni"
+	},
+	{
+		"ma" : "MU",
+		"ten" : "Mô-ri-xơ"
+	},
+	{
+		"ma" : "YT",
+		"ten" : "Tỉnh Mayotte"
+	},
+	{
+		"ma" : "MX",
+		"ten" : "Mê-xi-cô"
+	},
+	{
+		"ma" : "FM",
+		"ten" : "Liên bang Micronesia"
+	},
+	{
+		"ma" : "MD",
+		"ten" : "Moldova"
+	},
+	{
+		"ma" : "MC",
+		"ten" : "Công quốc Monaco"
+	},
+	{
+		"ma" : "MN",
+		"ten" : "Mông Cổ"
+	},
+	{
+		"ma" : "MS",
+		"ten" : "Montserrat"
+	},
+	{
+		"ma" : "MA",
+		"ten" : "Vương quốc Maroc"
+	},
+	{
+		"ma" : "MZ",
+		"ten" : "Cộng hòa Mozambique"
+	},
+	{
+		"ma" : "MM",
+		"ten" : "Mi-an-ma"
+	},
+	{
+		"ma" : "NA",
+		"ten" : "Cộng hòa Namibia"
+	},
+	{
+		"ma" : "NR",
+		"ten" : "Cộng hòa Nauru"
+	},
+	{
+		"ma" : "NP",
+		"ten" : "Nê-pan"
+	},
+	{
+		"ma" : "NL",
+		"ten" : "Hà Lan"
+	},
+	{
+		"ma" : "AN",
+		"ten" : "Antille thuộc Hà Lan"
+	},
+	{
+		"ma" : "NC",
+		"ten" : "Kanaky và Le caillou"
+	},
+	{
+		"ma" : "NZ",
+		"ten" : "Niu Di-lân"
+	},
+	{
+		"ma" : "NI",
+		"ten" : "Nicaragua"
+	},
+	{
+		"ma" : "NE",
+		"ten" : "Cộng hoà Niger"
+	},
+	{
+		"ma" : "NG",
+		"ten" : "Cộng hòa Liên bang Nigeria"
+	},
+	{
+		"ma" : "NU",
+		"ten" : "Niue"
+	},
+	{
+		"ma" : "NF",
+		"ten" : "Đảo Norfolk"
+	},
+	{
+		"ma" : "MP",
+		"ten" : "Quần đảo Bắc Mariana"
+	},
+	{
+		"ma" : "NO",
+		"ten" : "Na Uy"
+	},
+	{
+		"ma" : "OM",
+		"ten" : "Ô-man"
+	},
+	{
+		"ma" : "PK",
+		"ten" : "Pa-ki-xtan"
+	},
+	{
+		"ma" : "PW",
+		"ten" : "Cộng hòa Palau"
+	},
+	{
+		"ma" : "PS",
+		"ten" : "Chính quyền Quốc gia Palestine"
+	},
+	{
+		"ma" : "PA",
+		"ten" : "Cộng hòa Panama"
+	},
+	{
+		"ma" : "PG",
+		"ten" : "Pa-pu-a Niu Ghi-nê"
+	},
+	{
+		"ma" : "PY",
+		"ten" : "Cộng hòa Paraguay"
+	},
+	{
+		"ma" : "PE",
+		"ten" : "Cộng hòa Peru"
+	},
+	{
+		"ma" : "PH",
+		"ten" : "Philippines"
+	},
+	{
+		"ma" : "PN",
+		"ten" : "Quần đảo Pitcairn"
+	},
+	{
+		"ma" : "PL",
+		"ten" : "Ba Lan"
+	},
+	{
+		"ma" : "PT",
+		"ten" : "Bồ Đào Nha"
+	},
+	{
+		"ma" : "PR",
+		"ten" : "Pu-éc-tô Ri-cô"
+	},
+	{
+		"ma" : "QA",
+		"ten" : "Ca-ta"
+	},
+	{
+		"ma" : "RE",
+		"ten" : "Đảo Réunion"
+	},
+	{
+		"ma" : "RO",
+		"ten" : "Rumani"
+	},
+	{
+		"ma" : "RU",
+		"ten" : "Nga"
+	},
+	{
+		"ma" : "RW",
+		"ten" : "Cộng hòa Ru-an-đa"
+	},
+	{
+		"ma" : "SH",
+		"ten" : "Xanh hê-li-na"
+	},
+	{
+		"ma" : "KN",
+		"ten" : "Liên bang Saint Kitts và Nevis "
+	},
+	{
+		"ma" : "LC",
+		"ten" : "Saint Lucia"
+	},
+	{
+		"ma" : "PM",
+		"ten" : "Saint-Pierre và Miquelon"
+	},
+	{
+		"ma" : "VC",
+		"ten" : "Saint Vincent và Grenadines"
+	},
+	{
+		"ma" : "WS",
+		"ten" : "Nhà nước Độc lập Samoa"
+	},
+	{
+		"ma" : "SM",
+		"ten" : "Cộng hòa Đại bình yên San Marino"
+	},
+	{
+		"ma" : "ST",
+		"ten" : "Cộng hòa Dân chủ São Tomé và Príncipe"
+	},
+	{
+		"ma" : "SA",
+		"ten" : "Ả-rập Xê-út"
+	},
+	{
+		"ma" : "SN",
+		"ten" : "Cộng hoà Sénégal"
+	},
+	{
+		"ma" : "CS",
+		"ten" : "Serbia và Montenegro"
+	},
+	{
+		"ma" : "SC",
+		"ten" : "Xây-sen"
+	},
+	{
+		"ma" : "SL",
+		"ten" : "Xi-ê-ra Lê-ôn"
+	},
+	{
+		"ma" : "SG",
+		"ten" : "Singapore "
+	},
+	{
+		"ma" : "SK",
+		"ten" : "Cộng hoà Slovak"
+	},
+	{
+		"ma" : "SI",
+		"ten" : "Cộng hòa Slovenia"
+	},
+	{
+		"ma" : "SB",
+		"ten" : "Quần đảo Solomon"
+	},
+	{
+		"ma" : "SO",
+		"ten" : "Cộng hoà Liên bang Somalia"
+	},
+	{
+		"ma" : "ZA",
+		"ten" : "Cộng hòa Nam Phi"
+	},
+	{
+		"ma" : "GS",
+		"ten" : "Nam Georgia và Quần đảo Nam Sandwich"
+	},
+	{
+		"ma" : "ES",
+		"ten" : "Tây Ban Nha"
+	},
+	{
+		"ma" : "LK",
+		"ten" : "Sri Lanka"
+	},
+	{
+		"ma" : "SD",
+		"ten" : "Xu-đăng"
+	},
+	{
+		"ma" : "SR",
+		"ten" : "Xu-ri-nam"
+	},
+	{
+		"ma" : "SJ",
+		"ten" : "Svalbard và Jan Mayen"
+	},
+	{
+		"ma" : "SZ",
+		"ten" : "Xoa-di-len"
+	},
+	{
+		"ma" : "SE",
+		"ten" : "Thụy Điển"
+	},
+	{
+		"ma" : "CH",
+		"ten" : "Thụy Sĩ"
+	},
+	{
+		"ma" : "SY",
+		"ten" : "Syria"
+	},
+	{
+		"ma" : "TW",
+		"ten" : "Đài Loan"
+	},
+	{
+		"ma" : "TJ",
+		"ten" : "Ta-gi-ki-xtan"
+	},
+	{
+		"ma" : "TZ",
+		"ten" : "Tanzania"
+	},
+	{
+		"ma" : "TH",
+		"ten" : "Thái Lan"
+	},
+	{
+		"ma" : "TL",
+		"ten" : "Đông Ti-mo"
+	},
+	{
+		"ma" : "TG",
+		"ten" : "Cộng hòa Togo"
+	},
+	{
+		"ma" : "TK",
+		"ten" : "Tokelau"
+	},
+	{
+		"ma" : "TO",
+		"ten" : "Tonga"
+	},
+	{
+		"ma" : "TT",
+		"ten" : "Trinidad và Tobago"
+	},
+	{
+		"ma" : "TN",
+		"ten" : "Tunisia"
+	},
+	{
+		"ma" : "TR",
+		"ten" : "Turkey"
+	},
+	{
+		"ma" : "TM",
+		"ten" : "Tuốc-mê-ni-xtan"
+	},
+	{
+		"ma" : "TC",
+		"ten" : "Quần đảo Turks và Caicos"
+	},
+	{
+		"ma" : "TV",
+		"ten" : "Tuvalu"
+	},
+	{
+		"ma" : "UG",
+		"ten" : "Cộng hòa Uganda"
+	},
+	{
+		"ma" : "UA",
+		"ten" : "Ukraina"
+	},
+	{
+		"ma" : "AE",
+		"ten" : "Các Tiểu Vương quốc Ả Rập Thống nhất"
+	},
+	{
+		"ma" : "GB",
+		"ten" : "Vương quốc Liên hiệp Anh và Bắc Ireland"
+	},
+	{
+		"ma" : "US",
+		"ten" : "Hợp chúng quốc Hoa Kỳ"
+	},
+	{
+		"ma" : "UM",
+		"ten" : "Các tiểu đảo xa của Hoa Kỳ"
+	},
+	{
+		"ma" : "UY",
+		"ten" : "Uruguay"
+	},
+	{
+		"ma" : "UZ",
+		"ten" : "U-dơ-bê-ki-xtan"
+	},
+	{
+		"ma" : "VU",
+		"ten" : "Cộng hòa Vanuatu"
+	},
+	{
+		"ma" : "VE",
+		"ten" : "Cộng hòa Bolivar Venezuela"
+	},
+	{
+		"ma" : "AF",
+		"ten" : "Cộng hòa Hồi giáo Afghanistan"
+	},
+	{
+		"ma" : "VG",
+		"ten" : "Quần đảo Virgin thuộc Anh"
+	},
+	{
+		"ma" : "VI",
+		"ten" : "Quần đảo Virgin thuộc Mỹ"
+	},
+	{
+		"ma" : "WF",
+		"ten" : "Wallis và Futuna"
+	},
+	{
+		"ma" : "EH",
+		"ten" : "Tây Sahara"
+	},
+	{
+		"ma" : "YE",
+		"ten" : "Y-ê-men"
+	},
+	{
+		"ma" : "ZM",
+		"ten" : "Zambia "
+	},
+	{
+		"ma" : "ZW",
+		"ten" : "Cộng hòa Zimbabwe"
+	},
+	{
+		"ma" : "BIH",
+		"ten" : "Bosna và Hercegovina"
+	},
+	{
+		"ma" : "CUW",
+		"ten" : "Curaçao"
+	},
+	{
+		"ma" : "GGY",
+		"ten" : "Địa hạt Guernsey"
+	},
+	{
+		"ma" : "IMN",
+		"ten" : "Đảo Man"
+	},
+	{
+		"ma" : "JEY",
+		"ten" : "Jersey"
+	},
+	{
+		"ma" : "MNE",
+		"ten" : "Cộng hòa Montenegro"
+	},
+	{
+		"ma" : "BLM",
+		"ten" : "Saint-Barthélemy"
+	},
+	{
+		"ma" : "MAF",
+		"ten" : "Saint Martin (French part)"
+	},
+	{
+		"ma" : "SXM",
+		"ten" : "Sint Maarten (Dutch part)"
+	},
+	{
+		"ma" : "SSD",
+		"ten" : "South Sudan"
+	}
+]

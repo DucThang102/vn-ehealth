@@ -24,6 +24,9 @@ VueAsyncComponent('dieutri', '/pages/hsba/edit/dieutri/dieutri.html', {
     }
   },
 
+  created: function() {
+    sessionStorage.removeItem('dataChange');
+  }
 });
 
 VueAsyncComponent('dieutri-list', '/pages/hsba/edit/dieutri/dieutri_list.html', {
@@ -76,6 +79,17 @@ VueAsyncComponent('dieutri-edit', '/pages/hsba/edit/dieutri/dieutri_edit.html', 
     }
   },
   props: ["dieutri"],
+
+  watch: {
+    dieutri: {
+      handler: function (val, oldVal) {
+        if (oldVal) {
+          sessionStorage.setItem('dataChange', true);
+        }
+      },
+      deep: true
+    }
+  },
   
   methods: {
     getTenKhoa: function(khoadieutri){
@@ -100,6 +114,12 @@ VueAsyncComponent('dieutri-edit', '/pages/hsba/edit/dieutri/dieutri_edit.html', 
     },
 
     viewDieutriList: function() {
+      if(sessionStorage.getItem('dataChange')) {
+        if(!confirm('Bạn sẽ mất dữ liệu đang sửa, tiếp tục?')){
+          return;
+        }          
+      }
+      sessionStorage.removeItem('dataChange');
       this.$emit('viewDieutriList');
     }    
   },

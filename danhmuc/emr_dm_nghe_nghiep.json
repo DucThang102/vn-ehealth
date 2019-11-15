@@ -1,0 +1,2766 @@
+[
+	{
+		"ma" : "1",
+		"ten" : "Nhà lãnh đạo trong các ngành, các cấp và các đơn vị"
+	},
+	{
+		"ma" : "2",
+		"ten" : "Nhà lãnh đạo cơ quan Đảng Cộng sản Việt Nam cấp Trung ương và địa phương (chuyên trách)"
+	},
+	{
+		"ma" : "3",
+		"ten" : "Nhà lãnh đạo cơ quan Đảng Cộng sản Việt nam cấp Trung ương"
+	},
+	{
+		"ma" : "4",
+		"ten" : "Trưởng ban, Phó Trưởng ban và tương đương trở lên thuộc cấp Trung ương"
+	},
+	{
+		"ma" : "5",
+		"ten" : "Vụ trưởng, Phó Vụ trưởng và tương đương"
+	},
+	{
+		"ma" : "6",
+		"ten" : "Bí thư, Phó Bí thư Đảng ủy khối cơ quan Trung ương"
+	},
+	{
+		"ma" : "7",
+		"ten" : "Bí thư, Phó Bí thư Đảng ủy cơ quan Trung ương"
+	},
+	{
+		"ma" : "8",
+		"ten" : "Ủy viên Ban Chấp hành Trung ương Đảng"
+	},
+	{
+		"ma" : "9",
+		"ten" : "Nhà lãnh đạo cơ quan Đảng Cộng sản Việt Nam cấp tỉnh"
+	},
+	{
+		"ma" : "10",
+		"ten" : "Trưởng ban, Phó Trưởng ban và tương đương trở lên thuộc cấp tỉnh"
+	},
+	{
+		"ma" : "11",
+		"ten" : "Bí thư, Phó Bí thư Đảng ủy khối cơ quan cấp tỉnh"
+	},
+	{
+		"ma" : "12",
+		"ten" : "Bí thư, Phó Bí thư Đảng ủy sở, ngành… cấp tỉnh"
+	},
+	{
+		"ma" : "13",
+		"ten" : "Ủy viên Ban Chấp hành Đảng bộ cấp tỉnh"
+	},
+	{
+		"ma" : "14",
+		"ten" : "Nhà lãnh đạo Đảng Cộng sản Việt Nam cấp huyện"
+	},
+	{
+		"ma" : "15",
+		"ten" : "Trưởng ban, Phó Trưởng ban và tương đương trở lên thuộc cấp huyện"
+	},
+	{
+		"ma" : "16",
+		"ten" : "Bí thư, Phó Bí thư Đảng ủy ban, ngành cấp huyện"
+	},
+	{
+		"ma" : "17",
+		"ten" : "Ủy viên Ban Chấp hành Đảng bộ cấp huyện"
+	},
+	{
+		"ma" : "18",
+		"ten" : "Nhà lãnh đạo Đảng Cộng sản Việt Nam cấp xã"
+	},
+	{
+		"ma" : "19",
+		"ten" : "Bí thư, Phó Bí thư Đảng ủy cấp xã"
+	},
+	{
+		"ma" : "20",
+		"ten" : "Nhà lãnh đạo Đảng Cộng sản Việt Nam tại doanh nghiệp và các tổ chức sự nghiệp"
+	},
+	{
+		"ma" : "21",
+		"ten" : "Bí thư, Phó Bí thư Đảng ủy"
+	},
+	{
+		"ma" : "22",
+		"ten" : "Nhà lãnh đạo Quốc hội và Văn phòng Chủ tịch nước"
+	},
+	{
+		"ma" : "23",
+		"ten" : "Nhà lãnh đạo Quốc hội (chuyên trách)"
+	},
+	{
+		"ma" : "24",
+		"ten" : "Chủ tịch, Phó Chủ tịch"
+	},
+	{
+		"ma" : "25",
+		"ten" : "Chủ nhiệm, Phó Chủ nhiệm Ủy ban và tương đương trở lên"
+	},
+	{
+		"ma" : "26",
+		"ten" : "Vụ trưởng, Phó Vụ trưởng và tương đương"
+	},
+	{
+		"ma" : "27",
+		"ten" : "Đại biểu Quốc hội"
+	},
+	{
+		"ma" : "28",
+		"ten" : "Văn phòng Chủ tịch nước"
+	},
+	{
+		"ma" : "29",
+		"ten" : "Chủ tịch, Phó Chủ tịch"
+	},
+	{
+		"ma" : "30",
+		"ten" : "Chủ nhiệm, Phó Chủ nhiệm tương đương Bộ trưởng, Thứ trưởng và tương đương trở lên làm việc tại Văn phòng Chủ tịch nước"
+	},
+	{
+		"ma" : "31",
+		"ten" : "Vụ trưởng, Phó Vụ trưởng và tương đương"
+	},
+	{
+		"ma" : "32",
+		"ten" : "Nhà lãnh đạo Chính phủ"
+	},
+	{
+		"ma" : "33",
+		"ten" : "Nhà lãnh đạo Chính phủ"
+	},
+	{
+		"ma" : "34",
+		"ten" : "Thủ tướng, Phó Thủ tướng Chính phủ"
+	},
+	{
+		"ma" : "35",
+		"ten" : "Chủ nhiệm, Phó Chủ nhiệm và tương đương trở lên làm việc tại Văn phòng Chính phủ"
+	},
+	{
+		"ma" : "36",
+		"ten" : "Vụ trưởng, Phó Vụ trưởng và tương đương"
+	},
+	{
+		"ma" : "37",
+		"ten" : "Nhà lãnh đạo Bộ, ngành và tương đương thuộc Chính phủ"
+	},
+	{
+		"ma" : "38",
+		"ten" : "Bộ trưởng, Thứ trưởng và tương đương của các Bộ, ngành, các cơ quan ngang Bộ, các cơ quan thuộc Chính phủ"
+	},
+	{
+		"ma" : "39",
+		"ten" : "Vụ trưởng, Phó Vụ trưởng và tương đương"
+	},
+	{
+		"ma" : "40",
+		"ten" : "Nhà lãnh đạo Tổng cục thuộc Bộ"
+	},
+	{
+		"ma" : "41",
+		"ten" : "Tổng cục trưởng, Phó Tổng cục trưởng và tương đương"
+	},
+	{
+		"ma" : "42",
+		"ten" : "Vụ trưởng, Phó Vụ trưởng, Trưởng ban, Phó Trưởng ban và tương đương"
+	},
+	{
+		"ma" : "43",
+		"ten" : "Nhà lãnh đạo Tòa án nhân dân và Viện Kiểm sát nhân dân"
+	},
+	{
+		"ma" : "44",
+		"ten" : "Nhà lãnh đạo Tòa án nhân dân tối cao và Viện Kiểm sát nhân dân Tối cao"
+	},
+	{
+		"ma" : "45",
+		"ten" : "Chánh án, Phó Chánh án Tòa án nhân dân tối cao; Viện trưởng, Phó Viện trưởng Viện Kiểm sát nhân dân tối cao và tương đương"
+	},
+	{
+		"ma" : "46",
+		"ten" : "Vụ trưởng, Phó Vụ trưởng và tương đương làm việc ở Tòa án nhân dân tối cao và Viện Kiểm sát nhân dân tối cao"
+	},
+	{
+		"ma" : "47",
+		"ten" : "Tòa án nhân dân và Viện Kiểm sát nhân dân ở địa phương"
+	},
+	{
+		"ma" : "48",
+		"ten" : "Chánh án, Phó Chánh án Tòa án nhân dân; Viện trưởng, Phó Viện trưởng Viện Kiểm sát nhân dân cấp tỉnh"
+	},
+	{
+		"ma" : "49",
+		"ten" : "Chánh án, Phó Chánh án Tòa án nhân dân cấp huyện"
+	},
+	{
+		"ma" : "50",
+		"ten" : "Tòa án khác (trừ Tòa án quân sự) do luật định"
+	},
+	{
+		"ma" : "51",
+		"ten" : "Chánh án, Phó Chánh án Tòa án khác (trừ Tòa án Quân sự) do luật định"
+	},
+	{
+		"ma" : "52",
+		"ten" : "Nhà lãnh đạo Hội đồng nhân dân và Ủy ban nhân dân địa phương (kể cả các cơ quan chuyên môn ở địa phương, trừ tư pháp và đoàn thể)"
+	},
+	{
+		"ma" : "53",
+		"ten" : "Nhà lãnh đạo Hội đồng nhân dân (chuyên trách)"
+	},
+	{
+		"ma" : "54",
+		"ten" : "Chủ tịch, Phó Chủ tịch và Thường trực Hội đồng nhân dân cấp tỉnh"
+	},
+	{
+		"ma" : "55",
+		"ten" : "Trưởng ban, Phó Trưởng ban và tương đương trong các cơ quan của Hội đồng nhân dân cấp tỉnh"
+	},
+	{
+		"ma" : "56",
+		"ten" : "Đại biểu Hội đồng nhân dân cấp tỉnh"
+	},
+	{
+		"ma" : "57",
+		"ten" : "Chủ tịch, Phó Chủ tịch và Thường trực Hội đồng nhân dân cấp huyện"
+	},
+	{
+		"ma" : "58",
+		"ten" : "Trưởng ban, Phó Trưởng ban và tương đương trong các cơ quan của Hội đồng nhân dân cấp huyện"
+	},
+	{
+		"ma" : "59",
+		"ten" : "Đại biểu Hội đồng nhân dân cấp huyện"
+	},
+	{
+		"ma" : "60",
+		"ten" : "Chủ tịch, Phó Chủ tịch Hội đồng nhân dân cấp xã"
+	},
+	{
+		"ma" : "61",
+		"ten" : "Ủy ban nhân dân (kể cả các cơ quan chuyên môn)"
+	},
+	{
+		"ma" : "62",
+		"ten" : "Chủ tịch, Phó Chủ tịch và Ủy viên thường trực Ủy ban nhân dân cấp tỉnh"
+	},
+	{
+		"ma" : "63",
+		"ten" : "Chủ tịch, Phó Chủ tịch và Ủy viên thường trực Ủy ban nhân dân cấp huyện"
+	},
+	{
+		"ma" : "64",
+		"ten" : "Chủ tịch, Phó Chủ tịch Ủy ban nhân dân cấp xã"
+	},
+	{
+		"ma" : "65",
+		"ten" : "Trưởng ngành, Phó Trưởng ngành, ban, sở và tương đương của các cơ quan chuyên môn cấp tỉnh"
+	},
+	{
+		"ma" : "66",
+		"ten" : "Trưởng ngành, Phó Trưởng ngành, ban và tương đương của các cơ quan chuyên môn cấp huyện"
+	},
+	{
+		"ma" : "67",
+		"ten" : "Khối đoàn thể; Mặt trận Tổ quốc, Liên đoàn Lao động, Hội Phụ nữ, Hội Nông dân, Đoàn Thanh niên CSHCM, Hội cựu chiến binh"
+	},
+	{
+		"ma" : "68",
+		"ten" : "Khối đoàn thể (trừ Liên đoàn Lao động) (chuyên trách)"
+	},
+	{
+		"ma" : "69",
+		"ten" : "Chủ tịch, Phó Chủ tịch"
+	},
+	{
+		"ma" : "70",
+		"ten" : "Ủy viên trở lên cấp Trung ương"
+	},
+	{
+		"ma" : "71",
+		"ten" : "Vụ trưởng, Phó Vụ trưởng và tương đương cấp Trung ương"
+	},
+	{
+		"ma" : "72",
+		"ten" : "Ủy viên trở lên cấp tỉnh"
+	},
+	{
+		"ma" : "73",
+		"ten" : "Ủy viên trở lên cấp huyện"
+	},
+	{
+		"ma" : "74",
+		"ten" : "Liên đoàn Lao động (chuyên trách)"
+	},
+	{
+		"ma" : "75",
+		"ten" : "Chủ tịch, Phó Chủ tịch"
+	},
+	{
+		"ma" : "76",
+		"ten" : "Ủy viên trở lên của Tổng Liên đoàn Lao động Việt Nam"
+	},
+	{
+		"ma" : "77",
+		"ten" : "Vụ trưởng, Phó Vụ trưởng và tương đương của Tổng Liên đoàn Lao động Việt Nam"
+	},
+	{
+		"ma" : "78",
+		"ten" : "Ủy viên trở lên của Liên đoàn Lao động cấp tỉnh"
+	},
+	{
+		"ma" : "79",
+		"ten" : "Ủy viên trở lên của Liên đoàn Lao động cấp huyện"
+	},
+	{
+		"ma" : "80",
+		"ten" : "Chủ tịch, Phó Chủ tịch tổ chức công đoàn cơ quan Bộ, ngành ở Trung ương"
+	},
+	{
+		"ma" : "81",
+		"ten" : "Chủ tịch, Phó Chủ tịch tổ chức công đoàn doanh nghiệp và các tổ chức sự nghiệp"
+	},
+	{
+		"ma" : "82",
+		"ten" : "Nhà lãnh đạo Tổ chức nghiệp chủ, nhân đạo và vì quyền lợi đặc thù khác"
+	},
+	{
+		"ma" : "83",
+		"ten" : "Tổ chức nghiệp chủ (chuyên trách)"
+	},
+	{
+		"ma" : "84",
+		"ten" : "Chủ tịch, Phó Chủ tịch"
+	},
+	{
+		"ma" : "85",
+		"ten" : "Tổ chức nhân đạo và vì quyền lợi đặc thù khác (chuyên trách)"
+	},
+	{
+		"ma" : "86",
+		"ten" : "Chủ tịch, Phó Chủ tịch"
+	},
+	{
+		"ma" : "87",
+		"ten" : "Lãnh đạo các cơ quan Tập đoàn, Tổng công ty và tương "
+	},
+	{
+		"ma" : "88",
+		"ten" : "Chủ tịch, Phó Chủ tịch Hội đồng quản trị, Tổng giám đốc, Phó tổng giám đốc, Hiệu trưởng, Phó Hiệu trưởng trường đại học lớn"
+	},
+	{
+		"ma" : "89",
+		"ten" : "Giám đốc, Phó Giám đốc của các đơn vị sản xuất và triển khai thuộc cơ quan Tập đoàn, Tổng công ty, trường đại học lớn và tương đương"
+	},
+	{
+		"ma" : "90",
+		"ten" : "Nông nghiệp, lâm nghiệp và thủy sản"
+	},
+	{
+		"ma" : "91",
+		"ten" : "Khai khoáng, chế biến, điện, ga, nước"
+	},
+	{
+		"ma" : "92",
+		"ten" : "Xây dựng"
+	},
+	{
+		"ma" : "93",
+		"ten" : "Bán buôn, bán lẻ"
+	},
+	{
+		"ma" : "94",
+		"ten" : "Khách sạn, nhà hàng"
+	},
+	{
+		"ma" : "95",
+		"ten" : "Vận tải, kho bãi; Thông tin và truyền thông"
+	},
+	{
+		"ma" : "96",
+		"ten" : "Dịch vụ kinh doanh"
+	},
+	{
+		"ma" : "97",
+		"ten" : "Dịch vụ cá nhân và cộng đồng"
+	},
+	{
+		"ma" : "98",
+		"ten" : "Các đơn vị sản xuất và dịch vụ còn lại chưa được phân vào đâu"
+	},
+	{
+		"ma" : "99",
+		"ten" : "Giám đốc, Phó Giám đốc các đơn vị quản lý thuộc cơ quan Liên hiệp, Tổng công ty, trường đại học lớn và tương đương"
+	},
+	{
+		"ma" : "100",
+		"ten" : "Tài chính, kế toán, quản trị hành chính"
+	},
+	{
+		"ma" : "101",
+		"ten" : "Tổ chức nhân sự và mối quan hệ công nghệ"
+	},
+	{
+		"ma" : "102",
+		"ten" : "Bán hàng và tiếp thị"
+	},
+	{
+		"ma" : "103",
+		"ten" : "Quảng cáo và các vấn đề liên quan đến công chúng"
+	},
+	{
+		"ma" : "104",
+		"ten" : "Cung ứng và phân phối"
+	},
+	{
+		"ma" : "105",
+		"ten" : "Dịch vụ và tính toán"
+	},
+	{
+		"ma" : "106",
+		"ten" : "Nghiên cứu và phát triển"
+	},
+	{
+		"ma" : "107",
+		"ten" : "Các đơn vị khác chưa được phân vào đâu"
+	},
+	{
+		"ma" : "108",
+		"ten" : "Giám đốc, Phó Giám đốc công ty, doanh nghiệp, xí nghiệp; Hiệu trưởng, Phó Hiệu trưởng trường nhỏ"
+	},
+	{
+		"ma" : "109",
+		"ten" : "Nông nghiệp, lâm nghiệp và thủy sản"
+	},
+	{
+		"ma" : "110",
+		"ten" : "Khai khoáng, chế biến, điện, ga, nước"
+	},
+	{
+		"ma" : "111",
+		"ten" : "Xây dựng"
+	},
+	{
+		"ma" : "112",
+		"ten" : "Bán buôn, bán lẻ"
+	},
+	{
+		"ma" : "113",
+		"ten" : "Dịch vụ lưu trú, ăn uống"
+	},
+	{
+		"ma" : "114",
+		"ten" : "Vận tải kho bãi, Thông tin và truyền thông"
+	},
+	{
+		"ma" : "115",
+		"ten" : "Dịch vụ kinh doanh"
+	},
+	{
+		"ma" : "116",
+		"ten" : "Dịch vụ cá nhân và cộng đồng"
+	},
+	{
+		"ma" : "117",
+		"ten" : "Các đơn vị sản xuất và dịch vụ còn lại chưa được phân vào đâu"
+	},
+	{
+		"ma" : "118",
+		"ten" : "Nhà chuyên môn bậc cao"
+	},
+	{
+		"ma" : "119",
+		"ten" : "Nhà chuyên môn trong lĩnh vực khoa học và kỹ thuật"
+	},
+	{
+		"ma" : "120",
+		"ten" : "Nhà chuyên môn về khoa học trái đất và vật lý"
+	},
+	{
+		"ma" : "121",
+		"ten" : "Nhà vật lý học và thiên văn học"
+	},
+	{
+		"ma" : "122",
+		"ten" : "Nhà khí tượng học"
+	},
+	{
+		"ma" : "123",
+		"ten" : "Nhà hóa học"
+	},
+	{
+		"ma" : "124",
+		"ten" : "Nhà địa chất, địa vật lý"
+	},
+	{
+		"ma" : "125",
+		"ten" : "Nhà toán học, nhà thống kê"
+	},
+	{
+		"ma" : "126",
+		"ten" : "Nhà toán học"
+	},
+	{
+		"ma" : "127",
+		"ten" : "Nhà thống kê"
+	},
+	{
+		"ma" : "128",
+		"ten" : "Nhà chuyên môn về khoa học sự sống"
+	},
+	{
+		"ma" : "129",
+		"ten" : "Nhà sinh vật học, thực vật học, động vật học và các chuyên môn liên quan"
+	},
+	{
+		"ma" : "130",
+		"ten" : "Nhà tư vấn nông, lâm nghiệp và thủy sản"
+	},
+	{
+		"ma" : "131",
+		"ten" : "Nhà chuyên môn về bảo vệ môi trường"
+	},
+	{
+		"ma" : "132",
+		"ten" : "Nhà chuyên môn về kỹ thuật (trừ kỹ thuật điện)"
+	},
+	{
+		"ma" : "133",
+		"ten" : "Kỹ sư về công nghiệp chế biến, chế tạo"
+	},
+	{
+		"ma" : "134",
+		"ten" : "Kỹ sư kỹ thuật xây dựng"
+	},
+	{
+		"ma" : "135",
+		"ten" : "Kỹ sư về môi trường"
+	},
+	{
+		"ma" : "136",
+		"ten" : "Kỹ sư cơ học, cơ khí"
+	},
+	{
+		"ma" : "137",
+		"ten" : "Kỹ sư hóa học"
+	},
+	{
+		"ma" : "138",
+		"ten" : "Kỹ sư khai thác mỏ, luyện kim và các ngành liên quan"
+	},
+	{
+		"ma" : "139",
+		"ten" : "Kỹ sư kỹ thuật khác chưa được phân loại"
+	},
+	{
+		"ma" : "140",
+		"ten" : "Kỹ sư kỹ thuật điện"
+	},
+	{
+		"ma" : "141",
+		"ten" : "Kỹ sư điện"
+	},
+	{
+		"ma" : "142",
+		"ten" : "Kỹ sư điện tử"
+	},
+	{
+		"ma" : "143",
+		"ten" : "Kỹ sư viễn thông"
+	},
+	{
+		"ma" : "144",
+		"ten" : "Kiến trúc sư, nhà lập quy hoạch, kiểm soát viên và nhà thiết kế"
+	},
+	{
+		"ma" : "145",
+		"ten" : "Kiến trúc sư nhà cao tầng"
+	},
+	{
+		"ma" : "146",
+		"ten" : "Kiến trúc sư phong cảnh"
+	},
+	{
+		"ma" : "147",
+		"ten" : "Nhà thiết kế sản phẩm và may mặc"
+	},
+	{
+		"ma" : "148",
+		"ten" : "Nhà quy hoạch đô thị và giao thông"
+	},
+	{
+		"ma" : "149",
+		"ten" : "Nhà vẽ bản đồ và kiểm soát viên"
+	},
+	{
+		"ma" : "150",
+		"ten" : "Nhà thiết kế đồ họa và truyền thông đa phương tiện"
+	},
+	{
+		"ma" : "151",
+		"ten" : "Nhà chuyên môn về sức khỏe"
+	},
+	{
+		"ma" : "152",
+		"ten" : "Bác sỹ y khoa"
+	},
+	{
+		"ma" : "153",
+		"ten" : "Bác sỹ đa khoa"
+	},
+	{
+		"ma" : "154",
+		"ten" : "Bác sỹ chuyên khoa"
+	},
+	{
+		"ma" : "155",
+		"ten" : "Y tá và hộ sinh"
+	},
+	{
+		"ma" : "156",
+		"ten" : "Y tá"
+	},
+	{
+		"ma" : "157",
+		"ten" : "Hộ sinh"
+	},
+	{
+		"ma" : "158",
+		"ten" : "Nhà chuyên môn về thuốc cổ truyền và thuốc bổ trợ"
+	},
+	{
+		"ma" : "159",
+		"ten" : "Bác sỹ phụ tá"
+	},
+	{
+		"ma" : "160",
+		"ten" : "Bác sỹ thú y"
+	},
+	{
+		"ma" : "161",
+		"ten" : "Nhà chuyên môn về sức khỏe khác"
+	},
+	{
+		"ma" : "162",
+		"ten" : "Bác sỹ nha khoa"
+	},
+	{
+		"ma" : "163",
+		"ten" : "Dược sỹ"
+	},
+	{
+		"ma" : "164",
+		"ten" : "Nhà chuyên môn về vệ sinh môi trường và bệnh nghề nghiệp"
+	},
+	{
+		"ma" : "165",
+		"ten" : "Nhà chuyên môn về vật lý trị liệu"
+	},
+	{
+		"ma" : "166",
+		"ten" : "Nhà chuyên môn về dinh dưỡng"
+	},
+	{
+		"ma" : "167",
+		"ten" : "Bác sỹ thính học và đặc trị các khuyết tật về ngôn ngữ"
+	},
+	{
+		"ma" : "168",
+		"ten" : "Nhà chuyên môn về thị lực và nhãn khoa"
+	},
+	{
+		"ma" : "169",
+		"ten" : "Nhà chuyên môn khác chưa được phân loại"
+	},
+	{
+		"ma" : "170",
+		"ten" : "Nhà chuyên môn về giáo dục"
+	},
+	{
+		"ma" : "171",
+		"ten" : "Giáo viên cao đẳng, đại học và cao học"
+	},
+	{
+		"ma" : "172",
+		"ten" : "Giáo viên đại học và cao học"
+	},
+	{
+		"ma" : "173",
+		"ten" : "Giáo viên cao đẳng"
+	},
+	{
+		"ma" : "174",
+		"ten" : "Giáo viên dạy nghề"
+	},
+	{
+		"ma" : "175",
+		"ten" : "Giáo viên trung học"
+	},
+	{
+		"ma" : "176",
+		"ten" : "Giáo viên trung cấp chuyên nghiệp"
+	},
+	{
+		"ma" : "177",
+		"ten" : "Giáo viên trung học phổ thông (cấp III)"
+	},
+	{
+		"ma" : "178",
+		"ten" : "Giáo viên trung học cơ sở (cấp II)"
+	},
+	{
+		"ma" : "179",
+		"ten" : "Giáo viên tiểu học và mầm non"
+	},
+	{
+		"ma" : "180",
+		"ten" : "Giáo viên tiểu học (cấp I)"
+	},
+	{
+		"ma" : "181",
+		"ten" : "Giáo viên mầm non"
+	},
+	{
+		"ma" : "182",
+		"ten" : "Nhà chuyên môn giáo dục khác chưa được phân loại"
+	},
+	{
+		"ma" : "183",
+		"ten" : "Chuyên gia về phương pháp giáo dục"
+	},
+	{
+		"ma" : "184",
+		"ten" : "Giáo viên theo các nhu cầu đặc biệt"
+	},
+	{
+		"ma" : "185",
+		"ten" : "Giáo viên ngôn ngữ khác"
+	},
+	{
+		"ma" : "186",
+		"ten" : "Giáo viên âm nhạc khác"
+	},
+	{
+		"ma" : "187",
+		"ten" : "Giáo viên nghệ thuật khác"
+	},
+	{
+		"ma" : "188",
+		"ten" : "Nhà đào tạo công nghệ thông tin"
+	},
+	{
+		"ma" : "189",
+		"ten" : "Nhà chuyên môn giáo dục chưa được phân loại khác"
+	},
+	{
+		"ma" : "190",
+		"ten" : "Nhà chuyên môn về kinh doanh và quản lý"
+	},
+	{
+		"ma" : "191",
+		"ten" : "Nhà chuyên môn về tài chính"
+	},
+	{
+		"ma" : "192",
+		"ten" : "Kế toán"
+	},
+	{
+		"ma" : "193",
+		"ten" : "Nhà tư vấn tài chính và đầu tư"
+	},
+	{
+		"ma" : "194",
+		"ten" : "Nhà phân tích tài chính"
+	},
+	{
+		"ma" : "195",
+		"ten" : "Nhà chuyên môn về quản trị"
+	},
+	{
+		"ma" : "196",
+		"ten" : "Nhà phân tích tổ chức và quản lý"
+	},
+	{
+		"ma" : "197",
+		"ten" : "Nhà chuyên môn về quản trị chính sách"
+	},
+	{
+		"ma" : "198",
+		"ten" : "Nhà chuyên môn về nhân sự"
+	},
+	{
+		"ma" : "199",
+		"ten" : "Nhà chuyên môn về đào tạo và phát triển nhân viên"
+	},
+	{
+		"ma" : "200",
+		"ten" : "Nhà chuyên môn về bán hàng, marketing và quan hệ công chúng"
+	},
+	{
+		"ma" : "201",
+		"ten" : "Nhà chuyên môn về quảng cáo và marketing"
+	},
+	{
+		"ma" : "202",
+		"ten" : "Nhà chuyên môn về quan hệ công chúng"
+	},
+	{
+		"ma" : "203",
+		"ten" : "Nhà chuyên môn về bán hàng hóa kỹ thuật và y tế (không bao gồm CNTT và truyền thông)"
+	},
+	{
+		"ma" : "204",
+		"ten" : "Nhà chuyên môn về bán hàng hóa trong lĩnh vực CNTT và truyền thông"
+	},
+	{
+		"ma" : "205",
+		"ten" : "Nhà chuyên môn điều tiết của Chính phủ"
+	},
+	{
+		"ma" : "206",
+		"ten" : "Giám sát viên hải quan và ở biên giới"
+	},
+	{
+		"ma" : "207",
+		"ten" : "Nhân viên thuế của Chính phủ"
+	},
+	{
+		"ma" : "208",
+		"ten" : "Nhân viên trợ cấp xã hội của Chính phủ"
+	},
+	{
+		"ma" : "209",
+		"ten" : "Nhân viên cấp phép của Chính phủ"
+	},
+	{
+		"ma" : "210",
+		"ten" : "Điều tra viên, cảnh sát và thám tử"
+	},
+	{
+		"ma" : "211",
+		"ten" : "Nhà chuyên môn điều tiết của Chính phủ khác chưa được phân vào đâu"
+	},
+	{
+		"ma" : "212",
+		"ten" : "Nhà chuyên môn trong lĩnh vực CNTT và truyền thông"
+	},
+	{
+		"ma" : "213",
+		"ten" : "Nhà chuyên môn về phân tích và phát triển phần mềm và các ứng dụng"
+	},
+	{
+		"ma" : "214",
+		"ten" : "Nhà phân tích hệ thống"
+	},
+	{
+		"ma" : "215",
+		"ten" : "Nhà phát triển phần mềm"
+	},
+	{
+		"ma" : "216",
+		"ten" : "Nhà phát triển trang web và truyền thông đa phương tiện"
+	},
+	{
+		"ma" : "217",
+		"ten" : "Nhà lập trình các ứng dụng"
+	},
+	{
+		"ma" : "218",
+		"ten" : "Nhà chuyên môn về phát triển phần mềm ứng dụng và nhà phân tích chưa được phân loại khác"
+	},
+	{
+		"ma" : "219",
+		"ten" : "Nhà chuyên môn về cơ sở dữ liệu và mạng"
+	},
+	{
+		"ma" : "220",
+		"ten" : "Nhà quản trị và thiết kế cơ sở dữ liệu"
+	},
+	{
+		"ma" : "221",
+		"ten" : "Nhà quản trị hệ thống"
+	},
+	{
+		"ma" : "222",
+		"ten" : "Nhà chuyên môn về mạng máy tính"
+	},
+	{
+		"ma" : "223",
+		"ten" : "Nhà chuyên môn về cơ sở dữ liệu và mạng chưa được phân loại khác"
+	},
+	{
+		"ma" : "224",
+		"ten" : "Nhà chuyên môn về luật pháp, văn hóa, xã hội"
+	},
+	{
+		"ma" : "225",
+		"ten" : "Nhà chuyên môn về luật"
+	},
+	{
+		"ma" : "226",
+		"ten" : "Luật sư"
+	},
+	{
+		"ma" : "227",
+		"ten" : "Thẩm phán"
+	},
+	{
+		"ma" : "228",
+		"ten" : "Nhà chuyên môn về luật khác chưa được phân loại vào đâu"
+	},
+	{
+		"ma" : "229",
+		"ten" : "Thủ thư, chuyên viên lưu trữ văn thư và người quản lý"
+	},
+	{
+		"ma" : "230",
+		"ten" : "Chuyên viên lưu trữ văn thư"
+	},
+	{
+		"ma" : "231",
+		"ten" : "Thủ thư và các nhà chuyên môn về thông tin liên quan"
+	},
+	{
+		"ma" : "232",
+		"ten" : "Nhà chuyên môn về xã hội và tôn giáo"
+	},
+	{
+		"ma" : "233",
+		"ten" : "Nhà kinh tế học"
+	},
+	{
+		"ma" : "234",
+		"ten" : "Nhà xã hội học, nhân học và các nghề liên quan"
+	},
+	{
+		"ma" : "235",
+		"ten" : "Nhà triết học, sử học và khoa học chính trị"
+	},
+	{
+		"ma" : "236",
+		"ten" : "Nhà tâm lý học"
+	},
+	{
+		"ma" : "237",
+		"ten" : "Nhà chuyên môn về công tác và tư vấn xã hội"
+	},
+	{
+		"ma" : "238",
+		"ten" : "Nhà chuyên môn về tôn giáo"
+	},
+	{
+		"ma" : "239",
+		"ten" : "Nhà văn, nhà báo và nhà ngôn ngữ học"
+	},
+	{
+		"ma" : "240",
+		"ten" : "Nhà văn và nghề có liên quan"
+	},
+	{
+		"ma" : "241",
+		"ten" : "Nhà báo"
+	},
+	{
+		"ma" : "242",
+		"ten" : "Nhà biên dịch, phiên dịch và nhà ngôn ngữ khác"
+	},
+	{
+		"ma" : "243",
+		"ten" : "Nghệ sỹ sáng tạo và trình diễn"
+	},
+	{
+		"ma" : "244",
+		"ten" : "Nghệ sỹ trình diễn"
+	},
+	{
+		"ma" : "245",
+		"ten" : "Nhạc sỹ, ca sỹ và nhà soạn nhạc"
+	},
+	{
+		"ma" : "246",
+		"ten" : "Vũ công và biên đạo múa"
+	},
+	{
+		"ma" : "247",
+		"ten" : "Đạo diễn, nhà sản xuất phim, sân khấu và các nghề liên quan"
+	},
+	{
+		"ma" : "248",
+		"ten" : "Diễn viên"
+	},
+	{
+		"ma" : "249",
+		"ten" : "Phát thanh viên trên đài, truyền hình và các phương tiện truyền thông đại chúng khác"
+	},
+	{
+		"ma" : "250",
+		"ten" : "Nghệ sỹ sáng tạo và trình diễn liên quan khác chưa được phân loại vào đâu"
+	},
+	{
+		"ma" : "251",
+		"ten" : "Nhà chuyên môn bậc trung"
+	},
+	{
+		"ma" : "252",
+		"ten" : "Kỹ thuật viên khoa học và kỹ thuật"
+	},
+	{
+		"ma" : "253",
+		"ten" : "Kỹ thuật viên khoa học vật lý và kỹ thuật"
+	},
+	{
+		"ma" : "254",
+		"ten" : "Kỹ thuật viên khoa học hóa học và vật lý"
+	},
+	{
+		"ma" : "255",
+		"ten" : "Kỹ thuật viên kỹ thuật xây dựng"
+	},
+	{
+		"ma" : "256",
+		"ten" : "Kỹ thuật viên điện"
+	},
+	{
+		"ma" : "257",
+		"ten" : "Kỹ thuật viên kỹ thuật điện tử"
+	},
+	{
+		"ma" : "258",
+		"ten" : "Kỹ thuật viên kỹ thuật cơ khí"
+	},
+	{
+		"ma" : "259",
+		"ten" : "Kỹ thuật viên kỹ thuật hóa học"
+	},
+	{
+		"ma" : "260",
+		"ten" : "Kỹ thuật viên khai thác mỏ và luyện kim"
+	},
+	{
+		"ma" : "261",
+		"ten" : "Kỹ thuật viên phác thảo kỹ thuật"
+	},
+	{
+		"ma" : "262",
+		"ten" : "Kỹ thuật viên khoa học vật lý và kỹ thuật chưa được phân loại khác"
+	},
+	{
+		"ma" : "263",
+		"ten" : "Giám sát viên khai thác mỏ, chế biến và xây dựng"
+	},
+	{
+		"ma" : "264",
+		"ten" : "Giám sát viên khai thác mỏ"
+	},
+	{
+		"ma" : "265",
+		"ten" : "Giám sát viên chế biến"
+	},
+	{
+		"ma" : "266",
+		"ten" : "Giám sát viên xây dựng"
+	},
+	{
+		"ma" : "267",
+		"ten" : "Kỹ thuật viên kiểm soát, vận hành và điều khiển quy trình"
+	},
+	{
+		"ma" : "268",
+		"ten" : "Người vận hành máy móc thiết bị có sử dụng năng lượng"
+	},
+	{
+		"ma" : "269",
+		"ten" : "Người vận hành lò đốt rác và xử lý nước"
+	},
+	{
+		"ma" : "270",
+		"ten" : "Kiểm soát viên nhà máy xử lý hoá chất"
+	},
+	{
+		"ma" : "271",
+		"ten" : "Người vận hành thiết bị tinh chế dầu và khí tự nhiên"
+	},
+	{
+		"ma" : "272",
+		"ten" : "Kiểm soát viên qui trình sản xuất kim loại"
+	},
+	{
+		"ma" : "273",
+		"ten" : "Kỹ thuật viên kiểm soát quy trình khác chưa được phân loại"
+	},
+	{
+		"ma" : "274",
+		"ten" : "Kỹ thuật viên khoa học đời sống và kỹ thuật viên hỗ trợ liên quan"
+	},
+	{
+		"ma" : "275",
+		"ten" : "Kỹ thuật viên khoa học đời sống (không kể y tế)"
+	},
+	{
+		"ma" : "276",
+		"ten" : "Kỹ thuật viên nông nghiệp"
+	},
+	{
+		"ma" : "277",
+		"ten" : "Kỹ thuật viên lâm nghiệp"
+	},
+	{
+		"ma" : "278",
+		"ten" : "Kỹ thuật viên và kiểm soát viên tàu thuỷ và phương tiện bay"
+	},
+	{
+		"ma" : "279",
+		"ten" : "Kỹ thuật viên máy của tàu thủy"
+	},
+	{
+		"ma" : "280",
+		"ten" : "Hoa tiêu và nhân viên văn phòng trên tàu"
+	},
+	{
+		"ma" : "281",
+		"ten" : "Phi công phương tiện bay và kỹ thuật viên hỗ trợ liên quan"
+	},
+	{
+		"ma" : "282",
+		"ten" : "Kỹ soát viên giao thông đường hàng không"
+	},
+	{
+		"ma" : "283",
+		"ten" : "Kỹ thuật viên điện tử an toàn hàng không"
+	},
+	{
+		"ma" : "284",
+		"ten" : "Kỹ thuật viên sức khỏe"
+	},
+	{
+		"ma" : "285",
+		"ten" : "Kỹ thuật viên y tế và dược"
+	},
+	{
+		"ma" : "286",
+		"ten" : "Kỹ thuật viên máy móc thiết bị y tế và chữa bệnh"
+	},
+	{
+		"ma" : "287",
+		"ten" : "Kỹ thuật viên làm việc tại phòng thí nghiệm y tế và phòng nghiên cứu"
+	},
+	{
+		"ma" : "288",
+		"ten" : "Kỹ thuật viên và trợ lý dược"
+	},
+	{
+		"ma" : "289",
+		"ten" : "Kỹ thuật viên lắp răng giả"
+	},
+	{
+		"ma" : "290",
+		"ten" : "Y tá, kỹ thuật viên chăm sóc bệnh nhân và hộ sinh"
+	},
+	{
+		"ma" : "291",
+		"ten" : "Y tá, kỹ thuật viên chăm sóc bệnh nhân"
+	},
+	{
+		"ma" : "292",
+		"ten" : "Hộ sinh"
+	},
+	{
+		"ma" : "293",
+		"ten" : "Kỹ thuật viên y học cổ truyền và bổ trợ"
+	},
+	{
+		"ma" : "294",
+		"ten" : "Kỹ thuật viên thú y và phụ tá"
+	},
+	{
+		"ma" : "295",
+		"ten" : "Kỹ thuật viên sức khỏe khác"
+	},
+	{
+		"ma" : "296",
+		"ten" : "Phụ tá nha khoa và trị liệu"
+	},
+	{
+		"ma" : "297",
+		"ten" : "Kỹ thuật viên ghi chép sổ sách y tế và thông tin về sức khỏe"
+	},
+	{
+		"ma" : "298",
+		"ten" : "Nhân viên làm việc trong lĩnh vực chăm sóc sức khỏe cộng đồng"
+	},
+	{
+		"ma" : "299",
+		"ten" : "Kỹ thuật viên nhãn khoa"
+	},
+	{
+		"ma" : "300",
+		"ten" : "Kỹ thuật viên vật lý trị liệu và phụ tá"
+	},
+	{
+		"ma" : "301",
+		"ten" : "Nhân viên trợ giúp y tế"
+	},
+	{
+		"ma" : "302",
+		"ten" : "Thanh tra viên môi trường và sức khỏe nghề nghiệp và các nghề liên quan"
+	},
+	{
+		"ma" : "303",
+		"ten" : "Nhân viên cấp cứu"
+	},
+	{
+		"ma" : "304",
+		"ten" : "Kỹ thuật viên sức khỏe khác chưa được phân vào đâu"
+	},
+	{
+		"ma" : "305",
+		"ten" : "Nhà chuyên môn về kinh doanh và quản lý"
+	},
+	{
+		"ma" : "306",
+		"ten" : "Nhà chuyên môn về toán ứng dụng và tài chính"
+	},
+	{
+		"ma" : "307",
+		"ten" : "Người môi giới, buôn bán chứng khoán và tài chính"
+	},
+	{
+		"ma" : "308",
+		"ten" : "Nhân viên phụ trách các khoản tín dụng và khoản vay"
+	},
+	{
+		"ma" : "309",
+		"ten" : "Kế toán viên"
+	},
+	{
+		"ma" : "310",
+		"ten" : "Nhà chuyên môn về thống kê và toán học ứng dụng có liên quan"
+	},
+	{
+		"ma" : "311",
+		"ten" : "Người định giá mức độ thiệt hại"
+	},
+	{
+		"ma" : "312",
+		"ten" : "Nhà đại lý và môi giới bán hàng và mua, bán"
+	},
+	{
+		"ma" : "313",
+		"ten" : "Nhân viên đại diện bảo hiểm"
+	},
+	{
+		"ma" : "314",
+		"ten" : "Nhân viên đại diện bán hàng hóa thương mại"
+	},
+	{
+		"ma" : "315",
+		"ten" : "Người mua hàng"
+	},
+	{
+		"ma" : "316",
+		"ten" : "Người môi giới thương mại"
+	},
+	{
+		"ma" : "317",
+		"ten" : "Nhân viên\/đại lý dịch vụ kinh doanh"
+	},
+	{
+		"ma" : "318",
+		"ten" : "Nhân viên thanh toán và chuyển tiếp hàng hóa"
+	},
+	{
+		"ma" : "319",
+		"ten" : "Người lập kế hoạch hội thảo và sự kiện"
+	},
+	{
+		"ma" : "320",
+		"ten" : "Nhà đại lý việc làm và nhận thầu"
+	},
+	{
+		"ma" : "321",
+		"ten" : "Nhà đại lý bất động sản và quản lý tài sản\/bất động sản"
+	},
+	{
+		"ma" : "322",
+		"ten" : "Nhà đại lý dịch vụ kinh doanh khác chưa được phân vào đâu"
+	},
+	{
+		"ma" : "323",
+		"ten" : "Thư ký hành chính và nhân viên chuyên môn khác"
+	},
+	{
+		"ma" : "324",
+		"ten" : "Giám sát viên văn phòng"
+	},
+	{
+		"ma" : "325",
+		"ten" : "Thư ký luật"
+	},
+	{
+		"ma" : "326",
+		"ten" : "Thư ký hành chính và điều hành"
+	},
+	{
+		"ma" : "327",
+		"ten" : "Thư ký hành chính và chuyên môn khác chưa được phân loại"
+	},
+	{
+		"ma" : "328",
+		"ten" : "Nhà chuyên môn điều tiết của Chính phủ"
+	},
+	{
+		"ma" : "329",
+		"ten" : "Giám sát viên hải quan và ở biên giới"
+	},
+	{
+		"ma" : "330",
+		"ten" : "Nhân viên thuế của Chính phủ"
+	},
+	{
+		"ma" : "331",
+		"ten" : "Nhân viên trợ cấp xã hội của Chính phủ"
+	},
+	{
+		"ma" : "332",
+		"ten" : "Nhân viên cấp phép của Chính phủ"
+	},
+	{
+		"ma" : "333",
+		"ten" : "Điều tra viên cảnh sát và thám tử"
+	},
+	{
+		"ma" : "334",
+		"ten" : "Nhà chuyên môn điều tiết của Chính phủ khác chưa được phân vào đâu"
+	},
+	{
+		"ma" : "335",
+		"ten" : "Nhà chuyên môn luật pháp, văn hóa, xã hội"
+	},
+	{
+		"ma" : "336",
+		"ten" : "Nhà chuyên môn về luật pháp, xã hội và tôn giáo"
+	},
+	{
+		"ma" : "337",
+		"ten" : "Nhà chuyên môn về luật pháp"
+	},
+	{
+		"ma" : "338",
+		"ten" : "Nhà chuyên môn về công tác xã hội"
+	},
+	{
+		"ma" : "339",
+		"ten" : "Nhà chuyên môn về tôn giáo"
+	},
+	{
+		"ma" : "340",
+		"ten" : "Người làm trong lĩnh vực thể thao và tập luyện"
+	},
+	{
+		"ma" : "341",
+		"ten" : "Vận động viên và người chơi thể thao"
+	},
+	{
+		"ma" : "342",
+		"ten" : "Huấn luyện viên, người hướng dẫn thể thao và cán bộ làm việc trong lĩnh vực thể thao"
+	},
+	{
+		"ma" : "343",
+		"ten" : "Người hướng dẫn tập luyện và giải trí, người lãnh đạo chương trình"
+	},
+	{
+		"ma" : "344",
+		"ten" : "Nhà chuyên môn về mỹ thuật, văn hóa và nấu ăn"
+	},
+	{
+		"ma" : "345",
+		"ten" : "Nhiếp ảnh gia"
+	},
+	{
+		"ma" : "346",
+		"ten" : "Nhà thiết kế và trang trí nội thất"
+	},
+	{
+		"ma" : "347",
+		"ten" : "Kỹ thuật viên thư viện, viện bảo tàng và triển lãm"
+	},
+	{
+		"ma" : "348",
+		"ten" : "Đầu bếp trưởng"
+	},
+	{
+		"ma" : "349",
+		"ten" : "Nhà chuyên môn mỹ thuật và văn hóa khác"
+	},
+	{
+		"ma" : "350",
+		"ten" : "Kỹ thuật viên thông tin và truyền thông"
+	},
+	{
+		"ma" : "351",
+		"ten" : "Kỹ thuật viên hỗ trợ người sử dụng và vận hành công nghệ thông tin và truyền thông"
+	},
+	{
+		"ma" : "352",
+		"ten" : "Kỹ thuật viên vận hành CNTT và truyền thông"
+	},
+	{
+		"ma" : "353",
+		"ten" : "Kỹ thuật viên hỗ trợ người sử dụng công nghệ thông tin và truyền thông"
+	},
+	{
+		"ma" : "354",
+		"ten" : "Kỹ thuật viên hệ thống và mạng máy tính"
+	},
+	{
+		"ma" : "355",
+		"ten" : "Kỹ thuật viên trang web"
+	},
+	{
+		"ma" : "356",
+		"ten" : "Kỹ thuật viên viễn thông và truyền hình"
+	},
+	{
+		"ma" : "357",
+		"ten" : "Kỹ thuật viên truyền hình và nghe - nhìn"
+	},
+	{
+		"ma" : "358",
+		"ten" : "kỹ thuật viên kỹ thuật viễn thông"
+	},
+	{
+		"ma" : "359",
+		"ten" : "Giáo viên bậc trung"
+	},
+	{
+		"ma" : "360",
+		"ten" : "Giáo viên tiểu học"
+	},
+	{
+		"ma" : "361",
+		"ten" : "Giáo viên mầm non"
+	},
+	{
+		"ma" : "362",
+		"ten" : "Giáo viên dạy các đối tượng bị khuyết tật"
+	},
+	{
+		"ma" : "363",
+		"ten" : "Giáo viên khác"
+	},
+	{
+		"ma" : "364",
+		"ten" : "Giáo viên đào tạo nghề"
+	},
+	{
+		"ma" : "365",
+		"ten" : "Giáo dục đào tạo khác"
+	},
+	{
+		"ma" : "366",
+		"ten" : "Nhân viên trợ lý văn phòng"
+	},
+	{
+		"ma" : "367",
+		"ten" : "Nhân viên tổng hợp và nhân viên làm các công việc bàn giấy"
+	},
+	{
+		"ma" : "368",
+		"ten" : "Nhân viên tổng hợp"
+	},
+	{
+		"ma" : "369",
+		"ten" : "Thư ký (tổng hợp)"
+	},
+	{
+		"ma" : "370",
+		"ten" : "Nhân viên làm công việc bàn giấy"
+	},
+	{
+		"ma" : "371",
+		"ten" : "Nhân viên đánh máy"
+	},
+	{
+		"ma" : "372",
+		"ten" : "Nhân viên nhập dữ liệu"
+	},
+	{
+		"ma" : "373",
+		"ten" : "Nhân viên dịch vụ khác hàng"
+	},
+	{
+		"ma" : "374",
+		"ten" : "Nhân viên thu ngân, thu tiền và các nghề liên quan"
+	},
+	{
+		"ma" : "375",
+		"ten" : "Nhân viên thu ngân ngân hàng và các nghề liên quan"
+	},
+	{
+		"ma" : "376",
+		"ten" : "Người đánh cá ngựa thuê, hồ lì và các nghề liên quan đến cờ bạc khác"
+	},
+	{
+		"ma" : "377",
+		"ten" : "Chủ hiệu cầm đồ và cho vay tiền"
+	},
+	{
+		"ma" : "378",
+		"ten" : "Người thu nợ và các công việc liên quan"
+	},
+	{
+		"ma" : "379",
+		"ten" : "Nhân viên thông tin khách hàng"
+	},
+	{
+		"ma" : "380",
+		"ten" : "Nhân viên và tư vấn viên du lịch"
+	},
+	{
+		"ma" : "381",
+		"ten" : "Nhân viên trung tâm thông tin liên lạc"
+	},
+	{
+		"ma" : "382",
+		"ten" : "Nhân viên vận hành tổng đài điện thoại"
+	},
+	{
+		"ma" : "383",
+		"ten" : "Nhân viên lễ tân khách sạn"
+	},
+	{
+		"ma" : "384",
+		"ten" : "Nhân viên phòng hướng dẫn"
+	},
+	{
+		"ma" : "385",
+		"ten" : "Lễ tân (nói chung)"
+	},
+	{
+		"ma" : "386",
+		"ten" : "Phỏng vấn viên điều tra và nghiên cứu thị trường"
+	},
+	{
+		"ma" : "387",
+		"ten" : "Nhân viên thông tin khách hàng khác chưa được phân loại"
+	},
+	{
+		"ma" : "388",
+		"ten" : "Nhân viên ghi chép số liệu và vật liệu"
+	},
+	{
+		"ma" : "389",
+		"ten" : "Nhân viên làm công việc liên quan đến số liệu"
+	},
+	{
+		"ma" : "390",
+		"ten" : "Nhân viên kế toán"
+	},
+	{
+		"ma" : "391",
+		"ten" : "Nhân viên thống kê, tài chính và bảo hiểm"
+	},
+	{
+		"ma" : "392",
+		"ten" : "Nhân viên ghi chép bảng lương"
+	},
+	{
+		"ma" : "393",
+		"ten" : "Nhân viên ghi chép nguyên vật liệu và phương tiện"
+	},
+	{
+		"ma" : "394",
+		"ten" : "Nhân viên ghi chép tồn kho"
+	},
+	{
+		"ma" : "395",
+		"ten" : "Nhân viên ghi chép sản phẩm"
+	},
+	{
+		"ma" : "396",
+		"ten" : "Nhân viên ghi chép phương tiện vận tải"
+	},
+	{
+		"ma" : "397",
+		"ten" : "Nhân viên hỗ trợ văn phòng khác"
+	},
+	{
+		"ma" : "398",
+		"ten" : "Nhân viên thư viện"
+	},
+	{
+		"ma" : "399",
+		"ten" : "Nhân viên phân loại và vận chuyển thư"
+	},
+	{
+		"ma" : "400",
+		"ten" : "Nhân viên đánh mã, đọc và sửa bản in thử"
+	},
+	{
+		"ma" : "401",
+		"ten" : "Người ghi chép thuê và người làm các công việc có liên quan"
+	},
+	{
+		"ma" : "402",
+		"ten" : "Nhân viên sắp xếp và sao chép"
+	},
+	{
+		"ma" : "403",
+		"ten" : "Nhân viên tổ chức nhân sự"
+	},
+	{
+		"ma" : "404",
+		"ten" : "Nhân viên hỗ trợ văn phòng khác chưa được phân loại"
+	},
+	{
+		"ma" : "405",
+		"ten" : "Nhân viên dịch vụ và bán hàng"
+	},
+	{
+		"ma" : "406",
+		"ten" : "Nhân viên dịch vụ cá nhân"
+	},
+	{
+		"ma" : "407",
+		"ten" : "Nhân viên hướng dẫn, tổ chức khách du lịch"
+	},
+	{
+		"ma" : "408",
+		"ten" : "Nhân viên quản lý và đi cùng khách du lịch"
+	},
+	{
+		"ma" : "409",
+		"ten" : "Nhân viên tổ chức"
+	},
+	{
+		"ma" : "410",
+		"ten" : "Nhân viên hướng dẫn du lịch"
+	},
+	{
+		"ma" : "411",
+		"ten" : "Nhân viên đầu bếp"
+	},
+	{
+		"ma" : "412",
+		"ten" : "Người bồi bàn, người phục vụ ở các quầy rượu"
+	},
+	{
+		"ma" : "413",
+		"ten" : "Người bồi bàn"
+	},
+	{
+		"ma" : "414",
+		"ten" : "Người phục vụ ở các quầy rượu"
+	},
+	{
+		"ma" : "415",
+		"ten" : "Thợ làm đầu, nhân viên làm đẹp"
+	},
+	{
+		"ma" : "416",
+		"ten" : "Thợ làm đầu"
+	},
+	{
+		"ma" : "417",
+		"ten" : "Nhân viên làm đẹp và những nhân viên có liên quan"
+	},
+	{
+		"ma" : "418",
+		"ten" : "Người giám sát tòa nhà, quản gia"
+	},
+	{
+		"ma" : "419",
+		"ten" : "Người giám sát việc dọn dẹp và công việc quản lý trong các cơ quan, khách sạn và các cơ quan khác"
+	},
+	{
+		"ma" : "420",
+		"ten" : "Người quản lý công việc gia đình"
+	},
+	{
+		"ma" : "421",
+		"ten" : "Người bảo vệ tòa nhà, chung cư"
+	},
+	{
+		"ma" : "422",
+		"ten" : "Nhân viên dịch vụ cá nhân khác"
+	},
+	{
+		"ma" : "423",
+		"ten" : "Nhà chiêm tinh, thầy bói và những người có liên quan khác"
+	},
+	{
+		"ma" : "424",
+		"ten" : "Người phục vụ trong nhà"
+	},
+	{
+		"ma" : "425",
+		"ten" : "Người hầu phòng, những người được thuê để làm bầu bạn"
+	},
+	{
+		"ma" : "426",
+		"ten" : "Người làm nghề lo việc đám ma và ướp xác"
+	},
+	{
+		"ma" : "427",
+		"ten" : "Người hướng dẫn lái xe"
+	},
+	{
+		"ma" : "428",
+		"ten" : "Nhân viên dịch vụ cá nhân khác chưa phân vào đâu"
+	},
+	{
+		"ma" : "429",
+		"ten" : "Nhân viên bán hàng"
+	},
+	{
+		"ma" : "430",
+		"ten" : "Người bán hàng trên đường phố và tại chợ"
+	},
+	{
+		"ma" : "431",
+		"ten" : "Người bán hàng trong quầy hàng và tại chợ"
+	},
+	{
+		"ma" : "432",
+		"ten" : "Người bán đồ ăn trên đường phố"
+	},
+	{
+		"ma" : "433",
+		"ten" : "Nhân viên bán hàng trong cửa hàng"
+	},
+	{
+		"ma" : "434",
+		"ten" : "Nhân viên bảo vệ cửa hàng"
+	},
+	{
+		"ma" : "435",
+		"ten" : "Nhân viên giám sát cửa hàng"
+	},
+	{
+		"ma" : "436",
+		"ten" : "Nhân viên bán và trợ giúp bán hàng"
+	},
+	{
+		"ma" : "437",
+		"ten" : "Thủ quỹ và nhân viên thu tiền và bán vé"
+	},
+	{
+		"ma" : "438",
+		"ten" : "Nhân viên bán hàng khác"
+	},
+	{
+		"ma" : "439",
+		"ten" : "Nhân viên làm mẫu"
+	},
+	{
+		"ma" : "440",
+		"ten" : "Nhân viên thuyết minh giới thiệu hàng hóa"
+	},
+	{
+		"ma" : "441",
+		"ten" : "Nhân viên bán hàng tận nhà"
+	},
+	{
+		"ma" : "442",
+		"ten" : "Nhân viên bán hàng ở trung tâm xúc tiến"
+	},
+	{
+		"ma" : "443",
+		"ten" : "Nhân viên phục vụ ở các trạm dịch vụ"
+	},
+	{
+		"ma" : "444",
+		"ten" : "Nhân viên phụ thu tiền trong các cơ sở ăn uống"
+	},
+	{
+		"ma" : "445",
+		"ten" : "Nhân viên bán hàng khác chưa được phân vào đâu"
+	},
+	{
+		"ma" : "446",
+		"ten" : "Nhân viên chăm sóc cá nhân"
+	},
+	{
+		"ma" : "447",
+		"ten" : "Nhân viên chăm sóc trẻ em và người phụ tá cho giáo viên"
+	},
+	{
+		"ma" : "448",
+		"ten" : "Nhân viên chăm sóc trẻ em"
+	},
+	{
+		"ma" : "449",
+		"ten" : "Người phụ tá cho giáo viên"
+	},
+	{
+		"ma" : "450",
+		"ten" : "Hộ lý và nhân viên chăm sóc cá nhân trong các dịch vụ về sức khỏe"
+	},
+	{
+		"ma" : "451",
+		"ten" : "Nhân viên giúp đỡ về y tế"
+	},
+	{
+		"ma" : "452",
+		"ten" : "Nhân viên chăm sóc cá nhân tại nhà"
+	},
+	{
+		"ma" : "453",
+		"ten" : "Nhân viên chăm sóc cá nhân về sức khỏe chưa được phân vào đâu"
+	},
+	{
+		"ma" : "454",
+		"ten" : "Nhân viên dịch vụ bảo vệ"
+	},
+	{
+		"ma" : "455",
+		"ten" : "Nhân viên chữa cháy"
+	},
+	{
+		"ma" : "456",
+		"ten" : "Công an"
+	},
+	{
+		"ma" : "457",
+		"ten" : "Nhân viên canh trại giam"
+	},
+	{
+		"ma" : "458",
+		"ten" : "Nhân viên an ninh"
+	},
+	{
+		"ma" : "459",
+		"ten" : "Nhân viên dịch vụ bảo vệ khác chưa được phân vào đâu"
+	},
+	{
+		"ma" : "460",
+		"ten" : "Lao động có kỹ năng trong nông nghiệp, lâm nghệp và thủy sản"
+	},
+	{
+		"ma" : "461",
+		"ten" : "Lao động có kỹ năng định hướng thị trường trong nông nghiệp"
+	},
+	{
+		"ma" : "462",
+		"ten" : "Lao động trồng trọt và làm vườn thị trường"
+	},
+	{
+		"ma" : "463",
+		"ten" : "Lao động trồng rau và cây mùa vụ"
+	},
+	{
+		"ma" : "464",
+		"ten" : "Lao động trồng cây ăn quả"
+	},
+	{
+		"ma" : "465",
+		"ten" : "Lao động làm vườn, vườn ươm"
+	},
+	{
+		"ma" : "466",
+		"ten" : "Lao động trồng trọt mùa vụ hỗn hợp"
+	},
+	{
+		"ma" : "467",
+		"ten" : "Lao động chăn nuôi động vật"
+	},
+	{
+		"ma" : "468",
+		"ten" : "Lao động chăn nuôi gia súc và sản xuất sữa"
+	},
+	{
+		"ma" : "469",
+		"ten" : "Lao động chăn nuôi gia cầm"
+	},
+	{
+		"ma" : "470",
+		"ten" : "Lao động nuôi ong và nuôi tằm"
+	},
+	{
+		"ma" : "471",
+		"ten" : "Lao động chăn nuôi động vật chưa được phân vào đâu"
+	},
+	{
+		"ma" : "472",
+		"ten" : "Lao động trồng trọt và chăn nuôi hỗn hợp"
+	},
+	{
+		"ma" : "473",
+		"ten" : "Lao động trồng trọt và chăn nuôi hỗn hợp"
+	},
+	{
+		"ma" : "474",
+		"ten" : "Lao động có kỹ năng thị trường trong lâm nghiệp, thủy sản và săn bắn"
+	},
+	{
+		"ma" : "475",
+		"ten" : "Lao động trong lâm nghiệp và trong lĩnh vực có liên quan"
+	},
+	{
+		"ma" : "476",
+		"ten" : "Lao động thủy sản, săn bắn"
+	},
+	{
+		"ma" : "477",
+		"ten" : "Lao động nuôi trồng thủy sản"
+	},
+	{
+		"ma" : "478",
+		"ten" : "Lao động đánh bắt thủy sản ven biển và nội địa"
+	},
+	{
+		"ma" : "479",
+		"ten" : "Lao động đánh bắt thủy sản ngoài khơi"
+	},
+	{
+		"ma" : "480",
+		"ten" : "Lao động săn bắn, đánh bẫy"
+	},
+	{
+		"ma" : "481",
+		"ten" : "Lao động làm muối"
+	},
+	{
+		"ma" : "482",
+		"ten" : "Lao động nông nghiệp, đánh cá, săn bắt và thu hái tự cung tự cấp"
+	},
+	{
+		"ma" : "483",
+		"ten" : "Lao động trồng trọt tự cung tự cấp"
+	},
+	{
+		"ma" : "484",
+		"ten" : "Lao động chăn nuôi gia súc tự cung tự cấp"
+	},
+	{
+		"ma" : "485",
+		"ten" : "Nuôi trồng và chăn nuôi tự cung tự cấp hỗn hợp"
+	},
+	{
+		"ma" : "486",
+		"ten" : "Lao động đánh cá, săn bắn, đánh bẫy và thu hái tự cung tự cấp"
+	},
+	{
+		"ma" : "487",
+		"ten" : "Lao động thủ công và các nghề nghiệp có liên quan khác"
+	},
+	{
+		"ma" : "488",
+		"ten" : "Lao động xây dựng và lao động có liên quan đến nghề xây dựng (trừ thợ điện)"
+	},
+	{
+		"ma" : "489",
+		"ten" : "Thợ xây dựng khung nhà và các lao động có liên quan"
+	},
+	{
+		"ma" : "490",
+		"ten" : "Thợ xây nhà"
+	},
+	{
+		"ma" : "491",
+		"ten" : "Thợ nề và các thợ có liên quan"
+	},
+	{
+		"ma" : "492",
+		"ten" : "Thợ xây đá, thợ cắt đá, thợ tách đá và thợ khắc đá"
+	},
+	{
+		"ma" : "493",
+		"ten" : "Thợ đổ bê tông và các thợ có liên quan"
+	},
+	{
+		"ma" : "494",
+		"ten" : "Thợ mộc và thợ làm đồ gỗ"
+	},
+	{
+		"ma" : "495",
+		"ten" : "Thợ xây khác và thợ có liên quan"
+	},
+	{
+		"ma" : "496",
+		"ten" : "Thợ hoàn thiện và thợ có liên quan"
+	},
+	{
+		"ma" : "497",
+		"ten" : "Thợ lợp mái"
+	},
+	{
+		"ma" : "498",
+		"ten" : "Thợ lát sàn và thợ lát đá"
+	},
+	{
+		"ma" : "499",
+		"ten" : "Thợ trát vữa"
+	},
+	{
+		"ma" : "500",
+		"ten" : "Thợ đặt vật liệu cách âm, cách nhiệt"
+	},
+	{
+		"ma" : "501",
+		"ten" : "Thợ lắp kính, thợ tráng men (đồ gốm)"
+	},
+	{
+		"ma" : "502",
+		"ten" : "Thợ hàn chì, thợ ống nước"
+	},
+	{
+		"ma" : "503",
+		"ten" : "Thợ điều hòa không khí và tủ lạnh"
+	},
+	{
+		"ma" : "504",
+		"ten" : "Thợ sơn, người lau dọn tòa nhà và lao động có liên quan"
+	},
+	{
+		"ma" : "505",
+		"ten" : "Thợ sơn và thợ liên quan khác"
+	},
+	{
+		"ma" : "506",
+		"ten" : "Thợ phun sơn và thợ đánh véc ni"
+	},
+	{
+		"ma" : "507",
+		"ten" : "Người lau dọn tòa nhà"
+	},
+	{
+		"ma" : "508",
+		"ten" : "Thợ kim loại, thợ máy và thợ có liên quan"
+	},
+	{
+		"ma" : "509",
+		"ten" : "Thợ dát kim loại, thợ đúc và thợ hàn và thợ có liên quan"
+	},
+	{
+		"ma" : "510",
+		"ten" : "Thợ làm lõi khuôn đúc và thợ đúc"
+	},
+	{
+		"ma" : "511",
+		"ten" : "Thợ hàn và thợ cắt kim loại bằng nhiệt"
+	},
+	{
+		"ma" : "512",
+		"ten" : "Thợ dát kim loại"
+	},
+	{
+		"ma" : "513",
+		"ten" : "Thợ chuẩn bị và lắp ráp các cấu kiện kim loại"
+	},
+	{
+		"ma" : "514",
+		"ten" : "Thợ lắp ráp và thợ nối cáp"
+	},
+	{
+		"ma" : "515",
+		"ten" : "Thợ rèn, thợ chế tạo các dụng cụ và thợ có liên quan"
+	},
+	{
+		"ma" : "516",
+		"ten" : "Thợ rèn, thợ quai búa và thợ rèn ép nén kim loại"
+	},
+	{
+		"ma" : "517",
+		"ten" : "Thợ chế tạo dụng cụ và thợ có liên quan"
+	},
+	{
+		"ma" : "518",
+		"ten" : "Thợ vừa lắp ráp, vừa điều khiển dụng cụ cơ khí"
+	},
+	{
+		"ma" : "519",
+		"ten" : "Thợ đánh bóng kim loại, thợ mài và thợ mài dụng cụ kim loại"
+	},
+	{
+		"ma" : "520",
+		"ten" : "Thợ cơ khí và sửa chữa máy móc"
+	},
+	{
+		"ma" : "521",
+		"ten" : "Thợ cơ khí và sửa chữa xe có động cơ"
+	},
+	{
+		"ma" : "522",
+		"ten" : "Thợ cơ khí và sửa chữa động cơ máy bay"
+	},
+	{
+		"ma" : "523",
+		"ten" : "Thợ cơ khí và sửa chữa máy móc nông nghiệp và công nghiệp"
+	},
+	{
+		"ma" : "524",
+		"ten" : "Thợ sửa chữa xe đạp và thợ có liên quan"
+	},
+	{
+		"ma" : "525",
+		"ten" : "Thợ thủ công và thợ liên quan đến in"
+	},
+	{
+		"ma" : "526",
+		"ten" : "Thợ thủ công"
+	},
+	{
+		"ma" : "527",
+		"ten" : "Thợ sản xuất và sửa chữa dụng cụ chính xác"
+	},
+	{
+		"ma" : "528",
+		"ten" : "Thợ sản xuất và điều chỉnh nhạc cụ"
+	},
+	{
+		"ma" : "529",
+		"ten" : "Thợ kim hoàn"
+	},
+	{
+		"ma" : "530",
+		"ten" : "Thợ gốm và thợ có liên quan"
+	},
+	{
+		"ma" : "531",
+		"ten" : "Thợ sản xuất, thợ cắt, thợ mài và thợ hoàn thiện đồ thủy tinh"
+	},
+	{
+		"ma" : "532",
+		"ten" : "Thợ vẽ biển quảng cáo, thợ trang trí, thợ khắc và thợ khắc axit"
+	},
+	{
+		"ma" : "533",
+		"ten" : "Thợ thủ công sản xuất đồ gỗ, rổ rá và các nguyên liệu có liên quan"
+	},
+	{
+		"ma" : "534",
+		"ten" : "Thợ thủ công dệt vải, da và các nguyên liệu có liên quan"
+	},
+	{
+		"ma" : "535",
+		"ten" : "Thợ thủ công khác chưa được phân vào đâu"
+	},
+	{
+		"ma" : "536",
+		"ten" : "Thợ liên quan đến in"
+	},
+	{
+		"ma" : "537",
+		"ten" : "Thợ sắp chữ"
+	},
+	{
+		"ma" : "538",
+		"ten" : "Thợ in"
+	},
+	{
+		"ma" : "539",
+		"ten" : "Thợ hoàn tất việc in ấn và thợ đóng sách"
+	},
+	{
+		"ma" : "540",
+		"ten" : "Thợ điện và thợ điện tử"
+	},
+	{
+		"ma" : "541",
+		"ten" : "Thợ lắp đặt và sửa chữa thiết bị điện"
+	},
+	{
+		"ma" : "542",
+		"ten" : "Thợ lắp điện cho tòa nhà và thợ điện có liên quan"
+	},
+	{
+		"ma" : "543",
+		"ten" : "Thợ lắp ráp và thợ cơ khí điện"
+	},
+	{
+		"ma" : "544",
+		"ten" : "Thợ lắp đặt và sửa chữa đường dây điện"
+	},
+	{
+		"ma" : "545",
+		"ten" : "Thợ lắp đặt và thợ sửa chữa điện tử viễn thông"
+	},
+	{
+		"ma" : "546",
+		"ten" : "Thợ cơ khí và thợ dịch vụ điện tử"
+	},
+	{
+		"ma" : "547",
+		"ten" : "Thợ lắp đặt và dịch vụ kỹ thuật thông tin và truyền thông"
+	},
+	{
+		"ma" : "548",
+		"ten" : "Thợ chế biến thực phẩm, công việc đồ gỗ, may mặc và nghề thủ công khác và thợ khác có liên quan"
+	},
+	{
+		"ma" : "549",
+		"ten" : "Thợ chế biến thực phẩm và các thợ khác có liên quan"
+	},
+	{
+		"ma" : "550",
+		"ten" : "Thợ giết, mổ, chuẩn bị thịt, cá và thực phẩm khác có liên quan"
+	},
+	{
+		"ma" : "551",
+		"ten" : "Thợ làm chế biến lương thực, làm bánh mỳ"
+	},
+	{
+		"ma" : "552",
+		"ten" : "Thợ làm bánh ngọt và thợ làm mứt kẹo, bơ sữa"
+	},
+	{
+		"ma" : "553",
+		"ten" : "Thợ bảo quản rau, hoa quả tươi và các thứ có liên quan"
+	},
+	{
+		"ma" : "554",
+		"ten" : "Thợ nếm và phân loại đồ uống, thực phẩm"
+	},
+	{
+		"ma" : "555",
+		"ten" : "Thợ sản xuất và chuẩn bị thuốc lá"
+	},
+	{
+		"ma" : "556",
+		"ten" : "Thợ xử lý gỗ, thợ sản xuất đồ gỗ và các thợ có liên quan"
+	},
+	{
+		"ma" : "557",
+		"ten" : "Thợ xử lý gỗ"
+	},
+	{
+		"ma" : "558",
+		"ten" : "Thợ sản xuất làm đồ gỗ và các thợ có liên quan"
+	},
+	{
+		"ma" : "559",
+		"ten" : "Thợ lắp đặt và vận hành dụng cụ cơ khí gia công gỗ"
+	},
+	{
+		"ma" : "560",
+		"ten" : "Thợ may mặc và các thợ có liên quan"
+	},
+	{
+		"ma" : "561",
+		"ten" : "Thợ may, thợ cắt quần áo, thợ thuộc da lông thú và thợ làm mũ"
+	},
+	{
+		"ma" : "562",
+		"ten" : "Thợ làm và cắt mẫu áo quần và các mẫu có liên quan"
+	},
+	{
+		"ma" : "563",
+		"ten" : "Thợ may, thợ thêu và các thợ có liên quan"
+	},
+	{
+		"ma" : "564",
+		"ten" : "Thợ làm nghề bọc ghế và các thợ có liên quan"
+	},
+	{
+		"ma" : "565",
+		"ten" : "Thợ thuộc da sống, thợ thuộc da và thợ chuyên lột da lông thú"
+	},
+	{
+		"ma" : "566",
+		"ten" : "Thợ đóng giầy và các thợ có liên quan"
+	},
+	{
+		"ma" : "567",
+		"ten" : "Thợ thủ công khác và các thợ có liên quan"
+	},
+	{
+		"ma" : "568",
+		"ten" : "Thợ lặn, mò ngọc trai"
+	},
+	{
+		"ma" : "569",
+		"ten" : "Thợ giật mìn phá đá"
+	},
+	{
+		"ma" : "570",
+		"ten" : "Thợ nếm và phân loại sản phẩm (trừ đồ uống và thực phẩm)"
+	},
+	{
+		"ma" : "571",
+		"ten" : "Thợ hun khói và thợ kiểm soát thực vật, động vật có hại khác"
+	},
+	{
+		"ma" : "572",
+		"ten" : "Thợ thủ công và các thợ khác chưa được phân vào đâu"
+	},
+	{
+		"ma" : "573",
+		"ten" : "Thợ lắp ráp và vận hành máy móc, thiết bị"
+	},
+	{
+		"ma" : "574",
+		"ten" : "Thợ vận hành máy móc và thiết bị cố định"
+	},
+	{
+		"ma" : "575",
+		"ten" : "Thợ vận hành thiết bị xử lý mỏ và khoáng"
+	},
+	{
+		"ma" : "576",
+		"ten" : "Thợ khai thác mỏ và đá"
+	},
+	{
+		"ma" : "577",
+		"ten" : "Thợ vận hành thiết bị xử lý khoáng và đá"
+	},
+	{
+		"ma" : "578",
+		"ten" : "Thợ khoan, đào giếng và các thợ có liên quan"
+	},
+	{
+		"ma" : "579",
+		"ten" : "Thợ vận hành máy sản xuất xi măng, đá và khoáng khác"
+	},
+	{
+		"ma" : "580",
+		"ten" : "Thợ vận hành thiết bị xử lý và hoàn thiện kim loại"
+	},
+	{
+		"ma" : "581",
+		"ten" : "Thợ vận hành thiết bị xử lý kim loại"
+	},
+	{
+		"ma" : "582",
+		"ten" : "Thợ vận hành máy phủ, mạ kim loại"
+	},
+	{
+		"ma" : "583",
+		"ten" : "Thợ vận hành máy móc, thiết bị sản xuất hóa học và sản xuất sản phẩm phim ảnh"
+	},
+	{
+		"ma" : "584",
+		"ten" : "Thợ vận hành máy và thiết bị sản xuất hóa học"
+	},
+	{
+		"ma" : "585",
+		"ten" : "Thợ vận hành máy sản xuất sản phẩm phim ảnh"
+	},
+	{
+		"ma" : "586",
+		"ten" : "Thợ vận hành máy sản xuất sản phẩm giấy, nhựa và cao su"
+	},
+	{
+		"ma" : "587",
+		"ten" : "Thợ vận hành máy sản xuất sản phẩm cao su"
+	},
+	{
+		"ma" : "588",
+		"ten" : "Thợ vận hành máy sản xuất sản phẩm nhựa"
+	},
+	{
+		"ma" : "589",
+		"ten" : "Thợ vận hành máy sản xuất sản phẩm giấy"
+	},
+	{
+		"ma" : "590",
+		"ten" : "Thợ vận hành máy sản xuất nguyên liệu dệt, da lông thú và da thuộc"
+	},
+	{
+		"ma" : "591",
+		"ten" : "Thợ vận hành máy xe chỉ, cuộn chỉ và chuẩn bị thành sợi"
+	},
+	{
+		"ma" : "592",
+		"ten" : "Thợ vận hành máy dệt kim, máy đan"
+	},
+	{
+		"ma" : "593",
+		"ten" : "Thợ vận hành máy may"
+	},
+	{
+		"ma" : "594",
+		"ten" : "Thợ vận hành máy tẩy trắng, máy nhuộm và làm sạch sợi"
+	},
+	{
+		"ma" : "595",
+		"ten" : "Thợ vận hành máy chuẩn bị da, lông thú"
+	},
+	{
+		"ma" : "596",
+		"ten" : "Thợ vận hành máy đóng giầy, dép và các thợ có liên quan"
+	},
+	{
+		"ma" : "597",
+		"ten" : "Thợ vận hành máy giặt là"
+	},
+	{
+		"ma" : "598",
+		"ten" : "Thợ vận hành máy sản xuất nguyên liệu dệt, da lông thú và da thuộc chưa được phân vào đâu"
+	},
+	{
+		"ma" : "599",
+		"ten" : "Thợ vận hành máy sản xuất thực phẩm và các thợ có liên quan"
+	},
+	{
+		"ma" : "600",
+		"ten" : "Thợ vận hành thiết bị chế biến gỗ và chế tạo giấy"
+	},
+	{
+		"ma" : "601",
+		"ten" : "Thợ vận hành thiết bị chế biến gỗ"
+	},
+	{
+		"ma" : "602",
+		"ten" : "Thợ vận hành thiết bị chế tạo bột giấy và giấy"
+	},
+	{
+		"ma" : "603",
+		"ten" : "Thợ vận hành máy móc thiết bị khác"
+	},
+	{
+		"ma" : "604",
+		"ten" : "Thợ vận hành thiết bị sản xuất thủy tinh và gốm"
+	},
+	{
+		"ma" : "605",
+		"ten" : "Thợ vận hành động cơ hơi nước và nồi hơi"
+	},
+	{
+		"ma" : "606",
+		"ten" : "Thợ vận hành thiết bị đóng gói, máy đóng chai và dán nhãn"
+	},
+	{
+		"ma" : "607",
+		"ten" : "Thợ vận hành thiết bị khác chưa được phân vào đâu"
+	},
+	{
+		"ma" : "608",
+		"ten" : "Thợ lắp ráp"
+	},
+	{
+		"ma" : "609",
+		"ten" : "Thợ lắp ráp máy cơ khí"
+	},
+	{
+		"ma" : "610",
+		"ten" : "Thợ lắp ráp thiết bị điện và điện tử"
+	},
+	{
+		"ma" : "611",
+		"ten" : "Thợ lắp ráp khác chưa được phân vào đâu"
+	},
+	{
+		"ma" : "612",
+		"ten" : "Lái xe và thợ vận hành thiết bị chuyển động"
+	},
+	{
+		"ma" : "613",
+		"ten" : "Lái các phương tiện vận chuyển trên đường ray và các công nhân có liên quan"
+	},
+	{
+		"ma" : "614",
+		"ten" : "Lái các phương tiện vận chuyển trên đường ray"
+	},
+	{
+		"ma" : "615",
+		"ten" : "Thợ điều khiển tín hiệu, bẻ ghi và chuyển hướng tàu hỏa"
+	},
+	{
+		"ma" : "616",
+		"ten" : "Lái xe khách, xe tải và xe máy"
+	},
+	{
+		"ma" : "617",
+		"ten" : "Lái xe máy"
+	},
+	{
+		"ma" : "618",
+		"ten" : "Lái xe khách, taxi và xe tải hạng nhẹ"
+	},
+	{
+		"ma" : "619",
+		"ten" : "Lái xe tải hạng vừa, hạng nặng và xe buýt"
+	},
+	{
+		"ma" : "620",
+		"ten" : "Lái xe buýt và xe điện"
+	},
+	{
+		"ma" : "621",
+		"ten" : "Lái xe tải hạng vừa và xe tải hạng nặng"
+	},
+	{
+		"ma" : "622",
+		"ten" : "Thợ vận hành thiết bị chuyển động"
+	},
+	{
+		"ma" : "623",
+		"ten" : "Thợ vận hành thiết bị nông nghiệp và lâm nghiệp"
+	},
+	{
+		"ma" : "624",
+		"ten" : "Thợ vận hành máy đào đất và thợ vận hành thiết bị có liên quan"
+	},
+	{
+		"ma" : "625",
+		"ten" : "Thợ vận hành cần trục và thợ vận hành các thiết bị có liên quan"
+	},
+	{
+		"ma" : "626",
+		"ten" : "Thợ vận hành cần cẩu"
+	},
+	{
+		"ma" : "627",
+		"ten" : "Thủy thủ trên tàu và những thợ có liên quan"
+	},
+	{
+		"ma" : "628",
+		"ten" : "Lao động giản đơn"
+	},
+	{
+		"ma" : "629",
+		"ten" : "Người quét dọn và giúp việc"
+	},
+	{
+		"ma" : "630",
+		"ten" : "Người quét dọn và giúp việc gia đình, khách sạn và văn phòng"
+	},
+	{
+		"ma" : "631",
+		"ten" : "Người quét dọn và giúp việc gia đình"
+	},
+	{
+		"ma" : "632",
+		"ten" : "Người quét dọn và giúp việc trong văn phòng, khách sạn và các tổ chức khác"
+	},
+	{
+		"ma" : "633",
+		"ten" : "Thợ lau chùi xe cộ, cửa sổ, giặt là và những người làm công việc dọn dẹp bằng tay khác"
+	},
+	{
+		"ma" : "634",
+		"ten" : "Thợ giặt là bằng tay"
+	},
+	{
+		"ma" : "635",
+		"ten" : "Thợ lau chùi xe cộ"
+	},
+	{
+		"ma" : "636",
+		"ten" : "Thợ lau chùi cửa sổ"
+	},
+	{
+		"ma" : "637",
+		"ten" : "Thợ lau dọn khác"
+	},
+	{
+		"ma" : "638",
+		"ten" : "Lao động giản đơn trong nông nghiệp, lâm nghiệp và thủy sản"
+	},
+	{
+		"ma" : "639",
+		"ten" : "Lao động trồng trọt"
+	},
+	{
+		"ma" : "640",
+		"ten" : "Lao động chăn nuôi"
+	},
+	{
+		"ma" : "641",
+		"ten" : "Lao động trồng trọt và chăn nuôi hỗn hợp"
+	},
+	{
+		"ma" : "642",
+		"ten" : "Lao động làm vườn"
+	},
+	{
+		"ma" : "643",
+		"ten" : "Lao động lâm nghiệp"
+	},
+	{
+		"ma" : "644",
+		"ten" : "Lao động thủy sản và nuôi trồng thủy sản"
+	},
+	{
+		"ma" : "645",
+		"ten" : "Lao động trong khai thác mỏ, xây dựng, công nghiệp và giao thông vận tải"
+	},
+	{
+		"ma" : "646",
+		"ten" : "Lao động trong khai thác mỏ và xây dựng"
+	},
+	{
+		"ma" : "647",
+		"ten" : "Lao động trong khai thác mỏ và khai thác đá"
+	},
+	{
+		"ma" : "648",
+		"ten" : "Lao động trong xây dựng công trình kỹ thuật (không phải nhà)"
+	},
+	{
+		"ma" : "649",
+		"ten" : "Lao động trong xây dựng nhà"
+	},
+	{
+		"ma" : "650",
+		"ten" : "Lao động trong công nghiệp"
+	},
+	{
+		"ma" : "651",
+		"ten" : "Lao động đóng gói thủ công"
+	},
+	{
+		"ma" : "652",
+		"ten" : "Lao động công nghiệp khác chưa được phân vào đâu"
+	},
+	{
+		"ma" : "653",
+		"ten" : "Lao động giao thông vận tải và kho hàng"
+	},
+	{
+		"ma" : "654",
+		"ten" : "Lái xe bằng tay và đạp chân"
+	},
+	{
+		"ma" : "655",
+		"ten" : "Người lái phương tiện do súc vật kéo và máy kéo"
+	},
+	{
+		"ma" : "656",
+		"ten" : "Người mang vác hàng"
+	},
+	{
+		"ma" : "657",
+		"ten" : "Người đẩy hàng"
+	},
+	{
+		"ma" : "658",
+		"ten" : "Người phụ giúp chuẩn bị thực phẩm"
+	},
+	{
+		"ma" : "659",
+		"ten" : "Người chuẩn bị đồ ăn nhanh"
+	},
+	{
+		"ma" : "660",
+		"ten" : "Người phụ bếp"
+	},
+	{
+		"ma" : "661",
+		"ten" : "Lao động trên đường phố và lao động có liên quan đến bán hàng"
+	},
+	{
+		"ma" : "662",
+		"ten" : "Lao động trên đường phố và lao động có liên quan"
+	},
+	{
+		"ma" : "663",
+		"ten" : "Người bán hàng vặt trên đường phố (trừ đồ ăn)"
+	},
+	{
+		"ma" : "664",
+		"ten" : "Người thu dọn vật thải và lao động giản đơn khác"
+	},
+	{
+		"ma" : "665",
+		"ten" : "Người thu dọn vật thải"
+	},
+	{
+		"ma" : "666",
+		"ten" : "Người nhặt rác, quét rác"
+	},
+	{
+		"ma" : "667",
+		"ten" : "Người thu dọn, sắp xếp, phân loại rác"
+	},
+	{
+		"ma" : "668",
+		"ten" : "Người quét dọn và lao động khác có liên quan"
+	},
+	{
+		"ma" : "669",
+		"ten" : "Lao động giản đơn khác"
+	},
+	{
+		"ma" : "670",
+		"ten" : "Người đưa tin, người giao hàng và người khuân vác hành lý"
+	},
+	{
+		"ma" : "671",
+		"ten" : "Người làm công việc lặt vặt"
+	},
+	{
+		"ma" : "672",
+		"ten" : "Người đọc đồng hồ đo và người thu tiền từ máy bán hàng"
+	},
+	{
+		"ma" : "673",
+		"ten" : "Người thu tiền nước và chất đốt"
+	},
+	{
+		"ma" : "674",
+		"ten" : "Lao động giản đơn khác chưa được phân vào đâu"
+	},
+	{
+		"ma" : "0",
+		"ten" : "Lực lượng quân đội"
+	},
+	{
+		"ma" : "676",
+		"ten" : "Sĩ quan"
+	},
+	{
+		"ma" : "677",
+		"ten" : "Người không phải là sĩ quan"
+	},
+	{
+		"ma" : "678",
+		"ten" : "Lực lượng quân đội khác"
+	},
+	{
+		"ma" : "679",
+		"ten" : "Trẻ <6 tuổi đi học, < 15 t không đi học"
+	},
+	{
+		"ma" : "680",
+		"ten" : "Sinh viên, học sinh"
+	},
+	{
+		"ma" : "681",
+		"ten" : "Hưu và >60 tuổi"
+	},
+	{
+		"ma" : "682",
+		"ten" : "Công nhân"
+	},
+	{
+		"ma" : "683",
+		"ten" : "Nông dân"
+	},
+	{
+		"ma" : "684",
+		"ten" : "Lực lượng vũ trang"
+	},
+	{
+		"ma" : "685",
+		"ten" : "Trí thức"
+	},
+	{
+		"ma" : "686",
+		"ten" : "Hành chính, sự nghiệp"
+	},
+	{
+		"ma" : "687",
+		"ten" : "Y tế"
+	},
+	{
+		"ma" : "688",
+		"ten" : "Dịch vụ"
+	},
+	{
+		"ma" : "689",
+		"ten" : "Việt kiều"
+	},
+	{
+		"ma" : "690",
+		"ten" : "Ngoại kiều"
+	},
+	{
+		"ma" : "691",
+		"ten" : "Khác"
+	}
+]

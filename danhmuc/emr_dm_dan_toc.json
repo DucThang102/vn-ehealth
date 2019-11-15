@@ -1,0 +1,230 @@
+[
+	{
+		"ma" : "DT01",
+		"ten" : "Kinh"
+	},
+	{
+		"ma" : "DT02",
+		"ten" : "Tày"
+	},
+	{
+		"ma" : "DT03",
+		"ten" : "Thái"
+	},
+	{
+		"ma" : "DT04",
+		"ten" : "Hoa"
+	},
+	{
+		"ma" : "DT05",
+		"ten" : "Khơ Me"
+	},
+	{
+		"ma" : "DT06",
+		"ten" : "Mường"
+	},
+	{
+		"ma" : "DT07",
+		"ten" : "Nùng"
+	},
+	{
+		"ma" : "DT08",
+		"ten" : "HMông"
+	},
+	{
+		"ma" : "DT09",
+		"ten" : "Dao"
+	},
+	{
+		"ma" : "DT10",
+		"ten" : "Gia Rai"
+	},
+	{
+		"ma" : "DT11",
+		"ten" : "Ngái"
+	},
+	{
+		"ma" : "DT12",
+		"ten" : "Ê - Đê"
+	},
+	{
+		"ma" : "DT13",
+		"ten" : "Ba na"
+	},
+	{
+		"ma" : "DT14",
+		"ten" : "Xơ Đăng"
+	},
+	{
+		"ma" : "DT15",
+		"ten" : "Sán Chay"
+	},
+	{
+		"ma" : "DT16",
+		"ten" : "Cơ Ho"
+	},
+	{
+		"ma" : "DT17",
+		"ten" : "Chăm"
+	},
+	{
+		"ma" : "DT18",
+		"ten" : "SánDìu"
+	},
+	{
+		"ma" : "DT19",
+		"ten" : "HRê"
+	},
+	{
+		"ma" : "DT20",
+		"ten" : "MNông"
+	},
+	{
+		"ma" : "DT21",
+		"ten" : "RagLai"
+	},
+	{
+		"ma" : "DT22",
+		"ten" : "XTiêng"
+	},
+	{
+		"ma" : "DT23",
+		"ten" : "Bru"
+	},
+	{
+		"ma" : "DT24",
+		"ten" : "Thổ"
+	},
+	{
+		"ma" : "DT25",
+		"ten" : "Giáy"
+	},
+	{
+		"ma" : "DT26",
+		"ten" : "Cơ Tu"
+	},
+	{
+		"ma" : "DT27",
+		"ten" : "Gié"
+	},
+	{
+		"ma" : "DT28",
+		"ten" : "Mạ"
+	},
+	{
+		"ma" : "DT29",
+		"ten" : "Khơ Mú"
+	},
+	{
+		"ma" : "DT30",
+		"ten" : "Co"
+	},
+	{
+		"ma" : "DT31",
+		"ten" : "Ta Ôi"
+	},
+	{
+		"ma" : "DT32",
+		"ten" : "Chơ Ro"
+	},
+	{
+		"ma" : "DT33",
+		"ten" : "Kháng"
+	},
+	{
+		"ma" : "DT34",
+		"ten" : "Xing Mun"
+	},
+	{
+		"ma" : "DT35",
+		"ten" : "Ha Nhì"
+	},
+	{
+		"ma" : "DT36",
+		"ten" : "Chu Ru"
+	},
+	{
+		"ma" : "DT37",
+		"ten" : "Lào"
+	},
+	{
+		"ma" : "DT38",
+		"ten" : "La Chi"
+	},
+	{
+		"ma" : "DT39",
+		"ten" : "La Ha"
+	},
+	{
+		"ma" : "DT40",
+		"ten" : "Phù Lá"
+	},
+	{
+		"ma" : "DT41",
+		"ten" : "La Hủ"
+	},
+	{
+		"ma" : "DT42",
+		"ten" : "Lự"
+	},
+	{
+		"ma" : "DT43",
+		"ten" : "Lô Lô"
+	},
+	{
+		"ma" : "DT44",
+		"ten" : "Chứt"
+	},
+	{
+		"ma" : "DT45",
+		"ten" : "Mảng"
+	},
+	{
+		"ma" : "DT46",
+		"ten" : "Pà Thẻn"
+	},
+	{
+		"ma" : "DT47",
+		"ten" : "Cơ Lao"
+	},
+	{
+		"ma" : "DT48",
+		"ten" : "Cống"
+	},
+	{
+		"ma" : "DT49",
+		"ten" : "Bố Y"
+	},
+	{
+		"ma" : "DT50",
+		"ten" : "Xi La"
+	},
+	{
+		"ma" : "DT51",
+		"ten" : "Pu Péo"
+	},
+	{
+		"ma" : "DT52",
+		"ten" : "Brâu"
+	},
+	{
+		"ma" : "DT53",
+		"ten" : "Ơ Đu"
+	},
+	{
+		"ma" : "DT54",
+		"ten" : "Rơ Măm"
+	},
+	{
+		"ma" : "DT55",
+		"ten" : "Nước Ngoài"
+	},
+	{
+		"ma" : "DT56",
+		"ten" : "Không xác định"
+	},
+	{
+		"ma" : "DT57",
+		"ten" : "Hán"
+	}
+]

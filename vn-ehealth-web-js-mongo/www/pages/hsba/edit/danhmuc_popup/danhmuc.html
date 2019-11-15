@@ -1,0 +1,38 @@
+<div class="modal fade" :id="id" v-if="dmList">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ title }}</h5>
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <form method="POST" @submit.prevent="search()">
+            <div class="row mb-3">
+              <div class="col-12">
+                <input v-model="keyword" placeholder="Nhập tên để tìm kiếm" class="form-control">
+              </div>
+            </div>
+          </form>
+          <div class="row mt-1" v-for="dm in dmList">
+            <div class="col-12">
+              <input type="radio" :value="dm.ma" v-model='selectedItemCode'><label>{{ dm.ten }}</label>
+            </div>
+          </div>
+        </div>
+        <div v-if="loading" style="position: absolute;left: 50%;top:50%" class="spinner-border"></div>
+        <div class="row">
+          <div class="col-12 pl-4 pt-3">
+            <b-pagination size="sm" :total-rows="total" v-model="currentPage" :per-page="perPage"></b-pagination>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        <button v-on:click="selectItem()" type="button" class="btn btn-primary">Chọn</button>
+      </div>
+    </div>
+  </div>
+</div>
