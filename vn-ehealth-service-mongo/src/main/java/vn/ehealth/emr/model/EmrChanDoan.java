@@ -9,6 +9,14 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.NON_NULL)
 public class EmrChanDoan {
 
+    public EmrDmContent emrDmMaBenhChandoandieutri;
+    
+    public EmrDmContent emrDmMaBenhChandoantruocpt;
+    
+    public EmrDmContent emrDmMaBenhChandoansaupt;
+    
+    public EmrDmContent emrDmMaBenhChandoankkb;
+    
     public List<EmrDmContent> emrDmMaBenhChandoandieutris = new ArrayList<>();
         
     public List<EmrDmContent> emrDmMaBenhChandoantruocpts = new ArrayList<>();
@@ -18,6 +26,14 @@ public class EmrChanDoan {
     public List<EmrDmContent> emrDmMaBenhChandoankkbs = new ArrayList<>();
     
     public EmrDmContent emrDmLyDoTaiBienBienChung;
+    
+    public EmrDmContent emrDmMaBenhChandoannoiden;
+    
+    public EmrDmContent emrDmMaBenhChandoanraviennguyennhan;
+    
+    public EmrDmContent emrDmMaBenhChandoanravienkemtheo;
+    
+    public EmrDmContent emrDmMaBenhChandoanravienchinh;    
     
     public List<EmrDmContent> emrDmMaBenhChandoannoidens = new ArrayList<>();
     

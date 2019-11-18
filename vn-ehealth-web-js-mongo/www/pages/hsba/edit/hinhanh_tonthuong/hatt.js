@@ -12,7 +12,7 @@ VueAsyncComponent('hatt', '/pages/hsba/edit/hinhanh_tonthuong/hatt.html', {
     
     editHatt: function(hatt) {
       this.hatt = hatt;
-      this.fileEditing = false;
+      this.fileEditing = false;      
     },
 
     editFiles: function(hatt) {
@@ -24,10 +24,6 @@ VueAsyncComponent('hatt', '/pages/hsba/edit/hinhanh_tonthuong/hatt.html', {
       this.hatt = null;
     }
   },
-
-  created: function() {
-    sessionStorage.removeItem('dataChange');
-  }
 });
 
 VueAsyncComponent('hatt-list', '/pages/hsba/edit/hinhanh_tonthuong/hatt_list.html', {
@@ -107,6 +103,7 @@ VueAsyncComponent('hatt-edit', '/pages/hsba/edit/hinhanh_tonthuong/hatt_edit.htm
     saveHatt : async function() {
       var result = await this.post("/api/hatt/create_or_update_hatt", this.hatt);
       if(result.success) {
+        sessionStorage.removeItem('dataChange');
         this.$emit('viewHattList');
       }else {
         alert('Lỗi xảy ra quá trình lưu thông tin');

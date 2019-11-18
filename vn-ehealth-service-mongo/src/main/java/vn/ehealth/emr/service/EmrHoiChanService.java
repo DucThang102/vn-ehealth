@@ -21,4 +21,8 @@ public class EmrHoiChanService {
     public EmrHoiChan createOrUpdate(EmrHoiChan emrHoiChan) {
         return emrHoiChanRepository.save(emrHoiChan);
     }
+    
+    public void delete(ObjectId id) {
+        emrHoiChanRepository.deleteById(id);
+    }
 }

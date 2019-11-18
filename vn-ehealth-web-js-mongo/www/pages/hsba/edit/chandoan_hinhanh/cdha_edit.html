@@ -5,12 +5,14 @@
       <date-picker v-model="cdha.ngayyeucau" :config="{format: 'DD/MM/YYYY HH:mm', sideBySide:true}"></date-picker>
     </div>
     <div class="col-4">
-      <label class="label-title">Loại chẩn đoán</label> <span style="color:red">(*)</span>
-      <input class="form-control" :value="cdha.emrDmLoaiChanDoanHinhAnh.ten">
+      <label class="label-title">Loại chẩn đoán hình ảnh</label> <span style="color:red">(*)</span>
+      <input readonly data-toggle="modal" data-target="#dmLoaiCdhaSelect" class="form-control" 
+            :value="cdha.emrDmLoaiChanDoanHinhAnh.ten">
     </div>
     <div class="col-4">
-      <label class="label-title">Tên chẩn đoán</label> <span style="color:red">(*)</span>
-      <input class="form-control" :value="cdha.emrDmChanDoanHinhAnh.ten">
+      <label class="label-title">Dịch vụ chẩn đoán hình ảnh</label> <span style="color:red">(*)</span>
+      <input readonly data-toggle="modal" data-target="#dmCdhaSelect" class="form-control" 
+            :value="cdha.emrDmChanDoanHinhAnh.ten">
     </div>
   </div>
 
@@ -51,7 +53,10 @@
   </div>
 
   <div class="mt-3 mb-3">
-    <button type="button" class="btn btn-sm btn-primary">Lưu lại</button>
+    <button type="button" v-on:click="saveCdha()" class="btn btn-sm btn-primary">Lưu lại</button>
     <button type="button" v-on:click="viewCdhaList()" class="btn btn-sm btn-secondary">Quay lại</button>    
   </div>
+
+  <danhmuc-popup id="dmLoaiCdhaSelect" name="emrDmLoaiChanDoanHinhAnh" :value="cdha.emrDmLoaiChanDoanHinhAnh" title="Loại chẩn đoán" dm_type="DM_LOAI_CHAN_DOAN_HINH_ANH"></danhmuc-popup>
+  <danhmuc-popup id="dmCdhaSelect" name="emrDmChanDoanHinhAnh" :value="cdha.emrDmChanDoanHinhAnh" title="Chẩn đoán" dm_type="DM_CHAN_DOAN_HINH_ANH"></danhmuc-popup>
 </div>

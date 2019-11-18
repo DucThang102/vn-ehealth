@@ -23,10 +23,6 @@ VueAsyncComponent('chucnangsong', '/pages/hsba/edit/chucnangsong/chucnangsong.ht
       this.chucnangsong = null;
     }
   },
-
-  created: function() {
-    sessionStorage.removeItem('dataChange');
-  }
 });
 
 VueAsyncComponent('chucnangsong-list', '/pages/hsba/edit/chucnangsong/chucnangsong_list.html', {
@@ -39,6 +35,10 @@ VueAsyncComponent('chucnangsong-list', '/pages/hsba/edit/chucnangsong/chucnangso
   props: ["hsba_id"],
 
   methods:  {
+    getChucnangsongList: async function() {
+      this.chucnangsong_list = await this.get('/api/chucnangsong/get_ds_chucnangsong', { hsba_id: this.hsba_id });
+    },
+
     editChucnangsong : function(chucnangsong) {
       this.$emit('editChucnangsong', chucnangsong);
     },
@@ -56,6 +56,17 @@ VueAsyncComponent('chucnangsong-list', '/pages/hsba/edit/chucnangsong/chucnangso
         this.$emit('editChucnangsong', chucnangsong);
       }else{
         alert('Hồ sơ bệnh án chưa có khoa điều trị');
+      }
+    },
+
+    deleteChucnangsong: async function(id) {
+      if (confirm('Bạn có muốn xóa chức năng sống này không?')) {
+        var result = await this.get("/api/chucnangsong/delete_chucnangsong", {chucnangsong_id: id});
+        if(result.success) {
+          this.getChucnangsongList();
+        }else {
+          alert('Lỗi xảy ra quá trình xóa');
+        }
       }
     },
 
@@ -77,7 +88,7 @@ VueAsyncComponent('chucnangsong-list', '/pages/hsba/edit/chucnangsong/chucnangso
   },
 
   created: async function() {
-    this.chucnangsong_list = await this.get('/api/chucnangsong/get_ds_chucnangsong', { hsba_id: this.hsba_id });
+    this.getChucnangsongList();
   },
 });
 

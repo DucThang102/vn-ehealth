@@ -15,6 +15,7 @@ VueAsyncComponent('qlybn', '/pages/hsba/edit/qly_benhnhan/qlybn.html', {
           }          
         }
         this.tab = tab;
+        sessionStorage.removeItem('dataChange');
       }
     },
 });
@@ -32,7 +33,6 @@ var mixin = {
     saveHsba : async function() {
       var result = await this.post("/api/hsba/update_hsba", this.hsba);
       if(result.success) {
-        console.log(result.emrHoSoBenhAn);
         alert('Cập nhật thông tin thành công');
         sessionStorage.removeItem('dataChange');
       }else {
@@ -54,7 +54,6 @@ var mixin = {
 
   created: async function() {
     this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
-    sessionStorage.removeItem('dataChange');
   }
 };
 
@@ -114,9 +113,9 @@ VueAsyncComponent('chandoan', '/pages/hsba/edit/qly_benhnhan/chandoan.html', {
 
   data: function() {
     return {
-      text:""
     }
   },
+
   computed: {
     emrDmMaBenhChandoannoidens: function() {
       return store.state.emrDmMaBenhChandoannoidens;

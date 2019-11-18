@@ -1,0 +1,542 @@
+[
+	{
+		"ma" : "A",
+		"ten" : "A. TIM, MẠCH "
+	},
+	{
+		"ma" : "1",
+		"ten" : "Thăm dò điện sinh lý tim"
+	},
+	{
+		"ma" : "2",
+		"ten" : "Thông tim chẩn đoán"
+	},
+	{
+		"ma" : "3",
+		"ten" : "Đo vận tốc lan truyền sóng mạch"
+	},
+	{
+		"ma" : "4",
+		"ten" : "Đo chỉ số ABI (chỉ số cổ chân\/cánh tay)"
+	},
+	{
+		"ma" : "5",
+		"ten" : "Thăm dò huyết động bằng Swan Ganz"
+	},
+	{
+		"ma" : "6",
+		"ten" : "Đo áp lực thẩm thấu máu"
+	},
+	{
+		"ma" : "7",
+		"ten" : "Holter huyết áp "
+	},
+	{
+		"ma" : "8",
+		"ten" : "Nghiệm pháp gắng sức điện tâm đồ"
+	},
+	{
+		"ma" : "9",
+		"ten" : "Đo lưu huyết não"
+	},
+	{
+		"ma" : "10",
+		"ten" : "Nghiệm pháp Von-Kaulla (thời gian tiêu thụ euglobulin)"
+	},
+	{
+		"ma" : "11",
+		"ten" : "Nghiệm pháp rượu (Nghiệm pháp Ethanol)"
+	},
+	{
+		"ma" : "12",
+		"ten" : "Holter điện tâm đồ"
+	},
+	{
+		"ma" : "13",
+		"ten" : "Nghiệm pháp dây thắt"
+	},
+	{
+		"ma" : "14",
+		"ten" : "Điện tim thường"
+	},
+	{
+		"ma" : "B",
+		"ten" : "B. HÔ HẤP "
+	},
+	{
+		"ma" : "15",
+		"ten" : "Đo dung tích khí cặn"
+	},
+	{
+		"ma" : "16",
+		"ten" : "Đo khuếch tán khí (DLCO)"
+	},
+	{
+		"ma" : "17",
+		"ten" : "Đo tổng dung lượng phổi"
+	},
+	{
+		"ma" : "18",
+		"ten" : "Test giãn phế quản (broncho modilator test)"
+	},
+	{
+		"ma" : "19",
+		"ten" : "Đo hô hấp ký"
+	},
+	{
+		"ma" : "20",
+		"ten" : "Đo kháng lực đường dẫn khí bằng phế thân ký"
+	},
+	{
+		"ma" : "21",
+		"ten" : "Đo nồng độ khí CO trong đường thở"
+	},
+	{
+		"ma" : "22",
+		"ten" : "Test dung tích sống gắng sức (FVC)"
+	},
+	{
+		"ma" : "23",
+		"ten" : "Test dung tích sống thở chậm (SVC)"
+	},
+	{
+		"ma" : "24",
+		"ten" : "Thông khí tự ý tối đa (MVV) "
+	},
+	{
+		"ma" : "25",
+		"ten" : "Nghiệm pháp hô hấp gắng sức "
+	},
+	{
+		"ma" : "26",
+		"ten" : "Dao động xung ký"
+	},
+	{
+		"ma" : "27",
+		"ten" : "Thăm dò rối loạn hô hấp lúc ngủ"
+	},
+	{
+		"ma" : "C",
+		"ten" : "C. THẦN KINH, TÂM THẦN"
+	},
+	{
+		"ma" : "28",
+		"ten" : "Điện cơ trơn định lượng (QEMG)    "
+	},
+	{
+		"ma" : "29",
+		"ten" : "Ghi điện cơ "
+	},
+	{
+		"ma" : "30",
+		"ten" : "Điện cơ vùng đáy chậu (EMG)"
+	},
+	{
+		"ma" : "31",
+		"ten" : "Điện cơ sợi đơn cực (SFEMG)      "
+	},
+	{
+		"ma" : "32",
+		"ten" : "Đo tốc độ dẫn truyền thần kinh cảm giác "
+	},
+	{
+		"ma" : "33",
+		"ten" : "Đo tốc độ dẫn truyền thần kinh vận động"
+	},
+	{
+		"ma" : "34",
+		"ten" : "Đo điện thế kích thích cảm giác "
+	},
+	{
+		"ma" : "35",
+		"ten" : "Đo điện thế kích thích giác quan "
+	},
+	{
+		"ma" : "36",
+		"ten" : "Đo điện thế kích thích vận động "
+	},
+	{
+		"ma" : "37",
+		"ten" : "Ghi điện não đồ vi tính"
+	},
+	{
+		"ma" : "38",
+		"ten" : "Ghi điện não đồ đa kênh giấc ngủ"
+	},
+	{
+		"ma" : "39",
+		"ten" : "Ghi điện não đồ video"
+	},
+	{
+		"ma" : "40",
+		"ten" : "Ghi điện não đồ thông thường"
+	},
+	{
+		"ma" : "41",
+		"ten" : "Đo ngưỡng đau"
+	},
+	{
+		"ma" : "42",
+		"ten" : "Test thần kinh tự chủ                      "
+	},
+	{
+		"ma" : "D",
+		"ten" : "D. TIÊU HÓA, TIẾT NIỆU "
+	},
+	{
+		"ma" : "43",
+		"ten" : "Đo PH thực quản 24 giờ"
+	},
+	{
+		"ma" : "44",
+		"ten" : "Đo áp lực niệu đạo bằng máy"
+	},
+	{
+		"ma" : "45",
+		"ten" : "Đo áp lực bàng quang bằng cột thước nước"
+	},
+	{
+		"ma" : "46",
+		"ten" : "Đo áp lực bàng quang bằng máy "
+	},
+	{
+		"ma" : "47",
+		"ten" : "Đo niệu dòng đồ"
+	},
+	{
+		"ma" : "48",
+		"ten" : "Đo áp lực thẩm thấu niệu"
+	},
+	{
+		"ma" : "49",
+		"ten" : "Thăm dò niệu động học bằng máy (Urodynamic)"
+	},
+	{
+		"ma" : "50",
+		"ten" : "Đo áp lực ổ bụng bằng máy niệu động học (Urodynamic)"
+	},
+	{
+		"ma" : "51",
+		"ten" : "Test hơi thở tìm vi khuẩn HP bằng C13, C14"
+	},
+	{
+		"ma" : "Đ",
+		"ten" : "Đ. TAI MŨI HỌNG"
+	},
+	{
+		"ma" : "52",
+		"ten" : "Ghi đáp ứng thính giác trạng thái ổn định (ASSR) "
+	},
+	{
+		"ma" : "53",
+		"ten" : "Mapping điện cực ốc tai"
+	},
+	{
+		"ma" : "54",
+		"ten" : "Phân tích âm giọng nói cơ bản"
+	},
+	{
+		"ma" : "55",
+		"ten" : "Phân tích âm giọng nói phức tạp"
+	},
+	{
+		"ma" : "56",
+		"ten" : "Thanh môn đồ (EGG)"
+	},
+	{
+		"ma" : "57",
+		"ten" : "Điện cơ thanh quản                 "
+	},
+	{
+		"ma" : "58",
+		"ten" : "Đo để hiệu chỉnh máy trợ thính kỹ thuật số "
+	},
+	{
+		"ma" : "59",
+		"ten" : "Thăm dò chức năng tiền đình (VNG)"
+	},
+	{
+		"ma" : "60",
+		"ten" : "Đo thính lực đơn âm"
+	},
+	{
+		"ma" : "61",
+		"ten" : "Đo thính lực lời"
+	},
+	{
+		"ma" : "62",
+		"ten" : "Đo thính lực trên ngưỡng"
+	},
+	{
+		"ma" : "63",
+		"ten" : "Đo thính lực ở trường tự do  "
+	},
+	{
+		"ma" : "64",
+		"ten" : "Đo nhĩ lượng"
+	},
+	{
+		"ma" : "65",
+		"ten" : "Đo phản xạ cơ bàn đạp"
+	},
+	{
+		"ma" : "66",
+		"ten" : "Đo âm ốc tai (OAE) chẩn đoán"
+	},
+	{
+		"ma" : "67",
+		"ten" : "Ghi đáp ứng thính giác thân não (ABR)"
+	},
+	{
+		"ma" : "68",
+		"ten" : "Đo sức cản của mũi"
+	},
+	{
+		"ma" : "69",
+		"ten" : "Đo âm ốc tai (OAE) sàng lọc"
+	},
+	{
+		"ma" : "E",
+		"ten" : "E. MẮT "
+	},
+	{
+		"ma" : "70",
+		"ten" : "Điện võng mạc"
+	},
+	{
+		"ma" : "71",
+		"ten" : "Đo độ dày giác mạc"
+	},
+	{
+		"ma" : "72",
+		"ten" : "Đếm tế bào nội mô giác mạc"
+	},
+	{
+		"ma" : "73",
+		"ten" : "Đo bản đồ giác mạc"
+	},
+	{
+		"ma" : "74",
+		"ten" : "Siêu âm A\/B"
+	},
+	{
+		"ma" : "75",
+		"ten" : "Đo biên độ điều tiết"
+	},
+	{
+		"ma" : "76",
+		"ten" : "Đo độ lồi mắt bằng thước đo Hertel"
+	},
+	{
+		"ma" : "77",
+		"ten" : "Test thử cảm giác giác mạc"
+	},
+	{
+		"ma" : "78",
+		"ten" : "Test phát hiện khô mắt"
+	},
+	{
+		"ma" : "79",
+		"ten" : "Nghiệm pháp phát hiện glocom"
+	},
+	{
+		"ma" : "80",
+		"ten" : "Đo thị trường trung tâm, tìm ám điểm"
+	},
+	{
+		"ma" : "81",
+		"ten" : "Đo thị trường chu biên"
+	},
+	{
+		"ma" : "82",
+		"ten" : "Đo sắc giác"
+	},
+	{
+		"ma" : "83",
+		"ten" : "Đo khúc xạ khách quan (soi bóng đồng tử - Skiascope)"
+	},
+	{
+		"ma" : "84",
+		"ten" : "Đo khúc xạ máy"
+	},
+	{
+		"ma" : "85",
+		"ten" : "Đo khúc xạ giác mạc Javal"
+	},
+	{
+		"ma" : "86",
+		"ten" : "Thử kính"
+	},
+	{
+		"ma" : "87",
+		"ten" : "Đo độ lác"
+	},
+	{
+		"ma" : "88",
+		"ten" : "Xác định sơ đồ song thị"
+	},
+	{
+		"ma" : "89",
+		"ten" : "Đo độ sâu tiền phòng"
+	},
+	{
+		"ma" : "90",
+		"ten" : "Đo đường kính giác mạc"
+	},
+	{
+		"ma" : "91",
+		"ten" : "Đo công suất thể thuỷ tinh nhân tạo tự động bằng siêu âm"
+	},
+	{
+		"ma" : "92",
+		"ten" : "Đo nhãn áp (Maclakov, Goldmann, Schiotz…)"
+	},
+	{
+		"ma" : "93",
+		"ten" : "Đo thị lực"
+	},
+	{
+		"ma" : "94",
+		"ten" : "Chụp cắt lớp võng mạc (Optical Coherence Tomography)"
+	},
+	{
+		"ma" : "G",
+		"ten" : "G. CƠ XƯƠNG KHỚP "
+	},
+	{
+		"ma" : "95",
+		"ten" : "Thử nghiệm Methacholine (methacholine test)"
+	},
+	{
+		"ma" : "96",
+		"ten" : "Đo áp lực hậu môn trực tràng"
+	},
+	{
+		"ma" : "97",
+		"ten" : "Đo phản xạ đại tiện"
+	},
+	{
+		"ma" : "98",
+		"ten" : "Test ngoại bì tìm dị nguyên trong bệnh Eczema tiếp xúc (chuyển Dị ứng-Miễn dịch)"
+	},
+	{
+		"ma" : "99",
+		"ten" : "Test Prick với bệnh mày đay mẩn ngứa (chuyển Dị ứng-Miễn dịch)"
+	},
+	{
+		"ma" : "100",
+		"ten" : "Đo áp lực bàn chân bằng máy"
+	},
+	{
+		"ma" : "101",
+		"ten" : "Đo mật độ xương bằng máy siêu âm"
+	},
+	{
+		"ma" : "102",
+		"ten" : "Đo mật độ xương bằng phương pháp DEXA"
+	},
+	{
+		"ma" : "103",
+		"ten" : "Đo cảm giác rung bàn chân bằng máy"
+	},
+	{
+		"ma" : "104",
+		"ten" : "Test prostigmin chẩn đoán nhược cơ"
+	},
+	{
+		"ma" : "105",
+		"ten" : "Nghiệm pháp Atropin"
+	},
+	{
+		"ma" : "H",
+		"ten" : "H. NỘI TIẾT "
+	},
+	{
+		"ma" : "106",
+		"ten" : "Nghiệm pháp dung nạp Glucose đường uống 2 mẫu có định lượng Insulin kèm theo"
+	},
+	{
+		"ma" : "107",
+		"ten" : "Nghiệm pháp dung nạp Glucose đường uống 5 mẫu có định lượng Insulin kèm theo"
+	},
+	{
+		"ma" : "108",
+		"ten" : "Nghiệm pháp nhịn đói 72 giờ"
+	},
+	{
+		"ma" : "109",
+		"ten" : "Nghiệm pháp kích thích Synacthen nhanh"
+	},
+	{
+		"ma" : "110",
+		"ten" : "Nghiệm pháp kích thích Synacthen chậm"
+	},
+	{
+		"ma" : "111",
+		"ten" : "Nghiệm pháp ức chế bằng Dexamethason liều thấp qua đêm"
+	},
+	{
+		"ma" : "112",
+		"ten" : "Nghiệm pháp ức chế bằng Dexamethason liều thấp trong 2 ngày"
+	},
+	{
+		"ma" : "113",
+		"ten" : "Nghiệm pháp ức chế bằng Dexamethason liều cao qua đêm"
+	},
+	{
+		"ma" : "114",
+		"ten" : "Nghiệm pháp ức chế bằng Dexamethason liều cao trong 2 ngày"
+	},
+	{
+		"ma" : "115",
+		"ten" : "Nghiệm pháp nhịn uống "
+	},
+	{
+		"ma" : "116",
+		"ten" : "Đo chuyển hoá cơ bản"
+	},
+	{
+		"ma" : "117",
+		"ten" : "Đo đường máu 24 giờ có định lượng Insulin"
+	},
+	{
+		"ma" : "118",
+		"ten" : "Đo đường máu 24 giờ không định lượng Insulin"
+	},
+	{
+		"ma" : "119",
+		"ten" : "Nghiệm pháp dung nạp Glucose đường uống (50g Glucose) 2 mẫu cho người bệnh thai nghén"
+	},
+	{
+		"ma" : "120",
+		"ten" : "Nghiệm pháp dung nạp glucose đường uống (75g Glucose) 3 mẫu cho người bệnh thai nghén"
+	},
+	{
+		"ma" : "121",
+		"ten" : "Nghiệm pháp dung nạp glucose đường uống (100g Glucose) 4 mẫu cho người bệnh thai nghén"
+	},
+	{
+		"ma" : "122",
+		"ten" : "Nghiệm pháp dung nạp glucose đường uống 2 mẫu không định lượng Insulin"
+	},
+	{
+		"ma" : "123",
+		"ten" : "Đo phân bố trọng lượng cơ thể lên chân người bệnh đái tháo đường  "
+	},
+	{
+		"ma" : "124",
+		"ten" : "Test dung nạp Tolbutamit"
+	},
+	{
+		"ma" : "125",
+		"ten" : "Test dung nạp Glucagon"
+	},
+	{
+		"ma" : "126",
+		"ten" : "Thử nghiệm ngấm Bromsulphtalein thăm dò chức năng gan"
+	},
+	{
+		"ma" : "127",
+		"ten" : "Thử nghiệm dung nạp Carbonhydrate (glucoza, fructoza, galactoza, lactoza)"
+	}
+]

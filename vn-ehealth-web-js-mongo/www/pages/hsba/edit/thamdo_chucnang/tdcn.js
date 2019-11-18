@@ -24,10 +24,6 @@ VueAsyncComponent('tdcn', '/pages/hsba/edit/thamdo_chucnang/tdcn.html', {
       this.tdcn = null;
     }
   },
-
-  created: function() {
-    sessionStorage.removeItem('dataChange');
-  }
 });
 
 VueAsyncComponent('tdcn-list', '/pages/hsba/edit/thamdo_chucnang/tdcn_list.html', {
@@ -40,22 +36,37 @@ VueAsyncComponent('tdcn-list', '/pages/hsba/edit/thamdo_chucnang/tdcn_list.html'
   props: ["hsba_id"],
 
   methods: {
-    deleteTdcn: function (id) {
+    getTdcnList: async function(){
+      this.tdcn_list = await this.get('/api/tdcn/get_ds_tdcn', { hsba_id: this.hsba_id });
+    },
+
+    deleteTdcn: async function (id) {
       if (confirm('Bạn có muốn xóa ảnh tổn thương này không?')) {
-        alert(id);
+        var result = await this.get("/api/tdcn/delete_tdcn", {tdcn_id: id});
+        if(result.success) {
+          this.getTdcnList();
+        }else {
+          alert('Lỗi xảy ra quá trình xóa');
+        }
       }
+    },
+
+    addTdcn : function() {
+      var tdcn = {emrHoSoBenhAnId: this.hsba_id, emrDmLoaiThamDoChucNang: {}, emrDmThamDoChucNang:{}};
+      this.$emit('editTdcn', tdcn);
     },
 
     editTdcn: function (tdcn) {
       this.$emit('editTdcn', tdcn);
     },
+
     editFiles: function (tdcn) {
       this.$emit('editFiles', tdcn);
     },
   },
 
   created: async function () {
-    this.tdcn_list = await this.get('/api/tdcn/get_ds_tdcn', { hsba_id: this.hsba_id });
+    this.getTdcnList();
   }
 });
 
@@ -66,6 +77,15 @@ VueAsyncComponent('tdcn-edit', '/pages/hsba/edit/thamdo_chucnang/tdcn_edit.html'
   },
   props: ["tdcn"],
 
+  computed: {
+    emrDmLoaiThamDoChucNang: function() {
+      return store.state.emrDmLoaiThamDoChucNang;
+    },
+    emrDmThamDoChucNang: function() {
+      return store.state.emrDmThamDoChucNang;
+    }
+  },
+
   watch: {
     tdcn: {
       handler: function (val, oldVal) {
@@ -74,7 +94,15 @@ VueAsyncComponent('tdcn-edit', '/pages/hsba/edit/thamdo_chucnang/tdcn_edit.html'
         }
       },
       deep: true
-    }
+    },
+
+    emrDmLoaiThamDoChucNang: function(val) {
+      this.tdcn.emrDmLoaiThamDoChucNang = val;
+    },
+
+    emrDmThamDoChucNang: function(val) {
+      this.tdcn.emrDmThamDoChucNang = val;
+    },
   },
 
   methods: {
@@ -86,6 +114,16 @@ VueAsyncComponent('tdcn-edit', '/pages/hsba/edit/thamdo_chucnang/tdcn_edit.html'
       }
       sessionStorage.removeItem('dataChange');
       this.$emit('viewTdcnList');
+    },
+
+    saveTdcn : async function() {
+      var result = await this.post("/api/tdcn/create_or_update_tdcn", this.tdcn);
+      if(result.success) {
+        sessionStorage.removeItem('dataChange');
+        this.$emit('viewTdcnList');
+      }else {
+        alert('Lỗi xảy ra quá trình lưu thông tin');
+      }
     }
   },
 });

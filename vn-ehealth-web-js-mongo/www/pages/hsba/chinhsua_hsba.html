@@ -62,7 +62,15 @@
       emrDmMaBenhChandoanbenhchinhs: [],
       emrDmMaBenhChandoankemtheos: [],
       emrDmMaBenhChandoanravienchinhs: [],
-      emrDmMaBenhChandoanravienkemtheos: []
+      emrDmMaBenhChandoanravienkemtheos: [],
+      emrDmMaBenhChandoantruocs: [],
+      emrDmMaBenhChandoansaus: [],
+      emrDmLoaiChanDoanHinhAnh: null,
+      emrDmChanDoanHinhAnh: null,
+      emrDmLoaiThamDoChucNang: null,
+      emrDmThamDoChucNang: null,
+      emrDmLoaiGiaiPhauBenh: null,
+      emrDmGiaiPhauBenh: null
     },
 
     mutations: {
@@ -125,6 +133,7 @@
             return;
           }
         }
+        sessionStorage.removeItem('dataChange');
         this.tab = tab;
       }
     },
@@ -134,6 +143,7 @@
       this.mayte = this.getParam("mayte");
       this.hsba = await this.get('/api/hsba/get_hsba_by_ma', { mayte: this.mayte });
       this.hsba_id = this.hsba.id;
+      sessionStorage.removeItem('dataChange');
     }
   });
 </script>

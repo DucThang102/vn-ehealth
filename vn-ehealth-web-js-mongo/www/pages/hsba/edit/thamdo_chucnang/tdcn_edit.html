@@ -5,12 +5,14 @@
       <date-picker v-model="tdcn.ngayyeucau" :config="{format: 'DD/MM/YYYY HH:mm', sideBySide:true}"></date-picker>
     </div>
     <div class="col-4">
-      <label class="label-title">Loại thăm dò</label> <span style="color:red">(*)</span>
-      <input class="form-control" :value="tdcn.emrDmLoaiThamDoChucNang.ten">
+      <label class="label-title">Loại thăm dò chức năng</label> <span style="color:red">(*)</span>
+      <input readonly data-toggle="modal" data-target="#dmLoaiTdcnSelect" class="form-control" 
+        :value="tdcn.emrDmLoaiThamDoChucNang.ten">
     </div>
     <div class="col-4">
-      <label class="label-title">Tên thăm dò</label> <span style="color:red">(*)</span>
-      <input class="form-control" :value="tdcn.emrDmThamDoChucNang.ten">
+      <label class="label-title">Thăm dò chức năng</label> <span style="color:red">(*)</span>
+      <input readonly data-toggle="modal" data-target="#dmTdcnSelect" class="form-control" 
+        :value="tdcn.emrDmThamDoChucNang.ten">
     </div>
   </div>
 
@@ -50,7 +52,10 @@
     </div>
   </div>
   <div class="mt-3 mb-3">
-    <button type="button" class="btn btn-sm btn-primary">Lưu lại</button>
+    <button type="button" v-on:click="saveTdcn()" class="btn btn-sm btn-primary">Lưu lại</button>
     <button type="button" v-on:click="viewTdcnList()" class="btn btn-sm btn-secondary">Quay lại</button>    
   </div>
+
+  <danhmuc-popup id="dmLoaiTdcnSelect" name="emrDmLoaiThamDoChucNang" :value="tdcn.emrDmLoaiThamDoChucNang" title="Loại thăm dò chức năng" dm_type="DM_LOAI_THAM_DO_CHUC_NANG"></danhmuc-popup>
+  <danhmuc-popup id="dmTdcnSelect" name="emrDmThamDoChucNang" :value="tdcn.emrDmThamDoChucNang" title="Dịch vụ thăm dò chức năng" dm_type="DM_THAM_DO_CHUC_NANG"></danhmuc-popup>
 </div>

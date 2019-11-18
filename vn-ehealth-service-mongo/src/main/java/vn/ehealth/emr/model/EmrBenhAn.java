@@ -48,6 +48,12 @@ public class EmrBenhAn {
     
     public List<EmrDmContent> emrDmMaBenhChandoanbenhchinhs = new ArrayList<>();
     
+    public EmrDmContent emrDmMaBenhChandoanphanbiet;
+    
+    public EmrDmContent emrDmMaBenhChandoankemtheo;
+    
+    public EmrDmContent emrDmMaBenhChandoanbenhchinh;
+    
     public String lydovaovien;
     public Integer vaongaythu;              //??
     public String quatrinhbenhly;

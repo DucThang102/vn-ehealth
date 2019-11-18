@@ -29,10 +29,6 @@ VueAsyncComponent('xetnghiem', '/pages/hsba/edit/xetnghiem/xetnghiem.html', {
       this.xetnghiem = null;
     }
   },
-
-  created: function() {
-    sessionStorage.removeItem('dataChange');
-  }
 });
 
 VueAsyncComponent('xetnghiem-list', '/pages/hsba/edit/xetnghiem/xetnghiem_list.html', {

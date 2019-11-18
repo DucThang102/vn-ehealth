@@ -21,4 +21,8 @@ public class EmrThamDoChucNangService {
     public EmrThamDoChucNang createOrUpdate(EmrThamDoChucNang emrThamDoChucNang) {
         return emrThamDoChucNangRepository.save(emrThamDoChucNang);
     }
+    
+    public void delete(ObjectId id) {
+        emrThamDoChucNangRepository.deleteById(id);
+    }
 }

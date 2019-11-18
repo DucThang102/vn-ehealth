@@ -24,10 +24,6 @@ VueAsyncComponent('donthuoc', '/pages/hsba/edit/donthuoc/donthuoc.html', {
       this.donthuoc = null;
     }
   },
-
-  created: function() {
-    sessionStorage.removeItem('dataChange');
-  }
 });
 
 VueAsyncComponent('donthuoc-list', '/pages/hsba/edit/donthuoc/donthuoc_list.html', {

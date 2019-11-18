@@ -6,11 +6,13 @@
     </div>
     <div class="col-4">
       <label class="label-title">Loại giải phẫu bệnh</label> <span style="color:red">(*)</span>
-      <input class="form-control" :value="gpb.emrDmLoaiGiaiPhauBenh.ten">
+      <input readonly data-toggle="modal" data-target="#dmLoaiGpbSelect" class="form-control" 
+        :value="gpb.emrDmLoaiGiaiPhauBenh.ten">
     </div>
     <div class="col-4">
-      <label class="label-title">Tên giải phẫu bệnh</label> <span style="color:red">(*)</span>
-      <input class="form-control" :value="gpb.emrDmGiaiPhauBenh.ten">
+      <label class="label-title">Dịch vụ giải phẫu bệnh</label> <span style="color:red">(*)</span>
+      <input readonly data-toggle="modal" data-target="#dmGpbSelect" class="form-control" 
+        :value="gpb.emrDmGiaiPhauBenh.ten">
     </div>
   </div>
 
@@ -63,7 +65,10 @@
     </div>
   </div>
   <div class="mt-3 mb-3">
-    <button type="button" class="btn btn-sm btn-primary">Lưu lại</button>
+    <button type="button" v-on:click="saveGpb()" class="btn btn-sm btn-primary">Lưu lại</button>
     <button type="button" v-on:click="viewGpbList()" class="btn btn-sm btn-secondary">Quay lại</button>    
   </div>
+
+  <danhmuc-popup id="dmLoaiGpbSelect" name="emrDmLoaiGiaiPhauBenh" :value="gpb.emrDmLoaiGiaiPhauBenh" title="Loại giải phẫu bệnh" dm_type="DM_LOAI_GIAI_PHAU_BENH"></danhmuc-popup>
+  <danhmuc-popup id="dmGpbSelect" name="emrDmGiaiPhauBenh" :value="gpb.emrDmGiaiPhauBenh" title="Dịch vụ giải phẫu bệnh" dm_type="DM_GIAI_PHAU_BENH"></danhmuc-popup>
 </div>

@@ -19,8 +19,6 @@ public class EmrGiaiPhauBenh {
 
     @Id public ObjectId id;
     
-    public String getId() { return id != null? id.toHexString() : null; }
-    
     public ObjectId emrHoSoBenhAnId;
     
     public EmrDmContent emrDmGiaiPhauBenh;        
@@ -43,4 +41,28 @@ public class EmrGiaiPhauBenh {
     public Date ngaylaymausinhthiet;
         
     public List<EmrFileDinhKem> emrFileDinhKemGpbs = new ArrayList<>();
+    
+    public String getId() { 
+        return id != null? id.toHexString() : null; 
+    }
+    
+    public void setId(String id) {
+        if(id != null) {
+            this.id = new ObjectId(id);
+        }else {
+            this.id = null;
+        }
+    }
+    
+    public String getEmrHoSoBenhAnId() {
+        return emrHoSoBenhAnId != null? emrHoSoBenhAnId.toHexString(): null;
+    }
+    
+    public void setEmrHoSoBenhAnId(String emrHoSoBenhAnId) {
+        if(emrHoSoBenhAnId != null) {
+            this.emrHoSoBenhAnId = new ObjectId(emrHoSoBenhAnId);
+        }else {
+            this.emrHoSoBenhAnId = null;
+        }
+    }
 }

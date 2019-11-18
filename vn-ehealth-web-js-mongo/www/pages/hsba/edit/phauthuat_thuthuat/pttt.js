@@ -24,10 +24,6 @@ VueAsyncComponent('pttt', '/pages/hsba/edit/phauthuat_thuthuat/pttt.html', {
       this.pttt = null;
     }
   },
-
-  created: function() {
-    sessionStorage.removeItem('dataChange');
-  }
 });
 
 VueAsyncComponent('pttt-list', '/pages/hsba/edit/phauthuat_thuthuat/pttt_list.html', {
@@ -40,9 +36,18 @@ VueAsyncComponent('pttt-list', '/pages/hsba/edit/phauthuat_thuthuat/pttt_list.ht
   props: ["hsba_id"],
 
   methods:  {
-    deletePttt: function(id) {
+    getPtttList: async function(){
+      this.pttt_list = await this.get('/api/pttt/get_ds_pttt', { hsba_id: this.hsba_id });
+    },
+
+    deletePttt: async function(id) {
       if(confirm('Bạn có muốn xóa phẫu thuật/thủ thuật này không?')){
-        alert(id);
+        var result = await this.get("/api/pttt/delete_pttt", {pttt_id: id});
+        if(result.success) {
+          this.getPtttList();
+        }else {
+          alert('Lỗi xảy ra quá trình xóa');
+        }
       }
     },
 
@@ -55,7 +60,7 @@ VueAsyncComponent('pttt-list', '/pages/hsba/edit/phauthuat_thuthuat/pttt_list.ht
   },
 
   created: async function() {
-    this.pttt_list = await this.get('/api/pttt/get_ds_pttt', { hsba_id: this.hsba_id });
+    this.getPtttList();
   }
 });
 
@@ -67,6 +72,15 @@ VueAsyncComponent('pttt-edit', '/pages/hsba/edit/phauthuat_thuthuat/pttt_edit.ht
 
   props: ["pttt"],
 
+  computed: {
+    emrDmMaBenhChandoantruocs: function() {
+      return store.state.emrDmMaBenhChandoantruocs;
+    },
+    emrDmMaBenhChandoansaus: function() {
+      return store.state.emrDmMaBenhChandoansaus;
+    }
+  },
+
   watch: {
     pttt: {
       handler: function (val, oldVal) {
@@ -75,9 +89,16 @@ VueAsyncComponent('pttt-edit', '/pages/hsba/edit/phauthuat_thuthuat/pttt_edit.ht
         }
       },
       deep: true
-    }
+    },
+
+    emrDmMaBenhChandoantruocs: function(val) {
+      this.pttt.emrDmMaBenhChandoantruocs = val;
+    },
+    emrDmMaBenhChandoansaus: function(val) {
+      this.pttt.emrDmMaBenhChandoansaus = val;
+    },
   },
-  
+
   methods: {
     viewPtttList: function() {
       if(sessionStorage.getItem('dataChange')) {
@@ -87,6 +108,30 @@ VueAsyncComponent('pttt-edit', '/pages/hsba/edit/phauthuat_thuthuat/pttt_edit.ht
       }
       sessionStorage.removeItem('dataChange');
       this.$emit('viewPtttList');
+    },
+
+    getTextChanDoan: function(chandoans){
+      if(chandoans){
+        return chandoans.map(x => x.ma + " - " + x.ten).join(' ; ');
+      }
+      return '';
+    },
+
+    addTvpttt: function() {
+      this.pttt.emrThanhVienPttts.push({tenbacsi: '', emrDmVaiTro: {ma: ''}});
+    },
+
+    deleteTvpttt: function(index) {
+      this.pttt.emrThanhVienPttts.splice(index, 1);
+    },
+
+    savePttt : async function() {
+      var result = await this.post("/api/pttt/create_or_update_pttt", this.pttt);
+      if(result.success) {
+        this.$emit('viewPtttList');
+      }else {
+        alert('Lỗi xảy ra quá trình lưu thông tin');
+      }
     }
   },
 });

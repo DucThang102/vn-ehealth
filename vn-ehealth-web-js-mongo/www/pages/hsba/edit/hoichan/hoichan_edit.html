@@ -34,7 +34,9 @@
   <div class="row mt-3">
     <div class="col-12">
       <label class="label-title label-bold">Danh sách thành viên tham gia</label>
-      <a class="mt-1" href='#' title="Thêm"><i class="fas fa-fw fa-lg fa-plus-circle"></i></a>
+      <a v-on:click="addTvhc()" class="mt-1" href='javascript:void(0)' title="Thêm">
+        <i class="fas fa-fw fa-lg fa-plus-circle"></i>
+      </a>
     </div>
   </div>
   <div class="row mt-2">
@@ -56,7 +58,7 @@
             </select>
           </td>
           <td class="text-center">
-            <a href='#' title="Xóa">
+            <a v-on:click="deleteTvhc(i)" href='javascript:void(0)' title="Xóa">
               <i class="fas fa-fw fa-lg fa-trash" style="color:red"></i>
             </a>
           </td>
@@ -66,7 +68,7 @@
   </div>
 
   <div class="mt-3 mb-3">
-    <button type="button" class="btn btn-sm btn-primary">Lưu lại</button>
+    <button type="button" v-on:click="saveHoichan()" class="btn btn-sm btn-primary">Lưu lại</button>
     <button type="button" v-on:click="viewHoichanList()" class="btn btn-sm btn-secondary">Quay lại</button>    
   </div>
 </div>

@@ -1,0 +1,3010 @@
+[
+	{
+		"ma" : "A",
+		"ten" : "SIÊU ÂM CHẨN ĐOÁN"
+	},
+	{
+		"ma" : "A.I",
+		"ten" : "Siêu âm đầu, cổ"
+	},
+	{
+		"ma" : "1",
+		"ten" : "Siêu âm tuyến giáp"
+	},
+	{
+		"ma" : "2",
+		"ten" : "Siêu âm các tuyến nước bọt"
+	},
+	{
+		"ma" : "3",
+		"ten" : "Siêu âm cơ phần mềm vùng cổ mặt"
+	},
+	{
+		"ma" : "4",
+		"ten" : "Siêu âm hạch vùng cổ"
+	},
+	{
+		"ma" : "5",
+		"ten" : "Siêu âm đàn hồi nhu mô tuyến giáp"
+	},
+	{
+		"ma" : "6",
+		"ten" : "Siêu âm hốc mắt"
+	},
+	{
+		"ma" : "7",
+		"ten" : "Siêu âm qua thóp"
+	},
+	{
+		"ma" : "8",
+		"ten" : "Siêu âm nhãn cầu"
+	},
+	{
+		"ma" : "9",
+		"ten" : "Siêu âm Doppler hốc mắt"
+	},
+	{
+		"ma" : "10",
+		"ten" : "Siêu âm Doppler u tuyến, hạch vùng cổ"
+	},
+	{
+		"ma" : "A.II",
+		"ten" : "Siêu âm vùng ngực"
+	},
+	{
+		"ma" : "11",
+		"ten" : "Siêu âm màng phổi"
+	},
+	{
+		"ma" : "12",
+		"ten" : "Siêu âm thành ngực (cơ, phần mềm thành ngực)"
+	},
+	{
+		"ma" : "13",
+		"ten" : "Siêu âm các khối u phổi ngoại vi"
+	},
+	{
+		"ma" : "14",
+		"ten" : "Siêu âm qua thực quản"
+	},
+	{
+		"ma" : "A.III",
+		"ten" : "Siêu âm ổ bụng"
+	},
+	{
+		"ma" : "15",
+		"ten" : "Siêu âm ổ bung (gan mật, tụy, lách, thận, bàng quang)"
+	},
+	{
+		"ma" : "16",
+		"ten" : "Siêu âm hệ tiết niệu (thận, tuyến thượng thận, bàng quang, tiền liệt tuyến)"
+	},
+	{
+		"ma" : "17",
+		"ten" : "Siêu âm tiền liệt tuyến qua trực tràng"
+	},
+	{
+		"ma" : "18",
+		"ten" : "Siêu âm tử cung phần phụ"
+	},
+	{
+		"ma" : "19",
+		"ten" : "Siêu âm ống tiêu hóa (dạ dày, ruột non, đại tràng)"
+	},
+	{
+		"ma" : "20",
+		"ten" : "Siêu âm thai (thai, nhau thai, nước ối)"
+	},
+	{
+		"ma" : "21",
+		"ten" : "Siêu âm Doppler các khối u trong ổ bụng"
+	},
+	{
+		"ma" : "22",
+		"ten" : "Siêu âm Doppler gan lách"
+	},
+	{
+		"ma" : "23",
+		"ten" : "Siêu âm Doppler mạch máu ổ bụng (động mạch chủ, mạc treo tràng trên, thân tạng…)"
+	},
+	{
+		"ma" : "24",
+		"ten" : "Siêu âm Doppler động mạch thận"
+	},
+	{
+		"ma" : "25",
+		"ten" : "Siêu âm Doppler tử cung phần phụ"
+	},
+	{
+		"ma" : "26",
+		"ten" : "Siêu âm Doppler thai nhi (thai, nhau thai, dây rốn, động mạch tử cung)"
+	},
+	{
+		"ma" : "27",
+		"ten" : "Siêu âm 3D\/4D khối u"
+	},
+	{
+		"ma" : "28",
+		"ten" : "Siêu âm 3D\/4D thai nhi"
+	},
+	{
+		"ma" : "29",
+		"ten" : "Siêu âm Doppler tĩnh mạch chậu, chủ dưới"
+	},
+	{
+		"ma" : "A.IV",
+		"ten" : "Siêu âm sản phụ khoa"
+	},
+	{
+		"ma" : "30",
+		"ten" : "Siêu âm tử cung buồng trứng qua đường bụng"
+	},
+	{
+		"ma" : "31",
+		"ten" : "Siêu âm tử cung buồng trứng qua đường âm đạo"
+	},
+	{
+		"ma" : "32",
+		"ten" : "Siêu âm Doppler tử cung, buồng trứng qua đường bụng"
+	},
+	{
+		"ma" : "33",
+		"ten" : "Siêu âm Doppler tử cung, buồng trứng qua đường âm đạo"
+	},
+	{
+		"ma" : "34",
+		"ten" : "Siêu âm thai nhi trong 3 tháng đầu"
+	},
+	{
+		"ma" : "35",
+		"ten" : "Siêu âm thai nhi trong 3 tháng giữa"
+	},
+	{
+		"ma" : "36",
+		"ten" : "Siêu âm thai nhi trong 3 tháng cuối"
+	},
+	{
+		"ma" : "37",
+		"ten" : "Siêu âm Doppler động mạch tử cung"
+	},
+	{
+		"ma" : "38",
+		"ten" : "Siêu âm Doppler thai nhi 3 tháng đầu"
+	},
+	{
+		"ma" : "39",
+		"ten" : "Siêu âm Doppler thai nhi 3 tháng giữa"
+	},
+	{
+		"ma" : "40",
+		"ten" : "Siêu âm Doppler thai nhi 3 tháng cuối"
+	},
+	{
+		"ma" : "41",
+		"ten" : "Siêu âm 3D\/4D thai nhi"
+	},
+	{
+		"ma" : "42",
+		"ten" : "Siêu âm tầm soát dị tật thai nhi"
+	},
+	{
+		"ma" : "A.V",
+		"ten" : "Siêu âm cơ xương khớp"
+	},
+	{
+		"ma" : "43",
+		"ten" : "Siêu âm khớp (gối, háng, khuỷu, cổ tay….)"
+	},
+	{
+		"ma" : "44",
+		"ten" : "Siêu âm phần mềm (da, tổ chức dưới da, cơ….)"
+	},
+	{
+		"ma" : "A.VI",
+		"ten" : "Siêu âm tim, mạch máu"
+	},
+	{
+		"ma" : "45",
+		"ten" : "Siêu âm Doppler động mạch, tĩnh mạch chi dưới"
+	},
+	{
+		"ma" : "46",
+		"ten" : "Siêu âm cầu nối động mạch tĩnh mạch"
+	},
+	{
+		"ma" : "47",
+		"ten" : "Siêu âm nội mạch "
+	},
+	{
+		"ma" : "48",
+		"ten" : "Doppler động mạch cảnh, Doppler xuyên sọ"
+	},
+	{
+		"ma" : "49",
+		"ten" : "Siêu âm tim, màng tim qua thành ngục"
+	},
+	{
+		"ma" : "50",
+		"ten" : "Siêu âm tim, màng tim qua thực quản"
+	},
+	{
+		"ma" : "51",
+		"ten" : "Siêu âm tim, mạch máu có cản âm"
+	},
+	{
+		"ma" : "52",
+		"ten" : "Siêu âm Doppler tim, van tim"
+	},
+	{
+		"ma" : "53",
+		"ten" : "Siêu âm 3D\/4D tim"
+	},
+	{
+		"ma" : "A.VII",
+		"ten" : "Siêu âm vú"
+	},
+	{
+		"ma" : "54",
+		"ten" : "Siêu âm tuyến vú hai bên"
+	},
+	{
+		"ma" : "55",
+		"ten" : "Siêu âm Doppler tuyến vú"
+	},
+	{
+		"ma" : "56",
+		"ten" : "Siêu âm đàn hồi mô vú"
+	},
+	{
+		"ma" : "A.VIII",
+		"ten" : "Siêu âm bộ phận sinh dục nam"
+	},
+	{
+		"ma" : "57",
+		"ten" : "Siêu tinh hoàn hai bên"
+	},
+	{
+		"ma" : "58",
+		"ten" : "Siêu âm Doppler tinh hoàn, mào tinh hoàn hai bên"
+	},
+	{
+		"ma" : "59",
+		"ten" : "Siêu âm dương vật"
+	},
+	{
+		"ma" : "60",
+		"ten" : "Siêu âm Doppler dương vật"
+	},
+	{
+		"ma" : "A.IX",
+		"ten" : "Siêu âm với kỹ thuật đặc biệt"
+	},
+	{
+		"ma" : "61",
+		"ten" : "Siêu âm trong mổ"
+	},
+	{
+		"ma" : "62",
+		"ten" : "Siêu âm nội soi"
+	},
+	{
+		"ma" : "63",
+		"ten" : "Siêu âm có chất tương phản"
+	},
+	{
+		"ma" : "64",
+		"ten" : "Sinh thiết tiền liệt tuyến qua siêu âm nội soi đường trực tràng"
+	},
+	{
+		"ma" : "65",
+		"ten" : "Siêu âm đàn hồi mô (gan, tuyến vú…)"
+	},
+	{
+		"ma" : "66",
+		"ten" : "Siêu âm 3D\/4D trực tràng"
+	},
+	{
+		"ma" : "B",
+		"ten" : "CHỤP XQUANG CHẨN ĐOÁN THƯỜNG QUY HOẶC KỸ THUẬT SỐ (CR hoặc DR)"
+	},
+	{
+		"ma" : "B.I",
+		"ten" : "Chụp Xquang chẩn đoán thường quy"
+	},
+	{
+		"ma" : "67",
+		"ten" : "Chụp Xquang sọ thẳng nghiêng"
+	},
+	{
+		"ma" : "68",
+		"ten" : "Chụp Xquang mặt thẳng nghiêng"
+	},
+	{
+		"ma" : "69",
+		"ten" : "Chụp Xquang mặt thấp hoặc mặt cao"
+	},
+	{
+		"ma" : "70",
+		"ten" : "Chụp Xquang sọ tiếp tuyến"
+	},
+	{
+		"ma" : "71",
+		"ten" : "Chụp Xquang hốc mắt thẳng nghiêng"
+	},
+	{
+		"ma" : "72",
+		"ten" : "Chụp Xquang Blondeau"
+	},
+	{
+		"ma" : "73",
+		"ten" : "Chụp Xquang Hirtz"
+	},
+	{
+		"ma" : "74",
+		"ten" : "Chụp Xquang hàm chếch một bên"
+	},
+	{
+		"ma" : "75",
+		"ten" : "Chụp Xquang xương chính mũi nghiêng hoặc tiếp tuyến"
+	},
+	{
+		"ma" : "76",
+		"ten" : "Chụp Xquang hố yên thẳng hoặc nghiêng"
+	},
+	{
+		"ma" : "77",
+		"ten" : "Chụp Xquang Chausse III"
+	},
+	{
+		"ma" : "78",
+		"ten" : "Chụp Xquang Schuller"
+	},
+	{
+		"ma" : "79",
+		"ten" : "Chụp Xquang Stenvers"
+	},
+	{
+		"ma" : "80",
+		"ten" : "Chụp Xquang khớp thái dương hàm"
+	},
+	{
+		"ma" : "81",
+		"ten" : "Chụp Xquang răng cận chóp (Periapical)"
+	},
+	{
+		"ma" : "82",
+		"ten" : "Chụp Xquang răng cánh cắn (Bite wing)"
+	},
+	{
+		"ma" : "83",
+		"ten" : "Chụp Xquang răng toàn cảnh"
+	},
+	{
+		"ma" : "84",
+		"ten" : "Chụp Xquang phim cắn (Occlusal)"
+	},
+	{
+		"ma" : "85",
+		"ten" : "Chụp Xquang mỏm trâm"
+	},
+	{
+		"ma" : "86",
+		"ten" : "Chụp Xquang cột sống cổ thẳng nghiêng"
+	},
+	{
+		"ma" : "87",
+		"ten" : "Chụp Xquang cột sống cổ chếch hai bên"
+	},
+	{
+		"ma" : "88",
+		"ten" : "Chụp Xquang cột sống cổ động, nghiêng 3 tư thế"
+	},
+	{
+		"ma" : "89",
+		"ten" : "Chụp Xquang cột sống cổ C1-C2"
+	},
+	{
+		"ma" : "90",
+		"ten" : "Chụp Xquang cột sống ngực thẳng nghiêng hoặc chếch"
+	},
+	{
+		"ma" : "91",
+		"ten" : "Chụp Xquang cột sống thắt lưng thẳng nghiêng"
+	},
+	{
+		"ma" : "92",
+		"ten" : "Chụp Xquang cột sống thắt lưng chếch hai bên"
+	},
+	{
+		"ma" : "93",
+		"ten" : "Chụp Xquang cột sống thắt lưng L5-S1 thẳng nghiêng"
+	},
+	{
+		"ma" : "94",
+		"ten" : "Chụp Xquang cột sống thắt lưng động, gập ưỡn"
+	},
+	{
+		"ma" : "95",
+		"ten" : "Chụp Xquang cột sống thắt lưng De Sèze"
+	},
+	{
+		"ma" : "96",
+		"ten" : "Chụp Xquang cột sống cùng cụt thẳng nghiêng"
+	},
+	{
+		"ma" : "97",
+		"ten" : "Chụp Xquang khớp cùng chậu thẳng chếch hai bên"
+	},
+	{
+		"ma" : "98",
+		"ten" : "Chụp Xquang khung chậu thẳng"
+	},
+	{
+		"ma" : "99",
+		"ten" : "Chụp Xquang xương đòn thẳng hoặc chếch"
+	},
+	{
+		"ma" : "100",
+		"ten" : "Chụp Xquang khớp vai thẳng"
+	},
+	{
+		"ma" : "101",
+		"ten" : "Chụp Xquang khớp vai nghiêng hoặc chếch"
+	},
+	{
+		"ma" : "102",
+		"ten" : "Chụp Xquang xương bả vai thẳng nghiêng"
+	},
+	{
+		"ma" : "103",
+		"ten" : "Chụp Xquang xương cánh tay thẳng nghiêng"
+	},
+	{
+		"ma" : "104",
+		"ten" : "Chụp Xquang khớp khuỷu thẳng, nghiêng hoặc chếch"
+	},
+	{
+		"ma" : "105",
+		"ten" : "Chụp Xquang khớp khuỷu gập (Jones hoặc Coyle)"
+	},
+	{
+		"ma" : "106",
+		"ten" : "Chụp Xquang xương cẳng tay thẳng nghiêng"
+	},
+	{
+		"ma" : "107",
+		"ten" : "Chụp Xquang xương cổ tay thẳng, nghiêng hoặc chếch"
+	},
+	{
+		"ma" : "108",
+		"ten" : "Chụp Xquang xương bàn ngón tay thẳng, nghiêng hoặc chếch"
+	},
+	{
+		"ma" : "109",
+		"ten" : "Chụp Xquang khớp háng thẳng hai bên"
+	},
+	{
+		"ma" : "110",
+		"ten" : "Chụp Xquang khớp háng nghiêng"
+	},
+	{
+		"ma" : "111",
+		"ten" : "Chụp Xquang xương đùi thẳng nghiêng"
+	},
+	{
+		"ma" : "112",
+		"ten" : "Chụp Xquang khớp gối thẳng, nghiêng hoặc chếch"
+	},
+	{
+		"ma" : "113",
+		"ten" : "Chụp Xquang xương bánh chè và khớp đùi bánh chè "
+	},
+	{
+		"ma" : "114",
+		"ten" : "Chụp Xquang xương cẳng chân thẳng nghiêng"
+	},
+	{
+		"ma" : "115",
+		"ten" : "Chụp Xquang xương cổ chân thẳng, nghiêng hoặc chếch"
+	},
+	{
+		"ma" : "116",
+		"ten" : "Chụp Xquang xương bàn, ngón chân thẳng, nghiêng hoặc chếch"
+	},
+	{
+		"ma" : "117",
+		"ten" : "Chụp Xquang xương gót thẳng nghiêng"
+	},
+	{
+		"ma" : "118",
+		"ten" : "Chụp Xquang toàn bộ chi dưới thẳng"
+	},
+	{
+		"ma" : "119",
+		"ten" : "Chụp Xquang ngực thẳng"
+	},
+	{
+		"ma" : "120",
+		"ten" : "Chụp Xquang ngực nghiêng hoặc chếch mỗi bên"
+	},
+	{
+		"ma" : "121",
+		"ten" : "Chụp Xquang xương ức thẳng, nghiêng"
+	},
+	{
+		"ma" : "122",
+		"ten" : "Chụp Xquang khớp ức đòn thẳng chếch"
+	},
+	{
+		"ma" : "123",
+		"ten" : "Chụp Xquang đỉnh phổi ưỡn"
+	},
+	{
+		"ma" : "124",
+		"ten" : "Chụp Xquang thực quản cổ nghiêng"
+	},
+	{
+		"ma" : "125",
+		"ten" : "Chụp Xquang bụng không chuẩn bị thẳng hoặc nghiêng"
+	},
+	{
+		"ma" : "126",
+		"ten" : "Chụp Xquang tuyến vú"
+	},
+	{
+		"ma" : "127",
+		"ten" : "Chụp Xquang tại giường"
+	},
+	{
+		"ma" : "128",
+		"ten" : "Chụp Xquang tại phòng mổ"
+	},
+	{
+		"ma" : "129",
+		"ten" : "Chụp Xquang phim đo sọ thẳng, nghiêng (Cephalometric)"
+	},
+	{
+		"ma" : "B.II",
+		"ten" : "Chụp Xquang chẩn đoán có chuẩn bị"
+	},
+	{
+		"ma" : "130",
+		"ten" : "Chụp Xquang thực quản dạ dày"
+	},
+	{
+		"ma" : "131",
+		"ten" : "Chụp Xquang ruột non"
+	},
+	{
+		"ma" : "132",
+		"ten" : "Chụp Xquang đại tràng"
+	},
+	{
+		"ma" : "133",
+		"ten" : "Chụp Xquang đường mật qua Kehr"
+	},
+	{
+		"ma" : "134",
+		"ten" : "Chụp Xquang mật tụy ngược dòng qua nội soi"
+	},
+	{
+		"ma" : "135",
+		"ten" : "Chụp Xquang đường dò"
+	},
+	{
+		"ma" : "136",
+		"ten" : "Chụp Xquang tuyến nước bọt"
+	},
+	{
+		"ma" : "137",
+		"ten" : "Chụp Xquang tuyến lệ"
+	},
+	{
+		"ma" : "138",
+		"ten" : "Chụp Xquang tử cung vòi trứng"
+	},
+	{
+		"ma" : "139",
+		"ten" : "Chụp Xquang ống tuyến sữa"
+	},
+	{
+		"ma" : "140",
+		"ten" : "Chụp Xquang niệu đồ tĩnh mạch (UIV)"
+	},
+	{
+		"ma" : "141",
+		"ten" : "Chụp Xquang bể thận-niệu quản xuôi dòng"
+	},
+	{
+		"ma" : "142",
+		"ten" : "Chụp Xquang niệu quản-bể thận ngược dòng"
+	},
+	{
+		"ma" : "143",
+		"ten" : "Chụp Xquang niệu đạo bàng quang ngược dòng"
+	},
+	{
+		"ma" : "144",
+		"ten" : "Chụp Xquang bàng quang trên xương mu"
+	},
+	{
+		"ma" : "145",
+		"ten" : "Chụp Xquang động mạch tạng"
+	},
+	{
+		"ma" : "146",
+		"ten" : "Chụp Xquang động mạch chi"
+	},
+	{
+		"ma" : "147",
+		"ten" : "Chụp Xquang động mạch vành"
+	},
+	{
+		"ma" : "148",
+		"ten" : "Chụp Xquang bao rễ thần kinh"
+	},
+	{
+		"ma" : "C",
+		"ten" : "CHỤP CẮT LỚP VI TÍNH CHẨN ĐOÁN (CT)"
+	},
+	{
+		"ma" : "C.I",
+		"ten" : "Chụp cắt lớp vi tính vùng đầu mặt cổ từ 1-32 dãy"
+	},
+	{
+		"ma" : "149",
+		"ten" : "Chụp CLVT sọ não không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "150",
+		"ten" : "Chụp CLVT sọ não có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "151",
+		"ten" : "Chụp CLVT hệ động mạch cảnh có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "152",
+		"ten" : "Chụp CLVT tưới máu não (CT perfusion)"
+	},
+	{
+		"ma" : "153",
+		"ten" : "Chụp CLVT mạch máu não"
+	},
+	{
+		"ma" : "154",
+		"ten" : "Chụp CLVT sọ não có dựng hình 3D"
+	},
+	{
+		"ma" : "155",
+		"ten" : "Chụp CLVT hàm-mặt không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "156",
+		"ten" : "Chụp CLVT hàm-mặt có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "157",
+		"ten" : "Chụp CLVT hàm mặt có ứng dụng phần mềm nha khoa"
+	},
+	{
+		"ma" : "158",
+		"ten" : "Chụp CLVT tai-xương đá không tiêm thuốc"
+	},
+	{
+		"ma" : "159",
+		"ten" : "Chụp CLVT tai-xương đá có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "160",
+		"ten" : "Chụp CLVT hốc mắt"
+	},
+	{
+		"ma" : "161",
+		"ten" : "Chụp CLVT hàm mặt có dựng hình 3D"
+	},
+	{
+		"ma" : "162",
+		"ten" : "Chụp cắt lớp vi tính hàm mặt chùm tia hình nón hàm trên (Cone-Beam CT)"
+	},
+	{
+		"ma" : "163",
+		"ten" : "Chụp cắt lớp vi tính hàm mặt chùm tia hình nón hàm dưới (Cone-Beam CT)"
+	},
+	{
+		"ma" : "164",
+		"ten" : "Chụp cắt lớp vi tính hàm mặt chùm tia hình nón hàm trên hàm dưới (Cone-Beam CT)"
+	},
+	{
+		"ma" : "C.II",
+		"ten" : "Chụp cắt lớp vi tính vùng đầu mặt cổ từ 64-128 dãy"
+	},
+	{
+		"ma" : "165",
+		"ten" : "Chụp CLVT sọ não không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "166",
+		"ten" : "Chụp CLVT sọ não có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "167",
+		"ten" : "Chụp CLVT hệ động mạch cảnh có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "168",
+		"ten" : "Chụp CLVT tưới máu não (CT perfusion)"
+	},
+	{
+		"ma" : "169",
+		"ten" : "Chụp CLVT mạch máu não"
+	},
+	{
+		"ma" : "170",
+		"ten" : "Chụp CLVT sọ não có dựng hình 3D"
+	},
+	{
+		"ma" : "171",
+		"ten" : "Chụp CLVT hàm-mặt không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "172",
+		"ten" : "Chụp CLVT hàm-mặt có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "173",
+		"ten" : "Chụp CLVT hàm mặt có ứng dụng phần mềm nha khoa"
+	},
+	{
+		"ma" : "174",
+		"ten" : "Chụp CLVT tai-xương đá không tiêm thuốc"
+	},
+	{
+		"ma" : "175",
+		"ten" : "Chụp CLVT tai-xương đá có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "176",
+		"ten" : "Chụp CLVT hốc mắt"
+	},
+	{
+		"ma" : "177",
+		"ten" : "Chụp CLVT hàm mặt có dựng hình 3D"
+	},
+	{
+		"ma" : "C.III",
+		"ten" : "Chụp cắt lớp vi tính vùng đầu mặt cổ từ ≥ 256 dãy"
+	},
+	{
+		"ma" : "178",
+		"ten" : "Chụp CLVT sọ não không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "179",
+		"ten" : "Chụp CLVT sọ não có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "180",
+		"ten" : "Chụp CLVT hệ động mạch cảnh có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "181",
+		"ten" : "Chụp CLVT tưới máu não (CT perfusion)"
+	},
+	{
+		"ma" : "182",
+		"ten" : "Chụp CLVT mạch máu não"
+	},
+	{
+		"ma" : "183",
+		"ten" : "Chụp CLVT sọ não có dựng hình 3D"
+	},
+	{
+		"ma" : "184",
+		"ten" : "Chụp CLVT hàm-mặt không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "185",
+		"ten" : "Chụp CLVT hàm-mặt có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "186",
+		"ten" : "Chụp CLVT hàm mặt có ứng dụng phần mềm nha khoa"
+	},
+	{
+		"ma" : "187",
+		"ten" : "Chụp CLVT tai-xương đá không tiêm thuốc"
+	},
+	{
+		"ma" : "188",
+		"ten" : "Chụp CLVT tai-xương đá có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "189",
+		"ten" : "Chụp CLVT hốc mắt"
+	},
+	{
+		"ma" : "190",
+		"ten" : "Chụp CLVT hàm mặt có dựng hình 3D"
+	},
+	{
+		"ma" : "C.IV",
+		"ten" : "Chụp cắt lớp vi tính vùng ngực từ 1- 32 dãy"
+	},
+	{
+		"ma" : "191",
+		"ten" : "Chụp cắt lớp vi tính lồng ngực không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "192",
+		"ten" : "Chụp cắt lớp vi tính lồng ngực có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "193",
+		"ten" : "Chụp cắt lớp vi tính phổi độ phân giải cao"
+	},
+	{
+		"ma" : "194",
+		"ten" : "Chụp cắt lớp vi tính phổi liều thấp tầm soát u"
+	},
+	{
+		"ma" : "195",
+		"ten" : "Chụp cắt lớp vi tính nội soi ảo cây phế quản"
+	},
+	{
+		"ma" : "196",
+		"ten" : "Chụp cắt lớp vi tính động mạch phổi"
+	},
+	{
+		"ma" : "197",
+		"ten" : "Chụp cắt lớp vi tính động mạch chủ ngực"
+	},
+	{
+		"ma" : "198",
+		"ten" : "Chụp cắt lớp vi tính động mạch vành, tim"
+	},
+	{
+		"ma" : "199",
+		"ten" : "Chụp cắt lớp vi tính tính điểm vôi hóa mạch vành"
+	},
+	{
+		"ma" : "C.V",
+		"ten" : "Chụp cắt lớp vi tính vùng ngực từ 64-128 dãy"
+	},
+	{
+		"ma" : "200",
+		"ten" : "Chụp cắt lớp vi tính lồng ngực không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "201",
+		"ten" : "Chụp cắt lớp vi tính lồng ngực có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "202",
+		"ten" : "Chụp cắt lớp vi tính phổi độ phân giải cao"
+	},
+	{
+		"ma" : "203",
+		"ten" : "Chụp cắt lớp vi tính phổi liều thấp tầm soát u"
+	},
+	{
+		"ma" : "204",
+		"ten" : "Chụp cắt lớp vi tính nội soi ảo cây phế quản"
+	},
+	{
+		"ma" : "205",
+		"ten" : "Chụp cắt lớp vi tính động mạch phổi"
+	},
+	{
+		"ma" : "206",
+		"ten" : "Chụp cắt lớp vi tính động mạch chủ ngực"
+	},
+	{
+		"ma" : "207",
+		"ten" : "Chụp cắt lớp vi tính động mạch vành, tim"
+	},
+	{
+		"ma" : "208",
+		"ten" : "Chụp cắt lớp vi tính tính điểm vôi hóa mạch vành"
+	},
+	{
+		"ma" : "C.VI",
+		"ten" : "Chụp cắt lớp vi tính vùng ngực từ ≥ 256 dãy"
+	},
+	{
+		"ma" : "209",
+		"ten" : "Chụp cắt lớp vi tính lồng ngực không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "210",
+		"ten" : "Chụp cắt lớp vi tính lồng ngực có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "211",
+		"ten" : "Chụp cắt lớp vi tính phổi độ phân giải cao"
+	},
+	{
+		"ma" : "212",
+		"ten" : "Chụp cắt lớp vi tính phổi liều thấp tầm soát u"
+	},
+	{
+		"ma" : "213",
+		"ten" : "Chụp cắt lớp vi tính nội soi ảo cây phế quản"
+	},
+	{
+		"ma" : "214",
+		"ten" : "Chụp cắt lớp vi tính động mạch phổi"
+	},
+	{
+		"ma" : "215",
+		"ten" : "Chụp cắt lớp vi tính động mạch chủ ngực"
+	},
+	{
+		"ma" : "216",
+		"ten" : "Chụp cắt lớp vi tính động mạch vành, tim có dùng thuốc beta block"
+	},
+	{
+		"ma" : "217",
+		"ten" : "Chụp cắt lớp vi tính động mạch vành, tim không dùng thuốc beta block"
+	},
+	{
+		"ma" : "218",
+		"ten" : "Chụp cắt lớp vi tính tính điểm vôi hóa mạch vành"
+	},
+	{
+		"ma" : "C.VII",
+		"ten" : "Chụp cắt lớp vi tính vùng bụng, tiểu khung từ 1-32 dãy"
+	},
+	{
+		"ma" : "219",
+		"ten" : "Chụp cắt lớp vi tính tầng trên ổ bụng thường quy (gồm: chụp Cắt lớp vi tính gan-mật, tụy, lách, dạ dày-tá tràng.v.v.)"
+	},
+	{
+		"ma" : "220",
+		"ten" : "Chụp cắt lớp vi tính bụng-tiểu khung thường quy "
+	},
+	{
+		"ma" : "221",
+		"ten" : "Chụp cắt lớp vi tính tiểu khung thường quy (gồm: chụp cắt lớp vi tính tử cung-buồng trứng, tiền liệt tuyến, các khối u vùng tiểu khung.v.v.)"
+	},
+	{
+		"ma" : "222",
+		"ten" : "Chụp cắt lớp vi tính hệ tiết niệu thường quy"
+	},
+	{
+		"ma" : "223",
+		"ten" : "Chụp cắt lớp vi tính tầng trên ổ bụng có khảo sát mạch các tạng (bao gồm mạch: gan, tụy, lách và mạch khối u)"
+	},
+	{
+		"ma" : "224",
+		"ten" : "Chụp cắt lớp vi tính hệ tiết niệu có khảo sát mạch thận và\/hoặc dựng hình đường bài xuất"
+	},
+	{
+		"ma" : "225",
+		"ten" : "Chụp cắt lớp vi tính gan có dựng hình đường mật"
+	},
+	{
+		"ma" : "226",
+		"ten" : "Chụp cắt lớp vi tính tạng khảo sát huyết động học khối u (CT perfusion)"
+	},
+	{
+		"ma" : "227",
+		"ten" : "Chụp cắt lớp vi tính ruột non (entero-scan) không dùng sonde"
+	},
+	{
+		"ma" : "228",
+		"ten" : "Chụp cắt lớp vi tính ruột non (entero-scan) có dùng sonde"
+	},
+	{
+		"ma" : "229",
+		"ten" : "Chụp cắt lớp vi tính đại tràng (colo-scan) dùng dịch hoặc hơi có nội soi ảo"
+	},
+	{
+		"ma" : "230",
+		"ten" : "Chụp cắt lớp vi tính động mạch chủ-chậu"
+	},
+	{
+		"ma" : "C.VIII",
+		"ten" : "Chụp cắt lớp vi tính vùng bụng, tiểu khung từ 64-128 dãy"
+	},
+	{
+		"ma" : "231",
+		"ten" : "Chụp cắt lớp vi tính tầng trên ổ bụng thường quy (gồm: chụp Cắt lớp vi tính gan-mật, tụy, lách, dạ dày-tá tràng.v.v.)"
+	},
+	{
+		"ma" : "232",
+		"ten" : "Chụp cắt lớp vi tính bụng-tiểu khung thường quy "
+	},
+	{
+		"ma" : "233",
+		"ten" : "Chụp cắt lớp vi tính tiểu khung thường quy (gồm: chụp cắt lớp vi tính tử cung-buồng trứng, tiền liệt tuyến, các khối u vùng tiểu khung.v.v.)"
+	},
+	{
+		"ma" : "234",
+		"ten" : "Chụp cắt lớp vi tính hệ tiết niệu thường quy"
+	},
+	{
+		"ma" : "235",
+		"ten" : "Chụp cắt lớp vi tính tầng trên ổ bụng có khảo sát mạch các tạng (bao gồm mạch: gan, tụy, lách và mạch khối u)"
+	},
+	{
+		"ma" : "236",
+		"ten" : "Chụp cắt lớp vi tính hệ tiết niệu có khảo sát mạch thận và\/hoặc dựng hình đường bài xuất"
+	},
+	{
+		"ma" : "237",
+		"ten" : "Chụp cắt lớp vi tính gan có dựng hình đường mật"
+	},
+	{
+		"ma" : "238",
+		"ten" : "Chụp cắt lớp vi tính tạng khảo sát huyết động học khối u (CT perfusion)"
+	},
+	{
+		"ma" : "239",
+		"ten" : "Chụp cắt lớp vi tính ruột non (entero-scan) không dùng sonde"
+	},
+	{
+		"ma" : "240",
+		"ten" : "Chụp cắt lớp vi tính ruột non (entero-scan) có dùng sonde"
+	},
+	{
+		"ma" : "241",
+		"ten" : "Chụp cắt lớp vi tính đại tràng (colo-scan) dùng dịch hoặc hơi có nội soi ảo"
+	},
+	{
+		"ma" : "242",
+		"ten" : "Chụp cắt lớp vi tính động mạch chủ-chậu"
+	},
+	{
+		"ma" : "C.IX",
+		"ten" : "Chụp cắt lớp vi tính vùng bụng, tiểu khung từ ≥ 256 dãy"
+	},
+	{
+		"ma" : "243",
+		"ten" : "Chụp cắt lớp vi tính tầng trên ổ bụng thường quy (gồm: chụp Cắt lớp vi tính gan-mật, tụy, lách, dạ dày-tá tràng.v.v.)"
+	},
+	{
+		"ma" : "244",
+		"ten" : "Chụp cắt lớp vi tính bụng-tiểu khung thường quy "
+	},
+	{
+		"ma" : "245",
+		"ten" : "Chụp cắt lớp vi tính tiểu khung thường quy (gồm: chụp cắt lớp vi tính tử cung-buồng trứng, tiền liệt tuyến, các khối u vùng tiểu khung.v.v.)"
+	},
+	{
+		"ma" : "246",
+		"ten" : "Chụp cắt lớp vi tính hệ tiết niệu thường quy"
+	},
+	{
+		"ma" : "247",
+		"ten" : "Chụp cắt lớp vi tính tầng trên ổ bụng có khảo sát mạch các tạng (bao gồm mạch: gan, tụy, lách và mạch khối u)"
+	},
+	{
+		"ma" : "248",
+		"ten" : "Chụp cắt lớp vi tính hệ tiết niệu có khảo sát mạch thận và\/hoặc dựng hình đường bài xuất"
+	},
+	{
+		"ma" : "249",
+		"ten" : "Chụp cắt lớp vi tính gan có dựng hình đường mật"
+	},
+	{
+		"ma" : "250",
+		"ten" : "Chụp cắt lớp vi tính tạng khảo sát huyết động học khối u (CT perfusion)"
+	},
+	{
+		"ma" : "251",
+		"ten" : "Chụp cắt lớp vi tính ruột non (entero-scan) không dùng sonde"
+	},
+	{
+		"ma" : "252",
+		"ten" : "Chụp cắt lớp vi tính ruột non (entero-scan) có dùng sonde"
+	},
+	{
+		"ma" : "253",
+		"ten" : "Chụp cắt lớp vi tính đại tràng (colo-scan) dùng dịch hoặc hơi có nội soi ảo"
+	},
+	{
+		"ma" : "254",
+		"ten" : "Chụp cắt lớp vi tính động mạch chủ-chậu"
+	},
+	{
+		"ma" : "C.X",
+		"ten" : "Chụp cắt lớp vi tính cột sống, xương khớp từ 1-32 dãy"
+	},
+	{
+		"ma" : "255",
+		"ten" : "Chụp cắt lớp vi tính cột sống cổ không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "256",
+		"ten" : "Chụp cắt lớp vi tính cột sống cổ có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "257",
+		"ten" : "Chụp cắt lớp vi tính cột sống ngực không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "258",
+		"ten" : "Chụp cắt lớp vi tính cột sống ngực có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "259",
+		"ten" : "Chụp cắt lớp vi tính cột sống thắt lưng không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "260",
+		"ten" : "Chụp cắt lớp vi tính cột sống thắt lưng có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "261",
+		"ten" : "Chụp cắt lớp vi tính khớp thường quy không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "262",
+		"ten" : "Chụp cắt lớp vi tính khớp thường quy có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "263",
+		"ten" : "Chụp cắt lớp vi tính khớp có tiêm thuốc cản quang vào ổ khớp"
+	},
+	{
+		"ma" : "264",
+		"ten" : "Chụp cắt lớp vi tính xương chi không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "265",
+		"ten" : "Chụp cắt lớp vi tính xương chi có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "266",
+		"ten" : "Chụp cắt lớp vi tính mạch máu chi trên"
+	},
+	{
+		"ma" : "267",
+		"ten" : "Chụp cắt lớp vi tính mạch máu chi dưới"
+	},
+	{
+		"ma" : "C.XI",
+		"ten" : "Chụp cắt lớp vi tính cột sống, xương khớp từ 64-128 dãy"
+	},
+	{
+		"ma" : "268",
+		"ten" : "Chụp cắt lớp vi tính cột sống cổ không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "269",
+		"ten" : "Chụp cắt lớp vi tính cột sống cổ có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "270",
+		"ten" : "Chụp cắt lớp vi tính cột sống ngực không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "271",
+		"ten" : "Chụp cắt lớp vi tính cột sống ngực có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "272",
+		"ten" : "Chụp cắt lớp vi tính cột sống thắt lưng không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "273",
+		"ten" : "Chụp cắt lớp vi tính cột sống thắt lưng có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "274",
+		"ten" : "Chụp cắt lớp vi tính khớp thường quy không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "275",
+		"ten" : "Chụp cắt lớp vi tính khớp thường quy có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "276",
+		"ten" : "Chụp cắt lớp vi tính khớp có tiêm thuốc cản quang vào ổ khớp"
+	},
+	{
+		"ma" : "277",
+		"ten" : "Chụp cắt lớp vi tính xương chi không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "278",
+		"ten" : "Chụp cắt lớp vi tính xương chi có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "279",
+		"ten" : "Chụp cắt lớp vi tính tầm soát toàn thân"
+	},
+	{
+		"ma" : "280",
+		"ten" : "Chụp cắt lớp vi tính mạch máu chi trên"
+	},
+	{
+		"ma" : "281",
+		"ten" : "Chụp cắt lớp vi tính mạch máu chi dưới"
+	},
+	{
+		"ma" : "C.XII",
+		"ten" : "Chụp cắt lớp vi tính cột sống, xương khớp từ ≥ 256 dãy"
+	},
+	{
+		"ma" : "282",
+		"ten" : "Chụp cắt lớp vi tính cột sống cổ không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "283",
+		"ten" : "Chụp cắt lớp vi tính cột sống cổ có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "284",
+		"ten" : "Chụp cắt lớp vi tính cột sống ngực không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "285",
+		"ten" : "Chụp cắt lớp vi tính cột sống ngực có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "286",
+		"ten" : "Chụp cắt lớp vi tính cột sống thắt lưng không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "287",
+		"ten" : "Chụp cắt lớp vi tính cột sống thắt lưng có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "288",
+		"ten" : "Chụp cắt lớp vi tính khớp thường quy không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "289",
+		"ten" : "Chụp cắt lớp vi tính khớp thường quy có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "290",
+		"ten" : "Chụp cắt lớp vi tính khớp có tiêm thuốc cản quang vào ổ khớp"
+	},
+	{
+		"ma" : "291",
+		"ten" : "Chụp cắt lớp vi tính xương chi không tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "292",
+		"ten" : "Chụp cắt lớp vi tính xương chi có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "293",
+		"ten" : "Chụp cắt lớp vi tính tầm soát toàn thân"
+	},
+	{
+		"ma" : "294",
+		"ten" : "Chụp cắt lớp vi tính mạch máu chi trên"
+	},
+	{
+		"ma" : "295",
+		"ten" : "Chụp cắt lớp vi tính mạch máu chi dưới"
+	},
+	{
+		"ma" : "D",
+		"ten" : "CHỤP CỘNG HƯỞNG TỪ (Cộng hưởng từ)"
+	},
+	{
+		"ma" : "D.I",
+		"ten" : "Chụp cộng hưởng từ vùng đầu - mặt - cổ máy từ lực 0.2-1.5T"
+	},
+	{
+		"ma" : "296",
+		"ten" : "Chụp cộng hưởng từ sọ não "
+	},
+	{
+		"ma" : "297",
+		"ten" : "Chụp cộng hưởng từ sọ não có tiêm chất tương phản"
+	},
+	{
+		"ma" : "298",
+		"ten" : "Chụp cộng hưởng từ não- mạch não không tiêm chất tương phản"
+	},
+	{
+		"ma" : "299",
+		"ten" : "Chụp cộng hưởng từ não- mạch não có tiêm chất tương phản"
+	},
+	{
+		"ma" : "300",
+		"ten" : "Chụp cộng hưởng từ hệ mạch cổ không tiêm chất tương phản "
+	},
+	{
+		"ma" : "301",
+		"ten" : "Chụp cộng hưởng từ hệ mạch cổ có tiêm chất tương phản"
+	},
+	{
+		"ma" : "302",
+		"ten" : "Chụp cộng hưởng từ tuyến yên có tiêm chất tương phản (khảo sát động học)"
+	},
+	{
+		"ma" : "303",
+		"ten" : "Chụp cộng hưởng từ hốc mắt và thần kinh thị giác "
+	},
+	{
+		"ma" : "304",
+		"ten" : "Chụp cộng hưởng từ hốc mắt và thần kinh thị giác có tiêm chất tương phản"
+	},
+	{
+		"ma" : "305",
+		"ten" : "Chụp cộng hưởng từ tưới máu não (perfusion)"
+	},
+	{
+		"ma" : "306",
+		"ten" : "Chụp cộng hưởng từ phổ não (spectroscopy)"
+	},
+	{
+		"ma" : "307",
+		"ten" : "Chụp cộng hưởng từ các bó sợi thần kinh (tractography) hay Chụp Cộng hưởng từ khuếch tán sức căng (DTI - Diffusion Tensor Imaging)"
+	},
+	{
+		"ma" : "308",
+		"ten" : "Chụp cộng hưởng từ khuếch tán (DWI - Diffusion-weighted Imaging)"
+	},
+	{
+		"ma" : "309",
+		"ten" : "Chụp cộng hưởng từ đáy sọ và xương đá"
+	},
+	{
+		"ma" : "310",
+		"ten" : "Chụp cộng hưởng từ vùng mặt – cổ "
+	},
+	{
+		"ma" : "311",
+		"ten" : "Chụp cộng hưởng từ vùng mặt – cổ có tiêm tương phản"
+	},
+	{
+		"ma" : "312",
+		"ten" : "Chụp cộng hưởng từ sọ não chức năng"
+	},
+	{
+		"ma" : "D.II",
+		"ten" : "Chụp cộng hưởng từ vùng ngực máy từ lực 0.2-1.5T"
+	},
+	{
+		"ma" : "313",
+		"ten" : "Chụp cộng hưởng từ lồng ngực "
+	},
+	{
+		"ma" : "314",
+		"ten" : "Chụp cộng hưởng từ lồng ngực có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "315",
+		"ten" : "Chụp cộng hưởng từ thông khí phổi (Heli)"
+	},
+	{
+		"ma" : "316",
+		"ten" : "Chụp cộng hưởng từ tuyến vú"
+	},
+	{
+		"ma" : "317",
+		"ten" : "Chụp cộng hưởng từ tuyến vú động học có tiêm tương phản"
+	},
+	{
+		"ma" : "318",
+		"ten" : "Chụp cộng hưởng từ phổ tuyến vú"
+	},
+	{
+		"ma" : "D.III",
+		"ten" : "Chụp cộng hưởng từ vùng bụng, chậu máy từ lực 0.2-1.5T"
+	},
+	{
+		"ma" : "319",
+		"ten" : "Chụp cộng hưởng từ tầng bụng không tiêm chất tương phản (gồm: chụp cộng hưởng từ gan-mật, tụy, lách, thận, dạ dày-tá tràng...)"
+	},
+	{
+		"ma" : "320",
+		"ten" : "Chụp cộng hưởng từ tầng bụng có tiêm chất tương phản (gồm: chụp cộng hưởng từ gan-mật, tụy, lách, thận, dạ dày-tá tràng...)"
+	},
+	{
+		"ma" : "321",
+		"ten" : "Chụp cộng hưởng từ vùng chậu (gồm: chụp cộng hưởng từ tử cung-phần phụ, tiền liệt tuyến, đại tràng chậu hông, trực tràng, các khối u vùng chậu…)"
+	},
+	{
+		"ma" : "322",
+		"ten" : "Chụp cộng hưởng từ  vùng chậu dò hậu môn "
+	},
+	{
+		"ma" : "323",
+		"ten" : "Chụp cộng hưởng từ vùng chậu có tiêm chất tương phản (gồm: chụp cộng hưởng từ tử cung-phần phụ, tiền liệt tuyến, đại tràng chậu hông, trực tràng, các khối u vùng chậu…)"
+	},
+	{
+		"ma" : "324",
+		"ten" : "Chụp cộng hưởng từ bìu, dương vật "
+	},
+	{
+		"ma" : "325",
+		"ten" : "Chụp cộng hưởng từ bìu, dương vật có tiêm chất tương phản"
+	},
+	{
+		"ma" : "326",
+		"ten" : "Chụp cộng hưởng từ động học sàn chậu, tống phân (defecography-MR)"
+	},
+	{
+		"ma" : "327",
+		"ten" : "Chụp cộng hưởng từ ruột non (enteroclysis)"
+	},
+	{
+		"ma" : "328",
+		"ten" : "Chụp cộng hưởng từ nội soi ảo khung đại tràng (virtual colonoscopy)"
+	},
+	{
+		"ma" : "329",
+		"ten" : "Chụp cộng hưởng từ tuyến tiền liệt có tiêm tương phản"
+	},
+	{
+		"ma" : "330",
+		"ten" : "Chụp cộng hưởng từ phổ tuyến tiền liệt"
+	},
+	{
+		"ma" : "331",
+		"ten" : "Chụp cộng hưởng từ đánh giá bánh nhau (rau)"
+	},
+	{
+		"ma" : "332",
+		"ten" : "Chụp cộng hưởng từ thai nhi"
+	},
+	{
+		"ma" : "333",
+		"ten" : "Chụp cộng hưởng từ gan với chất tương phản đặc hiệu mô"
+	},
+	{
+		"ma" : "D.IV",
+		"ten" : "Chụp Cộng hưởng từ cột sống - ống sống và xương khớp máy từ lực 0.2-1.5T"
+	},
+	{
+		"ma" : "334",
+		"ten" : "Chụp cộng hưởng từ cột sống cổ "
+	},
+	{
+		"ma" : "335",
+		"ten" : "Chụp cộng hưởng từ cột sống cổ có tiêm tương phản"
+	},
+	{
+		"ma" : "336",
+		"ten" : "Chụp cộng hưởng từ cột sống ngực "
+	},
+	{
+		"ma" : "337",
+		"ten" : "Chụp cộng hưởng từ cột sống ngực có tiêm tương phản"
+	},
+	{
+		"ma" : "338",
+		"ten" : "Chụp cộng hưởng từ cột sống thắt lưng - cùng "
+	},
+	{
+		"ma" : "339",
+		"ten" : "Chụp cộng hưởng từ cột sống thắt lưng - cùng có tiêm tương phản"
+	},
+	{
+		"ma" : "340",
+		"ten" : "Chụp cộng hưởng từ khớp "
+	},
+	{
+		"ma" : "341",
+		"ten" : "Chụp cộng hưởng từ khớp có tiêm tương phản tĩnh mạch"
+	},
+	{
+		"ma" : "342",
+		"ten" : "Chụp cộng hưởng từ khớp có tiêm tương phản nội khớp"
+	},
+	{
+		"ma" : "343",
+		"ten" : "Chụp cộng hưởng từ xương và tủy xương "
+	},
+	{
+		"ma" : "344",
+		"ten" : "Chụp cộng hưởng từ xương và tủy xương có tiêm tương phản"
+	},
+	{
+		"ma" : "345",
+		"ten" : "Chụp cộng hưởng từ phần mềm chi "
+	},
+	{
+		"ma" : "346",
+		"ten" : "Chụp cộng hưởng từ phần mềm chi có tiêm tương phản"
+	},
+	{
+		"ma" : "D.V",
+		"ten" : "Chụp cộng hưởng từ tim mạch máy từ lực 1.5T"
+	},
+	{
+		"ma" : "347",
+		"ten" : "Chụp cộng hưởng từ động mạch chủ-chậu"
+	},
+	{
+		"ma" : "348",
+		"ten" : "Chụp cộng hưởng từ động mạch chủ-ngực"
+	},
+	{
+		"ma" : "349",
+		"ten" : "Chụp cộng hưởng từ động mạch vành"
+	},
+	{
+		"ma" : "350",
+		"ten" : "Chụp cộng hưởng từ tim"
+	},
+	{
+		"ma" : "351",
+		"ten" : "Chụp cộng hưởng từ tầng trên ổ bụng có khảo sát mạch các tạng (bao gồm mạch: gan, tụy, lách và mạch khối u)"
+	},
+	{
+		"ma" : "352",
+		"ten" : "Chụp cộng hưởng từ động mạch chi trên "
+	},
+	{
+		"ma" : "353",
+		"ten" : "Chụp cộng hưởng từ động mạch chi trên có tiêm tương phản"
+	},
+	{
+		"ma" : "354",
+		"ten" : "Chụp cộng hưởng từ động mạch chi dưới "
+	},
+	{
+		"ma" : "355",
+		"ten" : "Chụp cộng hưởng từ động mạch chi dưới có tiêm tương phản"
+	},
+	{
+		"ma" : "356",
+		"ten" : "Chụp cộng hưởng từ động mạch chi toàn thân "
+	},
+	{
+		"ma" : "357",
+		"ten" : "Chụp cộng hưởng từ động mạch toàn thân có tiêm tương phản"
+	},
+	{
+		"ma" : "358",
+		"ten" : "Chụp cộng hưởng từ tĩnh mạch "
+	},
+	{
+		"ma" : "359",
+		"ten" : "Chụp cộng hưởng từ tĩnh mạch có tiêm tương phản"
+	},
+	{
+		"ma" : "360",
+		"ten" : "Chụp cộng hưởng từ bạch mạch có tiêm tương phản không đặc hiệu"
+	},
+	{
+		"ma" : "361",
+		"ten" : "Chụp cộng hưởng từ bạch mạch có tiêm tương phản đặc hiệu"
+	},
+	{
+		"ma" : "D.VI",
+		"ten" : "Chụp cộng hưởng từ toàn thân và kỹ thuật đặc biệt khác máy 1.5T"
+	},
+	{
+		"ma" : "362",
+		"ten" : "Chụp cộng hưởng từ toàn thân tầm soát và đánh giá giai đoạn TNM"
+	},
+	{
+		"ma" : "363",
+		"ten" : "Chụp cộng hưởng từ toàn thân tầm soát và đánh giá giai đoạn có tiêm tương phản"
+	},
+	{
+		"ma" : "364",
+		"ten" : "Chụp cộng hưởng từ dây thần kinh ngoại biên (neurography MR)"
+	},
+	{
+		"ma" : "365",
+		"ten" : "Chụp cộng hưởng từ tưới máu các tạng"
+	},
+	{
+		"ma" : "D.VII",
+		"ten" : "Chụp cộng hưởng từ vùng đầu - mặt - cổ máy từ lực ≥ 3T"
+	},
+	{
+		"ma" : "366",
+		"ten" : "Chụp cộng hưởng từ sọ não "
+	},
+	{
+		"ma" : "367",
+		"ten" : "Chụp cộng hưởng từ sọ não có tiêm chất tương phản"
+	},
+	{
+		"ma" : "368",
+		"ten" : "Chụp cộng hưởng từ não- mạch não không tiêm chất tương phản"
+	},
+	{
+		"ma" : "369",
+		"ten" : "Chụp cộng hưởng từ não- mạch não có tiêm chất tương phản"
+	},
+	{
+		"ma" : "370",
+		"ten" : "Chụp cộng hưởng từ hệ mạch cổ không tiêm chất tương phản "
+	},
+	{
+		"ma" : "371",
+		"ten" : "Chụp cộng hưởng từ hệ mạch cổ có tiêm chất tương phản"
+	},
+	{
+		"ma" : "372",
+		"ten" : "Chụp cộng hưởng từ tuyến yên có tiêm chất tương phản (khảo sát động học)"
+	},
+	{
+		"ma" : "373",
+		"ten" : "Chụp cộng hưởng từ hốc mắt và thần kinh thị giác "
+	},
+	{
+		"ma" : "374",
+		"ten" : "Chụp cộng hưởng từ hốc mắt và thần kinh thị giác có tiêm chất tương phản"
+	},
+	{
+		"ma" : "375",
+		"ten" : "Chụp cộng hưởng từ tưới máu não (perfusion)"
+	},
+	{
+		"ma" : "376",
+		"ten" : "Chụp cộng hưởng từ phổ não (spectroscopy)"
+	},
+	{
+		"ma" : "377",
+		"ten" : "Chụp cộng hưởng từ các bó sợi thần kinh (tractography) hay Chụp Cộng hưởng từ khuếch tán sức căng (DTI - Diffusion Tensor Imaging)"
+	},
+	{
+		"ma" : "378",
+		"ten" : "Chụp cộng hưởng từ khuếch tán (DWI - Diffusion-weighted Imaging)"
+	},
+	{
+		"ma" : "379",
+		"ten" : "Chụp cộng hưởng từ đáy sọ và xương đá"
+	},
+	{
+		"ma" : "380",
+		"ten" : "Chụp cộng hưởng từ vùng mặt – cổ "
+	},
+	{
+		"ma" : "381",
+		"ten" : "Chụp cộng hưởng từ vùng mặt – cổ có tiêm tương phản"
+	},
+	{
+		"ma" : "382",
+		"ten" : "Chụp cộng hưởng từ sọ não chức năng"
+	},
+	{
+		"ma" : "D.VIII",
+		"ten" : "Chụp cộng hưởng từ vùng ngực máy từ lực ≥ 3T"
+	},
+	{
+		"ma" : "383",
+		"ten" : "Chụp cộng hưởng từ lồng ngực "
+	},
+	{
+		"ma" : "384",
+		"ten" : "Chụp cộng hưởng từ lồng ngực có tiêm thuốc cản quang"
+	},
+	{
+		"ma" : "385",
+		"ten" : "Chụp cộng hưởng từ thông khí phổi (Heli)"
+	},
+	{
+		"ma" : "386",
+		"ten" : "Chụp cộng hưởng từ tuyến vú "
+	},
+	{
+		"ma" : "387",
+		"ten" : "Chụp cộng hưởng từ tuyến vú động học có tiêm tương phản"
+	},
+	{
+		"ma" : "388",
+		"ten" : "Chụp cộng hưởng từ phổ tuyến vú"
+	},
+	{
+		"ma" : "D.IX",
+		"ten" : "Chụp cộng hưởng từ vùng bụng, chậu máy từ lực ≥ 3T"
+	},
+	{
+		"ma" : "389",
+		"ten" : "Chụp cộng hưởng từ tầng bụng không tiêm chất tương phản (gồm: chụp cộng hưởng từ gan-mật, tụy, lách, thận, dạ dày-tá tràng...)"
+	},
+	{
+		"ma" : "390",
+		"ten" : "Chụp cộng hưởng từ tầng bụng có tiêm chất tương phản (gồm: chụp cộng hưởng từ gan-mật, tụy, lách, thận, dạ dày-tá tràng...)"
+	},
+	{
+		"ma" : "391",
+		"ten" : "Chụp cộng hưởng từ vùng chậu (gồm: chụp cộng hưởng từ tử cung-phần phụ, tiền liệt tuyến, đại tràng chậu hông, trực tràng, các khối u vùng chậu…)"
+	},
+	{
+		"ma" : "392",
+		"ten" : "Chụp cộng hưởng từ  vùng chậu dò hậu môn "
+	},
+	{
+		"ma" : "393",
+		"ten" : "Chụp cộng hưởng từ vùng chậu có tiêm chất tương phản (gồm: chụp cộng hưởng từ tử cung-phần phụ, tiền liệt tuyến, đại tràng chậu hông, trực tràng, các khối u vùng chậu…)"
+	},
+	{
+		"ma" : "394",
+		"ten" : "Chụp cộng hưởng từ bìu, dương vật "
+	},
+	{
+		"ma" : "395",
+		"ten" : "Chụp cộng hưởng từ bìu, dương vật có tiêm chất tương phản"
+	},
+	{
+		"ma" : "396",
+		"ten" : "Chụp cộng hưởng từ động học sàn chậu, tống phân (defecography-MR)"
+	},
+	{
+		"ma" : "397",
+		"ten" : "Chụp cộng hưởng từ ruột non (enteroclysis)"
+	},
+	{
+		"ma" : "398",
+		"ten" : "Chụp cộng hưởng từ nội soi ảo khung đại tràng (virtual colonoscopy)"
+	},
+	{
+		"ma" : "399",
+		"ten" : "Chụp cộng hưởng từ tuyến tiền liệt có tiêm tương phản"
+	},
+	{
+		"ma" : "400",
+		"ten" : "Chụp cộng hưởng từ phổ tuyến tiền liệt"
+	},
+	{
+		"ma" : "401",
+		"ten" : "Chụp cộng hưởng từ đánh giá bánh nhau (rau)"
+	},
+	{
+		"ma" : "402",
+		"ten" : "Chụp cộng hưởng từ thai nhi"
+	},
+	{
+		"ma" : "403",
+		"ten" : "Chụp cộng hưởng từ gan với chất tương phản đặc hiệu mô"
+	},
+	{
+		"ma" : "D.X",
+		"ten" : "Chụp Cộng hưởng từ cột sống - ống sống và xương khớp máy từ lực ≥ 3T"
+	},
+	{
+		"ma" : "404",
+		"ten" : "Chụp cộng hưởng từ cột sống cổ "
+	},
+	{
+		"ma" : "405",
+		"ten" : "Chụp cộng hưởng từ cột sống cổ có tiêm tương phản"
+	},
+	{
+		"ma" : "406",
+		"ten" : "Chụp cộng hưởng từ cột sống ngực "
+	},
+	{
+		"ma" : "407",
+		"ten" : "Chụp cộng hưởng từ cột sống ngực có tiêm tương phản"
+	},
+	{
+		"ma" : "408",
+		"ten" : "Chụp cộng hưởng từ cột sống thắt lưng - cùng "
+	},
+	{
+		"ma" : "409",
+		"ten" : "Chụp cộng hưởng từ cột sống thắt lưng - cùng có tiêm tương phản"
+	},
+	{
+		"ma" : "410",
+		"ten" : "Chụp cộng hưởng từ khớp "
+	},
+	{
+		"ma" : "411",
+		"ten" : "Chụp cộng hưởng từ khớp có tiêm tương phản tĩnh mạch"
+	},
+	{
+		"ma" : "412",
+		"ten" : "Chụp cộng hưởng từ khớp có tiêm tương phản nội khớp"
+	},
+	{
+		"ma" : "413",
+		"ten" : "Chụp cộng hưởng từ xương và tủy xương "
+	},
+	{
+		"ma" : "414",
+		"ten" : "Chụp cộng hưởng từ xương và tủy xương có tiêm tương phản"
+	},
+	{
+		"ma" : "415",
+		"ten" : "Chụp cộng hưởng từ phần mềm chi "
+	},
+	{
+		"ma" : "416",
+		"ten" : "Chụp cộng hưởng từ phần mềm chi có tiêm tương phản"
+	},
+	{
+		"ma" : "D.XI",
+		"ten" : "Chụp cộng hưởng từ tim mạch máy từ lực ≥ 3T"
+	},
+	{
+		"ma" : "417",
+		"ten" : "Chụp cộng hưởng từ động mạch chủ-chậu"
+	},
+	{
+		"ma" : "418",
+		"ten" : "Chụp cộng hưởng từ động mạch chủ-ngực"
+	},
+	{
+		"ma" : "419",
+		"ten" : "Chụp cộng hưởng từ động mạch vành"
+	},
+	{
+		"ma" : "420",
+		"ten" : "Chụp cộng hưởng từ tim"
+	},
+	{
+		"ma" : "421",
+		"ten" : "Chụp cộng hưởng từ tầng trên ổ bụng có khảo sát mạch các tạng (bao gồm mạch: gan, tụy, lách và mạch khối u)"
+	},
+	{
+		"ma" : "422",
+		"ten" : "Chụp cộng hưởng từ động mạch chi trên "
+	},
+	{
+		"ma" : "423",
+		"ten" : "Chụp cộng hưởng từ động mạch chi trên có tiêm tương phản"
+	},
+	{
+		"ma" : "424",
+		"ten" : "Chụp cộng hưởng từ động mạch chi dưới "
+	},
+	{
+		"ma" : "425",
+		"ten" : "Chụp cộng hưởng từ động mạch chi dưới có tiêm tương phản"
+	},
+	{
+		"ma" : "426",
+		"ten" : "Chụp cộng hưởng từ động mạch chi toàn thân "
+	},
+	{
+		"ma" : "427",
+		"ten" : "Chụp cộng hưởng từ động mạch toàn thân có tiêm tương phản"
+	},
+	{
+		"ma" : "428",
+		"ten" : "Chụp cộng hưởng từ tĩnh mạch "
+	},
+	{
+		"ma" : "429",
+		"ten" : "Chụp cộng hưởng từ tĩnh mạch có tiêm tương phản"
+	},
+	{
+		"ma" : "430",
+		"ten" : "Chụp cộng hưởng từ bạch mạch có tiêm tương phản không đặc hiệu"
+	},
+	{
+		"ma" : "431",
+		"ten" : "Chụp cộng hưởng từ bạch mạch có tiêm tương phản đặc hiệu"
+	},
+	{
+		"ma" : "D.XII",
+		"ten" : "Chụp cộng hưởng từ toàn thân và kỹ thuật đặc biệt khác máy từ lực ≥ 3T"
+	},
+	{
+		"ma" : "432",
+		"ten" : "Chụp cộng hưởng từ toàn thân tầm soát và đánh giá giai đoạn TNM"
+	},
+	{
+		"ma" : "433",
+		"ten" : "Chụp cộng hưởng từ toàn thân tầm soát và đánh giá giai đoạn có tiêm tương phản"
+	},
+	{
+		"ma" : "434",
+		"ten" : "Chụp cộng hưởng từ dây thần kinh ngoại biên (neurography MR)"
+	},
+	{
+		"ma" : "435",
+		"ten" : "Chụp cộng hưởng từ tưới máu các tạng"
+	},
+	{
+		"ma" : "Đ",
+		"ten" : "KỸ THUẬT ĐIỆN QUANG MẠCH MÁU VÀ CAN THIỆP "
+	},
+	{
+		"ma" : "Đ.I",
+		"ten" : "Chụp mạch dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "436",
+		"ten" : "Chụp động mạch não dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "437",
+		"ten" : "Chụp mạch vùng đầu mặt cổ dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "438",
+		"ten" : "Chụp động mạch chủ dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "439",
+		"ten" : "Chụp động mạch chậu dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "440",
+		"ten" : "Chụp động mạch chi (trên, dưới) dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "441",
+		"ten" : "Chụp động mạch phổi dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "442",
+		"ten" : "Chụp động mạch phế quản dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "443",
+		"ten" : "Chụp động mạch tạng (gan, lách, thận, tử cung, sinh dục..) dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "444",
+		"ten" : "Chụp động mạch mạc treo dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "445",
+		"ten" : "Chụp tĩnh mạch dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "446",
+		"ten" : "Chụp tĩnh mạch lách - cửa dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "447",
+		"ten" : "Chụp tĩnh mạch chi dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "448",
+		"ten" : "Chụp động mạch các loại chọc kim trực tiếp dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "Đ.II",
+		"ten" : "Chụp và can thiệp mạch dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "449",
+		"ten" : "Chụp và can thiệp động mạch chủ ngực dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "450",
+		"ten" : "Chụp và can thiệp động mạch chủ bụng dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "451",
+		"ten" : "Chụp, nong và đặt Stent động mạch chi (trên, dưới) dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "452",
+		"ten" : "Chụp và nong động mạch chi (trên, dưới) dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "453",
+		"ten" : "Chụp và nút mạch dị dạng động mạch chi (trên, dưới) dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "454",
+		"ten" : "Chụp và nong cầu nối động mạch chi (trên, dưới) dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "455",
+		"ten" : "Chụp và can thiệp tĩnh mạch chi (trên, dưới) dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "456",
+		"ten" : "Chụp và lấy máu tĩnh mạch thượng thận dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "457",
+		"ten" : "Chụp và đặt lưới lọc tĩnh mạch chủ dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "458",
+		"ten" : "Chụp và nút mạch điều trị ung thư biểu mô tế bào gan dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "459",
+		"ten" : "Chụp và nút động mạch gan dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "460",
+		"ten" : "Chụp và nút hệ tĩnh mạch cửa gan dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "461",
+		"ten" : "Chụp và nút động mạch phế quản dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "462",
+		"ten" : "Chụp và can thiệp động mạch phổi dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "463",
+		"ten" : "Chụp và can thiệp động mạch mạc treo (tràng trên, tràng dưới) dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "464",
+		"ten" : "Chụp và nút mạch điều trị u xơ tử cung dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "465",
+		"ten" : "Chụp và nút mạch điều trị lạc nội mạch trong cơ tử cung dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "466",
+		"ten" : "Chụp và nút động mạch tử cung dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "467",
+		"ten" : "Chụp và nút giãn tĩnh mạch tinh dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "468",
+		"ten" : "Chụp và nút giãn tĩnh mạch buồng trứng dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "469",
+		"ten" : "Chụp và can thiệp động mạch lách dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "470",
+		"ten" : "Chụp và can thiệp mạch tá tụy dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "471",
+		"ten" : "Chụp và nút dị dạng động mạch thận dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "472",
+		"ten" : "Chụp và nút động mạch điều trị cầm máu các tạng dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "473",
+		"ten" : "Chụp và nút mạch tiền phẫu các khối u dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "474",
+		"ten" : "Chụp và nút mạch điều trị chảy máu mũi dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "475",
+		"ten" : "Chụp và nút mạch điều trị u xơ mũi họng dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "476",
+		"ten" : "Chụp và nút mạch điều trị bệnh lý dị dạng mạch vùng đầu mặt cổ và hàm mặt dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "477",
+		"ten" : "Đổ xi măng cột sống dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "478",
+		"ten" : "Tiêm phá đông khớp vai dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "479",
+		"ten" : "Điều trị tiêm giảm đau cột sống dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "480",
+		"ten" : "Điều trị tiêm giảm đau khớp dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "481",
+		"ten" : "Điều trị u xương dạng xương dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "482",
+		"ten" : "Điều trị các tổn thương xương dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "483",
+		"ten" : "Đặt cổng truyền hóa chất dưới da dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "484",
+		"ten" : "Mở thông dạ dày qua da dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "485",
+		"ten" : "Điều trị tiêm xơ trực tiếp qua da dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "486",
+		"ten" : "Điều trị bơm tắc mạch trực tiếp qua da dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "487",
+		"ten" : "Tháo lồng ruột bằng bơm hơi hoặc thuốc cản quang dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "488",
+		"ten" : "Điều trị thoát vị đĩa đệm qua da dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "489",
+		"ten" : "Dẫn lưu đường mật dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "490",
+		"ten" : "Nong đặt Stent đường mật dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "491",
+		"ten" : "Mở thông dạ dày qua da dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "492",
+		"ten" : "Dẫn lưu áp xe ổ bụng dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "493",
+		"ten" : "Dẫn lưu các ổ dịch ổ bụng dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "494",
+		"ten" : "Dẫn lưu áp xe các tạng (gan, lách, thận, ruột thừa..) dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "495",
+		"ten" : "Dẫn lưu bể thận dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "496",
+		"ten" : "Đặt sonde JJ dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "497",
+		"ten" : "Nong và đặt Stent điều trị hẹp tắc vị tràng bằng điện quang can thiệp dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "498",
+		"ten" : "Can thiệp điều trị hẹp đại tràng trước và sau phẫu thuật dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "499",
+		"ten" : "Nong đặt Stent thực quản, dạ dày dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "500",
+		"ten" : "Sinh thiết trong lòng đường mật qua da dưới Xquang tăng sáng"
+	},
+	{
+		"ma" : "Đ.III",
+		"ten" : "Chụp mạch số hóa xóa nền (DSA)"
+	},
+	{
+		"ma" : "501",
+		"ten" : "Chụp động mạch não số hóa xóa nền "
+	},
+	{
+		"ma" : "502",
+		"ten" : "Chụp mạch vùng đầu mặt cổ số hóa xóa nền "
+	},
+	{
+		"ma" : "503",
+		"ten" : "Chụp động mạch chủ số hóa xóa nền "
+	},
+	{
+		"ma" : "504",
+		"ten" : "Chụp động mạch chậu số hóa xóa nền "
+	},
+	{
+		"ma" : "505",
+		"ten" : "Chụp động mạch chi (trên, dưới) số hóa xóa nền "
+	},
+	{
+		"ma" : "506",
+		"ten" : "Chụp động mạch phổi số hóa xóa nền "
+	},
+	{
+		"ma" : "507",
+		"ten" : "Chụp động mạch phế quản số hóa xóa nền "
+	},
+	{
+		"ma" : "508",
+		"ten" : "Chụp các động mạch tủy"
+	},
+	{
+		"ma" : "509",
+		"ten" : "Chụp động mạch tạng (gan, lách, thận, tử cung, sinh dục..) số hóa xóa nền "
+	},
+	{
+		"ma" : "510",
+		"ten" : "Chụp động mạch mạc treo số hóa xóa nền "
+	},
+	{
+		"ma" : "511",
+		"ten" : "Chụp tĩnh mạch số hóa xóa nền "
+	},
+	{
+		"ma" : "512",
+		"ten" : "Chụp tĩnh mạch lách - cửa số hóa xóa nền "
+	},
+	{
+		"ma" : "513",
+		"ten" : "Chụp tĩnh mạch lách - cửa đo áp lực số hóa xóa nền "
+	},
+	{
+		"ma" : "514",
+		"ten" : "Chụp tĩnh mạch chi số hóa xóa nền "
+	},
+	{
+		"ma" : "515",
+		"ten" : "Chụp động mạch các loại chọc kim trực tiếp số hóa xóa nền "
+	},
+	{
+		"ma" : "Đ.IV",
+		"ten" : "Chụp và can thiệp mạch số hóa xóa nền "
+	},
+	{
+		"ma" : "516",
+		"ten" : "Chụp và can thiệp mạch chủ ngực số hóa xóa nền "
+	},
+	{
+		"ma" : "517",
+		"ten" : "Chụp và can thiệp mạch chủ bụng số hóa xóa nền "
+	},
+	{
+		"ma" : "518",
+		"ten" : "Chụp và nong động mạch chi (trên, dưới) số hóa xóa nền "
+	},
+	{
+		"ma" : "519",
+		"ten" : "Chụp, nong và đặt Stent động mạch chi (trên, dưới) số hóa xóa nền "
+	},
+	{
+		"ma" : "520",
+		"ten" : "Chụp và nút mạch dị dạng mạch chi (trên, dưới) số hóa xóa nền "
+	},
+	{
+		"ma" : "521",
+		"ten" : "Chụp và nong cầu nối mạch chi (trên, dưới) số hóa xóa nền "
+	},
+	{
+		"ma" : "522",
+		"ten" : "Chụp và can thiệp tĩnh mạch chi (trên, dưới) số hóa xóa nền "
+	},
+	{
+		"ma" : "523",
+		"ten" : "Điều trị suy tĩnh mạch chi dưới bằng đốt sóng RF, Lazer…"
+	},
+	{
+		"ma" : "524",
+		"ten" : "Chụp và điều trị bơm thuốc tiêu sợi huyết tại chỗ mạch chi qua ống thông số hóa xóa nền "
+	},
+	{
+		"ma" : "525",
+		"ten" : "Chụp và điều trị lấy huyết khối qua ống thông điều trị tắc mạch chi số hóa xóa nền "
+	},
+	{
+		"ma" : "526",
+		"ten" : "Chụp và lấy máu tĩnh mạch tuyến thượng thận số hóa xóa nền "
+	},
+	{
+		"ma" : "527",
+		"ten" : "Chụp và đặt lưới lọc tĩnh mạch chủ số hóa xóa nền "
+	},
+	{
+		"ma" : "528",
+		"ten" : "Chụp và nút mạch điều trị u gan số hóa xóa nền "
+	},
+	{
+		"ma" : "529",
+		"ten" : "Chụp và nút động mạch gan số hóa xóa nền "
+	},
+	{
+		"ma" : "530",
+		"ten" : "Chụp nút mạch điều trị ung thư gan (TACE)"
+	},
+	{
+		"ma" : "531",
+		"ten" : "Chụp và nút hệ tĩnh mạch cửa gan số hóa xóa nền "
+	},
+	{
+		"ma" : "532",
+		"ten" : "Chụp và nút động mạch phế quản số hóa xóa nền "
+	},
+	{
+		"ma" : "533",
+		"ten" : "Chụp và can thiệp mạch phổi số hóa xóa nền "
+	},
+	{
+		"ma" : "534",
+		"ten" : "Chụp và nút mạch mạc treo (tràng trên, tràng dưới) số hóa xóa nền "
+	},
+	{
+		"ma" : "535",
+		"ten" : "Chụp và nút mạch điều trị u xơ tử cung số hóa xóa nền "
+	},
+	{
+		"ma" : "536",
+		"ten" : "Chụp và nút mạch điều trị lạc nội mạch trong cơ tử cung số hóa xóa nền "
+	},
+	{
+		"ma" : "537",
+		"ten" : "Chụp và nút động mạch tử cung số hóa xóa nền "
+	},
+	{
+		"ma" : "538",
+		"ten" : "Chụp và nút giãn tĩnh mạch tinh số hóa xóa nền "
+	},
+	{
+		"ma" : "539",
+		"ten" : "Chụp và nút giãn tĩnh mạch buồng trứng số hóa xóa nền "
+	},
+	{
+		"ma" : "540",
+		"ten" : "Chụp và can thiệp mạch lách số hóa xóa nền "
+	},
+	{
+		"ma" : "541",
+		"ten" : "Chụp và can thiệp mạch tá tụy số hóa xóa nền "
+	},
+	{
+		"ma" : "542",
+		"ten" : "Chụp, nong và đặt stent động mạch mạc treo (tràng trên, tràng dưới) số hóa xóa nền "
+	},
+	{
+		"ma" : "543",
+		"ten" : "Chụp, nong và đặt Stent động mạch thận số hóa xóa nền "
+	},
+	{
+		"ma" : "544",
+		"ten" : "Chụp và nút dị dạng động mạch thận số hóa xóa nền "
+	},
+	{
+		"ma" : "545",
+		"ten" : "Chụp và nút mạch bằng hạt DC Bead gắn hóa chất điều trị u gan số hóa xóa nền "
+	},
+	{
+		"ma" : "546",
+		"ten" : "Chụp và tạo luồng thông cửa chủ qua da (TIPS) số hóa xóa nền "
+	},
+	{
+		"ma" : "547",
+		"ten" : "Chụp và điều trị giãn tĩnh mạch dạ dày số hóa xóa nền "
+	},
+	{
+		"ma" : "548",
+		"ten" : "Chụp và điều trị giãn tĩnh mạch thực quản xuyên gan qua da số hóa xóa nền "
+	},
+	{
+		"ma" : "549",
+		"ten" : "Chụp và sinh thiết gan qua tĩnh mạch trên gan số hóa xóa nền "
+	},
+	{
+		"ma" : "550",
+		"ten" : "Chụp và nút động mạch điều trị cầm máu các tạng số hóa xóa nền "
+	},
+	{
+		"ma" : "551",
+		"ten" : "Chụp và nút dị dạng mạch các tạng số hóa xóa nền "
+	},
+	{
+		"ma" : "552",
+		"ten" : "Chụp và bơm dược chất phóng xạ, hạt phóng xạ điều trị khối u số hóa xóa nền "
+	},
+	{
+		"ma" : "553",
+		"ten" : "Chụp và nút phình động mạch não số hóa xóa nền "
+	},
+	{
+		"ma" : "554",
+		"ten" : "Chụp và điều trị phình động mạch não bằng thay đổi dòng chảy số hóa xóa nền "
+	},
+	{
+		"ma" : "555",
+		"ten" : "Chụp và nút dị dạng thông động tĩnh mạch não số hóa xóa nền "
+	},
+	{
+		"ma" : "556",
+		"ten" : "Chụp và nút thông động mạch cảnh xoang hang số hóa xóa nền "
+	},
+	{
+		"ma" : "557",
+		"ten" : "Chụp và nút dị dạng thông động tĩnh mạch màng cứng số hóa xóa nền "
+	},
+	{
+		"ma" : "558",
+		"ten" : "Chụp và test nút động mạch não số hóa xóa nền "
+	},
+	{
+		"ma" : "559",
+		"ten" : "Chụp và nút dị dạng mạch tủy số hóa xóa nền "
+	},
+	{
+		"ma" : "560",
+		"ten" : "Chụp và nút động mạch đốt sống số hóa xóa nền "
+	},
+	{
+		"ma" : "561",
+		"ten" : "Chụp và nút mạch tiền phẫu các khối u số hóa xóa nền "
+	},
+	{
+		"ma" : "562",
+		"ten" : "Chụp, nong và đặt stent điều trị hẹp động mạch ngoài sọ (mạch cảnh, đốt sống) số hóa xóa nền "
+	},
+	{
+		"ma" : "563",
+		"ten" : "Chụp và nong hẹp động mạch nội sọ số hóa xóa nền "
+	},
+	{
+		"ma" : "564",
+		"ten" : "Chụp, nong và đặt Stent điều trị hẹp động mạch nội sọ số hóa xóa nền "
+	},
+	{
+		"ma" : "565",
+		"ten" : "Chụp và bơm thuốc tiêu sợi huyết đường động mạch điều trị tắc động mạch não cấp số hóa xóa nền "
+	},
+	{
+		"ma" : "566",
+		"ten" : "Chụp và can thiệp lấy huyết khối động mạch não số hóa xóa nền "
+	},
+	{
+		"ma" : "567",
+		"ten" : "Chụp và can thiệp các bệnh lý hệ tĩnh mạch não số hóa xóa nền "
+	},
+	{
+		"ma" : "568",
+		"ten" : "Chụp và nút mạch điều trị chảy máu mũi số hóa xóa nền "
+	},
+	{
+		"ma" : "569",
+		"ten" : "Chụp và nút mạch điều trị u xơ mũi họng số hóa xóa nền "
+	},
+	{
+		"ma" : "570",
+		"ten" : "Chụp và nút mạch điều trị bệnh lý dị dạng mạch vùng đầu mặt cổ và hàm mặt số hóa xóa nền "
+	},
+	{
+		"ma" : "571",
+		"ten" : "Chụp và lấy máu tĩnh mạch tuyến yên số hóa xóa nền "
+	},
+	{
+		"ma" : "572",
+		"ten" : "Đổ xi măng cột sống số hóa xóa nền "
+	},
+	{
+		"ma" : "573",
+		"ten" : "Tạo hình và đổ xi măng cột sống (kyphoplasty)"
+	},
+	{
+		"ma" : "574",
+		"ten" : "Tiêm phá đông khớp vai số hóa xóa nền "
+	},
+	{
+		"ma" : "575",
+		"ten" : "Điều trị tiêm giảm đau cột sống số hóa xóa nền "
+	},
+	{
+		"ma" : "576",
+		"ten" : "Điều trị tiêm giảm đau khớp số hóa xóa nền "
+	},
+	{
+		"ma" : "577",
+		"ten" : "Điều trị u xương dạng xương số hóa xóa nền "
+	},
+	{
+		"ma" : "578",
+		"ten" : "Điều trị các tổn thương xương số hóa xóa nền "
+	},
+	{
+		"ma" : "579",
+		"ten" : "Điều trị các khối u tạng (thận, lách, tụy...) số hóa xóa nền "
+	},
+	{
+		"ma" : "580",
+		"ten" : "Đốt sóng cao tần điều trị các khối u số hóa xóa nền "
+	},
+	{
+		"ma" : "581",
+		"ten" : "Đặt cổng truyền hóa chất dưới da số hóa xóa nền "
+	},
+	{
+		"ma" : "582",
+		"ten" : "Mở thông dạ dày qua da số hóa xóa nền "
+	},
+	{
+		"ma" : "583",
+		"ten" : "Đốt sóng cao tần điều trị suy giãn tĩnh mạch số hóa xóa nền "
+	},
+	{
+		"ma" : "584",
+		"ten" : "Điều trị tiêm xơ trực tiếp qua da số hóa xóa nền "
+	},
+	{
+		"ma" : "585",
+		"ten" : "Điều trị bơm tắc mạch trực tiếp qua da số hóa xóa nền "
+	},
+	{
+		"ma" : "586",
+		"ten" : "Điều trị thoát vị đĩa đệm qua da số hóa xóa nền "
+	},
+	{
+		"ma" : "587",
+		"ten" : "Dẫn lưu đường mật số hóa xóa nền "
+	},
+	{
+		"ma" : "588",
+		"ten" : "Nong đặt Stent đường mật số hóa xóa nền "
+	},
+	{
+		"ma" : "589",
+		"ten" : "Mở thông dạ dày qua da số hóa xóa nền "
+	},
+	{
+		"ma" : "590",
+		"ten" : "Dẫn lưu áp xe ngực\/bụng số hóa xóa nền "
+	},
+	{
+		"ma" : "591",
+		"ten" : "Dẫn lưu các ổ dịch ngực\/bụng số hóa xóa nền "
+	},
+	{
+		"ma" : "592",
+		"ten" : "Dẫn lưu áp xe các tạng (gan, lách, thận, ruột thừa..) số hóa xóa nền "
+	},
+	{
+		"ma" : "593",
+		"ten" : "Dẫn lưu bể thận số hóa xóa nền "
+	},
+	{
+		"ma" : "594",
+		"ten" : "Đặt sonde JJ số hóa xóa nền "
+	},
+	{
+		"ma" : "595",
+		"ten" : "Nong và đặt Stent điều trị hẹp tắc vị tràng số hóa xóa nền "
+	},
+	{
+		"ma" : "596",
+		"ten" : "Nong điều trị hẹp tắc vị tràng số hóa xóa nền "
+	},
+	{
+		"ma" : "597",
+		"ten" : "Can thiệp điều trị hẹp đại tràng trước và sau phẫu thuật số hóa xóa nền "
+	},
+	{
+		"ma" : "598",
+		"ten" : "Nong đặt Stent thực quản, dạ dày số hóa xóa nền "
+	},
+	{
+		"ma" : "599",
+		"ten" : "Sinh thiết trong lòng đường mật qua da số hóa xóa nền "
+	},
+	{
+		"ma" : "600",
+		"ten" : "Diệt hạch điều trị đau dây V số hóa xóa nền "
+	},
+	{
+		"ma" : "Đ.V",
+		"ten" : "Sinh thiết, chọc hút và điều trị dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "601",
+		"ten" : "Đốt sóng cao tần điều trị u gan dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "602",
+		"ten" : "Đốt sóng cao tần điều trị các u tạng dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "603",
+		"ten" : "Sinh thiết gan dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "604",
+		"ten" : "Sinh thiết gan ghép dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "605",
+		"ten" : "Sinh thiết vú dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "606",
+		"ten" : "Sinh thiết lách dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "607",
+		"ten" : "Sinh thiết thận dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "608",
+		"ten" : "Sinh thiết thận ghép dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "609",
+		"ten" : "Sinh thiết hạch (hoặc u) dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "610",
+		"ten" : "Sinh thiết tuyến giáp dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "611",
+		"ten" : "Sinh thiết phần mềm dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "612",
+		"ten" : "Sinh thiết các tạng dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "613",
+		"ten" : "Sinh thiết tiền liệt tuyến qua trực tràng dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "614",
+		"ten" : "Đốt sóng cao tần điều trị ung thư gan (RFA) dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "615",
+		"ten" : "Chích đốt Laser dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "616",
+		"ten" : "Bơm Ethanol trực tiếp dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "617",
+		"ten" : "Tiêm xơ khối u dưới hướng dẫn của siêu âm"
+	},
+	{
+		"ma" : "618",
+		"ten" : "Sinh thiết phổi\/màng phổi dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "619",
+		"ten" : "Chọc hút tế bào tuyến giáp dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "620",
+		"ten" : "Chọc hút hạch (hoặc u) dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "621",
+		"ten" : "Chọc hút tế bào tuyến giáp dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "622",
+		"ten" : "Chọc nang tuyến giáp dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "623",
+		"ten" : "Chọc hút nang vú dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "624",
+		"ten" : "Chọc hút nang, tiêm xơ dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "625",
+		"ten" : "Chọc hút dịch ổ khớp dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "626",
+		"ten" : "Chọc ối dưới hướng dẫn của siêu âm"
+	},
+	{
+		"ma" : "627",
+		"ten" : "Chọc hút, sinh thiết khối u trung thất qua siêu âm thực quản"
+	},
+	{
+		"ma" : "628",
+		"ten" : "Chọc hút dịch màng tin dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "629",
+		"ten" : "Chọc hút ổ dịch, áp xe dưới hướng dẫn của siêu âm"
+	},
+	{
+		"ma" : "630",
+		"ten" : "Chọc hút tế bào dưới hướng dẫn của siêu âm"
+	},
+	{
+		"ma" : "631",
+		"ten" : "Chọc mạch máu dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "632",
+		"ten" : "Dẫn lưu các ổ dịch trong ổ bụng dưới hướng dẫn siêu âm"
+	},
+	{
+		"ma" : "633",
+		"ten" : "Dẫn lưu dịch, áp xe, nang dưới hướng dẫn của siêu âm"
+	},
+	{
+		"ma" : "Đ.VI",
+		"ten" : "Sinh thiết, chọc hút và điều trị dưới hướng dẫn cắt lớp vi tính"
+	},
+	{
+		"ma" : "634",
+		"ten" : "Đốt sóng cao tần điều trị u gan dưới hướng dẫn cắt lớp vi tính"
+	},
+	{
+		"ma" : "635",
+		"ten" : "Đốt sóng cao tần điều trị các u tạng dưới hướng dẫn cắt lớp vi tính"
+	},
+	{
+		"ma" : "636",
+		"ten" : "Sinh thiết phổi\/màng phổi dưới cắt lớp vi tính"
+	},
+	{
+		"ma" : "637",
+		"ten" : "Sinh thiết trung thất dưới cắt lớp vi tính"
+	},
+	{
+		"ma" : "638",
+		"ten" : "Sinh thiết gan dưới cắt lớp vi tính"
+	},
+	{
+		"ma" : "639",
+		"ten" : "Sinh thiết thận dưới cắt lớp vi tính"
+	},
+	{
+		"ma" : "640",
+		"ten" : "Sinh thiết lách dưới cắt lớp vi tính"
+	},
+	{
+		"ma" : "641",
+		"ten" : "Sinh thiết tụy dưới cắt lớp vi tính"
+	},
+	{
+		"ma" : "642",
+		"ten" : "Sinh thiết gan ghép dưới cắt lớp vi tính"
+	},
+	{
+		"ma" : "643",
+		"ten" : "Sinh thiết thận ghép dưới cắt lớp vi tính"
+	},
+	{
+		"ma" : "644",
+		"ten" : "Sinh thiết xương dưới cắt lớp vi tính"
+	},
+	{
+		"ma" : "645",
+		"ten" : "Sinh thiết cột sống dưới cắt lớp vi tính"
+	},
+	{
+		"ma" : "646",
+		"ten" : "Sinh thiết não dưới cắt lớp vi tính"
+	},
+	{
+		"ma" : "647",
+		"ten" : "Sinh thiết phần mềm dưới cắt lớp vi tính"
+	},
+	{
+		"ma" : "648",
+		"ten" : "Sinh thiết tạng hay khối ổ bụng dưới cắt lớp vi tính"
+	},
+	{
+		"ma" : "649",
+		"ten" : "Chọc hút ổ dịch\/áp xe não dưới cắt lớp vi tính"
+	},
+	{
+		"ma" : "650",
+		"ten" : "Chọc hút ổ dịch, áp xe dưới hướng dẫn cắt lớp vi tính"
+	},
+	{
+		"ma" : "651",
+		"ten" : "Chọc hút hạch hoặc u dưới hướng dẫn cắt lớp vi tính"
+	},
+	{
+		"ma" : "652",
+		"ten" : "Dẫn lưu các ổ dịch trong ổ bụng dưới hướng dẫn cắt lớp vi tính"
+	},
+	{
+		"ma" : "653",
+		"ten" : "Dẫn lưu dịch, áp xe, nang dưới hướng dẫn cắt lớp bi tính"
+	},
+	{
+		"ma" : "Đ.VII",
+		"ten" : "Can thiệp dưới cộng hưởng từ"
+	},
+	{
+		"ma" : "654",
+		"ten" : "Sinh thiết các tạng dưới cộng hưởng từ"
+	},
+	{
+		"ma" : "655",
+		"ten" : "Sinh thiết vú dưới cộng hưởng từ"
+	},
+	{
+		"ma" : "656",
+		"ten" : "Sinh thiết não dưới cộng hưởng từ"
+	},
+	{
+		"ma" : "Đ.VIII",
+		"ten" : "Điện quang tim mạch"
+	},
+	{
+		"ma" : "657",
+		"ten" : "Chụp động mạch vành"
+	},
+	{
+		"ma" : "658",
+		"ten" : "Chụp, nong động mạch vành bằng bóng"
+	},
+	{
+		"ma" : "659",
+		"ten" : "Chụp, nong và đặt stent động mạch vành"
+	},
+	{
+		"ma" : "660",
+		"ten" : "Sinh thiết cơ tim"
+	},
+	{
+		"ma" : "661",
+		"ten" : "Thông tim ống lớn"
+	},
+	{
+		"ma" : "662",
+		"ten" : "Nong van hai lá"
+	},
+	{
+		"ma" : "663",
+		"ten" : "Nong van động mạch chủ"
+	},
+	{
+		"ma" : "664",
+		"ten" : "Nong van động mạch phổi"
+	},
+	{
+		"ma" : "665",
+		"ten" : "Bít thông liên nhĩ"
+	},
+	{
+		"ma" : "666",
+		"ten" : "Bít thông liên thất"
+	},
+	{
+		"ma" : "667",
+		"ten" : "Bít ống động mạch"
+	},
+	{
+		"ma" : "668",
+		"ten" : "Điều trị rối loạn nhịp tim bằng sóng cao tần"
+	},
+	{
+		"ma" : "669",
+		"ten" : "Đặt máy tạo nhịp"
+	},
+	{
+		"ma" : "670",
+		"ten" : "Đặt máy tạo nhịp phá rung"
+	},
+	{
+		"ma" : "671",
+		"ten" : "Thăm dò điện sinh lý trong buồng tim"
+	},
+	{
+		"ma" : "672",
+		"ten" : "Chụp nong động mạch ngoại biên bằng bóng"
+	},
+	{
+		"ma" : "673",
+		"ten" : "Chụp, nong động mạch và đặt stent"
+	},
+	{
+		"ma" : "674",
+		"ten" : "Bít ống động mạch"
+	},
+	{
+		"ma" : "675",
+		"ten" : "Đặt stent động mạch chủ "
+	},
+	{
+		"ma" : "676",
+		"ten" : "Điều trị u xơ tử cung bằng sóng siêu âm hội tụ tần số cao dưới hướng dẫn cộng hưởng từ (HIFU)"
+	},
+	{
+		"ma" : "677",
+		"ten" : "Điều trị các khối u bằng sóng siêu âm hội tụ tần số cao dưới hướng dẫn cộng hưởng từ (HIFU)"
+	},
+	{
+		"ma" : "678",
+		"ten" : "Điều trị u tuyễn tiền liệt bằng sóng siêu âm hội tụ tần số cao"
+	},
+	{
+		"ma" : "679",
+		"ten" : "Chụp và điều trị nút búi giãn tĩnh mạch dạ dày ngược dòng (BRTO)"
+	},
+	{
+		"ma" : "680",
+		"ten" : "Chụp và điều trị nút giãn tĩnh mạch thực quản xuyên gan qua da"
+	},
+	{
+		"ma" : "681",
+		"ten" : "Chụp và nút mạch điều trị phì đại lành tính tuyến tiền liệt "
+	},
+	{
+		"ma" : "682",
+		"ten" : "Điều trị phì đại lành tính tuyến tiền liệt bằng nút động mạch tuyến tiền liệt"
+	},
+	{
+		"ma" : "683",
+		"ten" : "Nút động mạch trong điều trị chảy máu do ung thư tuyến tiền liệt"
+	},
+	{
+		"ma" : "684",
+		"ten" : "Nút động mạch trong điều trị chảy máu do các khối u ác tính vùng tiểu khung (ung thư cổ tử cung, ung thư bàng quang không có chỉ định phẫu thuật, …)"
+	},
+	{
+		"ma" : "685",
+		"ten" : "Điều trị ung thư tiền liệt tuyến bằng cấy hạt phóng xạ qua da"
+	},
+	{
+		"ma" : "686",
+		"ten" : "Điều trị các khối u bằng cầy hạt phóng xạ qua da"
+	},
+	{
+		"ma" : "687",
+		"ten" : "Chụp và nút mạch điều trị u phổi"
+	},
+	{
+		"ma" : "688",
+		"ten" : "Chụp và nút mạch điều trị u trung thất"
+	},
+	{
+		"ma" : "689",
+		"ten" : "Tạo hình đặt Stent và bơm xi măng điều trị xẹp đốt sống"
+	},
+	{
+		"ma" : "690",
+		"ten" : "Chọc sinh thiết vú dưới định vị nổi (Stereotaxic)"
+	},
+	{
+		"ma" : "691",
+		"ten" : "Chọc sinh thiết tạng dưới định vị Robot"
+	},
+	{
+		"ma" : "692",
+		"ten" : "Điều trị đốt các khối u bằng sóng điện từ trường (NanoKnife)"
+	},
+	{
+		"ma" : "693",
+		"ten" : "Điều trị các khối u bằng vi sóng (Microwave)"
+	},
+	{
+		"ma" : "Đ.IX",
+		"ten" : "Chụp CHT máy từ lực ≥ 1.5Tesla"
+	},
+	{
+		"ma" : "694",
+		"ten" : "Chụp cộng hưởng từ tim sử dụng chất gắng sức đánh giá tưới máu cơ tim có tiêm thuốc tương phản"
+	},
+	{
+		"ma" : "695",
+		"ten" : "Chụp cộng hưởng từ bệnh lý cơ tim có tiêm thuốc tương phản "
+	},
+	{
+		"ma" : "696",
+		"ten" : "Chụp cộng hưởng từ tim đánh giá các bệnh lý van tim"
+	},
+	{
+		"ma" : "697",
+		"ten" : "Chụp cộng hưởng từ tim đánh giá các khối u tim có tiêm thuốc tương phản"
+	},
+	{
+		"ma" : "698",
+		"ten" : "Chụp cộng hưởng từ tim đánh giá các bệnh lý tim bẩm sinh có tiêm thuốc tương phản"
+	},
+	{
+		"ma" : "699",
+		"ten" : "Chụp cộng hưởng từ tim đánh giá các bệnh lý tim bẩm sinh"
+	},
+	{
+		"ma" : "700",
+		"ten" : "Chụp cộng hưởng từ tim đánh giá quá tải sắt"
+	},
+	{
+		"ma" : "701",
+		"ten" : "Chụp cộng hưởng từ tim đánh giá khuếch tán sức căng (DTI - Diffusion Tensor Imaging)"
+	},
+	{
+		"ma" : "702",
+		"ten" : "Cộng hưởng từ phổ tim"
+	},
+	{
+		"ma" : "703",
+		"ten" : "Siêu âm tại giường"
+	}
+]

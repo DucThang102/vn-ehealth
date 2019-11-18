@@ -7,7 +7,7 @@
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="danhSachHSBA" class="vn.ehealth.emr.EmrHoSoBenhAn"/>
+	<parameter name="danhSachHSBA" class="vn.ehealth.emr.model.EmrHoSoBenhAn"/>
 	<parameter name="IMG_DIR" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
@@ -15,37 +15,37 @@
 	<field name="donvichuquan" class="java.lang.String">
 		<fieldDescription><![CDATA[donvichuquan]]></fieldDescription>
 	</field>
-	<field name="emrBenhNhan" class="vn.ehealth.emr.EmrBenhNhan">
+	<field name="emrBenhNhan" class="vn.ehealth.emr.model.EmrBenhNhan">
 		<fieldDescription><![CDATA[emrBenhNhan]]></fieldDescription>
 	</field>
-	<field name="emrChanDoan" class="vn.ehealth.emr.EmrChanDoan">
+	<field name="emrChanDoan" class="vn.ehealth.emr.model.EmrChanDoan">
 		<fieldDescription><![CDATA[emrChanDoan]]></fieldDescription>
 	</field>
-	<field name="emrDmLoaiBenhAn" class="vn.ehealth.emr.EmrDm">
+	<field name="emrDmLoaiBenhAn" class="vn.ehealth.emr.model.EmrDm">
 		<fieldDescription><![CDATA[emrDmLoaiBenhAn]]></fieldDescription>
 	</field>
-	<field name="emrPhauThuatThuThuats" class="vn.ehealth.emr.EmrPhauThuatThuThuat[]">
+	<field name="emrPhauThuatThuThuats" class="vn.ehealth.emr.model.EmrPhauThuatThuThuat[]">
 		<fieldDescription><![CDATA[emrPhauThuatThuThuats]]></fieldDescription>
 	</field>
-	<field name="emrQuanLyNguoiBenh" class="vn.ehealth.emr.EmrQuanLyNguoiBenh">
+	<field name="emrQuanLyNguoiBenh" class="vn.ehealth.emr.model.EmrQuanLyNguoiBenh">
 		<fieldDescription><![CDATA[emrQuanLyNguoiBenh]]></fieldDescription>
 	</field>
-	<field name="emrTinhTrangRaVien" class="vn.ehealth.emr.EmrTinhTrangRaVien">
+	<field name="emrTinhTrangRaVien" class="vn.ehealth.emr.model.EmrTinhTrangRaVien">
 		<fieldDescription><![CDATA[emrTinhTrangRaVien]]></fieldDescription>
 	</field>
-	<field name="emrTongKetRaVien" class="vn.ehealth.emr.EmrTongKetRaVien">
+	<field name="emrTongKetRaVien" class="vn.ehealth.emr.model.EmrTongKetRaVien">
 		<fieldDescription><![CDATA[emrTongKetRaVien]]></fieldDescription>
 	</field>
-	<field name="emrTongKetSanKhoa" class="vn.ehealth.emr.EmrTongKetSanKhoa">
+	<field name="emrTongKetSanKhoa" class="vn.ehealth.emr.model.EmrTongKetSanKhoa">
 		<fieldDescription><![CDATA[emrTongKetSanKhoa]]></fieldDescription>
 	</field>
-	<field name="emrVaoKhoas" class="vn.ehealth.emr.EmrVaoKhoa[]">
+	<field name="emrVaoKhoas" class="vn.ehealth.emr.model.EmrVaoKhoa[]">
 		<fieldDescription><![CDATA[emrVaoKhoas]]></fieldDescription>
 	</field>
-	<field name="emrYhctBenhAn" class="vn.ehealth.emr.EmrYhctBenhAn">
+	<field name="emrYhctBenhAn" class="vn.ehealth.emr.model.EmrYhctBenhAn">
 		<fieldDescription><![CDATA[emrYhctBenhAn]]></fieldDescription>
 	</field>
-	<field name="emrYhctChanDoan" class="vn.ehealth.emr.EmrYhctChanDoan">
+	<field name="emrYhctChanDoan" class="vn.ehealth.emr.model.EmrYhctChanDoan">
 		<fieldDescription><![CDATA[emrYhctChanDoan]]></fieldDescription>
 	</field>
 	<field name="giamdocbenhvien" class="java.lang.String">
@@ -66,7 +66,7 @@
 	<field name="coPhauThuat" class="java.lang.Boolean">
 		<fieldDescription><![CDATA[coPhauThuat]]></fieldDescription>
 	</field>
-	<field name="emrBenhAn" class="vn.ehealth.emr.EmrBenhAn">
+	<field name="emrBenhAn" class="vn.ehealth.emr.model.EmrBenhAn">
 		<fieldDescription><![CDATA[emrBenhAn]]></fieldDescription>
 	</field>
 	<background>

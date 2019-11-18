@@ -13,7 +13,7 @@ VueAsyncComponent('danhmuc-popup', '/pages/hsba/edit/danhmuc_popup/danhmuc.html'
     }
   },
 
-  props: ["id", "name", "dm_type", "title", "value", "level", "parent", "multi"],
+  props: ["id", "name", "dm_type", "title", "value", "level", "parent", "multi", "show_code"],
 
   watch: {
     currentPage: async function() {
@@ -29,7 +29,7 @@ VueAsyncComponent('danhmuc-popup', '/pages/hsba/edit/danhmuc_popup/danhmuc.html'
   methods: {
     getData: async function() {
       var params = {
-        name: this.keyword,
+        keyword: this.keyword,
         dm_type: this.dm_type,
         start: (this.currentPage-1) * this.perPage,
         count: this.perPage,
@@ -37,6 +37,7 @@ VueAsyncComponent('danhmuc-popup', '/pages/hsba/edit/danhmuc_popup/danhmuc.html'
         parentCode: this.parent? this.parent.ma : ''
 
       };
+      
       this.total = await this.get('/api/danhmuc/count_dm_list', params);      
       this.dmList = await this.get('/api/danhmuc/get_dm_list', params);
 

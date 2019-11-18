@@ -1,0 +1,26 @@
+[
+	{
+		"ma" : "1",
+		"ten" : "Chiếu X-quang"
+	},
+	{
+		"ma" : "2",
+		"ten" : "Chụp X-quang"
+	},
+	{
+		"ma" : "3",
+		"ten" : "Siêu âm"
+	},
+	{
+		"ma" : "4",
+		"ten" : "CT-Scanner"
+	},
+	{
+		"ma" : "5",
+		"ten" : "Cộng hưởng từ"
+	},
+	{
+		"ma" : "6",
+		"ten" : "Khác"
+	}
+]

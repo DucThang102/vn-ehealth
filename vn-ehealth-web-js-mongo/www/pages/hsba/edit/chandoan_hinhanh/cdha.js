@@ -12,7 +12,7 @@ VueAsyncComponent('cdha', '/pages/hsba/edit/chandoan_hinhanh/cdha.html', {
 
     editCdha: function (cdha) {
       this.cdha = cdha;
-      this.fileEditing = false;
+      this.fileEditing = false;      
     },
 
     editFiles: function (cdha) {
@@ -24,10 +24,6 @@ VueAsyncComponent('cdha', '/pages/hsba/edit/chandoan_hinhanh/cdha.html', {
       this.cdha = null;
     }
   },
-
-  created: function() {
-    sessionStorage.removeItem('dataChange');
-  }
 });
 
 VueAsyncComponent('cdha-list', '/pages/hsba/edit/chandoan_hinhanh/cdha_list.html', {
@@ -40,10 +36,24 @@ VueAsyncComponent('cdha-list', '/pages/hsba/edit/chandoan_hinhanh/cdha_list.html
   props: ["hsba_id"],
 
   methods: {
-    deleteCdha: function (id) {
-      if (confirm('Bạn có muốn xóa ảnh tổn thương này không?')) {
-        alert(id);
+    getCdhaList: async function(){
+      this.cdha_list = await this.get('/api/cdha/get_ds_cdha', { hsba_id: this.hsba_id });
+    },
+
+    deleteCdha: async function (id) {
+      if (confirm('Bạn có muốn xóa chẩn đoán hình ảnh này không?')) {
+        var result = await this.get("/api/cdha/delete_cdha", {cdha_id: id});
+        if(result.success) {
+          this.getCdhaList();
+        }else {
+          alert('Lỗi xảy ra quá trình xóa');
+        }
       }
+    },
+
+    addCdha : function() {
+      var cdha = {emrHoSoBenhAnId: this.hsba_id, emrDmLoaiChanDoanHinhAnh: {}, emrDmChanDoanHinhAnh:{}};
+      this.$emit('editCdha', cdha);
     },
 
     editCdha: function (cdha) {
@@ -55,7 +65,7 @@ VueAsyncComponent('cdha-list', '/pages/hsba/edit/chandoan_hinhanh/cdha_list.html
   },
 
   created: async function () {
-    this.cdha_list = await this.get('/api/cdha/get_ds_cdha', { hsba_id: this.hsba_id });
+    this.getCdhaList();
   }
 });
 
@@ -66,7 +76,16 @@ VueAsyncComponent('cdha-edit', '/pages/hsba/edit/chandoan_hinhanh/cdha_edit.html
   },
   props: ["cdha"],
 
-  watch: {
+  computed: {
+    emrDmLoaiChanDoanHinhAnh: function() {
+      return store.state.emrDmLoaiChanDoanHinhAnh;
+    },
+    emrDmChanDoanHinhAnh: function() {
+      return store.state.emrDmChanDoanHinhAnh;
+    }
+  },
+
+  watch: {    
     cdha: {
       handler: function (val, oldVal) {
         if (oldVal) {
@@ -74,7 +93,15 @@ VueAsyncComponent('cdha-edit', '/pages/hsba/edit/chandoan_hinhanh/cdha_edit.html
         }
       },
       deep: true
-    }
+    },
+
+    emrDmLoaiChanDoanHinhAnh: function(val) {
+      this.cdha.emrDmLoaiChanDoanHinhAnh = val;
+    },
+
+    emrDmChanDoanHinhAnh: function(val) {
+      this.cdha.emrDmChanDoanHinhAnh = val;
+    },
   },
 
   methods: {
@@ -86,8 +113,18 @@ VueAsyncComponent('cdha-edit', '/pages/hsba/edit/chandoan_hinhanh/cdha_edit.html
       }
       sessionStorage.removeItem('dataChange');
       this.$emit('viewCdhaList');
+    },
+
+    saveCdha : async function() {
+      var result = await this.post("/api/cdha/create_or_update_cdha", this.cdha);
+      if(result.success) {
+        sessionStorage.removeItem('dataChange');
+        this.$emit('viewCdhaList');
+      }else {
+        alert('Lỗi xảy ra quá trình lưu thông tin');
+      }
     }
-  },
+  },  
 });
 
 VueAsyncComponent('cdha-files', '/pages/hsba/edit/chandoan_hinhanh/cdha_files.html', {

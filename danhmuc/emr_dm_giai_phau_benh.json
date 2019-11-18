@@ -1,0 +1,362 @@
+[
+	{
+		"ma" : "1",
+		"ten" : "Chọc hút kim nhỏ tuyến vú dưới hướng dẫn của siêu âm, chụp vú"
+	},
+	{
+		"ma" : "2",
+		"ten" : "Chọc hút kim nhỏ tuyến vú không dưới hướng dẫn của siêu âm, chụp vú"
+	},
+	{
+		"ma" : "3",
+		"ten" : "Chọc hút kim nhỏ gan không dưới hướng dẫn của siêu âm"
+	},
+	{
+		"ma" : "4",
+		"ten" : "Chọc hút kim nhỏ gan dưới hướng dẫn của siêu âm"
+	},
+	{
+		"ma" : "5",
+		"ten" : "Chọc hút kim nhỏ gan dưới hướng dẫn của CT. Scan"
+	},
+	{
+		"ma" : "6",
+		"ten" : "Chọc hút kim nhỏ lách dưới hướng dẫn của siêu âm"
+	},
+	{
+		"ma" : "7",
+		"ten" : "Chọc hút kim nhỏ tuyến giáp"
+	},
+	{
+		"ma" : "8",
+		"ten" : "Chọc hút kim nhỏ lách dưới hướng dẫn của CT. Scan"
+	},
+	{
+		"ma" : "9",
+		"ten" : "Chọc hút kim nhỏ gan dưới hướng dẫn của siêu âm"
+	},
+	{
+		"ma" : "10",
+		"ten" : "Chọc hút kim nhỏ gan không dưới hướng dẫn của siêu âm"
+	},
+	{
+		"ma" : "11",
+		"ten" : "Chọc hút kim nhỏ tụy dưới hướng dẫn của CT. Scan"
+	},
+	{
+		"ma" : "12",
+		"ten" : "Chọc hút kim nhỏ tụy dưới hướng dẫn của siêu âm"
+	},
+	{
+		"ma" : "13",
+		"ten" : "Chọc hút kim nhỏ các khối sưng, khối u dưới da"
+	},
+	{
+		"ma" : "14",
+		"ten" : "Chọc hút kim nhỏ tuyến nước bọt"
+	},
+	{
+		"ma" : "15",
+		"ten" : "Chọc hút kim nhỏ các hạch"
+	},
+	{
+		"ma" : "16",
+		"ten" : "Chọc hút kim nhỏ mào tinh, tinh hoàn không dưới hướng dẫn của siêu âm"
+	},
+	{
+		"ma" : "17",
+		"ten" : "Chọc hút kim nhỏ tổn thương trong ổ bụng dưới hướng dẫn của siêu âm"
+	},
+	{
+		"ma" : "18",
+		"ten" : "Chọc hút kim nhỏ các tổn thương hốc mắt"
+	},
+	{
+		"ma" : "19",
+		"ten" : "Chọc hút kim nhỏ mô mềm"
+	},
+	{
+		"ma" : "20",
+		"ten" : "Tế bào học dịch màng bụng, màng tim"
+	},
+	{
+		"ma" : "21",
+		"ten" : "Tế bào học dịch màng khớp"
+	},
+	{
+		"ma" : "22",
+		"ten" : "Tế bào học nước tiểu"
+	},
+	{
+		"ma" : "23",
+		"ten" : "Tế bào học đờm"
+	},
+	{
+		"ma" : "24",
+		"ten" : "Tế bào học dịch chải phế quản"
+	},
+	{
+		"ma" : "25",
+		"ten" : "Tế bào học dịch rửa phế quản"
+	},
+	{
+		"ma" : "26",
+		"ten" : "Tế bào học dịch các tổn thương dạng nang"
+	},
+	{
+		"ma" : "27",
+		"ten" : "Tế bào học dịch rửa ổ bụng"
+	},
+	{
+		"ma" : "28",
+		"ten" : "Xét nghiệm mô bệnh học thường quy cố định, chuyển, đúc, cắt, nhuộm… các bệnh phẩm súc vật thực nghiệm"
+	},
+	{
+		"ma" : "29",
+		"ten" : "Xét nghiệm mô bệnh học thường quy cố định, chuyển, đúc, cắt, nhuộm… các bệnh phẩm tử thiết"
+	},
+	{
+		"ma" : "30",
+		"ten" : "Xét nghiệm mô bệnh học thường quy cố định, chuyển, đúc, cắt, nhuộm…các bệnh phẩm sinh thiết"
+	},
+	{
+		"ma" : "31",
+		"ten" : "Phẫu tích các loại bệnh phẩm làm xét nghiệm mô bệnh học"
+	},
+	{
+		"ma" : "32",
+		"ten" : "Quy trình nhuộm đỏ Congo kiềm (theo Puchtler 1962)"
+	},
+	{
+		"ma" : "33",
+		"ten" : "Nhuộm lipit trung tính và axit bằng sulfat xanh lơ Nil theo Dunnigan"
+	},
+	{
+		"ma" : "34",
+		"ten" : "Nhuộm lipit trung tính và axit bằng sulfat xanh lơ Nil theo Menschick"
+	},
+	{
+		"ma" : "35",
+		"ten" : "Nhuộm PAS Periodic Acid Schiff"
+	},
+	{
+		"ma" : "36",
+		"ten" : "Nhuộm xanh alcian"
+	},
+	{
+		"ma" : "37",
+		"ten" : "Nhuộm hai màu Hematoxyline- Eosin"
+	},
+	{
+		"ma" : "38",
+		"ten" : "Nhuộm ba màu theo phương Nhuộm 3 màu của Masson (1929)"
+	},
+	{
+		"ma" : "39",
+		"ten" : "Nhuộm đa màu theo Lillie (1951)"
+	},
+	{
+		"ma" : "40",
+		"ten" : "Nhuộm May – Grunwald- Giemsa cho tủy xương"
+	},
+	{
+		"ma" : "41",
+		"ten" : "Nhuộm theo phương pháp Custer cho các mảnh cắt của tủy xương"
+	},
+	{
+		"ma" : "42",
+		"ten" : "Nhuộm theo phương pháp Schmorl cho các mảnh cắt của tủy xương "
+	},
+	{
+		"ma" : "43",
+		"ten" : "Nhuộm Soudan III hoặc IV hoặc Oil Red O trong dung dịch Ethanol"
+	},
+	{
+		"ma" : "44",
+		"ten" : "Nhuộm Oil Red O trong cồn isopropylic"
+	},
+	{
+		"ma" : "45",
+		"ten" : "Nhuộm đen Soudan B trong diacetin"
+	},
+	{
+		"ma" : "46",
+		"ten" : "Nhuộm đen Soudan B hoà tan trong propylen-glycol"
+	},
+	{
+		"ma" : "47",
+		"ten" : "Nhuộm đen Soudan B hoà tan trong ethanol – glycol"
+	},
+	{
+		"ma" : "48",
+		"ten" : "Nhuộm lipit trung tính và axit bằng sulfat xanh lơ Nil theo Cain."
+	},
+	{
+		"ma" : "49",
+		"ten" : "Nhuộm Grocott"
+	},
+	{
+		"ma" : "50",
+		"ten" : "Nhuộm xanh Phổ Perl phát hiện ion sắt"
+	},
+	{
+		"ma" : "51",
+		"ten" : "Nhuộm bạc Warthin – Stary phát hiện Helicobacter pylori"
+	},
+	{
+		"ma" : "52",
+		"ten" : "Nhuộm Fer Colloidal de Hale (cải biên theo Muller và Mowry)"
+	},
+	{
+		"ma" : "53",
+		"ten" : "Nhuộm sắt cao"
+	},
+	{
+		"ma" : "54",
+		"ten" : "Nhuộm Gomori cho sợi võng"
+	},
+	{
+		"ma" : "55",
+		"ten" : "Nhuộm aldehyde fuchsin cho sợi chun"
+	},
+	{
+		"ma" : "56",
+		"ten" : "Nhuộm phát hiện adenosine triphosphatase (ATPase)"
+	},
+	{
+		"ma" : "57",
+		"ten" : "Nhuộm Orcein cải biên theo Shikata phát hiện kháng nguyên HBsAg"
+	},
+	{
+		"ma" : "58",
+		"ten" : "Nhuộm Orcein phát hiện kháng nguyên viêm gan B (HBSAg) trong mô gan"
+	},
+	{
+		"ma" : "59",
+		"ten" : "Nhuộm Giemsa trên mảnh cắt mô phát hiện HP"
+	},
+	{
+		"ma" : "60",
+		"ten" : "Nhuộm HE trên phiến đồ tế bào học"
+	},
+	{
+		"ma" : "61",
+		"ten" : "Nhuộm hóa mô miễn dịch cho mỗi một dấu ấn"
+	},
+	{
+		"ma" : "62",
+		"ten" : "Nhuộm miễn dịch huỳnh quang gián tiếp phát hiện kháng nguyên"
+	},
+	{
+		"ma" : "63",
+		"ten" : "Nhuộm miễn dịch huỳnh quang trực tiếp phát hiện kháng nguyên"
+	},
+	{
+		"ma" : "64",
+		"ten" : "Nhuộm miễn dịch huỳnh quang gián tiếp phát hiện kháng thể"
+	},
+	{
+		"ma" : "65",
+		"ten" : "Nhuộm ức chế huỳnh quang phát hiện kháng thể"
+	},
+	{
+		"ma" : "66",
+		"ten" : "Nhuộm kháng bổ thể huỳnh quang phát hiện kháng thể"
+	},
+	{
+		"ma" : "67",
+		"ten" : "Nhuộm  Shorr"
+	},
+	{
+		"ma" : "68",
+		"ten" : "Nhuộm Glycogen theo Best"
+	},
+	{
+		"ma" : "69",
+		"ten" : "Nhuộm PAS kết hợp xanh Alcian"
+	},
+	{
+		"ma" : "70",
+		"ten" : "Nhuộm phát hiện Phosphastase kiềm"
+	},
+	{
+		"ma" : "71",
+		"ten" : "Nhuộm Gomori chì phát hiện phosphatase acid"
+	},
+	{
+		"ma" : "72",
+		"ten" : "Nhuộm Mucicarmin"
+	},
+	{
+		"ma" : "73",
+		"ten" : "Lấy bệnh phẩm làm phiên đồ tế bào cổ tử cung – âm đạo"
+	},
+	{
+		"ma" : "74",
+		"ten" : "Nhuộm phiến đồ tế bào theo Papanicolaou"
+	},
+	{
+		"ma" : "75",
+		"ten" : "Nhuộm Diff – Quick"
+	},
+	{
+		"ma" : "76",
+		"ten" : "Nhuộm Giemsa"
+	},
+	{
+		"ma" : "77",
+		"ten" : "Nhuộm May Grunwald – Giemsa"
+	},
+	{
+		"ma" : "78",
+		"ten" : "Xét nghiệm tế bào học bằng phương pháp Liqui Prep"
+	},
+	{
+		"ma" : "79",
+		"ten" : "Cell bloc (khối tế bào)"
+	},
+	{
+		"ma" : "80",
+		"ten" : "Xét nghiệm FISH"
+	},
+	{
+		"ma" : "81",
+		"ten" : "Xét nghiệm SISH"
+	},
+	{
+		"ma" : "82",
+		"ten" : "Xét nghiệm giải trình tự chuỗi DNA trên khối paraffin"
+	},
+	{
+		"ma" : "83",
+		"ten" : "Xét nghiệm PCR "
+	},
+	{
+		"ma" : "84",
+		"ten" : "Xét nghiệm lai tại chỗ gắn màu (CISH)"
+	},
+	{
+		"ma" : "85",
+		"ten" : "Xét nghiệm lai tại chỗ gắn bạc hai màu (Dual-ISH)"
+	},
+	{
+		"ma" : "86",
+		"ten" : "Xét nghiệm giải trình tự gen"
+	},
+	{
+		"ma" : "87",
+		"ten" : "Nuôi cấy tế bào"
+	},
+	{
+		"ma" : "88",
+		"ten" : "Xét nghiệm nhiễm sắc thể đồ"
+	},
+	{
+		"ma" : "89",
+		"ten" : "Xét nghiệm tế bào học áp nhuộm thường quy"
+	},
+	{
+		"ma" : "90",
+		"ten" : "Xét nghiệm sinh thiết tức thì bằng cắt lạnh "
+	}
+]

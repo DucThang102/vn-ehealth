@@ -4,7 +4,7 @@
 	<property name="ireport.x" value="440"/>
 	<property name="ireport.y" value="0"/>
 	<scriptlet name="Header" class="vn.ehealth.emr.utils.JasperUtils"/>
-	<parameter name="danhSachHSBA" class="vn.ehealth.emr.EmrHoSoBenhAn"/>
+	<parameter name="danhSachHSBA" class="vn.ehealth.emr.model.EmrHoSoBenhAn"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>

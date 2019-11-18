@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="danhSachHSBA" class="vn.ehealth.emr.EmrHoSoBenhAn"/>
+	<parameter name="danhSachHSBA" class="vn.ehealth.emr.model.EmrHoSoBenhAn"/>
 	<title>
 		<band height="82">
 			<rectangle>

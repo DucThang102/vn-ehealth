@@ -19,20 +19,20 @@ public class EmrDmController {
 
     @GetMapping("/count_dm_list")
     public long countDmList(@RequestParam("dm_type") String dmType, 
-                            @RequestParam String name,
+                            @RequestParam String keyword,
                             @RequestParam int level,
                             @RequestParam String parentCode) {
-        return emrDmService.countEmrDm(dmType, name, level, parentCode);
+        return emrDmService.countEmrDm(dmType, keyword, level, parentCode);
     }
     
     @GetMapping("/get_dm_list")
     public ResponseEntity<?> getDmList(@RequestParam("dm_type") String dmType, 
-                                        @RequestParam String name,
+                                        @RequestParam String keyword,
                                         @RequestParam int level,
                                         @RequestParam String parentCode,
                                         @RequestParam int start, 
                                         @RequestParam int count) {
-        var lst = emrDmService.getEmrDm(dmType, name, level, parentCode, start, count);
+        var lst = emrDmService.getEmrDm(dmType, keyword, level, parentCode, start, count);
         return ResponseEntity.ok(lst);
     }
 }

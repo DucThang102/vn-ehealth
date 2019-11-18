@@ -12,16 +12,20 @@
           <form method="POST" @submit.prevent="search()">
             <div class="row mb-3">
               <div class="col-12">
-                <input v-model="keyword" placeholder="Nhập tên để tìm kiếm" class="form-control">
+                <input v-model="keyword" placeholder="Nhập tên/mã để tìm kiếm" class="form-control">
               </div>
             </div>
           </form>
           <div class="row mt-1" v-for="(dm,i) in dmList">
             <div class="col-12" v-if="!multi">
-              <input type="radio" :value="dm.ma" v-model='selectedItemCode'> <label>{{ dm.ten }}</label>
+              <input type="radio" :value="dm.ma" v-model='selectedItemCode'> 
+              <label>{{ dm.ten }}</label>
+              <span v-if="show_code">({{ dm.ma }})</span>
             </div>
             <div class="col-12" v-if="multi">
-              <input type="checkbox" :value="dm.ma" v-model='dmList[i].selected'> <label> {{ dm.ten }}</label>
+              <input type="checkbox" :value="dm.ma" v-model='dmList[i].selected'> 
+              <label> {{ dm.ten }} </label>
+              <span v-if="show_code">({{ dm.ma }})</span>
             </div>
           </div>
         </div>

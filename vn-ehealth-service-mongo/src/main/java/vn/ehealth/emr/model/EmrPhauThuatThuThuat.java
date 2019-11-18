@@ -17,13 +17,15 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class EmrPhauThuatThuThuat {
 
     @Id public ObjectId id;
-    
-    public String getId() { return id != null? id.toHexString() : null; }
-    
+        
     public ObjectId emrHoSoBenhAnId;    
         
     public EmrDmContent emrDmMaBenhChandoansau;
     public EmrDmContent emrDmMaBenhChandoantruoc;
+    
+    public List<EmrDmContent> emrDmMaBenhChandoansaus = new ArrayList<>();
+    public List<EmrDmContent> emrDmMaBenhChandoantruocs = new ArrayList<>();
+    
     public EmrDmContent emrDmPhauThuThuat;
     
     @JsonFormat(pattern="dd/MM/yyyy HH:mm")
@@ -44,6 +46,28 @@ public class EmrPhauThuatThuThuat {
     public List<EmrThanhVienPttt> emrThanhVienPttts = new ArrayList<>();
     
     public List<EmrFileDinhKem> emrFileDinhKemPttts = new ArrayList<>();
-
     
+    public String getId() { 
+        return id != null? id.toHexString() : null; 
+    }
+    
+    public void setId(String id) {
+        if(id != null) {
+            this.id = new ObjectId(id);
+        }else {
+            this.id = null;
+        }
+    }
+    
+    public String getEmrHoSoBenhAnId() {
+        return emrHoSoBenhAnId != null? emrHoSoBenhAnId.toHexString(): null;
+    }
+    
+    public void setEmrHoSoBenhAnId(String emrHoSoBenhAnId) {
+        if(emrHoSoBenhAnId != null) {
+            this.emrHoSoBenhAnId = new ObjectId(emrHoSoBenhAnId);
+        }else {
+            this.emrHoSoBenhAnId = null;
+        }
+    }    
 }

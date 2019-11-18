@@ -21,4 +21,8 @@ public class EmrChanDoanHinhAnhService {
     public EmrChanDoanHinhAnh createOrUpdate(EmrChanDoanHinhAnh emrChanDoanHinhAnh) {
         return emrChanDoanHinhAnhRepository.save(emrChanDoanHinhAnh);
     }
+    
+    public void delete(ObjectId id) {
+        emrChanDoanHinhAnhRepository.deleteById(id);
+    }
 }

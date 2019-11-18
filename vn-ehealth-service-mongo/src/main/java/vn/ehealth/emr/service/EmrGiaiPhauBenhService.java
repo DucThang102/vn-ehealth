@@ -21,4 +21,8 @@ public class EmrGiaiPhauBenhService {
     public EmrGiaiPhauBenh createOrUpdate(EmrGiaiPhauBenh emrGiaiPhauBenh) {
         return emrGiaiPhauBenhRepository.save(emrGiaiPhauBenh);
     }
+    
+    public void delete(ObjectId id) {
+        emrGiaiPhauBenhRepository.deleteById(id);
+    }
 }

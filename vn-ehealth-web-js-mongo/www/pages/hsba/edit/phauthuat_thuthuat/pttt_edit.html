@@ -12,11 +12,13 @@
   <div class="row mt-3">
     <div class="col-6">
       <label class="label-title">Chẩn đoán trước phẫu thuật, thủ thuật</label>
-      <input class="form-control" :value="pttt.emrDmMaBenhChandoantruoc.ten">
+      <input readonly data-toggle="modal" data-target="#dmChandoantruocsSelect" class="form-control" 
+          :value="getTextChanDoan(pttt.emrDmMaBenhChandoantruocs)">
     </div>
     <div class="col-6">
       <label class="label-title">Chẩn đoán sau phẫu thuật, thủ thuật</label>
-      <input class="form-control" :value="pttt.emrDmMaBenhChandoansau.ten">
+      <input readonly data-toggle="modal" data-target="#dmChandoansausSelect" class="form-control" 
+          :value="getTextChanDoan(pttt.emrDmMaBenhChandoansaus)">
     </div>
   </div>
   <div class="row mt-3">
@@ -54,7 +56,9 @@
   <div class="row mt-3">
     <div class="col-12">
       <label class="label-title label-bold">Danh sách thành viên tham gia</label>
-      <a class="mt-1" href='#' title="Thêm"><i class="fas fa-fw fa-lg fa-plus-circle"></i></a>
+      <a v-on:click="addTvpttt()" class="mt-1" href='javascript:void(0)' title="Thêm">
+        <i class="fas fa-fw fa-lg fa-plus-circle"></i>
+      </a>
     </div>
   </div>
   <div class="row mt-2">
@@ -66,11 +70,12 @@
           <th style="width:45%" class="text-center">Vai trò</th>
           <th style="width:10%" class="text-center">Thao tác</th>
         </tr>
-        <tr v-for="(tvptt,i) in pttt.emrThanhVienPttts">
+        <tr v-for="(tvpttt,i) in pttt.emrThanhVienPttts">
           <td>{{i + 1}}</td>
-          <td><input class="form-control" v-model="tvptt.tenbacsi"></td>
+          <td><input class="form-control" v-model="tvpttt.tenbacsi"></td>
           <td>
-            <select class="form-control" v-model="tvptt.emrDmVaiTro.ma">
+            <select class="form-control" v-model="tvpttt.emrDmVaiTro.ma">
+              <option value="">------</option>
               <option value="1"> Phẫu thuật viên chính</option>
               <option value="2"> Phẫu thuật viên phụ</option>
               <option value="3"> Thủ thuật viên chính</option>
@@ -81,7 +86,7 @@
             </select>
           </td>
           <td class="text-center">
-            <a href='#' title="Xóa">
+            <a v-on:click="deleteTvpttt(i)" href='javascript:void(0)' title="Xóa">
               <i class="fas fa-fw fa-lg fa-trash" style="color:red"></i>
             </a>
           </td>
@@ -91,7 +96,10 @@
   </div>
 
   <div class="mt-3 mb-3">
-    <button type="button" class="btn btn-sm btn-primary">Lưu lại</button>
+    <button type="button" v-on:click="savePttt()" class="btn btn-sm btn-primary">Lưu lại</button>
     <button type="button" v-on:click="viewPtttList()" class="btn btn-sm btn-secondary">Quay lại</button>    
   </div>
+
+  <danhmuc-popup id="dmChandoantruocsSelect" multi="true" show_code="true" name="emrDmMaBenhChandoantruocs" :value="pttt.emrDmMaBenhChandoantruocs" title="Chẩn đoán trước phẫu thuật, thủ thuật" dm_type="DM_MA_BENH"></danhmuc-popup>
+  <danhmuc-popup id="dmChandoansausSelect" multi="true" show_code="true" name="emrDmMaBenhChandoansaus" :value="pttt.emrDmMaBenhChandoansaus" title="Chẩn đoán sau phẫu thuật, thủ thuật" dm_type="DM_MA_BENH"></danhmuc-popup>
 </div>

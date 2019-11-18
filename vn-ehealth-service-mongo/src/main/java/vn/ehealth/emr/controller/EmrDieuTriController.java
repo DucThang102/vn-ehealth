@@ -33,7 +33,7 @@ public class EmrDieuTriController {
     @Autowired EmrDieuTriService emrDieuTriService;
     
     @GetMapping("/get_ds_dieutri")
-    public ResponseEntity<?> getDsDieuTri(@RequestParam("hsba_id") String id) {
+    public ResponseEntity<?> getDsDieutri(@RequestParam("hsba_id") String id) {
         var result = new ArrayList<EmrDieuTri>();
         var vkList = emrVaoKhoaService.getByEmrHoSoBenhAnId(new ObjectId(id), false);
         

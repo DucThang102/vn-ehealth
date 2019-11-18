@@ -19,13 +19,9 @@ public class EmrHoiChan {
 
     @Id public ObjectId id;
     
-    public String getId() { return id != null? id.toHexString() : null; }
-    
     public ObjectId emrVaoKhoaId;
     
     @Transient public EmrVaoKhoa emrVaoKhoa;
-    
-    public String getEmrVaoKhoaId() { return emrVaoKhoaId.toHexString(); }
 
     @JsonFormat(pattern="dd/MM/yyyy HH:mm")
     public Date ngaythuchien;
@@ -39,5 +35,29 @@ public class EmrHoiChan {
     public List<EmrThanhVienHoiChan> emrThanhVienHoiChans = new ArrayList<>();
     
     public List<EmrFileDinhKem> emrFileDinhKemHoiChans = new ArrayList<>();
+    
+    public String getId() { 
+        return id != null? id.toHexString() : null; 
+    }
+    
+    public void setId(String id) {
+        if(id != null) {
+            this.id = new ObjectId(id);
+        }else {
+            this.id = null;
+        }
+    }
+    
+    public String getEmrVaoKhoaId() {
+        return emrVaoKhoaId != null? emrVaoKhoaId.toHexString(): null;        
+    }
+    
+    public void setEmrVaoKhoaId(String emrVaoKhoaId) {
+        if(emrVaoKhoaId != null) {
+            this.emrVaoKhoaId = new ObjectId(emrVaoKhoaId);
+        }else {
+            this.emrVaoKhoaId = null;
+        }
+    }
     
 }

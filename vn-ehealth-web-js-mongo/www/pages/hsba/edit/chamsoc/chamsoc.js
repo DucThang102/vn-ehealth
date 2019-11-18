@@ -23,10 +23,6 @@ VueAsyncComponent('chamsoc', '/pages/hsba/edit/chamsoc/chamsoc.html', {
       this.chamsoc = null;
     }
   },
-
-  created: function() {
-    sessionStorage.removeItem('dataChange');
-  }
 });
 
 VueAsyncComponent('chamsoc-list', '/pages/hsba/edit/chamsoc/chamsoc_list.html', {
@@ -39,6 +35,10 @@ VueAsyncComponent('chamsoc-list', '/pages/hsba/edit/chamsoc/chamsoc_list.html', 
   props: ["hsba_id"],
 
   methods:  {
+    getChamsocList: async function() {
+      this.chamsoc_list = await this.get('/api/chamsoc/get_ds_chamsoc', { hsba_id: this.hsba_id });
+    },
+
     editChamsoc : function(chamsoc) {
       this.$emit('editChamsoc', chamsoc);
     },
@@ -56,6 +56,17 @@ VueAsyncComponent('chamsoc-list', '/pages/hsba/edit/chamsoc/chamsoc_list.html', 
         this.$emit('editChamsoc', chamsoc);
       }else{
         alert('Hồ sơ bệnh án chưa có khoa điều trị');
+      }
+    },
+
+    deleteChamsoc: async function(id) {
+      if (confirm('Bạn có muốn xóa chăm sóc này không?')) {
+        var result = await this.get("/api/chamsoc/delete_chamsoc", {chamsoc_id: id});
+        if(result.success) {
+          this.getChamsocList();
+        }else {
+          alert('Lỗi xảy ra quá trình xóa');
+        }
       }
     },
 
@@ -77,7 +88,7 @@ VueAsyncComponent('chamsoc-list', '/pages/hsba/edit/chamsoc/chamsoc_list.html', 
   },
 
   created: async function() {
-    this.chamsoc_list = await this.get('/api/chamsoc/get_ds_chamsoc', { hsba_id: this.hsba_id });
+    this.getChamsocList();
   },
 });
 
@@ -115,6 +126,7 @@ VueAsyncComponent('chamsoc-edit', '/pages/hsba/edit/chamsoc/chamsoc_edit.html', 
     saveChamsoc: async function() {
       var result = await this.post("/api/chamsoc/create_or_update_chamsoc", this.chamsoc);
       if(result.success) {
+        sessionStorage.removeItem('dataChange');
         this.$emit('viewChamsocList');
       }else {
         alert('Lỗi xảy ra quá trình lưu thông tin');

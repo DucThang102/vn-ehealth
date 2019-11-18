@@ -23,10 +23,6 @@ VueAsyncComponent('dieutri', '/pages/hsba/edit/dieutri/dieutri.html', {
       this.dieutri = null;
     }
   },
-
-  created: function() {
-    sessionStorage.removeItem('dataChange');
-  }
 });
 
 VueAsyncComponent('dieutri-list', '/pages/hsba/edit/dieutri/dieutri_list.html', {
@@ -39,6 +35,10 @@ VueAsyncComponent('dieutri-list', '/pages/hsba/edit/dieutri/dieutri_list.html', 
   props: ["hsba_id"],
 
   methods:  {
+    getDieutriList: async function() {
+      this.dieutri_list = await this.get('/api/dieutri/get_ds_dieutri', { hsba_id: this.hsba_id });
+    },
+
     editDieutri : function(dieutri) {
       this.$emit('editDieutri', dieutri);
     },
@@ -59,6 +59,17 @@ VueAsyncComponent('dieutri-list', '/pages/hsba/edit/dieutri/dieutri_list.html', 
       }
     },
 
+    deleteDieutri: async function(id) {
+      if (confirm('Bạn có muốn xóa điều trị này không?')) {
+        var result = await this.get("/api/dieutri/delete_dieutri", {dieutri_id: id});
+        if(result.success) {
+          this.getDieutriList();
+        }else {
+          alert('Lỗi xảy ra quá trình xóa');
+        }
+      }
+    },
+
     editFiles : function(dieutri) {
       this.$emit('editFiles', dieutri);
     },
@@ -69,7 +80,7 @@ VueAsyncComponent('dieutri-list', '/pages/hsba/edit/dieutri/dieutri_list.html', 
   },
 
   created: async function() {
-    this.dieutri_list = await this.get('/api/dieutri/get_ds_dieutri', { hsba_id: this.hsba_id });
+    this.getDieutriList();
   },
 });
 
@@ -107,6 +118,7 @@ VueAsyncComponent('dieutri-edit', '/pages/hsba/edit/dieutri/dieutri_edit.html', 
     saveDieutri: async function() {
       var result = await this.post("/api/dieutri/create_or_update_dieutri", this.dieutri);
       if(result.success) {
+        sessionStorage.removeItem('dataChange');
         this.$emit('viewDieutriList');
       }else {
         alert('Lỗi xảy ra quá trình lưu thông tin');
