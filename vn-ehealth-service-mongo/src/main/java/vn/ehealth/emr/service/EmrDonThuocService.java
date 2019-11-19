@@ -21,4 +21,8 @@ public class EmrDonThuocService {
     public EmrDonThuoc createOrUpdate(EmrDonThuoc emrDonThuoc) {
         return emrDonThuocRepository.save(emrDonThuoc);
     }
+    
+    public void delete(ObjectId id) {
+        emrDonThuocRepository.deleteById(id);
+    }
 }

@@ -72,14 +72,16 @@ VueAsyncComponent('cdha-list', '/pages/hsba/edit/chandoan_hinhanh/cdha_list.html
 VueAsyncComponent('cdha-edit', '/pages/hsba/edit/chandoan_hinhanh/cdha_edit.html', {
   data: function () {
     return {
+      emrDmLoaiChanDoanHinhAnhs: []
     }
   },
   props: ["cdha"],
 
+  created: async function() {
+    this.emrDmLoaiChanDoanHinhAnhs = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_LOAI_CHAN_DOAN_HINH_ANH'});    
+  },
+
   computed: {
-    emrDmLoaiChanDoanHinhAnh: function() {
-      return store.state.emrDmLoaiChanDoanHinhAnh;
-    },
     emrDmChanDoanHinhAnh: function() {
       return store.state.emrDmChanDoanHinhAnh;
     }
@@ -91,12 +93,9 @@ VueAsyncComponent('cdha-edit', '/pages/hsba/edit/chandoan_hinhanh/cdha_edit.html
         if (oldVal) {
           sessionStorage.setItem('dataChange', true);
         }
+        val.emrDmLoaiChanDoanHinhAnh = this.emrDmLoaiChanDoanHinhAnhs.find(x => x.ma == attr(val, 'emrDmLoaiChanDoanHinhAnh.ma'));
       },
       deep: true
-    },
-
-    emrDmLoaiChanDoanHinhAnh: function(val) {
-      this.cdha.emrDmLoaiChanDoanHinhAnh = val;
     },
 
     emrDmChanDoanHinhAnh: function(val) {

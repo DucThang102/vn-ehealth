@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import vn.ehealth.emr.model.EmrChamSoc;
@@ -63,6 +64,7 @@ public class EmrChamSocController {
         
         try {
             var mapper = new ObjectMapper();
+            mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             var chamsoc = mapper.readValue(jsonSt, EmrChamSoc.class);
             chamsoc = emrChamSocService.createOrUpdate(chamsoc);
             

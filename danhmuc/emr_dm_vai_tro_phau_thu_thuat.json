@@ -1,0 +1,30 @@
+[
+    {
+        "ma": "01",
+        "ten": "Phẫu thuật viên chính"
+    },
+    {
+        "ma": "02",
+        "ten": "Phẫu thuật viên phụ"
+    },
+    {
+        "ma": "03",
+        "ten": "Thủ thuật viên chính"
+    },
+    {
+        "ma": "04",
+        "ten": "Thủ thuật viên phụ"
+    },
+    {
+        "ma": "05",
+        "ten": "Gây mê chính"
+    },
+    {
+        "ma": "06",
+        "ten": "Gây mê phụ"
+    },
+    {
+        "ma": "07",
+        "ten": "Thành viên"
+    }     
+]

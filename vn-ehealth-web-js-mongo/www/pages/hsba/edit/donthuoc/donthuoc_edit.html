@@ -17,7 +17,9 @@
   <div class="row mt-3">
     <div class="col-12">
       <label class="label-title label-bold">Danh sách thuốc</label>
-      <a class="mt-1" href='#' title="Thêm"><i class="fas fa-fw fa-lg fa-plus-circle"></i></a>
+      <a v-on:click="addDtct()" class="mt-1" href='javascript:void(0)' title="Thêm">
+        <i class="fas fa-fw fa-lg fa-plus-circle"></i>
+      </a>
     </div>
   </div>
   <div class="row mt-2">
@@ -35,10 +37,15 @@
           <th style="width:10%" class="text-center">Chỉ dẫn</th>
           <th style="width:5%" class="text-center">Thao tác</th>
         </tr>
-        <tr v-for="(dtct,i) in donthuoc.emrDonThuocChiTiets">
+        <tr v-if="donthuoc.emrDonThuocChiTiets" v-for="(dtct,i) in donthuoc.emrDonThuocChiTiets">
           <td class="text-center">{{i + 1}}</td>
           <td><input class="form-control" v-model="dtct.bietduoc"></td>
-          <td><input class="form-control" :value="dtct.emrDmThuoc.ten"></td>
+          <td>
+            <input v-on:click="openDmThuocModal(dtct)"
+              readonly class="form-control" 
+              :value="attr(dtct, 'emrDmThuoc.ten')"
+              :title="attr(dtct, 'emrDmThuoc.ten')">
+          </td>
 
           <td>
             <date-picker v-model="dtct.ngaybatdau" :config="{format: 'DD/MM/YYYY HH:mm', sideBySide:true}">
@@ -50,23 +57,41 @@
             </date-picker>
           </td>
           
-          <td><input class="form-control" :value="dtct.emrDmDuongDungThuoc.ten"></td>
+          <td>
+            <input v-on:click="openDmDuongDungThuocModal(dtct)"
+              class="form-control" 
+              :value="attr(dtct, 'emrDmDuongDungThuoc.ten')"
+              :title="attr(dtct, 'emrDmDuongDungThuoc.ten')">
+          </td>
           <td><input class="form-control" v-model="dtct.lieuluongdung"></td>
-          <td><input class="form-control" :value="dtct.emrDmTanXuatDungThuoc.ten"></td>
+          <td>
+            <input v-on:click="openDmTanSuatDungThuocModal(dtct)"
+              class="form-control" 
+              :value="attr(dtct, 'emrDmTanSuatDungThuoc.ten')" 
+              :title="attr(dtct, 'emrDmTanSuatDungThuoc.ten')">
+          </td>
           <td><input class="form-control" v-model="dtct.chidandungthuoc"></td>
 
           <td class="text-center">
-            <a href='#' title="Xóa">
+            <a v-on:click="deleteDtct(i)" href='javascript:void(0)' title="Xóa">
               <i class="fas fa-fw fa-lg fa-trash" style="color:red"></i>
             </a>
           </td>
+        </tr>
+        <tr v-if="donthuoc.emrDonThuocChiTiets==0">
+          <td colspan="10">Không có dữ liệu</td>
         </tr>
       </table>
     </div>
   </div>
 
   <div class="mt-3 mb-3">
-    <button type="button" class="btn btn-sm btn-primary">Lưu lại</button>
+    <button type="button" v-on:click="saveDonthuoc()" class="btn btn-sm btn-primary">Lưu lại</button>
     <button type="button" v-on:click="viewDonthuocList()" class="btn btn-sm btn-secondary">Quay lại</button>    
   </div>
+
+  <danhmuc-popup id="dmThuocSelect" :value="emrDmThuoc" name="emrDmThuoc" title="Thuốc" dm_type="DM_THUOC"></danhmuc-popup>
+  <danhmuc-popup id="dmDuongDungThuocSelect" :value="emrDmDuongDungThuoc" name="emrDmDuongDungThuoc" title="Đường dùng thuốc" dm_type="DM_DUONG_DUNG_THUOC"></danhmuc-popup>
+  <danhmuc-popup id="dmTanSuatDungThuocSelect" :value="emrDmTanSuatDungThuoc" name="emrDmTanSuatDungThuoc" title="Tần suất dùng thuốc" dm_type="DM_TAN_SUAT_DUNG_THUOC"></danhmuc-popup>
+
 </div>

@@ -1,0 +1,62 @@
+[
+	{
+		"ma" : "1",
+		"ten" : "Uống"
+	},
+	{
+		"ma" : "2",
+		"ten" : "Tiêm"
+	},
+	{
+		"ma" : "3",
+		"ten" : "Dùng ngoài"
+	},
+	{
+		"ma" : "4",
+		"ten" : "Đường hô hấp"
+	},
+	{
+		"ma" : "5",
+		"ten" : "Đặt trực tràng"
+	},
+	{
+		"ma" : "6",
+		"ten" : "Tiêm truyền"
+	},
+	{
+		"ma" : "7",
+		"ten" : "Âm đạo"
+	},
+	{
+		"ma" : "8",
+		"ten" : "Đặt dưới lưỡi"
+	},
+	{
+		"ma" : "9",
+		"ten" : "Nhỏ mắt"
+	},
+	{
+		"ma" : "10",
+		"ten" : "Tra mắt"
+	},
+	{
+		"ma" : "11",
+		"ten" : "Nhỏ mắt, tai"
+	},
+	{
+		"ma" : "12",
+		"ten" : "Nhỏ mũi"
+	},
+	{
+		"ma" : "13",
+		"ten" : "Xịt mũi"
+	},
+	{
+		"ma" : "14",
+		"ten" : "Dùng tại chỗ"
+	},
+	{
+		"ma" : "15",
+		"ten" : "Cấy vào cơ thể"
+	}
+]

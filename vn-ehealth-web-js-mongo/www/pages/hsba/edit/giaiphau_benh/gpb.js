@@ -73,14 +73,18 @@ VueAsyncComponent('gpb-list', '/pages/hsba/edit/giaiphau_benh/gpb_list.html', {
 VueAsyncComponent('gpb-edit', '/pages/hsba/edit/giaiphau_benh/gpb_edit.html', {
   data: function () {
     return {
+      emrDmLoaiGiaiPhauBenhs: [],
+      emrDmViTriLayMaus : []
     }
   },
   props: ["gpb"],
 
+  created: async function() {
+    this.emrDmLoaiGiaiPhauBenhs = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_LOAI_GIAI_PHAU_BENH'});
+    this.emrDmViTriLayMaus = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_VI_TRI_LAY_MAU'});
+  },
+
   computed: {
-    emrDmLoaiGiaiPhauBenh: function() {
-      return store.state.emrDmLoaiGiaiPhauBenh;
-    },
     emrDmGiaiPhauBenh: function() {
       return store.state.emrDmGiaiPhauBenh;
     }
@@ -92,12 +96,9 @@ VueAsyncComponent('gpb-edit', '/pages/hsba/edit/giaiphau_benh/gpb_edit.html', {
         if (oldVal) {
           sessionStorage.setItem('dataChange', true);
         }
+        val.emrDmLoaiGiaiPhauBenh = this.emrDmLoaiGiaiPhauBenhs.find(x => x.ma == val.emrDmLoaiGiaiPhauBenh.ma);
       },
       deep: true
-    },
-
-    emrDmLoaiGiaiPhauBenh: function(val) {
-      this.gpb.emrDmLoaiGiaiPhauBenh = val;
     },
 
     emrDmGiaiPhauBenh: function(val) {

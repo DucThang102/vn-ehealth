@@ -73,14 +73,16 @@ VueAsyncComponent('tdcn-list', '/pages/hsba/edit/thamdo_chucnang/tdcn_list.html'
 VueAsyncComponent('tdcn-edit', '/pages/hsba/edit/thamdo_chucnang/tdcn_edit.html', {
   data: function () {
     return {
+      emrDmLoaiThamDoChucNangs: []
     }
   },
   props: ["tdcn"],
 
+  created: async function() {
+    this.emrDmLoaiThamDoChucNangs = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_LOAI_THAM_DO_CHUC_NANG'});
+  },
+
   computed: {
-    emrDmLoaiThamDoChucNang: function() {
-      return store.state.emrDmLoaiThamDoChucNang;
-    },
     emrDmThamDoChucNang: function() {
       return store.state.emrDmThamDoChucNang;
     }
@@ -92,12 +94,9 @@ VueAsyncComponent('tdcn-edit', '/pages/hsba/edit/thamdo_chucnang/tdcn_edit.html'
         if (oldVal) {
           sessionStorage.setItem('dataChange', true);
         }
+        val.emrDmLoaiThamDoChucNang = this.emrDmLoaiThamDoChucNangs.find(x => x.ma == val.emrDmLoaiThamDoChucNang.ma);
       },
       deep: true
-    },
-
-    emrDmLoaiThamDoChucNang: function(val) {
-      this.tdcn.emrDmLoaiThamDoChucNang = val;
     },
 
     emrDmThamDoChucNang: function(val) {

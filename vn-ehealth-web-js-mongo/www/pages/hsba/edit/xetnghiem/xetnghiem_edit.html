@@ -14,11 +14,9 @@
         <label class="label-title">Loại xét nghiệm</label>
         <select v-model="xetnghiem.emrDmLoaiXetNghiem.ma" class="form-control">
           <option>-----</option>
-          <option value="1">Huyết học</option>
-          <option value="2">Hoá sinh</option>
-          <option value="3">Vi sinh</option>
-          <option value="4">HIV</option>
-          <option value="5">Khác</option>
+          <option v-for="emrDm in emrDmLoaiXetNghiems" :value="emrDm.ma">
+            {{emrDm.ten}}
+          </option>          
         </select>
       </div>
     </div>
@@ -38,7 +36,9 @@
     <div class="row mt-3">
       <div class="col-12">
         <label class="label-title label-bold">Danh sách dịch vụ xét nghiệm</label>
-        <a class="mt-1" href='#' title="Thêm"><i class="fas fa-fw fa-lg fa-plus-circle"></i></a>
+        <a v-on:click="addDvxn()" class="mt-1" href='javascript:void(0)' title="Thêm">
+          <i class="fas fa-fw fa-lg fa-plus-circle"></i>
+        </a>
       </div>
     </div>
 
@@ -50,22 +50,30 @@
             <th style="width:85%" class="text-center">Dịch vụ xét nghiệm</th>
             <th style="width:10%" class="text-center">Thao tác</th>
           </tr>
-          <tr v-for="(dvxn,i) in xetnghiem.emrXetNghiemDichVus">
+          <tr v-if="xetnghiem.emrXetNghiemDichVus" v-for="(dvxn,i) in xetnghiem.emrXetNghiemDichVus">
             <td>{{i + 1}}</td>
-            <td><input class="form-control" :value="dvxn.emrDmXetNghiem.ten"></td>
+            <td>
+              <input v-on:click="openXetnghiemModal(dvxn)" readonly class="form-control"
+                :value="dvxn.emrDmXetNghiem.ten">
+            </td>
             <td class="text-center">
-              <a href='#' title="Xóa">
+              <a v-on:click="deleteDvxn(i)" href='javascript:void(0)' title="Xóa">
                 <i class="fas fa-fw fa-lg fa-trash" style="color:red"></i>
               </a>
             </td>
+          </tr>
+          <tr v-if="xetnghiem.emrXetNghiemDichVus.length==0">
+            <td colspan="3">Không có dữ liệu</td>
           </tr>
         </table>
       </div>
     </div>
 
     <div class="mt-3 mb-3">
-      <button type="button" class="btn btn-sm btn-primary">Lưu lại</button>
+      <button type="button" v-on:click="saveXetnghiem()" class="btn btn-sm btn-primary">Lưu lại</button>
       <button type="button" v-on:click="viewXetnghiemList()" class="btn btn-sm btn-secondary">Quay lại</button>      
     </div>
   </div>
+
+  <danhmuc-popup id="dmXetnghiemSelect" :value="emrDmXetNghiem" name="emrDmXetNghiem" title="Dịch vụ xét nghiệm" dm_type="DM_XET_NGHIEM"></danhmuc-popup>
 </div>

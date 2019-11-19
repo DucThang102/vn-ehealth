@@ -17,9 +17,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class EmrXetNghiem {
     
     @Id public ObjectId id;
-    
-    public String getId() { return id != null? id.toHexString() : null; }
-    
+        
     public ObjectId emrHoSoBenhAnId;
     
     public EmrDmContent emrDmXetNghiem;
@@ -42,5 +40,29 @@ public class EmrXetNghiem {
     public List<EmrXetNghiemDichVu> emrXetNghiemDichVus = new ArrayList<>();
     
     public List<EmrFileDinhKem> emrFileDinhKemXetNghiems = new ArrayList<>();
+    
+    public String getId() { 
+        return id != null? id.toHexString() : null; 
+    }
+    
+    public void setId(String id) {
+        if(id != null) {
+            this.id = new ObjectId(id);
+        }else {
+            this.id = null;
+        }
+    }
+    
+    public String getEmrHoSoBenhAnId() {
+        return emrHoSoBenhAnId != null? emrHoSoBenhAnId.toHexString(): null;
+    }
+    
+    public void setEmrHoSoBenhAnId(String emrHoSoBenhAnId) {
+        if(emrHoSoBenhAnId != null) {
+            this.emrHoSoBenhAnId = new ObjectId(emrHoSoBenhAnId);
+        }else {
+            this.emrHoSoBenhAnId = null;
+        }            
+    }
     
 }

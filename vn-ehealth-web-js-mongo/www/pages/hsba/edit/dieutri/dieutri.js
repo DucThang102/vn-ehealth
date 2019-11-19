@@ -75,7 +75,7 @@ VueAsyncComponent('dieutri-list', '/pages/hsba/edit/dieutri/dieutri_list.html', 
     },
 
     getTenKhoa: function(khoadieutri){
-      return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
+      return khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten');
     },
   },
 
@@ -104,7 +104,7 @@ VueAsyncComponent('dieutri-edit', '/pages/hsba/edit/dieutri/dieutri_edit.html', 
   
   methods: {
     getTenKhoa: function(khoadieutri){
-      return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
+      return khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten');
     },
 
     addQtdt: function() {

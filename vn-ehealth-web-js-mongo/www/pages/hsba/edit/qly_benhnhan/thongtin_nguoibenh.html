@@ -15,72 +15,36 @@
       <input class="form-control" v-model="hsba.emrQuanLyNguoiBenh.vaovienlanthu">
     </div>
     <div class="col-4">
-      <div class="mb-2"><label class="label-title">Trực tiếp vào</label></div>
-      <div class="radio">
-        <input type="radio" value="01" v-model="hsba.emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao.ma">
-        <label>1.Cấp cứu</label>
-      </div>
-      <div class="radio">
-        <input type="radio" value="02" v-model="hsba.emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao.ma">
-        <label>2.Khoa khám bệnh</label>
-      </div>
-      <div class="radio">
-        <input type="radio" value="03" v-model="hsba.emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao.ma">
-        <label>3.Khoa điều trị</label>
-      </div>
+      <label class="label-title">Nơi trực tiếp vào</label>
+      <select class="form-control" v-model="hsba.emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao.ma">
+        <option value="">------</option>
+        <option v-for="emrDm in emrDmNoiTrucTiepVaos" :value="emrDm.ma">{{emrDm.ten}}</option>
+      </select>
     </div>
   </div>
   <div class="row mt-2">
     <div class="col-4">
       <label class="label-title">Nơi giới thiệu</label>
-      <div class="radio">
-        <input type="radio" value="01" v-model="hsba.emrQuanLyNguoiBenh.emrDmNoiGioiThieu.ma">
-        <label>1.Cơ quan y tế</label>
-      </div>
-      <div class="radio">
-        <input type="radio" value="02" v-model="hsba.emrQuanLyNguoiBenh.emrDmNoiGioiThieu.ma">
-        <label>2.Tự đến</label>
-      </div>
-      <div class="radio">
-        <input type="radio" value="03" v-model="hsba.emrQuanLyNguoiBenh.emrDmNoiGioiThieu.ma">
-        <label>3.Khác</label>
-      </div>
+      <select class="form-control" v-model="hsba.emrQuanLyNguoiBenh.emrDmNoiGioiThieu.ma">
+        <option value="">------</option>
+        <option v-for="emrDm in emrDmNoiGioiThieus" :value="emrDm.ma">{{emrDm.ten}}</option>
+      </select>
     </div>
     <div class="col-4">
       <label class="label-title">Đối tượng tài chính</label><span style="color: red;">(*)</span>
-      <div class="radio">
-        <input type="radio" value="01" v-model="hsba.emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma">
-        <label>1.BHYT</label>
-      </div>
-      <div class="radio">
-        <input type="radio" value="02" v-model="hsba.emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma">
-        <label>2.Thu phí</label>
-      </div>
-      <div class="radio">
-        <input type="radio" value="03" v-model="hsba.emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma">
-        <label>3.Miễn phí</label>
-      </div>
-      <div class="radio">
-        <input type="radio" value="04" v-model="hsba.emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma">
-        <label>4.Khác</label>
-      </div>
+      <select class="form-control" v-model="hsba.emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma">
+        <option value="">------</option>
+        <option v-for="emrDm in emrDmLoaiDoiTuongTaiChinhs" :value="emrDm.ma">{{emrDm.ten}}</option>
+      </select>
     </div>
   </div>
   <div class="row mt-2">
     <div class="col-4">
       <label class="label-title">Loại vào viện</label><span style="color: red;">(*)</span>
-      <div class="radio">
-        <input type="radio" value="1" v-model="hsba.emrQuanLyNguoiBenh.emrDmLoaiVaoVien.ma">
-        <label>1.Nội trú</label>
-      </div>
-      <div class="radio">
-        <input type="radio" value="2" v-model="hsba.emrQuanLyNguoiBenh.emrDmLoaiVaoVien.ma">
-        <label>2.Ngoại trú</label>
-      </div>
-    </div>
-    <div class="col-4">
-      <label class="label-title">Bác sĩ khám bệnh</label>
-      <input class="form-control" v-model="hsba.emrQuanLyNguoiBenh.tenbacsikham">
+      <select class="form-control" v-model="hsba.emrQuanLyNguoiBenh.emrDmLoaiVaoVien.ma">
+        <option value="">------</option>
+        <option v-for="emrDm in emrDmLoaiVaoViens" :value="emrDm.ma">{{emrDm.ten}}</option>
+      </select>
     </div>
   </div>
 
@@ -90,7 +54,7 @@
     </div>
   </div>
 
-  <div class="mt-2" style="overflow-x:scroll;">
+  <div class="mt-2" style="overflow-x:scroll;" v-if="emrVaoKhoas">
     <label class="label-title label-bold">Danh sách khoa điều trị</label>
     <a class="mt-1" href='#' title="Thêm">
       <i class="fas fa-fw fa-lg fa-plus-circle"></i>
@@ -108,7 +72,8 @@
       </tr>
       <tr v-for="(khoa, i) in emrVaoKhoas">
         <td class="text-center">
-          <a href='#' v-on:click="khoadieutri=khoa" data-toggle="modal" data-target="#vkModal"><i class="fas fa-fw fa-edit"></i></a>
+          <a href='#' v-on:click="khoadieutri=khoa" data-toggle="modal" data-target="#vkModal"><i
+              class="fas fa-fw fa-edit"></i></a>
           <a href='#'><i class="fas fa-fw fa-trash" style="color:red"></i></a>
         </td>
         <td>{{ khoa.tenkhoa || khoa.emrDmKhoaDieuTri.ten }}</td>
@@ -118,7 +83,7 @@
         <td class="text-center">{{ khoa.ngayketthucdieutri }}</td>
         <td class="text-center">{{ khoa.phong }}</td>
         <td class="text-center">{{ khoa.giuong }}</td>
-      </tr>      
+      </tr>
     </table>
   </div>
 
@@ -131,19 +96,18 @@
   <div class="row mt-2">
     <div class="col-4">
       <label class="label-title">Thời gian ra viện</label><span style="color: red;">(*)</span>
-      <date-picker v-model="hsba.emrQuanLyNguoiBenh.ngaygioravien" :config="{format: 'DD/MM/YYYY hh:mm', sideBySide:true}"></date-picker>
+      <date-picker v-model="hsba.emrQuanLyNguoiBenh.ngaygioravien"
+        :config="{format: 'DD/MM/YYYY hh:mm', sideBySide:true}"></date-picker>
     </div>
     <div class="col-4">
       <label class="label-title">Loại ra viện</label><span style="color: red;">(*)</span>
       <select class="form-control" v-model="hsba.emrQuanLyNguoiBenh.emrDmLoaiRaVien.ma">
-        <option>----</option>
-        <option value="01">Cho ra viện</option>
-        <option value="02">Xin về</option>
-        <option value="03">Tự bỏ về</option>
-        <option value="04">Gia đình đưa về</option>
+        <option>------</option>
+        <option v-for="emrDm in emrDmLoaiRaViens" :value="emrDm.ma">{{emrDm.ten}}</option>
       </select>
     </div>
   </div>
+
   <div class="row mt-2">
     <div class="col-4">
       <label class="label-title">Bác sĩ cho ra viện</label>
@@ -152,11 +116,8 @@
     <div class="col-4">
       <label class="label-title">Loại chuyển viện</label>
       <select class="form-control" v-model="hsba.emrQuanLyNguoiBenh.emrDmLoaiChuyenVien.ma">
-        <option>----</option>
-        <option value="01">Tuyến trên</option>
-        <option value="02">Tuyến dưới</option>
-        <option value="03">Chuyên khoa</option>
-        <option value="04">Khác</option>
+        <option>------</option>
+        <option v-for="emrDm in emrDmLoaiChuyenViens" :value="emrDm.ma">{{emrDm.ten}}</option>
       </select>
     </div>
   </div>
@@ -178,7 +139,7 @@
           <div class="row">
             <div class="col-6 form-group">
               <label class="label-title">Khoa điều trị</label> <span style="color: red;">(*)</span>
-              <input class="form-control" :value="khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten">
+              <input class="form-control" :value="khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten')">
             </div>
             <div class="col-6 form-group">
               <label class="label-title">Trưởng khoa</label>
@@ -194,11 +155,13 @@
           <div class="row">
             <div class="col-6 form-group">
               <label class="label-title">Ngày bắt đầu điều trị</label> <span style="color: red;">(*)</span>
-              <date-picker v-model="khoadieutri.ngaygiovaokhoa" :config="{format: 'DD/MM/YYYY HH:mm', sideBySide:true}"></date-picker>
+              <date-picker v-model="khoadieutri.ngaygiovaokhoa" :config="{format: 'DD/MM/YYYY HH:mm', sideBySide:true}">
+              </date-picker>
             </div>
             <div class="col-6 form-group">
               <label class="label-title">Ngày kết thúc điều trị</label> <span style="color: red;">(*)</span>
-              <date-picker v-model="khoadieutri.ngayketthucdieutri" :config="{format: 'DD/MM/YYYY HH:mm', sideBySide:true}"></date-picker>
+              <date-picker v-model="khoadieutri.ngayketthucdieutri"
+                :config="{format: 'DD/MM/YYYY HH:mm', sideBySide:true}"></date-picker>
             </div>
           </div>
           <div class="row">

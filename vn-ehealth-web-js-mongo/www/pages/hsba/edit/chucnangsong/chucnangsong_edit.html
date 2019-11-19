@@ -31,7 +31,7 @@
           <th style="width:20%" class="text-center">Y tá theo dõi</th>
           <th style="width:8%" class="text-center">Thao tác</th>
         </tr>
-        <tr v-for="(cnsct,i) in chucnangsong.emrChucNangSongChiTiets">
+        <tr v-if="chucnangsong.emrChucNangSongChiTiets" v-for="(cnsct,i) in chucnangsong.emrChucNangSongChiTiets">
           <td class="text-center">{{i + 1}}</td>
           <td>
             <date-picker v-model="cnsct.ngaytheodoi" :config="{format: 'DD/MM/YYYY HH:mm', sideBySide:true}">

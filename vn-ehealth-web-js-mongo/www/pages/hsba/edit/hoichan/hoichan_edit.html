@@ -48,13 +48,15 @@
           <th style="width:45%" class="text-center">Vai trò</th>
           <th style="width:10%" class="text-center">Thao tác</th>
         </tr>
-        <tr v-for="(tvhc,i) in hoichan.emrThanhVienHoiChans">
+        <tr v-if="hoichan.emrThanhVienHoiChans" v-for="(tvhc,i) in hoichan.emrThanhVienHoiChans">
           <td class="text-center">{{i + 1}}</td>
           <td><input class="form-control" v-model="tvhc.tenbacsi"></td>
           <td>
             <select class="form-control" v-model="tvhc.emrDmVaiTro.ma">
-              <option value="1"> Bác sĩ chủ tọa</option>
-              <option value="2"> Thư ký</option>
+              <option value="">------</option>
+              <option v-for="emrDm in emrVaiTroHoichans" :value="emrDm.ma"> 
+                {{emrDm.ten}}
+              </option>
             </select>
           </td>
           <td class="text-center">
@@ -62,6 +64,9 @@
               <i class="fas fa-fw fa-lg fa-trash" style="color:red"></i>
             </a>
           </td>
+        </tr>
+        <tr v-if="hoichan.emrThanhVienHoiChans.length==0">
+          <td colspan="4">Không có dữ liệu</td>
         </tr>
       </table>
     </div>

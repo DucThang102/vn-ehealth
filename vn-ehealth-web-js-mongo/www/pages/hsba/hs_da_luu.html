@@ -52,7 +52,7 @@
           </thead>
           <tbody>
             <tr v-for="(hs, index) in items">
-              <td>
+              <td class="text-center">
                 <button class="btn btn-small dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false">
                   <i class="fas fa-fw fa-tasks"></i>
@@ -65,23 +65,23 @@
                   <a class="dropdown-item" href="#">Xóa</a>
                 </div>
               </td>
-              <td>{{ index + offset + 1 }}</td>
-              <td>{{ hs.emrBenhNhan.idhis }}</td>
-              <td>{{ hs.emrBenhNhan.tendaydu }}</td>
-              <td>{{ hs.emrBenhNhan.diachi }}</td>
-              <td>{{ hs.emrDmLoaiBenhAn.ten }}</td>
-              <td>{{ hs.mayte }}</td>
-              <td>{{ hs.maluutru }}</td>
-              <td>{{ getTextChanDoan(hs.emrChanDoan.emrDmMaBenhChandoankkbs) }}</td>
-              <td>{{ hs.emrChanDoan.motachandoankkb }}</td>
-              <td>{{ getTextChanDoan(hs.emrChanDoan.emrDmMaBenhChandoanravienchinhs) }}</td>
-              <td>{{ hs.emrChanDoan.motachandoanravienchinh }}</td>
-              <td>{{ hs.khoaRaVien }}</td>
-              <td>{{ hs.emrQuanLyNguoiBenh.ngaygiovaovien }}</td>
-              <td>{{ hs.emrQuanLyNguoiBenh.ngaygioravien }}</td>
-              <td>{{ hs.ngayluutru }}</td>
-              <td>{{ hs.nguoiluutru }}</td>
-              <td>{{ hs.nguonDuLieu }}</td>
+              <td class="text-center">{{ index + offset + 1 }}</td>
+              <td class="text-center">{{ attr(hs, 'emrBenhNhan.idhis') }}</td>
+              <td class="text-center">{{ attr(hs, 'emrBenhNhan.tendaydu') }}</td>
+              <td>{{ attr(hs, 'emrBenhNhan.diachi') }}</td>
+              <td class="text-center">{{ attr(hs, 'emrDmLoaiBenhAn.ten') }}</td>
+              <td class="text-center">{{ hs.mayte }}</td>
+              <td class="text-center">{{ hs.maluutru }}</td>
+              <td class="text-center">{{ getTextChanDoan(attr(hs, 'emrChanDoan.emrDmMaBenhChandoankkbs')) }}</td>
+              <td>{{ attr(hs, 'emrChanDoan.motachandoankkb') }}</td>
+              <td class="text-center">{{ getTextChanDoan(attr(hs, 'emrChanDoan.emrDmMaBenhChandoanravienchinhs')) }}</td>
+              <td>{{ attr(hs, 'emrChanDoan.motachandoanravienchinh') }}</td>
+              <td class="text-center">{{ hs.khoaRaVien }}</td>
+              <td class="text-center">{{ attr(hs, 'emrQuanLyNguoiBenh.ngaygiovaovien') }}</td>
+              <td class="text-center">{{ attr(hs, 'emrQuanLyNguoiBenh.ngaygioravien') }}</td>
+              <td class="text-center">{{ hs.ngayluutru }}</td>
+              <td class="text-center">{{ hs.nguoiluutru }}</td>
+              <td class="text-center">{{ hs.nguonDuLieu }}</td>
             </tr>
           </tbody>
         </table>

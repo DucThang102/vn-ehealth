@@ -36,9 +36,23 @@ VueAsyncComponent('donthuoc-list', '/pages/hsba/edit/donthuoc/donthuoc_list.html
   props: ["hsba_id"],
 
   methods:  {
-    deleteDonthuoc: function(id) {
-      if(confirm('Bạn có muốn xóa ảnh tổn thương này không?')){
-        alert(id);
+    getDonthuocList: async function() {
+      this.donthuoc_list = await this.get('/api/donthuoc/get_ds_donthuoc', { hsba_id: this.hsba_id });
+    },
+
+    addDonthuoc: function() {
+      var donthuoc = {emrHoSoBenhAnId: this.hsba_id, emrDonThuocChiTiets: []};
+      this.$emit('editDonthuoc', donthuoc);
+    },
+
+    deleteDonthuoc: async function(id) {
+      if (confirm('Bạn có muốn xóa đơn thuốc này không?')) {
+        var result = await this.get("/api/donthuoc/delete_donthuoc", {donthuoc_id: id});
+        if(result.success) {
+          this.getDonthuocList();
+        }else {
+          alert('Lỗi xảy ra quá trình xóa');
+        }
       }
     },
 
@@ -52,16 +66,32 @@ VueAsyncComponent('donthuoc-list', '/pages/hsba/edit/donthuoc/donthuoc_list.html
   },
 
   created: async function() {
-    this.donthuoc_list = await this.get('/api/donthuoc/get_ds_donthuoc', { hsba_id: this.hsba_id });
+    this.getDonthuocList();
   }
 });
 
 VueAsyncComponent('donthuoc-edit', '/pages/hsba/edit/donthuoc/donthuoc_edit.html', {
   data: function() {
     return {
+      dtct: {}
     }
   },
+
   props: ["donthuoc"],
+
+  computed: {
+    emrDmThuoc: function() {
+      return store.state.emrDmThuoc;
+    },
+
+    emrDmTanSuatDungThuoc: function() {
+      return store.state.emrDmTanSuatDungThuoc;
+    },
+
+    emrDmDuongDungThuoc: function() {
+      return store.state.emrDmDuongDungThuoc;
+    },
+  },
 
   watch: {
     donthuoc: {
@@ -71,7 +101,19 @@ VueAsyncComponent('donthuoc-edit', '/pages/hsba/edit/donthuoc/donthuoc_edit.html
         }
       },
       deep: true
-    }
+    },
+
+    emrDmThuoc: function(val) {
+      this.dtct.emrDmThuoc = val;
+    },
+
+    emrDmTanSuatDungThuoc: function(val) {
+      this.dtct.emrDmTanSuatDungThuoc = val;
+    },
+
+    emrDmDuongDungThuoc: function(val) {
+      this.dtct.emrDmDuongDungThuoc = val;
+    },    
   },
   
   methods: {
@@ -83,6 +125,43 @@ VueAsyncComponent('donthuoc-edit', '/pages/hsba/edit/donthuoc/donthuoc_edit.html
       }
       sessionStorage.removeItem('dataChange');
       this.$emit('viewDonthuocList');
+    },
+
+    openDmThuocModal: function(dtct) {
+      this.dtct = dtct;
+      $('#dmThuocSelect').modal();
+    },
+
+    openDmTanSuatDungThuocModal: function(dtct) {
+      this.dtct = dtct;
+      $('#dmTanSuatDungThuocSelect').modal();
+    },
+
+    openDmDuongDungThuocModal: function(dtct) {
+      this.dtct = dtct;
+      $('#dmDuongDungThuocSelect').modal();
+    },
+
+    addDtct: function() {
+      this.donthuoc.emrDonThuocChiTiets.push({
+        emrDmThuoc: {},
+        emrDmTanSuatDungThuoc: {},
+        emrDmDuongDungThuoc: {}
+      })
+    },
+
+    deleteDtct: function(index) {
+      this.donthuoc.emrDonThuocChiTiets.splice(index, 1);
+    },
+
+    saveDonthuoc: async function() {
+      var result = await this.post("/api/donthuoc/create_or_update_donthuoc", this.donthuoc);
+      if(result.success) {
+        sessionStorage.removeItem('dataChange');
+        this.$emit('viewDonthuocList');
+      }else {
+        alert('Lỗi xảy ra quá trình lưu thông tin');
+      }
     }
   },
 });
@@ -97,6 +176,7 @@ VueAsyncComponent('donthuoc-files', '/pages/hsba/edit/donthuoc/donthuoc_files.ht
   methods: {
     viewDonthuocList: function() {
       this.$emit('viewDonthuocList');
-    }
+    },
+    
   },
 });

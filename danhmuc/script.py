@@ -49,5 +49,5 @@ def importJson2(file, maNhom):
             level += 1            
 
 
-importJson('emr_dm_giai_phau_benh.json', 'DM_GIAI_PHAU_BENH')
+importJson('emr_dm_ket_qua_dieu_tri.json', 'DM_KET_QUA_DIEU_TRI')
 importJson2('emr_dm_dvhc.json', 'DM_DVHC')

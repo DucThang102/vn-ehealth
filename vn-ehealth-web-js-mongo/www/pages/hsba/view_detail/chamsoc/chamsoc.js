@@ -48,7 +48,7 @@ VueAsyncComponent('chamsoc-list', '/pages/hsba/view_detail/chamsoc/chamsoc_list.
       }
     },
     getTenKhoa: function(khoadieutri){
-      return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
+      return khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten');
     }
   },
 
@@ -77,7 +77,7 @@ VueAsyncComponent('chamsoc-view', '/pages/hsba/view_detail/chamsoc/chamsoc_view.
       this.$emit('viewChamsocList');
     },
     getTenKhoa: function(khoadieutri){
-      return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
+      return khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten');
     }
   },
 

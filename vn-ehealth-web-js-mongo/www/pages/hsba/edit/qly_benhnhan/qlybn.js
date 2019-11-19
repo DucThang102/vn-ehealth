@@ -95,16 +95,67 @@ VueAsyncComponent('ttnb', '/pages/hsba/edit/qly_benhnhan/thongtin_nguoibenh.html
 
   data: function() {
     return {
-      emrVaoKhoas: [],
-      khoadieutri: null
+      emrVaoKhoas: null,
+      emrDmNoiTrucTiepVaos: null,
+      emrDmNoiGioiThieus: null,
+      emrDmLoaiDoiTuongTaiChinhs:null,
+      emrDmLoaiVaoViens: null,
+      emrDmLoaiRaViens: null,
+      emrDmLoaiChuyenViens: null,
+      khoadieutri: null,
     }
   },
 
   created: async function() {
     this.emrVaoKhoas = await this.get('/api/vaokhoa/get_ds_vaokhoa', { hsba_id: this.hsba_id, detail: false });
+    this.emrDmNoiTrucTiepVaos = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_NOI_TRUC_TIEP_VAO'});
+    this.emrDmNoiGioiThieus = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_NOI_GIOI_THIEU'});
+    this.emrDmLoaiDoiTuongTaiChinhs = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_LOAI_DOI_TUONG_TAI_CHINH'});
+    this.emrDmLoaiVaoViens = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_LOAI_VAO_VIEN'});
+    this.emrDmLoaiRaViens = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_LOAI_RA_VIEN'});
+    this.emrDmLoaiChuyenViens = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_LOAI_CHUYEN_VIEN'});
+    this.initialized = true;
+  },
+
+  watch: {
+    hsba: {
+      handler: function (val, oldVal) {
+        if (oldVal) {
+          sessionStorage.setItem('dataChange', true);
+        }
+        
+        if(this.emrDmNoiTrucTiepVaos){
+          val.emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao = this.emrDmNoiTrucTiepVaos.find(x => attr(val, 'emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao.ma'));
+        }
+
+        if(this.emrDmNoiGioiThieus){
+          val.emrQuanLyNguoiBenh.emrDmNoiGioiThieu = this.emrDmNoiGioiThieus.find(x => x.ma == attr(val, 'emrQuanLyNguoiBenh.emrDmNoiGioiThieu.ma'));
+        }
+
+        if(this.emrDmLoaiDoiTuongTaiChinhs){
+          val.emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh = this.emrDmLoaiDoiTuongTaiChinhs.find(x => x.ma == attr(val, 'emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma'));
+        }
+
+        if(this.emrDmLoaiVaoViens){
+          val.emrQuanLyNguoiBenh.emrDmLoaiVaoVien = this.emrDmLoaiVaoViens.find(x => x.ma == attr(val, 'emrQuanLyNguoiBenh.emrDmLoaiVaoVien.ma'));
+        }
+
+        if(this.emrDmLoaiRaViens){
+          val.emrQuanLyNguoiBenh.emrDmLoaiRaVien = this.emrDmLoaiRaViens.find(x => x.ma == attr(val, 'emrQuanLyNguoiBenh.emrDmLoaiRaVien.ma'));
+        }
+
+        if(this.emrDmLoaiChuyenViens){
+          val.emrQuanLyNguoiBenh.emrDmLoaiChuyenVien = this.emrDmLoaiChuyenViens.find(x => x.ma == attr(val, 'emrQuanLyNguoiBenh.emrDmLoaiChuyenVien.ma'));
+        }
+      },
+      deep: true
+    },
   },
 
   methods: {
+    isBlank : function(str){
+      return str == null || str == '';
+    }
   },
 });
 
@@ -174,7 +225,12 @@ VueAsyncComponent('ttrv', '/pages/hsba/edit/qly_benhnhan/tinhtrang_ravien.html',
 
   data: function() {
     return {
+      emrDmKetQuaDieuTris: null
     }
+  },
+
+  created: async function() {
+    this.emrDmKetQuaDieuTris = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_KET_QUA_DIEU_TRI'});
   },
 
   methods: {

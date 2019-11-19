@@ -1,0 +1,214 @@
+[
+	{
+		"ma" : "HSCC",
+		"ten" : "Khoa Điều trị tích cực (Hồi sức cấp cứu)"
+	},
+	{
+		"ma" : "HH",
+		"ten" : "Khoa Hô hấp (A15, A16)"
+	},
+	{
+		"ma" : "A2",
+		"ten" : "Khoa Cấp cứu và Chống độc (A2)"
+	},
+	{
+		"ma" : "SS",
+		"ten" : "Khoa Hồi sức cấp cứu sơ sinh"
+	},
+	{
+		"ma" : "A5A6",
+		"ten" : "Khoa Ngoại (A5, A6)"
+	},
+	{
+		"ma" : "K1K2",
+		"ten" : "Khoa Truyền nhiễm (K1, K2)"
+	},
+	{
+		"ma" : "K1K22",
+		"ten" : "Khoa Truyền nhiễm (K1, K22)"
+	},
+	{
+		"ma" : "NK",
+		"ten" : "Nhi khoa"
+	},
+	{
+		"ma" : "MAT",
+		"ten" : "Khoa Mắt"
+	},
+	{
+		"ma" : "DTTNC",
+		"ten" : "Khoa Điều trị tự nguyện C"
+	},
+	{
+		"ma" : "DTTNB",
+		"ten" : "Khoa Điều trị tự nguyện B"
+	},
+	{
+		"ma" : "CLS_1",
+		"ten" : "CLS_1"
+	},
+	{
+		"ma" : "03",
+		"ten" : "Khoa Cấp cứu chống độc"
+	},
+	{
+		"ma" : "A5",
+		"ten" : "Khoa Ngoại - A5"
+	},
+	{
+		"ma" : "PHCN",
+		"ten" : "Khoa Vật lý trị liệu - PHCN"
+	},
+	{
+		"ma" : "A8",
+		"ten" : "Khoa Tiêu hoá"
+	},
+	{
+		"ma" : "A9",
+		"ten" : "Khoa Huyết học lâm sàng"
+	},
+	{
+		"ma" : "CHN",
+		"ten" : "Khoa Chỉnh hình nhi"
+	},
+	{
+		"ma" : "NTN",
+		"ten" : "Khoa Ngoại tiết niệu"
+	},
+	{
+		"ma" : "DTTNA",
+		"ten" : "Khoa Điều trị tự nguyện A"
+	},
+	{
+		"ma" : "TMH",
+		"ten" : "Khoa Tai mũi họng"
+	},
+	{
+		"ma" : "A3",
+		"ten" : "Khoa Sơ sinh"
+	},
+	{
+		"ma" : "A11",
+		"ten" : "Khoa Nội thận tiết niệu"
+	},
+	{
+		"ma" : "MDDU",
+		"ten" : "Khoa Miễn dịch - Dị ứng - Khớp"
+	},
+	{
+		"ma" : "TNT2",
+		"ten" : "Khoa Truyền nhiễm T2"
+	},
+	{
+		"ma" : "A16",
+		"ten" : "Khoa Hô hấp - A16"
+	},
+	{
+		"ma" : "DTTNS2",
+		"ten" : "Điều trị tự nguyện - S2"
+	},
+	{
+		"ma" : "UNGBUOU",
+		"ten" : "Khoa Ung bướu"
+	},
+	{
+		"ma" : "TNT1",
+		"ten" : "Khoa Truyền nhiễm T1"
+	},
+	{
+		"ma" : "DTTNS3",
+		"ten" : "Điều trị tự nguyện - S3"
+	},
+	{
+		"ma" : "DTTN",
+		"ten" : "Điều trị tự nguyện - S8"
+	},
+	{
+		"ma" : "RHM",
+		"ten" : "Khoa Răng hàm mặt"
+	},
+	{
+		"ma" : "DTTN4",
+		"ten" : "Điều trị tự nguyện - S4"
+	},
+	{
+		"ma" : "36",
+		"ten" : "Khoa Hồi sức ngoại khoa"
+	},
+	{
+		"ma" : "A10",
+		"ten" : "Khoa Tim mạch"
+	},
+	{
+		"ma" : "THSM",
+		"ten" : "Khoa Sọ mặt và Tạo hình "
+	},
+	{
+		"ma" : "DTTN7",
+		"ten" : "Điều trị tự nguyện - S7"
+	},
+	{
+		"ma" : "A6",
+		"ten" : "Khoa Ngoại - A6"
+	},
+	{
+		"ma" : "YHCT",
+		"ten" : "Khoa Y học cổ truyền"
+	},
+	{
+		"ma" : "A13",
+		"ten" : "Khoa Thần kinh"
+	},
+	{
+		"ma" : "GM",
+		"ten" : "Khoa Gan mật"
+	},
+	{
+		"ma" : "DTTN6",
+		"ten" : "Điều trị tự nguyện - S6"
+	},
+	{
+		"ma" : "DTTN5",
+		"ten" : "Điều trị tự nguyện - S5"
+	},
+	{
+		"ma" : "HSHH",
+		"ten" : "Đơn vị Hồi sức hô hấp"
+	},
+	{
+		"ma" : "A12",
+		"ten" : "Khoa Nội tiết - CH - Di truyền"
+	},
+	{
+		"ma" : "151",
+		"ten" : "Đơn vị Hồi sức tim mạch"
+	},
+	{
+		"ma" : "A15",
+		"ten" : "Khoa Hô hấp ĐN3 (A16)"
+	},
+	{
+		"ma" : "KDTBN",
+		"ten" : "Đơn vị Khám và điều trị ban ngày"
+	},
+	{
+		"ma" : "NTH3",
+		"ten" : "Khoa Ngoại tổng hợp (ĐN3)"
+	},
+	{
+		"ma" : "GMHSTM",
+		"ten" : "Khoa Hồi sức ngoại tim mạch"
+	},
+	{
+		"ma" : "HHĐN2",
+		"ten" : "Khoa Hô hấp (ĐN2)"
+	},
+	{
+		"ma" : "TNT3",
+		"ten" : "Khoa Truyền Nhiễm T3"
+	},
+	{
+		"ma" : "KCKDTBN",
+		"ten" : "TTUTHH - Khám chuyên khoa và điều trị ban ngày"
+	}
+]

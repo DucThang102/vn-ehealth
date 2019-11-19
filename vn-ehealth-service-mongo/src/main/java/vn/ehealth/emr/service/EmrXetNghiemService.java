@@ -21,4 +21,8 @@ public class EmrXetNghiemService {
     public EmrXetNghiem createOrUpdate(EmrXetNghiem emrXetNghiem) {
         return emrXetNghiemRepository.save(emrXetNghiem);
     }
+    
+    public void delete(ObjectId id) {
+        emrXetNghiemRepository.deleteById(id);
+    }
 }

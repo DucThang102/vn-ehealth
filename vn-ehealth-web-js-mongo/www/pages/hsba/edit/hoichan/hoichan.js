@@ -76,7 +76,7 @@ VueAsyncComponent('hoichan-list', '/pages/hsba/edit/hoichan/hoichan_list.html', 
     },
 
     getTenKhoa: function(khoadieutri){
-      return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
+      return khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten');
     }
   },
 
@@ -88,15 +88,26 @@ VueAsyncComponent('hoichan-list', '/pages/hsba/edit/hoichan/hoichan_list.html', 
 VueAsyncComponent('hoichan-edit', '/pages/hsba/edit/hoichan/hoichan_edit.html', {
   data: function() {
     return {
+      emrVaiTroHoichans: []
     }
   },
   props: ["hoichan"],
+
+  created: async function() {
+    this.emrVaiTroHoichans = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_VAI_TRO_HOI_CHAN'});
+  },
 
   watch: {
     hoichan: {
       handler: function (val, oldVal) {
         if (oldVal) {
           sessionStorage.setItem('dataChange', true);
+        }
+        for(var i = 0; i < val.emrThanhVienHoiChans.length; i++) {
+          var ma = val.emrThanhVienHoiChans[i].emrDmVaiTro.ma;
+          if(ma != null && ma != ''){
+            val.emrThanhVienHoiChans[i].emrDmVaiTro = this.emrVaiTroHoichans.find(x => x.ma == ma);
+          }
         }
       },
       deep: true
@@ -105,7 +116,7 @@ VueAsyncComponent('hoichan-edit', '/pages/hsba/edit/hoichan/hoichan_edit.html', 
   
   methods: {
     getTenKhoa: function(khoadieutri){
-      return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
+      return khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten');
     },
 
     addTvhc: function() {

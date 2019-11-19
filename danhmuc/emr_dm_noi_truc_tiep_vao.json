@@ -1,0 +1,14 @@
+[
+	{
+		"ma" : "01",
+		"ten" : "Cấp cứu"
+	},
+	{
+		"ma" : "02",
+		"ten" : "Khoa khám bệnh"
+	},
+	{
+		"ma" : "03",
+		"ten" : "Khoa điều trị"
+	}
+]

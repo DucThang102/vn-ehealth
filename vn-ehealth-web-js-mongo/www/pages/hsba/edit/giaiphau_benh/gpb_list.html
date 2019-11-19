@@ -32,8 +32,8 @@
         </a>
       </td>
 
-      <td class="text-center">{{ gpb.emrDmGiaiPhauBenh.ten }}</td>
-      <td class="text-center">{{ gpb.emrDmLoaiGiaiPhauBenh.ten }}</td>
+      <td class="text-center">{{ attr(gpb, 'emrDmGiaiPhauBenh.ten') }}</td>
+      <td class="text-center">{{ attr(gpb, 'emrDmLoaiGiaiPhauBenh.ten') }}</td>
       <td class="text-center">{{ gpb.ngaythuchien }}</td>
     </tr>
     <tr v-if="gpb_list.length == 0">

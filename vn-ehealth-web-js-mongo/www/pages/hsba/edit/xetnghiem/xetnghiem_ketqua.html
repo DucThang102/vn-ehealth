@@ -14,7 +14,9 @@
     <div class="row mt-3" v-if="dvxn">
       <div class="col-12">
         <label class="label-title">Danh sách kết quả xét nghiệm</label>
-        <a class="mt-1" href='#' title="Thêm"><i class="fas fa-fw fa-lg fa-plus-circle"></i></a>
+        <a v-on:click="addXnkq()" class="mt-1" href='javascript:void(0)' title="Thêm">
+          <i class="fas fa-fw fa-lg fa-plus-circle"></i>
+        </a>
       </div>
     </div>
 
@@ -29,15 +31,18 @@
             <th style='width:17%' class="text-center">Chỉ số bình thường</th>
             <th style='width:8%' class="text-center">Thao tác</th>
           </tr>
-          <tr v-for="(xnkq,i) in dvxn.emrXetNghiemKetQuas">
+          <tr v-if="dvxn.emrXetNghiemKetQuas" v-for="(xnkq,i) in dvxn.emrXetNghiemKetQuas">
             <td>{{ i + 1 }}</td>
-            <td><input class="form-control" :value='xnkq.emrDmChiSoXetNghiem.ten' :title='xnkq.emrDmChiSoXetNghiem.ten'></td>
-            <td><input class="form-control" :value='xnkq.giatrido'></td>
+            <td>
+              <input v-on:click="openChiSoXetNghiemModal(xnkq)"
+                  class="form-control" :value='xnkq.emrDmChiSoXetNghiem.ten' :title='xnkq.emrDmChiSoXetNghiem.ten'>
+            </td>
+            <td><input class="form-control" v-model='xnkq.giatrido'></td>
             <td>{{ xnkq.emrDmChiSoXetNghiem.donvi }}</td>
             <td>Nam: {{xnkq.emrDmChiSoXetNghiem.chisobt_nam}} /
               Nữ: {{xnkq.emrDmChiSoXetNghiem.chisobt_nu}}</td>
             <td class="text-center">
-              <a href='#' title="Xóa">
+              <a v-on:click="deleteXnkq(i)" href='javascript:void(0)' title="Xóa">
                 <i class="fas fa-fw fa-lg fa-trash" style="color:red"></i>
               </a>
             </td>
@@ -52,6 +57,8 @@
 
   <div class="mt-3 mb-3">
     <button type="button" v-on:click="viewXetnghiemList()" class="btn btn-sm btn-secondary">Quay lại</button>
-    <button type="button" class="btn btn-sm btn-primary">Lưu lại</button>
+    <button type="button" v-on:click="saveXetnghiem()" class="btn btn-sm btn-primary">Lưu lại</button>
   </div>
+
+  <danhmuc-popup id="dmChiSoXetNghiemSelect" :value="emrDmChiSoXetNghiem" name="emrDmChiSoXetNghiem" title="Chỉ số xét nghiệm" dm_type="DM_CHI_SO_XET_NGHIEM"></danhmuc-popup>
 </div>

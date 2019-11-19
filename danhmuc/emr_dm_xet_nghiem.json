@@ -1,0 +1,5154 @@
+[
+	{
+		"ma" : "HH",
+		"ten" : "Huyết học"
+	},
+	{
+		"ma" : "HHI",
+		"ten" : "XÉT NGHIỆM ĐÔNG MÁU"
+	},
+	{
+		"ma" : "HH1",
+		"ten" : "Thời gian prothrombin (PT: Prothrombin Time), (Các tên khác: TQ; Tỷ lệ Prothrombin) bằng máy tự động"
+	},
+	{
+		"ma" : "HH2",
+		"ten" : "Thời gian prothrombin (PT: Prothrombin Time), (Các tên khác: TQ; Tỷ lệ Prothrombin) bằng máy bán tự động"
+	},
+	{
+		"ma" : "HH3",
+		"ten" : "Thời gian prothrombin (PT: Prothrombin Time), (Các tên khác: TQ; Tỷ lệ Prothrombin)  phương pháp thủ công"
+	},
+	{
+		"ma" : "HH4",
+		"ten" : "Xét nghiệm nhanh INR (Có thể kèm theo cả chỉ số PT%, PTs) bằng máy cầm tay"
+	},
+	{
+		"ma" : "HH5",
+		"ten" : "Thời gian thromboplastin một phần hoạt hoá (APTT: Activated Partial Thromboplastin Time), (Tên khác: TCK) bằng máy tự động"
+	},
+	{
+		"ma" : "HH6",
+		"ten" : "Thời gian thromboplastin một phần hoạt hoá (APTT: Activated Partial Thromboplastin Time) (Tên khác: TCK) bằng máy bán tự động. "
+	},
+	{
+		"ma" : "HH7",
+		"ten" : "Thời gian thromboplastin một phần hoạt hoá (APTT: Activated Partial Thromboplastin Time) (tên khác: TCK) phương pháp thủ công "
+	},
+	{
+		"ma" : "HH8",
+		"ten" : "Thời gian thrombin (TT: Thrombin Time) bằng máy tự động"
+	},
+	{
+		"ma" : "HH9",
+		"ten" : "Thời gian thrombin (TT: Thrombin Time) bằng máy bán tự động"
+	},
+	{
+		"ma" : "HH10",
+		"ten" : "Thời gian thrombin (TT: Thrombin Time) phương pháp thủ công"
+	},
+	{
+		"ma" : "HH11",
+		"ten" : "Định lượng Fibrinogen (Tên khác: Định lượng yếu tố I), phương pháp gián tiếp, bằng máy tự động"
+	},
+	{
+		"ma" : "HH12",
+		"ten" : "Định lượng Fibrinogen (Tên khác: Định lượng yếu tố I), phương pháp gián tiếp, bằng máy bán tự động"
+	},
+	{
+		"ma" : "HH13",
+		"ten" : "Định lượng Fibrinogen (Tên khác: Định lượng yếu tố I), phương pháp Clauss- phương pháp trực tiếp, bằng máy tự động"
+	},
+	{
+		"ma" : "HH14",
+		"ten" : "Định lượng Fibrinogen (Tên khác: Định lượng yếu tố I), phương pháp Clauss- phương pháp trực tiếp, bằng máy bán tự động"
+	},
+	{
+		"ma" : "HH15",
+		"ten" : "Nghiệm pháp rượu (Ethanol test)"
+	},
+	{
+		"ma" : "HH16",
+		"ten" : "Nghiệm pháp Protamin sulfat"
+	},
+	{
+		"ma" : "HH17",
+		"ten" : "Nghiệm pháp Von-Kaulla"
+	},
+	{
+		"ma" : "HH18",
+		"ten" : "Thời gian tiêu Euglobulin"
+	},
+	{
+		"ma" : "HH19",
+		"ten" : "Thời gian máu chảy phương pháp Duke"
+	},
+	{
+		"ma" : "HH20",
+		"ten" : "Thời gian máu chảy phương pháp Ivy"
+	},
+	{
+		"ma" : "HH21",
+		"ten" : "Co cục máu đông (Tên khác: Co cục máu)"
+	},
+	{
+		"ma" : "HH22",
+		"ten" : "Nghiệm pháp dây thắt"
+	},
+	{
+		"ma" : "HH23",
+		"ten" : "Định lượng D-Dimer "
+	},
+	{
+		"ma" : "HH24",
+		"ten" : "Bán định lượng D-Dimer"
+	},
+	{
+		"ma" : "HH25",
+		"ten" : "Định lượng AT\/AT III (Anti thrombin\/ Anti thrombinIII)"
+	},
+	{
+		"ma" : "HH26",
+		"ten" : "Phát hiện kháng đông nội sinh (Tên khác: Mix test)"
+	},
+	{
+		"ma" : "HH27",
+		"ten" : "Phát hiện kháng đông ngoại sinh"
+	},
+	{
+		"ma" : "HH28",
+		"ten" : "Phát hiện kháng đông đường chung"
+	},
+	{
+		"ma" : "HH29",
+		"ten" : "Định lượng yếu tố đông máu nội sinh VIIIc, IX, XI"
+	},
+	{
+		"ma" : "HH30",
+		"ten" : "Định lượng yếu tố đông máu ngoại sinh II, V,VII, X"
+	},
+	{
+		"ma" : "HH31",
+		"ten" : "Định lượng kháng nguyên yếu tố Von Willebrand (VWF Antigen)"
+	},
+	{
+		"ma" : "HH32",
+		"ten" : "Định lượng hoạt tính yếu tố Von Willebrand (VWF Activity) (tên khác: định lượng hoạt tính đồng yếu tố Ristocetin: VIII: R co)"
+	},
+	{
+		"ma" : "HH33",
+		"ten" : "Định lượng yếu tố XII"
+	},
+	{
+		"ma" : "HH34",
+		"ten" : "Định lượng yếu tố XIII (Tên khác: Định lượng yếu tố ổn định sợi huyết)."
+	},
+	{
+		"ma" : "HH35",
+		"ten" : "Định tính yếu tố XIII (Tên khác: Định tính yếu tố ổn định sợi huyết)."
+	},
+	{
+		"ma" : "HH36",
+		"ten" : "Định tính ức chế yếu tố VIIIc\/IX"
+	},
+	{
+		"ma" : "HH37",
+		"ten" : "Định lượng ức chế yếu tố VIIIc"
+	},
+	{
+		"ma" : "HH38",
+		"ten" : "Định lượng ức chế yếu tố IX"
+	},
+	{
+		"ma" : "HH39",
+		"ten" : "Đo độ nhớt (độ quánh) máu toàn phần\/huyết tương \/dịch khác"
+	},
+	{
+		"ma" : "HH40",
+		"ten" : "Định lượng phức hệ fibrin monome hoà tan (Fibrin Soluble Test), (Tên khác: FS Test; FSM Test)"
+	},
+	{
+		"ma" : "HH41",
+		"ten" : "Đo độ ngưng tập tiểu cầu với  ADP\/Collagen\/Acid Arachidonic\/Thrombin\/Epinephrin"
+	},
+	{
+		"ma" : "HH42",
+		"ten" : "Đo độ ngưng tập tiểu cầu với Ristocetin"
+	},
+	{
+		"ma" : "HH43",
+		"ten" : "Định lượng FDP "
+	},
+	{
+		"ma" : "HH44",
+		"ten" : "Bán định lượng FDP"
+	},
+	{
+		"ma" : "HH45",
+		"ten" : "Định lượng Protein C toàn phần (Protein C Antigen)"
+	},
+	{
+		"ma" : "HH46",
+		"ten" : "Định lượng Protein S toàn phần "
+	},
+	{
+		"ma" : "HH47",
+		"ten" : "Định lượng hoạt tính Protein C (Protein Activity)"
+	},
+	{
+		"ma" : "HH48",
+		"ten" : "Định lượng Protein S tự do "
+	},
+	{
+		"ma" : "HH49",
+		"ten" : "Phát hiện kháng đông lupus (LAC\/ LA screen: Lupus Anticoagulant screen) "
+	},
+	{
+		"ma" : "HH50",
+		"ten" : "Khẳng định kháng đông lupus (LAC\/ LA confirm: Lupus Anticoagulant confirm)"
+	},
+	{
+		"ma" : "HH51",
+		"ten" : "Định lượng Anti Xa"
+	},
+	{
+		"ma" : "HH52",
+		"ten" : "Nghiệm pháp sinh Thromboplastin (T.G.T:Thromboplastin Generation Test )"
+	},
+	{
+		"ma" : "HH53",
+		"ten" : "Thời gian Reptilase"
+	},
+	{
+		"ma" : "HH54",
+		"ten" : "Đàn hồi đồ cục máu (TEG: Thrombo Elasto Graphy)"
+	},
+	{
+		"ma" : "HH55",
+		"ten" : "Thời gian phục hồi Canxi"
+	},
+	{
+		"ma" : "HH56",
+		"ten" : "Định lượng hoạt tính yếu tố V Leiden"
+	},
+	{
+		"ma" : "HH57",
+		"ten" : "Định lượng Heparin"
+	},
+	{
+		"ma" : "HH58",
+		"ten" : "Định lượng Plasminogen"
+	},
+	{
+		"ma" : "HH59",
+		"ten" : "Định lượng chất ức chế hoạt hóa Plasmin (PAI: Plasmin Activated Inhibitor)"
+	},
+	{
+		"ma" : "HH60",
+		"ten" : "Xét nghiệm PFA (Platelet Funtion Analyzer) bằng  Collagen\/Epinephrine trên máy tự động (Tên khác: PFA bằng Col\/Epi) ."
+	},
+	{
+		"ma" : "HH61",
+		"ten" : "Xét nghiệm PFA (Platelet Funtion Analyzer)  bằng Collagen\/ADP trên máy tự động (Tên khác: PFA bằng Col\/ADP)"
+	},
+	{
+		"ma" : "HH62",
+		"ten" : "Xét nghiệm PFA (Platelet Funtion Analyzer)  bằng P2Y trên máy tự động (Tên khác: PFA bằng P2Y) "
+	},
+	{
+		"ma" : "HH63",
+		"ten" : "Xét nghiệm HIT (Heparin Induced Thrombocytopenia) - Ab "
+	},
+	{
+		"ma" : "HH64",
+		"ten" : "Xét nghiệm HIT (Heparin Induced Thrombocytopenia)- IgG "
+	},
+	{
+		"ma" : "HH65",
+		"ten" : "Định lượng C1- inhibitor"
+	},
+	{
+		"ma" : "HH66",
+		"ten" : "Định lượng t-pA (tissue - Plasminogen Activator)"
+	},
+	{
+		"ma" : "HH67",
+		"ten" : "Định lượng a2 antiplasmin"
+	},
+	{
+		"ma" : "HH68",
+		"ten" : "Định lượng antiCardiolipin IgG bằng  phương pháp ELISA\/ miễn dịch hóa phát quang\/ điện hóa phát quang"
+	},
+	{
+		"ma" : "HH69",
+		"ten" : "Định lượng antiCardiolipin IgM bằng phương pháp ELISA\/miễn dịch hóa phát quang  điện hóa phát quang"
+	},
+	{
+		"ma" : "HH70",
+		"ten" : "Định lượng anti b2GPI IgG bằng phương pháp ELISA\/miễn dịch hóa phát quang\/ điện hóa phát quang"
+	},
+	{
+		"ma" : "HH71",
+		"ten" : "Định lượng anti b2GPI IgM bằng phương pháp ELISA\/ miễn dịch hóa phát quang\/ điện hóa phát quang"
+	},
+	{
+		"ma" : "HH72",
+		"ten" : "Định lượng men ADAMTS13 (A Disintegrin And Metalloproteinase with ThromboSpondin1 member 13)"
+	},
+	{
+		"ma" : "HH73",
+		"ten" : "Phát hiện DIC bằng phương pháp sóng đôi trên máy đông máu"
+	},
+	{
+		"ma" : "HH74",
+		"ten" : "Phát hiện chất ức chế đông máu có phụ thuộc thời gian, nhiệt độ"
+	},
+	{
+		"ma" : "HH75",
+		"ten" : "Định lượng yếu tố HMWK"
+	},
+	{
+		"ma" : "HH76",
+		"ten" : "Định lượng yếu tố pre Kallikrein"
+	},
+	{
+		"ma" : "HH77",
+		"ten" : "Định lượng PIVKA (Proteins Induced by Vitamin K Antagonism or Absence)"
+	},
+	{
+		"ma" : "HH78",
+		"ten" : "Đo độ quánh máu toàn phần, huyết tương"
+	},
+	{
+		"ma" : "HH565",
+		"ten" : "Định lượng kháng nguyên antithrombin\/ antithrombinIII (AT antigen\/ATIII antigen)"
+	},
+	{
+		"ma" : "HH566",
+		"ten" : "Định lượng hoạt tính antithrombin\/ antithrombinIII (AT activity\/ATIII activity)"
+	},
+	{
+		"ma" : "HH567",
+		"ten" : "Định lượng chất ức chế hoạt hóa Plasmin 1 (PAI-1)"
+	},
+	{
+		"ma" : "HH568",
+		"ten" : "Định lượng chất ức chế hoạt hóa Plasmin 2 (PAI-2)"
+	},
+	{
+		"ma" : "HH569",
+		"ten" : "Định lượng kháng nguyên yếu tố Von Willerbrand (vWf:Ag) bằng kỹ thuật miễn dịch hóa phát quang"
+	},
+	{
+		"ma" : "HH570",
+		"ten" : "Định lượng D-Dimer bằng kỹ thuật miễn dịch hóa phát quang"
+	},
+	{
+		"ma" : "HH571",
+		"ten" : "Phát hiện chất ức chế phụ thuộc thời gian và nhiệt độ đường đông máu chung"
+	},
+	{
+		"ma" : "HH572",
+		"ten" : "Phát hiện chất ức chế không phụ thuộc thời gian và nhiệt độ đường đông máu chung"
+	},
+	{
+		"ma" : "HH573",
+		"ten" : "Phát hiện chất ức chế phụ thuộc thời gian và nhiệt độ đường đông máu ngoại sinh"
+	},
+	{
+		"ma" : "HH574",
+		"ten" : "Phát hiện chất ức chế không phụ thuộc thời gian và nhiệt độ đường đông máu ngoại sinh"
+	},
+	{
+		"ma" : "HH575",
+		"ten" : "Phát hiện chất ức chế phụ thuộc thời gian và nhiệt độ đường đông máu nội sinh"
+	},
+	{
+		"ma" : "HH576",
+		"ten" : "Phát hiện chất ức chế không phụ thuộc thời gian và nhiệt độ đường đông máu nội sinh"
+	},
+	{
+		"ma" : "HH577",
+		"ten" : "Định lượng kháng thể kháng Beta2 Glycoprotein I (aβ2GPI) IgG bằng kỹ thuật hóa miễn dịch phát quang"
+	},
+	{
+		"ma" : "HH578",
+		"ten" : "Định lượng kháng thể kháng Beta2 Glycoprotein I (aβ2GPI) IgM bằng kỹ thuật hóa miễn dịch phát quang"
+	},
+	{
+		"ma" : "HH579",
+		"ten" : "Định lượng kháng thể kháng Cardiolipin (aCL) IgM  bằng kỹ thuật hóa miễn dịch phát quang"
+	},
+	{
+		"ma" : "HH580",
+		"ten" : "Định lượng kháng thể kháng Cardiolipin (aCL) IgG bằng kỹ thuật hóa miễn dịch phát quang"
+	},
+	{
+		"ma" : "HH581",
+		"ten" : "Định lượng hoạt tính yếu tố von Willebrand (đồng yếu tố Ristocetin) bằng kỹ thuật hóa miễn dịch phát quang"
+	},
+	{
+		"ma" : "HH582",
+		"ten" : "Định lượng hoạt tính Protein S (PS activity)"
+	},
+	{
+		"ma" : "HH583",
+		"ten" : "Định lượng kháng nguyên Protein S (PS antigen)"
+	},
+	{
+		"ma" : "HH584",
+		"ten" : "Định lượng kháng nguyên Protein C (PC antigen)"
+	},
+	{
+		"ma" : "HH585",
+		"ten" : "Đo độ đàn hồi cục máu (ROTEM: Rotation ThromboElastoMetry) nội sinh (ROTEM-INTEM)"
+	},
+	{
+		"ma" : "HH586",
+		"ten" : "Đo độ đàn hồi cục máu (ROTEM: Rotation ThromboElastoMetry) ngoại sinh (ROTEM-EXTEM)"
+	},
+	{
+		"ma" : "HH587",
+		"ten" : "Đo độ đàn hồi cục máu (ROTEM: Rotation ThromboElastoMetry) ức chế tiểu cầu (ROTEM-FIBTEM)"
+	},
+	{
+		"ma" : "HH588",
+		"ten" : "Đo độ đàn hồi cục máu (ROTEM: Rotation ThromboElastoMetry) ức chế tiêu sợi huyết (ROTEM-APTEM)"
+	},
+	{
+		"ma" : "HH589",
+		"ten" : "Đo độ đàn hồi cục máu (ROTEM: Rotation ThromboElastoMetry) trung hòa heparin (ROTEM-HEPTEM)"
+	},
+	{
+		"ma" : "HH590",
+		"ten" : "Đo độ đàn hồi cục máu (TEG: ThromboElastoGraph) trung hòa heparin (TEG- Heparinase)"
+	},
+	{
+		"ma" : "HH591",
+		"ten" : "Đàn hồi đồ cục máu (TEG: ThromboElastoGraph) ức chế tiểu cầu (TEG- Platelet blocker)"
+	},
+	{
+		"ma" : "HH592",
+		"ten" : "Đàn hồi đồ cục máu (TEG: ThromboElastoGraph) ức chế tiêu sợi huyết (TEG- Antifibrinolytic drug)"
+	},
+	{
+		"ma" : "HH593",
+		"ten" : "Đo độ ngưng tập tiểu cầu với Ristocetin bằng phương pháp trở kháng"
+	},
+	{
+		"ma" : "HH594",
+		"ten" : "Đo độ ngưng tập tiểu cầu với Thrombin bằng phương pháp trở kháng"
+	},
+	{
+		"ma" : "HH595",
+		"ten" : "Đo độ ngưng tập tiểu cầu với Acid Arachidonic bằng phương pháp trở kháng"
+	},
+	{
+		"ma" : "HH596",
+		"ten" : "Đo độ ngưng tập tiểu cầu với ADP bằng phương pháp trở kháng"
+	},
+	{
+		"ma" : "HH597",
+		"ten" : "Đo độ ngưng tập tiểu cầu với Collagen bằng phương pháp trở kháng"
+	},
+	{
+		"ma" : "HH598",
+		"ten" : "Định lượng kháng nguyên men ADAM TS 13 (A Disintegrin And Metalloproteinase with Thrombo Sprondin1 Member 13 Antigen)"
+	},
+	{
+		"ma" : "HH599",
+		"ten" : "Định lượng hoạt tính men ADAM TS 13 (A Disintegrin And Metalloproteinase with Thrombo Sprondin1 Member 13 Activity)"
+	},
+	{
+		"ma" : "HH600",
+		"ten" : "Định lượng yếu tố Kininogen trọng lượng phân tử cao (Định lượng yếu tố HMWK)"
+	},
+	{
+		"ma" : "HH601",
+		"ten" : "Định lượng yếu tố Prekallikrein (Định lượng yếu tố PKK) "
+	},
+	{
+		"ma" : "HH602",
+		"ten" : "Định lượng PIVKA (Protein Induced by Vitamin K Absence)"
+	},
+	{
+		"ma" : "HH603",
+		"ten" : "Xét nghiệm kháng Protein C hoạt hóa"
+	},
+	{
+		"ma" : "HH604",
+		"ten" : "Xét nghiệm TEG thăm dò chức năng tiểu cầu"
+	},
+	{
+		"ma" : "HHII",
+		"ten" : "SINH HÓA HUYẾT HỌC"
+	},
+	{
+		"ma" : "HH79",
+		"ten" : "Định lượng Acid  Folic"
+	},
+	{
+		"ma" : "HH80",
+		"ten" : "Định lượng Beta 2 Microglobulin"
+	},
+	{
+		"ma" : "HH81",
+		"ten" : "Định lượng Cyclosporin A"
+	},
+	{
+		"ma" : "HH82",
+		"ten" : "Định lượng khả năng gắn sắt toàn thể (TIBC)"
+	},
+	{
+		"ma" : "HH83",
+		"ten" : "Định lượng Hemoglobin tự do"
+	},
+	{
+		"ma" : "HH84",
+		"ten" : "Định lượng sắt chưa bão hòa huyết thanh (UIBC)"
+	},
+	{
+		"ma" : "HH85",
+		"ten" : "Định lượng Transferin receptor hòa tan (TFR)"
+	},
+	{
+		"ma" : "HH86",
+		"ten" : "Định lượng ZPP (Zine Proto Phorphyrin)"
+	},
+	{
+		"ma" : "HH87",
+		"ten" : "Độ bão hòa Transferin"
+	},
+	{
+		"ma" : "HH88",
+		"ten" : "Định lượng vitamin B12"
+	},
+	{
+		"ma" : "HH89",
+		"ten" : "Định lượng Transferin"
+	},
+	{
+		"ma" : "HH90",
+		"ten" : "Định lượng Hepcidin"
+	},
+	{
+		"ma" : "HH91",
+		"ten" : "Định lượng EPO (Erythropoietin)"
+	},
+	{
+		"ma" : "HH92",
+		"ten" : "Đo huyết  sắc tố niệu"
+	},
+	{
+		"ma" : "HH93",
+		"ten" : "Methemoglobin"
+	},
+	{
+		"ma" : "HH94",
+		"ten" : "Định lượng Peptid - C"
+	},
+	{
+		"ma" : "HH95",
+		"ten" : "Định lượng Methotrexat"
+	},
+	{
+		"ma" : "HH96",
+		"ten" : "Định lượng Haptoglobin"
+	},
+	{
+		"ma" : "HH97",
+		"ten" : "Định lượng Free kappa huyết thanh"
+	},
+	{
+		"ma" : "HH98",
+		"ten" : "Định lượng Free lambda huyết thanh"
+	},
+	{
+		"ma" : "HH99",
+		"ten" : "Định lượng Free kappa niệu"
+	},
+	{
+		"ma" : "HH100",
+		"ten" : "Định lượng Free lambda niệu"
+	},
+	{
+		"ma" : "HH101",
+		"ten" : "Xét nghiệm hồng cầu tự tan"
+	},
+	{
+		"ma" : "HH102",
+		"ten" : "Sức bền thẩm thấu hồng cầu"
+	},
+	{
+		"ma" : "HH103",
+		"ten" : "Định lượng G6PD"
+	},
+	{
+		"ma" : "HH104",
+		"ten" : "HK (Hexokinase)"
+	},
+	{
+		"ma" : "HH105",
+		"ten" : "GPI (Glucose phosphate isomerase)"
+	},
+	{
+		"ma" : "HH106",
+		"ten" : "PFK (Phosphofructokinase)"
+	},
+	{
+		"ma" : "HH107",
+		"ten" : "ALD (Aldolase)"
+	},
+	{
+		"ma" : "HH108",
+		"ten" : "PGK (Phosphoglycerate kinase)"
+	},
+	{
+		"ma" : "HH109",
+		"ten" : "PK (Pyruvatkinase)"
+	},
+	{
+		"ma" : "HH110",
+		"ten" : "Fructosamin"
+	},
+	{
+		"ma" : "HH111",
+		"ten" : "IGF-I"
+	},
+	{
+		"ma" : "HH112",
+		"ten" : "Định lượng IgG"
+	},
+	{
+		"ma" : "HH113",
+		"ten" : "Định lượng IgA"
+	},
+	{
+		"ma" : "HH114",
+		"ten" : "Định lượng IgM"
+	},
+	{
+		"ma" : "HH115",
+		"ten" : "Định lượng IgE"
+	},
+	{
+		"ma" : "HH116",
+		"ten" : "Định lượng Ferritin"
+	},
+	{
+		"ma" : "HH117",
+		"ten" : "Định lượng sắt huyết thanh"
+	},
+	{
+		"ma" : "HHIII",
+		"ten" : "TẾ BÀO HỌC"
+	},
+	{
+		"ma" : "HH118",
+		"ten" : "Dàn tiêu bản máu ngoại vi (Phết máu ngoại vi)"
+	},
+	{
+		"ma" : "HH119",
+		"ten" : "Phân tích tế bào máu ngoại vi (bằng phương pháp thủ công)"
+	},
+	{
+		"ma" : "HH120",
+		"ten" : "Tổng phân tích tế bào máu ngoại vi (bằng máy đếm tổng trở)"
+	},
+	{
+		"ma" : "HH121",
+		"ten" : "Tổng phân tích tế bào máu ngoại vi (bằng máy đếm laser)"
+	},
+	{
+		"ma" : "HH122",
+		"ten" : "Tổng phân tích tế bào máu ngoại vi bằng hệ thống tự động hoàn toàn (có nhuộm tiêu bản tự động)"
+	},
+	{
+		"ma" : "HH123",
+		"ten" : "Huyết đồ (bằng phương pháp thủ công)"
+	},
+	{
+		"ma" : "HH124",
+		"ten" : "Huyết đồ (bằng máy đếm tổng trở)"
+	},
+	{
+		"ma" : "HH125",
+		"ten" : "Huyết đồ (bằng máy đếm laser)"
+	},
+	{
+		"ma" : "HH126",
+		"ten" : "Thủ thuật chọc hút tủy làm tủy đồ (chưa bao gồm kim chọc tủy một lần)"
+	},
+	{
+		"ma" : "HH127",
+		"ten" : "Thủ thuật chọc hút tủy làm tủy đồ (bao gồm kim chọc tủy nhiều lần)"
+	},
+	{
+		"ma" : "HH128",
+		"ten" : "Thủ thuật chọc hút tủy làm tủy đồ (sử dụng máy khoan cầm tay)"
+	},
+	{
+		"ma" : "HH129",
+		"ten" : "Xét nghiệm tế bào học tủy xương (không bao gồm thủ thuật chọc hút tủy)"
+	},
+	{
+		"ma" : "HH130",
+		"ten" : "Thủ thuật sinh thiết tủy xương (chưa bao gồm kim sinh thiết một lần)"
+	},
+	{
+		"ma" : "HH131",
+		"ten" : "Thủ thuật sinh thiết tủy xương (bao gồm kim sinh thiết nhiều lần)"
+	},
+	{
+		"ma" : "HH132",
+		"ten" : "Thủ thuật sinh thiết tủy xương (sử dụng máy khoan cầm tay)"
+	},
+	{
+		"ma" : "HH133",
+		"ten" : "Xét nghiệm mô bệnh học tủy xương (không bao gồm thủ thuật sinh thiết tủy xương)"
+	},
+	{
+		"ma" : "HH134",
+		"ten" : "Xét nghiệm hồng cầu lưới (bằng phương pháp thủ công)"
+	},
+	{
+		"ma" : "HH135",
+		"ten" : "Xét nghiệm hồng cầu lưới (bằng máy đếm laser)"
+	},
+	{
+		"ma" : "HH136",
+		"ten" : "Tìm mảnh vỡ hồng cầu"
+	},
+	{
+		"ma" : "HH137",
+		"ten" : "Tìm hồng cầu có chấm ưa bazơ"
+	},
+	{
+		"ma" : "HH138",
+		"ten" : "Tìm ký sinh trùng sốt rét trong máu (bằng phương pháp thủ công)"
+	},
+	{
+		"ma" : "HH139",
+		"ten" : "Tìm ký sinh trùng sốt rét trong máu (bằng phương pháp tập trung hồng cầu nhiễm)"
+	},
+	{
+		"ma" : "HH140",
+		"ten" : "Tìm giun chỉ trong máu"
+	},
+	{
+		"ma" : "HH141",
+		"ten" : "Tập trung bạch cầu"
+	},
+	{
+		"ma" : "HH142",
+		"ten" : "Máu lắng (bằng phương pháp thủ công)"
+	},
+	{
+		"ma" : "HH143",
+		"ten" : "Máu lắng (bằng máy tự động)"
+	},
+	{
+		"ma" : "HH144",
+		"ten" : "Tìm tế bào Hargraves"
+	},
+	{
+		"ma" : "HH145",
+		"ten" : "Nhuộm sợi xơ trong mô tuỷ xương"
+	},
+	{
+		"ma" : "HH146",
+		"ten" : "Nhuộm sợi liên võng trong mô tuỷ xương"
+	},
+	{
+		"ma" : "HH147",
+		"ten" : "Nhuộm hoá mô miễn dịch tuỷ xương"
+	},
+	{
+		"ma" : "HH148",
+		"ten" : "Nhuộm hóa học tế bào tuỷ xương (gồm nhiều phương pháp)"
+	},
+	{
+		"ma" : "HH149",
+		"ten" : "Xét nghiệm tế bào cặn nước tiểu (bằng phương pháp thủ công)"
+	},
+	{
+		"ma" : "HH150",
+		"ten" : "Xét nghiệm tế bào trong nước tiểu (bằng máy tự động)"
+	},
+	{
+		"ma" : "HH151",
+		"ten" : "Cặn Addis"
+	},
+	{
+		"ma" : "HH152",
+		"ten" : "Xét nghiệm tế bào trong nước dịch chẩn đoán tế bào học (não tủy, màng tim, màng phổi, màng bụng, dịch khớp, rửa phế quản…) bằng phương pháp thủ công"
+	},
+	{
+		"ma" : "HH153",
+		"ten" : "Xét nghiệm tế bào trong nước dịch chẩn đoán tế bào học (não tuỷ, màng tim, màng phổi, màng bụng, dịch khớp, rửa phế quản…) bằng máy phân tích huyết học tự động"
+	},
+	{
+		"ma" : "HH154",
+		"ten" : "Xét nghiệm các loại dịch, nhuộm và chẩn đoán tế bào học"
+	},
+	{
+		"ma" : "HH155",
+		"ten" : "Xét nghiệm tế bào học lách (lách đồ)"
+	},
+	{
+		"ma" : "HH156",
+		"ten" : "Xử lý và đọc tiêu bản (tuỷ, lách, hạch)"
+	},
+	{
+		"ma" : "HH157",
+		"ten" : "Chụp ảnh màu tế bào qua kính hiển vi "
+	},
+	{
+		"ma" : "HH158",
+		"ten" : "Chụp ảnh màu tế bào qua kính hiển vi in trên đĩa CD"
+	},
+	{
+		"ma" : "HH159",
+		"ten" : "Xử lý bệnh phẩm sinh thiết và chẩn đoán tổ chức học"
+	},
+	{
+		"ma" : "HH160",
+		"ten" : "Thể tích khối hồng cầu (hematocrit) bằng máy ly tâm "
+	},
+	{
+		"ma" : "HH161",
+		"ten" : "Định lượng huyết sắc tố (hemoglobin) bằng quang kế"
+	},
+	{
+		"ma" : "HH162",
+		"ten" : "Xét nghiệm số lượng và độ tập trung tiểu cầu (bằng máy đếm tổng trở)"
+	},
+	{
+		"ma" : "HH163",
+		"ten" : "Xét nghiệm số lượng và độ tập trung tiểu cầu (bằng phương pháp thủ công)"
+	},
+	{
+		"ma" : "HH164",
+		"ten" : "Xét nghiệm số lượng và độ tập trung tiểu cầu (bằng máy đếm laser)"
+	},
+	{
+		"ma" : "HH165",
+		"ten" : "Làm thủ thuật chọc hút hạch làm hạch đồ"
+	},
+	{
+		"ma" : "HH166",
+		"ten" : "Xét nghiệm tế bào hạch (hạch đồ)"
+	},
+	{
+		"ma" : "HH167",
+		"ten" : "Làm thủ thuật sinh thiết hạch"
+	},
+	{
+		"ma" : "HH168",
+		"ten" : "Xét nghiệm mô bệnh học hạch"
+	},
+	{
+		"ma" : "HH169",
+		"ten" : "Làm thủ thuật chọc hút lách làm lách đồ"
+	},
+	{
+		"ma" : "HH170",
+		"ten" : "Xét nghiệm tế bào học lách (lách đồ)"
+	},
+	{
+		"ma" : "HH171",
+		"ten" : "Đo đường kính hồng cầu"
+	},
+	{
+		"ma" : "HH605",
+		"ten" : "Huyết đồ (bằng hệ thống tự động hoàn toàn)"
+	},
+	{
+		"ma" : "HH606",
+		"ten" : "OF test (Osmotic fragility test) (Test sàng lọc Thalassemia)"
+	},
+	{
+		"ma" : "HH607",
+		"ten" : "Xét nghiệm và chẩn đoán tế bào học bằng phương pháp nhuộm hồng cầu sắt (Nhuộm Perls)"
+	},
+	{
+		"ma" : "HH608",
+		"ten" : "Xét nghiệm và chẩn đoán tế bào học bằng phương pháp nhuộm Peroxydase (MPO: Myeloperoxydase)"
+	},
+	{
+		"ma" : "HH609",
+		"ten" : "Xét nghiệm và chẩn đoán tế bào học bằng phương pháp nhuộm Sudan đen  "
+	},
+	{
+		"ma" : "HH610",
+		"ten" : "Xét nghiệm và chẩn đoán tế bào học bằng phương pháp nhuộm Periodic Acide Schiff (PAS)"
+	},
+	{
+		"ma" : "HH611",
+		"ten" : "Xét nghiệm và chẩn đoán tế bào học bằng phương pháp nhuộm Esterase không đặc hiệu"
+	},
+	{
+		"ma" : "HH612",
+		"ten" : "Xét nghiệm và chẩn đoán tế bào học bằng phương pháp nhuộm Esterase đặc hiệu"
+	},
+	{
+		"ma" : "HH613",
+		"ten" : "Xét nghiệm và chẩn đoán tế bào học bằng phương pháp nhuộm Phosphatase acid"
+	},
+	{
+		"ma" : "HH614",
+		"ten" : "Xét nghiệm và chẩn đoán tế bào học bằng phương pháp nhuộm Phosphatase kiềm bạch cầu"
+	},
+	{
+		"ma" : "HH615",
+		"ten" : "Xét nghiệm và chẩn đoán hóa mô miễn dịch tủy xương cho một dấu ấn (Marker) trên máy nhuộm tự động"
+	},
+	{
+		"ma" : "HH616",
+		"ten" : "Xét nghiệm và chẩn đoán mô bệnh học tủy xương trên máy nhuộm tự động"
+	},
+	{
+		"ma" : "HH617",
+		"ten" : "Xét nghiệm hình dáng-kích thước hồng cầu niệu"
+	},
+	{
+		"ma" : "HHIV",
+		"ten" : "HUYẾT THANH HỌC NHÓM MÁU"
+	},
+	{
+		"ma" : "HH172",
+		"ten" : "Xác định kháng nguyên Lua của hệ nhóm máu Lutheran (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH173",
+		"ten" : "Xác định kháng nguyên Lub của hệ nhóm máu Lutheran (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH174",
+		"ten" : "Xác định kháng nguyên Lua của hệ nhóm máu Lutheran (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH175",
+		"ten" : "Xác định kháng nguyên Lub của hệ nhóm máu Lutheran (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH176",
+		"ten" : "Xác định kháng nguyên Lua của hệ nhóm máu Lutheran (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH177",
+		"ten" : "Xác định kháng nguyên Lub của hệ nhóm máu Lutheran (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH178",
+		"ten" : "Xác định kháng nguyên Fya của hệ nhóm máu Duffy (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH179",
+		"ten" : "Xác định kháng nguyên Fyb của hệ nhóm máu Duffy (Kỹ thuật ống nghiệm) "
+	},
+	{
+		"ma" : "HH180",
+		"ten" : "Xác định kháng nguyên Fya của hệ nhóm máu Duffy (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH181",
+		"ten" : "Xác định kháng nguyên Fyb của hệ nhóm máu Duffy (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH182",
+		"ten" : "Xác định kháng nguyên Fya của hệ nhóm máu Duffy (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH183",
+		"ten" : "Xác định kháng nguyên Fyb của hệ nhóm máu Duffy (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH184",
+		"ten" : "Xác định kháng nguyên K của hệ nhóm máu Kell (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH185",
+		"ten" : "Xác định kháng nguyên k của hệ nhóm máu Kell (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH186",
+		"ten" : "Xác định kháng nguyên K của hệ nhóm máu Kell (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH187",
+		"ten" : "Xác định kháng nguyên k của hệ nhóm máu Kell (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH188",
+		"ten" : "Xác định kháng nguyên K của hệ nhóm máu Kell (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH189",
+		"ten" : "Xác định kháng nguyên k của hệ nhóm máu Kell (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH190",
+		"ten" : "Xác định kháng nguyên Kpa của hệ nhóm máu Kell (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH191",
+		"ten" : "Xác định kháng nguyên Kpb của hệ nhóm máu Kell (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH192",
+		"ten" : "Xác định kháng nguyên Kpa của hệ nhóm máu Kell (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH193",
+		"ten" : "Xác định kháng nguyên Kpb của hệ nhóm máu Kell (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH194",
+		"ten" : "Xác định kháng nguyên Kpa của hệ nhóm máu Kell (Kỹ thuật Scangel\/ Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH195",
+		"ten" : "Xác định kháng nguyên Kpb của hệ nhóm máu Kell (Kỹ thuật Scangel\/ Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH196",
+		"ten" : "Xác định kháng nguyên Jsa của hệ nhóm máu Kell (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH197",
+		"ten" : "Xác định kháng nguyên Jsb của hệ nhóm máu Kell (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH198",
+		"ten" : "Xác định kháng nguyên Jsa của hệ nhóm máu Kell (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH199",
+		"ten" : "Xác định kháng nguyên Jsb của hệ nhóm máu Kell (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH200",
+		"ten" : "Xác định kháng nguyên Jsa của hệ nhóm máu Kell (Kỹ thuật Scangel\/ Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH201",
+		"ten" : "Xác định kháng nguyên Jsb của hệ nhóm máu Kell (Kỹ thuật Scangel\/ Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH202",
+		"ten" : "Xác định kháng nguyên Jka của hệ nhóm máu Kidd (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH203",
+		"ten" : "Xác định kháng nguyên Jkb của hệ nhóm máu Kidd (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH204",
+		"ten" : "Xác định kháng nguyên Jka của hệ nhóm máu Kidd (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH205",
+		"ten" : "Xác định kháng nguyên Jkb của hệ nhóm máu Kidd (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH206",
+		"ten" : "Xác định kháng nguyên Jka của hệ nhóm máu Kidd (Kỹ thuật Scangel\/ Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH207",
+		"ten" : "Xác định kháng nguyên Jkb của hệ nhóm máu Kidd (Kỹ thuật Scangel\/ Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH208",
+		"ten" : "Xác định kháng nguyên M của hệ nhóm máu MNS (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH209",
+		"ten" : "Xác định kháng nguyên N của hệ nhóm máu MNS (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH210",
+		"ten" : "Xác định kháng nguyên M của hệ nhóm máu MNS (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH211",
+		"ten" : "Xác định kháng nguyên N của hệ nhóm máu MNS (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH212",
+		"ten" : "Xác định kháng nguyên M của hệ nhóm máu MNS (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH213",
+		"ten" : "Xác định kháng nguyên N của hệ nhóm máu MNS (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH214",
+		"ten" : "Xác định kháng nguyên S của hệ nhóm máu MNS (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH215",
+		"ten" : "Xác định kháng nguyên s của hệ nhóm máu MNS (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH216",
+		"ten" : "Xác định kháng nguyên S của hệ nhóm máu MNS (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH217",
+		"ten" : "Xác định kháng nguyên s của hệ nhóm máu MNS (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH218",
+		"ten" : "Xác định kháng nguyên S của hệ nhóm máu MNS (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH219",
+		"ten" : "Xác định kháng nguyên s của hệ nhóm máu MNS (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH220",
+		"ten" : "Xác định kháng nguyên Mia của hệ nhóm máu MNS (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH221",
+		"ten" : "Xác định kháng nguyên Mia của hệ nhóm máu MNS (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH222",
+		"ten" : "Xác định kháng nguyên Mia của hệ nhóm máu MNS (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH223",
+		"ten" : "Xác định kháng nguyên P1 của hệ nhóm máu P1Pk (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH224",
+		"ten" : "Xác định kháng nguyên P1 của hệ nhóm máu P1Pk (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH225",
+		"ten" : "Xác định kháng nguyên P1 của hệ nhóm máu P1Pk (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH226",
+		"ten" : "Xác định kháng nguyên C của hệ nhóm máu Rh (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH227",
+		"ten" : "Xác định kháng nguyên C của hệ nhóm máu Rh (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH228",
+		"ten" : "Xác định kháng nguyên C của hệ nhóm máu Rh (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH229",
+		"ten" : "Xác định kháng nguyên c của hệ của nhóm máu Rh (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH230",
+		"ten" : "Xác định kháng nguyên c của hệ của nhóm máu Rh (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH231",
+		"ten" : "Xác định kháng nguyên c của hệ của nhóm máu Rh (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH232",
+		"ten" : "Xác định kháng nguyên E của hệ nhóm máu Rh (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH233",
+		"ten" : "Xác định kháng nguyên E của hệ nhóm máu Rh (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH234",
+		"ten" : "Xác định kháng nguyên E của hệ nhóm máu Rh (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH235",
+		"ten" : "Xác định kháng nguyên e của hệ nhóm máu Rh (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH236",
+		"ten" : "Xác định kháng nguyên e của hệ nhóm máu Rh (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH237",
+		"ten" : "Xác định kháng nguyên e của hệ nhóm máu Rh (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH238",
+		"ten" : "Xác định kháng nguyên Cw của hệ nhóm máu Rh (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH239",
+		"ten" : "Xác định kháng nguyên Cw của hệ nhóm máu Rh (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH240",
+		"ten" : "Xác định kháng nguyên Cw của hệ nhóm máu Rh (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH241",
+		"ten" : "Xác định kháng nguyên Dia của hệ nhóm máu Diago (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH242",
+		"ten" : "Xác định kháng nguyên Dib của hệ nhóm máu Diago (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH243",
+		"ten" : "Xác định kháng nguyên Dia của hệ nhóm máu Diago (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH244",
+		"ten" : "Xác định kháng nguyên Dib của hệ nhóm máu Diago (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH245",
+		"ten" : "Xác định kháng nguyên Dia của hệ nhóm máu Diago (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH246",
+		"ten" : "Xác định kháng nguyên Dib của hệ nhóm máu Diago (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH247",
+		"ten" : "Xác định kháng nguyên Wra của hệ nhóm máu Diago (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH248",
+		"ten" : "Xác định kháng nguyên Wrb của hệ nhóm máu Diago (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH249",
+		"ten" : "Xác định kháng nguyên Wra của hệ nhóm máu Diago (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH250",
+		"ten" : "Xác định kháng nguyên Wrb của hệ nhóm máu Diago (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH251",
+		"ten" : "Xác định kháng nguyên Wra của hệ nhóm máu Diago (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH252",
+		"ten" : "Xác định kháng nguyên Wrb của hệ nhóm máu Diago (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH253",
+		"ten" : "Xác định kháng nguyên Xga của hệ nhóm máu Xg (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH254",
+		"ten" : "Xác định kháng nguyên Xga của hệ nhóm máu Xg (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH255",
+		"ten" : "Xác định kháng nguyên Xga của hệ nhóm máu Xg (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH256",
+		"ten" : "Định danh kháng thể bất thường  (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH257",
+		"ten" : "Định danh kháng thể bất thường  (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH258",
+		"ten" : "Định danh kháng thể bất thường  (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH259",
+		"ten" : "Sàng lọc kháng thể bất thường (Kỹ thuật ống nghiệm) "
+	},
+	{
+		"ma" : "HH260",
+		"ten" : "Sàng lọc kháng thể bất thường (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH261",
+		"ten" : "Sàng lọc kháng thể bất thường (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH262",
+		"ten" : "Xét nghiệm lựa chọn đơn vị máu phù hợp (10 đơn vị máu trong 3 điều kiện 220C, 370C, kháng globulin người) bằng phương pháp Scangel\/Gelcard"
+	},
+	{
+		"ma" : "HH263",
+		"ten" : "Xét nghiệm lựa chọn đơn vị máu phù hợp (10 đơn vị máu trong 3 điều kiện 220C, 370C, kháng globulin người) bằng phương pháp ống nghiệm"
+	},
+	{
+		"ma" : "HH264",
+		"ten" : "Hiệu giá kháng thể miễn dịch (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH265",
+		"ten" : "Hiệu giá kháng thể miễn dịch (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH266",
+		"ten" : "Hiệu giá kháng thể tự nhiên chống A, B (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH267",
+		"ten" : "Hiệu giá kháng thể tự nhiên chống A, B (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH268",
+		"ten" : "Phản ứng hòa hợp trong môi trường nước muối ở 220C (Kỹ thuật ống nghiệm) "
+	},
+	{
+		"ma" : "HH269",
+		"ten" : "Phản ứng hòa hợp trong môi trường nước muối ở 220C (Kỹ thuật Scangel\/Gelcard trên máy bán tự động) "
+	},
+	{
+		"ma" : "HH270",
+		"ten" : "Phản ứng hòa hợp trong môi trường nước muối ở 220C (Kỹ thuật Scangel\/Gelcard trên máy tự động) "
+	},
+	{
+		"ma" : "HH271",
+		"ten" : "Phản ứng hòa hợp ở điều kiện 370C (Kỹ thuật ống nghiệm) "
+	},
+	{
+		"ma" : "HH272",
+		"ten" : "Phản ứng hòa hợp ở điều kiện 370C (Kỹ thuật Scangel\/Gelcard trên máy bán tự động) "
+	},
+	{
+		"ma" : "HH273",
+		"ten" : "Phản ứng hòa hợp ở điều kiện 370C (Kỹ thuật Scangel\/Gelcard trên máy tự động) "
+	},
+	{
+		"ma" : "HH274",
+		"ten" : "Phản ứng hoà hợp có sử dụng kháng globulin người (Kỹ thuật ống nghiệm) "
+	},
+	{
+		"ma" : "HH275",
+		"ten" : "Phản ứng hoà hợp có sử dụng kháng globulin người (Kỹ thuật Scangel\/Gelcard trên máy bán tự động) "
+	},
+	{
+		"ma" : "HH276",
+		"ten" : "Phản ứng hoà hợp có sử dụng kháng globulin người (Kỹ thuật Scangel\/Gelcard trên máy tự động) "
+	},
+	{
+		"ma" : "HH277",
+		"ten" : "Định nhóm máu hệ ABO (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH278",
+		"ten" : "Định nhóm máu hệ ABO (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH279",
+		"ten" : "Định nhóm máu hệ ABO (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH280",
+		"ten" : "Định nhóm máu hệ ABO (Kỹ thuật phiến đá)"
+	},
+	{
+		"ma" : "HH281",
+		"ten" : "Định nhóm máu khó hệ ABO (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH282",
+		"ten" : "Định nhóm máu khó hệ ABO (Kỹ thuật Scangel\/Gelcard)"
+	},
+	{
+		"ma" : "HH283",
+		"ten" : "Định nhóm máu hệ ABO (Kỹ thuật trên giấy)"
+	},
+	{
+		"ma" : "HH284",
+		"ten" : "Định nhóm máu hệ ABO (Kỹ thuật trên thẻ)"
+	},
+	{
+		"ma" : "HH285",
+		"ten" : "Định nhóm máu hệ ABO bằng giấy định nhóm máu để truyền máu toàn phần, khối hồng cầu, khối bạch cầu"
+	},
+	{
+		"ma" : "HH286",
+		"ten" : "Định nhóm máu hệ ABO bằng giấy định nhóm máu để truyền chế phẩm tiểu cầu hoặc huyết tương"
+	},
+	{
+		"ma" : "HH287",
+		"ten" : "Định nhóm máu hệ ABO trên thẻ định nhóm máu (đã có sẵn huyết thanh mẫu) để truyền máu toàn phần, khối hồng cầu, khối bạch cầu"
+	},
+	{
+		"ma" : "HH288",
+		"ten" : "Định nhóm máu hệ ABO trên thẻ định nhóm máu (đã có sẵn huyết thanh mẫu) để truyền chế phẩm tiểu cầu hoặc huyết tương"
+	},
+	{
+		"ma" : "HH289",
+		"ten" : "Định nhóm máu hệ ABO, Rh(D) (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH290",
+		"ten" : "Định nhóm máu hệ ABO, Rh(D) (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH291",
+		"ten" : "Định nhóm máu hệ Rh(D) (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH292",
+		"ten" : "Định nhóm máu hệ Rh(D) (Kỹ thuật phiến đá)"
+	},
+	{
+		"ma" : "HH293",
+		"ten" : "Định nhóm máu hệ ABO, Rh(D) bằng công nghệ hồng cầu gắn từ"
+	},
+	{
+		"ma" : "HH294",
+		"ten" : "Định nhóm máu hệ ABO, Rh(D) trên hệ thống máy tự động hoàn toàn"
+	},
+	{
+		"ma" : "HH295",
+		"ten" : "Xác định kháng nguyên D yếu của hệ Rh (Kỹ thuật ống nghiệm) "
+	},
+	{
+		"ma" : "HH296",
+		"ten" : "Xác định kháng nguyên D yếu của hệ Rh (Kỹ thuật Scangel\/Gelcard)"
+	},
+	{
+		"ma" : "HH297",
+		"ten" : "Xác định kháng nguyên D từng phần của hệ Rh (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH298",
+		"ten" : "Xác định kháng nguyên D từng phần của hệ Rh (Kỹ thuật Scangel\/Gelcard)"
+	},
+	{
+		"ma" : "HH299",
+		"ten" : "Xác định bản chất kháng thể đặc hiệu (IgG, IgA, IgM, C3d, C3c (Kỹ thuật Scangel\/Gelcard  trên máy bán tự động khi nghiệm pháp Coombs trực tiếp\/gián tiếp dương tính)"
+	},
+	{
+		"ma" : "HH300",
+		"ten" : "Xác định bản chất kháng thể đặc hiệu (IgG, IgA, IgM, C3d, C3c (Kỹ thuật Scangel\/Gelcard  trên máy tự động khi nghiệm pháp Coombs trực tiếp\/gián tiếp dương tính)"
+	},
+	{
+		"ma" : "HH301",
+		"ten" : "Xác định bản chất kháng thể đặc hiệu (IgG, IgA, IgM, C3d, C3c (Kỹ thuật ống nghiệm khi nghiệm pháp Coombs trực tiếp\/gián tiếp dương tính)"
+	},
+	{
+		"ma" : "HH302",
+		"ten" : "Nghiệm pháp Coombs trực tiếp (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH303",
+		"ten" : "Nghiệm pháp Coombs trực tiếp (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH304",
+		"ten" : "Nghiệm pháp Coombs trực tiếp (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH305",
+		"ten" : "Nghiệm pháp Coombs trực tiếp (Kỹ thuật hồng cầu gắn từ trên máy tự động)"
+	},
+	{
+		"ma" : "HH306",
+		"ten" : "Nghiệm pháp Coombs gián tiếp (Kỹ thuật Scangel\/Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH307",
+		"ten" : "Nghiệm pháp Coombs gián tiếp (Kỹ thuật Scangel\/Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH308",
+		"ten" : "Nghiệm pháp Coombs gián tiếp (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH309",
+		"ten" : "Nghiệm pháp Coombs gián tiếp (Kỹ thuật hồng cầu gắn từ trên máy tự động)"
+	},
+	{
+		"ma" : "HH310",
+		"ten" : "Xác định kháng nguyên H (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH311",
+		"ten" : "Xác định kháng nguyên H (Kỹ thuật Scangel\/Gelcard)"
+	},
+	{
+		"ma" : "HH312",
+		"ten" : "Xác định nhóm máu A1 (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH313",
+		"ten" : "Xác định nhóm máu A1 (Kỹ thuật Scangel\/Gelcard)"
+	},
+	{
+		"ma" : "HH314",
+		"ten" : "Xác định kháng nguyên nhóm máu hệ hồng cầu bằng phương pháp sinh học phân tử (giá cho một loại kháng nguyên)"
+	},
+	{
+		"ma" : "HH315",
+		"ten" : "Kỹ thuật hấp phụ kháng thể"
+	},
+	{
+		"ma" : "HH316",
+		"ten" : "Kỹ thuật tách kháng thể"
+	},
+	{
+		"ma" : "HH618",
+		"ten" : "Xác định kháng nguyên Lea của hệ nhóm máu Lewis (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH619",
+		"ten" : "Xác định kháng nguyên Lea của hệ nhóm máu Lewis (Kỹ thuật Scangel\/ Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH620",
+		"ten" : "Xác định kháng nguyên Lea của hệ nhóm máu Lewis (Kỹ thuật Scangel\/ Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH621",
+		"ten" : "Xác định kháng nguyên Leb của hệ nhóm máu Lewis (Kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH622",
+		"ten" : "Xác định kháng nguyên Leb của hệ nhóm máu Lewis (Kỹ thuật Scangel\/ Gelcard trên máy bán tự động)"
+	},
+	{
+		"ma" : "HH623",
+		"ten" : "Xác định kháng nguyên Leb của hệ nhóm máu Lewis (Kỹ thuật Scangel\/ Gelcard trên máy tự động)"
+	},
+	{
+		"ma" : "HH624",
+		"ten" : "Phản ứng hòa hợp tiểu cầu (kỹ thuật pha rắn)."
+	},
+	{
+		"ma" : "HH625",
+		"ten" : "Xác định bất đồng nhóm máu mẹ con (kỹ thuật ống nghiệm)"
+	},
+	{
+		"ma" : "HH626",
+		"ten" : "Xác định bất đồng nhóm máu mẹ con (Kỹ thuật Scangel)"
+	},
+	{
+		"ma" : "HHV",
+		"ten" : "MIỄN DỊCH HUYẾT HỌC"
+	},
+	{
+		"ma" : "HH317",
+		"ten" : "Kháng thể kháng histon (anti histon) bằng kỹ thuật ELISA"
+	},
+	{
+		"ma" : "HH318",
+		"ten" : "Kháng thể kháng Scl 70 (anti Scl-70) bằng kỹ thuật ELISA"
+	},
+	{
+		"ma" : "HH319",
+		"ten" : "Kháng thể Sm-Jo-1 (anti Sm-Jo-1) bằng kỹ thuật ELISA"
+	},
+	{
+		"ma" : "HH320",
+		"ten" : "Kháng thể kháng Sm (anti Sm) bằng kỹ thuật ELISA"
+	},
+	{
+		"ma" : "HH321",
+		"ten" : "Kháng thể kháng SS-A (kháng La) (anti SS-A) bằng kỹ thuật ELISA"
+	},
+	{
+		"ma" : "HH322",
+		"ten" : "Kháng thể kháng SS-B (kháng Ro) (anti SS-B) bằng kỹ thuật ELISA"
+	},
+	{
+		"ma" : "HH323",
+		"ten" : "Kháng thể kháng nDNA (anti-nDNA) bằng kỹ thuật ELISA"
+	},
+	{
+		"ma" : "HH324",
+		"ten" : "Kháng thể kháng protein nhân (anti-RNP) bằng kỹ thuật ELISA"
+	},
+	{
+		"ma" : "HH325",
+		"ten" : "Kháng thể kháng dsDNA (anti-dsDNA) bằng kỹ thuật ELISA"
+	},
+	{
+		"ma" : "HH326",
+		"ten" : "Kháng thể kháng nhân (anti-ANA) bằng kỹ thuật ELISA"
+	},
+	{
+		"ma" : "HH327",
+		"ten" : "Kháng thể kháng dsDNA (anti-dsDNA) bằng kỹ thuật huỳnh quang"
+	},
+	{
+		"ma" : "HH328",
+		"ten" : "Kháng thể kháng nhân (anti-ANA) bằng kỹ thuật huỳnh quang"
+	},
+	{
+		"ma" : "HH329",
+		"ten" : "Phát hiện kháng thể kháng tiểu cầu bằng kỹ thuật Flow-cytometry"
+	},
+	{
+		"ma" : "HH330",
+		"ten" : "Xét nghiệm HLA-B27 bằng kỹ thuật Flow-cytometry"
+	},
+	{
+		"ma" : "HH331",
+		"ten" : "Đếm số lượng tế bào gốc (stem cell, CD34)"
+	},
+	{
+		"ma" : "HH332",
+		"ten" : "Lympho cross match bằng kỹ thuật Flow-cytometry"
+	},
+	{
+		"ma" : "HH333",
+		"ten" : "Phân loại miễn dịch bằng kỹ thuật Flow-cytometry"
+	},
+	{
+		"ma" : "HH334",
+		"ten" : "Xét nghiệm chẩn đoán bệnh Bạch cầu cấp bằng kỹ thuật Flow-cytometry"
+	},
+	{
+		"ma" : "HH335",
+		"ten" : "Đánh giá tồn lưu tế bào ác tính bằng kỹ thuật Flow-cytometry"
+	},
+	{
+		"ma" : "HH336",
+		"ten" : "Xét nghiệm chẩn đoán bệnh tăng sinh ác tính dòng lympho bằng kỹ thuật Flow-cytometry"
+	},
+	{
+		"ma" : "HH337",
+		"ten" : "Xét nghiệm chẩn đoán bệnh lý Plasmocyte bằng kỹ thuật Flow-cytometry"
+	},
+	{
+		"ma" : "HH338",
+		"ten" : "Phân tích quần thể lympho bằng kỹ thuật dấu ấn miễn dịch (DAMD)"
+	},
+	{
+		"ma" : "HH339",
+		"ten" : "Xác định chỉ số DNA index bằng kỹ thuật dấu ấn miễn dịch (DAMD)"
+	},
+	{
+		"ma" : "HH340",
+		"ten" : "Đánh giá tiên lượng bệnh rối loạn sinh tủy bằng kỹ thuật Flow-cytometry"
+	},
+	{
+		"ma" : "HH341",
+		"ten" : "Dấu ấn miễn dịch màng tế bào (bằng kỹ thuật huỳnh quang)"
+	},
+	{
+		"ma" : "HH342",
+		"ten" : "Xét nghiệm đếm số lượng CD3 - CD4 - CD8"
+	},
+	{
+		"ma" : "HH343",
+		"ten" : "Xét nghiệm CD55\/59 bạch cầu (chẩn đoán bệnh Đái huyết sắc tố niệu kịch phát ban đêm)"
+	},
+	{
+		"ma" : "HH344",
+		"ten" : "Xét nghiệm CD55\/59 hồng cầu (chẩn đoán bệnh Đái huyết sắc tố niệu kịch phát ban đêm)"
+	},
+	{
+		"ma" : "HH345",
+		"ten" : "Đếm số lượng tế bào gốc tạo máu trên máy Cytomics FC500"
+	},
+	{
+		"ma" : "HH346",
+		"ten" : "Xét nghiệm FLAER (chẩn đoán bệnh Đái huyết sắc tố niệu kịch phát ban đêm)"
+	},
+	{
+		"ma" : "HH347",
+		"ten" : "Xét nghiệm kháng thể kháng dsDNA (ngưng kết latex)"
+	},
+	{
+		"ma" : "HH348",
+		"ten" : "Xét nghiệm Đường-Ham"
+	},
+	{
+		"ma" : "HH349",
+		"ten" : "Điện di miễn dịch dịch não tuỷ"
+	},
+	{
+		"ma" : "HH350",
+		"ten" : "Điện di miễn dịch nước tiểu"
+	},
+	{
+		"ma" : "HH351",
+		"ten" : "Điện di miễn dịch huyết thanh"
+	},
+	{
+		"ma" : "HH352",
+		"ten" : "Điện di huyết sắc tố"
+	},
+	{
+		"ma" : "HH353",
+		"ten" : "Điện di protein huyết thanh"
+	},
+	{
+		"ma" : "HH354",
+		"ten" : "Xét nghiệm tồn dư tối thiểu của bệnh nhân ung thư máu"
+	},
+	{
+		"ma" : "HH355",
+		"ten" : "Đếm số lượng tế bào NK (Nature killer)"
+	},
+	{
+		"ma" : "HH356",
+		"ten" : "Xét nghiệm PRA (panel reactive anti-body) bằng kỹ thuật ELISA"
+	},
+	{
+		"ma" : "HH357",
+		"ten" : "Đọ chéo trong ghép bằng kỹ thuật vi độc tế bào"
+	},
+	{
+		"ma" : "HH358",
+		"ten" : "Xét nghiệm xác định kháng thể kháng tiểu cầu trực tiếp"
+	},
+	{
+		"ma" : "HH359",
+		"ten" : "Xét nghiệm xác định kháng thể kháng tiểu cầu gián tiếp"
+	},
+	{
+		"ma" : "HH360",
+		"ten" : "Định typ HLA-A độ phân giải cao (bằng kỹ thuật PCR-SSP)"
+	},
+	{
+		"ma" : "HH361",
+		"ten" : "Định typ HLA-B độ phân giải cao (bằng kỹ thuật PCR-SSP)"
+	},
+	{
+		"ma" : "HH362",
+		"ten" : "Định typ HLA-C độ phân giải cao (bằng kỹ thuật PCR-SSP)"
+	},
+	{
+		"ma" : "HH363",
+		"ten" : "Định typ HLA-DR độ phân giải cao (bằng kỹ thuật PCR-SSP)"
+	},
+	{
+		"ma" : "HH364",
+		"ten" : "Định typ HLA-DQ độ phân giải cao (bằng kỹ thuật PCR-SSP)"
+	},
+	{
+		"ma" : "HH365",
+		"ten" : "Định typ HLA độ phân giải trung bình đến cao bằng kỹ thuật PCR-SSO trên hệ thống Luminex (cho cả 5 locus A, B, C, DR và DQ)"
+	},
+	{
+		"ma" : "HH366",
+		"ten" : "Định typ HLA độ phân giải cao bằng kỹ thuật SBT trên hệ thống Miseq (cho cả 5 locus A, B, C, DR và DQ)"
+	},
+	{
+		"ma" : "HH367",
+		"ten" : "Định lượng sắt hoạt tính trong huyết thanh (LPI-Labile Plasma Ion)"
+	},
+	{
+		"ma" : "HH368",
+		"ten" : "Định lượng sắt không gắn Transferin huyết tương (NTBI - Non Transferin Bound Ion)"
+	},
+	{
+		"ma" : "HH369",
+		"ten" : "ANA 17 profile test (sàng lọc và định danh đồng thời 17 typ kháng thể kháng nhân bằng thanh sắc ký miễn dịch)"
+	},
+	{
+		"ma" : "HH370",
+		"ten" : "ANA 12 profile test (sàng lọc và định danh đồng thời 12 typ kháng thể kháng nhân bằng thanh sắc ký miễn dịch)"
+	},
+	{
+		"ma" : "HH371",
+		"ten" : "Xét nghiệm panel Viêm gan tự miễn (phát hiện các typ kháng thể tự miễn đặc trưng trong bệnh viêm gan tự miễn bằng thanh sắc ký miễn dịch)"
+	},
+	{
+		"ma" : "HH372",
+		"ten" : "Xét nghiệm panel Viêm đa cơ tự miễn (phát hiện các typ kháng thể tự miễn đặc trưng trong bệnh viêm đa cơ tự miễn bằng thanh sắc ký miễn dịch)"
+	},
+	{
+		"ma" : "HH373",
+		"ten" : "Xét nghiệm panel Viêm mạch tự miễn (phát hiện các typ kháng thể tự miễn đặc trưng trong bệnh viêm mạch tự miễn bằng thanh sắc ký miễn dịch)"
+	},
+	{
+		"ma" : "HH374",
+		"ten" : "Xét nghiệm panel Viêm dạ dày-ruột tự miễn (phát hiện các typ kháng thể tự miễn đặc trưng trong bệnh viêm dạ dày-ruột tự miễn bằng thanh sắc ký miễn dịch)"
+	},
+	{
+		"ma" : "HH375",
+		"ten" : "Anti phospholipid IgG và IgM (sàng lọc các kháng thể kháng phospholipid lớp IgG và IgM bằng kỹ thuật ELISA"
+	},
+	{
+		"ma" : "HH376",
+		"ten" : "Phân tích Myeloperoxidase nội bào"
+	},
+	{
+		"ma" : "HH377",
+		"ten" : "DCIP test (Dichlorophenol-Indolphenol test dùng sàng lọc huyết sắc tố E)"
+	},
+	{
+		"ma" : "HH378",
+		"ten" : "BCB test (Bright Cresyl Blue test dùng sàng lọc huyết sắc tố H)"
+	},
+	{
+		"ma" : "HH627",
+		"ten" : "Phân tích dấu ấn\/CD\/marker miễn dịch máu ngoại vi, hoặc dịch khác bằng kỹ thuật flow cytometry"
+	},
+	{
+		"ma" : "HH628",
+		"ten" : "Phân tích dấu ấn\/CD\/marker miễn dịch mẫu tủy xương, hoặc mẫu hạch, hoặc mẫu tổ chức khác bằng kỹ thuật flow cytometry"
+	},
+	{
+		"ma" : "HH629",
+		"ten" : "Xét nghiệm kháng thể kháng lao (phương pháp thấm miễn dịch)"
+	},
+	{
+		"ma" : "HH630",
+		"ten" : "Xét nghiệm kháng thể kháng Dengue IgG và IgM (phương pháp thấm miễn dịch)"
+	},
+	{
+		"ma" : "HH631",
+		"ten" : "Định lượng CD25 (IL-2R) hòa tan trong huyết thanh bằng kỹ thuật ELISA"
+	},
+	{
+		"ma" : "HH632",
+		"ten" : "Xét nghiệm tồn dư tối thiểu của bệnh máu ác tính bằng phương pháp Flow-cytometry"
+	},
+	{
+		"ma" : "HH633",
+		"ten" : "Định type HLA độ phân giải cao cho 1 locus (Locus A, hoặc Locus B, hoặc Locus C, hoặc Locus  DR, hoặc Locus  DQ, hoặc Locus  DP) bằng kỹ thuật PCR-SSO"
+	},
+	{
+		"ma" : "HH634",
+		"ten" : "Định type HLA cho 1 locus (Locus A, hoặc Locus B, hoặc Locus C, hoặc Locus  DR, hoặc Locus  DQ) bằng kỹ thuật PCR-SSP"
+	},
+	{
+		"ma" : "HH635",
+		"ten" : "Định danh kháng thể  kháng HLA bằng kỹ thuật luminex"
+	},
+	{
+		"ma" : "HH636",
+		"ten" : "Định danh kháng thể kháng HLA bằng kỹ thuật ELISA"
+	},
+	{
+		"ma" : "HH637",
+		"ten" : "Đánh giá chỉ số IS (sepsis index) trên máy flow cytometry"
+	},
+	{
+		"ma" : "HHVI",
+		"ten" : "DI TRUYỀN HUYẾT HỌC"
+	},
+	{
+		"ma" : "HH379",
+		"ten" : "Xác định gen bằng kỹ thuật FISH"
+	},
+	{
+		"ma" : "HH380",
+		"ten" : "Cấy chuyển dạng lympho cho xét nghiệm nhiễm sắc thể"
+	},
+	{
+		"ma" : "HH381",
+		"ten" : "Công thức nhiễm sắc thể (Karyotype) tuỷ xương"
+	},
+	{
+		"ma" : "HH382",
+		"ten" : "Công thức nhiễm sắc thể (Karyotype) máu ngoại vi"
+	},
+	{
+		"ma" : "HH383",
+		"ten" : "Cấy hỗn hợp lympho"
+	},
+	{
+		"ma" : "HH384",
+		"ten" : "Phát hiện gene bệnh Hemophilia (bằng kỹ thuật PCR-PFLP) "
+	},
+	{
+		"ma" : "HH385",
+		"ten" : "Công thức nhiễm sắc thể (NST) từ tế bào ối"
+	},
+	{
+		"ma" : "HH386",
+		"ten" : "FISH chẩn đoán NST 13, 18, 21, XY (chẩn đoán trước sinh)"
+	},
+	{
+		"ma" : "HH387",
+		"ten" : "FISH chẩn đoán NST XY"
+	},
+	{
+		"ma" : "HH388",
+		"ten" : "FISH chẩn đoán NST Ph1 (BCR\/ ABL)"
+	},
+	{
+		"ma" : "HH389",
+		"ten" : "FISH chẩn đoán hội chứng Prader Willi"
+	},
+	{
+		"ma" : "HH390",
+		"ten" : "FISH chẩn đoán hội chứng De George"
+	},
+	{
+		"ma" : "HH391",
+		"ten" : "FISH chẩn đoán chuyển đoạn NST 4;11"
+	},
+	{
+		"ma" : "HH392",
+		"ten" : "FISH chẩn đoán chuyển đoạn NST 1;19"
+	},
+	{
+		"ma" : "HH393",
+		"ten" : "FISH chẩn đoán chuyển đoạn NST 8;21"
+	},
+	{
+		"ma" : "HH394",
+		"ten" : "FISH chẩn đoán chuyển đoạn NST 15;17"
+	},
+	{
+		"ma" : "HH395",
+		"ten" : "PCR chẩn đoán yếu tố biệt hoá tinh hoàn (TDF)"
+	},
+	{
+		"ma" : "HH396",
+		"ten" : "PCR chẩn đoán trước sinh yếu tố biệt hóa tinh hoàn (TDF)"
+	},
+	{
+		"ma" : "HH397",
+		"ten" : "PCR chẩn đoán bệnh teo cơ tuỷ (SMA)"
+	},
+	{
+		"ma" : "HH398",
+		"ten" : "Chẩn đoán trước sinh bệnh teo cơ tủy (SMA)"
+	},
+	{
+		"ma" : "HH399",
+		"ten" : "PCR chẩn đoán bệnh loạn dưỡng cơ Duchenne (DMD) - 25 exons"
+	},
+	{
+		"ma" : "HH400",
+		"ten" : "MLPA chẩn đoán gene SH2D1A của hội chứng XLP"
+	},
+	{
+		"ma" : "HH401",
+		"ten" : "PCR chẩn đoán trước sinh bệnh loạn dưỡng cơ Duchenne (DMD) - 25 exons"
+	},
+	{
+		"ma" : "HH402",
+		"ten" : "MLPA chẩn đoán bệnh loạn dưỡng cơ Duchenne (DMD) - 79 exons"
+	},
+	{
+		"ma" : "HH403",
+		"ten" : "MLPA chẩn đoán trước sinh bệnh loạn dưỡng cơ Duchenne (DMD) - 79 exons"
+	},
+	{
+		"ma" : "HH404",
+		"ten" : "PCR chẩn đoán bệnh beta thalassemia (08 đột biến)"
+	},
+	{
+		"ma" : "HH405",
+		"ten" : "PCR chẩn đoán trước sinh bệnh beta thalassemia"
+	},
+	{
+		"ma" : "HH406",
+		"ten" : "Giải trình tự gene chẩn đoán bệnh beta thalassemia"
+	},
+	{
+		"ma" : "HH407",
+		"ten" : "Giải trình tự gene chẩn đoán trước sinh bệnh beta thalassemia"
+	},
+	{
+		"ma" : "HH408",
+		"ten" : "Giải trình tự gene chẩn đoán bệnh tăng sản thượng thận bẩm sinh (CAH)"
+	},
+	{
+		"ma" : "HH409",
+		"ten" : "Giải trình tự gene chẩn đoán trước sinh bệnh tăng sản thượng thận bẩm sinh (CAH)"
+	},
+	{
+		"ma" : "HH410",
+		"ten" : "MLPA chẩn đoán bệnh tăng sản thượng thận bẩm sinh (CAH)"
+	},
+	{
+		"ma" : "HH411",
+		"ten" : "MLPA chẩn đoán trước sinh bệnh Tăng sản thượng thận bẩm sinh (CAH)"
+	},
+	{
+		"ma" : "HH412",
+		"ten" : "Giải trình tự gene Perforin (PRF1) bệnh HLH"
+	},
+	{
+		"ma" : "HH413",
+		"ten" : "Giải trình tự gene Perforin (PRF1) chẩn đoán trước sinh bệnh HLH"
+	},
+	{
+		"ma" : "HH414",
+		"ten" : "MLPA chẩn đoán trước sinh gene SH2D1A của hội chứng XLP"
+	},
+	{
+		"ma" : "HH415",
+		"ten" : "Giải trình tự gene SH2D1A của hội chứng XLP"
+	},
+	{
+		"ma" : "HH416",
+		"ten" : "Giải trình tự gene chẩn đoán trước sinh gene SH2D1A"
+	},
+	{
+		"ma" : "HH417",
+		"ten" : "PCR chẩn đoán 04 đột biến bệnh Thiếu hụt Citrin"
+	},
+	{
+		"ma" : "HH418",
+		"ten" : "PCR chẩn đoán trước sinh 04 đột biến thiếu hụt Citrin"
+	},
+	{
+		"ma" : "HH419",
+		"ten" : "PCR chẩn đoán chuyển đoạn Philadelphia (BCR\/ABL) P210"
+	},
+	{
+		"ma" : "HH420",
+		"ten" : "PCR chẩn đoán chuyển đoạn Philadelphia (BCR\/ABL) P190"
+	},
+	{
+		"ma" : "HH421",
+		"ten" : "Định lượng gen bệnh máu ác tính bằng kỹ thuật Real - Time PCR"
+	},
+	{
+		"ma" : "HH422",
+		"ten" : "Định lượng tế bào người cho ở người nhận sau ghép bằng kỹ thuật Real - Time PCR"
+	},
+	{
+		"ma" : "HH423",
+		"ten" : "Theo dõi bệnh tồn dư tối thiểu bằng bằng kỹ thuật Real - Time PCR"
+	},
+	{
+		"ma" : "HH424",
+		"ten" : "Xét nghiệm phát hiện gen bệnh lý Lơ xê mi (1 gen) bằng kỹ thuật RT - PCR"
+	},
+	{
+		"ma" : "HH425",
+		"ten" : "Phát hiện gene JAK2 V617F trong nhóm bệnh tăng sinh tủy bằng kỹ thuật Allen-specific PCR"
+	},
+	{
+		"ma" : "HH426",
+		"ten" : "Xét nghiệm phát hiện đột biến gene bằng kỹ thuật Multiplex PCR (phát hiện cùng lúc 4 đột biến)"
+	},
+	{
+		"ma" : "HH427",
+		"ten" : "Xét nghiệm giải trình tự gene"
+	},
+	{
+		"ma" : "HH428",
+		"ten" : "Định lượng virut Cytomegalo (CMV) bằng kỹ thuật Real Time PCR"
+	},
+	{
+		"ma" : "HH429",
+		"ten" : "Phát hiện đột biến Intron18\/BCL1 bằng kỹ thuật PCR RFLP"
+	},
+	{
+		"ma" : "HH430",
+		"ten" : "Phát hiện đảo đoạn intron22 của gen yếu tố VIII bệnh   Hemophilia bằng kỹ thuật longrange PCR"
+	},
+	{
+		"ma" : "HH431",
+		"ten" : "Xác định gen bệnh máu bằng kỹ thuật RT-PCR"
+	},
+	{
+		"ma" : "HH432",
+		"ten" : "Xác định gen AML1\/ETO bằng kỹ thuật RT-PCR"
+	},
+	{
+		"ma" : "HH433",
+		"ten" : "Xác định gen CBFβ \/MYH11 bằng kỹ thuật RT-PCR"
+	},
+	{
+		"ma" : "HH434",
+		"ten" : "Xác định gen PML\/ RARα bằng kỹ thuật RT-PCR"
+	},
+	{
+		"ma" : "HH435",
+		"ten" : "Xác định gen TEL\/ AML1 bằng kỹ thuật RT-PCR"
+	},
+	{
+		"ma" : "HH436",
+		"ten" : "Xác định gen E2A\/ PBX1 bằng kỹ thuật RT-PCR"
+	},
+	{
+		"ma" : "HH437",
+		"ten" : "Xác định gen MLL\/ AF4 bằng kỹ thuật  RT-PCR"
+	},
+	{
+		"ma" : "HH438",
+		"ten" : "Xác định gen NPM1-A bằng kỹ thuật  Allen specific -PCR"
+	},
+	{
+		"ma" : "HH439",
+		"ten" : "Xác định gen FLT3-ITD bằng kỹ thuật PCR"
+	},
+	{
+		"ma" : "HH440",
+		"ten" : "Xét nghiệm HLA-B27 bằng kỹ thuật sinh học phân tử."
+	},
+	{
+		"ma" : "HH441",
+		"ten" : "Xác định gen  IGH-MMSET (của chuyển đoạn t(4;14) bằng kỹ thuật PCR"
+	},
+	{
+		"ma" : "HH442",
+		"ten" : "Xét nghiệm kháng đột biến Imatinib T325I bằng kỹ thuật Allen-specific PCR"
+	},
+	{
+		"ma" : "HH443",
+		"ten" : "Xét nghiệm trao đổi nhiễm sắc tử chị em"
+	},
+	{
+		"ma" : "HH444",
+		"ten" : "Xét nghiệm phát hiện nhiễm sắc thể X dễ gãy"
+	},
+	{
+		"ma" : "HH445",
+		"ten" : "Xét nghiệm phát hiện biểu hiện gen (GEP: gen expression profiling)"
+	},
+	{
+		"ma" : "HH446",
+		"ten" : "Xét nghiệm xác định đột biến Thalassemia (phát hiện đồng thời 21 đột biến α-Thalassemia hoặc 22 đột biến  β-Thalasemia)"
+	},
+	{
+		"ma" : "HH447",
+		"ten" : "Xét nghiệm gen phát hiện các allen phổ biến của HLA B27"
+	},
+	{
+		"ma" : "HH448",
+		"ten" : "Xác định gen bệnh máu bằng kỹ thuật cIg FISH"
+	},
+	{
+		"ma" : "HH449",
+		"ten" : "Xét nghiệm giải trình tự gen trên hệ thống Miseq"
+	},
+	{
+		"ma" : "HH450",
+		"ten" : "Xác định đột biến gen trong rối loạn chuyển hóa sắt"
+	},
+	{
+		"ma" : "HH451",
+		"ten" : "Xét nghiệm gen sàng lọc nguy cơ huyết khối"
+	},
+	{
+		"ma" : "HH452",
+		"ten" : "Xét nghiệm gen sàng lọc nguy cơ xơ vữa động mạch"
+	},
+	{
+		"ma" : "HH453",
+		"ten" : "Xét nghiệm gen liên quan đến chuyển hóa thuốc Thiopurin"
+	},
+	{
+		"ma" : "HH454",
+		"ten" : "Xét nghiệm gen liên quan đến chuyển hóa Coumarin"
+	},
+	{
+		"ma" : "HH455",
+		"ten" : "Phát hiện gen bệnh Thalassemia bằng kỹ thuật PCR-RFLP"
+	},
+	{
+		"ma" : "HH638",
+		"ten" : "Xét nghiệm cấy chuyển dạng lympho"
+	},
+	{
+		"ma" : "HH639",
+		"ten" : "Xác định nhiễm sắc thể X, Y bằng kỹ thuật FISH"
+	},
+	{
+		"ma" : "HH640",
+		"ten" : "Phát hiện đột biến gen Hemophilia bằng kỹ thuật PCR-RFLP"
+	},
+	{
+		"ma" : "HH641",
+		"ten" : "Xét nghiệm giải trình tự gen bằng kỹ thuật giải trình tự thế hệ 1 (cho mỗi đoạn gen < 1kb)"
+	},
+	{
+		"ma" : "HH642",
+		"ten" : "Định typ HLA bằng kỹ thuật giải trình tự gen thế hệ 2"
+	},
+	{
+		"ma" : "HH643",
+		"ten" : "Xét nghiệm phát hiện đột biến gen thalassemia bằng kỹ thuật PCR"
+	},
+	{
+		"ma" : "HH644",
+		"ten" : "Xét nghiệm phát hiện đột biến gen hemophilia bằng kỹ thuật PCR"
+	},
+	{
+		"ma" : "HH645",
+		"ten" : "Xét nghiệm phát hiện đột biến gen bằng kỹ thuật PCR"
+	},
+	{
+		"ma" : "HH646",
+		"ten" : "Xét nghiệm xác định đột biến gen bằng kỹ thuật PCR-RFLP"
+	},
+	{
+		"ma" : "HH647",
+		"ten" : "Xét nghiệm giải trình tự gen bằng kỹ thuật giải trình tự gen thế hệ 2"
+	},
+	{
+		"ma" : "HH648",
+		"ten" : "Xét nghiệm xác định gen bằng kỹ thuật cIg FISH với tách tế bào bằng Ficoll"
+	},
+	{
+		"ma" : "HH649",
+		"ten" : "Xét nghiệm công thức nhiễm sắc thể tủy xương với chất kích thích đặc hiệu"
+	},
+	{
+		"ma" : "HH650",
+		"ten" : "Xét nghiệm công thức nhiễm sắc thể với môi trường đặc hiệu"
+	},
+	{
+		"ma" : "HH651",
+		"ten" : "Xét nghiệm phát hiện máu mẹ trong dịch ối"
+	},
+	{
+		"ma" : "HH652",
+		"ten" : "Xét nghiệm xác định các marker di truyền của người cho\/ người nhận bằng kỹ thuật realtime PCR"
+	},
+	{
+		"ma" : "HH653",
+		"ten" : "Xét nghiệm chimerism bằng kỹ thuật realtime PCR"
+	},
+	{
+		"ma" : "HH654",
+		"ten" : "Xét nghiệm xác định mọc mảnh ghép (Chimerism) bằng kỹ thuật giải trình tự gen thế hệ 2"
+	},
+	{
+		"ma" : "HH655",
+		"ten" : "Xét nghiệm xác định mọc mảnh ghép (Chimerism) bằng kỹ thuật giải trình tự gen thế hệ 1"
+	},
+	{
+		"ma" : "HH656",
+		"ten" : "Xét nghiệm xác định đột biến gen bằng kỹ thuật MLPA"
+	},
+	{
+		"ma" : "HH657",
+		"ten" : "Xét nghiệm xác định đột biến gen beta thalassemia bằng kỹ thuật MLPA"
+	},
+	{
+		"ma" : "HH658",
+		"ten" : "Xét nghiệm xác định đột biến gen alpha thalassemia bằng kỹ thuật MLPA"
+	},
+	{
+		"ma" : "HH659",
+		"ten" : "Xét nghiệm MLPA chẩn đoán bệnh teo cơ tủy (SMA)"
+	},
+	{
+		"ma" : "HH660",
+		"ten" : "Xét nghiệm MLPA chẩn đoán trước sinh bệnh teo cơ tủy (SMA)"
+	},
+	{
+		"ma" : "HH661",
+		"ten" : "Xét nghiệm FISH chẩn đoán hội chứng Down"
+	},
+	{
+		"ma" : "HH662",
+		"ten" : "Xét nghiệm kháng đột biến Imatinib T315I bằng kỹ thuật Allen-specific PCR"
+	},
+	{
+		"ma" : "HHVII",
+		"ten" : "TRUYỀN MÁU"
+	},
+	{
+		"ma" : "HH456",
+		"ten" : "Xét nghiệm nhanh HBsAg trước hiến máu đối với người hiến máu"
+	},
+	{
+		"ma" : "HH457",
+		"ten" : "Lấy máu toàn phần từ người hiến máu"
+	},
+	{
+		"ma" : "HH458",
+		"ten" : "Xét nghiệm sàng lọc HIV, Viêm gan B, Viêm ganC đối với đơn vị máu toàn phần và thành phần máu bằng kỹ thuật ELISA"
+	},
+	{
+		"ma" : "HH459",
+		"ten" : "Xét nghiệm sàng lọc HIV, Viêm gan B, Viêm ganC đối với đơn vị máu toàn phần và thành phần máu bằng kỹ thuật hoá phát quang"
+	},
+	{
+		"ma" : "HH460",
+		"ten" : "Xét nghiệm sàng lọc HIV, Viêm gan B, Viêm ganC đối với đơn vị máu toàn phần và thành phần máu bằng kỹ thuật NAT"
+	},
+	{
+		"ma" : "HH461",
+		"ten" : "Xét nghiệm sàng lọc giang mai đối với đơn vị máu toàn phần và thành phần máu bằng kỹ thuật ELISA"
+	},
+	{
+		"ma" : "HH462",
+		"ten" : "Xét nghiệm sàng lọc giang mai đối với đơn vị máu toàn phần và thành phần máu bằng kỹ thuật RPR"
+	},
+	{
+		"ma" : "HH463",
+		"ten" : "Xét nghiệm sàng lọc giang mai đối với đơn vị máu toàn phần và thành phần máu bằng kỹ thuật ngưng kết hồng cầu\/ vi hạt thụ động"
+	},
+	{
+		"ma" : "HH464",
+		"ten" : "Xét nghiệm sàng lọc ký sinh trùng sốt rét đối với đơn vị máu toàn phần và thành phần máu bằng kỹ thuật ELISA"
+	},
+	{
+		"ma" : "HH465",
+		"ten" : "Xét nghiệm sàng lọc ký sinh trùng sốt rét đối với đơn vị máu toàn phần và thành phần máu bằng kỹ thuật miễn dịch thấm"
+	},
+	{
+		"ma" : "HH466",
+		"ten" : "Xét nghiệm sàng lọc ký sinh trùng sốt rét đối với đơn vị máu toàn phần và thành phần máu bằng kỹ thuật nhuộm giêmsa soi kính hiển vi"
+	},
+	{
+		"ma" : "HH467",
+		"ten" : "Xét nghiệm sàng lọc CMV đối với đơn vị máu toàn phần và thành phần máu  bằng kỹ thuật ELISA"
+	},
+	{
+		"ma" : "HH468",
+		"ten" : "Xét nghiệm sàng lọc CMV đối với đơn vị máu toàn phần và thành phần máu  bằng kỹ thuật hoá phát quang"
+	},
+	{
+		"ma" : "HH469",
+		"ten" : "Xét nghiệm sàng lọc CMV đối với đơn vị máu toàn phần và thành phần máu  bằng kỹ thuật PCR\/ NAT"
+	},
+	{
+		"ma" : "HH470",
+		"ten" : "Xét nghiệm sàng lọc kháng thể bất thường đối với đơn vị máu toàn phần và thành phần máu (Kỹ thuật men tiêu protein\/ antiglobulin thực hiện thủ công hoặc trên máy bán tự động, máy tự động)"
+	},
+	{
+		"ma" : "HH471",
+		"ten" : "Lọc bạch cầu trong máu toàn phần"
+	},
+	{
+		"ma" : "HH472",
+		"ten" : "Chiếu xạ máu toàn phần và các thành phần máu"
+	},
+	{
+		"ma" : "HH473",
+		"ten" : "Điều chế khối hồng cầu đậm đặc"
+	},
+	{
+		"ma" : "HH474",
+		"ten" : "Điều chế khối hồng cầu có dung dịch bảo quản"
+	},
+	{
+		"ma" : "HH475",
+		"ten" : "Điều chế khối hồng cầu giảm bạch cầu"
+	},
+	{
+		"ma" : "HH476",
+		"ten" : "Điều chế khối hồng cầu rửa"
+	},
+	{
+		"ma" : "HH477",
+		"ten" : "Điều chế khối hồng cầu lọc bạch cầu"
+	},
+	{
+		"ma" : "HH478",
+		"ten" : "Điều chế huyết tương giàu tiểu cầu"
+	},
+	{
+		"ma" : "HH479",
+		"ten" : "Điều chế khối tiểu cầu pool"
+	},
+	{
+		"ma" : "HH480",
+		"ten" : "Điều chế khối tiểu cầu gạn tách từ một người cho"
+	},
+	{
+		"ma" : "HH481",
+		"ten" : "Điều chế khối tiểu cầu giảm bạch cầu"
+	},
+	{
+		"ma" : "HH482",
+		"ten" : "Điều chế khối tiểu cầu lọc bạch cầu"
+	},
+	{
+		"ma" : "HH483",
+		"ten" : "Điều chế khối bạch cầu"
+	},
+	{
+		"ma" : "HH484",
+		"ten" : "Điều chế huyết tương tươi"
+	},
+	{
+		"ma" : "HH485",
+		"ten" : "Điều chế huyết tương tươi đông lạnh"
+	},
+	{
+		"ma" : "HH486",
+		"ten" : "Điều chế tủa lạnh"
+	},
+	{
+		"ma" : "HH487",
+		"ten" : "Rửa hồng cầu\/ tiểu cầu bằng máy ly tâm lạnh"
+	},
+	{
+		"ma" : "HH488",
+		"ten" : "Rửa hồng cầu bằng máy tự động"
+	},
+	{
+		"ma" : "HH489",
+		"ten" : "Lọc bạch cầu trong máu toàn phần"
+	},
+	{
+		"ma" : "HH490",
+		"ten" : "Lọc bạch cầu trong khối hồng cầu"
+	},
+	{
+		"ma" : "HH491",
+		"ten" : "Lọc bạch cầu trong khối tiểu cầu"
+	},
+	{
+		"ma" : "HH492",
+		"ten" : "Đông lạnh hồng cầu, tiểu cầu ở quày lạnh"
+	},
+	{
+		"ma" : "HH493",
+		"ten" : "Đông lạnh hồng cầu, tiểu cầu trong nitơ lỏng"
+	},
+	{
+		"ma" : "HH494",
+		"ten" : "Loại bỏ glycerol trong khối hồng cầu đông lạnh"
+	},
+	{
+		"ma" : "HH495",
+		"ten" : "Chiếu tia tử ngoại, hồng ngoại bất hoạt virus trong khối hồng cầu, khối tiểu cầu"
+	},
+	{
+		"ma" : "HH496",
+		"ten" : "Bất hoạt virus trong chế phẩm huyết tương bằng hoá chất"
+	},
+	{
+		"ma" : "HH497",
+		"ten" : "Bất hoạt virus trong chế phẩm huyết tương bằng nhiệt "
+	},
+	{
+		"ma" : "HH498",
+		"ten" : "Điều chế chế phẩm máu (khối hồng cầu) để thay máu cho bệnh nhân sơ sinh tan máu do bị bất đồng nhóm máu mẹ con"
+	},
+	{
+		"ma" : "HH663",
+		"ten" : "Điều chế khối bạch cầu gạn tách bằng máy tách tế bào tự động từ một người hiến máu"
+	},
+	{
+		"ma" : "HH664",
+		"ten" : "Điều chế khối hồng cầu gạn tách bằng máy tách tế bào tự động từ một người hiến máu"
+	},
+	{
+		"ma" : "HH665",
+		"ten" : "Điều chế huyết tương gạn tách bằng máy tách tế bào tự động từ một người hiến máu"
+	},
+	{
+		"ma" : "HH666",
+		"ten" : "Xét nghiệm sàng lọc viêm gan E đối với đơn vị máu toàn phần và thành phần máu bằng kỹ thuật ELISA, kỹ thuật hoá phát quang kỹ thuật NAT"
+	},
+	{
+		"ma" : "HH667",
+		"ten" : "Xét nghiệm sàng lọc anti-HBc đối với đơn vị máu toàn phần và thành phần máu bằng kỹ thuật ELISA, kỹ thuật hóa phát quang"
+	},
+	{
+		"ma" : "HH668",
+		"ten" : "Xét nghiệm định nhóm máu dưới nhóm hệ Rh (C, c, E, e) đối với đơn vị máu bằng kỹ thuật ống nghiệm, bán tự động, tự động"
+	},
+	{
+		"ma" : "HH669",
+		"ten" : "Xét nghiệm định nhóm máu hệ MNSs (M, N, S, s, Mia) đối với đơn vị máu bằng kỹ thuật ống nghiệm, bán tự động, tự động"
+	},
+	{
+		"ma" : "HH670",
+		"ten" : "Xét nghiệm định nhóm máu hệ Kidd (Jka, Jkb) đối với đơn vị máu bằng kỹ thuật ống nghiệm, bán tự động, tự động"
+	},
+	{
+		"ma" : "HH671",
+		"ten" : "Xét nghiệm định nhóm máu hệ Duffy (Fya, Fyb) đối với đơn vị máu bằng kỹ thuật ống nghiệm, bán tự động, tự động"
+	},
+	{
+		"ma" : "HH672",
+		"ten" : "Xét nghiệm định nhóm máu hệ Lutheran (Lua, Lub) đối với đơn vị máu bằng kỹ thuật ống nghiệm, bán tự động, tự động"
+	},
+	{
+		"ma" : "HH673",
+		"ten" : "Xét nghiệm định nhóm máu hệ Kell (K, k, Kpa, Kpb, Jsa, Jsb) đối với đơn vị máu bằng kỹ thuật ống nghiệm, bán tự động, tự động"
+	},
+	{
+		"ma" : "HH674",
+		"ten" : "Xét nghiệm định nhóm máu xác định kháng nguyên P1 đối với đơn vị máu bằng kỹ thuật ống nghiệm, bán tự động, tự động"
+	},
+	{
+		"ma" : "HH675",
+		"ten" : "Xét nghiệm định nhóm máu hệ Lewis (Lea, Leb) đối với đơn vị máu bằng kỹ thuật ống nghiệm, bán tự động, tự động"
+	},
+	{
+		"ma" : "HHVIII",
+		"ten" : "HUYẾT HỌC LÂM SÀNG"
+	},
+	{
+		"ma" : "HH499",
+		"ten" : "Rút máu để điều trị"
+	},
+	{
+		"ma" : "HH500",
+		"ten" : "Truyền thay máu"
+	},
+	{
+		"ma" : "HH501",
+		"ten" : "Truyền máu tại giường bệnh (bệnh nhân điều trị nội - ngoại trú)"
+	},
+	{
+		"ma" : "HH502",
+		"ten" : "Định nhóm máu tại giường bệnh trước truyền máu"
+	},
+	{
+		"ma" : "HH503",
+		"ten" : "Gạn bạch cầu điều trị"
+	},
+	{
+		"ma" : "HH504",
+		"ten" : "Gạn tiểu cầu điều trị"
+	},
+	{
+		"ma" : "HH505",
+		"ten" : "Gạn hồng cầu điều trị"
+	},
+	{
+		"ma" : "HH506",
+		"ten" : "Trao đổi huyết tương điều trị"
+	},
+	{
+		"ma" : "HH507",
+		"ten" : "Lọc máu liên tục"
+	},
+	{
+		"ma" : "HH508",
+		"ten" : "Đặt catheter cố định đường tĩnh mạch trung tâm"
+	},
+	{
+		"ma" : "HH509",
+		"ten" : "Chăm sóc catheter cố định"
+	},
+	{
+		"ma" : "HH510",
+		"ten" : "Truyền thuốc chống ung thư đường tĩnh mạch"
+	},
+	{
+		"ma" : "HH511",
+		"ten" : "Chăm sóc bệnh nhân điều trị trong phòng vô trùng"
+	},
+	{
+		"ma" : "HH512",
+		"ten" : "Thử phản ứng với globulin kháng tuyến ức, kháng lympho (ATG, ALG) trên bệnh nhân"
+	},
+	{
+		"ma" : "HH513",
+		"ten" : "Ghép tế bào gốc tạo máu tự thân"
+	},
+	{
+		"ma" : "HH514",
+		"ten" : "Ghép tế bào gốc tạo máu đồng loại"
+	},
+	{
+		"ma" : "HH515",
+		"ten" : "Thủ thuật chọc tủy sống tiêm hóa chất nội tủy"
+	},
+	{
+		"ma" : "HH516",
+		"ten" : "Thủ thuật chọc tủy sống lấy dịch não tủy làm xét nghiệm"
+	},
+	{
+		"ma" : "HH517",
+		"ten" : "Chẩn đoán trước sinh cho các bệnh máu bẩm sinh"
+	},
+	{
+		"ma" : "HH676",
+		"ten" : "Gạn tách huyết tương điều trị"
+	},
+	{
+		"ma" : "HH677",
+		"ten" : "Truyền máu toàn phần có sử dụng bộ lọc bạch cầu tại giường"
+	},
+	{
+		"ma" : "HH678",
+		"ten" : "Truyền khối hồng cầu có sử dụng bộ lọc bạch cầu tại giường"
+	},
+	{
+		"ma" : "HH679",
+		"ten" : "Truyền khối tiểu cầu có sử dụng bộ lọc bạch cầu tại giường"
+	},
+	{
+		"ma" : "HH680",
+		"ten" : "Truyền thuốc thải sắt đường dưới da"
+	},
+	{
+		"ma" : "HH681",
+		"ten" : "Chăm sóc bệnh nhân điều trị trong phòng ghép tế bào gốc"
+	},
+	{
+		"ma" : "HH682",
+		"ten" : "Truyền khối tế bào gốc tạo máu"
+	},
+	{
+		"ma" : "HHIX",
+		"ten" : "TẾ BÀO GỐC"
+	},
+	{
+		"ma" : "HH518",
+		"ten" : "Khám tuyển chọn người hiến tế bào gốc"
+	},
+	{
+		"ma" : "HH519",
+		"ten" : "Thu thập máu dây rốn để phân lập tế bào gốc"
+	},
+	{
+		"ma" : "HH520",
+		"ten" : "Gạn tách tế bào gốc từ máu ngoại vi bằng máy tự động"
+	},
+	{
+		"ma" : "HH521",
+		"ten" : "Thu thập dịch tủy xương để phân lập tế bào gốc"
+	},
+	{
+		"ma" : "HH522",
+		"ten" : "Phân lập tế bào gốc bằng ly tâm túi dẻo"
+	},
+	{
+		"ma" : "HH523",
+		"ten" : "Phân lập tế bào gốc bằng phương pháp ly tâm có sử dụng HES"
+	},
+	{
+		"ma" : "HH524",
+		"ten" : "Phân lập tế bào gốc bằng ống Falcon 50 ml, không dùng hóa chất"
+	},
+	{
+		"ma" : "HH525",
+		"ten" : "Phân lập tế bào gốc bằng ống chuyên dụng RES-Q60"
+	},
+	{
+		"ma" : "HH526",
+		"ten" : "Phân lập tế bào gốc bằng phương pháp ly tâm có sử dụng Filcoll"
+	},
+	{
+		"ma" : "HH527",
+		"ten" : "Phân lập tế bào gốc bằng hệ thống máy tự động Sepax"
+	},
+	{
+		"ma" : "HH528",
+		"ten" : "Phân lập tế bào gốc bằng hệ thống máy tự động AXP"
+	},
+	{
+		"ma" : "HH529",
+		"ten" : "Phân lập tế bào gốc bằng hệ thống máy tự động Comtex"
+	},
+	{
+		"ma" : "HH530",
+		"ten" : "Thu thập và phân lập tế bào gốc từ dịch tủy xương bằng máy Harvest Terumo"
+	},
+	{
+		"ma" : "HH531",
+		"ten" : "Nuôi cấy cụm tế bào gốc (colony firming culture)"
+	},
+	{
+		"ma" : "HH532",
+		"ten" : "Đông lạnh khối tế bào gốc bằng hệ thống hạ nhiệt độ"
+	},
+	{
+		"ma" : "HH533",
+		"ten" : "Bảo quản khối tế bào gốc đông lạnh bằng bình chứa Nitơ lỏng"
+	},
+	{
+		"ma" : "HH534",
+		"ten" : "Rã đông khối tế bào gốc đông lạnh bằng bình cách thủy"
+	},
+	{
+		"ma" : "HH535",
+		"ten" : "Phân lập tế bào gốc trung mô"
+	},
+	{
+		"ma" : "HH536",
+		"ten" : "Thu hoạch dịch tủy xương"
+	},
+	{
+		"ma" : "HH537",
+		"ten" : "Thu gom tế bào đơn nhân máu ngoại vi bằng máy tự động "
+	},
+	{
+		"ma" : "HH538",
+		"ten" : "Giảm huyết tương trong tủy xương và các tế bào gốc tạo máu từ apheresis"
+	},
+	{
+		"ma" : "HH539",
+		"ten" : "Hướng dẫn loại bỏ hồng cầu bằng lắng đọng hydroxyethyl starch (HES)"
+	},
+	{
+		"ma" : "HH540",
+		"ten" : "Giảm thể tích tế bào gốc máu ngoại vi để bảo quản lạnh"
+	},
+	{
+		"ma" : "HH541",
+		"ten" : "Phân tách Buffy-Coat tủy xương sử dụng máy COBE 2991"
+	},
+	{
+		"ma" : "HH542",
+		"ten" : "Xử lý làm giàu tế bào đơn nhân tủy xương bằng máy tự động (Biosafe Sepax, COBE Spectra hoặc COMTEX Fresenious)"
+	},
+	{
+		"ma" : "HH543",
+		"ten" : "Xử lý tự động máu dây rốn với hệ thống Biosafe Sepax và phụ kiện"
+	},
+	{
+		"ma" : "HH544",
+		"ten" : "Xử lý tự động máu dây rốn với hệ thống AXP"
+	},
+	{
+		"ma" : "HH545",
+		"ten" : "Đông lạnh sản phẩm tế bào trị liệu trong túi đông lạnh"
+	},
+	{
+		"ma" : "HH546",
+		"ten" : "Lưu trữ đông lạnh máu dây rốn"
+	},
+	{
+		"ma" : "HH547",
+		"ten" : "Lưu trữ đông lạnh tế bào gốc máu ngọai vi, tủy xương"
+	},
+	{
+		"ma" : "HH548",
+		"ten" : "Hạ lạnh kiểm soát tốc độ, lưu trữ và lấy ra tự động mẫu máu dây rốn đã giảm thể tích bằng hệ thống BioArchive"
+	},
+	{
+		"ma" : "HH549",
+		"ten" : "Vận chuyển mẫu tế bào gốc đông lạnh"
+	},
+	{
+		"ma" : "HH550",
+		"ten" : "Vận chuyển mẫu máu dây rốn đông lạnh"
+	},
+	{
+		"ma" : "HH551",
+		"ten" : "Rã đông mẫu tế bào gốc tạo máu: Phòng thí nghiệm và cạnh giường bệnh"
+	},
+	{
+		"ma" : "HH552",
+		"ten" : "Quy trình rã đông sản phẩm máu dây rốn đông lạnh để truyền"
+	},
+	{
+		"ma" : "HH553",
+		"ten" : "Quy trình lọc đối với các sản phẩm apheresis tế bào trị liệu"
+	},
+	{
+		"ma" : "HH554",
+		"ten" : "Rửa mẫu tế bào gốc tạo máu đông lạnh để loại bỏ dimethyl sulfoxide (DMSO)"
+	},
+	{
+		"ma" : "HH555",
+		"ten" : "Rửa sản phẩm tế bào gốc sau bảo quản bằng máy Sepax"
+	},
+	{
+		"ma" : "HH556",
+		"ten" : "Rửa sản phẩm tế bào trị liệu bằng máy COBE 2991"
+	},
+	{
+		"ma" : "HH557",
+		"ten" : "Chọn lọc các tế bào CD34+ sử dụng hệ thống lựa chọn tế bào từ tính Isolex 300i"
+	},
+	{
+		"ma" : "HH558",
+		"ten" : "Chọn lọc các tế bào CD34+ sử dụng hệ thống CliniMACS"
+	},
+	{
+		"ma" : "HH559",
+		"ten" : "Làm giàu bạch cầu đơn nhân sử dụng hệ thống tách tế bào Elutra"
+	},
+	{
+		"ma" : "HH560",
+		"ten" : "Tăng sinh ngoài cơ thể tế bào gốc tạo máu chọn lọc từ máu dây rốn"
+	},
+	{
+		"ma" : "HH561",
+		"ten" : "Phân lập và biệt hóa các tế bào gốc trung mô hay mô đệm từ tủy xương"
+	},
+	{
+		"ma" : "HH562",
+		"ten" : "Phân lập và biệt hóa các tế bào gốc trung mô hay mô đệm từ máu dây rốn"
+	},
+	{
+		"ma" : "HH563",
+		"ten" : "Phân lập và biệt hóa các tế bào gốc trung mô hay mô đệm từ mô mỡ"
+	},
+	{
+		"ma" : "HH564",
+		"ten" : "Phân lập và biệt hóa tế bào đuôi gai người cho trị liệu tế bào"
+	},
+	{
+		"ma" : "HH683",
+		"ten" : "Xử lý tế bào gốc bằng máy tự động"
+	},
+	{
+		"ma" : "HH684",
+		"ten" : "Xử lý tế bào gốc bằng phương pháp thủ công"
+	},
+	{
+		"ma" : "HH685",
+		"ten" : "Rửa sản phẩm tế bào gốc sau bảo quản bằng phương pháp thủ công"
+	},
+	{
+		"ma" : "HH686",
+		"ten" : "Rửa sản phẩm tế bào gốc sau bảo quản bằng máy tự động"
+	},
+	{
+		"ma" : "HH687",
+		"ten" : "Tìm kiếm nguồn tế bào gốc phù hợp cho ghép"
+	},
+	{
+		"ma" : "HH688",
+		"ten" : "Chọn lọc tế bào gốc sử dụng kỹ thuật từ tính"
+	},
+	{
+		"ma" : "HH689",
+		"ten" : "Đánh giá tỷ lệ sống của tế bào bằng kỹ thuật nhuộm xanh trypan"
+	},
+	{
+		"ma" : "HH690",
+		"ten" : "Đánh giá tỷ lệ sống của tế bào bằng kỹ thuật nhuộm tế bào dòng chảy"
+	},
+	{
+		"ma" : "HS",
+		"ten" : "Hóa sinh"
+	},
+	{
+		"ma" : "HSA",
+		"ten" : "A. MÁU "
+	},
+	{
+		"ma" : "HS1",
+		"ten" : "Đo hoạt độ ACP (Phosphatase Acid)"
+	},
+	{
+		"ma" : "HS2",
+		"ten" : "Định lượng ACTH (Adrenocorticotropic hormone)"
+	},
+	{
+		"ma" : "HS3",
+		"ten" : "Định lượng Acid Uric"
+	},
+	{
+		"ma" : "HS4",
+		"ten" : "Định lư­ợng ADH (Anti Diuretic Hormone)"
+	},
+	{
+		"ma" : "HS5",
+		"ten" : "Định lượng Adiponectin"
+	},
+	{
+		"ma" : "HS6",
+		"ten" : "Định lư­ợng Aldosteron"
+	},
+	{
+		"ma" : "HS7",
+		"ten" : "Định lượng Albumin"
+	},
+	{
+		"ma" : "HS8",
+		"ten" : "Định lượng Alpha1 Antitrypsin"
+	},
+	{
+		"ma" : "HS9",
+		"ten" : "Đo hoạt độ ALP (Alkalin Phosphatase)"
+	},
+	{
+		"ma" : "HS10",
+		"ten" : "Đo hoạt độ Amylase"
+	},
+	{
+		"ma" : "HS11",
+		"ten" : "Định lượng Amoniac ( NH3)"
+	},
+	{
+		"ma" : "HS12",
+		"ten" : "Định lượng AMH (Anti- Mullerian Hormone)"
+	},
+	{
+		"ma" : "HS13",
+		"ten" : "Định lượng Anti CCP"
+	},
+	{
+		"ma" : "HS14",
+		"ten" : "Định lượng Anti-Tg (Antibody- Thyroglobulin)"
+	},
+	{
+		"ma" : "HS15",
+		"ten" : "Định lượng Anti - TPO (Anti-  thyroid Peroxidase antibodies) "
+	},
+	{
+		"ma" : "HS16",
+		"ten" : "Định lượng Apo A1 (Apolipoprotein A1)"
+	},
+	{
+		"ma" : "HS17",
+		"ten" : "Định lượng Apo B (Apolipoprotein B)"
+	},
+	{
+		"ma" : "HS18",
+		"ten" : "Định lượng AFP (Alpha Fetoproteine)"
+	},
+	{
+		"ma" : "HS19",
+		"ten" : "Đo hoạt độ ALT (GPT) "
+	},
+	{
+		"ma" : "HS20",
+		"ten" : "Đo hoạt độ AST (GOT) "
+	},
+	{
+		"ma" : "HS21",
+		"ten" : "Định lượng α1 Acid Glycoprotein "
+	},
+	{
+		"ma" : "HS22",
+		"ten" : "Định lượng β2 microglobulin"
+	},
+	{
+		"ma" : "HS23",
+		"ten" : "Định lượng Beta Crosslap"
+	},
+	{
+		"ma" : "HS24",
+		"ten" : "Định lượng bhCG (Beta human Chorionic Gonadotropins)"
+	},
+	{
+		"ma" : "HS25",
+		"ten" : "Định lượng Bilirubin trực tiếp"
+	},
+	{
+		"ma" : "HS26",
+		"ten" : "Định lượng Bilirubin gián tiếp"
+	},
+	{
+		"ma" : "HS27",
+		"ten" : "Định lượng Bilirubin toàn phần "
+	},
+	{
+		"ma" : "HS28",
+		"ten" : "Định lượng BNP (B- Type Natriuretic Peptide)"
+	},
+	{
+		"ma" : "HS29",
+		"ten" : "Định lượng Calci toàn phần"
+	},
+	{
+		"ma" : "HS30",
+		"ten" : "Định lượng Calci ion hoá "
+	},
+	{
+		"ma" : "HS31",
+		"ten" : "Định lượng canci ion hóa bằng điện cực chọn lọc"
+	},
+	{
+		"ma" : "HS32",
+		"ten" : "Định lượng CA 125 (cancer antigen 125)"
+	},
+	{
+		"ma" : "HS33",
+		"ten" : "Định lượng CA 19 - 9 (Carbohydrate Antigen 19-9)"
+	},
+	{
+		"ma" : "HS34",
+		"ten" : "Định lượng CA 15 - 3 (Cancer Antigen 15- 3)"
+	},
+	{
+		"ma" : "HS35",
+		"ten" : "Định lượng CA 72 - 4 (Cancer Antigen 72- 4)"
+	},
+	{
+		"ma" : "HS36",
+		"ten" : "Định lượng Calcitonin"
+	},
+	{
+		"ma" : "HS37",
+		"ten" : "Định lượng Carbamazepin"
+	},
+	{
+		"ma" : "HS38",
+		"ten" : "Định lượng Ceruloplasmin"
+	},
+	{
+		"ma" : "HS39",
+		"ten" : "Định lượng CEA (Carcino Embryonic Antigen)"
+	},
+	{
+		"ma" : "HS40",
+		"ten" : "Đo hoạt độ Cholinesterase (ChE)"
+	},
+	{
+		"ma" : "HS41",
+		"ten" : "Định lượng Cholesterol toàn phần"
+	},
+	{
+		"ma" : "HS42",
+		"ten" : "Đo hoạt độ CK (Creatine kinase)"
+	},
+	{
+		"ma" : "HS43",
+		"ten" : "Đo hoạt độ CK-MB (Isozym MB of Creatine kinase)"
+	},
+	{
+		"ma" : "HS44",
+		"ten" : "Định lư­ợng CK-MB mass"
+	},
+	{
+		"ma" : "HS45",
+		"ten" : "Định lượng C-Peptid"
+	},
+	{
+		"ma" : "HS46",
+		"ten" : "Định lượng Cortisol"
+	},
+	{
+		"ma" : "HS47",
+		"ten" : "Định lượng Cystatine C"
+	},
+	{
+		"ma" : "HS48",
+		"ten" : "Định lượng bổ thể C3"
+	},
+	{
+		"ma" : "HS49",
+		"ten" : "Định lượng bổ thể C4"
+	},
+	{
+		"ma" : "HS50",
+		"ten" : "Định lượng  CRP hs (C-Reactive Protein high sesitivity)"
+	},
+	{
+		"ma" : "HS51",
+		"ten" : "Định lượng Creatinin"
+	},
+	{
+		"ma" : "HS52",
+		"ten" : "Định lượng Cyfra 21- 1"
+	},
+	{
+		"ma" : "HS53",
+		"ten" : "Định lượng Cyclosphorin"
+	},
+	{
+		"ma" : "HS54",
+		"ten" : "Định lượng D-Dimer"
+	},
+	{
+		"ma" : "HS55",
+		"ten" : "Định lượng 25OH Vitamin D (D3)"
+	},
+	{
+		"ma" : "HS56",
+		"ten" : "Định lượng Digoxin"
+	},
+	{
+		"ma" : "HS57",
+		"ten" : "Định lượng Digitoxin"
+	},
+	{
+		"ma" : "HS58",
+		"ten" : "Điện giải đồ (Na, K, Cl)"
+	},
+	{
+		"ma" : "HS59",
+		"ten" : "Định lượng FABP (Fatty Acid Binding Protein)"
+	},
+	{
+		"ma" : "HS60",
+		"ten" : "Định lượng Ethanol (cồn)"
+	},
+	{
+		"ma" : "HS61",
+		"ten" : "Định lượng Estradiol"
+	},
+	{
+		"ma" : "HS62",
+		"ten" : "Định lượng E3 không liên hợp (Unconjugated Estriol)"
+	},
+	{
+		"ma" : "HS63",
+		"ten" : "Định lượng Ferritin "
+	},
+	{
+		"ma" : "HS64",
+		"ten" : "Định lượng Fructosamin"
+	},
+	{
+		"ma" : "HS65",
+		"ten" : "Định lượng FSH (Follicular Stimulating Hormone)"
+	},
+	{
+		"ma" : "HS66",
+		"ten" : "Định lượng free bHCG (Free Beta Human Chorionic Gonadotropin)"
+	},
+	{
+		"ma" : "HS67",
+		"ten" : "Định lượng Folate"
+	},
+	{
+		"ma" : "HS68",
+		"ten" : "Định lượng FT3 (Free Triiodothyronine)"
+	},
+	{
+		"ma" : "HS69",
+		"ten" : "Định lượng FT4 (Free Thyroxine)"
+	},
+	{
+		"ma" : "HS70",
+		"ten" : "Định lượng Galectin 3"
+	},
+	{
+		"ma" : "HS71",
+		"ten" : "Định lượng Gastrin"
+	},
+	{
+		"ma" : "HS72",
+		"ten" : "Đo hoạt độ G6PD (Glucose -6 phosphat dehydrogenase)"
+	},
+	{
+		"ma" : "HS73",
+		"ten" : "Định lượng GH (Growth Hormone)"
+	},
+	{
+		"ma" : "HS74",
+		"ten" : "Đo hoạt độ GLDH (Glutamat dehydrogenase)"
+	},
+	{
+		"ma" : "HS75",
+		"ten" : "Định lượng Glucose"
+	},
+	{
+		"ma" : "HS76",
+		"ten" : "Định lượng Globulin"
+	},
+	{
+		"ma" : "HS77",
+		"ten" : "Đo hoạt độ GGT (Gama Glutamyl Transferase) "
+	},
+	{
+		"ma" : "HS78",
+		"ten" : "Định lượng GLP-1"
+	},
+	{
+		"ma" : "HS79",
+		"ten" : "Định lượng Gentamicin"
+	},
+	{
+		"ma" : "HS80",
+		"ten" : "Định lượng Haptoglobulin"
+	},
+	{
+		"ma" : "HS81",
+		"ten" : "Định lượng HBsAg (HBsAg Quantitative) ( CMIA \/ ECLIA)"
+	},
+	{
+		"ma" : "HS82",
+		"ten" : "Đo hoạt độ HBDH (Hydroxy butyrat dehydrogenase)"
+	},
+	{
+		"ma" : "HS83",
+		"ten" : "Định lượng HbA1c"
+	},
+	{
+		"ma" : "HS84",
+		"ten" : "Định lượng HDL-C (High density lipoprotein Cholesterol)"
+	},
+	{
+		"ma" : "HS85",
+		"ten" : "Định lượng HE4"
+	},
+	{
+		"ma" : "HS86",
+		"ten" : "Định lượng Homocystein"
+	},
+	{
+		"ma" : "HS87",
+		"ten" : "Định lượng IL-1α  (Interleukin 1α) "
+	},
+	{
+		"ma" : "HS88",
+		"ten" : "Định lượng IL -1β (Interleukin 1β) "
+	},
+	{
+		"ma" : "HS89",
+		"ten" : "Định lượng IL-6 ( Interleukin 6) "
+	},
+	{
+		"ma" : "HS90",
+		"ten" : "Định lượng IL-8 (Interleukin 8) "
+	},
+	{
+		"ma" : "HS91",
+		"ten" : "Định lượng IL-10 (Interleukin 10) "
+	},
+	{
+		"ma" : "HS92",
+		"ten" : "Định lượng IgE Cat Specific (E1)"
+	},
+	{
+		"ma" : "HS93",
+		"ten" : "Định lượng IgE (Immunoglobuline E) "
+	},
+	{
+		"ma" : "HS94",
+		"ten" : "Định lượng IgA (Immunoglobuline A)"
+	},
+	{
+		"ma" : "HS95",
+		"ten" : "Định lượng IgG (Immunoglobuline G)"
+	},
+	{
+		"ma" : "HS96",
+		"ten" : "Định lượng IgM (Immunoglobuline M)"
+	},
+	{
+		"ma" : "HS97",
+		"ten" : "Định lượng IGFBP-3 ( Insulin like growth factor binding protein 3)"
+	},
+	{
+		"ma" : "HS98",
+		"ten" : "Định lượng Insulin"
+	},
+	{
+		"ma" : "HS99",
+		"ten" : "Điện di Isozym – LDH"
+	},
+	{
+		"ma" : "HS100",
+		"ten" : "Định lượng IMA (Ischemia Modified Albumin)"
+	},
+	{
+		"ma" : "HS101",
+		"ten" : "Định lượng Kappa "
+	},
+	{
+		"ma" : "HS102",
+		"ten" : "Định lượng Kappa tự do (Free kappa)"
+	},
+	{
+		"ma" : "HS103",
+		"ten" : "Xét nghiệm Khí máu"
+	},
+	{
+		"ma" : "HS104",
+		"ten" : "Định lượng Lactat (Acid Lactic)"
+	},
+	{
+		"ma" : "HS105",
+		"ten" : "Định lượng Lambda"
+	},
+	{
+		"ma" : "HS106",
+		"ten" : "Định lượng Lambda tự do (Free Lambda)"
+	},
+	{
+		"ma" : "HS107",
+		"ten" : "Định lượng Leptin human"
+	},
+	{
+		"ma" : "HS108",
+		"ten" : "Điện di LDL\/HDL Cholesterol"
+	},
+	{
+		"ma" : "HS109",
+		"ten" : "Đo hoạt độ Lipase"
+	},
+	{
+		"ma" : "HS110",
+		"ten" : "Định lượng LH (Luteinizing Hormone)"
+	},
+	{
+		"ma" : "HS111",
+		"ten" : "Đo hoạt độ LDH ( Lactat dehydrogenase)"
+	},
+	{
+		"ma" : "HS112",
+		"ten" : "Định lượng LDL - C (Low density lipoprotein Cholesterol)"
+	},
+	{
+		"ma" : "HS113",
+		"ten" : "Điện di Lipoprotein"
+	},
+	{
+		"ma" : "HS114",
+		"ten" : "Định lượng Lp-PLA2 (Lipoprotein Associated Phospholipase A2)"
+	},
+	{
+		"ma" : "HS115",
+		"ten" : "Định lượng  Malondialdehyd (MDA)"
+	},
+	{
+		"ma" : "HS116",
+		"ten" : "Đo hoạt độ MPO"
+	},
+	{
+		"ma" : "HS117",
+		"ten" : "Định lượng Myoglobin"
+	},
+	{
+		"ma" : "HS118",
+		"ten" : "Định lượng Mg"
+	},
+	{
+		"ma" : "HS119",
+		"ten" : "Định lượng N-MID Osteocalcin"
+	},
+	{
+		"ma" : "HS120",
+		"ten" : "Định lượng NSE (Neuron Specific Enolase)"
+	},
+	{
+		"ma" : "HS121",
+		"ten" : "Định lượng  proBNP (NT-proBNP)"
+	},
+	{
+		"ma" : "HS122",
+		"ten" : "Đo hoạt độ P-Amylase"
+	},
+	{
+		"ma" : "HS123",
+		"ten" : "Định lượng PAPP-A"
+	},
+	{
+		"ma" : "HS124",
+		"ten" : "Định lượng Pepsinogen I"
+	},
+	{
+		"ma" : "HS125",
+		"ten" : "Định lượng Pepsinogen II"
+	},
+	{
+		"ma" : "HS126",
+		"ten" : "Định lượng Phenobarbital"
+	},
+	{
+		"ma" : "HS127",
+		"ten" : "Định lượng Phenytoin"
+	},
+	{
+		"ma" : "HS128",
+		"ten" : "Định lượng Phospho"
+	},
+	{
+		"ma" : "HS129",
+		"ten" : "Định lượng Pre-albumin"
+	},
+	{
+		"ma" : "HS130",
+		"ten" : "Định lượng Pro-calcitonin"
+	},
+	{
+		"ma" : "HS131",
+		"ten" : "Định lượng Prolactin "
+	},
+	{
+		"ma" : "HS132",
+		"ten" : "Điện di Protein (máy tự động)"
+	},
+	{
+		"ma" : "HS133",
+		"ten" : "Định lượng Protein toàn phần"
+	},
+	{
+		"ma" : "HS134",
+		"ten" : "Định lượng Progesteron "
+	},
+	{
+		"ma" : "HS135",
+		"ten" : "Định lượng Procainnamid"
+	},
+	{
+		"ma" : "HS136",
+		"ten" : "Định lượng Protein S100"
+	},
+	{
+		"ma" : "HS137",
+		"ten" : "Định lượng Pro-GRP ( Pro- Gastrin-Releasing Peptide)"
+	},
+	{
+		"ma" : "HS138",
+		"ten" : "Định lượng PSA tự do (Free prostate-Specific Antigen) "
+	},
+	{
+		"ma" : "HS139",
+		"ten" : "Định lượng PSA toàn phần (Total prostate-Specific Antigen)"
+	},
+	{
+		"ma" : "HS140",
+		"ten" : "Định lượng PTH (Parathyroid Hormon)"
+	},
+	{
+		"ma" : "HS141",
+		"ten" : "Định lượng Renin activity"
+	},
+	{
+		"ma" : "HS142",
+		"ten" : "Định lượng RF (Reumatoid Factor)"
+	},
+	{
+		"ma" : "HS143",
+		"ten" : "Định lượng Sắt"
+	},
+	{
+		"ma" : "HS144",
+		"ten" : "Định lượng SCC (Squamous cell carcinoma antigen)"
+	},
+	{
+		"ma" : "HS145",
+		"ten" : "Định lượng SHBG (Sex hormon binding globulin)"
+	},
+	{
+		"ma" : "HS146",
+		"ten" : "Định lượng Sperm Antibody"
+	},
+	{
+		"ma" : "HS147",
+		"ten" : "Định lượng T3 (Tri iodothyronine)"
+	},
+	{
+		"ma" : "HS148",
+		"ten" : "Định lượng T4 (Thyroxine)"
+	},
+	{
+		"ma" : "HS149",
+		"ten" : "Định lượng s TfR (Solube transferin receptor) "
+	},
+	{
+		"ma" : "HS150",
+		"ten" : "Định lượng Tacrolimus"
+	},
+	{
+		"ma" : "HS151",
+		"ten" : "Định lượng Testosterol"
+	},
+	{
+		"ma" : "HS152",
+		"ten" : "Định lượng TGF β1( Transforming Growth Factor Beta 1)"
+	},
+	{
+		"ma" : "HS153",
+		"ten" : "Định lượng TGF β2( Transforming Growth Factor Beta 2)"
+	},
+	{
+		"ma" : "HS154",
+		"ten" : "Định lượng Tg (Thyroglobulin)"
+	},
+	{
+		"ma" : "HS155",
+		"ten" : "Định lượng Theophylline"
+	},
+	{
+		"ma" : "HS156",
+		"ten" : "Định lượng TRAb (TSH  Receptor Antibodies)"
+	},
+	{
+		"ma" : "HS157",
+		"ten" : "Định lượng Transferin"
+	},
+	{
+		"ma" : "HS158",
+		"ten" : "Định lượng Triglycerid"
+	},
+	{
+		"ma" : "HS159",
+		"ten" : "Định lượng Troponin T"
+	},
+	{
+		"ma" : "HS160",
+		"ten" : "Định lượng Troponin Ths"
+	},
+	{
+		"ma" : "HS161",
+		"ten" : "Định lượng Troponin I"
+	},
+	{
+		"ma" : "HS162",
+		"ten" : "Định lượng TSH (Thyroid Stimulating hormone)"
+	},
+	{
+		"ma" : "HS163",
+		"ten" : "Định lượng Tobramycin"
+	},
+	{
+		"ma" : "HS164",
+		"ten" : "Định lượng Total p1NP"
+	},
+	{
+		"ma" : "HS165",
+		"ten" : "Định lượng T-uptake"
+	},
+	{
+		"ma" : "HS166",
+		"ten" : "Định lượng Urê"
+	},
+	{
+		"ma" : "HS167",
+		"ten" : "Định lượng Valproic Acid"
+	},
+	{
+		"ma" : "HS168",
+		"ten" : "Định lượng Vancomycin"
+	},
+	{
+		"ma" : "HS169",
+		"ten" : "Định lượng Vitamin B12"
+	},
+	{
+		"ma" : "HS170",
+		"ten" : "Định lượng yếu tố tân tạo mạch máu (PLGF – Placental Growth Factor)"
+	},
+	{
+		"ma" : "HS171",
+		"ten" : "Định lượng yếu tố kháng tân tạo mạch máu (sFlt-1-solube FMS like tyrosinkinase-1)"
+	},
+	{
+		"ma" : "HSB",
+		"ten" : "B. NƯỚC TIỂU"
+	},
+	{
+		"ma" : "HS172",
+		"ten" : "Điện giải niệu (Na, K, Cl)"
+	},
+	{
+		"ma" : "HS173",
+		"ten" : "Định tính Amphetamin (test nhanh)"
+	},
+	{
+		"ma" : "HS174",
+		"ten" : "Định lượng Amphetamine"
+	},
+	{
+		"ma" : "HS175",
+		"ten" : "Đo hoạt độ Amylase"
+	},
+	{
+		"ma" : "HS176",
+		"ten" : "Định lượng Axit Uric"
+	},
+	{
+		"ma" : "HS177",
+		"ten" : "Định lượng Barbiturates"
+	},
+	{
+		"ma" : "HS178",
+		"ten" : "Định lượng Benzodiazepin"
+	},
+	{
+		"ma" : "HS179",
+		"ten" : "Định tính beta hCG (test nhanh)"
+	},
+	{
+		"ma" : "HS180",
+		"ten" : "Định lượng Canxi"
+	},
+	{
+		"ma" : "HS181",
+		"ten" : "Định lượng Catecholamin"
+	},
+	{
+		"ma" : "HS182",
+		"ten" : "Định lượng Cocaine"
+	},
+	{
+		"ma" : "HS183",
+		"ten" : "Định lượng Cortisol"
+	},
+	{
+		"ma" : "HS184",
+		"ten" : "Định lượng Creatinin"
+	},
+	{
+		"ma" : "HS185",
+		"ten" : "Định lượng Dư­ỡng chấp"
+	},
+	{
+		"ma" : "HS186",
+		"ten" : "Định tính Dư­ỡng chấp"
+	},
+	{
+		"ma" : "HS187",
+		"ten" : "Định lư­ợng Glucose"
+	},
+	{
+		"ma" : "HS188",
+		"ten" : "Định tính Marijuana (THC) (test nhanh)"
+	},
+	{
+		"ma" : "HS189",
+		"ten" : "Định lượng MAU (Micro Albumin Arine)"
+	},
+	{
+		"ma" : "HS190",
+		"ten" : "Định lượng Methadone"
+	},
+	{
+		"ma" : "HS191",
+		"ten" : "Định lượng NGAL ( Neutrophil Gelatinase-Associated Lipocalin)"
+	},
+	{
+		"ma" : "HS192",
+		"ten" : "Định lượng Opiate"
+	},
+	{
+		"ma" : "HS193",
+		"ten" : "Định tính Opiate (test nhanh)"
+	},
+	{
+		"ma" : "HS194",
+		"ten" : "Định tính Morphin (test nhanh)"
+	},
+	{
+		"ma" : "HS195",
+		"ten" : "Định tính Codein (test nhanh)"
+	},
+	{
+		"ma" : "HS196",
+		"ten" : "Định tính Heroin (test nhanh)"
+	},
+	{
+		"ma" : "HS197",
+		"ten" : "Định lượng Phospho"
+	},
+	{
+		"ma" : "HS198",
+		"ten" : "Định tính Phospho hữu cơ"
+	},
+	{
+		"ma" : "HS199",
+		"ten" : "Định tính Porphyrin"
+	},
+	{
+		"ma" : "HS200",
+		"ten" : "Điện di Protein nước tiểu (máy tự động)"
+	},
+	{
+		"ma" : "HS201",
+		"ten" : "Định l­ượng Protein"
+	},
+	{
+		"ma" : "HS202",
+		"ten" : "Định tính Protein Bence -jones"
+	},
+	{
+		"ma" : "HS203",
+		"ten" : "Định tính Rotunda"
+	},
+	{
+		"ma" : "HS204",
+		"ten" : "Định lượng THC (Canabionids)"
+	},
+	{
+		"ma" : "HS205",
+		"ten" : "Định lượng Ure"
+	},
+	{
+		"ma" : "HS206",
+		"ten" : "Tổng phân tích nư­ớc tiểu (Bằng máy tự động)"
+	},
+	{
+		"ma" : "HSC",
+		"ten" : "C. DỊCH NÃO TUỶ"
+	},
+	{
+		"ma" : "HS207",
+		"ten" : "Định lư­ợng Clo"
+	},
+	{
+		"ma" : "HS208",
+		"ten" : "Định lư­ợng Glucose"
+	},
+	{
+		"ma" : "HS209",
+		"ten" : "Phản ứng Pandy"
+	},
+	{
+		"ma" : "HS210",
+		"ten" : "Định lư­ợng Protein"
+	},
+	{
+		"ma" : "HSD",
+		"ten" : "D. THỦY DỊCH MẮT  "
+	},
+	{
+		"ma" : "HS211",
+		"ten" : "Định lượng Albumin"
+	},
+	{
+		"ma" : "HS212",
+		"ten" : "Định lượng Globulin"
+	},
+	{
+		"ma" : "HSE",
+		"ten" : "E. DỊCH CHỌC DÒ (Dịch màng bụng, màng phổi, màng tim…)"
+	},
+	{
+		"ma" : "HS213",
+		"ten" : "Đo hoạt độ Amylase"
+	},
+	{
+		"ma" : "HS214",
+		"ten" : "Định lư­ợng Bilirubin toàn phần      "
+	},
+	{
+		"ma" : "HS215",
+		"ten" : "Định lượng Cholesterol toàn phần"
+	},
+	{
+		"ma" : "HS216",
+		"ten" : "Định lư­ợng Creatinin"
+	},
+	{
+		"ma" : "HS217",
+		"ten" : "Định lư­ợng Glucose"
+	},
+	{
+		"ma" : "HS218",
+		"ten" : "Đo hoạt độ LDH"
+	},
+	{
+		"ma" : "HS219",
+		"ten" : "Định lư­ợng Protein"
+	},
+	{
+		"ma" : "HS220",
+		"ten" : "Phản ứng Rivalta"
+	},
+	{
+		"ma" : "HS221",
+		"ten" : "Định lượng Triglycerid"
+	},
+	{
+		"ma" : "HS222",
+		"ten" : "Đo tỷ trọng dịch chọc dò"
+	},
+	{
+		"ma" : "HS223",
+		"ten" : "Định lư­ợng Ure"
+	},
+	{
+		"ma" : "VS",
+		"ten" : "Vi sinh"
+	},
+	{
+		"ma" : "VSA",
+		"ten" : "A. VI KHUẨN"
+	},
+	{
+		"ma" : "VSA.1",
+		"ten" : "1. Vi khuẩn chung"
+	},
+	{
+		"ma" : "VS1",
+		"ten" : "Vi khuẩn nhuộm soi"
+	},
+	{
+		"ma" : "VS2",
+		"ten" : "Vi khuẩn test nhanh"
+	},
+	{
+		"ma" : "VS3",
+		"ten" : "Vi khuẩn nuôi cấy và định danh phương pháp thông thường"
+	},
+	{
+		"ma" : "VS4",
+		"ten" : "Vi khuẩn nuôi cấy và định danh hệ thống tự động"
+	},
+	{
+		"ma" : "VS5",
+		"ten" : "Vi khuẩn nuôi cấy, định danh và kháng thuốc hệ thống tự động"
+	},
+	{
+		"ma" : "VS6",
+		"ten" : "Vi khuẩn kháng thuốc định tính"
+	},
+	{
+		"ma" : "VS7",
+		"ten" : "Vi khuẩn kháng thuốc hệ thống tự động"
+	},
+	{
+		"ma" : "VS8",
+		"ten" : "Vi khuẩn kháng thuốc định lượng (MIC) (cho 1 loại kháng sinh)"
+	},
+	{
+		"ma" : "VS9",
+		"ten" : "Vi khuẩn kháng sinh phối hợp"
+	},
+	{
+		"ma" : "VS10",
+		"ten" : "Vi khuẩn kỵ khí nuôi cấy và định danh"
+	},
+	{
+		"ma" : "VS11",
+		"ten" : "Vi khuẩn khẳng định "
+	},
+	{
+		"ma" : "VS12",
+		"ten" : "Vi khuẩn định danh PCR"
+	},
+	{
+		"ma" : "VS13",
+		"ten" : "Vi khuẩn định danh giải trình tự gene"
+	},
+	{
+		"ma" : "VS14",
+		"ten" : "Vi khuẩn kháng thuốc PCR"
+	},
+	{
+		"ma" : "VS15",
+		"ten" : "Vi khuẩn kháng thuốc giải trình tự gene"
+	},
+	{
+		"ma" : "VS16",
+		"ten" : "Vi hệ đường ruột"
+	},
+	{
+		"ma" : "VSA.2",
+		"ten" : "2. Mycobacteria"
+	},
+	{
+		"ma" : "VS17",
+		"ten" : "AFB trực tiếp nhuộm Ziehl-Neelsen"
+	},
+	{
+		"ma" : "VS18",
+		"ten" : "AFB trực tiếp nhuộm  huỳnh quang"
+	},
+	{
+		"ma" : "VS19",
+		"ten" : "Mycobacterium tuberculosis nuôi cấy môi trường lỏng"
+	},
+	{
+		"ma" : "VS20",
+		"ten" : "Mycobacterium tuberculosis nuôi cấy môi trường đặc"
+	},
+	{
+		"ma" : "VS21",
+		"ten" : "Mycobacterium tuberculosis Mantoux"
+	},
+	{
+		"ma" : "VS22",
+		"ten" : "Mycobacterium tuberculosis kháng thuốc hàng 1 môi trường đặc"
+	},
+	{
+		"ma" : "VS23",
+		"ten" : "Mycobacterium tuberculosis kháng thuốc hàng 1 môi trường lỏng"
+	},
+	{
+		"ma" : "VS24",
+		"ten" : "Mycobacterium tuberculosis kháng thuốc hàng 2 môi trường đặc"
+	},
+	{
+		"ma" : "VS25",
+		"ten" : "Mycobacterium tuberculosis kháng thuốc hàng 2 môi trường lỏng"
+	},
+	{
+		"ma" : "VS26",
+		"ten" : "Mycobacterium tuberculosis kháng thuốc PZA môi trường lỏng"
+	},
+	{
+		"ma" : "VS27",
+		"ten" : "Mycobacterium tuberculosis pyrazinamidase"
+	},
+	{
+		"ma" : "VS28",
+		"ten" : "Mycobacterium tuberculosis định danh và kháng RMP Xpert"
+	},
+	{
+		"ma" : "VS29",
+		"ten" : "Mycobacterium tuberculosis đa kháng LPA "
+	},
+	{
+		"ma" : "VS30",
+		"ten" : "Mycobacterium tuberculosis siêu kháng LPA "
+	},
+	{
+		"ma" : "VS31",
+		"ten" : "Mycobacterium tuberculosis PCR hệ thống tự động"
+	},
+	{
+		"ma" : "VS32",
+		"ten" : "Mycobacterium tuberculosis Real-time PCR"
+	},
+	{
+		"ma" : "VS33",
+		"ten" : "Mycobacterium tuberculosis spoligotyping"
+	},
+	{
+		"ma" : "VS34",
+		"ten" : "Mycobacterium tuberculosis RFLP typing"
+	},
+	{
+		"ma" : "VS35",
+		"ten" : "NTM (Non tuberculosis mycobacteria) nuôi cấy môi trường lỏng"
+	},
+	{
+		"ma" : "VS36",
+		"ten" : "NTM (Non tuberculosis mycobacteria) nuôi cấy môi trường đặc"
+	},
+	{
+		"ma" : "VS37",
+		"ten" : "NTM (Non tuberculosis mycobacteria) định danh LPA "
+	},
+	{
+		"ma" : "VS38",
+		"ten" : "NTM (Non tuberculosis mycobacteria) định danh Real-time PCR"
+	},
+	{
+		"ma" : "VS39",
+		"ten" : "Mycobacterium leprae nhuộm soi"
+	},
+	{
+		"ma" : "VS40",
+		"ten" : "Mycobacterium leprae PCR"
+	},
+	{
+		"ma" : "VS41",
+		"ten" : "Mycobacterium leprae mảnh sinh thiết"
+	},
+	{
+		"ma" : "VSA.3",
+		"ten" : "3. Vibrio cholerae "
+	},
+	{
+		"ma" : "VS42",
+		"ten" : "Vibrio cholerae soi tươi"
+	},
+	{
+		"ma" : "VS43",
+		"ten" : "Vibrio cholerae nhuộm soi"
+	},
+	{
+		"ma" : "VS44",
+		"ten" : "Vibrio cholerae nhuộm huỳnh quang "
+	},
+	{
+		"ma" : "VS45",
+		"ten" : "Vibrio cholerae nuôi cấy, định danh và kháng thuốc"
+	},
+	{
+		"ma" : "VS46",
+		"ten" : "Vibrio cholerae PCR"
+	},
+	{
+		"ma" : "VS47",
+		"ten" : "Vibrio cholerae Real-time PCR"
+	},
+	{
+		"ma" : "VS48",
+		"ten" : "Vibrio cholerae giải trình tự gene"
+	},
+	{
+		"ma" : "VSA.4",
+		"ten" : "4. Neisseria gonorrhoeae "
+	},
+	{
+		"ma" : "VS49",
+		"ten" : "Neisseria gonorrhoeae nhuộm soi"
+	},
+	{
+		"ma" : "VS50",
+		"ten" : "Neisseria gonorrhoeae nuôi cấy, định danh và kháng thuốc"
+	},
+	{
+		"ma" : "VS51",
+		"ten" : "Neisseria gonorrhoeae PCR"
+	},
+	{
+		"ma" : "VS52",
+		"ten" : "Neisseria gonorrhoeae Real-time PCR"
+	},
+	{
+		"ma" : "VS53",
+		"ten" : "Neisseria gonorrhoeae Real-time PCR hệ thống tự động"
+	},
+	{
+		"ma" : "VS54",
+		"ten" : "Neisseria gonorrhoeae kháng thuốc PCR"
+	},
+	{
+		"ma" : "VS55",
+		"ten" : "Neisseria gonorrhoeae kháng thuốc giải trình tự gene"
+	},
+	{
+		"ma" : "VSA.5",
+		"ten" : "5. Neisseria meningitidis"
+	},
+	{
+		"ma" : "VS56",
+		"ten" : "Neisseria meningitidis nhuộm soi"
+	},
+	{
+		"ma" : "VS57",
+		"ten" : "Neisseria meningitidis nuôi cấy, định danh và kháng thuốc"
+	},
+	{
+		"ma" : "VS58",
+		"ten" : "Neisseria meningitidis PCR"
+	},
+	{
+		"ma" : "VS59",
+		"ten" : "Neisseria meningitidis Real-time PCR"
+	},
+	{
+		"ma" : "VSA.6",
+		"ten" : "6. Các vi khuẩn khác"
+	},
+	{
+		"ma" : "VS60",
+		"ten" : "Chlamydia test nhanh"
+	},
+	{
+		"ma" : "VS61",
+		"ten" : "Chlamydia nhuộm huỳnh quang "
+	},
+	{
+		"ma" : "VS62",
+		"ten" : "Chlamydia Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS63",
+		"ten" : "Chlamydia Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VS64",
+		"ten" : "Chlamydia PCR"
+	},
+	{
+		"ma" : "VS65",
+		"ten" : "Chlamydia Real-time PCR"
+	},
+	{
+		"ma" : "VS66",
+		"ten" : "Chlamydia Real-time PCR hệ thống tự động"
+	},
+	{
+		"ma" : "VS67",
+		"ten" : "Chlamydia giải trình tự gene"
+	},
+	{
+		"ma" : "VS68",
+		"ten" : "Clostridium nuôi cấy, định danh"
+	},
+	{
+		"ma" : "VS69",
+		"ten" : "Clostridium difficile miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS70",
+		"ten" : "Clostridiumdifficile miễn dịch tự động"
+	},
+	{
+		"ma" : "VS71",
+		"ten" : "Clostridium difficile PCR"
+	},
+	{
+		"ma" : "VS72",
+		"ten" : "Helicobacter pylori nhuộm soi"
+	},
+	{
+		"ma" : "VS73",
+		"ten" : "Helicobacter pylori Ag test nhanh"
+	},
+	{
+		"ma" : "VS74",
+		"ten" : "Helicobacter pylori Ab test nhanh"
+	},
+	{
+		"ma" : "VS75",
+		"ten" : "Helicobacter pylori nuôi cấy, định danh và kháng thuốc"
+	},
+	{
+		"ma" : "VS76",
+		"ten" : "Helicobacter pylori Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS77",
+		"ten" : "Helicobacter pylori PCR"
+	},
+	{
+		"ma" : "VS78",
+		"ten" : "Helicobacter pylori Real-time PCR"
+	},
+	{
+		"ma" : "VS79",
+		"ten" : "Helicobacter pylori giải trình tự gene"
+	},
+	{
+		"ma" : "VS80",
+		"ten" : "Leptospira test nhanh"
+	},
+	{
+		"ma" : "VS81",
+		"ten" : "Leptospira PCR"
+	},
+	{
+		"ma" : "VS82",
+		"ten" : "Mycoplasma pneumoniae Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS83",
+		"ten" : "Mycoplasma pneumoniae Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VS84",
+		"ten" : "Mycoplasma pneumoniae Real-time PCR"
+	},
+	{
+		"ma" : "VS85",
+		"ten" : "Mycoplasma hominis test nhanh"
+	},
+	{
+		"ma" : "VS86",
+		"ten" : "Mycoplasma hominis nhuộm huỳnh quang"
+	},
+	{
+		"ma" : "VS87",
+		"ten" : "Mycoplasma hominis nuôi cấy, định danh và kháng thuốc"
+	},
+	{
+		"ma" : "VS88",
+		"ten" : "Mycoplasma hominis PCR"
+	},
+	{
+		"ma" : "VS89",
+		"ten" : "Mycoplasma hominis Real-time PCR"
+	},
+	{
+		"ma" : "VS90",
+		"ten" : "Rickettsia Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS91",
+		"ten" : "Rickettsia Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VS92",
+		"ten" : "Rickettsia PCR"
+	},
+	{
+		"ma" : "VS93",
+		"ten" : "Salmonella Widal"
+	},
+	{
+		"ma" : "VS94",
+		"ten" : "Streptococcus pyogenes ASO "
+	},
+	{
+		"ma" : "VS95",
+		"ten" : "Treponema pallidum soi tươi"
+	},
+	{
+		"ma" : "VS96",
+		"ten" : "Treponema pallidum nhuộm soi"
+	},
+	{
+		"ma" : "VS97",
+		"ten" : "Treponema pallidum nhuộm huỳnh quang"
+	},
+	{
+		"ma" : "VS98",
+		"ten" : "Treponema pallidum test nhanh"
+	},
+	{
+		"ma" : "VS99",
+		"ten" : "Treponema pallidum RPR định tính và định lượng"
+	},
+	{
+		"ma" : "VS100",
+		"ten" : "Treponema pallidum TPHA định tính và định lượng"
+	},
+	{
+		"ma" : "VS101",
+		"ten" : "Treponema pallidum PCR"
+	},
+	{
+		"ma" : "VS102",
+		"ten" : "Treponema pallidum Real-time PCR"
+	},
+	{
+		"ma" : "VS103",
+		"ten" : "Ureaplasma urealyticum test nhanh"
+	},
+	{
+		"ma" : "VS104",
+		"ten" : "Ureaplasma urealyticum nhuộm huỳnh quang"
+	},
+	{
+		"ma" : "VS105",
+		"ten" : "Ureaplasma urealyticum nuôi cấy, định danh và kháng thuốc"
+	},
+	{
+		"ma" : "VS106",
+		"ten" : "Ureaplasma urealyticum PCR"
+	},
+	{
+		"ma" : "VS107",
+		"ten" : "Ureaplasma urealyticum Real-time PCR"
+	},
+	{
+		"ma" : "VSB",
+		"ten" : "B. VIRUS"
+	},
+	{
+		"ma" : "VSB.1",
+		"ten" : "1. Virus chung"
+	},
+	{
+		"ma" : "VS108",
+		"ten" : "Virus test nhanh"
+	},
+	{
+		"ma" : "VS109",
+		"ten" : "Virus Ag miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS110",
+		"ten" : "Virus Ag miễn dịch tự động"
+	},
+	{
+		"ma" : "VS111",
+		"ten" : "Virus Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS112",
+		"ten" : "Virus Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VS113",
+		"ten" : "Virus Xpert"
+	},
+	{
+		"ma" : "VS114",
+		"ten" : "Virus PCR"
+	},
+	{
+		"ma" : "VS115",
+		"ten" : "Virus Real-time PCR"
+	},
+	{
+		"ma" : "VS116",
+		"ten" : "Virus giải trình tự gene"
+	},
+	{
+		"ma" : "VSB.2",
+		"ten" : "2. Hepatitis virus "
+	},
+	{
+		"ma" : "VS117",
+		"ten" : "HBsAg test nhanh"
+	},
+	{
+		"ma" : "VS118",
+		"ten" : "HBsAg miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS119",
+		"ten" : "HBsAg miễn dịch tự động"
+	},
+	{
+		"ma" : "VS120",
+		"ten" : "HBsAg khẳng định "
+	},
+	{
+		"ma" : "VS121",
+		"ten" : "HBsAg định lượng"
+	},
+	{
+		"ma" : "VS122",
+		"ten" : "HBsAb test nhanh"
+	},
+	{
+		"ma" : "VS123",
+		"ten" : "HBsAb miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS124",
+		"ten" : "HBsAb định lượng"
+	},
+	{
+		"ma" : "VS125",
+		"ten" : "HBc IgM miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS126",
+		"ten" : "HBc IgM miễn dịch tự động"
+	},
+	{
+		"ma" : "VS127",
+		"ten" : "HBcAb test nhanh"
+	},
+	{
+		"ma" : "VS128",
+		"ten" : "HBc total miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS129",
+		"ten" : "HBc total miễn dịch tự động"
+	},
+	{
+		"ma" : "VS130",
+		"ten" : "HBeAg test nhanh"
+	},
+	{
+		"ma" : "VS131",
+		"ten" : "HBeAg miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS132",
+		"ten" : "HBeAg miễn dịch tự động"
+	},
+	{
+		"ma" : "VS133",
+		"ten" : "HBeAb test nhanh"
+	},
+	{
+		"ma" : "VS134",
+		"ten" : "HBeAb miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS135",
+		"ten" : "HBeAb miễn dịch tự động"
+	},
+	{
+		"ma" : "VS136",
+		"ten" : "HBV đo tải lượng Real-time PCR"
+	},
+	{
+		"ma" : "VS137",
+		"ten" : "HBV đo tải lượng hệ thống tự động"
+	},
+	{
+		"ma" : "VS138",
+		"ten" : "HBV cccDNA "
+	},
+	{
+		"ma" : "VS139",
+		"ten" : "HBV genotype PCR"
+	},
+	{
+		"ma" : "VS140",
+		"ten" : "HBV genotype Real-time PCR"
+	},
+	{
+		"ma" : "VS141",
+		"ten" : "HBV genotype giải trình tự gene"
+	},
+	{
+		"ma" : "VS142",
+		"ten" : "HBV kháng thuốc Real-time PCR (cho 1 loại thuốc)"
+	},
+	{
+		"ma" : "VS143",
+		"ten" : "HBV kháng thuốc giải trình tự gene"
+	},
+	{
+		"ma" : "VS144",
+		"ten" : "HCV Ab test nhanh"
+	},
+	{
+		"ma" : "VS145",
+		"ten" : "HCV Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS146",
+		"ten" : "HCV Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VS147",
+		"ten" : "HCV Ag\/Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS148",
+		"ten" : "HCV Ag\/Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VS149",
+		"ten" : "HCV Core Ag miễn dịch tự động"
+	},
+	{
+		"ma" : "VS150",
+		"ten" : "HCV PCR"
+	},
+	{
+		"ma" : "VS151",
+		"ten" : "HCV đo tải lượng Real-time PCR"
+	},
+	{
+		"ma" : "VS152",
+		"ten" : "HCV đo tải lượng hệ thống tự động"
+	},
+	{
+		"ma" : "VS153",
+		"ten" : "HCV genotype Real-time PCR "
+	},
+	{
+		"ma" : "VS154",
+		"ten" : "HCV genotype giải trình tự gene"
+	},
+	{
+		"ma" : "VS155",
+		"ten" : "HAV Ab test nhanh"
+	},
+	{
+		"ma" : "VS156",
+		"ten" : "HAV IgM miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS157",
+		"ten" : "HAV IgM miễn dịch tự động"
+	},
+	{
+		"ma" : "VS158",
+		"ten" : "HAV total  miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS159",
+		"ten" : "HAV total miễn dịch tự động"
+	},
+	{
+		"ma" : "VS160",
+		"ten" : "HDV Ag miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS161",
+		"ten" : "HDV IgM miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS162",
+		"ten" : "HDV Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS163",
+		"ten" : "HEV Ab test nhanh"
+	},
+	{
+		"ma" : "VS164",
+		"ten" : "HEV IgM test nhanh"
+	},
+	{
+		"ma" : "VS165",
+		"ten" : "HEV IgM miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS166",
+		"ten" : "HEV IgM miễn dịch tự động"
+	},
+	{
+		"ma" : "VS167",
+		"ten" : "HEV IgG miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS168",
+		"ten" : "HEV IgG miễn dịch tự động"
+	},
+	{
+		"ma" : "VSB.3",
+		"ten" : "3. HIV"
+	},
+	{
+		"ma" : "VS169",
+		"ten" : "HIV Ab test nhanh"
+	},
+	{
+		"ma" : "VS170",
+		"ten" : "HIV Ag\/Ab test nhanh"
+	},
+	{
+		"ma" : "VS171",
+		"ten" : "HIV Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS172",
+		"ten" : "HIV Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VS173",
+		"ten" : "HIV Ag\/Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS174",
+		"ten" : "HIV Ag\/Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VS175",
+		"ten" : "HIV khẳng định (*)"
+	},
+	{
+		"ma" : "VS176",
+		"ten" : "HIV Ab Western blot"
+	},
+	{
+		"ma" : "VS177",
+		"ten" : "HIV DNA PCR"
+	},
+	{
+		"ma" : "VS178",
+		"ten" : "HIV DNA Real-time PCR"
+	},
+	{
+		"ma" : "VS179",
+		"ten" : "HIV đo tải lượng Real-time PCR"
+	},
+	{
+		"ma" : "VS180",
+		"ten" : "HIV đo tải lượng hệ thống tự động"
+	},
+	{
+		"ma" : "VS181",
+		"ten" : "HIV kháng thuốc giải trình tự gene"
+	},
+	{
+		"ma" : "VS182",
+		"ten" : "HIV genotype giải trình tự gene"
+	},
+	{
+		"ma" : "VSB.4",
+		"ten" : "4. Dengue virus"
+	},
+	{
+		"ma" : "VS183",
+		"ten" : "Dengue virus NS1Ag test nhanh"
+	},
+	{
+		"ma" : "VS184",
+		"ten" : "Dengue virus NS1Ag\/IgM\/IgG test nhanh"
+	},
+	{
+		"ma" : "VS185",
+		"ten" : "Dengue virus IgA test nhanh"
+	},
+	{
+		"ma" : "VS186",
+		"ten" : "Dengue virus NS1Ag miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS187",
+		"ten" : "Dengue virus IgM\/IgG test nhanh"
+	},
+	{
+		"ma" : "VS188",
+		"ten" : "Dengue virus IgM miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS189",
+		"ten" : "Dengue virus IgG  miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS190",
+		"ten" : "Dengue virus PCR"
+	},
+	{
+		"ma" : "VS191",
+		"ten" : "Dengue virus Real-time PCR"
+	},
+	{
+		"ma" : "VS192",
+		"ten" : "Dengue virus serotype PCR"
+	},
+	{
+		"ma" : "VSB.5",
+		"ten" : "5. Herpesviridae"
+	},
+	{
+		"ma" : "VS193",
+		"ten" : "CMV IgM miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS194",
+		"ten" : "CMV IgM miễn dịch tự động"
+	},
+	{
+		"ma" : "VS195",
+		"ten" : "CMV IgG miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS196",
+		"ten" : "CMV IgG miễn dịch tự động"
+	},
+	{
+		"ma" : "VS197",
+		"ten" : "CMV PCR"
+	},
+	{
+		"ma" : "VS198",
+		"ten" : "CMV Real-time PCR"
+	},
+	{
+		"ma" : "VS199",
+		"ten" : "CMV đo tải lượng hệ thống tự động"
+	},
+	{
+		"ma" : "VS200",
+		"ten" : "CMV Avidity"
+	},
+	{
+		"ma" : "VS201",
+		"ten" : "HSV 1 IgM miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS202",
+		"ten" : "HSV 1 IgM miễn dịch tự động"
+	},
+	{
+		"ma" : "VS203",
+		"ten" : "HSV 1 IgG miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS204",
+		"ten" : "HSV 1 IgG miễn dịch tự động"
+	},
+	{
+		"ma" : "VS205",
+		"ten" : "HSV 2 IgM miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS206",
+		"ten" : "HSV 2 IgM miễn dịch tự động"
+	},
+	{
+		"ma" : "VS207",
+		"ten" : "HSV 2 IgG miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS208",
+		"ten" : "HSV 2 IgG miễn dịch tự động"
+	},
+	{
+		"ma" : "VS209",
+		"ten" : "HSV 1+2 IgM miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS210",
+		"ten" : "HSV 1+2 IgM miễn dịch tự động"
+	},
+	{
+		"ma" : "VS211",
+		"ten" : "HSV 1+2 IgG miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS212",
+		"ten" : "HSV 1+2 IgG miễn dịch tự động"
+	},
+	{
+		"ma" : "VS213",
+		"ten" : "HSV Real-time PCR"
+	},
+	{
+		"ma" : "VS214",
+		"ten" : "HSV đo tải lượng hệ thống tự động"
+	},
+	{
+		"ma" : "VS215",
+		"ten" : "VZV Real-time PCR"
+	},
+	{
+		"ma" : "VS216",
+		"ten" : "EBV-VCA IgM miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS217",
+		"ten" : "EBV IgM miễn dịch tự động"
+	},
+	{
+		"ma" : "VS218",
+		"ten" : "EBV-VCA IgG miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS219",
+		"ten" : "EBV IgG miễn dịch tự động"
+	},
+	{
+		"ma" : "VS220",
+		"ten" : "EBV EA-D IgG miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS221",
+		"ten" : "EBV EB-NA IgG miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS222",
+		"ten" : "EBV PCR"
+	},
+	{
+		"ma" : "VS223",
+		"ten" : "EBV Real-time PCR"
+	},
+	{
+		"ma" : "VS224",
+		"ten" : "EBV đo tải lượng hệ thống tự động"
+	},
+	{
+		"ma" : "VSB.6",
+		"ten" : "6. Enterovirus "
+	},
+	{
+		"ma" : "VS225",
+		"ten" : "EV71 IgM\/IgG test nhanh"
+	},
+	{
+		"ma" : "VS226",
+		"ten" : "EV71 PCR"
+	},
+	{
+		"ma" : "VS227",
+		"ten" : "EV71 Real-time PCR"
+	},
+	{
+		"ma" : "VS228",
+		"ten" : "EV71 genotype giải trình tự gene"
+	},
+	{
+		"ma" : "VS229",
+		"ten" : "Enterovirus PCR"
+	},
+	{
+		"ma" : "VS230",
+		"ten" : "Enterovirus Real-time PCR"
+	},
+	{
+		"ma" : "VS231",
+		"ten" : "Enterovirus genotype giải trình tự gene"
+	},
+	{
+		"ma" : "VSB.7",
+		"ten" : "7. Các virus khác"
+	},
+	{
+		"ma" : "VS232",
+		"ten" : "Adenovirus Real-time PCR"
+	},
+	{
+		"ma" : "VS233",
+		"ten" : "BK\/JC virus Real-time PCR "
+	},
+	{
+		"ma" : "VS234",
+		"ten" : "Coronavirus PCR"
+	},
+	{
+		"ma" : "VS235",
+		"ten" : "Coronavirus Real-time PCR"
+	},
+	{
+		"ma" : "VS236",
+		"ten" : "Hantavirus test nhanh"
+	},
+	{
+		"ma" : "VS237",
+		"ten" : "Hantavirus PCR"
+	},
+	{
+		"ma" : "VS238",
+		"ten" : "HPV PCR"
+	},
+	{
+		"ma" : "VS239",
+		"ten" : "HPV Real-time PCR"
+	},
+	{
+		"ma" : "VS240",
+		"ten" : "HPV genotype  Real-time PCR"
+	},
+	{
+		"ma" : "VS241",
+		"ten" : "HPV genotype  PCR hệ thống tự động"
+	},
+	{
+		"ma" : "VS242",
+		"ten" : "HPV genotype giải trình tự gene"
+	},
+	{
+		"ma" : "VS243",
+		"ten" : "Influenza virus A, B test nhanh"
+	},
+	{
+		"ma" : "VS244",
+		"ten" : "Influenza virus A, B Real-time PCR (*)"
+	},
+	{
+		"ma" : "VS245",
+		"ten" : "Influenza virus A, B giải trình tự gene (*)"
+	},
+	{
+		"ma" : "VS246",
+		"ten" : "JEV IgM miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS247",
+		"ten" : "Measles virus Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS248",
+		"ten" : "Measles virus Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VS249",
+		"ten" : "Rotavirus test nhanh"
+	},
+	{
+		"ma" : "VS250",
+		"ten" : "Rotavirus Ag miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS251",
+		"ten" : "Rotavirus PCR"
+	},
+	{
+		"ma" : "VS252",
+		"ten" : "RSV Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS253",
+		"ten" : "RSV Real-time PCR"
+	},
+	{
+		"ma" : "VS254",
+		"ten" : "Rubella virus Ab test nhanh"
+	},
+	{
+		"ma" : "VS255",
+		"ten" : "Rubella virus IgM miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS256",
+		"ten" : "Rubella virus IgM miễn dịch tự động"
+	},
+	{
+		"ma" : "VS257",
+		"ten" : "Rubella virus IgG miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS258",
+		"ten" : "Rubella virus IgG miễn dịch tự động "
+	},
+	{
+		"ma" : "VS259",
+		"ten" : "Rubella virus Avidity"
+	},
+	{
+		"ma" : "VS260",
+		"ten" : "Rubella virus PCR"
+	},
+	{
+		"ma" : "VS261",
+		"ten" : "Rubella virus Real-time PCR"
+	},
+	{
+		"ma" : "VS262",
+		"ten" : "Rubella virus giải trình tự gene"
+	},
+	{
+		"ma" : "VSC",
+		"ten" : "C. KÝ SINH TRÙNG"
+	},
+	{
+		"ma" : "VSC.1",
+		"ten" : "1. Ký sinh trùng trong phân"
+	},
+	{
+		"ma" : "VS263",
+		"ten" : "Hồng cầu, bạch cầu trong phân soi tươi"
+	},
+	{
+		"ma" : "VS264",
+		"ten" : "Hồng cầu trong phân test nhanh"
+	},
+	{
+		"ma" : "VS265",
+		"ten" : "Đơn bào đường ruột soi tươi "
+	},
+	{
+		"ma" : "VS266",
+		"ten" : "Đơn bào đường ruột nhuộm soi "
+	},
+	{
+		"ma" : "VS267",
+		"ten" : "Trứng giun, sán soi tươi "
+	},
+	{
+		"ma" : "VS268",
+		"ten" : "Trứng giun soi tập trung"
+	},
+	{
+		"ma" : "VS269",
+		"ten" : "Strongyloides stercoralis(Giun lươn) ấu trùng soi tươi"
+	},
+	{
+		"ma" : "VS270",
+		"ten" : "Cryptosporidium test nhanh"
+	},
+	{
+		"ma" : "VS271",
+		"ten" : "Ký sinh trùng khẳng định "
+	},
+	{
+		"ma" : "VSC.2",
+		"ten" : "2. Ký sinh trùng trong máu"
+	},
+	{
+		"ma" : "VS272",
+		"ten" : "Angiostrogylus cantonensis (Giun tròn chuột) Ab miễn dịch bán tự động "
+	},
+	{
+		"ma" : "VS273",
+		"ten" : "Angiostrogylus cantonensis (Giun tròn chuột) Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VS274",
+		"ten" : "Clonorchis\/Opisthorchis (Sán lá gan nhỏ) Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS275",
+		"ten" : "Clonorchis\/Opisthorchis (Sán lá gan nhỏ) Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VS276",
+		"ten" : "Cysticercus cellulosae (Sán lợn) Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS277",
+		"ten" : "Cysticercus cellulosae (Sán lợn) Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VS278",
+		"ten" : "Echinococcus granulosus (Sán dây chó) Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS279",
+		"ten" : "Echinococcus granulosus (Sán dây chó) Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VS280",
+		"ten" : "Entamoeba histolytica (Amip) Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS281",
+		"ten" : "Entamoeba histolytica(Amip) Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VS282",
+		"ten" : "Fasciola (Sán lá gan lớn) Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS283",
+		"ten" : "Fasciola (Sán lá gan lớn) Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VS284",
+		"ten" : "Filaria (Giun chỉ) ấu trùng trong máu nhuộm soi"
+	},
+	{
+		"ma" : "VS285",
+		"ten" : "Gnathostoma (Giun đầu gai) Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS286",
+		"ten" : "Gnathostoma (Giun đầu gai) Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VS287",
+		"ten" : "Paragonimus (Sán lá phổi) Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS288",
+		"ten" : "Paragonimus (Sán lá phổi) Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VS289",
+		"ten" : "Plasmodium (Ký sinh trùng sốt rét) nhuộm soi định tính"
+	},
+	{
+		"ma" : "VS290",
+		"ten" : "Plasmodium (Ký sinh trùng sốt rét) nhuộm soi định lượng"
+	},
+	{
+		"ma" : "VS291",
+		"ten" : "Plasmodium (Ký sinh trùng sốt rét) Ag test nhanh"
+	},
+	{
+		"ma" : "VS292",
+		"ten" : "Schistosoma (Sán máng) Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS293",
+		"ten" : "Schistosoma (Sán máng) Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VS294",
+		"ten" : "Strongyloides stercoralis (Giun lươn) Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS295",
+		"ten" : "Strongyloides stercoralis (Giun lươn) Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VS296",
+		"ten" : "Toxocara (Giun đũa chó, mèo) Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS297",
+		"ten" : "Toxocara (Giun đũa chó, mèo) Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VS298",
+		"ten" : "Toxoplasma IgM miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS299",
+		"ten" : "Toxoplasma IgM miễn dịch tự động"
+	},
+	{
+		"ma" : "VS300",
+		"ten" : "Toxoplasma IgG miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS301",
+		"ten" : "Toxoplasma IgG miễn dịch tự động"
+	},
+	{
+		"ma" : "VS302",
+		"ten" : "Toxoplasma Avidity"
+	},
+	{
+		"ma" : "VS303",
+		"ten" : "Trichinella spiralis (Giun xoắn) Ab miễn dịch bán tự động"
+	},
+	{
+		"ma" : "VS304",
+		"ten" : "Trichinella spiralis (Giun xoắn) Ab miễn dịch tự động"
+	},
+	{
+		"ma" : "VSC.3",
+		"ten" : "3. Ký sinh trùng ngoài da"
+	},
+	{
+		"ma" : "VS305",
+		"ten" : "Demodex soi tươi"
+	},
+	{
+		"ma" : "VS306",
+		"ten" : "Demodex nhuộm soi "
+	},
+	{
+		"ma" : "VS307",
+		"ten" : "Phthirus pubis (Rận mu) soi tươi"
+	},
+	{
+		"ma" : "VS308",
+		"ten" : "Phthirus pubis (Rận mu) nhuộm soi "
+	},
+	{
+		"ma" : "VS309",
+		"ten" : "Sarcoptes scabies hominis (Ghẻ) soi tươi "
+	},
+	{
+		"ma" : "VS310",
+		"ten" : "Sarcoptes scabies hominis (Ghẻ) nhuộm soi "
+	},
+	{
+		"ma" : "VSC.4",
+		"ten" : "4. Ký sinh trùng trong các bệnh phẩm khác"
+	},
+	{
+		"ma" : "VS311",
+		"ten" : "Cysticercus cellulosae (Sán lợn) ấu trùng soi mảnh sinh thiết"
+	},
+	{
+		"ma" : "VS312",
+		"ten" : "Gnathostoma ấu trùng soi mảnh sinh thiết"
+	},
+	{
+		"ma" : "VS313",
+		"ten" : "Pneumocystis jirovecii nhuộm soi"
+	},
+	{
+		"ma" : "VS314",
+		"ten" : "Taenia (Sán dây) soi tươi định danh"
+	},
+	{
+		"ma" : "VS315",
+		"ten" : "Toxocara (Giun đũa chó, mèo) soi mảnh sinh thiết"
+	},
+	{
+		"ma" : "VS316",
+		"ten" : "Trichinella spiralis (Giun xoắn) soi mảnh sinh thiết"
+	},
+	{
+		"ma" : "VS317",
+		"ten" : "Trichomonas vaginalis soi tươi"
+	},
+	{
+		"ma" : "VS318",
+		"ten" : "Trichomonas vaginalis nhuộm soi "
+	},
+	{
+		"ma" : "VSD",
+		"ten" : "D. VI NẤM"
+	},
+	{
+		"ma" : "VS319",
+		"ten" : "Vi nấm soi tươi"
+	},
+	{
+		"ma" : "VS320",
+		"ten" : "Vi nấm test nhanh"
+	},
+	{
+		"ma" : "VS321",
+		"ten" : "Vi nấm nhuộm soi"
+	},
+	{
+		"ma" : "VS322",
+		"ten" : "Vi nấm nuôi cấy và định danh phương pháp thông thường"
+	},
+	{
+		"ma" : "VS323",
+		"ten" : "Vi nấm nuôi cấy và định danh hệ thống tự động"
+	},
+	{
+		"ma" : "VS324",
+		"ten" : "Vi nấm nuôi cấy, định danh và kháng thuốc hệ thống tự động"
+	},
+	{
+		"ma" : "VS325",
+		"ten" : "Vi nấm khẳng định "
+	},
+	{
+		"ma" : "VS326",
+		"ten" : "Vi nấm kháng thuốc định lượng (MIC) (cho 1 loại kháng sinh)"
+	},
+	{
+		"ma" : "VS327",
+		"ten" : "Vi nấm PCR"
+	},
+	{
+		"ma" : "VS328",
+		"ten" : "Vi nấm giải trình tự gene"
+	},
+	{
+		"ma" : "VSĐ",
+		"ten" : "Đ. ĐÁNH GIÁ NHIỄM KHUẨN BỆNH VIỆN"
+	},
+	{
+		"ma" : "VS329",
+		"ten" : "Vi sinh vật cấy kiểm tra không khí "
+	},
+	{
+		"ma" : "VS330",
+		"ten" : "Vi sinh vật cấy kiểm tra bàn tay "
+	},
+	{
+		"ma" : "VS331",
+		"ten" : "Vi sinh vật cấy kiểm tra dụng cụ đã tiệt trùng"
+	},
+	{
+		"ma" : "VS332",
+		"ten" : "Vi sinh vật cấy kiểm tra bề mặt"
+	},
+	{
+		"ma" : "VS333",
+		"ten" : "Vi sinh vật cấy kiểm tra nước sinh hoạt"
+	},
+	{
+		"ma" : "VS334",
+		"ten" : "Vi sinh vật cấy kiểm tra nước thải "
+	},
+	{
+		"ma" : "VS335",
+		"ten" : "Vi khuẩn kháng thuốc - Phát hiện người mang "
+	},
+	{
+		"ma" : "VS336",
+		"ten" : "Vi khuẩn gây nhiễm trùng bệnh viện - Phát hiện nguồn nhiễm"
+	}
+]

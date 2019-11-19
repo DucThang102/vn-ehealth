@@ -75,15 +75,12 @@ VueAsyncComponent('chamsoc-list', '/pages/hsba/edit/chamsoc/chamsoc_list.html', 
     },
 
     getTenKhoa: function(khoadieutri){
-      return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
+      return khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten');
     },
 
     getBacsichutoa: function(chamsoc){
-      var bacsi = chamsoc.emrThanhVienHoiChans.find(x => x.emrDmVaiTro.ma == "1");
-      if(bacsi){
-        return bacsi.tenbacsi;
-      }
-      return "";
+      var bacsi = chamsoc.emrThanhVienHoiChans.find(x => attr(x, 'emrDmVaiTro.ma') == "1");
+      return bacsi? bacsi.tenbacsi: "";
     }
   },
 
@@ -112,7 +109,7 @@ VueAsyncComponent('chamsoc-edit', '/pages/hsba/edit/chamsoc/chamsoc_edit.html', 
   
   methods: {
     getTenKhoa: function(khoadieutri){
-      return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
+      return khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten');
     },
 
     addQtcs: function() {

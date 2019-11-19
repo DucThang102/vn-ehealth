@@ -61,7 +61,7 @@ public class EmrDmService {
         return 0;
     }
     
-    public List<EmrDm> getEmrDm(String maNhom, String keyword, int capdo, String maCha, int offset, int limit) {
+    public List<EmrDm> getEmrDmList(String maNhom, String keyword, int capdo, String maCha, int offset, int limit) {
         var nhomId = emrNhomDmRepository.findByMa(maNhom).map(x -> x.id).orElse(null);
         if(nhomId != null) {
             var sort = new Sort(Sort.Direction.ASC, "id");
@@ -84,6 +84,15 @@ public class EmrDmService {
                 criteria = criteria.and("capdo").is(capdo);
             }
             return mongoTemplate.find(new Query(criteria).with(pageable), EmrDm.class);
+        }
+        return new ArrayList<>();
+    }
+    
+    public List<EmrDm> getAllEmrDm(String maNhom) {
+        var nhomId = emrNhomDmRepository.findByMa(maNhom).map(x -> x.id).orElse(null);
+        if(nhomId != null) {            
+            var criteria = Criteria.where("emrNhomDmId").is(nhomId);            
+            return mongoTemplate.find(new Query(criteria), EmrDm.class);
         }
         return new ArrayList<>();
     }

@@ -29,7 +29,7 @@ VueAsyncComponent('hoichan-list', '/pages/hsba/view_detail/hoichan/hoichan_list.
       this.$emit('viewHoichan', hoichan);
     },
     getTenKhoa: function(khoadieutri){
-      return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
+      return khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten');
     }
   },
 
@@ -55,13 +55,13 @@ VueAsyncComponent('hoichan-view', '/pages/hsba/view_detail/hoichan/hoichan_view.
       this.$emit('viewHoichanList');
     },
     getTenKhoa: function(khoadieutri){
-      return khoadieutri.tenkhoa || khoadieutri.emrDmKhoaDieuTri.ten;
+      return khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten');
     }
   },
 
   computed: {
     bacsichutoa: function(){
-      var bacsi = this.hoichan.emrThanhVienHoiChans.find(x => x.emrDmVaiTro.ma == "1");
+      var bacsi = this.hoichan.emrThanhVienHoiChans.find(x => attr(x, 'emrDmVaiTro.ma') == "1");
       if(bacsi){
         return bacsi.tenbacsi;
       }
@@ -69,7 +69,7 @@ VueAsyncComponent('hoichan-view', '/pages/hsba/view_detail/hoichan/hoichan_view.
     },
 
     thuky: function() {
-      var bacsi = this.hoichan.emrThanhVienHoiChans.find(x => x.emrDmVaiTro.ma == "2");
+      var bacsi = this.hoichan.emrThanhVienHoiChans.find(x => attr(x, 'emrDmVaiTro.ma') == "2");
       if(bacsi){
         return bacsi.tenbacsi;
       }

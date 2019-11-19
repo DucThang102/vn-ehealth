@@ -1,0 +1,1998 @@
+[
+	{
+		"ma" : "1",
+		"ten" : "1. HUYẾT HỌC- TRUYỀN MÁU (H01-H206)"
+	},
+	{
+		"ma" : "2",
+		"ten" : "1.1. TẾ BÀO MÁU NGOẠI VI (H01-23)"
+	},
+	{
+		"ma" : "3",
+		"ten" : "1.1.1. Hồng cầu (H01-12)"
+	},
+	{
+		"ma" : "H01",
+		"ten" : " Số lượng hồng cầu (RBC)"
+	},
+	{
+		"ma" : "H02",
+		"ten" : "Lượng huyết sắc tố (HGB)"
+	},
+	{
+		"ma" : "H03",
+		"ten" : "Khối hồng cầu Hematocrit (HCT)"
+	},
+	{
+		"ma" : "H04",
+		"ten" : "Thể tích trung bình hồng cầu (MCV)"
+	},
+	{
+		"ma" : "H05",
+		"ten" : "Lượng HST trung bình hồng cầu (MCH)"
+	},
+	{
+		"ma" : "H06",
+		"ten" : "Nồng độ HST trung bình hồng cầu (MCHC)"
+	},
+	{
+		"ma" : "H07",
+		"ten" : "Độ phân tán của đường kính hồng cầu theo thể tích thực (RDW-SD) "
+	},
+	{
+		"ma" : "H08",
+		"ten" : "Hồng cầu lưới (RET%)"
+	},
+	{
+		"ma" : "H09",
+		"ten" : "Máu lắng giờ 1"
+	},
+	{
+		"ma" : "H10",
+		"ten" : "Máu lắng giờ 2"
+	},
+	{
+		"ma" : "H11",
+		"ten" : " KSV sốt rét"
+	},
+	{
+		"ma" : "H12",
+		"ten" : " Xét nghiệm khác"
+	},
+	{
+		"ma" : "16",
+		"ten" : "1.1.2. Tiểu cầu (H13-16)"
+	},
+	{
+		"ma" : "H13",
+		"ten" : "- Số lượng tiểu cầu (PLT)"
+	},
+	{
+		"ma" : "H14",
+		"ten" : "- Thể tích khối tiểu cầu (PCT)"
+	},
+	{
+		"ma" : "H15",
+		"ten" : "- Độ phân tán của đường kính tiểu cầu (PDW)"
+	},
+	{
+		"ma" : "H16",
+		"ten" : "- Độ tập trung tiểu cầu"
+	},
+	{
+		"ma" : "21",
+		"ten" : "1.1.3. Bạch cầu (H17-23)"
+	},
+	{
+		"ma" : "H17",
+		"ten" : " Số lượng bạch cầu (WBC)"
+	},
+	{
+		"ma" : "23",
+		"ten" : " Thành phần bạch cầu (H18-23):"
+	},
+	{
+		"ma" : "H18",
+		"ten" : "- Bạch cầu trung tính theo % (NEUT%)"
+	},
+	{
+		"ma" : "H19",
+		"ten" : "- Bạch cầu ưa Acid theo % (EO%)"
+	},
+	{
+		"ma" : "H20",
+		"ten" : "- Bạch cầu ưa bazơ theo % (BASO%)"
+	},
+	{
+		"ma" : "H21",
+		"ten" : "- Bạch cầu Mono theo % (MONO%)"
+	},
+	{
+		"ma" : "H22",
+		"ten" : "- Bạch cầu  Lympho theo % (LYM%)"
+	},
+	{
+		"ma" : "H23",
+		"ten" : "- Các tế bào khác"
+	},
+	{
+		"ma" : "30",
+		"ten" : "1.2. XÉT NGHIỆM TẾ BÀO CƠ QUAN TẠO MÁU (H24 - 62)"
+	},
+	{
+		"ma" : "31",
+		"ten" : "1.2.1. Tuỷ đồ (H24-60) "
+	},
+	{
+		"ma" : "H24",
+		"ten" : "Số lượng tế bào tuỷ  "
+	},
+	{
+		"ma" : "33",
+		"ten" : "Dòng bạch cầu hạt (H25-40):"
+	},
+	{
+		"ma" : "H25",
+		"ten" : " Nguyên tuỷ bào"
+	},
+	{
+		"ma" : "35",
+		"ten" : " Tiền tuỷ bào (H26-28 ):"
+	},
+	{
+		"ma" : "H26",
+		"ten" : "   - Trung tính"
+	},
+	{
+		"ma" : "H27",
+		"ten" : "   -  Ưa axít"
+	},
+	{
+		"ma" : "H28",
+		"ten" : "   -  Ưa bazơ"
+	},
+	{
+		"ma" : "39",
+		"ten" : "Tủy bào (H29-31):"
+	},
+	{
+		"ma" : "H29",
+		"ten" : "   -  Trung tính"
+	},
+	{
+		"ma" : "H30",
+		"ten" : "   -  Ưa axít"
+	},
+	{
+		"ma" : "H31",
+		"ten" : "   -  Ưa bazơ"
+	},
+	{
+		"ma" : "43",
+		"ten" : " Hậu tuỷ bào (H32-34):"
+	},
+	{
+		"ma" : "H32",
+		"ten" : "   - Trung tính"
+	},
+	{
+		"ma" : "H33",
+		"ten" : "   -  Ưa axít"
+	},
+	{
+		"ma" : "H34",
+		"ten" : "   -  Ưa bazơ"
+	},
+	{
+		"ma" : "47",
+		"ten" : " Bạch cầu đũa (H35-37):"
+	},
+	{
+		"ma" : "H35",
+		"ten" : "   - Trung tính"
+	},
+	{
+		"ma" : "H36",
+		"ten" : "   -  Ưa axít"
+	},
+	{
+		"ma" : "H37",
+		"ten" : "   -  Ưa bazơ"
+	},
+	{
+		"ma" : "51",
+		"ten" : "Bạch cầu đoạn (H38-40):"
+	},
+	{
+		"ma" : "H38",
+		"ten" : "   -  Trung tính"
+	},
+	{
+		"ma" : "H39",
+		"ten" : "   -  Ưa axít"
+	},
+	{
+		"ma" : "H40",
+		"ten" : "   -  Ưa bazơ"
+	},
+	{
+		"ma" : "55",
+		"ten" : " Dòng Lympho (H41-43):"
+	},
+	{
+		"ma" : "H41",
+		"ten" : " Nguyên lympho bào"
+	},
+	{
+		"ma" : "H42",
+		"ten" : " Tiền lympho"
+	},
+	{
+		"ma" : "H43",
+		"ten" : " Lympho"
+	},
+	{
+		"ma" : "59",
+		"ten" : " Dòng bạch cầu mono (H44-46):"
+	},
+	{
+		"ma" : "H44",
+		"ten" : " Nguyên mono bào"
+	},
+	{
+		"ma" : "H45",
+		"ten" : " Tiền mono"
+	},
+	{
+		"ma" : "H46",
+		"ten" : " Mono"
+	},
+	{
+		"ma" : "63",
+		"ten" : " Dòng tương bào (H47-49):"
+	},
+	{
+		"ma" : "H47",
+		"ten" : " Nguyên tương bào"
+	},
+	{
+		"ma" : "H48",
+		"ten" : " Tiền tương bào"
+	},
+	{
+		"ma" : "H49",
+		"ten" : " Tương bào"
+	},
+	{
+		"ma" : "67",
+		"ten" : "Dòng hồng cầu (H50-54):"
+	},
+	{
+		"ma" : "H50",
+		"ten" : " Nguyên tiền hồng cầu"
+	},
+	{
+		"ma" : "H51",
+		"ten" : " Nguyên hồng cầu ưa bazơ"
+	},
+	{
+		"ma" : "H52",
+		"ten" : " Nguyên hồng cầu đa sắc"
+	},
+	{
+		"ma" : "H53",
+		"ten" : " Nguyên hồng cầu ưa axít"
+	},
+	{
+		"ma" : "H54",
+		"ten" : " Hồng cầu lưới"
+	},
+	{
+		"ma" : "73",
+		"ten" : "Dòng mẫu tiểu cầu (H55-59):"
+	},
+	{
+		"ma" : "H55",
+		"ten" : " Nguyên mẫu tiểu cầu"
+	},
+	{
+		"ma" : "H56",
+		"ten" : " Mẫu tiểu cầu ưa bazơ"
+	},
+	{
+		"ma" : "H57",
+		"ten" : " Mẫu tiểu cầu có hạt chưa sinh tiểu cầu"
+	},
+	{
+		"ma" : "H58",
+		"ten" : " Mẫu tiểu cầu có hạt đang sinh tiểu cầu"
+	},
+	{
+		"ma" : "H59",
+		"ten" : "Mẫu tiểu cầu nhân tự do  (nhân trơ)"
+	},
+	{
+		"ma" : "H60",
+		"ten" : " Tế bào khác"
+	},
+	{
+		"ma" : "H61",
+		"ten" : "1.2.2. Hạch đồ"
+	},
+	{
+		"ma" : "H62",
+		"ten" : "1.2.3. Lách đồ"
+	},
+	{
+		"ma" : "82",
+		"ten" : "1.3. XÉT NGHIỆM TỔ CHỨC TẠO MÁU (H63-65)"
+	},
+	{
+		"ma" : "H63",
+		"ten" : "Sinh thiết tuỷ xương"
+	},
+	{
+		"ma" : "H64",
+		"ten" : "Sinh thiết hạch"
+	},
+	{
+		"ma" : "H65",
+		"ten" : "Sinh thiết lách"
+	},
+	{
+		"ma" : "86",
+		"ten" : "1.4. XN NƯỚC DỊCH: TẾ BÀO, CẶN (H66-106)"
+	},
+	{
+		"ma" : "87",
+		"ten" : "1.4.1. Nước tiểu (H66-80)"
+	},
+	{
+		"ma" : "H66",
+		"ten" : "Tế bào biểu mô thận"
+	},
+	{
+		"ma" : "H67",
+		"ten" : "Tế bào biểu mô niệu đạo"
+	},
+	{
+		"ma" : "H68",
+		"ten" : "Tế bào biểu mô bàng quang"
+	},
+	{
+		"ma" : "H69",
+		"ten" : "Hồng cầu"
+	},
+	{
+		"ma" : "H70",
+		"ten" : "Bạch cầu"
+	},
+	{
+		"ma" : "H71",
+		"ten" : "Trụ hạt"
+	},
+	{
+		"ma" : "H72",
+		"ten" : "Trụ trong"
+	},
+	{
+		"ma" : "H73",
+		"ten" : "Trụ mỡ"
+	},
+	{
+		"ma" : "H74",
+		"ten" : "Tinh trùng"
+	},
+	{
+		"ma" : "H75",
+		"ten" : "Cặn oxalat"
+	},
+	{
+		"ma" : "H76",
+		"ten" : "Cặn Cacbonat"
+	},
+	{
+		"ma" : "H77",
+		"ten" : "Cặn Sulphat"
+	},
+	{
+		"ma" : "H78",
+		"ten" : "Cặn photphat"
+	},
+	{
+		"ma" : "H79",
+		"ten" : "Cặn urat"
+	},
+	{
+		"ma" : "H80",
+		"ten" : "Cặn khác"
+	},
+	{
+		"ma" : "103",
+		"ten" : "1.4.2. Nước não tuỷ (H81-86)"
+	},
+	{
+		"ma" : "H81",
+		"ten" : "Số lượng hồng cầu"
+	},
+	{
+		"ma" : "H82",
+		"ten" : "Số lượng tế bào có nhân"
+	},
+	{
+		"ma" : "H83",
+		"ten" : "Bạch cầu lympho"
+	},
+	{
+		"ma" : "H84",
+		"ten" : "Bạch cầu đoạn trung tính"
+	},
+	{
+		"ma" : "H85",
+		"ten" : "Bạch cầu mono"
+	},
+	{
+		"ma" : "H86",
+		"ten" : "Các tế bào khác"
+	},
+	{
+		"ma" : "110",
+		"ten" : "1.4.3. Dịch màng phổi (H87-91)"
+	},
+	{
+		"ma" : "H87",
+		"ten" : "Hồng cầu"
+	},
+	{
+		"ma" : "H88",
+		"ten" : "Bạch cầu đoạn trung tính"
+	},
+	{
+		"ma" : "H89",
+		"ten" : "Bạch cầu lympho"
+	},
+	{
+		"ma" : "H90",
+		"ten" : "Tế bào biểu mô"
+	},
+	{
+		"ma" : "H91",
+		"ten" : "Tế bào khác"
+	},
+	{
+		"ma" : "116",
+		"ten" : "1.4.4. Dịch màng tim (H92-96)"
+	},
+	{
+		"ma" : "H92",
+		"ten" : "Hồng cầu"
+	},
+	{
+		"ma" : "H93",
+		"ten" : "Bạch cầu đoạn trung tính"
+	},
+	{
+		"ma" : "H94",
+		"ten" : "Bạch cầu lympho"
+	},
+	{
+		"ma" : "H95",
+		"ten" : "Tế bào biểu mô"
+	},
+	{
+		"ma" : "H96",
+		"ten" : "Tế bào khác"
+	},
+	{
+		"ma" : "122",
+		"ten" : "1.4.5. Dịch màng bụng (H97-101)"
+	},
+	{
+		"ma" : "H97",
+		"ten" : "Hồng cầu"
+	},
+	{
+		"ma" : "H98",
+		"ten" : "Bạch cầu đoạn trung tính"
+	},
+	{
+		"ma" : "H99",
+		"ten" : "Bạch cầu lympho"
+	},
+	{
+		"ma" : "H100",
+		"ten" : "Tế bào biểu mô"
+	},
+	{
+		"ma" : "H101",
+		"ten" : "Tế bào khác"
+	},
+	{
+		"ma" : "128",
+		"ten" : "1.4.6. Dịch khớp (H102-106)"
+	},
+	{
+		"ma" : "H102",
+		"ten" : "Hồng cầu"
+	},
+	{
+		"ma" : "H103",
+		"ten" : "Bạch cầu đoạn trung tính"
+	},
+	{
+		"ma" : "H104",
+		"ten" : "Bạch cầu lympho"
+	},
+	{
+		"ma" : "H105",
+		"ten" : "Tế bào biểu mô"
+	},
+	{
+		"ma" : "H106",
+		"ten" : "Tế bào khác"
+	},
+	{
+		"ma" : "134",
+		"ten" : "1.5. XÉT NGHIỆM SINH HOÁ HUYẾT HỌC  (H107-123)"
+	},
+	{
+		"ma" : "135",
+		"ten" : "Sức bền hồng cầu (H107-108):"
+	},
+	{
+		"ma" : "H107",
+		"ten" : "   - Bắt đầu tan"
+	},
+	{
+		"ma" : "H108",
+		"ten" : "   - Tan hoàn toàn"
+	},
+	{
+		"ma" : "H109",
+		"ten" : " Điện di huyết sắc tố (HST)"
+	},
+	{
+		"ma" : "139",
+		"ten" : "Tỷ lệ các thành phần HST (H110-113):"
+	},
+	{
+		"ma" : "H110",
+		"ten" : "   - Huyết sắc tố A"
+	},
+	{
+		"ma" : "H111",
+		"ten" : "   - Huyết sắc tố A2"
+	},
+	{
+		"ma" : "H112",
+		"ten" : "   - Huyết sắc tố F"
+	},
+	{
+		"ma" : "H113",
+		"ten" : "   - Huyết sắc tố khác"
+	},
+	{
+		"ma" : "H114",
+		"ten" : "Methemoglobin"
+	},
+	{
+		"ma" : "H115",
+		"ten" : "HST kháng kiềm"
+	},
+	{
+		"ma" : "H116",
+		"ten" : "HST tự do huyết thanh"
+	},
+	{
+		"ma" : "H117",
+		"ten" : "Haptoglobine"
+	},
+	{
+		"ma" : "H118",
+		"ten" : "Sắt huyết thanh"
+	},
+	{
+		"ma" : "H119",
+		"ten" : "Ferritin huyết thanh"
+	},
+	{
+		"ma" : "H120",
+		"ten" : "Transferin"
+	},
+	{
+		"ma" : "H121",
+		"ten" : "Folat huyết thanh"
+	},
+	{
+		"ma" : "H122",
+		"ten" : "Vitamin B12 huyết thanh"
+	},
+	{
+		"ma" : "H123",
+		"ten" : "G6PD"
+	},
+	{
+		"ma" : "154",
+		"ten" : "1.6. XÉT NGHIỆM DI TRUYỀN HUYẾT HỌC    (H124-130)"
+	},
+	{
+		"ma" : "155",
+		"ten" : " Công thức nhiễm sắc thể máu  (H124-125):"
+	},
+	{
+		"ma" : "H124",
+		"ten" : "- 24 giờ"
+	},
+	{
+		"ma" : "H125",
+		"ten" : "- 72 giờ"
+	},
+	{
+		"ma" : "H126",
+		"ten" : " Công thức NST tuỷ"
+	},
+	{
+		"ma" : "H127",
+		"ten" : " Tỷ lệ trao đổi nhiễm sắc tử chị - em"
+	},
+	{
+		"ma" : "H128",
+		"ten" : " Vật thể Barr"
+	},
+	{
+		"ma" : "H129",
+		"ten" : " ADN bệnh lý"
+	},
+	{
+		"ma" : "H130",
+		"ten" : " ARN bệnh lý"
+	},
+	{
+		"ma" : "163",
+		"ten" : "1.7. ĐÔNG CẦM MÁU (H131-166)"
+	},
+	{
+		"ma" : "164",
+		"ten" : "1.7.1. Xét nghiệm sàng lọc các yếu tố đông máu (H131-141)"
+	},
+	{
+		"ma" : "H131",
+		"ten" : "Thời gian máu chảy"
+	},
+	{
+		"ma" : "H132",
+		"ten" : "Thời gian máu đông"
+	},
+	{
+		"ma" : "H133",
+		"ten" : " Co cục máu"
+	},
+	{
+		"ma" : "H134",
+		"ten" : " Thời gian Howell"
+	},
+	{
+		"ma" : "H135",
+		"ten" : " PT (Prothrombin Time -thời gian prothrombin) "
+	},
+	{
+		"ma" : "H136",
+		"ten" : " APTT (Activated Partial Thromboplastin Time - thời gian thromboplastin từng phần hoạt hóa)"
+	},
+	{
+		"ma" : "H137",
+		"ten" : " TT (Thrombin Time - thời gian thrombin)"
+	},
+	{
+		"ma" : "H138",
+		"ten" : " Nghiệm pháp ethanol (nghiệm pháp rượu)"
+	},
+	{
+		"ma" : "H139",
+		"ten" : " Nghiệm pháp Von Kaulla"
+	},
+	{
+		"ma" : "H140",
+		"ten" : " FDP (Fibrin Degradation Product - sản phẩm thoái giáng sợi huyết)"
+	},
+	{
+		"ma" : "H141",
+		"ten" : " D- Dimer"
+	},
+	{
+		"ma" : "176",
+		"ten" : "1.7.2. Định lượng yếu tố đông máu (H142-155)"
+	},
+	{
+		"ma" : "H142",
+		"ten" : " Fibrinogen (Yếu tố I)"
+	},
+	{
+		"ma" : "H143",
+		"ten" : " Prothrombin (Yếu tố II)"
+	},
+	{
+		"ma" : "H144",
+		"ten" : " Yếu tố tổ chức (Yếu tố III)"
+	},
+	{
+		"ma" : "H145",
+		"ten" : " Proaccelerin (Yếu tố V)"
+	},
+	{
+		"ma" : "H146",
+		"ten" : " Proconvertin (Yếu tố VII)"
+	},
+	{
+		"ma" : "H147",
+		"ten" : " Yếu tố chống hemophilia A (Yếu tố VIII-C)"
+	},
+	{
+		"ma" : "H148",
+		"ten" : " Yếu tố chống hemophilia B (Yếu tố IX-Chrismas)"
+	},
+	{
+		"ma" : "H149",
+		"ten" : " Yếu tố Von Willerbrand "
+	},
+	{
+		"ma" : "H150",
+		"ten" : " Yếu tố Stuard (Yếu tố X)"
+	},
+	{
+		"ma" : "H151",
+		"ten" : " PTA (Plasma thromboplastin  antecedent - yếu tố chống Hemophilia C -Yếu tố IX)"
+	},
+	{
+		"ma" : "H152",
+		"ten" : " Yếu tố Hageman (Yếu tố tiếp xúc- yếu tố XII)"
+	},
+	{
+		"ma" : "H153",
+		"ten" : " Yếu tố ổn định sợi huyết (Yếu tố XIII)"
+	},
+	{
+		"ma" : "H154",
+		"ten" : " Yếu tố Prekallikrein (Yếu tố Fletcher)"
+	},
+	{
+		"ma" : "H155",
+		"ten" : " Yếu tố Kininogen trọng lượng phân tử cao  (Yếu tố  Fitzgerald)"
+	},
+	{
+		"ma" : "192",
+		"ten" : "1.7.3. Các XN chức năng tiểu cầu (H156-162)"
+	},
+	{
+		"ma" : "193",
+		"ten" : " Ngưng tập tiểu cầu với (H156-160):"
+	},
+	{
+		"ma" : "H156",
+		"ten" : "   - ADP"
+	},
+	{
+		"ma" : "H157",
+		"ten" : "   - Ristocetin"
+	},
+	{
+		"ma" : "H158",
+		"ten" : "   - Collagen"
+	},
+	{
+		"ma" : "H159",
+		"ten" : "   - Epinephrin"
+	},
+	{
+		"ma" : "H160",
+		"ten" : "   - Thrombin"
+	},
+	{
+		"ma" : "H161",
+		"ten" : " Yếu tố 3 tiểu cầu "
+	},
+	{
+		"ma" : "H162",
+		"ten" : " Yếu tố 4 tiểu cầu "
+	},
+	{
+		"ma" : "201",
+		"ten" : "1.7.4. Các chất kháng đông sinh lý  (H163-166)"
+	},
+	{
+		"ma" : "H163",
+		"ten" : " Kháng thrombin III (Anti thrombin III-AT III)"
+	},
+	{
+		"ma" : "H164",
+		"ten" : " Protein C"
+	},
+	{
+		"ma" : "H165",
+		"ten" : " Protein S"
+	},
+	{
+		"ma" : "H166",
+		"ten" : "1.7.5. Các xét nghiệm đông cầm máu khác "
+	},
+	{
+		"ma" : "206",
+		"ten" : "1.8. CÁC XÉT NGHIỆM AN TOÀN TRUYỀN MÁU   (H167-182) "
+	},
+	{
+		"ma" : "207",
+		"ten" : "1.8.1. Xét nghiệm huyết thanh học (H167-175)"
+	},
+	{
+		"ma" : "H167",
+		"ten" : "Định nhóm máu ABO"
+	},
+	{
+		"ma" : "H168",
+		"ten" : "Định nhóm Rh (Anti-D)"
+	},
+	{
+		"ma" : "H169",
+		"ten" : " Nhóm hồng cầu khác"
+	},
+	{
+		"ma" : "211",
+		"ten" : " Kháng thể kháng hồng cầu (H170-173):"
+	},
+	{
+		"ma" : "H170",
+		"ten" : "   - Kháng thể lạnh"
+	},
+	{
+		"ma" : "H171",
+		"ten" : "   - Kháng thể nóng"
+	},
+	{
+		"ma" : "H172",
+		"ten" : "   - Xét nghiệm Coombs trực tiếp"
+	},
+	{
+		"ma" : "H173",
+		"ten" : "  - Xét nghiệm Coombs gián tiếp"
+	},
+	{
+		"ma" : "H174",
+		"ten" : " Kháng thể kháng bạch cầu"
+	},
+	{
+		"ma" : "H175",
+		"ten" : " Kháng thể kháng tiểu cầu"
+	},
+	{
+		"ma" : "218",
+		"ten" : "1.8.2. XN sàng lọc các bệnh nhiễm trùng   (H176-182)"
+	},
+	{
+		"ma" : "H176",
+		"ten" : " HBsAg"
+	},
+	{
+		"ma" : "H177",
+		"ten" : " Anti HCV"
+	},
+	{
+		"ma" : "H178",
+		"ten" : " Anti  HIV1,2"
+	},
+	{
+		"ma" : "H179",
+		"ten" : " Giang mai"
+	},
+	{
+		"ma" : "224",
+		"ten" : " Sốt rét (dùng mã phần tế bào máu ngoại vi H11)"
+	},
+	{
+		"ma" : "H180",
+		"ten" : " ARN-HIV"
+	},
+	{
+		"ma" : "H181",
+		"ten" : " ARN-HCV"
+	},
+	{
+		"ma" : "H182",
+		"ten" : " ADN-HBV"
+	},
+	{
+		"ma" : "228",
+		"ten" : "1.9. XÉT NGHIỆM MIỄN DỊCH HUYẾT HỌC   (H183-206)"
+	},
+	{
+		"ma" : "229",
+		"ten" : " Các dấu ấn màng tế bào (H183-198):"
+	},
+	{
+		"ma" : "H183",
+		"ten" : " - CD3"
+	},
+	{
+		"ma" : "H184",
+		"ten" : " - CD4"
+	},
+	{
+		"ma" : "H185",
+		"ten" : " - CD7"
+	},
+	{
+		"ma" : "H186",
+		"ten" : " - CD8"
+	},
+	{
+		"ma" : "H187",
+		"ten" : " - CD10"
+	},
+	{
+		"ma" : "H188",
+		"ten" : " - CD13"
+	},
+	{
+		"ma" : "H189",
+		"ten" : " - CD14"
+	},
+	{
+		"ma" : "H190",
+		"ten" : " - CD19"
+	},
+	{
+		"ma" : "H191",
+		"ten" : " - CD20"
+	},
+	{
+		"ma" : "H192",
+		"ten" : " - CD33"
+	},
+	{
+		"ma" : "H193",
+		"ten" : " - CD34 (tuỷ)"
+	},
+	{
+		"ma" : "H194",
+		"ten" : " - CD41"
+	},
+	{
+		"ma" : "H195",
+		"ten" : " - CD16\/56"
+	},
+	{
+		"ma" : "H196",
+		"ten" : " - CD61"
+	},
+	{
+		"ma" : "H197",
+		"ten" : " - CD81"
+	},
+	{
+		"ma" : "H198",
+		"ten" : " - Glycophorin A"
+	},
+	{
+		"ma" : "246",
+		"ten" : " Các xét nghiệm khác (H199-206):"
+	},
+	{
+		"ma" : "H199",
+		"ten" : "Điện di miễn dịch huyết thanh"
+	},
+	{
+		"ma" : "H200",
+		"ten" : "Điện di miễn dịch nước tiểu"
+	},
+	{
+		"ma" : "H201",
+		"ten" : " Kháng thể kháng nhân"
+	},
+	{
+		"ma" : "H202",
+		"ten" : "Kháng thể kháng ADN"
+	},
+	{
+		"ma" : "H203",
+		"ten" : " Tế bào Hargrave"
+	},
+	{
+		"ma" : "H204",
+		"ten" : " Chuyển dạng lympho với PHA"
+	},
+	{
+		"ma" : "H205",
+		"ten" : " Chuyển dạng lympho với thuốc"
+	},
+	{
+		"ma" : "H206",
+		"ten" : "Nuôi cấy hỗn hợp lympho"
+	},
+	{
+		"ma" : "255",
+		"ten" : "2. HOÁ SINH (S01-S40)"
+	},
+	{
+		"ma" : "256",
+		"ten" : "2.1. Máu (S01-S63)"
+	},
+	{
+		"ma" : "257",
+		"ten" : "2.1.1. Máu thường quy (S01-S40)"
+	},
+	{
+		"ma" : "S01",
+		"ten" : "- Glucose"
+	},
+	{
+		"ma" : "S02",
+		"ten" : "- Fructosamin"
+	},
+	{
+		"ma" : "S03",
+		"ten" : "- HbA1C"
+	},
+	{
+		"ma" : "S04",
+		"ten" : "- Urê"
+	},
+	{
+		"ma" : "S05",
+		"ten" : "- Creatinin"
+	},
+	{
+		"ma" : "S06",
+		"ten" : "- Acid uric"
+	},
+	{
+		"ma" : "S07",
+		"ten" : "- Na+"
+	},
+	{
+		"ma" : "S08",
+		"ten" : "- K+"
+	},
+	{
+		"ma" : "S09",
+		"ten" : "- Ca++"
+	},
+	{
+		"ma" : "S10",
+		"ten" : "- Cl-"
+	},
+	{
+		"ma" : "S11",
+		"ten" : "- Ca ion hoá"
+	},
+	{
+		"ma" : "S12",
+		"ten" : "- Phospho vô cơ"
+	},
+	{
+		"ma" : "S13",
+		"ten" : "- LDH "
+	},
+	{
+		"ma" : "S14",
+		"ten" : "- a HBDH"
+	},
+	{
+		"ma" : "S15",
+		"ten" : "- CPK "
+	},
+	{
+		"ma" : "S16",
+		"ten" : "- CPK-MB "
+	},
+	{
+		"ma" : "S17",
+		"ten" : "- SGOT (AST)"
+	},
+	{
+		"ma" : "S18",
+		"ten" : "- SGPT  (ALT)"
+	},
+	{
+		"ma" : "S19",
+		"ten" : "- Phosphatase acid toàn phần (ACP t. phần)"
+	},
+	{
+		"ma" : "S20",
+		"ten" : "- Phosphatase acid tiền liệt (ACP tiền liệt) "
+	},
+	{
+		"ma" : "S21",
+		"ten" : "- Phosphatase kiềm (ALP)"
+	},
+	{
+		"ma" : "S22",
+		"ten" : "- GGT "
+	},
+	{
+		"ma" : "S23",
+		"ten" : "- Bilirubin toàn phần"
+	},
+	{
+		"ma" : "281",
+		"ten" : "- Bilirubin trực tiếp"
+	},
+	{
+		"ma" : "282",
+		"ten" : "- Bilirubin gián tiếp"
+	},
+	{
+		"ma" : "S24",
+		"ten" : "- Sắt "
+	},
+	{
+		"ma" : "S25",
+		"ten" : "- Ferritin"
+	},
+	{
+		"ma" : "S26",
+		"ten" : "- Transferrin"
+	},
+	{
+		"ma" : "S27",
+		"ten" : "- Protein toàn phần"
+	},
+	{
+		"ma" : "S28",
+		"ten" : "- Albumin"
+	},
+	{
+		"ma" : "S29",
+		"ten" : "- Globulin"
+	},
+	{
+		"ma" : "S30",
+		"ten" : "- Tỷ số A\/ G"
+	},
+	{
+		"ma" : "S31",
+		"ten" : "- Apo. A1"
+	},
+	{
+		"ma" : "S32",
+		"ten" : "- Apo. B"
+	},
+	{
+		"ma" : "S33",
+		"ten" : "- Triglycerid"
+	},
+	{
+		"ma" : "S34",
+		"ten" : "- Cholesterol toàn phần"
+	},
+	{
+		"ma" : "S35",
+		"ten" : "- HDL. C"
+	},
+	{
+		"ma" : "S36",
+		"ten" : "- LDL. C"
+	},
+	{
+		"ma" : "S37",
+		"ten" : "- Amylase"
+	},
+	{
+		"ma" : "S38",
+		"ten" : "- Amylase tuỵ"
+	},
+	{
+		"ma" : "S39",
+		"ten" : "- Cholinesterase"
+	},
+	{
+		"ma" : "S40",
+		"ten" : "- Fibrinogen"
+	},
+	{
+		"ma" : "300",
+		"ten" : "2.1.2. Nội tiết tố globulin miễn dịch  (S41-S54)"
+	},
+	{
+		"ma" : "S41",
+		"ten" : "- LH"
+	},
+	{
+		"ma" : "S42",
+		"ten" : "- FSH"
+	},
+	{
+		"ma" : "S43",
+		"ten" : "- T3 tự do"
+	},
+	{
+		"ma" : "S45",
+		"ten" : "- T4 tự do"
+	},
+	{
+		"ma" : "S46",
+		"ten" : "0"
+	},
+	{
+		"ma" : "S47",
+		"ten" : "- TSH"
+	},
+	{
+		"ma" : "S48",
+		"ten" : "- HCG"
+	},
+	{
+		"ma" : "S49",
+		"ten" : "- Insulin"
+	},
+	{
+		"ma" : "S50",
+		"ten" : "- Cortisol"
+	},
+	{
+		"ma" : "S51",
+		"ten" : "- IgE"
+	},
+	{
+		"ma" : "S52",
+		"ten" : "- IgA"
+	},
+	{
+		"ma" : "S53",
+		"ten" : "- IgG"
+	},
+	{
+		"ma" : "S54",
+		"ten" : "- IgM"
+	},
+	{
+		"ma" : "316",
+		"ten" : "2.1.3. Chỉ dấu khối u (S55-S57)"
+	},
+	{
+		"ma" : "S55",
+		"ten" : "- PSA ở nam 40-70 tuổi"
+	},
+	{
+		"ma" : "S56",
+		"ten" : "- AFP"
+	},
+	{
+		"ma" : "S57",
+		"ten" : "- CEA"
+	},
+	{
+		"ma" : "321",
+		"ten" : "2.1.4. Khí máu và kiềm toan (S58-S63)"
+	},
+	{
+		"ma" : "S58",
+		"ten" : "- pH động mạch"
+	},
+	{
+		"ma" : "S59",
+		"ten" : "- pCO2 động mạch"
+	},
+	{
+		"ma" : "S60",
+		"ten" : "- pO2 động mạch"
+	},
+	{
+		"ma" : "S61",
+		"ten" : "- SaO2 phân bố"
+	},
+	{
+		"ma" : "S62",
+		"ten" : "- HCO3 chuẩn"
+	},
+	{
+		"ma" : "S63",
+		"ten" : "- Kiềm dư"
+	},
+	{
+		"ma" : "328",
+		"ten" : "2.2. Nước tiểu (S64-S88)"
+	},
+	{
+		"ma" : "329",
+		"ten" : "2.2.1. Nước tiểu thường quy (S64-S73)"
+	},
+	{
+		"ma" : "S64",
+		"ten" : "- Tỷ trọng (S.G)"
+	},
+	{
+		"ma" : "S65",
+		"ten" : "- pH"
+	},
+	{
+		"ma" : "S66",
+		"ten" : "- Bạch cầu (Leukocytes)"
+	},
+	{
+		"ma" : "S67",
+		"ten" : "- Hồng cầu (Ery)"
+	},
+	{
+		"ma" : "S68",
+		"ten" : "- Nitrite"
+	},
+	{
+		"ma" : "S69",
+		"ten" : "- Protein"
+	},
+	{
+		"ma" : "S70",
+		"ten" : "- Glucose"
+	},
+	{
+		"ma" : "S71",
+		"ten" : "- Thể Cetonic (Ketones)"
+	},
+	{
+		"ma" : "S72",
+		"ten" : "- Bilirubin"
+	},
+	{
+		"ma" : "S73",
+		"ten" : "- Urobilinogen"
+	},
+	{
+		"ma" : "340",
+		"ten" : "2.2.2. Nước tiểu 24h (S74-S88)"
+	},
+	{
+		"ma" : "S74",
+		"ten" : "- Tổng thể tích"
+	},
+	{
+		"ma" : "S75",
+		"ten" : "- Protein"
+	},
+	{
+		"ma" : "S76",
+		"ten" : "- Glucoze sáng sớm"
+	},
+	{
+		"ma" : "S77",
+		"ten" : "- Urê"
+	},
+	{
+		"ma" : "S78",
+		"ten" : "- Creatinin"
+	},
+	{
+		"ma" : "S79",
+		"ten" : "- Acid uric"
+	},
+	{
+		"ma" : "S80",
+		"ten" : "- Amylase ở 370C"
+	},
+	{
+		"ma" : "S81",
+		"ten" : "- Na+"
+	},
+	{
+		"ma" : "S82",
+		"ten" : "- K+"
+	},
+	{
+		"ma" : "S83",
+		"ten" : "- Catecholamin (Nor-epi)"
+	},
+	{
+		"ma" : "S84",
+		"ten" : "- 17 KS"
+	},
+	{
+		"ma" : "S85",
+		"ten" : "- Chất Ketogenic"
+	},
+	{
+		"ma" : "S86",
+		"ten" : "- Porphyrin"
+	},
+	{
+		"ma" : "S87",
+		"ten" : "- Dưỡng chấp"
+	},
+	{
+		"ma" : "S88",
+		"ten" : "- Protein Bence-jones"
+	},
+	{
+		"ma" : "356",
+		"ten" : "2.3. Phân (S89-S91)"
+	},
+	{
+		"ma" : "S89",
+		"ten" : "- Huyết sắc tố"
+	},
+	{
+		"ma" : "S90",
+		"ten" : "- Stercobilin"
+	},
+	{
+		"ma" : "S91",
+		"ten" : "- Stercobilinogen"
+	},
+	{
+		"ma" : "360",
+		"ten" : "2.4. Dịch (S92-S99)"
+	},
+	{
+		"ma" : "361",
+		"ten" : "2.4.1. Dịch não tuỷ (S92-S95)"
+	},
+	{
+		"ma" : "S92",
+		"ten" : "- Protein"
+	},
+	{
+		"ma" : "S93",
+		"ten" : "- Glucose bằng 60% đường máu"
+	},
+	{
+		"ma" : "S94",
+		"ten" : "- Clorua"
+	},
+	{
+		"ma" : "S95",
+		"ten" : "- Phản ứng Pandy"
+	},
+	{
+		"ma" : "366",
+		"ten" : "2.4.2. Dịch vị (S96-S97)"
+	},
+	{
+		"ma" : "S96",
+		"ten" : "- HCl tự do lúc đói"
+	},
+	{
+		"ma" : "S97",
+		"ten" : "- HCl toàn phần lúc đói"
+	},
+	{
+		"ma" : "369",
+		"ten" : "2.4.3. Dịch chọc dò khác (S98-S99)"
+	},
+	{
+		"ma" : "S98",
+		"ten" : "- Phản ứng Rivalta"
+	},
+	{
+		"ma" : "S99",
+		"ten" : "- Protein"
+	},
+	{
+		"ma" : "372",
+		"ten" : "3. VI SINH (V01-V80)"
+	},
+	{
+		"ma" : "373",
+		"ten" : "3.1. Nuôi cấy vi khuẩn (V01-V09)"
+	},
+	{
+		"ma" : "V01",
+		"ten" : "- Cấy máu"
+	},
+	{
+		"ma" : "V02",
+		"ten" : "- Cấy mủ"
+	},
+	{
+		"ma" : "V03",
+		"ten" : "- Cấy dịch"
+	},
+	{
+		"ma" : "V04",
+		"ten" : "- Cấy tuỷ"
+	},
+	{
+		"ma" : "V05",
+		"ten" : "- Cấy phân"
+	},
+	{
+		"ma" : "V06",
+		"ten" : "- Cấy nước tiểu"
+	},
+	{
+		"ma" : "V07",
+		"ten" : "- Cấy đờm"
+	},
+	{
+		"ma" : "V08",
+		"ten" : "- Cấy chất ngoáy họng"
+	},
+	{
+		"ma" : "V09",
+		"ten" : "- Cấy dịch niệu đạo, âm đạo"
+	},
+	{
+		"ma" : "383",
+		"ten" : "3.2. Nhuộm soi (V10-V18)"
+	},
+	{
+		"ma" : "V10",
+		"ten" : "- Nhuộm Gram"
+	},
+	{
+		"ma" : "V11",
+		"ten" : "- Tế bào trong nước tiểu"
+	},
+	{
+		"ma" : "V12",
+		"ten" : "- BK trong nước tiểu"
+	},
+	{
+		"ma" : "V13",
+		"ten" : "- BK trong đờm"
+	},
+	{
+		"ma" : "V14",
+		"ten" : "- BK trong mủ, dịch"
+	},
+	{
+		"ma" : "V15",
+		"ten" : "- Chlamydia niệu đạo, âm đạo"
+	},
+	{
+		"ma" : "V16",
+		"ten" : "- Mycoplasma niệu đạo, âm đạo"
+	},
+	{
+		"ma" : "V17",
+		"ten" : "- Vi khuẩn trong phân"
+	},
+	{
+		"ma" : "V18",
+		"ten" : "- Hồng cầu trong phân"
+	},
+	{
+		"ma" : "393",
+		"ten" : "3.3 Huyết thanh chẩn đoán (V19-V57)"
+	},
+	{
+		"ma" : "394",
+		"ten" : "3.3.1 Vi khuẩn -Virus (V19-V51)"
+	},
+	{
+		"ma" : "V19",
+		"ten" : "- BW"
+	},
+	{
+		"ma" : "V20",
+		"ten" : "- Chlamydia pneumoniae"
+	},
+	{
+		"ma" : "V21",
+		"ten" : "- Chlamydia trachomatis"
+	},
+	{
+		"ma" : "V22",
+		"ten" : "- Cytomegalo virus"
+	},
+	{
+		"ma" : "V23",
+		"ten" : "- Dengue"
+	},
+	{
+		"ma" : "V24",
+		"ten" : "- EBNA"
+	},
+	{
+		"ma" : "V25",
+		"ten" : "- Helicobacter"
+	},
+	{
+		"ma" : "V26",
+		"ten" : "- HIV"
+	},
+	{
+		"ma" : "V27",
+		"ten" : "- Lyme"
+	},
+	{
+		"ma" : "V28",
+		"ten" : "- Mycoplasma pneumoniae"
+	},
+	{
+		"ma" : "V29",
+		"ten" : "- Mycoplasma hominis"
+	},
+	{
+		"ma" : "V30",
+		"ten" : "- Nhiễm khuẩn đơn nhân (MNI)"
+	},
+	{
+		"ma" : "V31",
+		"ten" : "- Rubeole"
+	},
+	{
+		"ma" : "V32",
+		"ten" : "- Toxoplasma"
+	},
+	{
+		"ma" : "V33",
+		"ten" : "- TPHA"
+	},
+	{
+		"ma" : "V34",
+		"ten" : "- Widal (Salmonella)"
+	},
+	{
+		"ma" : "V35",
+		"ten" : "- Wright (Brucella)"
+	},
+	{
+		"ma" : "V36",
+		"ten" : "- Anti HBs"
+	},
+	{
+		"ma" : "V37",
+		"ten" : "- HBeAg"
+	},
+	{
+		"ma" : "V38",
+		"ten" : "- Anti HBe"
+	},
+	{
+		"ma" : "V39",
+		"ten" : "- HAV IgM"
+	},
+	{
+		"ma" : "V40",
+		"ten" : "- HAV toàn phần"
+	},
+	{
+		"ma" : "V41",
+		"ten" : "- HBc IgM"
+	},
+	{
+		"ma" : "V42",
+		"ten" : "- HBc toàn phần (IgG + IgM)"
+	},
+	{
+		"ma" : "V43",
+		"ten" : "- HBs Ag"
+	},
+	{
+		"ma" : "V44",
+		"ten" : "- Anti- HCV"
+	},
+	{
+		"ma" : "V45",
+		"ten" : "- Rickettsia"
+	},
+	{
+		"ma" : "V46",
+		"ten" : "- Viêm não Nhật bản"
+	},
+	{
+		"ma" : "V47",
+		"ten" : "- ASLO"
+	},
+	{
+		"ma" : "V48",
+		"ten" : "- RF"
+	},
+	{
+		"ma" : "V49",
+		"ten" : "- CRP"
+	},
+	{
+		"ma" : "V50",
+		"ten" : "- nDNA"
+	},
+	{
+		"ma" : "V51",
+		"ten" : "- Leptospira"
+	},
+	{
+		"ma" : "428",
+		"ten" : "3.3.2. Ký sinh trùng – nấm (V52-V57)"
+	},
+	{
+		"ma" : "429",
+		"ten" : "3.3.2.1. Ký sinh trùng trong máu"
+	},
+	{
+		"ma" : "V52",
+		"ten" : "- Ký sinh trùng sốt rét"
+	},
+	{
+		"ma" : "431",
+		"ten" : "+ P. falciparum"
+	},
+	{
+		"ma" : "432",
+		"ten" : "+ P. Vivax"
+	},
+	{
+		"ma" : "433",
+		"ten" : "+ P. Ovalae"
+	},
+	{
+		"ma" : "434",
+		"ten" : "+ P. Malarie"
+	},
+	{
+		"ma" : "435",
+		"ten" : "- Giun chỉ"
+	},
+	{
+		"ma" : "436",
+		"ten" : "3.3.2.1. Ký sinh trùng đường ruột"
+	},
+	{
+		"ma" : "V53",
+		"ten" : "- Giun"
+	},
+	{
+		"ma" : "438",
+		"ten" : "+ Trứng giun đũa"
+	},
+	{
+		"ma" : "439",
+		"ten" : "+ Trứng giun tóc"
+	},
+	{
+		"ma" : "440",
+		"ten" : "+ Trứng giun móc"
+	},
+	{
+		"ma" : "441",
+		"ten" : "+ Trừng giun kim"
+	},
+	{
+		"ma" : "442",
+		"ten" : "+ ấu trùng giun lươn"
+	},
+	{
+		"ma" : "V54",
+		"ten" : "- Sán"
+	},
+	{
+		"ma" : "444",
+		"ten" : "+ Sán lá gan"
+	},
+	{
+		"ma" : "445",
+		"ten" : "+ Sán lá phổi"
+	},
+	{
+		"ma" : "446",
+		"ten" : "+ Sán dây"
+	},
+	{
+		"ma" : "447",
+		"ten" : "+ Sán máng"
+	},
+	{
+		"ma" : "V55",
+		"ten" : "- Đơn bào"
+	},
+	{
+		"ma" : "449",
+		"ten" : "+ Amip"
+	},
+	{
+		"ma" : "450",
+		"ten" : "+ G. lamblia"
+	},
+	{
+		"ma" : "451",
+		"ten" : "+ Cycrospora"
+	},
+	{
+		"ma" : "452",
+		"ten" : "+ Cryptospora"
+	},
+	{
+		"ma" : "453",
+		"ten" : "+ Trichomonas"
+	},
+	{
+		"ma" : "454",
+		"ten" : "3.3.2.3. Nấm"
+	},
+	{
+		"ma" : "V56",
+		"ten" : "- Soi trực tiếp"
+	},
+	{
+		"ma" : "V57",
+		"ten" : "- Cấy nấm"
+	},
+	{
+		"ma" : "457",
+		"ten" : "3.4. Kháng sinh đồ (V58-V87)"
+	},
+	{
+		"ma" : "V58",
+		"ten" : "- Penicilline"
+	},
+	{
+		"ma" : "V59",
+		"ten" : "- Ampicilline"
+	},
+	{
+		"ma" : "V60",
+		"ten" : "- Amoxyclline + A. clavulanic"
+	},
+	{
+		"ma" : "V61",
+		"ten" : "- Aztreonam"
+	},
+	{
+		"ma" : "V62",
+		"ten" : "- Mezlocilline"
+	},
+	{
+		"ma" : "V63",
+		"ten" : "- Oxacilline phế cầu"
+	},
+	{
+		"ma" : "V64",
+		"ten" : "- Oxacilline tụ cầu"
+	},
+	{
+		"ma" : "V65",
+		"ten" : "- Cephalotine"
+	},
+	{
+		"ma" : "V66",
+		"ten" : "- Cefuroxime"
+	},
+	{
+		"ma" : "V67",
+		"ten" : "- Ceftazidime"
+	},
+	{
+		"ma" : "V68",
+		"ten" : "- Cefotaxime"
+	},
+	{
+		"ma" : "V69",
+		"ten" : "- Ceftriaxone"
+	},
+	{
+		"ma" : "V70",
+		"ten" : "- Cefoperazone"
+	},
+	{
+		"ma" : "V71",
+		"ten" : "- Cefepime"
+	},
+	{
+		"ma" : "V72",
+		"ten" : "- Vancomycin"
+	},
+	{
+		"ma" : "V73",
+		"ten" : "- Clindamycin"
+	},
+	{
+		"ma" : "V74",
+		"ten" : "- Chloramphenicol"
+	},
+	{
+		"ma" : "V75",
+		"ten" : "- Erythromycine"
+	},
+	{
+		"ma" : "V76",
+		"ten" : "- Tetracycline"
+	},
+	{
+		"ma" : "V77",
+		"ten" : "- Doxycycline"
+	},
+	{
+		"ma" : "V78",
+		"ten" : "- Nalidixic acid"
+	},
+	{
+		"ma" : "V79",
+		"ten" : "- Nofloxacine"
+	},
+	{
+		"ma" : "V80",
+		"ten" : "- Ciprofloxacine"
+	},
+	{
+		"ma" : "V81",
+		"ten" : "- Ofloxacine"
+	},
+	{
+		"ma" : "V82",
+		"ten" : "- Gentamycine"
+	},
+	{
+		"ma" : "V83",
+		"ten" : "- Tobramycine"
+	},
+	{
+		"ma" : "V84",
+		"ten" : "- Amikacine"
+	},
+	{
+		"ma" : "V85",
+		"ten" : "- Netromycine"
+	},
+	{
+		"ma" : "V86",
+		"ten" : "- Co-trimoxazol"
+	},
+	{
+		"ma" : "V87",
+		"ten" : "- Nitroxoline"
+	},
+	{
+		"ma" : "H16",
+		"ten" : "Độ phân tán của đường kính hồng cầu theo % (RDW-CV) "
+	},
+	{
+		"ma" : "H18-1",
+		"ten" : "- Số lượng bạch cầu trung tính (NEUT)"
+	},
+	{
+		"ma" : "H19-1",
+		"ten" : "- Số lượng bạch cầu ưa Acid (EO)"
+	},
+	{
+		"ma" : "H20-1",
+		"ten" : "- Số lượng bạch cầu ưa bazơ (BASO)"
+	},
+	{
+		"ma" : "H21-1",
+		"ten" : "- Số lượng bạch cầu Mono (MONO)"
+	},
+	{
+		"ma" : "H22-1",
+		"ten" : "- Số lượng bạch cầu  Lympho (LYM)"
+	},
+	{
+		"ma" : "H15-1",
+		"ten" : "- Thể tích trung bình của tiểu cầu (MPV)"
+	},
+	{
+		"ma" : "H15-2",
+		"ten" : "- Tỷ lệ tiểu cầu có kích thước lớn (P-LRC)"
+	},
+	{
+		"ma" : "H135-1",
+		"ten" : " Tỷ lệ % phức hệ prothrombin - PT% (Prothrombin Time -thời gian prothrombin) "
+	},
+	{
+		"ma" : "H135-2",
+		"ten" : "PT rate - PTr (Prothrombin Time -thời gian prothrombin) "
+	},
+	{
+		"ma" : "H135-3",
+		"ten" : "Chỉ số bình thường hoá quốc tế (INR)"
+	},
+	{
+		"ma" : "H136-1",
+		"ten" : " APTT rate - APTTr (Activated Partial Thromboplastin Time - thời gian thromboplastin từng phần hoạt hóa)"
+	},
+	{
+		"ma" : "H137-1",
+		"ten" : " TT rate - TTr (Thrombin Time - thời gian thrombin))"
+	},
+	{
+		"ma" : "H17-1",
+		"ten" : " Số lượng các bạch cầu mono, eosinophils (MID#)"
+	},
+	{
+		"ma" : "H17-2",
+		"ten" : " Tỷ lệ các bạch cầu mono, eosinophils (MID%)"
+	},
+	{
+		"ma" : "H17-3",
+		"ten" : " Số lượng bạch cầu hạt (bạch cầu đa nhân) (GRAN)"
+	},
+	{
+		"ma" : "H17-4",
+		"ten" : " Tỷ lệ bạch cầu hạt (bạch cầu đa nhân) (GRAN%)"
+	}
+]

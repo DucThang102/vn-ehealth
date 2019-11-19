@@ -1,0 +1,18 @@
+[
+	{
+		"ma" : "01",
+		"ten" : "Tuyến trên"
+	},
+	{
+		"ma" : "04",
+		"ten" : "Khác"
+	},
+	{
+		"ma" : "02",
+		"ten" : "Tuyến dưới"
+	},
+	{
+		"ma" : "03",
+		"ten" : "Chuyên khoa"
+	}
+]

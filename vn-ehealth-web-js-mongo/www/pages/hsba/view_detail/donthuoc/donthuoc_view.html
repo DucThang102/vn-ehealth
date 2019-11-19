@@ -26,13 +26,13 @@
       <tr v-for="(dtct, i) in donthuoc.emrDonThuocChiTiets">
         <td>{{ i + 1 }}</td>
         <td>{{ dtct.bietduoc }}</td>
-        <td>{{ dtct.emrDmThuoc.ten }}</td>
+        <td>{{ attr(dtct, 'emrDmThuoc.ten') }}</td>
         <td>{{ dtct.ngaybatdau }}</td>
         <td>{{ dtct.ngayketthuc }}</td>
-        <td>{{ dtct.emrDmDuongDungThuoc.ten }}</td>
+        <td>{{ attr(dtct, 'emrDmDuongDungThuoc.ten') }}</td>
         <td>{{ dtct.lieuluongdung }}</td>
-        <td>{{ dtct.emrDmTanXuatDungThuoc.ten }}</td>
-        <td>{{ dtct.emrDmChiDanDungThuoc.ten || dtct.chidandungthuoc }}</td>
+        <td>{{ attr(dtct, 'emrDmTanSuatDungThuoc.ten') }}</td>
+        <td>{{ attr(dtct, 'emrDmChiDanDungThuoc.ten') || dtct.chidandungthuoc }}</td>
       </tr>
     </table>
 

@@ -28,6 +28,14 @@ Vue.mixin({
       return str.join("&");
     },
 
+    attr: function (obj, properties){
+      properties = properties.split('.');
+      for(let i = 0; i < properties.length; i++){
+        if(obj) obj = obj[properties[i]];
+      }
+      return obj;
+    },
+
     get: function (uri, params) {
       var url = this.API_URL + uri;
 
@@ -75,6 +83,14 @@ Vue.mixin({
   }
 })
 
+function attr(obj, properties){
+  properties = properties.split('.');
+  for(let i = 0; i < properties.length; i++){
+    if(obj) obj = obj[properties[i]];
+  }
+  return obj;
+}
+
 function getParam(name) {
   if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search))
     return decodeURIComponent(name[1]);
@@ -100,3 +116,5 @@ function VueAsyncComponent(componentName, templateFile, script) {
     )
   });
 }
+
+

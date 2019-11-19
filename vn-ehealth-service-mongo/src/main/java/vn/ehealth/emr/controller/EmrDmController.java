@@ -32,7 +32,13 @@ public class EmrDmController {
                                         @RequestParam String parentCode,
                                         @RequestParam int start, 
                                         @RequestParam int count) {
-        var lst = emrDmService.getEmrDm(dmType, keyword, level, parentCode, start, count);
+        var lst = emrDmService.getEmrDmList(dmType, keyword, level, parentCode, start, count);
+        return ResponseEntity.ok(lst);
+    }
+    
+    @GetMapping("/get_all_dm_list")
+    public ResponseEntity<?> getAllDmList(@RequestParam("dm_type") String dmType) {
+        var lst = emrDmService.getAllEmrDm(dmType);
         return ResponseEntity.ok(lst);
     }
 }

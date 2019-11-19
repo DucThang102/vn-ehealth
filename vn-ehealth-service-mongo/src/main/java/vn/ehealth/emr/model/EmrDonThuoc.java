@@ -18,8 +18,6 @@ public class EmrDonThuoc {
     
     @Id public ObjectId id;
     
-    public String getId() { return id != null? id.toHexString() : null; }
-    
     public ObjectId emrHoSoBenhAnId;
     
     @JsonFormat(pattern="dd/MM/yyyy HH:mm")
@@ -30,4 +28,28 @@ public class EmrDonThuoc {
     public List<EmrDonThuocChiTiet> emrDonThuocChiTiets = new ArrayList<>(); 
     
     public List<EmrFileDinhKem> emrFileDinhKemDonThuocs = new ArrayList<>();
+    
+    public String getId() { 
+        return id != null? id.toHexString() : null; 
+    }
+    
+    public void setId(String id) {
+        if(id != null) {
+            this.id = new ObjectId(id);
+        }else {
+            this.id = null;
+        }
+    }
+    
+    public String getEmrHoSoBenhAnId() {
+        return emrHoSoBenhAnId != null? emrHoSoBenhAnId.toHexString(): null;
+    }
+    
+    public void setEmrHoSoBenhAnId(String emrHoSoBenhAnId) {
+        if(emrHoSoBenhAnId != null) {
+            this.emrHoSoBenhAnId = new ObjectId(emrHoSoBenhAnId);
+        }else {
+            this.emrHoSoBenhAnId = null;
+        }            
+    }
 }

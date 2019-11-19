@@ -1,31 +1,12 @@
-<div>
+<div v-if="emrDmKetQuaDieuTris">
   <div class="row mt-3">
     <div class="col-12">
       <div class="mb-2">
         <b><label>Kết quả điều trị</label><span style="color: red;">(*)</span></b>
       </div>
-      <div class="radio">
-        <input type="radio" value="01" v-model="hsba.emrTinhTrangRaVien.emrDmKetQuaDieuTri.ma">
-        <label>1. Khỏi bệnh</label>
-      </div>
-      <div class="radio">
-        <input type="radio" value="02" v-model="hsba.emrTinhTrangRaVien.emrDmKetQuaDieuTri.ma">
-        <label>2. Đỡ, giảm</label>
-      </div>
-
-      <div class="radio">
-        <input type="radio" value="03" v-model="hsba.emrTinhTrangRaVien.emrDmKetQuaDieuTri.ma">
-        <label>3. Không thay đổi</label>
-      </div>
-
-      <div class="radio">
-        <input type="radio" value="04" v-model="hsba.emrTinhTrangRaVien.emrDmKetQuaDieuTri.ma">
-        <label>4. Nặng hơn</label>
-      </div>
-
-      <div class="radio">
-        <input type="radio" value="05" v-model="hsba.emrTinhTrangRaVien.emrDmKetQuaDieuTri.ma">
-        <label>5. Tử vong</label>
+      <div v-for="(emrDm,i) in emrDmKetQuaDieuTris" class="radio">
+        <input type="radio" :value="emrDm.ma" v-model="hsba.emrTinhTrangRaVien.emrDmKetQuaDieuTri.ma">
+        <label>{{i+1}}. {{emrDm.ten}}</label>
       </div>
     </div>
   </div>

@@ -1,0 +1,86 @@
+[
+	{
+		"ma" : "1",
+		"ten" : "Ngày 2 lần"
+	},
+	{
+		"ma" : "2",
+		"ten" : "Ngày 3 lần"
+	},
+	{
+		"ma" : "3",
+		"ten" : "Một lần"
+	},
+	{
+		"ma" : "4",
+		"ten" : "Trước các bữa ăn"
+	},
+	{
+		"ma" : "5",
+		"ten" : "Trước ăn trưa"
+	},
+	{
+		"ma" : "6",
+		"ten" : "Trước ăn sáng"
+	},
+	{
+		"ma" : "7",
+		"ten" : "Trước ăn tối"
+	},
+	{
+		"ma" : "8",
+		"ten" : "Khi ăn các bữa"
+	},
+	{
+		"ma" : "9",
+		"ten" : "Khi ăn trưa"
+	},
+	{
+		"ma" : "10",
+		"ten" : "Khi ăn sáng"
+	},
+	{
+		"ma" : "11",
+		"ten" : "Khi ăn tối"
+	},
+	{
+		"ma" : "12",
+		"ten" : "Khi đi ngủ"
+	},
+	{
+		"ma" : "13",
+		"ten" : "Sáng, chiều, tối"
+	},
+	{
+		"ma" : "14",
+		"ten" : "Buổi chiều"
+	},
+	{
+		"ma" : "15",
+		"ten" : "Buổi sáng"
+	},
+	{
+		"ma" : "16",
+		"ten" : "Buổi tối"
+	},
+	{
+		"ma" : "17",
+		"ten" : "Sau các bữa ăn"
+	},
+	{
+		"ma" : "18",
+		"ten" : "Sau ăn trưa"
+	},
+	{
+		"ma" : "19",
+		"ten" : "Sau ăn sáng"
+	},
+	{
+		"ma" : "20",
+		"ten" : "Sau ăn tối"
+	},
+	{
+		"ma" : "21",
+		"ten" : "Khi ngủ dậy"
+	}
+]

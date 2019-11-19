@@ -67,6 +67,7 @@ VueAsyncComponent('pttt-list', '/pages/hsba/edit/phauthuat_thuthuat/pttt_list.ht
 VueAsyncComponent('pttt-edit', '/pages/hsba/edit/phauthuat_thuthuat/pttt_edit.html', {
   data: function() {
     return {
+      emrVaiTroPttts : []
     }
   },
 
@@ -78,7 +79,14 @@ VueAsyncComponent('pttt-edit', '/pages/hsba/edit/phauthuat_thuthuat/pttt_edit.ht
     },
     emrDmMaBenhChandoansaus: function() {
       return store.state.emrDmMaBenhChandoansaus;
-    }
+    },
+    emrDmPhauThuThuat: function() {
+      return store.state.emrDmPhauThuThuat;
+    }    
+  },
+
+  created: async function() {
+    this.emrVaiTroPttts = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_VAI_TRO_PHAU_THU_THUAT'});
   },
 
   watch: {
@@ -87,6 +95,12 @@ VueAsyncComponent('pttt-edit', '/pages/hsba/edit/phauthuat_thuthuat/pttt_edit.ht
         if (oldVal) {
           sessionStorage.setItem('dataChange', true);
         }
+        for(var i = 0; i < val.emrThanhVienPttts.length; i++) {
+          var ma = val.emrThanhVienPttts[i].emrDmVaiTro.ma;
+          if(ma != null && ma != ''){
+            val.emrThanhVienPttts[i].emrDmVaiTro = this.emrVaiTroPttts.find(x => x.ma == ma);
+          }
+        }
       },
       deep: true
     },
@@ -94,8 +108,13 @@ VueAsyncComponent('pttt-edit', '/pages/hsba/edit/phauthuat_thuthuat/pttt_edit.ht
     emrDmMaBenhChandoantruocs: function(val) {
       this.pttt.emrDmMaBenhChandoantruocs = val;
     },
+
     emrDmMaBenhChandoansaus: function(val) {
       this.pttt.emrDmMaBenhChandoansaus = val;
+    },
+
+    emrDmPhauThuThuat: function(val) {
+      this.pttt.emrDmPhauThuThuat = val;
     },
   },
 
@@ -128,6 +147,7 @@ VueAsyncComponent('pttt-edit', '/pages/hsba/edit/phauthuat_thuthuat/pttt_edit.ht
     savePttt : async function() {
       var result = await this.post("/api/pttt/create_or_update_pttt", this.pttt);
       if(result.success) {
+        sessionStorage.removeItem('dataChange');
         this.$emit('viewPtttList');
       }else {
         alert('Lỗi xảy ra quá trình lưu thông tin');
