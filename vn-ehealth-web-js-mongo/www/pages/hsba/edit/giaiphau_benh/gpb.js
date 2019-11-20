@@ -96,7 +96,6 @@ VueAsyncComponent('gpb-edit', '/pages/hsba/edit/giaiphau_benh/gpb_edit.html', {
         if (oldVal) {
           sessionStorage.setItem('dataChange', true);
         }
-        val.emrDmLoaiGiaiPhauBenh = this.emrDmLoaiGiaiPhauBenhs.find(x => x.ma == val.emrDmLoaiGiaiPhauBenh.ma);
       },
       deep: true
     },
@@ -117,7 +116,15 @@ VueAsyncComponent('gpb-edit', '/pages/hsba/edit/giaiphau_benh/gpb_edit.html', {
       this.$emit('viewGpbList');
     },
 
+    updateEmrDmTen(emrDm, list) {
+      emrDm.ten = attr(list.find(x => x.ma == emrDm.ma), 'ten');
+    },
+
     saveGpb : async function() {
+      this.updateEmrDmTen(this.gpb.emrDmLoaiGiaiPhauBenh, this.emrDmLoaiGiaiPhauBenhs);
+      
+      console.log(this.gpb);
+
       var result = await this.post("/api/gpb/create_or_update_gpb", this.gpb);
       if(result.success) {
         sessionStorage.removeItem('dataChange');

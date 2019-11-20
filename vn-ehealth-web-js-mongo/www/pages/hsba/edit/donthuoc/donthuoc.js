@@ -84,8 +84,8 @@ VueAsyncComponent('donthuoc-edit', '/pages/hsba/edit/donthuoc/donthuoc_edit.html
       return store.state.emrDmThuoc;
     },
 
-    emrDmTanSuatDungThuoc: function() {
-      return store.state.emrDmTanSuatDungThuoc;
+    emrDmtanXuatDungThuoc: function() {
+      return store.state.emrDmtanXuatDungThuoc;
     },
 
     emrDmDuongDungThuoc: function() {
@@ -107,8 +107,8 @@ VueAsyncComponent('donthuoc-edit', '/pages/hsba/edit/donthuoc/donthuoc_edit.html
       this.dtct.emrDmThuoc = val;
     },
 
-    emrDmTanSuatDungThuoc: function(val) {
-      this.dtct.emrDmTanSuatDungThuoc = val;
+    emrDmtanXuatDungThuoc: function(val) {
+      this.dtct.emrDmtanXuatDungThuoc = val;
     },
 
     emrDmDuongDungThuoc: function(val) {
@@ -132,9 +132,9 @@ VueAsyncComponent('donthuoc-edit', '/pages/hsba/edit/donthuoc/donthuoc_edit.html
       $('#dmThuocSelect').modal();
     },
 
-    openDmTanSuatDungThuocModal: function(dtct) {
+    openDmtanXuatDungThuocModal: function(dtct) {
       this.dtct = dtct;
-      $('#dmTanSuatDungThuocSelect').modal();
+      $('#dmtanXuatDungThuocSelect').modal();
     },
 
     openDmDuongDungThuocModal: function(dtct) {
@@ -145,7 +145,7 @@ VueAsyncComponent('donthuoc-edit', '/pages/hsba/edit/donthuoc/donthuoc_edit.html
     addDtct: function() {
       this.donthuoc.emrDonThuocChiTiets.push({
         emrDmThuoc: {},
-        emrDmTanSuatDungThuoc: {},
+        emrDmtanXuatDungThuoc: {},
         emrDmDuongDungThuoc: {}
       })
     },

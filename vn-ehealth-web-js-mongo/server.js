@@ -7,7 +7,7 @@ var sync_req = require('sync-request');
 ejs.open = '<%'; 
 ejs.close = '%>';
 
-var API_URL = 'http://34.87.51.9:8001';
+var API_URL = 'http://localhost:8001';
 var oneDay = 86400000;
  
 server.set("view options", {layout: false});  

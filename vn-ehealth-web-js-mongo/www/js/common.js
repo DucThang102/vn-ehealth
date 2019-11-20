@@ -1,9 +1,9 @@
-var API_URL = 'http://34.87.51.9:8001';
+var API_URL = 'http://localhost:8001';
 
 Vue.mixin({
   data: function () {
     return {
-      API_URL: 'http://34.87.51.9:8001'
+      API_URL: 'http://localhost:8001'
     }
   },
 
@@ -83,12 +83,12 @@ Vue.mixin({
   }
 })
 
-function attr(obj, properties){
+function attr(obj, properties, defaultValue){
   properties = properties.split('.');
   for(let i = 0; i < properties.length; i++){
     if(obj) obj = obj[properties[i]];
   }
-  return obj;
+  return obj || defaultValue;
 }
 
 function getParam(name) {

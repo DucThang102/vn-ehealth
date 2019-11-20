@@ -92,8 +92,7 @@ VueAsyncComponent('cdha-edit', '/pages/hsba/edit/chandoan_hinhanh/cdha_edit.html
       handler: function (val, oldVal) {
         if (oldVal) {
           sessionStorage.setItem('dataChange', true);
-        }
-        val.emrDmLoaiChanDoanHinhAnh = this.emrDmLoaiChanDoanHinhAnhs.find(x => x.ma == attr(val, 'emrDmLoaiChanDoanHinhAnh.ma'));
+        }        
       },
       deep: true
     },
@@ -114,7 +113,12 @@ VueAsyncComponent('cdha-edit', '/pages/hsba/edit/chandoan_hinhanh/cdha_edit.html
       this.$emit('viewCdhaList');
     },
 
+    updateEmrDmTen(emrDm, list) {
+      emrDm.ten = attr(list.find(x => x.ma == emrDm.ma), 'ten');
+    },
+
     saveCdha : async function() {
+      this.updateEmrDmTen(this.cdha.emrDmLoaiChanDoanHinhAnh, this.emrDmLoaiChanDoanHinhAnhs);
       var result = await this.post("/api/cdha/create_or_update_cdha", this.cdha);
       if(result.success) {
         sessionStorage.removeItem('dataChange');

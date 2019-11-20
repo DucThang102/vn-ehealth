@@ -93,8 +93,7 @@ VueAsyncComponent('tdcn-edit', '/pages/hsba/edit/thamdo_chucnang/tdcn_edit.html'
       handler: function (val, oldVal) {
         if (oldVal) {
           sessionStorage.setItem('dataChange', true);
-        }
-        val.emrDmLoaiThamDoChucNang = this.emrDmLoaiThamDoChucNangs.find(x => x.ma == val.emrDmLoaiThamDoChucNang.ma);
+        }        
       },
       deep: true
     },
@@ -115,7 +114,13 @@ VueAsyncComponent('tdcn-edit', '/pages/hsba/edit/thamdo_chucnang/tdcn_edit.html'
       this.$emit('viewTdcnList');
     },
 
+    updateEmrDmTen(emrDm, list) {
+      emrDm.ten = attr(list.find(x => x.ma == emrDm.ma), 'ten');
+    },
+
     saveTdcn : async function() {
+      this.updateEmrDmTen(this.tdcn.emrDmLoaiThamDoChucNang, this.emrDmLoaiThamDoChucNangs);
+      
       var result = await this.post("/api/tdcn/create_or_update_tdcn", this.tdcn);
       if(result.success) {
         sessionStorage.removeItem('dataChange');

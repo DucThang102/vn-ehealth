@@ -113,8 +113,7 @@ VueAsyncComponent('ttnb', '/pages/hsba/edit/qly_benhnhan/thongtin_nguoibenh.html
     this.emrDmLoaiDoiTuongTaiChinhs = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_LOAI_DOI_TUONG_TAI_CHINH'});
     this.emrDmLoaiVaoViens = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_LOAI_VAO_VIEN'});
     this.emrDmLoaiRaViens = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_LOAI_RA_VIEN'});
-    this.emrDmLoaiChuyenViens = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_LOAI_CHUYEN_VIEN'});
-    this.initialized = true;
+    this.emrDmLoaiChuyenViens = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_LOAI_CHUYEN_VIEN'});        
   },
 
   watch: {
@@ -122,39 +121,32 @@ VueAsyncComponent('ttnb', '/pages/hsba/edit/qly_benhnhan/thongtin_nguoibenh.html
       handler: function (val, oldVal) {
         if (oldVal) {
           sessionStorage.setItem('dataChange', true);
-        }
-        
-        if(this.emrDmNoiTrucTiepVaos){
-          val.emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao = this.emrDmNoiTrucTiepVaos.find(x => attr(val, 'emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao.ma'));
-        }
-
-        if(this.emrDmNoiGioiThieus){
-          val.emrQuanLyNguoiBenh.emrDmNoiGioiThieu = this.emrDmNoiGioiThieus.find(x => x.ma == attr(val, 'emrQuanLyNguoiBenh.emrDmNoiGioiThieu.ma'));
-        }
-
-        if(this.emrDmLoaiDoiTuongTaiChinhs){
-          val.emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh = this.emrDmLoaiDoiTuongTaiChinhs.find(x => x.ma == attr(val, 'emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma'));
-        }
-
-        if(this.emrDmLoaiVaoViens){
-          val.emrQuanLyNguoiBenh.emrDmLoaiVaoVien = this.emrDmLoaiVaoViens.find(x => x.ma == attr(val, 'emrQuanLyNguoiBenh.emrDmLoaiVaoVien.ma'));
-        }
-
-        if(this.emrDmLoaiRaViens){
-          val.emrQuanLyNguoiBenh.emrDmLoaiRaVien = this.emrDmLoaiRaViens.find(x => x.ma == attr(val, 'emrQuanLyNguoiBenh.emrDmLoaiRaVien.ma'));
-        }
-
-        if(this.emrDmLoaiChuyenViens){
-          val.emrQuanLyNguoiBenh.emrDmLoaiChuyenVien = this.emrDmLoaiChuyenViens.find(x => x.ma == attr(val, 'emrQuanLyNguoiBenh.emrDmLoaiChuyenVien.ma'));
-        }
+        }        
       },
       deep: true
     },
   },
 
   methods: {
-    isBlank : function(str){
-      return str == null || str == '';
+    updateEmrDmTen(emrDm, list) {
+      emrDm.ten = attr(list.find(x => x.ma == emrDm.ma), 'ten');
+    },
+
+    saveHsbaCustom : async function() {
+      this.updateEmrDmTen(this.hsba.emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao, this.emrDmNoiTrucTiepVaos);
+      this.updateEmrDmTen(this.hsba.emrQuanLyNguoiBenh.emrDmNoiGioiThieu, this.emrDmNoiGioiThieus);
+      this.updateEmrDmTen(this.hsba.emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh, this.emrDmLoaiDoiTuongTaiChinhs);
+      this.updateEmrDmTen(this.hsba.emrQuanLyNguoiBenh.emrDmLoaiVaoVien, this.emrDmLoaiVaoViens);
+      this.updateEmrDmTen(this.hsba.emrQuanLyNguoiBenh.emrDmLoaiRaVien, this.emrDmLoaiRaViens);
+      this.updateEmrDmTen(this.hsba.emrQuanLyNguoiBenh.emrDmLoaiChuyenVien, this.emrDmLoaiChuyenViens);
+
+      var result = await this.post("/api/hsba/update_hsba", this.hsba);
+      if(result.success) {
+        alert('Cập nhật thông tin thành công 1');
+        sessionStorage.removeItem('dataChange');
+      }else {
+        alert('Lỗi xảy ra quá trình lưu thông tin');
+      }
     }
   },
 });

@@ -95,12 +95,6 @@ VueAsyncComponent('pttt-edit', '/pages/hsba/edit/phauthuat_thuthuat/pttt_edit.ht
         if (oldVal) {
           sessionStorage.setItem('dataChange', true);
         }
-        for(var i = 0; i < val.emrThanhVienPttts.length; i++) {
-          var ma = val.emrThanhVienPttts[i].emrDmVaiTro.ma;
-          if(ma != null && ma != ''){
-            val.emrThanhVienPttts[i].emrDmVaiTro = this.emrVaiTroPttts.find(x => x.ma == ma);
-          }
-        }
       },
       deep: true
     },
@@ -144,7 +138,15 @@ VueAsyncComponent('pttt-edit', '/pages/hsba/edit/phauthuat_thuthuat/pttt_edit.ht
       this.pttt.emrThanhVienPttts.splice(index, 1);
     },
 
+    updateEmrDmTen(emrDm, list) {
+      emrDm.ten = attr(list.find(x => x.ma == emrDm.ma), 'ten');
+    },
+
     savePttt : async function() {
+      this.pttt.emrThanhVienPttts.forEach(tvpttt => {
+        this.updateEmrDmTen(tvpttt.emrDmVaiTro, this.emrVaiTroPttts);
+      });
+
       var result = await this.post("/api/pttt/create_or_update_pttt", this.pttt);
       if(result.success) {
         sessionStorage.removeItem('dataChange');

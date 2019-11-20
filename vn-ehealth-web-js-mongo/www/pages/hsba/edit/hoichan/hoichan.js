@@ -102,13 +102,7 @@ VueAsyncComponent('hoichan-edit', '/pages/hsba/edit/hoichan/hoichan_edit.html', 
       handler: function (val, oldVal) {
         if (oldVal) {
           sessionStorage.setItem('dataChange', true);
-        }
-        for(var i = 0; i < val.emrThanhVienHoiChans.length; i++) {
-          var ma = val.emrThanhVienHoiChans[i].emrDmVaiTro.ma;
-          if(ma != null && ma != ''){
-            val.emrThanhVienHoiChans[i].emrDmVaiTro = this.emrVaiTroHoichans.find(x => x.ma == ma);
-          }
-        }
+        }        
       },
       deep: true
     }
@@ -127,7 +121,15 @@ VueAsyncComponent('hoichan-edit', '/pages/hsba/edit/hoichan/hoichan_edit.html', 
       this.hoichan.emrThanhVienHoiChans.splice(index, 1);
     },
 
+    updateEmrDmTen(emrDm, list) {
+      emrDm.ten = attr(list.find(x => x.ma == emrDm.ma), 'ten');
+    },
+
     saveHoichan: async function() {
+      this.hoichan.emrThanhVienHoiChans.forEach(tvhc => {
+        this.updateEmrDmTen(tvhc.emrDmVaiTro, this.emrVaiTroHoichans);
+      });
+
       var result = await this.post("/api/hoichan/create_or_update_hoichan", this.hoichan);
       if(result.success) {
         sessionStorage.removeItem('dataChange');

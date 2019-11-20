@@ -104,9 +104,6 @@ VueAsyncComponent('xetnghiem-edit', '/pages/hsba/edit/xetnghiem/xetnghiem_edit.h
         if (oldVal) {
           sessionStorage.setItem('dataChange', true);
         }
-        for(var i = 0; i < val.emrThanhVienPttts.length; i++) {
-          val.emrDmLoaiXetNghiem = this.emrDmLoaiXetNghiems.find(x => x.ma == val.emrDmLoaiXetNghiem.ma);
-        }
       },
       deep: true
     },
@@ -141,7 +138,13 @@ VueAsyncComponent('xetnghiem-edit', '/pages/hsba/edit/xetnghiem/xetnghiem_edit.h
       this.xetnghiem.emrXetNghiemDichVus.splice(index, 1);
     },
 
+    updateEmrDmTen(emrDm, list) {
+      emrDm.ten = attr(list.find(x => x.ma == emrDm.ma), 'ten');
+    },
+
     saveXetnghiem: async function() {
+      this.updateEmrDmTen(this.xetnghiem.emrDmLoaiXetNghiem, this.emrDmLoaiXetNghiems);
+      
       var result = await this.post("/api/xetnghiem/create_or_update_xetnghiem", this.xetnghiem);
       if(result.success) {
         sessionStorage.removeItem('dataChange');

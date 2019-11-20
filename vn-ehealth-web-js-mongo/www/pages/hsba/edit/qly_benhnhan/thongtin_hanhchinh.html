@@ -15,7 +15,7 @@
     </div>
     <div class="col-4">
       <label class="label-title">Ngày làm bệnh án</label><span style="color:red">(*)</span>
-      <date-picker :value='hsba.emrBenhAn.ngaykybenhan' :config="{format: 'DD/MM/YYYY HH:mm'}"></date-picker>
+      <date-picker v-model='hsba.emrBenhAn.ngaykybenhan' :config="{format: 'DD/MM/YYYY HH:mm'}"></date-picker>
     </div>
   </div>
   <div class="row mt-3">
