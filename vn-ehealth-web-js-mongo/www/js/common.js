@@ -1,9 +1,9 @@
-var API_URL = 'http://localhost:8001';
+var API_URL = 'http://34.87.51.9:8001';
 
 Vue.mixin({
   data: function () {
     return {
-      API_URL: 'http://localhost:8001'
+      API_URL: 'http://34.87.51.9:8001'
     }
   },
 
