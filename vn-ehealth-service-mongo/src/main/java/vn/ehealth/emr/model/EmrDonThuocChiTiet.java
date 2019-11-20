@@ -11,7 +11,7 @@ public class EmrDonThuocChiTiet {
 
     public EmrDmContent emrDmThuoc;
     public EmrDmContent emrDmDuongDungThuoc;
-    public EmrDmContent emrDmTanSuatDungThuoc;
+    public EmrDmContent emrDmTanXuatDungThuoc;
     public EmrDmContent emrDmChiDanDungThuoc;
     
     @JsonFormat(pattern="dd/MM/yyyy HH:mm")

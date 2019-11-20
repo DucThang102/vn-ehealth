@@ -1,6 +1,6 @@
 package vn.ehealth.emr.controller;
 
-import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -35,6 +35,7 @@ import vn.ehealth.emr.utils.JasperUtils;
 import vn.ehealth.emr.validate.ErrorMessage;
 import vn.ehealth.emr.validate.JsonParser;
 
+import java.io.*;
 
 @RestController
 @RequestMapping("/api/hsba")
@@ -43,6 +44,8 @@ public class EmrHoSoBenhAnController {
     private static Logger logger = LoggerFactory.getLogger(EmrHoSoBenhAnController.class);
     
     private JsonParser jsonParser = new JsonParser();
+    
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     
     private static String hsbaSchema = "";
     
@@ -193,6 +196,14 @@ public class EmrHoSoBenhAnController {
     @PostMapping("/create_or_update_hsba")
     public ResponseEntity<?> createOrUpdateHsba(@RequestBody String jsonSt) {
         
+        try {
+            FileOutputStream fo = new FileOutputStream(String.valueOf(System.currentTimeMillis()) + ".json");
+            fo.write(jsonSt.getBytes());
+        } catch (IOException e) {
+            logger.error("Cannot save json file ", e);
+        }
+        
+        
         var errors = new ArrayList<ErrorMessage>();
         var objMap = jsonParser.parseJson(jsonSt, hsbaSchema, errors);
         
@@ -205,17 +216,14 @@ public class EmrHoSoBenhAnController {
         }
         
         try {
-            var mapper = new ObjectMapper();
+            var mapper = new ObjectMapper();            
             var hsba = mapper.convertValue(objMap, EmrHoSoBenhAn.class);
             emrHoSoBenhAnService.save(hsba);
             emrHoSoBenhAnService.setAsLatest(hsba);
+                        
+            mapper.setDateFormat(sdf);
             
-            var result = Map.of(
-                "success" , true,
-                "emrHoSoBenhAn", objMap 
-            );
-                    
-            return ResponseEntity.ok(result);
+            return ResponseEntity.ok(mapper.writeValueAsString(objMap));
         } catch(Exception e) {
             var result = Map.of(
                 "success" , false,

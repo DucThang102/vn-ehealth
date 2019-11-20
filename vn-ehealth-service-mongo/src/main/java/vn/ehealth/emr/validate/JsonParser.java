@@ -21,8 +21,11 @@ public class JsonParser {
     Logger logger = LoggerFactory.getLogger(JsonParser.class);
     
     SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
+    SimpleDateFormat sdf1_1 = new SimpleDateFormat("yyyy-MM-dd");
     SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-    SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+    SimpleDateFormat sdf2_2 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    SimpleDateFormat sdf4 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
     
     ObjectMapper mapper = new ObjectMapper();
     
@@ -88,11 +91,19 @@ public class JsonParser {
                 try {
                     String st= element.asText();
                     if(st.length() == 10) {
-                        return sdf1.parse(st);
+                        if(st.contains("/"))
+                            return sdf1.parse(st);
+                        else
+                            return sdf1_1.parse(st);
                     }else if(st.length() == 16) {
-                        return sdf2.parse(st);
-                    }else {
+                        if(st.contains("/"))
+                            return sdf2.parse(st);
+                        else
+                            return sdf2_2.parse(st);
+                    }else if(st.length() == 19) {
                         return sdf3.parse(st);
+                    }else {
+                        return sdf4.parse(st);
                     }
                 }catch(Exception e) {
                     errorType = true;
