@@ -199,6 +199,7 @@ public class EmrHoSoBenhAnController {
         try {
             FileOutputStream fo = new FileOutputStream(String.valueOf(System.currentTimeMillis()) + ".json");
             fo.write(jsonSt.getBytes());
+            fo.close();
         } catch (IOException e) {
             logger.error("Cannot save json file ", e);
         }
@@ -221,9 +222,16 @@ public class EmrHoSoBenhAnController {
             emrHoSoBenhAnService.save(hsba);
             emrHoSoBenhAnService.setAsLatest(hsba);
                         
-            mapper.setDateFormat(sdf);
+            //mapper.setDateFormat(sdf);
             
-            return ResponseEntity.ok(mapper.writeValueAsString(objMap));
+            //return ResponseEntity.ok(mapper.writeValueAsString(objMap));
+            var result = Map.of(
+                "success" , true,
+                "emrHoSoBenhAn", hsba  
+            );
+            
+            return ResponseEntity.ok(result);
+        
         } catch(Exception e) {
             var result = Map.of(
                 "success" , false,
