@@ -1,4 +1,4 @@
-<div v-if="hsba_id">
+<div v-if="hsba">
   <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -6,7 +6,8 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>Nhi khoa</title>
-      <!-- Bootstrap -->      <link
+      <!-- Bootstrap -->
+      <link
         href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&subset=latin,vietnamese"
         rel="stylesheet"
         type="text/css"
@@ -22,8 +23,8 @@
       <section class="container-fluid pt-2 mb-4">
         <div class="row">
           <div class="col-auto mr-auto">
-            Sở Y tế: <strong>Hà Nội</strong><br />
-            Bệnh viện: <strong>Việt Đức</strong> <br />
+            {{hsba.emrCoSoKhamBenh.donvichuquan}}<br />
+            {{hsba.emrCoSoKhamBenh.ten}}<br />
             Khoa: <strong class="mr-3">Gan mật</strong>Giường
             <strong>Số 5</strong>
           </div>
@@ -33,8 +34,7 @@
           <div class="col-auto">
             Số lưu trữ: <strong>20102019</strong> <br />
             Mã YT:
-            <strong>50</strong
-            >/<strong>VDGM</strong>/<strong>20</strong>/<strong>19</strong>
+            <strong>{{hsba.mayte}}</strong>
           </div>
         </div>
       </section>
@@ -43,32 +43,18 @@
         <div class="row mb-2">
           <div class="col">
             <strong class="text-primary">1.</strong> Họ và tên (In hoa):
-            <strong class="text-uppercase">Nguyễn Văn A</strong>
+            {{hsba.emrBenhNhan.tendaydu }}
           </div>
           <div class="col">
             <div class="row">
               <div class="col-auto mr-auto">
                 <strong class="text-primary">2.</strong> Sinh ngày:
-                <span class="mr-2">
-                  <em class="text-o">1</em>
-                  <em class="text-o">5</em>
-                </span>
-                <span class="mr-2">
-                  <em class="text-o">1</em>
-                  <em class="text-o">0</em>
-                </span>
-                <span class="mr-2">
-                  <em class="text-o">2</em>
-                  <em class="text-o">0</em>
-                  <em class="text-o">1</em>
-                  <em class="text-o">5</em>
-                </span>
+                {{hsba.emrBenhNhan.ngaysinh }}
               </div>
               <div class="col-auto">
-                Tuổi
+                Tuổi:
                 <span class="">
-                  <em class="text-o">0</em>
-                  <em class="text-o">3</em>
+                  {{hsba.emrBenhNhan.tuoi}}
                 </span>
               </div>
             </div>
@@ -90,7 +76,7 @@
             <div class="row">
               <span class="col-auto mr-auto">
                 <strong class="text-primary">4.</strong> Dân tộc:
-                <strong>Kinh</strong>
+                {{hsba.emrBenhNhan.emrDmDanToc.ten}}
               </span>
               <span class="col-auto">
                 <em class="text-o">2</em>
@@ -102,7 +88,7 @@
             <div class="row">
               <span class="col-auto mr-auto">
                 <strong class="text-primary">5.</strong> Ngoại kiều:
-                <strong>Thái lan</strong>
+                {{hsba.emrBenhNhan.emrDmQuocGia.ten}}
               </span>
               <span class="col-auto">
                 <em class="text-o">2</em>
@@ -114,26 +100,28 @@
         <div class="row mb-2">
           <div class="col">
             <strong class="text-primary">6.</strong> Địa chỉ: Số nhà
-            <strong class="mr-4">28</strong>Thôn, phố
-            <strong class="mr-4">Đê La Thành</strong>Xã, phường
-            <strong class="mr-4">Ô Chợ Dừa</strong>Huyện (Q, Tx)
-            <strong>Đống Đa </strong><em class="text-o">2</em>
+            <strong class="mr-4">**28</strong>Thôn, phố
+            <strong class="mr-4">**Đê La Thành</strong>Xã, phường
+            {{hsba.emrBenhNhan.emrDmPhuongXa.ten}}Huyện (Q, Tx)
+            {{hsba.emrBenhNhan.emrDmQuanHuyen.ten}}<em class="text-o">2</em>
             <em class="text-o mr-4">9</em>Tỉnh, thành phố
-            <strong>Hà Nội </strong><em class="text-o">2</em>
+            {{hsba.emrBenhNhan.emrDmTinhThanh.ten}}<em class="text-o">2</em>
             <em class="text-o">9</em>
           </div>
         </div>
         <div class="row mb-2">
           <div class="col">
             <strong class="text-primary">7.</strong>
-            Họ tên bố <strong class="mr-4">Nguyễn Văn A</strong>Trình độ VH của
-            bố <strong class="mr-4">12/12</strong> <br />
-            Nghề nghiệp của bố <strong class="mr-4">Quân đội</strong>
+            Họ tên bố
+            <strong class="mr-4">{{hsba.emrBenhNhan.hotenbo}}</strong>Trình độ
+            VH của bố: <strong class="mr-4">{{hsba.emrBenhNhan.trinhDoVanHoaCuaBo}}</strong> <br />
+            Nghề nghiệp của bố <strong class="mr-4">{{hsba.emrBenhNhan.emrDmNgheNghiepBo.ten}}</strong>
           </div>
           <div class="col">
-            Họ tên mẹ <strong class="mr-4">Nguyễn Thị B</strong>Trình độ VH của
-            mẹ <strong class="mr-4">8/12</strong> <br />
-            Nghề nghiệp của mẹ <strong class="mr-4">Giáo viên</strong>
+            Họ tên mẹ:
+            <strong class="mr-4">{{hsba.emrBenhNhan.hotenme}}</strong>Trình độ
+            VH của mẹ <strong class="mr-4">{{hsba.emrBenhNhan.trinhDoVanHoaCuaMe}}</strong> <br />
+            Nghề nghiệp của mẹ <strong class="mr-4">{{hsba.emrBenhNhan.emrDmNgheNghiepMe.ten}}</strong>
           </div>
         </div>
         <div class="row mb-2">
@@ -147,27 +135,16 @@
         </div>
         <div class="row mb-2">
           <div class="col">
-            <strong class="text-primary">9.</strong> BHYT giá trị đến ngày
-            <strong>20</strong> tháng <strong>08</strong> năm
-            <strong>2025</strong>
+            <strong class="text-primary">9.</strong> BHYT giá trị đến ngày:<strong>{{hsba.emrBenhNhan.ngayhethanthebhyt}}</strong>
           </div>
           <div class="col">
-            Số thẻ BHYT
-            <em class="text-o">001</em>
-            <em class="text-o">789</em>
-            <em class="text-o">563</em>
-            <em class="text-o">253</em>
-            <em class="text-o">2019</em>
-          </div>
+            Số thẻ BHYT:
+            {{hsba.emrBenhNhan.sobhyt}}
         </div>
-        <div class="row mb-2">
+        <div class="row m2">
           <div class="col">
-            <strong class="text-primary">10.</strong> Họ tên, địa chỉ người nhà
-            khi cần báo tin:
-            <strong class="mr-4"
-              >Nguyễn Văn C, Số nhà 4909, Tòa nhà Viễn Đông, Hoàng Cầu, Ô Chợ
-              Dừa, Đống Đa, Hà Nội</strong
-            >Điện thoại: <strong>09123456789</strong>
+            <strong class="text-primary">10.</strong> Họ tên, địa chỉ người nhà khi cần báo tin:<strong class="mr-4">{{hsba.emrBenhNhan.tennguoibaotin}}{{hsba.emrBenhNhan.diachinguoibaotin}}</strong
+            >Điện thoại: <strong>{{hsba.emrBenhNhan.sodienthoainguoibaotin}}</strong>
           </div>
         </div>
       </section>
@@ -179,9 +156,7 @@
               <td class="w-50">
                 <p>
                   <strong class="text-primary">11.</strong> Vào viện:
-                  <strong>20</strong> giờ <strong>45</strong> ph ngày
-                  <strong>15</strong> / <strong>10</strong> /
-                  <strong>2019</strong>
+                  <strong>{{hsba.ngaytiepnhan}}</strong>
                 </p>
                 <p>
                   <strong class="text-primary">12.</strong> Trực tiếp vào: 1.Cấp
@@ -192,13 +167,8 @@
               </td>
               <td>
                 <p>
-                  <strong class="text-primary">13.</strong> Nơi giới thiệu: 1.Cơ
-                  quan y tế <em class="text-o mr-2"></em> 2.Tự đến
-                  <em class="text-o mr-2">X</em> 3.Khác
-                  <em class="text-o mr-2"></em>
-                </p>
-                <p>
-                  - Vào viện do bệnh này lần thứ <em class="text-o mr-2">1</em>
+                  <strong class="text-primary">13.</strong> Nơi giới thiệu: 
+                  {{hsba.emrQuanLyNguoiBenh.emrDmNoiGioiThieu.ten}}
                 </p>
               </td>
             </tr>
@@ -211,7 +181,7 @@
                   </div>
                   <div class="col text-center"></div>
                   <div class="col text-center">
-                    <strong>ng / th / năm</strong>
+                    <strong> ng / th / năm</strong>
                   </div>
                   <div class="col text-center">
                     <strong>Số ngày ĐTr</strong>
@@ -222,20 +192,13 @@
                     <strong class="text-primary">14.</strong> Vào khoa:
                   </div>
                   <div class="col-3">
-                    <em class="text-o mr-2">Khoa Nhi</em>
+                    <em class="text-o mr-2">{{hsba.emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao.ten}}</em>
                   </div>
                   <div class="col">
-                    <strong>15</strong> Giờ <strong>00</strong> phút
-                  </div>
-                  <div class="col">
-                    <em class="text-o">10</em>/<em class="text-o">10</em>/<em
-                      class="text-o"
-                      >2019</em
-                    >
+                    <em class="text-o">{{hsba.emrQuanLyNguoiBenh.ngaygiovaovien}}</em>
                   </div>
                   <div class="col text-center">
-                    <em class="text-o">1</em>
-                    <em class="text-o">3</em>
+                    <em class="text-o">{{hsba.emrQuanLyNguoiBenh.tongsongaydieutri}}</em>
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -300,10 +263,7 @@
               </td>
               <td>
                 <p>
-                  <strong class="text-primary">16.</strong> Chuyển viện: 1.Tuyến
-                  trên <em class="text-o mr-2"></em> 2.Tuyến dưới
-                  <em class="text-o mr-2">X</em>3.CK
-                  <em class="text-o mr-2"></em>
+                  <strong class="text-primary">16.</strong> Chuyển viện: {{hsba.emrQuanLyNguoiBenh.emrDmLoaiChuyenVien.ten}}
                 </p>
                 <p>
                   - Chuyển đến
@@ -315,17 +275,10 @@
                 </p>
                 <p class="">
                   <strong class="text-primary">17.</strong> Ra viện:
-                  <strong>15</strong> giờ <strong>25</strong> ngày
-                  <strong>19</strong> / <strong>11</strong> /
-                  <strong>2019</strong>
+                  <strong>{{hsba.emrQuanLyNguoiBenh.ngaygioravien}}</strong>
                 </p>
                 <p class="ml-4">
-                  1. Ra viện<em class="text-o mr-2"></em> 2. Xin về<em
-                    class="text-o mr-2"
-                    >X</em
-                  >
-                  3. Bỏ về<em class="text-o mr-2"></em> 4.Đưa về
-                  <em class="text-o"></em>
+                 {{hsba.emrQuanLyNguoiBenh.emrDmLoaiRaVien.ten}}
                 </p>
                 <p class="mb-0">
                   <strong class="text-primary">18.</strong> Tổng số ngày điều
@@ -485,44 +438,7 @@
                   <div class="col-6">
                     <div class="row mb-3">
                       <div class="col mr-auto">
-                        <em>1. Khỏi</em>
-                      </div>
-                      <div class="col-auto">
-                        <em class="text-o">X</em>
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <div class="col mr-auto">
-                        <em>2. Đỡ, giảm</em>
-                      </div>
-                      <div class="col-auto">
-                        <em class="text-o"></em>
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <div class="col mr-auto">
-                        <em>3. Không thay đổi</em>
-                      </div>
-                      <div class="col-auto">
-                        <em class="text-o"></em>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="row mb-3">
-                      <div class="col mr-auto">
-                        <em>4. Nặng hơn</em>
-                      </div>
-                      <div class="col-auto">
-                        <em class="text-o"></em>
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <div class="col mr-auto">
-                        <em>5. Tử vong</em>
-                      </div>
-                      <div class="col-auto">
-                        <em class="text-o"></em>
+                        <em>{{hsba.emrTinhTrangRaVien.emrDmKetQuaDieuTri.ten}}</em>
                       </div>
                     </div>
                   </div>
@@ -546,18 +462,13 @@
               <td class="">
                 <p>
                   <strong class="text-primary">25.</strong> Tình hình tử vong:
-                  <strong>21</strong> giờ <strong>50</strong> ph
-                  <span class="mr-3"></span> ngày <strong>25</strong> tháng
-                  <strong>11</strong> năm <strong>2019</strong>
+                  <strong>{{hsba.emrTinhTrangRaVien.emrDmThoiDiemTuVong.ten}}</strong>
                 </p>
                 <div class="row">
                   <div class="col-4">
                     <div class="row mb-3">
                       <div class="col mr-auto">
-                        <em>1. Do bệnh</em>
-                      </div>
-                      <div class="col-auto">
-                        <em class="text-o">X</em>
+                        {{hsba.emrTinhTrangRaVien.emrDmLyDoTuVong.ten}}
                       </div>
                     </div>
                     <div class="row mb-3">
@@ -571,9 +482,6 @@
                   </div>
                   <div class="col-4">
                     <div class="row mb-3">
-                      <div class="col mr-auto">
-                        <em>2. Do tai biến điều trị</em>
-                      </div>
                       <div class="col-auto">
                         <em class="text-o"></em>
                       </div>
@@ -589,9 +497,6 @@
                   </div>
                   <div class="col-4">
                     <div class="row mb-3">
-                      <div class="col mr-auto">
-                        <em>3. Khác</em>
-                      </div>
                       <div class="col-auto">
                         <em class="text-o"></em>
                       </div>
@@ -661,7 +566,6 @@
           </div>
         </div>
       </section>
-
     </body>
   </html>
 </div>
