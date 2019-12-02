@@ -28,7 +28,7 @@
             <i class="fas fa-fw fa-lg fa-trash" style="color:red"></i>
           </a>
         </td>
-        <td class="text-center">{{ getTenKhoa(hoichan.emrVaoKhoa) }}</td>
+        <td class="text-center">{{ hoichan.emrVaoKhoa.emrDmKhoaDieuTri.ten }}</td>
         <td class="text-center">{{ hoichan.ngaythuchien }}</td>
       </tr>
       <tr v-if="hoichan_list.length == 0">

@@ -2,7 +2,16 @@
   <div class="row mt-3">
     <div class="col-6">
       <label class="label-title">Khoa điều trị</label>
-      <input class="form-control" :value="getTenKhoa(chucnangsong.emrVaoKhoa)">
+      <div v-if="!chucnangsong.emrVaoKhoa.id">
+        <select class="form-control" v-model="maVaoKhoa">
+          <option v-if="vaokhoa_list" v-for="vk in vaokhoa_list" :value="vk.emrDmKhoaDieuTri.ma">
+            {{vk.emrDmKhoaDieuTri.ten}}
+          </option>
+        </select>
+      </div>
+      <div v-if="chucnangsong.emrVaoKhoa.id">
+        <input readonly class="form-control" :value="chucnangsong.emrVaoKhoa.emrDmKhoaDieuTri.ten">
+      </div>
     </div>
     <div class="col-6">
       <label class="label-title">Số phiếu theo dõi</label>

@@ -56,7 +56,7 @@
 
   <div class="mt-2" style="overflow-x:scroll;" v-if="emrVaoKhoas">
     <label class="label-title label-bold">Danh sách khoa điều trị</label>
-    <a class="mt-1" href='#' title="Thêm">
+    <a class="mt-1" v-on:click="addEmrVaoKhoa()" href='javascript:void(0)' title="Thêm">
       <i class="fas fa-fw fa-lg fa-plus-circle"></i>
     </a>
     <table style="width:120% !important" class="table table-bordered">
@@ -74,15 +74,18 @@
         <td class="text-center">
           <a href='#' v-on:click="khoadieutri=khoa" data-toggle="modal" data-target="#vkModal"><i
               class="fas fa-fw fa-edit"></i></a>
-          <a href='#'><i class="fas fa-fw fa-trash" style="color:red"></i></a>
+          <a v-on:click="deleteEmrVaoKhoa(i)" href='javascript:void(0)'><i class="fas fa-fw fa-trash" style="color:red"></i></a>
         </td>
-        <td>{{ khoa.tenkhoa || khoa.emrDmKhoaDieuTri.ten }}</td>
+        <td>{{ khoa.emrDmKhoaDieuTri.ten }}</td>
         <td>{{ khoa.tentruongkhoa }}</td>
         <td>{{ khoa.bacsidieutri }}</td>
         <td class="text-center">{{ khoa.ngaygiovaokhoa }}</td>
         <td class="text-center">{{ khoa.ngayketthucdieutri }}</td>
         <td class="text-center">{{ khoa.phong }}</td>
         <td class="text-center">{{ khoa.giuong }}</td>
+      </tr>
+      <tr v-if="emrVaoKhoas.length == 0">
+        <td colspan="8">Không có khoa điều trị</td>
       </tr>
     </table>
   </div>
@@ -139,17 +142,22 @@
           <div class="row">
             <div class="col-6 form-group">
               <label class="label-title">Khoa điều trị</label> <span style="color: red;">(*)</span>
-              <input class="form-control" :value="khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten')">
+              <select class="form-control" v-model="khoadieutri.emrDmKhoaDieuTri.ma">
+                <option>------</option>
+                <option v-if="emrDmKhoaDieuTris" v-for="emrDm in emrDmKhoaDieuTris" :value="emrDm.ma">
+                  {{emrDm.ten}}
+                </option>
+              </select>
             </div>
             <div class="col-6 form-group">
               <label class="label-title">Trưởng khoa</label>
-              <input class="form-control" :value="khoadieutri.tentruongkhoa">
+              <input class="form-control" v-model="khoadieutri.tentruongkhoa">
             </div>
           </div>
           <div class="row">
             <div class="col-12 form-group">
               <label class="label-title">Bác sỹ điều trị</label>
-              <input class="form-control" :value="khoadieutri.bacsidieutri">
+              <input class="form-control" v-model="khoadieutri.bacsidieutri">
             </div>
           </div>
           <div class="row">
@@ -176,8 +184,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-          <button type="button" class="btn btn-primary">Lưu lại</button>
+          <button v-on:click="saveEmrVaoKhoa()" type="button" class="btn btn-primary">Lưu lại</button>
         </div>
       </div>
     </div>

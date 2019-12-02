@@ -28,7 +28,8 @@ VueAsyncComponent('chucnangsong', '/pages/hsba/edit/chucnangsong/chucnangsong.ht
 VueAsyncComponent('chucnangsong-list', '/pages/hsba/edit/chucnangsong/chucnangsong_list.html', {
   data: function(){
     return {
-      chucnangsong_list : null
+      chucnangsong_list : null,
+      vaokhoa_list: null
     }    
   },
 
@@ -39,19 +40,22 @@ VueAsyncComponent('chucnangsong-list', '/pages/hsba/edit/chucnangsong/chucnangso
       this.chucnangsong_list = await this.get('/api/chucnangsong/get_ds_chucnangsong', { hsba_id: this.hsba_id });
     },
 
+    getVaoKhoaList: async function() {
+      this.vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', {hsba_id: this.hsba_id, detail: false});
+    },
+
     editChucnangsong : function(chucnangsong) {
       this.$emit('editChucnangsong', chucnangsong);
     },
 
     addChucnangsong: async function() {
-      var vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', {hsba_id: this.hsba_id, detail: false});
-      if(vaokhoa_list && vaokhoa_list.length > 0) {
-        
+      if(this.vaokhoa_list && this.vaokhoa_list.length > 0) {
+
+        var maKhoaDieuTri = this.vaokhoa_list[0].emrDmKhoaDieuTri.ma;
         var chucnangsong = { 
-          emrVaoKhoaId: vaokhoa_list[0].id, 
-          emrVaoKhoa: vaokhoa_list[0],
+          emrVaoKhoa: {emrHoSoBenhAnId: this.hsba_id, emrDmKhoaDieuTri:{ma : maKhoaDieuTri}},
           emrChucNangSongChiTiets: []
-        };
+        };        
         
         this.$emit('editChucnangsong', chucnangsong);
       }else{
@@ -74,17 +78,14 @@ VueAsyncComponent('chucnangsong-list', '/pages/hsba/edit/chucnangsong/chucnangso
       this.$emit('editFiles', chucnangsong);
     },
 
-    getTenKhoa: function(khoadieutri){
-      return khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten');
-    },
-
     getBacsichutoa: function(chucnangsong){
       var bacsi = chucnangsong.emrThanhVienHoiChans.find(x => attr(x, 'emrDmVaiTro.ma') == "1");
       return bacsi?bacsi.tenbacsi : "";
-          }
+    }
   },
 
   created: async function() {
+    this.getVaoKhoaList();
     this.getChucnangsongList();
   },
 });
@@ -92,9 +93,18 @@ VueAsyncComponent('chucnangsong-list', '/pages/hsba/edit/chucnangsong/chucnangso
 VueAsyncComponent('chucnangsong-edit', '/pages/hsba/edit/chucnangsong/chucnangsong_edit.html', {
   data: function() {
     return {
+      maVaoKhoa: '',
+      vaokhoa_list: null,
     }
   },
+
   props: ["chucnangsong"],
+
+  created: async function() {
+    this.vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', 
+                          {hsba_id: this.chucnangsong.emrVaoKhoa.emrHoSoBenhAnId, detail: false});
+    this.maVaoKhoa = this.chucnangsong.emrVaoKhoa.emrDmKhoaDieuTri.ma;
+  },
 
   watch: {
     chucnangsong: {
@@ -108,10 +118,6 @@ VueAsyncComponent('chucnangsong-edit', '/pages/hsba/edit/chucnangsong/chucnangso
   },
   
   methods: {
-    getTenKhoa: function(khoadieutri){
-      return khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten');
-    },
-
     addCnsct: function() {
       this.chucnangsong.emrChucNangSongChiTiets.push({});
     },
@@ -120,9 +126,13 @@ VueAsyncComponent('chucnangsong-edit', '/pages/hsba/edit/chucnangsong/chucnangso
       this.chucnangsong.emrChucNangSongChiTiets.splice(index, 1);
     },
     
-    saveChucnangsong: async function() {
+    saveChucnangsong: async function() {      
+      var emrVaoKhoa = this.vaokhoa_list.find(x => x.emrDmKhoaDieuTri.ma == this.maVaoKhoa);
+      this.chucnangsong.emrVaoKhoaId = attr(emrVaoKhoa, "id");
+
       var result = await this.post("/api/chucnangsong/create_or_update_chucnangsong", this.chucnangsong);
       if(result.success) {
+        sessionStorage.removeItem('dataChange');
         this.$emit('viewChucnangsongList');
       }else {
         alert('Lỗi xảy ra quá trình lưu thông tin');

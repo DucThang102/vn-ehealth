@@ -75,4 +75,16 @@ public class EmrVaoKhoaService {
         
         return emrVaoKhoa;
     }
+    
+    public void saveByEmrHoSoBenhAnId(ObjectId hsbaId, List<EmrVaoKhoa> emrVaoKhoas) {
+        for(var emrVaoKhoa : getByEmrHoSoBenhAnId(hsbaId, false)) {
+            emrVaoKhoaRespository.delete(emrVaoKhoa);
+        }
+        
+        for(var emrVaoKhoa : emrVaoKhoas) {
+            emrVaoKhoa.id = null;
+            emrVaoKhoa.emrHoSoBenhAnId = hsbaId;
+            emrVaoKhoaRespository.save(emrVaoKhoa);
+        }
+    }
 }

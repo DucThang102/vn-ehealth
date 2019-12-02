@@ -2,7 +2,16 @@
   <div class="row mt-3">
     <div class="col-6">
       <label class="label-title">Khoa điều trị</label>
-      <input class="form-control" :value="getTenKhoa(dieutri.emrVaoKhoa)">
+      <div v-if="!dieutri.emrVaoKhoa.id">
+        <select class="form-control" v-model="maVaoKhoa">
+          <option v-if="vaokhoa_list" v-for="vk in vaokhoa_list" :value="vk.emrDmKhoaDieuTri.ma">
+            {{vk.emrDmKhoaDieuTri.ten}}
+          </option>
+        </select>
+      </div>
+      <div v-if="dieutri.emrVaoKhoa.id">
+        <input readonly class="form-control" :value="dieutri.emrVaoKhoa.emrDmKhoaDieuTri.ten">
+      </div>
     </div>
     <div class="col-6">
       <label class="label-title">Số tờ điều trị</label>
@@ -51,7 +60,7 @@
     </div>
   </div>
 
-  <div class="mt-3 mb-3">    
+  <div class="mt-3 mb-3">
     <button type="button" v-on:click="saveDieutri()" class="btn btn-sm btn-primary">Lưu lại</button>
     <button type="button" v-on:click="viewDieutriList()" class="btn btn-sm btn-secondary">Quay lại</button>
   </div>

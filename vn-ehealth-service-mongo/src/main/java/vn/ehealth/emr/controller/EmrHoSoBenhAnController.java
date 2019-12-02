@@ -1,6 +1,5 @@
 package vn.ehealth.emr.controller;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -44,8 +43,6 @@ public class EmrHoSoBenhAnController {
     private static Logger logger = LoggerFactory.getLogger(EmrHoSoBenhAnController.class);
     
     private JsonParser jsonParser = new JsonParser();
-    
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     
     private static String hsbaSchema = "";
     
@@ -222,9 +219,6 @@ public class EmrHoSoBenhAnController {
             emrHoSoBenhAnService.save(hsba);
             emrHoSoBenhAnService.setAsLatest(hsba);
                         
-            //mapper.setDateFormat(sdf);
-            
-            //return ResponseEntity.ok(mapper.writeValueAsString(objMap));
             var result = Map.of(
                 "success" , true,
                 "emrHoSoBenhAn", hsba  

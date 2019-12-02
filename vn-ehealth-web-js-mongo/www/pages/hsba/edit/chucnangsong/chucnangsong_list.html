@@ -28,11 +28,11 @@
           <i class="fas fa-fw fa-lg fa-trash" style="color:red"></i>
         </a>
       </td>
-      <td class="text-center">{{ getTenKhoa(chucnangsong.emrVaoKhoa) }}</td>
+      <td class="text-center">{{ chucnangsong.emrVaoKhoa.emrDmKhoaDieuTri.ten }}</td>
       <td class="text-center">{{ chucnangsong.sophieu }}</td>
     </tr>
     <tr v-if="chucnangsong_list.length == 0">
-      <td colspan="3">Không có dữ liệu</td>
+      <td colspan="4">Không có dữ liệu</td>
     </tr>
   </table>
 </div>

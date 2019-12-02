@@ -28,7 +28,8 @@ VueAsyncComponent('chamsoc', '/pages/hsba/edit/chamsoc/chamsoc.html', {
 VueAsyncComponent('chamsoc-list', '/pages/hsba/edit/chamsoc/chamsoc_list.html', {
   data: function(){
     return {
-      chamsoc_list : null
+      chamsoc_list : null,
+      vaokhoa_list: null
     }    
   },
 
@@ -39,19 +40,22 @@ VueAsyncComponent('chamsoc-list', '/pages/hsba/edit/chamsoc/chamsoc_list.html', 
       this.chamsoc_list = await this.get('/api/chamsoc/get_ds_chamsoc', { hsba_id: this.hsba_id });
     },
 
+    getVaoKhoaList: async function() {
+      this.vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', {hsba_id: this.hsba_id, detail: false});
+    },
+
     editChamsoc : function(chamsoc) {
       this.$emit('editChamsoc', chamsoc);
     },
 
     addChamsoc: async function() {
-      var vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', {hsba_id: this.hsba_id, detail: false});
-      if(vaokhoa_list && vaokhoa_list.length > 0) {
-        
+      if(this.vaokhoa_list && this.vaokhoa_list.length > 0) {
+
+        var maKhoaDieuTri = this.vaokhoa_list[0].emrDmKhoaDieuTri.ma;
         var chamsoc = { 
-          emrVaoKhoaId: vaokhoa_list[0].id, 
-          emrVaoKhoa: vaokhoa_list[0],
+          emrVaoKhoa: {emrHoSoBenhAnId: this.hsba_id, emrDmKhoaDieuTri:{ma : maKhoaDieuTri}},
           emrQuaTrinhChamSocs: []
-        };
+        };        
         
         this.$emit('editChamsoc', chamsoc);
       }else{
@@ -74,10 +78,6 @@ VueAsyncComponent('chamsoc-list', '/pages/hsba/edit/chamsoc/chamsoc_list.html', 
       this.$emit('editFiles', chamsoc);
     },
 
-    getTenKhoa: function(khoadieutri){
-      return khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten');
-    },
-
     getBacsichutoa: function(chamsoc){
       var bacsi = chamsoc.emrThanhVienHoiChans.find(x => attr(x, 'emrDmVaiTro.ma') == "1");
       return bacsi? bacsi.tenbacsi: "";
@@ -85,6 +85,7 @@ VueAsyncComponent('chamsoc-list', '/pages/hsba/edit/chamsoc/chamsoc_list.html', 
   },
 
   created: async function() {
+    this.getVaoKhoaList();
     this.getChamsocList();
   },
 });
@@ -92,9 +93,11 @@ VueAsyncComponent('chamsoc-list', '/pages/hsba/edit/chamsoc/chamsoc_list.html', 
 VueAsyncComponent('chamsoc-edit', '/pages/hsba/edit/chamsoc/chamsoc_edit.html', {
   data: function() {
     return {
+      maVaoKhoa: '',
+      vaokhoa_list: null,
     }
   },
-  props: ["chamsoc", "hsba_id"],
+  props: ["chamsoc"],
 
   watch: {
     chamsoc: {
@@ -106,12 +109,15 @@ VueAsyncComponent('chamsoc-edit', '/pages/hsba/edit/chamsoc/chamsoc_edit.html', 
       deep: true
     }
   },
+
+  created: async function() {
+    this.vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', 
+                          {hsba_id: this.chamsoc.emrVaoKhoa.emrHoSoBenhAnId, detail: false});
+    this.maVaoKhoa = this.chamsoc.emrVaoKhoa.emrDmKhoaDieuTri.ma;
+  },
   
   methods: {
-    getTenKhoa: function(khoadieutri){
-      return khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten');
-    },
-
+   
     addQtcs: function() {
       this.chamsoc.emrQuaTrinhChamSocs.push({});
     },
@@ -121,6 +127,9 @@ VueAsyncComponent('chamsoc-edit', '/pages/hsba/edit/chamsoc/chamsoc_edit.html', 
     },
     
     saveChamsoc: async function() {
+      var emrVaoKhoa = this.vaokhoa_list.find(x => x.emrDmKhoaDieuTri.ma == this.maVaoKhoa);
+      this.chamsoc.emrVaoKhoaId = attr(emrVaoKhoa, "id");
+
       var result = await this.post("/api/chamsoc/create_or_update_chamsoc", this.chamsoc);
       if(result.success) {
         sessionStorage.removeItem('dataChange');

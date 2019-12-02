@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,9 +13,11 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -41,6 +44,19 @@ public class EmrBenhNhanController {
         } catch (IOException e) {
             logger.error("Cannot read benhnhan schema", e);
         }
+    }
+    
+    @GetMapping("/count_benhnhan")
+    public long countBenhNhan(@RequestParam String keyword) {
+        return emrBenhNhanService.countBenhNhan(keyword);
+    }
+    
+    @GetMapping("/search_benhnhan")
+    public ResponseEntity<?> searchBenhNhan(@RequestParam String keyword, 
+                                            @RequestParam Optional<Integer> start, 
+                                            @RequestParam Optional<Integer> count) {
+        var emrBenhNhans = emrBenhNhanService.searchBenhNhan(keyword, start.orElse(-1), count.orElse(-1));
+        return ResponseEntity.ok(emrBenhNhans);
     }
 
     @PostMapping("/create_or_update_benhnhan")
