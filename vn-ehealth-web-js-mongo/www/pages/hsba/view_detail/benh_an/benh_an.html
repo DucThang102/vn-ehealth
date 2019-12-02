@@ -260,9 +260,7 @@
                 <p>
                   - Chuyển đến
                   <strong
-                    >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Dolor, illum voluptas inventore officiis obcaecati
-                    reprehenderit!</strong
+                    >{{hsba.emrQuanLyNguoiBenh.noichuyenden}}</strong
                   >
                 </p>
                 <p class="">
@@ -304,8 +302,7 @@
                       <strong class="text-primary">19.</strong> Nơi chuyển đến:
                       <span
                         ><strong
-                          >Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Sequi vel, ut facilis ex! Placeat,</strong
+                          >{{hsba.emrChanDoan.motachandoannoiden}}</strong
                         ></span
                       >
                     </p>
@@ -325,8 +322,7 @@
                       <strong class="text-primary">20.</strong> KKB, Cấp cứu:
                       <span
                         ><strong
-                          >Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Sequi vel, ut facilis ex! Placeat.</strong
+                          >{{hsba.emrChanDoan.motachandoankkb}}</strong
                         ></span
                       >
                     </p>
@@ -347,8 +343,7 @@
                       điều trị:
                       <span
                         ><strong
-                          >Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Sequi vel, ut facilis ex! Placeat.</strong
+                          >{{hsba.emrChanDoan.motachandoanbenhchinh}}</strong
                         ></span
                       >
                     </p>
@@ -373,10 +368,11 @@
                     <p>
                       <strong class="text-primary">22.</strong> Ra viện: <br />
                       + Bệnh chính:
-                      <strong
-                        >Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Sequi vel, ut facilis ex! Placeat, libero odit
-                        nihil quidem sequi consectetur illo qui animi error
+                      <strong>
+                          <span v-for="(emrDm,i) in hsba.emrChanDoan.emrDmMaBenhChandoanravienchinhs">
+                            {{ emrDm.ten }}
+                            <span v-if="i+1< hsba.emrChanDoan.emrDmMaBenhChandoanravienchinhs.length">,</span> 
+                          </span>                         
                       </strong>
                     </p>
                   </div>
@@ -393,10 +389,13 @@
                   <div class="col mr-auto">
                     <p>
                       + Bệnh kèm theo:
-                      <strong
-                        >Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Sequi vel, ut facilis ex! Placeat.</strong
-                      >
+                      <strong>
+                          <span v-for="(emrDm,i) in hsba.emrChanDoan.emrDmMaBenhChandoanravienkemtheos">
+                            {{ emrDm.ten }}
+                            <span v-if="i+1< hsba.emrChanDoan.emrDmMaBenhChandoanravienkemtheos.length">,</span> 
+                          </span> 
+                          
+                      </strong>
                     </p>
                   </div>
                   <div class="col-auto">
@@ -409,8 +408,8 @@
                   </div>
                 </div>
                 <div class="row align-items-center">
-                  <div class="col">+ Tai biến:<em class="text-o">X</em></div>
-                  <div class="col">+ Biến chứng:<em class="text-o"></em></div>
+                  <div class="col">+ Tai biến:<em class="text-o">{{hsba.emrChanDoan.bitaibien}}</em></div>
+                  <div class="col">+ Biến chứng:<em class="text-o">{{hsba.emrChanDoan.bibienchung}}</em></div>
                 </div>
               </td>
             </tr>
@@ -611,10 +610,10 @@
           - Tiền thai (Para):
         </div>
         <div class="row mt-2 pl-4">
-          <input type="checkbox" /><label class="mr-3">Sinh đủ tháng</label>
-          <input type="checkbox" /><label class="mr-3">Sớm (đẻ non)</label>
-          <input type="checkbox" /><label class="mr-3">Sẩy (nạo, hút)</label>
-          <input type="checkbox" /><label class="mr-3">Sống</label>
+          <input type="checkbox" /><label class="mr-3">Sinh đủ tháng</label> {{hsba.emrBenhAn.emrCkTienSuSanKhoa.paraDuthang}}
+          <input type="checkbox" /><label class="mr-3">Sớm (đẻ non)</label> {{hsba.emrBenhAn.emrCkTienSuSanKhoa.paraDenon}}
+          <input type="checkbox" /><label class="mr-3">Sẩy (nạo, hút)</label>{{hsba.emrBenhAn.emrCkTienSuSanKhoa.paraSay}}
+          <input type="checkbox" /><label class="mr-3">Sống</label>{{hsba.emrBenhAn.emrCkTienSuSanKhoa.paraSong}}
         </div>
         <div class="row mt-2">
           - Tình trạng khi sinh:
