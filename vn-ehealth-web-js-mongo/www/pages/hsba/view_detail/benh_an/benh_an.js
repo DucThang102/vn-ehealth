@@ -24,3 +24,33 @@ VueAsyncComponent(
   "/pages/hsba/view_detail/benh_an/benh_an.html",
   benh_an_script
 );
+
+VueAsyncComponent(
+  "benh-an-nhi",
+  "/pages/hsba/view_detail/benh_an/benh_an_nhi.html",
+  { props: ["hsba"] }
+);
+
+VueAsyncComponent(
+  "benh-an-so-sinh",
+  "/pages/hsba/view_detail/benh_an/benh_an_so_sinh.html",
+  { props: ["hsba"] }
+);
+
+VueAsyncComponent(
+  "benh-an-noi-khoa",
+  "/pages/hsba/view_detail/benh_an/benh_an_noi_khoa.html",
+  { props: ["hsba"] }
+);
+
+VueAsyncComponent(
+  "benh-an-ngoai-khoa",
+  "/pages/hsba/view_detail/benh_an/benh_an_ngoai_khoa.html",
+  { props: ["hsba"] }
+);
+
+VueAsyncComponent(
+  "benh-an-ngoai-tru",
+  "/pages/hsba/view_detail/benh_an/benh_an_ngoai_tru.html",
+  { props: ["hsba"] }
+);
