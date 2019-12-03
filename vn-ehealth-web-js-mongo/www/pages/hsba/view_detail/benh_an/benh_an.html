@@ -29,7 +29,24 @@
             <strong>Số 5</strong>
           </div>
           <div class="col">
-            <h3 class="text-tle mt-3">BỆNH ÁN NHI KHOA</h3>
+            <h3 class="text-tle mt-3" v-if="hsba.emrDmLoaiBenhAn.ma=='01'">
+              BỆNH ÁN NỘI KHOA
+            </h3>
+            <h3 class="text-tle mt-3" v-if="hsba.emrDmLoaiBenhAn.ma=='02'">
+              BỆNH ÁN NHI KHOA
+            </h3>
+            <h3 class="text-tle mt-3" v-if="hsba.emrDmLoaiBenhAn.ma=='05'">
+              BỆNH ÁN SẢN KHOA
+            </h3>
+            <h3 class="text-tle mt-3" v-if="hsba.emrDmLoaiBenhAn.ma=='06'">
+              BỆNH ÁN SƠ SINH
+            </h3>
+            <h3 class="text-tle mt-3" v-if="hsba.emrDmLoaiBenhAn.ma=='11'">
+              BỆNH ÁN NGOẠI KHOA
+            </h3>
+            <h3 class="text-tle mt-3" v-if="hsba.emrDmLoaiBenhAn.ma=='20'">
+              BỆNH ÁN NGOẠI TRÚ
+            </h3>
           </div>
           <div class="col-auto">
             Số lưu trữ: <strong>20102019</strong> <br />

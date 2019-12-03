@@ -54,38 +54,79 @@
     - Tiền thai (Para):
   </div>
   <div class="row mt-2 pl-4">
-    <input type="checkbox" /><label class="mr-3">Sinh đủ tháng</label>
-    {{hsba.emrBenhAn.emrCkTienSuSanKhoa.paraDuthang}}
-    <input type="checkbox" /><label class="mr-3">Sớm (đẻ non)</label>
-    {{hsba.emrBenhAn.emrCkTienSuSanKhoa.paraDenon}}
-    <input type="checkbox" /><label class="mr-3">Sẩy (nạo, hút)</label
-    >{{hsba.emrBenhAn.emrCkTienSuSanKhoa.paraSay}}
-    <input type="checkbox" /><label class="mr-3">Sống</label
-    >{{hsba.emrBenhAn.emrCkTienSuSanKhoa.paraSong}}
+    <label class="mr-3">Sinh đủ tháng</label>
+    {{hsba.emrBenhAn.emrCkTienSuSanKhoa.paraDuthang}}<input type="checkbox" />
+    <label class="mr-3">Sớm (đẻ non)</label>
+    {{hsba.emrBenhAn.emrCkTienSuSanKhoa.paraDenon}}<input type="checkbox" />
+    <label class="mr-3">Sẩy (nạo, hút)</label
+    >{{hsba.emrBenhAn.emrCkTienSuSanKhoa.paraSay}}<input type="checkbox" />
+    <label class="mr-3">Sống</label
+    >{{hsba.emrBenhAn.emrCkTienSuSanKhoa.paraSong}}<input type="checkbox" />
   </div>
   <div class="row mt-2">
     - Tình trạng khi sinh:
   </div>
   <div class="row mt-2 pl-4">
-    <input type="checkbox" /><label class="mr-3">1.Đẻ thường</label
-    >{{hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.dethuong}}
-    <input type="checkbox" /><label class="mr-3">2.Forceps</label
-    >{{hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.forceps}}
-    <input type="checkbox" /><label class="mr-3">3.Giác hút</label
-    >{{hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.giachut}}
-    <input type="checkbox" /><label class="mr-3">4.Đẻ phẫu thuật</label
-    >{{hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.dephauthuat}}
-    <input type="checkbox" /><label class="mr-3">5.Đẻ chỉ huy</label
-    >{{hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.dechihuy}}
-    <input type="checkbox" /><label class="mr-3">6.Khác</label
-    >{{hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.dekhac}}
+    <label class="mr-3">1.Đẻ thường</label>
+    <label
+      class="mr-3"
+      v-if="hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.dethuong==false"
+      ><input type="checkbox"
+    /></label>
+    <label v-else><input type="checkbox" checked/></label>
+
+    <label class="mr-3">2.Forceps</label>
+    <label
+      class="mr-3"
+      v-if="hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.forceps==false"
+      ><input type="checkbox"
+    /></label>
+    <label v-else><input type="checkbox" checked/></label>
+
+    <label class="mr-3">3.Giác hút</label>
+    <label
+      class="mr-3"
+      v-if="hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.giachut==false"
+      ><input type="checkbox"
+    /></label>
+    <label v-else><input type="checkbox" checked/></label>
+
+    <label class="mr-3">4.Đẻ phẫu thuật</label>
+    <label
+      class="mr-3"
+      v-if="hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.dephauthuat==false"
+      ><input type="checkbox"
+    /></label>
+    <label v-else><input type="checkbox" checked/></label>
+
+    <label class="mr-3">5.Đẻ chỉ huy</label>
+    <label
+      class="mr-3"
+      v-if="hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.dechihuy==false"
+      ><input type="checkbox"
+    /></label>
+    <label v-else><input type="checkbox" checked/></label>
+
+    <label class="mr-3">6.Khác</label>
+    <label
+      class="mr-3"
+      v-if="hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.dekhac==false"
+      ><input type="checkbox"
+    /></label>
+    <label v-else><input type="checkbox" checked/></label>
   </div>
   <div class="row mt-2">
     - Cân nặng lúc sinh: <span>................</span> kg
   </div>
   <div class="row mt-2 pl-2">
-    Dị tật bẩm sinh: &nbsp;{{hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.coditat}}
-    <input type="checkbox" /> Cụ thể tật bẩm sinh:
+    Dị tật bẩm sinh:
+    <label
+      class="mr-3"
+      v-if="hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.coditat==false"
+      ><input type="checkbox"
+    /></label>
+    <label v-else><input type="checkbox" checked/></label>
+    Cụ thể tật bẩm sinh:
     <span>{{hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.motaditat}}</span>
   </div>
   <div class="row mt-2">
@@ -104,46 +145,96 @@
     - Nuôi dưỡng:
   </div>
   <div class="row mt-2 pl-4">
-    <input type="checkbox" /><label class="mr-3">1. Sữa mẹ</label>
-    {{hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.suame}}
-    <input type="checkbox" /><label class="mr-3">2. Nuôi nhân tạo</label
-    >{{hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.suangoai}}
-    <input type="checkbox" /><label class="mr-3">3. Hỗn hợp</label>
+    <label class="mr-3">1. Sữa mẹ</label>
+    <label
+      class="mr-3"
+      v-if="hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.suame==false"
+      ><input type="checkbox"
+    /></label>
+    <label v-else><input type="checkbox" checked/></label>
+
+    <label class="mr-3">2. Nuôi nhân tạo</label>
+    <label
+      class="mr-3"
+      v-if="hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.suagoai==false"
+      ><input type="checkbox"
+    /></label>
+    <label v-else><input type="checkbox" checked/></label>
+
+    <label class="mr-3">3. Hỗn hợp</label>
+    <label
+      class="mr-3"
+      v-if="hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.honhop==false"
+      ><input type="checkbox"
+    /></label>
+    <label v-else><input type="checkbox" checked/></label>
   </div>
   <div class="row mt-2">- Cai sữa tháng thứ: <span>................</span></div>
   <div class="row mt-2">
     - Chăm sóc:
   </div>
   <div class="row mt-2 pl-4">
-    <input type="checkbox" /><label class="mr-3">1. Tại vườn trẻ</label>
-    {{hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.vuontre}}
-    <input type="checkbox" /><label class="mr-3">2. Tại nhà</label
-    >{{hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.tainha}}
+    <label class="mr-3">1. Tại vườn trẻ</label>
+    <label
+      class="mr-3"
+      v-if="hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.vuontre==false"
+      ><input type="checkbox"
+    /></label>
+    <label v-else><input type="checkbox" checked/></label>
+
+    <label class="mr-3">2. Tại nhà</label>
+    <label
+      class="mr-3"
+      v-if="hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.tainha==false"
+      ><input type="checkbox"
+    /></label>
+    <label v-else><input type="checkbox" checked/></label>
   </div>
   <div class="row mt-2">
     - Đã tiêm chủng:
   </div>
   <div class="row mt-2 pl-4">
-    <input type="checkbox" /><label class="mr-3">1. Lao</label>
-    {{hsba.emrBenhAn.emrCkTiemChung.tclao}} <input type="checkbox" /><label
-      class="mr-3"
-      >2.Bại liệt</label
-    >
-    {{hsba.emrBenhAn.emrCkTiemChung.tcbailiet}} <input type="checkbox" /><label
-      class="mr-3"
-      >3.Sởi
-    </label>
-    <input type="checkbox" /><label class="mr-3">4.Ho gà</label
-    >{{hsba.emrBenhAn.emrCkTiemChung.tchoga}} <input type="checkbox" /><label
-      class="mr-3"
-      >5.Uốn ván</label
-    >{{hsba.emrBenhAn.emrCkTiemChung.tcuonvan}} <input type="checkbox" /><label
-      class="mr-3"
-      >6.Bạch hầu</label
-    >{{hsba.emrBenhAn.emrCkTiemChung.tcbachhau}} <input type="checkbox" /><label
-      class="mr-3"
-      >7.Tiêm chủng khác</label
-    >{{hsba.emrBenhAn.emrCkTiemChung.tckhac}}
+    <label class="mr-3">1. Lao</label>
+    <label class="mr-3" v-if="hsba.emrBenhAn.emrCkTiemChung.tclao==false"
+      ><input type="checkbox"
+    /></label>
+    <label v-else><input type="checkbox" checked/></label>
+
+    <label class="mr-3">2.Bại liệt</label>
+    <label class="mr-3" v-if="hsba.emrBenhAn.emrCkTiemChung.tcbailiet==false"
+      ><input type="checkbox"
+    /></label>
+    <label v-else><input type="checkbox" checked/></label>
+
+    <label class="mr-3">3.Sởi </label>
+    <label class="mr-3" v-if="hsba.emrBenhAn.emrCkTiemChung.tcsoi==false"
+      ><input type="checkbox"
+    /></label>
+    <label v-else><input type="checkbox" checked/></label>
+
+    <label class="mr-3">4.Ho gà</label>
+    <label class="mr-3" v-if="hsba.emrBenhAn.emrCkTiemChung.tchoga==false"
+      ><input type="checkbox"
+    /></label>
+    <label v-else><input type="checkbox" checked/></label>
+
+    <label class="mr-3">5.Uốn ván</label>
+    <label class="mr-3" v-if="hsba.emrBenhAn.emrCkTiemChung.tcuonvan==false"
+      ><input type="checkbox"
+    /></label>
+    <label v-else><input type="checkbox" checked/></label>
+
+    <label class="mr-3">6.Bạch hầu</label>
+    <label class="mr-3" v-if="hsba.emrBenhAn.emrCkTiemChung.tcbachhau==false"
+      ><input type="checkbox"
+    /></label>
+    <label v-else><input type="checkbox" checked/></label>
+
+    <label class="mr-3">7.Tiêm chủng khác</label>
+    <label class="mr-3" v-if="hsba.emrBenhAn.emrCkTiemChung.tckhac==false"
+      ><input type="checkbox"
+    /></label>
+    <label v-else><input type="checkbox" checked/></label>
   </div>
   <div class="row mt-2">
     - Cụ thể những bệnh khác được tiêm chủng:
@@ -254,7 +345,6 @@
     + Bệnh chính:
   </div>
   <div class="row mt-2">
-    <!-- <span>{{hsba.emrBenhAn.motachuandoanbenhchinh}}</span> -->
     <span v-for="(emrDm,i) in hsba.emrBenhAn.emrDmMaBenhChandoanbenhchinhs">
       {{ emrDm.ten }}
       <span v-if="i+1< hsba.emrBenhAn.emrDmMaBenhChandoanbenhchinhs.length"
@@ -264,7 +354,6 @@
   </div>
   <div class="row mt-2">+ Bệnh kèm theo <i>(nếu có)</i>:</div>
   <div class="row mt-2">
-    <span>{{hsba.emrBenhAn.motachuandoankemtheo}}</span>
     <span v-for="(emrDm,i) in hsba.emrBenhAn.emrDmMaBenhChandoankemtheos">
       {{ emrDm.ten }}
       <span v-if="i+1< hsba.emrBenhAn.emrDmMaBenhChandoankemtheos.length"
@@ -392,17 +481,18 @@
   <div>
     <table style="width:100%" border="1">
       <tr>
-        <th colspan="2">Hồ sơ, phim, ảnh</th>
+        <th colspan="2"><center>Hồ sơ, phim, ảnh</center></th>
         <td rowspan="4">
-          <b>Người giao hồ sơ:</b>
+          <center><b>Người giao hồ sơ:</b></center>
           <br />
           <br />
           <br />
           <p>Họ và tên:{{hsba.emrTongKetRaVien.nguoigiaohoso}}</p>
         </td>
         <td rowspan="8">
-          <p>Ngày {{hsba.emrQuanLyNguoiBenh.ngaygioravien}}</p>
-          <b> Bác sĩ điều trị </b>
+          <p>Ngày:{{hsba.emrQuanLyNguoiBenh.ngaygioravien}}</p>
+
+          <center><b> Bác sĩ điều trị </b></center>
           <br />
           <br />
           <br />
@@ -414,22 +504,26 @@
       </tr>
 
       <tr>
-        <td>Loại</td>
-        <td>Số tờ</td>
+        <td>
+          <center><b>Loại</b></center>
+        </td>
+        <td>
+          <center><b>Số tờ</b></center>
+        </td>
       </tr>
       <tr>
         <td>- X - Quang</td>
-        <td>{{hsba.emrTongKetRaVien.soToXQuang}}</td>
+        <td><center>{{hsba.emrTongKetRaVien.soToXQuang}}</center></td>
       </tr>
       <tr>
         <td>- CT Scanner</td>
-        <td>{{hsba.emrTongKetRaVien.soToCTScanner}}</td>
+        <td><center>{{hsba.emrTongKetRaVien.soToCTScanner}}</center></td>
       </tr>
       <tr>
         <td>- Siêu âm</td>
-        <td>{{hsba.emrTongKetRaVien.soToSieuAm}}</td>
+        <td><center>{{hsba.emrTongKetRaVien.soToSieuAm}}</center></td>
         <td rowspan="4">
-          <b> Người nhận hồ sơ</b>
+          <center><b> Người nhận hồ sơ</b></center>
           <br />
           <br />
           <br />
@@ -438,16 +532,18 @@
       </tr>
       <tr>
         <td>- Xét nghiệm</td>
-        <td>{{hsba.emrTongKetRaVien.soToXetNghiem}}</td>
+        <td><center>{{hsba.emrTongKetRaVien.soToXetNghiem}}</center></td>
       </tr>
       <tr>
         <td>- Khác</td>
-        <td>{{hsba.emrTongKetRaVien.soToKhac}}</td>
+        <td><center>{{hsba.emrTongKetRaVien.soToKhac}}</center></td>
       </tr>
       <tr>
         <td>- Toàn bộ hồ sơ</td>
         <td>
-          {{hsba.emrTongKetRaVien.soToXQuang+hsba.emrTongKetRaVien.soToCTScanner+hsba.emrTongKetRaVien.soToSieuAm+hsba.emrTongKetRaVien.soToXetNghiem+hsba.emrTongKetRaVien.soToKhac}}
+          <center>
+            {{hsba.emrTongKetRaVien.soToXQuang+hsba.emrTongKetRaVien.soToCTScanner+hsba.emrTongKetRaVien.soToSieuAm+hsba.emrTongKetRaVien.soToXetNghiem+hsba.emrTongKetRaVien.soToKhac}}
+          </center>
         </td>
       </tr>
     </table>
