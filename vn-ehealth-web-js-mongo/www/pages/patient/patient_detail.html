@@ -1,204 +1,283 @@
 <% include ../../header.html %>
-<link href="/css/dashboard.css" rel="stylesheet">
+<link href="/css/dashboard.css" rel="stylesheet" />
 <div id="content-wrapper" class="bg-light">
-    <div class="font-weight-bold text-uppercase"></div>
-    <div id="content" class="bg-white mt-2">
-        <div id='app'>
-            <template v-if="patient != null">
-                <div class="panel panel-default">
-                    <div class="text-right MB20">
-                        <a class="btn-info bo50 btn-pd" href="#"><i class="fa fa-print faR10" aria-hidden="true"></i>In</a>
-                        <a class="btn-warning bo50 btn-pd" 
-                            :href="createURL('/pages/patient/patient_search.html', {'name' : name})">
-                            <i class="fa fa-arrow-left faR10" aria-hidden="true"></i>Quay lại</a>
-                    </div>
-                    <!--bt-->
-                    <div class="row row-eq-height">
-                        <div class="col-3">
-                            <div class="box">
-                                <p class="text-center MB0">
-                                    <img src="/images/avatar-4.jpg" class="img-circle MB10 MT10" alt=""><br>
-                                    <span class="text-ten"> {{ patient.fullname}} | {{ patient.identifier }} </span><br>
-                                    <span class="text-danger">{{ patient.gender }} </span><br>                                    
-                                    <span class="btn-info bo50 btn-pd1">{{ patient.status }}</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-8 offset-1">
-                            <div class="row MB20">
-                                <div class="col-6">
-                                    <ul class="list-ds">
-                                        <li><span class="text-label1">Giới tính:</span>{{ patient.gender }}</li>
-                                        <li><span class="text-label1">Ngày sinh:</span>{{ patient.date_of_birth }} </li>
-                                        <li><span class="text-label1">Quên quán:</span>{{ patient.address.city }}</li>
-                                        <li><span class="text-label1">Tình trạng hôn nhân:</span>{{ patient.marital_status }}</li>
-                                    </ul>
-                                </div>
-                                <div class="col-6">
-                                    <ul class="list-ds">
-                                        <li><span class="text-label2">Dân tộc:</span>{{ patient.race }}</li>
-                                        <li><span class="text-label2">Tôn giáo:</span>{{ patient.religion }}
-                                        </li>
-                                        <li><span class="text-label2">Trình độ giáo dục:</span>{{ patient.education }}</li>
-                                        <li><span class="text-label2">Trình độ ngoại ngữ:</span>{{ patient.language_skill }}</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <ul class="list-inline box-ul li-MR20">
-                                <li class="list-inline-item"><span class="text-danger"><i class="MR5 fa fa-mobile"
-                                            aria-hidden="true"></i>{{ patient.telecom }}</span></li>
-                                <li class="list-inline-item"><span class="text-success"><i class="MR5 fa fa-map-marker"
-                                            aria-hidden="true"></i>{{patient.address.lines[1]}},
-                                        {{patient.address.lines[0]}}, {{patient.address.district}} -
-                                        {{patient.address.city}}</span></li>
-                            </ul>
-                        </div>
-                    </div>
+  <div class="font-weight-bold text-uppercase"></div>
+  <div id="content" class="bg-white mt-2">
+    <div id="app">
+      <template v-if="patient != null">
+        <div class="panel panel-default">
+          <div class="text-right MB20">
+            <a class="btn-info bo50 btn-pd" href="#"
+              ><i class="fa fa-print faR10" aria-hidden="true"></i>In</a
+            >
+            <a
+              class="btn-warning bo50 btn-pd"
+              :href="createURL('/pages/patient/patient_search.html')"
+            >
+              <i class="fa fa-arrow-left faR10" aria-hidden="true"></i>Quay
+              lại</a
+            >
+          </div>
+          <!--bt-->
+          <div class="row row-eq-height">
+            <div class="col-3">
+              <div class="box">
+                <p class="text-center MB0">
+                  <img
+                    src="/images/avatar-4.jpg"
+                    class="img-circle MB10 MT10"
+                    alt=""
+                  /><br />
+                  <span class="text-ten">
+                    {{ patient.tendaydu}} | {{ patient.iddinhdanhchinh }} </span
+                  ><br />
+                  <span class="text-danger"
+                    >{{ patient.emrDmGioiTinh.ten }} </span
+                  ><br />
+                  <span class="btn-info bo50 btn-pd1"
+                    >{{ patient.sobhyt }}</span
+                  >
+                </p>
+              </div>
+            </div>
+            <div class="col-8 offset-1">
+              <div class="row MB20">
+                <div class="col-6">
+                  <ul class="list-ds">
+                    <li>
+                      <span class="text-label1">Giới tính:</span>{{
+                      patient.emrDmGioiTinh.ten }}
+                    </li>
+                    <li>
+                      <span class="text-label1">Ngày sinh:</span>{{
+                      patient.ngaysinh }}
+                    </li>
+                    <li>
+                      <span class="text-label1">Quên quán:</span>{{
+                      patient.emrDmTinhThanh.ten }}
+                    </li>
+                    <li>
+                      <span class="text-label1">Tình trạng hôn nhân:</span>{{
+                      patient.marital_status }}
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-6">
+                  <ul class="list-ds">
+                    <li>
+                      <span class="text-label2">Dân tộc:</span>{{
+                      patient.emrDmDanToc.ten }}
+                    </li>
+                    <li>
+                      <span class="text-label2">Tôn giáo:</span>{{
+                      patient.religion }}
+                    </li>
+                    <li>
+                      <span class="text-label2">Trình độ giáo dục:</span>{{
+                      patient.education }}
+                    </li>
+                    <li>
+                      <span class="text-label2">Trình độ ngoại ngữ:</span>{{
+                      patient.language_skill }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <ul class="list-inline box-ul li-MR20">
+                <li class="list-inline-item">
+                  <span class="text-danger"
+                    ><i class="MR5 fa fa-mobile" aria-hidden="true"></i>{{
+                    patient.sodienthoainguoibaotin}}</span
+                  >
+                </li>
+                <li class="list-inline-item">
+                  <span class="text-success"
+                    ><i class="MR5 fa fa-map-marker" aria-hidden="true"></i
+                    >{{patient.diachi}}
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
 
-                    <div class="row">
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="widget-panel widget-style-2 white-bg">
-                                <div>Chiều cao</div>
-                                <i class="fa fa-male text-pink"></i>
-                                <h2 class="m-0 counter">165 cm</h2>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="widget-panel widget-style-2 white-bg">
-                                <div>Cân nặng</div>
-                                <i class="fa fa-male text-purple"></i>
-                                <h2 class="m-0 counter">65 Kg</h2>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="widget-panel widget-style-2 white-bg">
-                                <div>Huyết áp</div>
-                                <i class="fa fa-heartbeat text-info"></i>
-                                <h2 class="m-0 counter">80/120</h2>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="widget-panel widget-style-2 white-bg">
-                                <div>Nhiệt độ</div>
-                                <i class="fa fa-thermometer text-success"></i>
-                                <h2 class="m-0 counter">36.5 độ C</h2>
-                            </div>
-                        </div>
-                    </div> <!-- end row -->
-                </div>
-                <!--panel 1-->
-        
-                <div class="panel panel-default">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link" v-bind:class="{ active: tab == 1}" v-bind:style="{ backgroundColor: tab==1? '#1057ae' : '#eee', color: tab==1? '#fff' : '#000',
-                            marginBottom : '2px', borderTop : tab==1? '0px' : ''}" href="#" v-on:click="tab=1">Tổng quan</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="margin-bottom : '2px'," v-bind:class="{ active: tab == 2 }" v-bind:style="{ backgroundColor: tab==2? '#1057ae' : '#eee', color: tab==2? '#fff' : '#000',
-                            marginBottom : '2px', borderTop : tab==2? '0px' : ''}" href="#" v-on:click="tab=2">Biểu đồ phát triển</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="margin-bottom : '2px'," v-bind:class="{ active: tab == 3 }" v-bind:style="{ backgroundColor: tab==3? '#1057ae' : '#eee', color: tab==3? '#fff' : '#000',
-                            marginBottom : '2px', borderTop : tab==3? '0px' : ''}" href="#" v-on:click="tab=3">Lịch sử dùng thuốc</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="margin-bottom : '2px'," v-bind:class="{ active: tab == 4 }" v-bind:style="{ backgroundColor: tab==4? '#1057ae' : '#eee', color: tab==4? '#fff' : '#000',
-                            marginBottom : '2px', borderTop : tab==4? '0px' : ''}" href="#" v-on:click="tab=4">Chẩn đoán hình ảnh</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="margin-bottom : '2px'," v-bind:class="{ active: tab == 5 }" v-bind:style="{ backgroundColor: tab==5? '#1057ae' : '#eee', color: tab==5? '#fff' : '#000',
-                            marginBottom : '2px', borderTop : tab==5? '0px' : ''}" href="#" v-on:click="tab=5">Phẫu thuật, thủ thuật</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="margin-bottom : '2px'," v-bind:class="{ active: tab == 6 }" v-bind:style="{ backgroundColor: tab==6? '#1057ae' : '#eee', color: tab==6? '#fff' : '#000',
-                            marginBottom : '2px', borderTop : tab==6? '0px' : ''}" href="#" v-on:click="tab=6">Tài liệu lâm sàng</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="margin-bottom : '2px'," v-bind:class="{ active: tab == 7 }" v-bind:style="{ backgroundColor: tab==7? '#1057ae' : '#eee', color: tab==7? '#fff' : '#000',
-                            marginBottom : '2px', borderTop : tab==7? '0px' : ''}" href="#" v-on:click="tab=7">Chỉ số sinh tồn</a>
-                        </li>
-                    </ul>
-                    <div style="border-top: 2px solid #1057ae">
-                        <div v-if="tab==1" class="tab-pane active padT20">
-                            <patient-summary></patient-summary>
-                        </div>
-                        <div v-if="tab==2">
-                            <grow-chart></grow-chart>
-                        </div>
-                        <div v-if="tab==3">
-                        </div>
-                        <div v-if="tab==4">
-                        </div>
-                        <div v-if="tab==5">
-                        </div>
-                        <div v-if="tab==6">
-                        </div>
-                        <div v-if="tab==7">
-                        </div>
-                    </div>
-                </div>
-            </template>
+          <div class="row">
+            <div class="col-lg-3 col-sm-6">
+              <div class="widget-panel widget-style-2 white-bg">
+                <div>Chiều cao</div>
+                <i class="fa fa-male text-pink"></i>
+                <h2 class="m-0 counter">165 cm</h2>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <div class="widget-panel widget-style-2 white-bg">
+                <div>Cân nặng</div>
+                <i class="fa fa-male text-purple"></i>
+                <h2 class="m-0 counter">65 Kg</h2>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <div class="widget-panel widget-style-2 white-bg">
+                <div>Huyết áp</div>
+                <i class="fa fa-heartbeat text-info"></i>
+                <h2 class="m-0 counter">80/120</h2>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <div class="widget-panel widget-style-2 white-bg">
+                <div>Nhiệt độ</div>
+                <i class="fa fa-thermometer text-success"></i>
+                <h2 class="m-0 counter">36.5 độ C</h2>
+              </div>
+            </div>
+          </div>
+          <!-- end row -->
         </div>
-    </div>
-</div>    
-    
+        <!--panel 1-->
 
+        <div class="panel panel-default">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                v-bind:class="{ active: tab == 1}"
+                v-bind:style="{ backgroundColor: tab==1? '#1057ae' : '#eee', color: tab==1? '#fff' : '#000',
+                            marginBottom : '2px', borderTop : tab==1? '0px' : ''}"
+                href="#"
+                v-on:click="tab=1"
+                >Tổng quan</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                style="margin-bottom : '2px',"
+                v-bind:class="{ active: tab == 2 }"
+                v-bind:style="{ backgroundColor: tab==2? '#1057ae' : '#eee', color: tab==2? '#fff' : '#000',
+                            marginBottom : '2px', borderTop : tab==2? '0px' : ''}"
+                href="#"
+                v-on:click="tab=2"
+                >Biểu đồ phát triển</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                style="margin-bottom : '2px',"
+                v-bind:class="{ active: tab == 3 }"
+                v-bind:style="{ backgroundColor: tab==3? '#1057ae' : '#eee', color: tab==3? '#fff' : '#000',
+                            marginBottom : '2px', borderTop : tab==3? '0px' : ''}"
+                href="#"
+                v-on:click="tab=3"
+                >Lịch sử dùng thuốc</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                style="margin-bottom : '2px',"
+                v-bind:class="{ active: tab == 4 }"
+                v-bind:style="{ backgroundColor: tab==4? '#1057ae' : '#eee', color: tab==4? '#fff' : '#000',
+                            marginBottom : '2px', borderTop : tab==4? '0px' : ''}"
+                href="#"
+                v-on:click="tab=4"
+                >Chẩn đoán hình ảnh</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                style="margin-bottom : '2px',"
+                v-bind:class="{ active: tab == 5 }"
+                v-bind:style="{ backgroundColor: tab==5? '#1057ae' : '#eee', color: tab==5? '#fff' : '#000',
+                            marginBottom : '2px', borderTop : tab==5? '0px' : ''}"
+                href="#"
+                v-on:click="tab=5"
+                >Phẫu thuật, thủ thuật</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                style="margin-bottom : '2px',"
+                v-bind:class="{ active: tab == 6 }"
+                v-bind:style="{ backgroundColor: tab==6? '#1057ae' : '#eee', color: tab==6? '#fff' : '#000',
+                            marginBottom : '2px', borderTop : tab==6? '0px' : ''}"
+                href="#"
+                v-on:click="tab=6"
+                >Tài liệu lâm sàng</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                style="margin-bottom : '2px',"
+                v-bind:class="{ active: tab == 7 }"
+                v-bind:style="{ backgroundColor: tab==7? '#1057ae' : '#eee', color: tab==7? '#fff' : '#000',
+                            marginBottom : '2px', borderTop : tab==7? '0px' : ''}"
+                href="#"
+                v-on:click="tab=7"
+                >Chỉ số sinh tồn</a
+              >
+            </li>
+          </ul>
+          <div style="border-top: 2px solid #1057ae">
+            <div v-if="tab==1" class="tab-pane active padT20">
+              <patient-summary></patient-summary>
+            </div>
+            <div v-if="tab==2">
+              <grow-chart></grow-chart>
+            </div>
+            <div v-if="tab==3"></div>
+            <div v-if="tab==4"></div>
+            <div v-if="tab==5"></div>
+            <div v-if="tab==6"></div>
+            <div v-if="tab==7"></div>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+</div>
 
 <script type="text/javascript">
-	VueAsyncComponent('patient-summary', '/pages/patient/patient_detail/patient_summary.html');
+  VueAsyncComponent(
+    "patient-summary",
+    "/pages/patient/patient_detail/patient_summary.html"
+  );
 
-	VueAsyncComponent('grow-chart', '/pages/patient/patient_detail/growchart.html', {
-		data: function () {
-			return {
-				patientId: 0
-			}
-		},
-		mounted: function () {
-			this.patientId = getParam('patientId');
-		}
-	});
+  VueAsyncComponent(
+    "grow-chart",
+    "/pages/patient/patient_detail/growchart.html",
+    {
+      data: function() {
+        return {
+          patientId: 0
+        };
+      },
+      mounted: function() {
+        this.patientId = getParam("patientId");
+      }
+    }
+  );
 
-	new Vue({
-		el: '#app',
-		data: {
-			tab: 1,
-            patientId: 0,
-            name: '',
-			patient: null
-		},
-		methods: {
-			loadPatientData: function () {
-				this.patient = {
-                    id: 1,
-                    fullname : "",
-                    date_of_birth : "19/03/1998",
-                    gender : "Nam",
-                    identifier: "TE1010500107449.19031998",
-                    telecom: "+84-903.499.654",
-                    race: "Kinh",
-                    religion: "Không",
-                    status: "",
-                    education: "12/12",
-                    language_skill: "Tiếng Anh",
-                    marital_status: "Chưa kết hôn",
-                    address : {                        
-                        "city" : "Hà Nội",
-                        "district" : "Đống Đa",
-                        "ward": "Cát Linh",
-                        "lines" : [
-                            "185 Giảng Võ",
-                            "Tòa nhà HICT"
-                        ]
-                    }
-                };
-			},
-		},
-		mounted: function () {
-			//this.patientId = getParam('patientId');
-            this.loadPatientData();
-            this.name = getParam('name')
-            this.patient.fullname = 'Nguyễn Văn ' + this.name;
-		}
-	});
+  new Vue({
+    el: "#app",
+    data: {
+      tab: 1,
+      patientId: 0,
+      patient: null
+    },
+    methods: {
+      loadPatientData: async function() {
+        this.patient = await this.get("/api/benh_nhan/get_benhnhan_by_id", {
+          id: this.patientId
+        });
+        console.log(this.patient);
+      }
+    },
+    created: async function() {
+      this.patientId = getParam("id");
+      this.loadPatientData();
+    }
+  });
 </script>
