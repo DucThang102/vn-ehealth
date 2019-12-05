@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +58,12 @@ public class EmrBenhNhanController {
                                             @RequestParam Optional<Integer> count) {
         var emrBenhNhans = emrBenhNhanService.searchBenhNhan(keyword, start.orElse(-1), count.orElse(-1));
         return ResponseEntity.ok(emrBenhNhans);
+    }
+    
+    @GetMapping("/get_benhnhan_by_id")
+    public ResponseEntity<?> getBenhNhan(@RequestParam String id) {
+        var benhNhan = emrBenhNhanService.getById(new ObjectId(id));
+        return ResponseEntity.of(benhNhan);
     }
 
     @PostMapping("/create_or_update_benhnhan")
