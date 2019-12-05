@@ -114,8 +114,12 @@ public class EmrHoSoBenhAnService {
         var maCoSoKhamBenh = hsba.emrCoSoKhamBenh != null? hsba.emrCoSoKhamBenh.ma : "";
         var emrCoSoKhamBenh = emrCoSoKhamBenhService.getByMa(maCoSoKhamBenh).orElse(null);
         
-        if(hsba.emrBenhNhan == null || emrCoSoKhamBenh == null) {
-            throw new RuntimeException();
+        if(hsba.emrBenhNhan == null) {
+            throw new RuntimeException("No patient info");
+        }
+        
+        if(emrCoSoKhamBenh == null) {
+            throw new RuntimeException("No emrCoSoKhamBenh for ma : " + maCoSoKhamBenh);
         }
         
         var emrBenhNhan = hsba.emrBenhNhan;

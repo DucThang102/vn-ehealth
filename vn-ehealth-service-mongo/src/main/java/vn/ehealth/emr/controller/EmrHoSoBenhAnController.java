@@ -3,6 +3,7 @@ package vn.ehealth.emr.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
@@ -227,9 +228,10 @@ public class EmrHoSoBenhAnController {
             return ResponseEntity.ok(result);
         
         } catch(Exception e) {
+            var error = Optional.ofNullable(e.getMessage()).orElse("Unknown error");
             var result = Map.of(
                 "success" , false,
-                "errors", List.of(e.getMessage()) 
+                "errors", List.of(error) 
             );
             logger.error("Error save hsba:", e);
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
