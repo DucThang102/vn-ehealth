@@ -1,5 +1,6 @@
 package vn.ehealth.emr.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import vn.ehealth.emr.model.EmrChanDoanHinhAnh;
 import vn.ehealth.emr.service.EmrChanDoanHinhAnhService;
+import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 
 @RestController
 @RequestMapping("/api/cdha")
@@ -28,11 +30,22 @@ public class EmrChanDoanHinhAnhController {
     
     private Logger logger = LoggerFactory.getLogger(EmrChanDoanHinhAnhController.class);
     @Autowired EmrChanDoanHinhAnhService emrChanDoanHinhAnhService;
+    @Autowired EmrHoSoBenhAnService emrHoSoBenhAnService;
     
     @GetMapping("/get_ds_cdha")
-    public ResponseEntity<?> getDsChanDoanHinhAnh(@RequestParam("hsba_id") String id) {
-        var cdhaList = emrChanDoanHinhAnhService.getByEmrHoSoBenhAnId(new ObjectId(id));
+    public ResponseEntity<?> getDsChanDoanHinhAnh(@RequestParam("hsba_id") String hsbaId) {
+        var cdhaList = emrChanDoanHinhAnhService.getByEmrHoSoBenhAnId(new ObjectId(hsbaId));
         return ResponseEntity.ok(cdhaList);
+    }
+    
+    @GetMapping("/get_ds_cdha_by_bn")
+    public ResponseEntity<?> getDsChanDoanHinhAnhByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
+        var emrHoSoBenhAns = emrHoSoBenhAnService.getDsHoSoByBenhNhan(new ObjectId(benhNhanId));
+        var result = new ArrayList<EmrChanDoanHinhAnh>();
+        for(var emrHoSoBenhAn : emrHoSoBenhAns) {
+            result.addAll(emrChanDoanHinhAnhService.getByEmrHoSoBenhAnId(emrHoSoBenhAn.id));
+        }
+        return ResponseEntity.ok(result);
     }
 
     @GetMapping("/delete_cdha")

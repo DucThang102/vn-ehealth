@@ -77,13 +77,17 @@ public class EmrVaoKhoaService {
     }
     
     public void saveByEmrHoSoBenhAnId(ObjectId hsbaId, List<EmrVaoKhoa> emrVaoKhoas) {
+        var vaoKhoaIds = emrVaoKhoas.stream()
+                                    .map(x -> x.id.toHexString())
+                                    .collect(Collectors.toSet());
+        
         for(var emrVaoKhoa : getByEmrHoSoBenhAnId(hsbaId, false)) {
-            emrVaoKhoaRespository.delete(emrVaoKhoa);
+            if(!vaoKhoaIds.contains(emrVaoKhoa.id.toHexString())) {
+                emrVaoKhoaRespository.delete(emrVaoKhoa);
+            }
         }
         
         for(var emrVaoKhoa : emrVaoKhoas) {
-            emrVaoKhoa.id = null;
-            emrVaoKhoa.emrHoSoBenhAnId = hsbaId;
             emrVaoKhoaRespository.save(emrVaoKhoa);
         }
     }

@@ -1,6 +1,7 @@
 package vn.ehealth.emr.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,13 +36,18 @@ public class EmrVaoKhoaController {
     @SuppressWarnings("rawtypes")
     @PostMapping("save_ds_vaokhoa")
     public ResponseEntity<?> saveDsVaoKhoa(@RequestBody Map<String, Object> body) throws IOException {
-        var emrVaoKhoas = (List) body.get("emrVaoKhoas");
+        String hsbaId = (String) body.get("hsbaId");       
+        var emrVaoKhoasJson = (List) body.get("emrVaoKhoas");
         var mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        for(var emrVaoKhoa : emrVaoKhoas) {
-            var emrVaoKhoaObj = mapper.readValue(mapper.writeValueAsString(emrVaoKhoa), EmrVaoKhoa.class);
-            emrVaoKhoaService.save(emrVaoKhoaObj);
+        
+        var emrVaoKhoas = new ArrayList<EmrVaoKhoa>();
+        
+        for(var emrVaoKhoaJson : emrVaoKhoasJson) {
+            var emrVaoKhoa = mapper.readValue(mapper.writeValueAsString(emrVaoKhoaJson), EmrVaoKhoa.class);
+            emrVaoKhoas.add(emrVaoKhoa);
         }
+        emrVaoKhoaService.saveByEmrHoSoBenhAnId(new ObjectId(hsbaId), emrVaoKhoas);
         return ResponseEntity.ok(Map.of("success", true));
     }
 }

@@ -66,6 +66,10 @@ public class EmrHoSoBenhAnService {
         return mongoTemplate.find(query, EmrHoSoBenhAn.class);
     }
     
+    public List<EmrHoSoBenhAn> getDsHoSoByBenhNhan(ObjectId emrBenhNhanId) {
+        return emrHoSoBenhAnRepository.findByEmrBenhNhanIdAndIsLatest(emrBenhNhanId, true);
+    }
+    
     /*
     public List<EmrHoSoBenhAn> getByTrangThaiAndIsLatest(int trangThai, boolean isLatest, int offset, int limit){
         var sort = new Sort(Sort.Direction.DESC, "ngaytiepnhan");
