@@ -71,7 +71,7 @@
               <th style="width: 30%">Địa chỉ</th>
             </tr>
 
-            <tr v-for="patient in patients">
+            <tr v-for="patient in currentItems">
               <td>
                 <a
                   v-bind:href='createURL("/pages/patient/patient_detail.html", {"id" : patient.id})'
@@ -95,6 +95,14 @@
               <td></td>
             </tr>
           </table>
+
+          <b-pagination
+            v-model="currentPage"
+            :total-rows="rows"
+            :per-page="perPage"
+          >
+          </b-pagination>
+          <p class="mt-3">Trang: {{ currentPage }}</p>
         </div>
       </template>
     </div>
@@ -106,19 +114,33 @@
     el: "#app",
     data: {
       keyword: "",
+      perPage: 1,
+      currentPage: 1,
       patients: []
     },
+
     methods: {
       searchPatient: async function() {
         this.patients = await this.get("/api/benh_nhan/search_benhnhan", {
           keyword: this.keyword
         });
         console.log(this.patients);
+      },
+      created: async function() {
+        this.keyword = this.getParam("name");
+        this.searchPatient();
       }
     },
-    created: async function() {
-      this.keyword = this.getParam("name");
-      this.searchPatient();
+    computed: {
+      rows() {
+        return this.patients.length;
+      },
+      currentItems() {
+        return this.patients.slice(
+          (this.currentPage - 1) * this.perPage,
+          this.currentPage * this.perPage
+        );
+      }
     }
   });
 </script>
