@@ -13,6 +13,7 @@ public class Constants {
 	    final public static int NHAP = 0;
 		final public static int CHUA_XULY = 1;
 		final public static int DA_LUU = 2;
+		final public static int DA_XOA = 3;
 	}
 	
 	public static interface NGUON_DU_LIEU {

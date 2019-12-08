@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,6 +32,9 @@ public class JWTAuthController {
     @Autowired
     JWTTokenProvider tokenProvider;
     
+    @Autowired
+    UserDetailsService userDetailsService;
+    
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@RequestBody Map<String, String> params) {
         String username = params.get("username");
@@ -43,19 +47,21 @@ public class JWTAuthController {
     
     @GetMapping("/get_permissions")
     public ResponseEntity<?> getPermissions(@RequestParam String username) {
+        var userDetails = userDetailsService.loadUserByUsername(username);
+        boolean isAdmin = userDetails.getAuthorities().stream().anyMatch(x -> x.getAuthority().equals("ROLE_ADMIN"));
+        
+        if(isAdmin) {
+            return ResponseEntity.ok(Map.of("all", true));
+        }
+                
         var permissions = List.of(
                     Map.of(
                             "tab", "tab_hsba",
                             "items", List.of("hsba_chuaxuly", "hsba_daluu")
-                    ),
-                    
-                    Map.of(
-                            "tab", "tab_dm",
-                            "items", List.of("dm_dungchung", "dm_chuan_hoa")
                     )
                 );
         
-        return ResponseEntity.ok(permissions);
+        return ResponseEntity.ok(Map.of("all", false, "permissions", permissions));
     }
     
     @GetMapping("/check_page_permission")

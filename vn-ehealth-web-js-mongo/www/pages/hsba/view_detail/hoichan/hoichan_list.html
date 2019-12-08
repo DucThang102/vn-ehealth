@@ -13,5 +13,8 @@
       <td class="text-center">{{ hoichan.ngaythuchien }}</td>
       <td class="text-center">{{ getTenKhoa(hoichan.emrVaoKhoa) }}</td>
     </tr>
+    <tr v-if="hoichan_list.length==0">
+      <td colspan="4">Không có dữ liệu</td>
+    </tr>
   </table>
 </div>

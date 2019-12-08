@@ -15,5 +15,8 @@
       <td class="text-center">{{ tdcn.emrDmLoaiThamDoChucNang.ten }}</td>
       <td class="text-center">{{ tdcn.ngaythuchien }}</td>
     </tr>
+    <tr v-if="tdcn_list.length==0">
+      <td colspan="5">Không có dữ liệu</td>
+    </tr>
   </table>
 </div>

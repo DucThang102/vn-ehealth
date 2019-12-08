@@ -42,6 +42,8 @@ public class EmrHoSoBenhAn {
     public String maluutru;
     public String matraodoi;
     
+    public String jsonSt;
+    
     @JsonFormat(pattern="dd/MM/yyyy HH:mm")
     public Date ngaytiepnhan;
     

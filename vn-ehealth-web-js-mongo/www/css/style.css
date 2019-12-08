@@ -138,6 +138,10 @@ footer.sticky-footer {
   font-size: 18px;
 }
 .pd20{margin-top: 20px;}
+.logo {
+  width: 130 px;
+  height: 130px;
+}
 .form-signin {
     max-width: 340px;
     padding-top: 15px;

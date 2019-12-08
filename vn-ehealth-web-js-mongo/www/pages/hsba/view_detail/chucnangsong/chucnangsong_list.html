@@ -16,5 +16,8 @@
       <td class="text-center">{{ getTenKhoa(chucnangsong.emrVaoKhoa) }}</td>
       <td class="text-center">{{ chucnangsong.ngaytheodoi }}</td>
     </tr>
+    <tr v-if="chucnangsong_list.length==0">
+      <td colspan="5">Không có dữ liệu</td>
+    </tr>
   </table>
 </div>

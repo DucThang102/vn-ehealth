@@ -15,5 +15,8 @@
       <td class="text-center">{{ gpb.emrDmLoaiGiaiPhauBenh.ten }}</td>
       <td class="text-center">{{ gpb.ngaythuchien }}</td>
     </tr>
+    <tr v-if="gpb_list.length==0">
+      <td colspan="5">Không có dữ liệu</td>
+    </tr>
   </table>
 </div>
