@@ -227,11 +227,21 @@
             <div v-if="tab==2">
               <grow-chart></grow-chart>
             </div>
-            <div v-if="tab==3"></div>
-            <div v-if="tab==4"></div>
-            <div v-if="tab==5"></div>
-            <div v-if="tab==6"></div>
-            <div v-if="tab==7"></div>
+            <div v-if="tab==3">
+              <lsdt></lsdt>
+            </div>
+            <div v-if="tab==4">
+              <cdha></cdha>
+            </div>
+            <div v-if="tab==5">
+              <pttt></pttt>
+            </div>
+            <div v-if="tab==6">
+              <tlls></tlls>
+            </div>
+            <div v-if="tab==7">
+              <csst></csst>
+            </div>
           </div>
         </div>
       </template>
@@ -254,11 +264,78 @@
           patientId: 0
         };
       },
-      mounted: function() {
-        this.patientId = getParam("patientId");
+      created: function() {
+        this.patientId = getParam("id");
       }
     }
   );
+
+  VueAsyncComponent("cdha", "/pages/patient/patient_detail/cdha.html", {
+    data: function() {
+      return {
+        patientId: 0,
+        cdha_list: null,
+        cdha: null
+      };
+    },
+    methods: {
+      viewCdha: function(cdha) {
+        this.cdha = cdha;
+        $("#cdhaModal").modal();
+      }
+    },
+    created: async function() {
+      this.patientId = getParam("id");
+      this.cdha_list = await this.get("/api/cdha/get_ds_cdha_by_bn", {
+        benhnhan_id: this.patientId
+      });
+      console.log(this.cdha_list);
+    }
+  });
+
+  VueAsyncComponent("lsdt", "/pages/patient/patient_detail/lsdt.html", {
+    data: function() {
+      return {
+        patientId: 0
+      };
+    },
+    created: async function() {
+      this.patientId = getParam("id");
+    }
+  });
+
+  VueAsyncComponent("pttt", "/pages/patient/patient_detail/pttt.html", {
+    data: function() {
+      return {
+        patientId: 0
+      };
+    },
+    created: async function() {
+      this.patientId = getParam("id");
+    }
+  });
+
+  VueAsyncComponent("tlls", "/pages/patient/patient_detail/tlls.html", {
+    data: function() {
+      return {
+        patientId: 0
+      };
+    },
+    created: async function() {
+      this.patientId = getParam("id");
+    }
+  });
+
+  VueAsyncComponent("csst", "/pages/patient/patient_detail/csst.html", {
+    data: function() {
+      return {
+        patientId: 0
+      };
+    },
+    created: async function() {
+      this.patientId = getParam("id");
+    }
+  });
 
   new Vue({
     el: "#app",
