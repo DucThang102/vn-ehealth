@@ -28,7 +28,8 @@ VueAsyncComponent('dieutri', '/pages/hsba/edit/dieutri/dieutri.html', {
 VueAsyncComponent('dieutri-list', '/pages/hsba/edit/dieutri/dieutri_list.html', {
   data: function(){
     return {
-      dieutri_list : null
+      dieutri_list : null,
+      vaokhoa_list: null
     }    
   },
 
@@ -39,17 +40,19 @@ VueAsyncComponent('dieutri-list', '/pages/hsba/edit/dieutri/dieutri_list.html', 
       this.dieutri_list = await this.get('/api/dieutri/get_ds_dieutri', { hsba_id: this.hsba_id });
     },
 
+    getVaoKhoaList: async function() {
+      this.vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', {hsba_id: this.hsba_id, detail: false});
+    },
+
     editDieutri : function(dieutri) {
       this.$emit('editDieutri', dieutri);
     },
 
     addDieutri: async function() {
-      var vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', {hsba_id: this.hsba_id, detail: false});
-      if(vaokhoa_list && vaokhoa_list.length > 0) {
-        
+      if(this.vaokhoa_list && this.vaokhoa_list.length > 0) {        
+        var maKhoaDieuTri = this.vaokhoa_list[0].emrDmKhoaDieuTri.ma;
         var dieutri = { 
-          emrVaoKhoaId: vaokhoa_list[0].id, 
-          emrVaoKhoa: vaokhoa_list[0],
+          emrVaoKhoa: {emrHoSoBenhAnId: this.hsba_id, emrDmKhoaDieuTri:{ma : maKhoaDieuTri}},
           emrQuaTrinhDieuTris: []
         };
         
@@ -73,20 +76,19 @@ VueAsyncComponent('dieutri-list', '/pages/hsba/edit/dieutri/dieutri_list.html', 
     editFiles : function(dieutri) {
       this.$emit('editFiles', dieutri);
     },
-
-    getTenKhoa: function(khoadieutri){
-      return khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten');
-    },
   },
 
   created: async function() {
-    this.getDieutriList();
+    this.getVaoKhoaList();
+    this.getDieutriList();    
   },
 });
 
 VueAsyncComponent('dieutri-edit', '/pages/hsba/edit/dieutri/dieutri_edit.html', {
   data: function() {
     return {
+      maVaoKhoa: '',
+      vaokhoa_list: null,
     }
   },
   props: ["dieutri"],
@@ -101,12 +103,14 @@ VueAsyncComponent('dieutri-edit', '/pages/hsba/edit/dieutri/dieutri_edit.html', 
       deep: true
     }
   },
+
+  created: async function() {
+    this.vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', 
+                          {hsba_id: this.dieutri.emrVaoKhoa.emrHoSoBenhAnId, detail: false});
+    this.maVaoKhoa = this.dieutri.emrVaoKhoa.emrDmKhoaDieuTri.ma;
+  },
   
   methods: {
-    getTenKhoa: function(khoadieutri){
-      return khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten');
-    },
-
     addQtdt: function() {
       this.dieutri.emrQuaTrinhDieuTris.push({});
     },
@@ -116,7 +120,11 @@ VueAsyncComponent('dieutri-edit', '/pages/hsba/edit/dieutri/dieutri_edit.html', 
     },
     
     saveDieutri: async function() {
+      var emrVaoKhoa = this.vaokhoa_list.find(x => x.emrDmKhoaDieuTri.ma == this.maVaoKhoa);
+      this.dieutri.emrVaoKhoaId = attr(emrVaoKhoa, "id");
+
       var result = await this.post("/api/dieutri/create_or_update_dieutri", this.dieutri);
+
       if(result.success) {
         sessionStorage.removeItem('dataChange');
         this.$emit('viewDieutriList');

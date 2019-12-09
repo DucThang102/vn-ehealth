@@ -16,5 +16,8 @@
       <td class="text-center">{{ getTenKhoa(dieutri.emrVaoKhoa) }}</td>
       <td class="text-center">{{ dieutri.ngaydieutri }}</td>
     </tr>
+    <tr v-if="dieutri_list.length==0">
+      <td colspan="5">Không có dữ liệu</td>
+    </tr>
   </table>
 </div>

@@ -60,9 +60,9 @@
                 <div class="dropdown-menu">
                   <a class="dropdown-item"
                     :href="createURL('/pages/hsba/xem_hsba.html', {mayte: hs.mayte, backURL: currentURL})">Xem HSBA</a>
-                  <a class="dropdown-item" href="#">Lưu trữ</a>
-                  <a class="dropdown-item" href="#">Thông tin gốc</a>
-                  <a class="dropdown-item" href="#">Xóa</a>
+                  <a class="dropdown-item" v-on:click="moLuuTruHoSo(hs.id)" href="javascript:void(0)">Mở lưu trữ</a>
+                  <a class="dropdown-item" v-on:click="xemHoSoGoc(hs.id)" href="javascript:void(0)">Thông tin gốc</a>
+                  <a class="dropdown-item" v-on:click="xoaHoSo(hs.id)" href="javascript:void(0)">Xóa</a>
                 </div>
               </td>
               <td class="text-center">{{ index + offset + 1 }}</td>
@@ -74,7 +74,8 @@
               <td class="text-center">{{ hs.maluutru }}</td>
               <td class="text-center">{{ getTextChanDoan(attr(hs, 'emrChanDoan.emrDmMaBenhChandoankkbs')) }}</td>
               <td>{{ attr(hs, 'emrChanDoan.motachandoankkb') }}</td>
-              <td class="text-center">{{ getTextChanDoan(attr(hs, 'emrChanDoan.emrDmMaBenhChandoanravienchinhs')) }}</td>
+              <td class="text-center">{{ getTextChanDoan(attr(hs, 'emrChanDoan.emrDmMaBenhChandoanravienchinhs')) }}
+              </td>
               <td>{{ attr(hs, 'emrChanDoan.motachandoanravienchinh') }}</td>
               <td class="text-center">{{ hs.khoaRaVien }}</td>
               <td class="text-center">{{ attr(hs, 'emrQuanLyNguoiBenh.ngaygiovaovien') }}</td>
@@ -88,6 +89,25 @@
         <b-pagination v-if="total > perPage" size="sm" v-model="currentPage" :total-rows="total" :per-page="perPage">
         </b-pagination>
         <label class="label">Tổng số : {{ total }} bản ghi</label>
+
+        <div class="modal fade" id="hsGocModal" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Thông tin hồ sơ gốc</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div v-if="hsGocJson" class="modal-body">
+                <textarea readonly rows="15" class="form-control">{{ hsGocJson }}</textarea>
+              </div>
+              <div class="modal-footer">
+                <button data-dismiss="modal" type="button" class="btn btn-primary">Đóng lại</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </template>
     </div>
   </div>
@@ -102,37 +122,74 @@
       items: [],
       total: null,
       mayte: '',
-      loading: true
+      loading: true,
+      hsGocJson: null
     },
 
     methods: {
       getTotal: async function () {
-        this.total = await this.get("/api/hsba/count_ds_hs", { trangthai: 2, mayte: this.mayte });
+        this.total = await this.get("/api/hsba/count_ds_hs", { username: localStorage.getItem("username"), trangthai: 2, mayte: this.mayte });
       },
 
-      getTextChanDoan: function(chandoans){
-        if(chandoans){
+      getTextChanDoan: function (chandoans) {
+        if (chandoans) {
           return chandoans.map(x => x.ma + " - " + x.ten).join(' ; ');
         }
         return '';
       },
 
-      getNguonDuLieuStr: function(nguonDuLieu) {
-        var m = {1: "Từ HIS"};
+      getNguonDuLieuStr: function (nguonDuLieu) {
+        var m = { 1: "Từ HIS" };
         return m[nguonDuLieu];
       },
 
       getItems: async function () {
         this.items = await this.get("/api/hsba/get_ds_hs",
-          { trangthai: 2, mayte: this.mayte, start: this.offset, count: this.perPage });
+          { username: localStorage.getItem("username"), trangthai: 2, mayte: this.mayte, start: this.offset, count: this.perPage });
 
         this.items.forEach(x => {
           x.nguonDuLieu = this.getNguonDuLieuStr(x.nguonDuLieu);
         });
       },
+      
       timKiemHoso: async function () {
         this.currentPage = 1;
         location.href = this.currentURL;
+      },
+
+      xemHoSoGoc: async function (id) {
+        this.hsGocJson = null;
+        var hsba = await this.get("/api/hsba/get_hsba_by_id", { "hsba_id": id });
+        this.hsGocJson = hsba.jsonSt;
+        $('#hsGocModal').modal();
+      },
+
+      moLuuTruHoSo: async function (id) {
+        if (!confirm('Bạn có muốn mở lưu trữ hồ sơ này')) {
+          return;
+        }
+
+        var result = await this.get("/api/hsba/unarchive_hsba", { hsba_id: id });
+        if (result.success) {
+          this.currentPage = 1;
+          location.href = this.currentURL;
+        } else {
+          alert("Mở lưu trữ hồ sơ không thành công");
+        }
+      },
+
+      xoaHoSo: async function (id) {
+        if (!confirm('Bạn có muốn xóa hồ sơ này')) {
+          return;
+        }
+
+        var result = await this.get("/api/hsba/delete_hsba", { username: localStorage.getItem("username"), hsba_id: id });
+        if (result.success) {
+          this.currentPage = 1;
+          location.href = this.currentURL;
+        } else {
+          alert("Xóa hồ sơ không thành công");
+        }
       }
     },
 

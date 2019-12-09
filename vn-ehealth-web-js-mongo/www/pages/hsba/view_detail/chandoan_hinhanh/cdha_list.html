@@ -15,5 +15,8 @@
       <td class="text-center">{{ cdha.emrDmLoaiChanDoanHinhAnh.ten }}</td>
       <td class="text-center">{{ cdha.ngaythuchien }}</td>
     </tr>
+    <tr v-if="cdha_list.length==0">
+      <td colspan="5">Không có dữ liệu</td>
+    </tr>
   </table>
 </div>

@@ -90,6 +90,10 @@ public class JsonParser {
             case DataType.TYPE_DATE :
                 try {
                     String st= element.asText();
+                    if(StringUtils.isEmpty(st)) {
+                        return null;
+                    }
+                    
                     if(st.length() == 10) {
                         if(st.contains("/"))
                             return sdf1.parse(st);

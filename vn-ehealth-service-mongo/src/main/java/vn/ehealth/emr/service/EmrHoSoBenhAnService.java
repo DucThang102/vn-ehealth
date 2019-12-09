@@ -18,6 +18,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import vn.ehealth.emr.Constants;
 import vn.ehealth.emr.Constants.NGUON_DU_LIEU;
 import vn.ehealth.emr.Constants.TRANGTHAI_HOSO;
 import vn.ehealth.emr.model.EmrHoSoBenhAn;
@@ -46,8 +47,9 @@ public class EmrHoSoBenhAnService {
     
     @Autowired MongoTemplate mongoTemplate;
     
-    public long countHoSo(int trangThai, String mayte) {
-        var query = new Query(Criteria.where("trangThai").is(trangThai)
+    public long countHoSo(ObjectId emrCoSoKhamBenhId, int trangThai, String mayte) {
+        var query = new Query(Criteria.where("emrCoSoKhamBenhId").is(emrCoSoKhamBenhId)
+                                        .and("trangThai").is(trangThai)
                                         .and("mayte").regex(mayte)
                                         .and("isLatest").is(true)
                              );
@@ -55,15 +57,20 @@ public class EmrHoSoBenhAnService {
         return mongoTemplate.count(query, EmrHoSoBenhAn.class);
     }
     
-    public List<EmrHoSoBenhAn> getDsHoSo(int trangThai, String mayte, int offset, int limit) {
+    public List<EmrHoSoBenhAn> getDsHoSo(ObjectId emrCoSoKhamBenhId, int trangThai, String mayte, int offset, int limit) {
         var sort = new Sort(Sort.Direction.DESC, "ngaytiepnhan");
         var pageable = new OffsetBasedPageRequest(limit, offset, sort);
-        var query = new Query(Criteria.where("trangThai").is(trangThai)
+        var query = new Query(Criteria.where("emrCoSoKhamBenhId").is(emrCoSoKhamBenhId)
+                                        .and("trangThai").is(trangThai)
                                         .and("mayte").regex(mayte)
                                         .and("isLatest").is(true)
                              ).with(pageable);
         
         return mongoTemplate.find(query, EmrHoSoBenhAn.class);
+    }
+    
+    public List<EmrHoSoBenhAn> getDsHoSoByBenhNhan(ObjectId emrBenhNhanId) {
+        return emrHoSoBenhAnRepository.findByEmrBenhNhanIdAndIsLatest(emrBenhNhanId, true);
     }
     
     /*
@@ -114,8 +121,12 @@ public class EmrHoSoBenhAnService {
         var maCoSoKhamBenh = hsba.emrCoSoKhamBenh != null? hsba.emrCoSoKhamBenh.ma : "";
         var emrCoSoKhamBenh = emrCoSoKhamBenhService.getByMa(maCoSoKhamBenh).orElse(null);
         
-        if(hsba.emrBenhNhan == null || emrCoSoKhamBenh == null) {
-            throw new RuntimeException();
+        if(hsba.emrBenhNhan == null) {
+            throw new RuntimeException("No patient info");
+        }
+        
+        if(emrCoSoKhamBenh == null) {
+            throw new RuntimeException("No emrCoSoKhamBenh for ma : " + maCoSoKhamBenh);
         }
         
         var emrBenhNhan = hsba.emrBenhNhan;
@@ -236,4 +247,31 @@ public class EmrHoSoBenhAnService {
         hsba.trangThai = TRANGTHAI_HOSO.CHUA_XULY;
         emrHoSoBenhAnRepository.save(hsba);
     }    
+    
+    public void archiveHsba(ObjectId id, String nguoiluutru, Date ngayluutru) {
+        var hsba = emrHoSoBenhAnRepository.findById(id);
+        hsba.ifPresent(x -> {
+            x.trangThai = Constants.TRANGTHAI_HOSO.DA_LUU;
+            x.nguoiluutru = nguoiluutru;
+            x.ngayluutru = ngayluutru;
+            x.maluutru = x.mayte;
+            emrHoSoBenhAnRepository.save(x);
+        });
+    }
+    
+    public void unArchiveHsba(ObjectId id) {
+        var hsba = emrHoSoBenhAnRepository.findById(id);
+        hsba.ifPresent(x -> {
+            x.trangThai = Constants.TRANGTHAI_HOSO.CHUA_XULY;
+            emrHoSoBenhAnRepository.save(x);
+        });
+    }
+    
+    public void deleteHsba(ObjectId id) {
+        var hsba = emrHoSoBenhAnRepository.findById(id);
+        hsba.ifPresent(x -> {
+            x.trangThai = Constants.TRANGTHAI_HOSO.DA_XOA;
+            emrHoSoBenhAnRepository.save(x);
+        });
+    }
 }

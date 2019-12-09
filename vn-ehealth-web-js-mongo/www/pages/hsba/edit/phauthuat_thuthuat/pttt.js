@@ -51,6 +51,11 @@ VueAsyncComponent('pttt-list', '/pages/hsba/edit/phauthuat_thuthuat/pttt_list.ht
       }
     },
 
+    addPttt : function() {
+      var pttt = {emrHoSoBenhAnId: this.hsba_id, emrThanhVienPttts:[]};
+      this.$emit('editPttt', pttt);
+    },
+
     editPttt : function(pttt) {
       this.$emit('editPttt', pttt);
     },

@@ -15,5 +15,9 @@
       <td class="text-center">{{ donthuoc.bacsikedon }}</td>
       <td class="text-center">{{ donthuoc.ngaykedon }}</td>
     </tr>
+
+    <tr v-if="donthuoc_list.length==0">
+      <td colspan="5">Không có dữ liệu</td>
+    </tr>
   </table>
 </div>
