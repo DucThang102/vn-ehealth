@@ -90,15 +90,21 @@
       step: 0,
       backURL: null,
       mayte: '',
+      hsba_id: null
     },
-
-    props: ["hsba_id"],
 
     created: async function () {
       this.backURL = this.getParam("backURL");
       this.mayte = this.getParam("mayte");
-      this.hsba = await this.get('/api/hsba/get_hsba_by_ma', { mayte: this.mayte });
-      this.hsba_id = this.hsba.id;
+      this.hsba_id = this.getParam("hsba_id");
+
+      if(this.mayte) {
+        this.hsba = await this.get('/api/hsba/get_hsba_by_ma', { mayte: this.mayte });
+        this.hsba_id = this.hsba.id;
+      }else {        
+        this.hsba = await this.get('/api/hsba/get_hsba_by_id', { hsba_id: this.hsba_id });
+        this.mayte = this.hsba.mayte + "(" + this.hsba.ngaytao + ")"
+      }
     }
   });
 </script>

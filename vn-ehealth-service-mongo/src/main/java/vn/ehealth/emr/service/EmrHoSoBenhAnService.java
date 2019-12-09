@@ -111,7 +111,12 @@ public class EmrHoSoBenhAnService {
     
     public Optional<EmrHoSoBenhAn> getByMayte(String mayte) {
         return emrHoSoBenhAnRepository.findByMayteAndIsLatest(mayte, true);
-    }   
+    }
+    
+    public List<EmrHoSoBenhAn> getLogs(String mayte) {
+        var sort = new Sort(Sort.Direction.DESC, "ngaytao");
+        return emrHoSoBenhAnRepository.findByMayte(mayte, sort);
+    }
     
     public EmrHoSoBenhAn save2(EmrHoSoBenhAn hsba) {
         return emrHoSoBenhAnRepository.save(hsba);
@@ -234,8 +239,8 @@ public class EmrHoSoBenhAnService {
     
     
     public void setAsLatest(final EmrHoSoBenhAn hsba) {
-                
-        var hsbaList = emrHoSoBenhAnRepository.findByMayte(hsba.mayte);
+        var sort = new Sort(Sort.Direction.ASC, "ngaytao");
+        var hsbaList = emrHoSoBenhAnRepository.findByMayte(hsba.mayte, sort);
         hsbaList.forEach(x -> {
             if(x.id.compareTo(hsba.id) != 0) {
                 x.isLatest = false;

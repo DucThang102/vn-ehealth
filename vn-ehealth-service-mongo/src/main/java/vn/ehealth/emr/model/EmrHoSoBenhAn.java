@@ -54,6 +54,7 @@ public class EmrHoSoBenhAn {
     
     public String nguoiluutru;
     
+    @JsonFormat(pattern="dd/MM/yyyy HH:mm")
     public Date ngaytao;
     
     public boolean isLatest;

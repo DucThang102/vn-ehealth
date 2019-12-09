@@ -121,7 +121,7 @@ public class EmrHoSoBenhAnController {
         }
         
         return ResponseEntity.ok(result);
-    }       
+    }
    
     
     @GetMapping("/get_hsba_by_ma")
@@ -137,6 +137,13 @@ public class EmrHoSoBenhAnController {
         
         return ResponseEntity.of(hsba);
     }
+    
+    @GetMapping("/get_hsba_logs")
+    public ResponseEntity<?> getHsbaLogs(@RequestParam("mayte") String mayte) {
+        
+        return ResponseEntity.ok(emrHoSoBenhAnService.getLogs(mayte));
+    }
+    
     
     @GetMapping("/get_hsba_by_id")
     public ResponseEntity<?> getHsbaById(@RequestParam("hsba_id") String id) {
