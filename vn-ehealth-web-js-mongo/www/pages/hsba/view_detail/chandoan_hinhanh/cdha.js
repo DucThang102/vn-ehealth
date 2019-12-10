@@ -27,13 +27,17 @@ VueAsyncComponent(
   {
     data: function() {
       return {
-        cdha_list: null
+        patientId: 0,
+        cdha_list: null,
+        cdha: null,
+        hsba: null
       };
     },
 
     methods: {
       viewCdha: function(cdha) {
-        this.$emit("viewCdha", cdha);
+        this.cdha = cdha;
+        $("#cdhaModal").modal();
       }
     },
 
@@ -41,9 +45,14 @@ VueAsyncComponent(
 
     created: async function() {
       if (this.hsba_id) {
+        this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
+          hsba_id: this.hsba_id
+        });
+
         this.cdha_list = await this.get("/api/cdha/get_ds_cdha", {
           hsba_id: this.hsba_id
         });
+        console.log(this.cdha_list);
       }
     }
   }

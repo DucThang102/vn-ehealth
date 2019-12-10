@@ -19,7 +19,7 @@
       <td class="text-center">{{ cdha.emrDmLoaiChanDoanHinhAnh.ten }}</td>
       <td class="text-center">{{ cdha.emrDmChanDoanHinhAnh.ten }}</td>
       <td class="text-center">{{ cdha.ngaythuchien }}</td>
-      <td class="text-center">Bệnh viện xxxx</td>
+      <td class="text-center" v-if="hsba">{{ hsba.emrCoSoKhamBenh.ten }}</td>
       <td class="text-center">{{cdha.ketqua}}</td>
     </tr>
     <tr v-if="cdha_list.length==0">
@@ -39,6 +39,8 @@
           </button>
         </div>
         <div v-if="cdha" class="modal-body">
+          <tomtat :hsba="hsba" title="PHIẾU CHẨN ĐOÁN HÌNH ẢNH"></tomtat>
+          <hr />
           <div>
             <meta charset="UTF-8" />
             <table border="1" cellpadding="10" class="table table-bordered">
