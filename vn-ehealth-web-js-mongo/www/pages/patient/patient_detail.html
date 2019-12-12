@@ -275,9 +275,11 @@
       return {
         patientId: 0,
         cdha_list: null,
-        cdha: null
+        cdha: null,
+        hsba: null
       };
     },
+
     methods: {
       viewCdha: function(cdha) {
         this.cdha = cdha;
@@ -286,6 +288,13 @@
     },
     created: async function() {
       this.patientId = getParam("id");
+
+      if (this.hsba_id) {
+        this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
+          hsba_id: this.hsba_id
+        });
+      }
+
       this.cdha_list = await this.get("/api/cdha/get_ds_cdha_by_bn", {
         benhnhan_id: this.patientId
       });
