@@ -10,13 +10,14 @@ import org.springframework.core.io.ClassPathResource;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import vn.ehealth.emr.model.EmrHoSoBenhAn;
+import vn.ehealth.emr.utils.EmrUtils;
 import vn.ehealth.emr.utils.ExportUtil;
 
 public class TestExportPdf {
     
     //static DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    static ObjectMapper mapper = new ObjectMapper();
-    static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+    static ObjectMapper mapper = EmrUtils.createObjectMapper();
+    static SimpleDateFormat sdf = EmrUtils.createSimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
     
     static EmrHoSoBenhAn getHsba() throws IOException {
         mapper.setDateFormat(sdf);

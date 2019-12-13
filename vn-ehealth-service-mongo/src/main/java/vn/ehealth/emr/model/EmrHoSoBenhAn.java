@@ -38,8 +38,6 @@ public class EmrHoSoBenhAn {
     public String maluutru;
     public String matraodoi;
     
-    public String jsonSt;
-    
     @JsonFormat(pattern="dd/MM/yyyy HH:mm")
     public Date ngaytiepnhan;
     
@@ -226,10 +224,10 @@ public class EmrHoSoBenhAn {
     }
     
     public EmrVaoKhoa[] getEmrVaoKhoas() {
-        if(emrVaoKhoas != null) {
-            return emrVaoKhoas.toArray(new EmrVaoKhoa[0]);
+        if(emrVaoKhoas == null) {
+            emrVaoKhoas = EmrServiceFactory.getEmrVaoKhoaService().getByEmrHoSoBenhAnId(id);
         }
-        return null;        
+        return emrVaoKhoas.toArray(new EmrVaoKhoa[0]);        
     }
     
     public List<EmrHinhAnhTonThuong> getEmrHinhAnhTonThuongs() {

@@ -16,11 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import vn.ehealth.emr.model.EmrPhauThuatThuThuat;
 import vn.ehealth.emr.service.EmrPhauThuatThuThuatService;
+import vn.ehealth.emr.utils.EmrUtils;
 
 @RestController
 @RequestMapping("/api/pttt")
@@ -53,8 +51,7 @@ public class EmrPhauThuatThuThuatController {
     public ResponseEntity<?> createOrUpdatePttt(@RequestBody String jsonSt) {
         
         try {
-            var mapper = new ObjectMapper();
-            mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            var mapper = EmrUtils.createObjectMapper();
             var pttt = mapper.readValue(jsonSt, EmrPhauThuatThuThuat.class);
             pttt = emrPhauThuatThuThuatService.createOrUpdate(pttt);
             

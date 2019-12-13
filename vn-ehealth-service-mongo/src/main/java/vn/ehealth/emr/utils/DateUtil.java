@@ -16,12 +16,12 @@ public class DateUtil {
 	final public static String FORMAT_YYYY_MM_DD = "yyyy-MM-dd";
 	
 	public static String parseDateToString(Date date, String format) {
-		SimpleDateFormat sdf = new SimpleDateFormat(format);
+		SimpleDateFormat sdf = EmrUtils.createSimpleDateFormat(format);
 		return sdf.format(date);
 	}
 	
 	public static Date parseStringToDate(String dateStr, String format) {
-		SimpleDateFormat sdf = new SimpleDateFormat(format);
+		SimpleDateFormat sdf = EmrUtils.createSimpleDateFormat(format);
 		try {
 			return sdf.parse(dateStr);
 		} catch (ParseException e) {

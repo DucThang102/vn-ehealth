@@ -35,7 +35,7 @@ VueAsyncComponent(
         $("#dieutriModal").modal();
       },
       getNgayDieuTri: function(dieutri) {
-        var ngayDieuTris = dieutri.emrQuaTrinhDieuTris.map(x.ngaydieutri);
+        var ngayDieuTris = dieutri.emrQuaTrinhDieuTris.map(x => x.ngaydieutri);
 
         if (ngayDieuTris.length == 0) {
           return "";

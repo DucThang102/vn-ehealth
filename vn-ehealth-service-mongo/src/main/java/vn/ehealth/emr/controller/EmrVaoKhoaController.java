@@ -15,11 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import vn.ehealth.emr.model.EmrVaoKhoa;
 import vn.ehealth.emr.service.EmrVaoKhoaService;
+import vn.ehealth.emr.utils.EmrUtils;
 
 @RestController
 @RequestMapping("/api/vaokhoa")
@@ -38,9 +36,7 @@ public class EmrVaoKhoaController {
     public ResponseEntity<?> saveDsVaoKhoa(@RequestBody Map<String, Object> body) throws IOException {
         String hsbaId = (String) body.get("hsbaId");       
         var emrVaoKhoasJson = (List) body.get("emrVaoKhoas");
-        var mapper = new ObjectMapper();
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        
+        var mapper = EmrUtils.createObjectMapper();        
         var emrVaoKhoas = new ArrayList<EmrVaoKhoa>();
         
         for(var emrVaoKhoaJson : emrVaoKhoasJson) {

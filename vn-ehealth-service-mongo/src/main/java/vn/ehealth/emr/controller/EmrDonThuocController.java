@@ -16,11 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import vn.ehealth.emr.model.EmrDonThuoc;
 import vn.ehealth.emr.service.EmrDonThuocService;
+import vn.ehealth.emr.utils.EmrUtils;
 
 @RestController
 @RequestMapping("/api/donthuoc")
@@ -52,8 +50,7 @@ public class EmrDonThuocController {
     public ResponseEntity<?> createOrUpdateDonthuoc(@RequestBody String jsonSt) {
         
         try {
-            var mapper = new ObjectMapper();
-            mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            var mapper = EmrUtils.createObjectMapper();            
             var donthuoc = mapper.readValue(jsonSt, EmrDonThuoc.class);
             donthuoc = emrDonThuocService.createOrUpdate(donthuoc);
             

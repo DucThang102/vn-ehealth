@@ -13,21 +13,24 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import vn.ehealth.emr.utils.EmrUtils;
 
 public class JsonParser {
     
     Logger logger = LoggerFactory.getLogger(JsonParser.class);
     
-    SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
-    SimpleDateFormat sdf1_1 = new SimpleDateFormat("yyyy-MM-dd");
-    SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-    SimpleDateFormat sdf2_2 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    SimpleDateFormat sdf4 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+    SimpleDateFormat sdf1 = EmrUtils.createSimpleDateFormat("dd/MM/yyyy");
+    SimpleDateFormat sdf1_1 = EmrUtils.createSimpleDateFormat("yyyy-MM-dd");
+    SimpleDateFormat sdf2 = EmrUtils.createSimpleDateFormat("dd/MM/yyyy HH:mm");
+    SimpleDateFormat sdf2_2 = EmrUtils.createSimpleDateFormat("yyyy-MM-dd HH:mm");
+    SimpleDateFormat sdf3 = EmrUtils.createSimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    SimpleDateFormat sdf4 = EmrUtils.createSimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
     
-    ObjectMapper mapper = new ObjectMapper();
+    ObjectMapper mapper = EmrUtils.createObjectMapper();
     
     Object parseJsonElement(String field, Optional<JsonNode> jsonElement, @Nonnull JsonNode schemaInfo, List<ErrorMessage> errors) {
         

@@ -160,9 +160,8 @@
       },
 
       xemHoSoGoc: async function (id) {
-        this.hsGocJson = null;
-        var hsba = await this.get("/api/hsba/get_hsba_by_id", { "hsba_id": id });
-        this.hsGocJson = hsba.jsonSt;
+        var result = await this.get("/api/hsba/get_hs_goc", { "hsba_id": id });
+        this.hsGocJson = result['hsGoc'];
         $('#hsGocModal').modal();
       },
 

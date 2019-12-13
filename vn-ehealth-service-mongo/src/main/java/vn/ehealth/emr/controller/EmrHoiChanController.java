@@ -17,12 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import vn.ehealth.emr.model.EmrHoiChan;
 import vn.ehealth.emr.service.EmrHoiChanService;
 import vn.ehealth.emr.service.EmrVaoKhoaService;
+import vn.ehealth.emr.utils.EmrUtils;
 
 @RestController
 @RequestMapping("/api/hoichan")
@@ -63,8 +61,7 @@ public class EmrHoiChanController {
     public ResponseEntity<?> createOrUpdateHoichan(@RequestBody String jsonSt) {
         
         try {
-            var mapper = new ObjectMapper();
-            mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            var mapper = EmrUtils.createObjectMapper();
             var hoichan = mapper.readValue(jsonSt, EmrHoiChan.class);
             hoichan = emrHoiChanService.createOrUpdate(hoichan);
             

@@ -17,11 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import vn.ehealth.emr.model.EmrChucNangSong;
 import vn.ehealth.emr.service.EmrChucNangSongService;
 import vn.ehealth.emr.service.EmrVaoKhoaService;
+import vn.ehealth.emr.utils.EmrUtils;
 
 @RestController
 @RequestMapping("/api/chucnangsong")
@@ -62,7 +61,7 @@ public class EmrChucNangSongController {
     public ResponseEntity<?> createOrUpdateChucnangsong(@RequestBody String jsonSt) {
         
         try {
-            var mapper = new ObjectMapper();
+            var mapper = EmrUtils.createObjectMapper();
             var chucnangsong = mapper.readValue(jsonSt, EmrChucNangSong.class);
             chucnangsong = emrChucNangSongService.createOrUpdate(chucnangsong);
             

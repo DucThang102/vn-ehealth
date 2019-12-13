@@ -15,7 +15,7 @@
         >
       </td>
       <td class="text-center">{{ pttt.emrDmPhauThuThuat.ten }}</td>
-      <td class="text-center">{{ pttt.bacsithuchien }}</td>
+      <td class="text-center">{{ getBacsithuchien(pttt) }}</td>
       <td class="text-center">{{ pttt.ngaygiopttt }}</td>
     </tr>
     <tr v-if="pttt_list.length==0">
@@ -45,18 +45,14 @@
                   <b>Phẫu thuật/thủ thuật: {{ pttt.emrDmPhauThuThuat.ten }}</b
                   ><br />
                   <span>- Ngày thực hiện: {{ pttt.ngaygiopttt }} </span><br />
-                  <span>- Bác sĩ thực hiện: {{ pttt.bacsithuchien }}</span
+                  <span>- Bác sĩ thực hiện: {{ getBacsithuchien(pttt)}}</span
                   ><br />
-                  <span>- Bác sĩ gây mê: {{ pttt.bacsygayme }}</span><br />
+                  <span>- Bác sĩ gây mê: {{ getBacsigayme(pttt) }}</span><br />
                   <span
-                    >- Chẩn đoán trước phẫu thuật, thủ thuật: {{
-                    this.pttt.emrDmMaBenhChandoantruoc.ten ||
-                    this.pttt.motachandoantruocpt }} </span
+                    >- Chẩn đoán trước phẫu thuật, thủ thuật: {{ getTextChanDoans(pttt.emrDmMaBenhChandoantruocs) || pttt.motachandoantruocpt }} </span
                   ><br />
                   <span
-                    >- Chẩn đoán sau phẫu thuật, thủ thuật: {{
-                    this.pttt.emrDmMaBenhChandoansau.ten ||
-                    this.pttt.motachandoansaupt }} </span
+                    >- Chẩn đoán sau phẫu thuật, thủ thuật: {{ getTextChanDoans(pttt.emrDmMaBenhChandoansaus) || pttt.motachandoansaupt }} </span
                   ><br />
                 </div>
               </div>

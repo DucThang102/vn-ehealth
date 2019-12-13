@@ -9,6 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import vn.ehealth.emr.model.EmrLog;
@@ -21,6 +24,7 @@ public class EmrLogService {
     Logger logger = LoggerFactory.getLogger(EmrLogService.class);
     @Autowired EmrActionRepository emrActionRepository;
     @Autowired EmrLogRepository emrLogRepository;
+    @Autowired MongoTemplate mongoTemplate;
     
     public EmrLog logAction(String objectClass, ObjectId objectId, String maHanhDong, Date ngayThucHien, ObjectId nguoiThucHienId, String noiDung, String ghiChu) {
         var hanhDongId = emrActionRepository.findByMa(maHanhDong).map(x -> x.id).orElse(null);
@@ -42,13 +46,39 @@ public class EmrLogService {
         return null;        
     }
     
-    public List<EmrLog> getLogs(String objectClass, ObjectId objectId, String maHanhDong, boolean asc) {
+    public long countLogs(String objectClass, ObjectId objectId, String maHanhDong, boolean asc) {
         var hanhDongId = emrActionRepository.findByMa(maHanhDong).map(x -> x.id).orElse(null);
         
-        if((hanhDongId != null && objectId != null)) {
+        if(hanhDongId != null && objectId != null) {
+            var query = new Query(Criteria.where("objectClass").is(objectClass)
+                            .and("objectId").is(objectId)
+                            .and("hanhDongId").is(hanhDongId));
+            return mongoTemplate.count(query, EmrLog.class);
+        }
+        
+        return 0;
+        
+    }
+    
+    public List<EmrLog> getLogs(String objectClass, ObjectId objectId, String maHanhDong, boolean asc, int offset, int limit) {
+        var hanhDongId = emrActionRepository.findByMa(maHanhDong).map(x -> x.id).orElse(null);
+        
+        if(hanhDongId != null && objectId != null) {            
+            var query = new Query(Criteria.where("objectClass").is(objectClass)
+                    .and("objectId").is(objectId)
+                    .and("hanhDongId").is(hanhDongId));
+            
             var sortDirection = asc? Sort.Direction.ASC: Sort.Direction.DESC;
             var sort = new Sort(sortDirection, "ngayThucHien");
-            return emrLogRepository.findByObjectClassAndObjectIdAndHanhDongId(objectClass, objectId, hanhDongId, sort);
+            
+            if(offset >= 0 && limit >= 0) {                
+                var pageable = new OffsetBasedPageRequest(limit, offset, sort);
+                query = query.with(pageable);
+            }else {
+                query = query.with(sort);
+            }
+            
+            return mongoTemplate.find(query, EmrLog.class);
         }
         
         return new ArrayList<>();        

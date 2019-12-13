@@ -21,8 +21,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import net.sf.jasperreports.engine.JRException;
 import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.service.EmrBenhNhanService;
@@ -30,6 +28,7 @@ import vn.ehealth.emr.service.EmrCoSoKhamBenhService;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.service.EmrVaoKhoaService;
 import vn.ehealth.emr.service.UserService;
+import vn.ehealth.emr.utils.EmrUtils;
 import vn.ehealth.emr.utils.ExportUtil;
 import vn.ehealth.emr.utils.UserUtil;
 import vn.ehealth.emr.validate.ErrorMessage;
@@ -96,10 +95,16 @@ public class EmrHoSoBenhAnController {
         return ResponseEntity.ok(emrHoSoBenhAnService.getHistory(new ObjectId(id)));
     }    
     
+    
+    @GetMapping("/get_hs_goc")
+    public ResponseEntity<?> getHsGoc(@RequestParam("hsba_id") String id) {
+        return ResponseEntity.ok(Map.of("hsGoc", emrHoSoBenhAnService.getHsgoc(new ObjectId(id))));
+    }
+    
+    
     @GetMapping("/get_hsba_by_id")
     public ResponseEntity<?> getHsbaById(@RequestParam("hsba_id") String id) {        
         var hsba = emrHoSoBenhAnService.getById(new ObjectId(id));
-        //emrHoSoBenhAnService.getEmrHoSoBenhAnDetail(hsba.get());
         return ResponseEntity.of(hsba);
     }
     
@@ -177,7 +182,7 @@ public class EmrHoSoBenhAnController {
         }
         try {
             var user = UserUtil.getCurrentUser();
-            var mapper = new ObjectMapper();
+            var mapper = EmrUtils.createObjectMapper();
             var hsba = mapper.convertValue(objMap, EmrHoSoBenhAn.class);
             hsba = emrHoSoBenhAnService.update(hsba, user.get().id);            
             
@@ -216,10 +221,9 @@ public class EmrHoSoBenhAnController {
         try {
             var user = UserUtil.getCurrentUser();
             var userId = user.map(x -> x.id).orElse(null);
-            var mapper = new ObjectMapper();            
+            var mapper = EmrUtils.createObjectMapper();
             var hsba = mapper.convertValue(objMap, EmrHoSoBenhAn.class);
-            hsba.jsonSt = jsonSt;
-            emrHoSoBenhAnService.createOrUpdateHIS(hsba, userId);
+            emrHoSoBenhAnService.createOrUpdateHIS(hsba, userId, jsonSt);
                         
             var result = Map.of(
                 "success" , true,

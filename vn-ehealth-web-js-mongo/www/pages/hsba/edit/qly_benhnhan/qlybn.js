@@ -157,9 +157,9 @@ VueAsyncComponent('ttnb', '/pages/hsba/edit/qly_benhnhan/thongtin_nguoibenh.html
       }
 
       if(!this.khoadieutri.id) {
-        this.emrVaoKhoas.push(this.khoadieutri);
-        $('#vkModal').modal('hide');
+        this.emrVaoKhoas.push(this.khoadieutri);        
       }
+      $('#vkModal').modal('hide');
     },
 
     saveHsbaCustom : async function() {

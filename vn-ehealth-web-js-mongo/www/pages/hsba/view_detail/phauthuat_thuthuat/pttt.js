@@ -37,7 +37,31 @@ VueAsyncComponent(
       viewPttt: function(pttt) {
         this.pttt = pttt;
         $("#ptttModal").modal();
-      }
+      },
+      getTextChanDoans: function(chandoans){
+        if(chandoans && chandoans.length > 0){
+          return chandoans.map(x => x.ma + " - " + x.ten).join(' ; ');
+        }
+        return '';
+      },
+      getBacsithuchien: function(pttt) {
+        var bacsi = pttt.emrThanhVienPttts.find(
+          x => attr(x, "emrDmVaiTro.ma") == "01" || attr(x, "emrDmVaiTro.ma") == "03"
+        );
+        if (bacsi) {
+          return bacsi.tenbacsi;
+        }
+        return "";
+      },
+      getBacsigayme: function(pttt) {
+        var bacsi = pttt.emrThanhVienPttts.find(
+          x => attr(x, "emrDmVaiTro.ma") == "05" 
+        );
+        if (bacsi) {
+          return bacsi.tenbacsi;
+        }
+        return "";
+      },
     },
 
     props: ["hsba_id"],

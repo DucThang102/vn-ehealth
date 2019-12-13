@@ -17,11 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import vn.ehealth.emr.model.EmrDieuTri;
 import vn.ehealth.emr.service.EmrDieuTriService;
 import vn.ehealth.emr.service.EmrVaoKhoaService;
+import vn.ehealth.emr.utils.EmrUtils;
 
 @RestController
 @RequestMapping("/api/dieutri")
@@ -63,7 +62,7 @@ public class EmrDieuTriController {
     public ResponseEntity<?> createOrUpdateDieutri(@RequestBody String jsonSt) {
         
         try {
-            var mapper = new ObjectMapper();
+            var mapper = EmrUtils.createObjectMapper();            
             var dieutri = mapper.readValue(jsonSt, EmrDieuTri.class);
             dieutri = emrDieuTriService.createOrUpdate(dieutri);
             

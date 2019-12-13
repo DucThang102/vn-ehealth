@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import vn.ehealth.emr.model.EmrHoSoBenhAn;
+import vn.ehealth.emr.utils.EmrUtils;
 import vn.ehealth.emr.validate.ErrorMessage;
 import vn.ehealth.emr.validate.JsonParser;
 
@@ -18,7 +19,7 @@ public class TestJson {
     static String hsbaSchemaJsonSt;
     static JsonParser jsonParser = new JsonParser();
     
-    static ObjectMapper mapper = new ObjectMapper();
+    static ObjectMapper mapper = EmrUtils.createObjectMapper();
     
     static {
         try {

@@ -16,10 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import vn.ehealth.emr.model.EmrHinhAnhTonThuong;
 import vn.ehealth.emr.service.EmrHinhAnhTonThuongService;
+import vn.ehealth.emr.utils.EmrUtils;
 
 @RestController
 @RequestMapping("/api/hatt")
@@ -52,7 +51,7 @@ public class EmrHinhAnhTonThuongController {
     public ResponseEntity<?> createOrUpdateHatt(@RequestBody String jsonSt) {
         
         try {
-            var mapper = new ObjectMapper();
+            var mapper = EmrUtils.createObjectMapper();            
             var hatt = mapper.readValue(jsonSt, EmrHinhAnhTonThuong.class);
             hatt = emrHinhAnhTonThuongService.createOrUpdate(hatt);
             

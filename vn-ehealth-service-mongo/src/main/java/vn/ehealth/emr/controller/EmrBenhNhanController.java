@@ -21,10 +21,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import vn.ehealth.emr.model.EmrBenhNhan;
 import vn.ehealth.emr.service.EmrBenhNhanService;
+import vn.ehealth.emr.utils.EmrUtils;
 import vn.ehealth.emr.validate.ErrorMessage;
 import vn.ehealth.emr.validate.JsonParser;
 
@@ -80,7 +79,7 @@ public class EmrBenhNhanController {
         }
         
         try {
-            var mapper = new ObjectMapper();
+            var mapper = EmrUtils.createObjectMapper();
             var benhNhan = mapper.convertValue(objMap, EmrBenhNhan.class);
             if(StringUtils.isEmpty(benhNhan.iddinhdanhchinh)) {
                 benhNhan.iddinhdanhchinh = benhNhan.idhis;

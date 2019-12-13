@@ -18,18 +18,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import vn.ehealth.emr.model.EmrHoSoBenhAn;
-import vn.ehealth.emr.model.EmrLog;
 import vn.ehealth.emr.repository.EmrHoSoBenhAnRepository;
 import vn.ehealth.emr.utils.Constants.MA_HANH_DONG;
 import vn.ehealth.emr.utils.Constants.NGUON_DU_LIEU;
 import vn.ehealth.emr.utils.Constants.TRANGTHAI_HOSO;
+import vn.ehealth.emr.utils.EmrUtils;
 import vn.ehealth.emr.utils.JsonUtil;
 
 @Service
 public class EmrHoSoBenhAnService {
    
     //private Logger logger = LoggerFactory.getLogger(EmrHoSoBenhAnService.class);
-    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+    private SimpleDateFormat sdf = EmrUtils.createSimpleDateFormat("dd/MM/yyyy HH:mm");
             
     @Autowired EmrHoSoBenhAnRepository emrHoSoBenhAnRepository;
     
@@ -79,8 +79,16 @@ public class EmrHoSoBenhAnService {
         return emrHoSoBenhAnRepository.findById(id);
     }
     
+    public String getHsgoc(ObjectId id) {
+        var logs = emrLogService.getLogs(EmrHoSoBenhAn.class.getName(), id, MA_HANH_DONG.CHINH_SUA, false, 0, 1);
+        if(logs.size() > 0) {
+            return logs.get(0).ghiChu;
+        }
+        return "";
+    }
+    
     public void getEmrHoSoBenhAnDetail(@Nonnull EmrHoSoBenhAn hsba) {
-        hsba.emrVaoKhoas = emrVaoKhoaService.getByEmrHoSoBenhAnId(hsba.id);
+        hsba.getEmrVaoKhoas();
         hsba.emrVaoKhoas.forEach(x -> emrVaoKhoaService.getEmrVaoKhoaDetail(x));
         
         hsba.emrHinhAnhTonThuongs = emrHinhAnhTonThuongService.getByEmrHoSoBenhAnId(hsba.id);
@@ -94,12 +102,7 @@ public class EmrHoSoBenhAnService {
     }
     
     public List<Object> getHistory(ObjectId id) {
-        var createLogs = emrLogService.getLogs(EmrHoSoBenhAn.class.getName(), id, MA_HANH_DONG.TAO_MOI, false);
-        var updateLogs = emrLogService.getLogs(EmrHoSoBenhAn.class.getName(), id, MA_HANH_DONG.CHINH_SUA, false);
-        
-        var logs = new ArrayList<EmrLog>();
-        logs.addAll(updateLogs);
-        logs.addAll(createLogs);
+        var logs = emrLogService.getLogs(EmrHoSoBenhAn.class.getName(), id, MA_HANH_DONG.CHINH_SUA, false, -1, -1);
         
         var result = new ArrayList<>();
         for(var log : logs) {
@@ -115,20 +118,21 @@ public class EmrHoSoBenhAnService {
                 ngayThucHien = sdf.format(log.ngayThucHien);
             }            
                     
-            result.add(Map.of("hsba", hsba, "ngaySua", ngayThucHien, "nguoiSua", nguoiThucHien));
+            result.add(Map.of("hsba", hsba, "hsGoc", log.ghiChu, "ngaySua", ngayThucHien, "nguoiSua", nguoiThucHien));
         }
         
         return result;
     }
     
-    public EmrHoSoBenhAn update(@Nonnull EmrHoSoBenhAn hsba, ObjectId userId) {
+    public EmrHoSoBenhAn update(@Nonnull EmrHoSoBenhAn hsba, ObjectId userId) {        
+        var jsonSt = getHsgoc(hsba.id);
         emrLogService.logAction(EmrHoSoBenhAn.class.getName(), hsba.id, MA_HANH_DONG.CHINH_SUA, new Date(), userId, 
-                JsonUtil.dumpObject(hsba), "");
+                JsonUtil.dumpObject(hsba), jsonSt);
         
         return emrHoSoBenhAnRepository.save(hsba);
     }
     
-    public EmrHoSoBenhAn createOrUpdateHIS(@Nonnull EmrHoSoBenhAn hsba, ObjectId userId) {
+    public EmrHoSoBenhAn createOrUpdateHIS(@Nonnull EmrHoSoBenhAn hsba, ObjectId userId, String jsonSt) {
         hsba.id = emrHoSoBenhAnRepository.findByMatraodoi(hsba.matraodoi).map(x -> x.id).orElse(null);
         boolean createNew = hsba.id == null;
         
@@ -256,9 +260,13 @@ public class EmrHoSoBenhAnService {
             hsba.emrXetNghiems.set(i, xn);
         }
         
-        String maHanhDong = createNew? MA_HANH_DONG.TAO_MOI: MA_HANH_DONG.CHINH_SUA;
-        emrLogService.logAction(EmrHoSoBenhAn.class.getName(), hsba.id, maHanhDong, new Date(), userId, 
-                                    JsonUtil.dumpObject(hsba), "");
+        if(createNew) {
+            emrLogService.logAction(EmrHoSoBenhAn.class.getName(), hsba.id, MA_HANH_DONG.TAO_MOI, new Date(), userId, 
+                                        "", jsonSt);
+        }
+        
+        emrLogService.logAction(EmrHoSoBenhAn.class.getName(), hsba.id, MA_HANH_DONG.CHINH_SUA, new Date(), userId, 
+                                    JsonUtil.dumpObject(hsba), jsonSt);
         
         return hsba;
     }
