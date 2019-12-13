@@ -1,8 +1,8 @@
-VueAsyncComponent('dieutri', '/pages/hsba/view_detail/dieutri/dieutri.html', {
+VueAsyncComponent("dieutri", "/pages/hsba/view_detail/dieutri/dieutri.html", {
   data: function() {
     return {
       dieutri: null
-    }
+    };
   },
 
   methods: {
@@ -13,72 +13,91 @@ VueAsyncComponent('dieutri', '/pages/hsba/view_detail/dieutri/dieutri.html', {
       this.dieutri = null;
     }
   },
-  
+
   props: ["hsba_id"]
 });
 
-VueAsyncComponent('dieutri-list', '/pages/hsba/view_detail/dieutri/dieutri_list.html', {
-  data: function(){
-    return {
-      dieutri_list : null
-    }    
-  },
-
-  methods:  {
-    viewDieutri : function(dieutri) {
-      this.$emit('viewDieutri', dieutri);
+VueAsyncComponent(
+  "dieutri-list",
+  "/pages/hsba/view_detail/dieutri/dieutri_list.html",
+  {
+    data: function() {
+      return {
+        dieutri_list: null,
+        dieutri: null,
+        hsba: null
+      };
     },
-    getNgayDieuTri : function(dieutri) {
-      var ngayDieuTris = dieutri.emrQuaTrinhDieuTris.map(x => x.ngaydieutri);
-      ngayDieuTris = ngayDieuTris.sort(x => x.getTime());
-      
-      if(ngayDieuTris.length == 0) {
-        return "";
-      }
 
-      if(ngayDieuTris.length == 1) {
-        return ngayDieuTris[0];
-      }
+    methods: {
+      viewDieutri: function(dieutri) {
+        this.dieutri = dieutri;
+        $("#dieutriModal").modal();
+      },
+      getNgayDieuTri: function(dieutri) {
+        var ngayDieuTris = dieutri.emrQuaTrinhDieuTris.map(x.ngaydieutri);
 
-      ngayBatDau = ngayDieuTris[0];
-      ngayKetThuc = ngayDieuTris[ngayDieuTris.length-1];
-      return "Từ " + ngayBatDau + " đến " + ngayKetThuc;
+        if (ngayDieuTris.length == 0) {
+          return "";
+        }
+
+        if (ngayDieuTris.length == 1) {
+          return ngayDieuTris[0];
+        }
+
+        ngayBatDau = ngayDieuTris[0];
+        ngayKetThuc = ngayDieuTris[ngayDieuTris.length - 1];
+        return "Từ " + ngayBatDau + " đến " + ngayKetThuc;
+      },
+      getTenKhoa: function(khoadieutri) {
+        return khoadieutri.tenkhoa || attr(khoadieutri, "emrDmKhoaDieuTri.ten");
+      }     
     },
-    getTenKhoa: function(khoadieutri){
-      return khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten');
+
+    props: ["hsba_id"],
+
+    created: async function() {
+      if (this.hsba_id) {
+        this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
+          hsba_id: this.hsba_id
+        });
+
+        this.dieutri_list = await this.get("/api/dieutri/get_ds_dieutri", {
+          hsba_id: this.hsba_id
+        });
+        console.log(this.dieutri_list);
+        this.dieutri_list.forEach(x => {
+          x.ngaydieutri = this.getNgayDieuTri(x);
+        });
+      }
     }
-  },
+  }
+);
 
-  props: ["hsba_id"],
+VueAsyncComponent(
+  "dieutri-view",
+  "/pages/hsba/view_detail/dieutri/dieutri_view.html",
+  {
+    data: function() {
+      return {
+        hsba: null
+      };
+    },
+    props: ["hsba_id", "dieutri"],
 
-  created: async function() {
-    if(this.hsba_id) {
-      this.dieutri_list = await this.get('/api/dieutri/get_ds_dieutri', { hsba_id: this.hsba_id });
-      this.dieutri_list.forEach(x => {
-        x.ngaydieutri = this.getNgayDieuTri(x);
+    methods: {
+      viewDieutriList: function() {
+        this.$emit("viewDieutriList");
+      },
+      getTenKhoa: function(khoadieutri) {
+        return khoadieutri.tenkhoa || attr(khoadieutri, "emrDmKhoaDieuTri.ten");
+      }
+    },
+
+    created: async function() {
+      this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
+        hsba_id: this.hsba_id
       });
     }
-  } 
-});
-
-VueAsyncComponent('dieutri-view', '/pages/hsba/view_detail/dieutri/dieutri_view.html', {
-  data: function() {
-    return {
-      hsba: null
-    }
-  },
-  props: ["hsba_id", "dieutri"],
-  
-  methods: {
-    viewDieutriList: function() {
-      this.$emit('viewDieutriList');
-    },
-    getTenKhoa: function(khoadieutri){
-      return khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten');
-    }
-  },
-
-  created: async function() {
-    this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
   }
-});
+);

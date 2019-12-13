@@ -192,20 +192,20 @@ VueAsyncComponent('chandoan', '/pages/hsba/edit/qly_benhnhan/chandoan.html', {
   },
 
   computed: {
-    emrDmMaBenhChandoannoidens: function() {
-      return store.state.emrDmMaBenhChandoannoidens;
+    emrDmMaBenhChandoannoiden: function() {
+      return store.state.emrDmMaBenhChandoannoiden;
     },
-    emrDmMaBenhChandoankkbs: function() {
-      return store.state.emrDmMaBenhChandoankkbs;
+    emrDmMaBenhChandoankkb: function() {
+      return store.state.emrDmMaBenhChandoankkb;
     },
-    emrDmMaBenhChandoanbenhchinhs: function() {
-      return store.state.emrDmMaBenhChandoanbenhchinhs;
+    emrDmMaBenhChandoanbenhchinh: function() {
+      return store.state.emrDmMaBenhChandoanbenhchinh;
     },
     emrDmMaBenhChandoankemtheos: function() {
       return store.state.emrDmMaBenhChandoankemtheos;
     },
-    emrDmMaBenhChandoanravienchinhs: function() {
-      return store.state.emrDmMaBenhChandoanravienchinhs;
+    emrDmMaBenhChandoanravienchinh: function() {
+      return store.state.emrDmMaBenhChandoanravienchinh;
     },
     emrDmMaBenhChandoanravienkemtheos: function() {
       return store.state.emrDmMaBenhChandoanravienkemtheos;
@@ -213,20 +213,20 @@ VueAsyncComponent('chandoan', '/pages/hsba/edit/qly_benhnhan/chandoan.html', {
   },
 
   watch: {
-    emrDmMaBenhChandoannoidens: function(val) {
-      this.hsba.emrChanDoan.emrDmMaBenhChandoannoidens = val;
+    emrDmMaBenhChandoannoiden: function(val) {
+      this.hsba.emrChanDoan.emrDmMaBenhChandoannoiden = val;
     },
-    emrDmMaBenhChandoankkbs: function(val) {
-      this.hsba.emrChanDoan.emrDmMaBenhChandoankkbs = val;
+    emrDmMaBenhChandoankkb: function(val) {
+      this.hsba.emrChanDoan.emrDmMaBenhChandoankkb = val;
     },
-    emrDmMaBenhChandoanbenhchinhs: function(val) {
-      this.hsba.emrBenhAn.emrDmMaBenhChandoanbenhchinhs = val;
+    emrDmMaBenhChandoanbenhchinh: function(val) {
+      this.hsba.emrBenhAn.emrDmMaBenhChandoanbenhchinh = val;
     },
     emrDmMaBenhChandoankemtheos: function(val) {
       this.hsba.emrBenhAn.emrDmMaBenhChandoankemtheos = val;
     },
-    emrDmMaBenhChandoanravienchinhs: function(val) {
-      this.hsba.emrChanDoan.emrDmMaBenhChandoanravienchinhs = val;
+    emrDmMaBenhChandoanravienchinh: function(val) {
+      this.hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh = val;
     },
     emrDmMaBenhChandoanravienkemtheos: function(val) {
       this.hsba.emrChanDoan.emrDmMaBenhChandoanravienkemtheos = val;

@@ -1,131 +1,146 @@
 <% include ../../header.html %>
 <style>
-    .family-name {
-        font-weight: bold;
-        font-size: 90%;
-    }
+  .family-name {
+    font-weight: bold;
+    font-size: 90%;
+  }
 
-    .given-name {
-        font-size: 90%;
-    }
+  .given-name {
+    font-size: 90%;
+  }
 
-    .gender {
-        font-weight: bold;
-    }
+  .gender {
+    font-weight: bold;
+  }
 
-    .dob {
-        font-weight: bold;
-    }
+  .dob {
+    font-weight: bold;
+  }
 
-    .identifier-system {
-        font-style: italic;
-        font-size: 90%;
-    }
+  .identifier-system {
+    font-style: italic;
+    font-size: 90%;
+  }
 
-    .identifier-number {
-        font-weight: bold;
-        font-size: 90%;
-    }
+  .identifier-number {
+    font-weight: bold;
+    font-size: 90%;
+  }
 
-    .contact-type {
-        font-style: italic;
-        font-size: 90%;
-    }
+  .contact-type {
+    font-style: italic;
+    font-size: 90%;
+  }
 
-    .contact {
-        font-weight: bold;
-        font-size: 90%;
-    }
-
+  .contact {
+    font-weight: bold;
+    font-size: 90%;
+  }
 </style>
 
 <div id="content-wrapper" class="bg-light">
-    <div class="font-weight-bold text-uppercase"></div>
-    <div id="content" class="bg-white mt-2">    
-        <div id='app' class="panel panel-default">
-            <template>	  
-                <form class='mt-3' @submit.prevent="searchPatient()">
-                <div class="row">
-                    <div class="col-10">
-                    <input class="form-control" v-model="keyword" placeholder="Tìm kiếm bệnh nhân" type="text">
-                    </div>
-                    <div class="col-2">
-                        <button type="submit" class="btn btn btn-primary"><i class="fa fa-search faR10" aria-hidden="true"></i>Tìm kiếm</button>
-                    </div>
-                </div>
-                </form>
-                
-                <div class="portlet-body">
-                    <table class="table mt-3">
-                        <tr>
-                            <th style="width: 20%">Họ tên</th>
-                            <th style="width: 10%">Ngày sinh</th>
-                            <th style="width: 10%">Giới tính</th>
-                            <th style="width: 30%">Định danh y tế</th>
-                            <th style="width: 30%">Liên hệ</th>
-                        </tr>
-                
-                        <tr v-for="patient in patients">
-                            <td>
-                                <a v-bind:href='createURL("/pages/patient/patient_detail.html", {"name" : keyword})'>
-                                    <span class="family-name">{{ patient.fullname }}</span>
-                                </a>
-                            </td>
-                            <td><span class="dob">{{ patient.date_of_birth }}</span></td>
-                            <td><span class="gender">{{ patient.gender }}</span></td>
-                            <td>
-                                <span class="identifier-system">{{ patient.identifier }}</span>
-                            </td>
-                            <td>
-                                <span class="contact">{{ patient.telecom }}</span>
-                            </td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </table>
-                </div>
-            </template>
-        </div>
-    </div>
-</div>    
+  <div class="font-weight-bold text-uppercase"></div>
+  <div id="content" class="bg-white mt-2">
+    <div id="app" class="panel panel-default">
+      <template>
+        <form class="mt-3" @submit.prevent="searchPatient()">
+          <div class="row">
+            <div class="col-10">
+              <input
+                class="form-control"
+                v-model="keyword"
+                placeholder="Tìm kiếm bệnh nhân"
+                type="text"
+              />
+            </div>
+            <div class="col-2">
+              <button type="submit" class="btn btn btn-primary">
+                <i class="fa fa-search faR10" aria-hidden="true"></i>Tìm kiếm
+              </button>
+            </div>
+          </div>
+        </form>
 
-<script type = "text/javascript">
-    var vue_det = new Vue({
-        el: '#app',
-        data: {
-            keyword : '',
-            patients : []
-        },        
-        methods: {
-            searchPatient: function() {
-                var fullname = "Nguyễn Văn " + this.keyword;
-                this.patients = [
-                    {
-                        id: 1,
-                        fullname : fullname,
-                        date_of_birth : "19/03/1998",
-                        gender : "Nam",
-                        identifier: "TE1010500107449.19031998",
-                        telecom: "+84-903.499.654"
-                    }
-                ];
-            },
-        },
-        created : function() {
-            this.keyword = this.getParam('name');
-            if(this.keyword) {
-                var fullname = "Nguyễn Văn " + this.keyword;
-                this.patients = [
-                    {
-                        id: 1,
-                        fullname : fullname,
-                        date_of_birth : "19/03/1998",
-                        gender : "Nam",
-                        identifier: "TE1010500107449.19031998",
-                        telecom: "+84-903.499.654"
-                    }
-                ];
-            }
-        }
-    });
+        <div class="portlet-body">
+          <table class="table mt-3">
+            <tr>
+              <th style="width: 20%">Họ tên</th>
+              <th style="width: 10%">Ngày sinh</th>
+              <th style="width: 10%">Giới tính</th>
+              <th style="width: 30%">Định danh y tế</th>
+              <th style="width: 30%">Địa chỉ</th>
+            </tr>
+
+            <tr v-for="patient in currentItems">
+              <td>
+                <a
+                  v-bind:href='createURL("/pages/patient/patient_detail.html", {"id" : patient.id})'
+                >
+                  <span class="family-name">{{ patient.tendaydu }}</span>
+                </a>
+              </td>
+              <td><span class="dob">{{ patient.ngaysinh }}</span></td>
+              <td>
+                <span class="gender">{{ patient.emrDmGioiTinh.ten }}</span>
+              </td>
+              <td>
+                <span class="identifier-system"
+                  >{{ patient.iddinhdanhchinh }}</span
+                >
+              </td>
+              <td>
+                <span class="contact">{{ patient.diachi }}</span>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+
+          <b-pagination
+            v-model="currentPage"
+            :total-rows="rows"
+            :per-page="perPage"
+          >
+          </b-pagination>
+          <p class="mt-3">Tổng số kết quả tìm kiếm: {{ rows }}</p>
+        </div>
+      </template>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var vue_det = new Vue({
+    el: "#app",
+    data: {
+      keyword: "",
+      perPage: 5,
+      currentPage: 1,
+      patients: []
+    },
+
+    methods: {
+      searchPatient: async function() {
+        this.patients = await this.get("/api/benh_nhan/search_benhnhan", {
+          keyword: this.keyword
+        });
+        console.log(this.patients);
+      },
+      created: async function() {
+        this.keyword = this.getParam("name");
+        this.searchPatient();
+      }
+    },
+    computed: {
+      rows() {
+        return this.patients.length;
+      },
+      currentItems() {
+        return this.patients.slice(
+          (this.currentPage - 1) * this.perPage,
+          this.currentPage * this.perPage
+        );
+      }
+    }
+  });
 </script>

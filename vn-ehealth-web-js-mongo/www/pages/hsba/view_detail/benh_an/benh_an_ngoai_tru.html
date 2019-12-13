@@ -1,0 +1,171 @@
+<div class="container">
+  <div class="row mt-3">
+    <h4>TỔNG KẾT BỆNH ÁN</h4>
+  </div>
+  <div class="row mt-2">
+    <h5>1. Quá trình bệnh lý và diễn biến lâm sàng:</h5>
+  </div>
+  <div class="row mt-2">
+    <span>{{hsba.emrTongKetRaVien.dienbienlamsang}}</span>
+  </div>
+  <div class="row mt-2">
+    <span
+      >.................................................................................................................................</span
+    >
+  </div>
+  <div class="row mt-2">
+    <span
+      >.................................................................................................................................</span
+    >
+  </div>
+  <div class="row mt-2">
+    <h5>2. Tóm tắt kết quả xét nghiệm cận lâm sàng có giá trị chẩn đoán:</h5>
+  </div>
+  <div class="row mt-2">
+    <span>{{hsba.emrTongKetRaVien.canlamsang}}</span>
+  </div>
+  <div class="row mt-2">
+    <span
+      >.................................................................................................................................</span
+    >
+  </div>
+  <div class="row mt-2">
+    <span
+      >.................................................................................................................................</span
+    >
+  </div>
+  <div class="row mt-2">
+    <h5>3. Chẩn đoán ra viện</h5>
+  </div>
+  <div>
+    - Bệnh chính
+    <span>{{hsba.emrBenhAn.motachandoanravienchinh}}</span
+    ><input type="checkbox" /><input type="checkbox" /><input
+      type="checkbox"
+    /><input type="checkbox" />
+    <br />
+    -Bệnh kèm theo <i>(nếu có):</i>
+    <span>{{hsba.emrBenhAn.motachandoanravienkemtheo}}</span
+    ><input type="checkbox" /><input type="checkbox" /><input
+      type="checkbox"
+    /><input type="checkbox" />
+  </div>
+  <div class="row mt-2">
+    <h5>4. Phương pháp điều trị:</h5>
+  </div>
+  <div class="row mt-2">
+    <span>{{hsba.emrTongKetRaVien.phuongphapdieutri}}</span>
+  </div>
+  <div class="row mt-2">
+    <span
+      >.................................................................................................................................</span
+    >
+  </div>
+  <div class="row mt-2">
+    <span
+      >.................................................................................................................................</span
+    >
+  </div>
+  <div class="row mt-2">
+    <h5>5. Tình trạng người bệnh ra viện:</h5>
+  </div>
+  <div class="row mt-2">
+    <span>{{hsba.emrTongKetRaVien.tinhtrangnguoibenh}}</span>
+  </div>
+  <div class="row mt-2">
+    <span
+      >.................................................................................................................................</span
+    >
+  </div>
+  <div class="row mt-2">
+    <span
+      >.................................................................................................................................</span
+    >
+  </div>
+  <div class="row mt-2">
+    <h5>6. Hướng điều trị và các chế độ tiếp theo:</h5>
+  </div>
+  <div class="row mt-2">
+    <span>{{hsba.emrBenhAn.huongdieutri}}</span>
+  </div>
+  <div class="row mt-2">
+    <span
+      >.................................................................................................................................</span
+    >
+  </div>
+  <div class="row mt-2">
+    <span
+      >.................................................................................................................................</span
+    >
+  </div>
+  <div>
+    <table style="width:100%" border="1">
+      <tr>
+        <th colspan="2"><center>Hồ sơ, phim, ảnh</center></th>
+        <td rowspan="4">
+          <center><b>Người giao hồ sơ:</b></center>
+          <br />
+          <br />
+          <br />
+          <p>Họ và tên:{{hsba.emrTongKetRaVien.nguoigiaohoso}}</p>
+        </td>
+        <td rowspan="8">
+          <p>Ngày:{{hsba.emrQuanLyNguoiBenh.ngaygioravien}}</p>
+
+          <center><b> Bác sĩ điều trị </b></center>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <p>Họ và tên:{{hsba.emrTongKetRaVien.bacsydieutri}}</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <center><b>Loại</b></center>
+        </td>
+        <td>
+          <center><b>Số tờ</b></center>
+        </td>
+      </tr>
+      <tr>
+        <td>- X - Quang</td>
+        <td><center>{{hsba.emrTongKetRaVien.soToXQuang}}</center></td>
+      </tr>
+      <tr>
+        <td>- CT Scanner</td>
+        <td><center>{{hsba.emrTongKetRaVien.soToCTScanner}}</center></td>
+      </tr>
+      <tr>
+        <td>- Siêu âm</td>
+        <td><center>{{hsba.emrTongKetRaVien.soToSieuAm}}</center></td>
+        <td rowspan="4">
+          <center><b> Người nhận hồ sơ</b></center>
+          <br />
+          <br />
+          <br />
+          <p>Họ và tên:{{hsba.emrTongKetRaVien.nguoinhanhoso}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>- Xét nghiệm</td>
+        <td><center>{{hsba.emrTongKetRaVien.soToXetNghiem}}</center></td>
+      </tr>
+      <tr>
+        <td>- Khác</td>
+        <td><center>{{hsba.emrTongKetRaVien.soToKhac}}</center></td>
+      </tr>
+      <tr>
+        <td>- Toàn bộ hồ sơ</td>
+        <td>
+          <center>
+            {{hsba.emrTongKetRaVien.soToXQuang+hsba.emrTongKetRaVien.soToCTScanner+hsba.emrTongKetRaVien.soToSieuAm+hsba.emrTongKetRaVien.soToXetNghiem+hsba.emrTongKetRaVien.soToKhac}}
+          </center>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

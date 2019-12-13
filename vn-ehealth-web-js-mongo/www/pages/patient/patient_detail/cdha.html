@@ -1,73 +1,68 @@
-<div v-if="hoichan_list">
+<div v-if="cdha_list">
   <table class="table table-bordered">
     <tr>
       <th style="width: 5%;" class="text-center">STT</th>
       <th style="width: 15%;" class="text-center">Thao tác</th>
-      <th style="width: 40%;" class="text-center">Ngày giờ hội chẩn</th>
-      <th style="width: 40%;" class="text-center">Khoa điều trị</th>
+      <th style="width: 15%;" class="text-center">Loại chẩn đoán hình ảnh</th>
+      <th style="width: 15%;" class="text-center">Chẩn đoán hình ảnh</th>
+      <th style="width: 15%;" class="text-center">Ngày thực hiện</th>
+      <th style="width: 15%;" class="text-center">Nơi thực hiện</th>
+      <th style="width: 20%;" class="text-center">Kết quả</th>
     </tr>
-    <tr v-for="(hoichan, i) in hoichan_list">
+    <tr v-for="(cdha, i) in cdha_list">
       <td class="text-center">{{ i + 1 }}</td>
       <td class="text-center">
-        <a href="#" v-on:click="viewHoichan(hoichan)"
+        <a href="javascript:void(0)" v-on:click="viewCdha(cdha)"
           ><i class="fas fa-fw fa-binoculars"></i> Xem</a
         >
       </td>
-      <td class="text-center">{{ hoichan.ngaythuchien }}</td>
-      <td class="text-center">{{ getTenKhoa(hoichan.emrVaoKhoa) }}</td>
+      <td class="text-center">{{ cdha.emrDmLoaiChanDoanHinhAnh.ten }}</td>
+      <td class="text-center">{{ cdha.emrDmChanDoanHinhAnh.ten }}</td>
+      <td class="text-center">{{ cdha.ngaythuchien }}</td>
+      <td class="text-center">Bệnh viện TW</td>
+      <td class="text-center">{{cdha.ketqua}}</td>
     </tr>
-    <tr v-if="hoichan_list.length==0">
-      <td colspan="4">Không có dữ liệu</td>
+    <tr v-if="cdha_list.length==0">
+      <td colspan="5">Không có dữ liệu</td>
     </tr>
   </table>
 
-  <div class="modal fade" id="hoichanModal">
+  <div class="modal fade" id="cdhaModal">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">
-            <strong>Thông tin hội chẩn</strong>
+            <strong>Thông tin chẩn đoán hình ảnh</strong>
           </h5>
           <button type="button" class="close" data-dismiss="modal">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div v-if="hoichan" class="modal-body">
-          <tomtat :hsba="hsba" title="PHIẾU HỘI CHẨN"></tomtat>
-          <hr />
+        <div v-if="cdha" class="modal-body">
           <div>
             <meta charset="UTF-8" />
             <table border="1" cellpadding="10" class="table table-bordered">
               <div class="row">
                 <div class="col-12">
-                  <b>Hội chẩn lúc: {{ hoichan.ngaythuchien }}</b><br />
-                  <span>- Tại khoa: {{ getTenKhoa(hoichan.emrVaoKhoa) }}</span
+                  <b>Chẩn đoán hình ảnh: {{ cdha.emrDmChanDoanHinhAnh.ten }}</b
                   ><br />
-                  <div class="row">
-                    <div class="col-6">
-                      <span>- Bác sĩ chủ tọa:</span>
-                      <span>{{ bacsichutoa }}</span>
-                    </div>
-                    <div class="col-6">
-                      <span>- Thư ký:</span>
-                      <span>{{ thuky }}</span>
-                    </div>
-                    <div class="col-6"></div>
-                  </div>
-                  <span>- Thành viên tham gia:</span>
-                  <ul>
-                    <li v-for="bs in hoichan.emrThanhVienHoiChans">
-                      {{ bs.tenbacsi }}
-                    </li>
-                  </ul>
+                  <span
+                    >- Loại chẩn đoán: {{ cdha.emrDmLoaiChanDoanHinhAnh.ten
+                    }}</span
+                  ><br />
+                  <span>- Ngày yêu cầu: {{ cdha.ngayyeucau }}</span><br />
+                  <span>- Bác sĩ yêu cầu: {{ cdha.bacsiyeucau }}</span><br />
+                  <span>- Ngày thực hiện: {{ cdha.ngaythuchien }}</span><br />
+                  <span>- Bác sĩ thực hiện: {{ cdha.bacsichuyenkhoa }}</span
+                  ><br />
                 </div>
               </div>
               <hr />
 
               <div class="row">
                 <div class="col-12">
-                  <b><span>Tóm tắt diễn biến</span> <br /></b>
-                  <span>{{ hoichan.tomtatdienbien }}</span>
+                  <b><span>Kết quả</span> <br /></b>
+                  <span>{{ cdha.ketqua }}</span>
                 </div>
               </div>
               <hr />
@@ -75,19 +70,19 @@
               <div class="row">
                 <div class="col-12">
                   <b><span>Kết luận</span> <br /></b>
-                  <span>{{ hoichan.ketluanhoichan }}</span>
+                  <span>{{ cdha.ketluan }}</span>
                 </div>
               </div>
               <hr />
 
               <div class="row">
                 <div class="col-12">
-                  <b><span>Hướng điều trị tiếp theo</span> <br /></b>
-                  <span>{{ hoichan.huongdieutri }}</span>
+                  <b><span>Lời dặn</span> <br /></b>
+                  <span>{{ cdha.loidan }}</span>
                 </div>
               </div>
 
-              <div v-if="hoichan.emrFileDinhKemHoiChans.length > 0">
+              <div v-if="cdha.emrFileDinhKemCdhas.length > 0">
                 <hr />
                 <b>Danh sách file đính kèm:</b>
                 <table class="table table-bordered mt-3">
@@ -95,7 +90,7 @@
                     <th style="width:10%" class="text-center">STT</th>
                     <th style="width:90%" class="text-center">Tên file</th>
                   </tr>
-                  <tr v-for="(file, i) in hoichan.emrFileDinhKemHoiChans">
+                  <tr v-for="(file, i) in cdha.emrFileDinhKemCdhas">
                     <td>{{ i + 1 }}</td>
                     <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
                   </tr>
