@@ -1,6 +1,7 @@
 package vn.ehealth.emr.model;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -19,6 +20,13 @@ public class EmrYhctChanDoan {
     //public String lstbatcuongHienthi;
     public List<EmrDmContent> emrDmYhctBatCuongs;
     
+    public String getLstbatcuongHienthi() {
+        if(emrDmYhctBatCuongs != null) {
+            return emrDmYhctBatCuongs.stream().map(x -> x.ten).collect(Collectors.joining(","));
+        }
+        return "";
+    }
+    
     //public String lstbatcuongVv;    
     //public String lstbatcuongVvTen;
     //public String lstbatcuongVvHienthi;
@@ -28,6 +36,14 @@ public class EmrYhctChanDoan {
     //public String lsttangphuTen;
     //public String lsttangphuHienthi;
     public List<EmrDmContent> emrDmYhctTangPhus;
+    
+    public String getLsttangphuHienthi() {
+        if(emrDmYhctTangPhus != null) {
+            return emrDmYhctTangPhus.stream().map(x -> x.ten).collect(Collectors.joining(","));            
+        }
+        
+        return "";
+    }
     
     //public String lsttangphuVv;    
     //public String lsttangphuVvTen;
@@ -39,6 +55,13 @@ public class EmrYhctChanDoan {
     //public String lstkinhmachHienthi;
     public List<EmrDmContent> emrDmYhctKinhMachs;
     
+    public String getLstkinhmachHienthi() {
+        if(emrDmYhctKinhMachs != null) {
+            return emrDmYhctKinhMachs.stream().map(x -> x.ten).collect(Collectors.joining(","));
+        }
+        return "";        
+    }
+    
     //public String lstkinhmachVv;    
     //public String lstkinhmachVvTen;
     //public String lstkinhmachVvHienthi;
@@ -49,6 +72,13 @@ public class EmrYhctChanDoan {
     //public String lstdinhvibenhHienthi;
     public List<EmrDmContent> emrDmYhctDinhViBenhs;
     
+    public String getLstdinhvibenhHienthi() {
+        if(emrDmYhctDinhViBenhs != null) {
+            return emrDmYhctDinhViBenhs.stream().map(x -> x.ten).collect(Collectors.joining(","));
+        }
+        return "";        
+    }
+    
     //public String lstdinhvibenhVv;    
     //public String lstdinhvibenhVvTen;
     //public String lstdinhvibenhVvHienthi;
@@ -58,6 +88,13 @@ public class EmrYhctChanDoan {
     //public String lstnguyennhanbenhTen;
     //public String lstnguyennhanbenhHienthi;
     public List<EmrDmContent> emrDmYhctNguyenNhanBenhs;
+    
+    public String getLstnguyennhanbenhHienthi() {
+        if(emrDmYhctNguyenNhanBenhs != null) {
+            return emrDmYhctNguyenNhanBenhs.stream().map(x -> x.ten).collect(Collectors.joining(","));
+        }
+        return "";        
+    }
         
     //public String lstnguyennhanbenhVv;    
     //public String lstnguyennhanbenhVvTen;

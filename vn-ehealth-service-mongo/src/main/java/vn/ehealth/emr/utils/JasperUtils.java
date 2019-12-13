@@ -897,16 +897,7 @@ public class JasperUtils extends JRDefaultScriptlet  {
         
         return "";
     }
-    
-    public String convertBooleanTo1OR2(Boolean flag){
-        
-        String str = "2";
-        if(flag != null && flag == true){
-            str = "1";
-        }       
-        return str;     
-    }
-    
+
     public String checkDaiTieuTienCuaVaanChan(EmrYhctBenhanVaanChan object){
         
         if(object != null && ((object.emrDmYhctTieuTiens != null && object.emrDmYhctTieuTiens.size() > 0) || 
