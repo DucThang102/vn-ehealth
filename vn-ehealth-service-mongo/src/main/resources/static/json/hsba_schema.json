@@ -947,7 +947,7 @@
 	        },
 	        
 	        "motavaanchan": {"type" : "String"},	        
-            "dkxuatvien": {"type" : "Boolean"}            
+            "dkxuatvien": {"type" : "String"}            
         },
         
         "emrYhctBenhanThietChan": {

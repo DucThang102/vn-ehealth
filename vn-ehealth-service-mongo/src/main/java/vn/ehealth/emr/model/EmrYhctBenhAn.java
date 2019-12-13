@@ -1,6 +1,7 @@
 package vn.ehealth.emr.model;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -27,8 +28,15 @@ public class EmrYhctBenhAn {
     // public String lstchedodinhduong;
     // public String lstchedodinhduongTen;
     // public String lstchedodinhduongHienthi;
-    
+        
     public List<EmrDmContent> emrDmYhctCheDoDinhDuongs;
+    
+    public String getLstchedodinhduongHienthi() {
+        if(emrDmYhctCheDoDinhDuongs != null) {
+            return emrDmYhctCheDoDinhDuongs.stream().map(x -> x.ten).collect(Collectors.joining(","));
+        }
+        return "";
+    }
     
     public String motachedodinhduong;
     

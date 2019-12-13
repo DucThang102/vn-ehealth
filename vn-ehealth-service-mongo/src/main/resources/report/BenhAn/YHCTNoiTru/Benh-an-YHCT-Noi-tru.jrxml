@@ -873,7 +873,7 @@ $P{Header_SCRIPTLET}.getSoNgayDieuTri(2,
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstbatcuongHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstbatcuongHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstbatcuongHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstbatcuongHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="520" y="531" width="12" height="15" uuid="429a1e62-6abc-44cf-a6fc-6f296e211029"/>
@@ -886,7 +886,7 @@ $P{Header_SCRIPTLET}.getSoNgayDieuTri(2,
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstbatcuongHienthi).length > 3)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstbatcuongHienthi)[3].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstbatcuongHienthi()).length > 3)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstbatcuongHienthi())[3].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="492" y="531" width="12" height="15" uuid="0d4914a3-6b98-4e0a-89d6-4c1851ac9636"/>
@@ -899,7 +899,7 @@ $P{Header_SCRIPTLET}.getSoNgayDieuTri(2,
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstbatcuongHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstbatcuongHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstbatcuongHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstbatcuongHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="478" y="531" width="12" height="15" uuid="b36dfc5c-4bf6-4044-a222-cb4e712500c4"/>
@@ -912,7 +912,7 @@ $P{Header_SCRIPTLET}.getSoNgayDieuTri(2,
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstbatcuongHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstbatcuongHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstbatcuongHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstbatcuongHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="534" y="531" width="12" height="15" uuid="a9c29805-4ec1-4579-a4cf-3ddbb5452864"/>
@@ -925,7 +925,7 @@ $P{Header_SCRIPTLET}.getSoNgayDieuTri(2,
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstbatcuongHienthi).length > 4)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstbatcuongHienthi)[4].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstbatcuongHienthi()).length > 4)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstbatcuongHienthi())[4].toString():""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="280" y="546" width="238" height="15" uuid="630d5e31-2cfc-40a3-b61b-db793a796b9b"/>
@@ -966,7 +966,7 @@ $P{Header_SCRIPTLET}.getSoNgayDieuTri(2,
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lsttangphuHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lsttangphuHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLsttangphuHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLsttangphuHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="534" y="573" width="12" height="15" uuid="dcf3f10a-b17c-4611-b973-0d71967ddd77"/>
@@ -979,7 +979,7 @@ $P{Header_SCRIPTLET}.getSoNgayDieuTri(2,
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lsttangphuHienthi).length > 3)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lsttangphuHienthi)[3].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLsttangphuHienthi()).length > 3)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLsttangphuHienthi())[3].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="506" y="573" width="12" height="15" uuid="dd1046c3-73b6-4788-a698-67654a8324a6"/>
@@ -992,7 +992,7 @@ $P{Header_SCRIPTLET}.getSoNgayDieuTri(2,
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lsttangphuHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lsttangphuHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLsttangphuHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLsttangphuHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="492" y="573" width="12" height="15" uuid="71aaffc6-fd1d-4e61-85d3-3213cdeb2312"/>
@@ -1005,7 +1005,7 @@ $P{Header_SCRIPTLET}.getSoNgayDieuTri(2,
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lsttangphuHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lsttangphuHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLsttangphuHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLsttangphuHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="492" y="621" width="12" height="15" uuid="ff63e5ca-f462-4fd2-8566-b399858aa3f4"/>
@@ -1018,7 +1018,7 @@ $P{Header_SCRIPTLET}.getSoNgayDieuTri(2,
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstkinhmachHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstkinhmachHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstkinhmachHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstkinhmachHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="520" y="621" width="12" height="15" uuid="5cca4c57-4b34-4ffb-a1d9-940187657081"/>
@@ -1031,7 +1031,7 @@ $P{Header_SCRIPTLET}.getSoNgayDieuTri(2,
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstkinhmachHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstkinhmachHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstkinhmachHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstkinhmachHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="506" y="621" width="12" height="15" uuid="971ca2e8-ec69-4d18-a8f3-e8e4000ef6a2"/>
@@ -1044,7 +1044,7 @@ $P{Header_SCRIPTLET}.getSoNgayDieuTri(2,
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstkinhmachHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstkinhmachHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstkinhmachHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstkinhmachHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="534" y="621" width="12" height="15" uuid="5a045c1e-098d-48b7-96fe-afc1d39eb5d5"/>
@@ -1057,7 +1057,7 @@ $P{Header_SCRIPTLET}.getSoNgayDieuTri(2,
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstkinhmachHienthi).length > 3)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstkinhmachHienthi)[3].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstkinhmachHienthi()).length > 3)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstkinhmachHienthi())[3].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="520" y="637" width="12" height="15" uuid="913f8d58-5bf4-4161-8528-2a5e2be9b9c6"/>
@@ -1070,7 +1070,7 @@ $P{Header_SCRIPTLET}.getSoNgayDieuTri(2,
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.sxChuoiFromHISTangdan($F{emrYhctChanDoan}.lstdinhvibenhHienthi,0)]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.sxChuoiFromHISTangdan($F{emrYhctChanDoan}.getLstdinhvibenhHienthi(),0)]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="534" y="637" width="12" height="15" uuid="8a1b0fb0-868a-446d-9301-feff194078db"/>
@@ -1083,7 +1083,7 @@ $P{Header_SCRIPTLET}.getSoNgayDieuTri(2,
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.sxChuoiFromHISTangdan($F{emrYhctChanDoan}.lstdinhvibenhHienthi,1)]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.sxChuoiFromHISTangdan($F{emrYhctChanDoan}.getLstdinhvibenhHienthi(),1)]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="507" y="666" width="12" height="15" uuid="b40efd08-ce0f-4d9b-a5e9-3fb2b2f917f5"/>
@@ -1096,7 +1096,7 @@ $P{Header_SCRIPTLET}.getSoNgayDieuTri(2,
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstnguyennhanbenhHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstnguyennhanbenhHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstnguyennhanbenhHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstnguyennhanbenhHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="521" y="666" width="12" height="15" uuid="3d50cc6d-2362-47c9-bf06-55c0df804bd5"/>
@@ -1109,7 +1109,7 @@ $P{Header_SCRIPTLET}.getSoNgayDieuTri(2,
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstnguyennhanbenhHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstnguyennhanbenhHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstnguyennhanbenhHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstnguyennhanbenhHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="535" y="666" width="12" height="15" uuid="ede41ff7-d4ba-40c1-8553-939ea99c6748"/>
@@ -1122,7 +1122,7 @@ $P{Header_SCRIPTLET}.getSoNgayDieuTri(2,
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstnguyennhanbenhHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.lstnguyennhanbenhHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstnguyennhanbenhHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctChanDoan}.getLstnguyennhanbenhHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="524" y="716" width="12" height="15" uuid="0d29fddb-9ce7-4f9e-aaed-d6600927aff8"/>
@@ -2621,7 +2621,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement markup="none">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttienghoTen]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttienghoTen()]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="14" y="744" width="25" height="17" uuid="a07b97d6-8a04-4591-802f-3a69085e06b7"/>
@@ -2662,7 +2662,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lsthinhthaiHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lsthinhthaiHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLsthinhthaiHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLsthinhthaiHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="540" y="309" width="12" height="15" uuid="f51ca5f4-027c-4881-b41b-ffe9c67f4a98"/>
@@ -2675,7 +2675,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lsthinhthaiHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lsthinhthaiHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLsthinhthaiHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLsthinhthaiHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="512" y="309" width="12" height="15" uuid="36e63c20-59a9-4fbd-a4cc-35eda9a88747"/>
@@ -2688,7 +2688,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lsthinhthaiHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lsthinhthaiHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLsthinhthaiHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLsthinhthaiHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="540" y="330" width="12" height="15" uuid="1bdb8700-37d7-44d0-9278-56b6430b78a0"/>
@@ -2701,7 +2701,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstthanHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstthanHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstthanHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstthanHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="526" y="330" width="12" height="15" uuid="6e8270ad-82bf-4a4e-966a-e2287c9ff560"/>
@@ -2714,7 +2714,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstthanHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstthanHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstthanHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstthanHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="512" y="349" width="12" height="15" uuid="c0acd9f0-188e-4fd5-a12a-29c649dcc61d"/>
@@ -2727,7 +2727,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstsacHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstsacHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstsacHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstsacHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="540" y="349" width="12" height="15" uuid="58176d0f-cc5c-474b-ac4c-bc322fbcdbe9"/>
@@ -2740,7 +2740,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstsacHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstsacHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstsacHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstsacHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="526" y="349" width="12" height="15" uuid="f9b09ecb-c48d-4976-880e-36106ae87759"/>
@@ -2753,7 +2753,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstsacHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstsacHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstsacHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstsacHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="540" y="369" width="12" height="15" uuid="617b1ab2-e5a2-41d4-8b2e-0fbb04bb974f"/>
@@ -2766,7 +2766,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lsttrachHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lsttrachHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLsttrachHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLsttrachHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="526" y="369" width="12" height="15" uuid="07b879e5-7a2c-4d5e-a872-c4455cecabe6"/>
@@ -2779,7 +2779,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lsttrachHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lsttrachHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLsttrachHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLsttrachHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="512" y="409" width="12" height="15" uuid="100d5d38-558b-493d-9f66-a24e632cceff"/>
@@ -2792,7 +2792,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstchatluoiHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstchatluoiHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstchatluoiHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstchatluoiHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="540" y="409" width="12" height="15" uuid="7709f7cc-42a3-46f8-be4e-5b827491dffc"/>
@@ -2805,7 +2805,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstchatluoiHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstchatluoiHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstchatluoiHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstchatluoiHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="526" y="409" width="12" height="15" uuid="b2d15db2-1b3c-431a-b5fe-92478f660d73"/>
@@ -2818,7 +2818,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstchatluoiHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstchatluoiHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstchatluoiHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstchatluoiHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="526" y="429" width="12" height="15" uuid="84ff2bf8-90f2-4d50-a3f2-4cd29922d4ca"/>
@@ -2831,7 +2831,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstsacluoiHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstsacluoiHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstsacluoiHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstsacluoiHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="540" y="429" width="12" height="15" uuid="f2565cef-ba34-4e4f-98d6-d346547ab1b7"/>
@@ -2844,7 +2844,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstsacluoiHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstsacluoiHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstsacluoiHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstsacluoiHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="512" y="429" width="12" height="15" uuid="3d8c1efb-93ba-40ad-9c34-f8238cd84abc"/>
@@ -2857,7 +2857,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstsacluoiHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstsacluoiHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstsacluoiHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstsacluoiHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="262" y="785" width="31" height="17" uuid="7622feb5-1b10-4316-a7a3-2e48134d0b14"/>
@@ -2884,7 +2884,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstreuluoiHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstreuluoiHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstreuluoiHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstreuluoiHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="526" y="470" width="12" height="15" uuid="21ae7722-0474-42cb-97fd-52b4e55eb4e4"/>
@@ -2897,7 +2897,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstreuluoiHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstreuluoiHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstreuluoiHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstreuluoiHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="540" y="470" width="12" height="15" uuid="a5a260db-fb24-4785-9868-8dacd5bc4942"/>
@@ -2910,7 +2910,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstreuluoiHienthi).length > 3)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstreuluoiHienthi)[3].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstreuluoiHienthi()).length > 3)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstreuluoiHienthi())[3].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="498" y="470" width="12" height="15" uuid="bab8769b-5662-4f88-8053-4161df7dd13e"/>
@@ -2923,7 +2923,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstreuluoiHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.lstreuluoiHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstreuluoiHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVongChan.getLstreuluoiHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="498" y="645" width="12" height="15" uuid="8cd23a28-30f0-4178-a200-4681c0429ac7"/>
@@ -2936,7 +2936,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttiengnoiHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttiengnoiHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttiengnoiHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttiengnoiHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="540" y="645" width="12" height="15" uuid="cfa3066f-b57f-4a2f-ad58-f8b91cb2b767"/>
@@ -2949,7 +2949,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttiengnoiHienthi).length > 4)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttiengnoiHienthi)[4].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttiengnoiHienthi()).length > 4)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttiengnoiHienthi())[4].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="526" y="645" width="12" height="15" uuid="0d30f12d-2c0a-44ca-8731-b8acd18c8432"/>
@@ -2962,7 +2962,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttiengnoiHienthi).length > 3)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttiengnoiHienthi)[3].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttiengnoiHienthi()).length > 3)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttiengnoiHienthi())[3].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="512" y="645" width="12" height="15" uuid="7d6e7b05-36e9-4083-b1fc-7ff1061f8ec8"/>
@@ -2975,7 +2975,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttiengnoiHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttiengnoiHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttiengnoiHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttiengnoiHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="484" y="645" width="12" height="15" uuid="051c4300-d5f9-45ff-b394-57b5820da21c"/>
@@ -2988,7 +2988,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttiengnoiHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttiengnoiHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttiengnoiHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttiengnoiHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="498" y="689" width="12" height="15" uuid="5b73d0a2-08ab-4df3-907e-7203fc916f9c"/>
@@ -3001,7 +3001,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsthoithoHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsthoithoHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsthoithoHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsthoithoHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="484" y="689" width="12" height="15" uuid="208d762b-baf1-478a-9e3f-d0b30139a986"/>
@@ -3014,7 +3014,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsthoithoHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsthoithoHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsthoithoHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsthoithoHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="526" y="689" width="12" height="15" uuid="1e2b526c-3364-4c08-a591-153122dd5a04"/>
@@ -3027,7 +3027,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsthoithoHienthi).length > 3)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsthoithoHienthi)[3].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsthoithoHienthi()).length > 3)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsthoithoHienthi())[3].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="512" y="689" width="12" height="15" uuid="0e9950f1-111b-4ada-bb0e-204de9c205ab"/>
@@ -3040,7 +3040,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsthoithoHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsthoithoHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsthoithoHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsthoithoHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="540" y="689" width="12" height="15" uuid="b42a129a-c5f8-474d-b181-7804ec1d0f6d"/>
@@ -3053,7 +3053,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsthoithoHienthi).length > 4)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsthoithoHienthi)[4].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsthoithoHienthi()).length > 4)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsthoithoHienthi())[4].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="540" y="724" width="12" height="15" uuid="9bde389f-faec-4ed3-9109-c66e3cc78c9e"/>
@@ -3066,7 +3066,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttienghoHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttienghoHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttienghoHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttienghoHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="512" y="724" width="12" height="15" uuid="2d99334f-118b-4cc1-bf2c-66f96cb4903d"/>
@@ -3079,7 +3079,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttienghoHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttienghoHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttienghoHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttienghoHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="526" y="724" width="12" height="15" uuid="720728d5-da88-4eca-8071-1bcdff363ee4"/>
@@ -3092,7 +3092,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttienghoHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttienghoHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttienghoHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttienghoHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="97" y="707" width="28" height="17" uuid="e3a840da-e553-4d8a-9b2e-e3a89bacb627"/>
@@ -3119,7 +3119,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrYhctBenhAn}.emrYhctBenhanVawnChan != null && $F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttienghoHienthi != null && !($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttienghoHienthi.equals("")))?"":"X"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{emrYhctBenhAn}.emrYhctBenhanVawnChan != null && $F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttienghoHienthi() != null && !($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttienghoHienthi().equals("")))?"":"X"]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="123" y="708" width="12" height="15" uuid="eabc441d-aa7c-4375-9224-9a3442ec43aa"/>
@@ -3132,7 +3132,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrYhctBenhAn}.emrYhctBenhanVawnChan != null && $F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttienghoHienthi != null && !($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lsttienghoHienthi.equals("")))?"X":""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{emrYhctBenhAn}.emrYhctBenhanVawnChan != null && $F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttienghoHienthi() != null && !($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLsttienghoHienthi().equals("")))?"X":""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="54" y="744" width="143" height="17" uuid="c2dcf5a3-f3a5-4f8e-98a2-dabbc955c09b"/>
@@ -3159,7 +3159,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.convertBooleanTo1OR2( $F{emrYhctBenhAn}.emrYhctBenhanVawnChan.amthanho )]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrYhctBenhAn}.emrYhctBenhanVawnChan.amthanho]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="540" y="755" width="12" height="15" uuid="56810bb9-e63f-4a4b-bf43-d9c77c915491"/>
@@ -3172,7 +3172,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.convertBooleanTo1OR2( $F{emrYhctBenhAn}.emrYhctBenhanVawnChan.amthanhnac )]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrYhctBenhAn}.emrYhctBenhanVawnChan.amthanhnac]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="805">
@@ -3397,7 +3397,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lstmuicotheHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lstmuicotheHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLstmuicotheHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLstmuicotheHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="539" y="39" width="12" height="15" uuid="51185c50-95b4-4c68-ad40-c560a2fe0b67"/>
@@ -3410,7 +3410,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lstmuicotheHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lstmuicotheHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLstmuicotheHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLstmuicotheHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="511" y="39" width="12" height="15" uuid="61ec0b80-76ce-4a1f-a19e-594406d503b0"/>
@@ -3423,7 +3423,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lstmuicotheHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lstmuicotheHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLstmuicotheHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLstmuicotheHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="539" y="54" width="12" height="15" uuid="7cc8ec4b-4636-45e9-b7d0-3c8c80d1c2fb"/>
@@ -3436,7 +3436,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrYhctBenhAn}.emrYhctBenhanVawnChan != null && $F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lstchatthaibenhlyHienthi != null && !"".equals($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lstchatthaibenhlyHienthi))?"1":"2"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{emrYhctBenhAn}.emrYhctBenhanVawnChan != null && $F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLstchatthaibenhlyHienthi() != null && !"".equals($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLstchatthaibenhlyHienthi()))?"1":"2"]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="539" y="70" width="12" height="15" uuid="6680c7f1-68b7-4b8d-bcda-32f313134e85"/>
@@ -3449,7 +3449,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lstchatthaibenhlyHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lstchatthaibenhlyHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLstchatthaibenhlyHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLstchatthaibenhlyHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="525" y="70" width="12" height="15" uuid="32d04cfd-ef3c-4ed1-a3d1-5565384ae3e2"/>
@@ -3462,7 +3462,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lstchatthaibenhlyHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lstchatthaibenhlyHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLstchatthaibenhlyHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLstchatthaibenhlyHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="511" y="70" width="12" height="15" uuid="c91c891e-8d4e-4fb2-8c80-762389502ee1"/>
@@ -3475,7 +3475,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lstchatthaibenhlyHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lstchatthaibenhlyHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLstchatthaibenhlyHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLstchatthaibenhlyHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="538" y="207" width="12" height="15" uuid="104f1f55-43f3-47a0-a2fc-c3f868c6634d"/>
@@ -3488,7 +3488,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lsthannhietbieuhienHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lsthannhietbieuhienHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLsthannhietbieuhienHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLsthannhietbieuhienHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="14" y="241" width="241" height="17" uuid="c493363e-9d19-4602-b3d3-d866986025ff"/>
@@ -3509,7 +3509,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lsthannhietHienthi).length > 3)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lsthannhietHienthi)[3].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLsthannhietHienthi()).length > 3)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLsthannhietHienthi())[3].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="524" y="241" width="12" height="15" uuid="915fa0f4-d31c-4f65-bee4-1c8156e777b3"/>
@@ -3522,7 +3522,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lsthannhietHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lsthannhietHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLsthannhietHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLsthannhietHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="510" y="241" width="12" height="15" uuid="efb7ff69-8a89-4859-8c87-0ac421652442"/>
@@ -3535,7 +3535,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lsthannhietHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lsthannhietHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLsthannhietHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLsthannhietHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="496" y="241" width="12" height="15" uuid="73ec7a25-41dc-4105-a559-f33a5d60a607"/>
@@ -3548,7 +3548,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lsthannhietHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lsthannhietHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLsthannhietHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLsthannhietHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="524" y="256" width="12" height="15" uuid="813f9cb8-b016-4bc1-8a22-18606c0301c7"/>
@@ -3561,7 +3561,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstmohoiHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstmohoiHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstmohoiHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstmohoiHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="510" y="256" width="12" height="15" uuid="9c54f772-f6b1-471c-9951-59fb501fe071"/>
@@ -3574,7 +3574,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstmohoiHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstmohoiHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstmohoiHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstmohoiHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="538" y="256" width="12" height="15" uuid="311a16ef-3f5f-4960-9ce9-97b4ffb796fd"/>
@@ -3587,7 +3587,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstmohoiHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstmohoiHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstmohoiHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstmohoiHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="538" y="288" width="12" height="15" uuid="508eaad7-7205-471b-a2a2-a141c37f3f0d"/>
@@ -3600,7 +3600,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrYhctBenhAn}.emrYhctBenhanVaanChan != null && $F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdaumatcoHienthi != null && !"".equals($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdaumatcoHienthi))?"1":"2"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{emrYhctBenhAn}.emrYhctBenhanVaanChan != null && $F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdaumatcoHienthi() != null && !"".equals($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdaumatcoHienthi()))?"1":"2"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="13" y="308" width="537" height="17" uuid="69416080-ebe8-4f3f-90aa-3d5ecec4faf9"/>
@@ -3662,7 +3662,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.sxChuoiFromHISTangdan($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdaumatcoHienthi,2)]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.sxChuoiFromHISTangdan($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdaumatcoHienthi(),2)]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="524" y="404" width="12" height="15" uuid="07bfcf49-0475-4e62-a92a-7aaa0dbd81ab"/>
@@ -3675,7 +3675,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.sxChuoiFromHISTangdan($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdaumatcoHienthi,4)]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.sxChuoiFromHISTangdan($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdaumatcoHienthi(),4)]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="510" y="404" width="12" height="15" uuid="c913f273-6b14-446b-ae13-64a2fd85b0d0"/>
@@ -3688,7 +3688,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.sxChuoiFromHISTangdan($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdaumatcoHienthi,3)]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.sxChuoiFromHISTangdan($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdaumatcoHienthi(),3)]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="538" y="404" width="12" height="15" uuid="23f600f7-772d-485c-902a-7222fd71a1ca"/>
@@ -3701,7 +3701,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.sxChuoiFromHISTangdan($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdaumatcoHienthi,5)]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.sxChuoiFromHISTangdan($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdaumatcoHienthi(),5)]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="482" y="404" width="12" height="15" uuid="53ca99f5-19a5-4458-8533-2f417213cfeb"/>
@@ -3714,7 +3714,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.sxChuoiFromHISTangdan($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdaumatcoHienthi,1)]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.sxChuoiFromHISTangdan($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdaumatcoHienthi(),1)]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="468" y="404" width="12" height="15" uuid="8a2bd1bd-9b6a-4015-9dc9-738286508c8f"/>
@@ -3727,7 +3727,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.sxChuoiFromHISTangdan($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdaumatcoHienthi,0)]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.sxChuoiFromHISTangdan($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdaumatcoHienthi(),0)]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="538" y="436" width="12" height="15" uuid="b37f2f3e-c497-483b-9a67-0e1a1b771807"/>
@@ -3740,7 +3740,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstlungHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstlungHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstlungHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstlungHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="13" y="480" width="513" height="17" uuid="fd7c5dfc-712f-4320-84a4-183cfd7e87eb"/>
@@ -3767,7 +3767,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstbungngucHienthi).length > 5)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstbungngucHienthi)[5].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstbungngucHienthi()).length > 5)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstbungngucHienthi())[5].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="510" y="501" width="12" height="15" uuid="5589ddd1-36b7-491b-b68b-a0fcc3266d7f"/>
@@ -3780,7 +3780,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstbungngucHienthi).length > 3)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstbungngucHienthi)[3].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstbungngucHienthi()).length > 3)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstbungngucHienthi())[3].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="496" y="501" width="12" height="15" uuid="d2b3ed70-a850-4739-bc43-85c9519a762a"/>
@@ -3793,7 +3793,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstbungngucHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstbungngucHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstbungngucHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstbungngucHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="524" y="501" width="12" height="15" uuid="3b85c6d4-3441-436b-894b-13b165a93ac2"/>
@@ -3806,7 +3806,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstbungngucHienthi).length > 4)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstbungngucHienthi)[4].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstbungngucHienthi()).length > 4)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstbungngucHienthi())[4].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="482" y="501" width="12" height="15" uuid="85fe9c30-760c-464e-87bf-af98026b0ee1"/>
@@ -3819,7 +3819,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstbungngucHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstbungngucHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstbungngucHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstbungngucHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="468" y="501" width="12" height="15" uuid="b81259ce-425c-4b89-9154-d9d1c1f597ed"/>
@@ -3832,7 +3832,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstbungngucHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstbungngucHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstbungngucHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstbungngucHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="13" y="574" width="481" height="17" uuid="81ec5f29-8345-4309-9e14-f01b3a3e16e2"/>
@@ -3852,7 +3852,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrYhctBenhAn}.emrYhctBenhanVaanChan != null && $F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstanHienthi != null && !"".equals($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstanHienthi))?"1":"2"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{emrYhctBenhAn}.emrYhctBenhanVaanChan != null && $F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstanHienthi() != null && !"".equals($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstanHienthi()))?"1":"2"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="14" y="614" width="321" height="17" uuid="ad3d557b-e668-45ab-86a6-1be3d17dc40b"/>
@@ -3872,7 +3872,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstanHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstanHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstanHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstanHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="510" y="614" width="12" height="15" uuid="3563e24d-0120-45c5-9e83-661f659858f9"/>
@@ -3885,7 +3885,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstanHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstanHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstanHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstanHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="538" y="614" width="12" height="15" uuid="aa9aa232-fbf6-4f34-b6d1-2f387fc0c987"/>
@@ -3898,7 +3898,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstanHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstanHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstanHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstanHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="14" y="652" width="461" height="17" uuid="79aca116-0c39-4226-a455-8d2ed202e6c1"/>
@@ -3918,7 +3918,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrYhctBenhAn}.emrYhctBenhanVaanChan != null && $F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstuongHienthi != null && !"".equals($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstuongHienthi))?"1":"2"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{emrYhctBenhAn}.emrYhctBenhanVaanChan != null && $F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstuongHienthi() != null && !"".equals($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstuongHienthi()))?"1":"2"]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="510" y="672" width="12" height="15" uuid="d48b054d-697f-4cd7-867f-5cfc147bd198"/>
@@ -3931,7 +3931,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstuongHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstuongHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstuongHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstuongHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="524" y="672" width="12" height="15" uuid="10667d45-cde7-48f4-bb72-55ac581a18ef"/>
@@ -3944,7 +3944,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstuongHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstuongHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstuongHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstuongHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="538" y="672" width="12" height="15" uuid="da6f4709-fabc-44f5-a84d-2f8a32c4f740"/>
@@ -3957,7 +3957,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstuongHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstuongHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstuongHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstuongHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="538" y="713" width="12" height="15" uuid="89822bbf-ebc7-4b50-9257-067ba3eab156"/>
@@ -3983,7 +3983,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lsttieutienHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lsttieutienHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLsttieutienHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLsttieutienHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="524" y="733" width="12" height="15" uuid="7404e567-7734-4056-8e88-c6c2699b4d03"/>
@@ -3996,7 +3996,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lsttieutienHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lsttieutienHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLsttieutienHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLsttieutienHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="510" y="733" width="12" height="15" uuid="4ec5f1af-6495-4146-b2b1-17e03c4a0ca9"/>
@@ -4009,7 +4009,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lsttieutienHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lsttieutienHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLsttieutienHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLsttieutienHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="538" y="752" width="12" height="15" uuid="846823c6-cf67-45da-a691-2db32da2deef"/>
@@ -4022,7 +4022,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdaitienHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdaitienHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdaitienHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdaitienHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="510" y="752" width="12" height="15" uuid="18e18367-b261-44a3-a4d5-4b83029bba6f"/>
@@ -4035,7 +4035,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdaitienHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdaitienHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdaitienHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdaitienHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="524" y="752" width="12" height="15" uuid="2b7a2a65-75a5-443e-ae67-f105571d5162"/>
@@ -4048,7 +4048,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdaitienHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdaitienHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdaitienHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdaitienHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<elementGroup>
 				<textField pattern="###0" isBlankWhenNull="true">
@@ -4062,7 +4062,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 					<textElement textAlignment="Center">
 						<font fontName="Times New Roman" size="11"/>
 					</textElement>
-					<textFieldExpression><![CDATA[($F{emrYhctBenhAn}.emrYhctBenhanVaanChan != null  && $F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstchantay != null && !"".equals($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstchantay)&& true == $F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstchantay)?"1":"2"]]></textFieldExpression>
+					<textFieldExpression><![CDATA[($F{emrYhctBenhAn}.emrYhctBenhanVaanChan != null  && $F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstchantay() != null && !"".equals($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstchantay()))?"1":"2"]]></textFieldExpression>
 				</textField>
 			</elementGroup>
 			<textField pattern="###0" isBlankWhenNull="true">
@@ -4076,7 +4076,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrYhctBenhAn}.emrYhctBenhanVawnChan != null && $F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lstmuicotheHienthi != null && !"".equals($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.lstmuicotheHienthi))?"1":"2"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{emrYhctBenhAn}.emrYhctBenhanVawnChan != null && $F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLstmuicotheHienthi() != null && !"".equals($F{emrYhctBenhAn}.emrYhctBenhanVawnChan.getLstmuicotheHienthi()))?"1":"2"]]></textFieldExpression>
 			</textField>
 			<break>
 				<reportElement x="0" y="802" width="100" height="1" uuid="200335f8-98a1-4028-ad14-e420c2739159"/>
@@ -4301,8 +4301,8 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[(($F{emrYhctBenhAn}.emrYhctBenhanVaanChan != null && $F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstkinhnguyetHienthi != null && $F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstthongkinhHienthi != null && $F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdoihaHienthi != null)
-&& (!"".equals($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstkinhnguyetHienthi) || !"".equals($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstthongkinhHienthi) || !"".equals($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdoihaHienthi)))?"1":"2"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[(($F{emrYhctBenhAn}.emrYhctBenhanVaanChan != null && $F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstkinhnguyetHienthi() != null && $F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstthongkinhHienthi() != null && $F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdoihaHienthi() != null)
+&& (!"".equals($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstkinhnguyetHienthi()) || !"".equals($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstthongkinhHienthi()) || !"".equals($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdoihaHienthi())))?"1":"2"]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="539" y="155" width="12" height="15" uuid="e3f048ec-b8c0-4546-9dfc-5cd757a93c3f"/>
@@ -4315,7 +4315,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstthongkinhHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstthongkinhHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstthongkinhHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstthongkinhHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="525" y="155" width="12" height="15" uuid="861d2ea0-9318-4bf3-b60f-1651141ada0c"/>
@@ -4328,7 +4328,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstthongkinhHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstthongkinhHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstthongkinhHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstthongkinhHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="525" y="140" width="12" height="15" uuid="3ab9b670-7519-45f3-b195-0b8dbafea2c3"/>
@@ -4341,7 +4341,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstkinhnguyetHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstkinhnguyetHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstkinhnguyetHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstkinhnguyetHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="539" y="140" width="12" height="15" uuid="107ca73b-a06a-4214-8664-34240642d095"/>
@@ -4354,7 +4354,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstkinhnguyetHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstkinhnguyetHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstkinhnguyetHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstkinhnguyetHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="525" y="170" width="12" height="15" uuid="7613200a-e1c0-4796-a060-9ff6ede8cb6d"/>
@@ -4367,7 +4367,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdoihaHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdoihaHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdoihaHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdoihaHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="511" y="170" width="12" height="15" uuid="1509d7df-e0fc-4ee0-8d86-a5cbfaa396c5"/>
@@ -4380,7 +4380,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdoihaHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdoihaHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdoihaHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdoihaHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="539" y="170" width="12" height="15" uuid="e6740c19-7ca8-4362-821c-0bfb41a8bf0e"/>
@@ -4393,7 +4393,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdoihaHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstdoihaHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdoihaHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstdoihaHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="539" y="189" width="12" height="15" uuid="768e20a6-1574-434d-b35c-518fbff781b9"/>
@@ -4426,7 +4426,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstsinhducHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstsinhducHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstsinhducHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstsinhducHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="524" y="208" width="12" height="15" uuid="812dd831-3e08-4e21-bb97-c9af2cd39ce0"/>
@@ -4439,7 +4439,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstsinhducHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstsinhducHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstsinhducHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstsinhducHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="538" y="208" width="12" height="15" uuid="e5e0c248-f6bc-4b3a-bf3a-cc1109eb01a3"/>
@@ -4452,7 +4452,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstsinhducHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstsinhducHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstsinhducHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstsinhducHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="12" y="224" width="439" height="17" uuid="7d871920-5f1b-4506-aede-b7e4f087106a"/>
@@ -4472,7 +4472,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstsinhducnuHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstsinhducnuHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstsinhducnuHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstsinhducnuHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="524" y="224" width="12" height="15" uuid="56f6b2db-3d8e-4b0c-8b7f-47b6d659f79f"/>
@@ -4485,7 +4485,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstsinhducnuHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstsinhducnuHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstsinhducnuHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstsinhducnuHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="510" y="224" width="12" height="15" uuid="d4112b7f-65b4-4a47-b519-63ca26a69a80"/>
@@ -4498,7 +4498,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstsinhducnuHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstsinhducnuHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstsinhducnuHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstsinhducnuHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="538" y="241" width="12" height="15" uuid="9468eda2-5df0-495a-86fb-23f774ba6384"/>
@@ -4511,7 +4511,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{Header_SCRIPTLET}.convertBooleanTo1OR2( $F{emrYhctBenhAn}.emrYhctBenhanVaanChan.dkxuatvien )]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emrYhctBenhAn}.emrYhctBenhanVaanChan.dkxuatvien]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="524" y="448" width="12" height="15" uuid="1d987fa9-1a20-4cf7-8a0e-8215397ad2cc"/>
@@ -4524,7 +4524,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstxucchanHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstxucchanHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstxucchanHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstxucchanHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="538" y="448" width="12" height="15" uuid="dc3bcd0b-07f6-4ae1-8d24-02dbf3be2bb7"/>
@@ -4537,7 +4537,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstxucchanHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstxucchanHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstxucchanHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstxucchanHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="510" y="448" width="12" height="15" uuid="e585079c-8629-4029-bc49-51d3207f6c46"/>
@@ -4550,7 +4550,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstxucchanHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstxucchanHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstxucchanHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstxucchanHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="538" y="468" width="12" height="15" uuid="5d1e1b37-2397-44b7-933c-4d3b7432cc1f"/>
@@ -4563,7 +4563,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstxucchanmohoiHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstxucchanmohoiHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstxucchanmohoiHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstxucchanmohoiHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="510" y="468" width="12" height="15" uuid="0f9e4d86-2255-428e-a505-0d4798affd85"/>
@@ -4576,7 +4576,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstxucchanmohoiHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstxucchanmohoiHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstxucchanmohoiHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstxucchanmohoiHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="524" y="468" width="12" height="15" uuid="02e12efd-c2ea-4209-98eb-de45a8a0bc5d"/>
@@ -4589,7 +4589,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstxucchanmohoiHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstxucchanmohoiHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstxucchanmohoiHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstxucchanmohoiHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="12" y="489" width="475" height="17" uuid="6a784f41-bbd9-46fc-bc1d-282100bc3daf"/>
@@ -4616,7 +4616,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstconhucHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstconhucHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstconhucHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstconhucHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="525" y="509" width="12" height="15" uuid="558433a0-8b48-438f-bdca-7e135e8edca2"/>
@@ -4629,7 +4629,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstconhucHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstconhucHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstconhucHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstconhucHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="539" y="509" width="12" height="15" uuid="88a48b6c-39f2-4207-8b07-67d8632c640f"/>
@@ -4642,7 +4642,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstconhucHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstconhucHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstconhucHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstconhucHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="525" y="529" width="12" height="15" uuid="ee6388c9-3a54-40f3-b28d-4e88cd626c32"/>
@@ -4655,7 +4655,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstphucchanHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstphucchanHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstphucchanHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstphucchanHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="511" y="529" width="12" height="15" uuid="1565eae4-655b-4be9-b7ae-9f01a5cf50ce"/>
@@ -4668,7 +4668,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstphucchanHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstphucchanHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstphucchanHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstphucchanHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="539" y="529" width="12" height="15" uuid="5f47bec8-61e8-43f6-8dd9-3cfbd5fe2918"/>
@@ -4681,7 +4681,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstphucchanHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstphucchanHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstphucchanHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstphucchanHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="539" y="550" width="12" height="15" uuid="5977497e-d19f-4072-8d09-e514ab86af7f"/>
@@ -4694,7 +4694,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchantongquatHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchantongquatHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchantongquatHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchantongquatHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="525" y="550" width="12" height="15" uuid="708743be-1786-4b2e-ad3d-5454c161d38f"/>
@@ -4707,7 +4707,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchantongquatHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchantongquatHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchantongquatHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchantongquatHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="511" y="550" width="12" height="15" uuid="dcdf7748-3880-4d20-a63b-79197b99ae4a"/>
@@ -4720,7 +4720,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchantongquatHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchantongquatHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchantongquatHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchantongquatHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="262" y="783" width="31" height="17" uuid="3f264c2d-7c6a-4ec6-b010-7ae32749285d"/>
@@ -4754,7 +4754,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanXichTaytraiHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanXichTaytraiHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanXichTaytraiHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanXichTaytraiHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="459" y="630" width="12" height="15" uuid="62d4f36e-def5-4f20-a267-879674f4367d"/>
@@ -4767,7 +4767,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanXichTaytraiHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanXichTaytraiHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanXichTaytraiHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanXichTaytraiHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="445" y="630" width="12" height="15" uuid="c1343bb1-d167-4747-b141-cf9ebb3c6e49"/>
@@ -4780,7 +4780,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanXichTaytraiHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanXichTaytraiHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanXichTaytraiHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanXichTaytraiHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="291" y="630" width="12" height="15" uuid="b15690d2-5d3f-4921-84b7-3b365127ea73"/>
@@ -4793,7 +4793,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanQuanTaytraiHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanQuanTaytraiHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanQuanTaytraiHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanQuanTaytraiHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="305" y="630" width="12" height="15" uuid="ccdff1e4-1f5b-4d9b-8c20-6e8d3733c103"/>
@@ -4806,7 +4806,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanQuanTaytraiHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanQuanTaytraiHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanQuanTaytraiHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanQuanTaytraiHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="319" y="630" width="12" height="15" uuid="4769bd0d-2607-45a8-aba0-ccc4c3af7f0d"/>
@@ -4819,7 +4819,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanQuanTaytraiHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanQuanTaytraiHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanQuanTaytraiHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanQuanTaytraiHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="180" y="630" width="12" height="15" uuid="cfbb1622-1cb0-4fb0-8bd9-5da201a2cd4b"/>
@@ -4832,7 +4832,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanThonTaytraiHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanThonTaytraiHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanThonTaytraiHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanThonTaytraiHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="152" y="630" width="12" height="15" uuid="5e831fb3-fae1-4cba-9a7f-050f39d5837d"/>
@@ -4845,7 +4845,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanThonTaytraiHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanThonTaytraiHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanThonTaytraiHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanThonTaytraiHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="166" y="630" width="12" height="15" uuid="e4168000-dae2-4905-aed4-910e88440a19"/>
@@ -4858,7 +4858,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanThonTaytraiHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanThonTaytraiHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanThonTaytraiHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanThonTaytraiHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="445" y="651" width="12" height="15" uuid="a10d0b8d-939a-462c-aaf5-ab564479e68a"/>
@@ -4871,7 +4871,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanXichTayphaiHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanXichTayphaiHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanXichTayphaiHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanXichTayphaiHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="125" y="651" width="27" height="17" uuid="55327997-2ae3-46f7-9e76-4a3135a5d257"/>
@@ -4891,7 +4891,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanThonTayphaiHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanThonTayphaiHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanThonTayphaiHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanThonTayphaiHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="319" y="651" width="12" height="15" uuid="85649b7b-8027-462e-9f74-0a4034120be8"/>
@@ -4904,7 +4904,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanQuanTayphaiHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanQuanTayphaiHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanQuanTayphaiHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanQuanTayphaiHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="166" y="651" width="12" height="15" uuid="bd044647-8f96-4292-b363-48962f4d6e50"/>
@@ -4917,7 +4917,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanThonTayphaiHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanThonTayphaiHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanThonTayphaiHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanThonTayphaiHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="459" y="651" width="12" height="15" uuid="e5692571-a3d3-4060-9d47-b972096c5ceb"/>
@@ -4930,7 +4930,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanXichTayphaiHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanXichTayphaiHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanXichTayphaiHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanXichTayphaiHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="473" y="651" width="12" height="15" uuid="3fb94b9a-1466-4dbe-9b7e-0b77369a4bdb"/>
@@ -4943,7 +4943,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanXichTayphaiHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanXichTayphaiHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanXichTayphaiHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanXichTayphaiHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="291" y="651" width="12" height="15" uuid="013108bf-b516-476d-b77d-4443cb300573"/>
@@ -4956,7 +4956,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanQuanTayphaiHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanQuanTayphaiHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanQuanTayphaiHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanQuanTayphaiHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="305" y="651" width="12" height="15" uuid="791fc50d-0601-4c38-94a1-3521f926dfc8"/>
@@ -4969,7 +4969,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanQuanTayphaiHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanQuanTayphaiHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanQuanTayphaiHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanQuanTayphaiHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="418" y="651" width="27" height="17" uuid="e276aae8-f871-4b70-95dd-85493b7e8685"/>
@@ -5003,7 +5003,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanThonTayphaiHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.lstmachchanThonTayphaiHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanThonTayphaiHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanThietChan.getLstmachchanThonTayphaiHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="16" y="59" width="472" height="17" uuid="5bf0cb50-d57b-45f3-a83d-d46c914f33a8"/>
@@ -5030,7 +5030,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrYhctBenhAn}.emrYhctBenhanVaanChan != null && $F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstnguHienthi != null && !"".equals($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstnguHienthi))?"1":"2"]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{emrYhctBenhAn}.emrYhctBenhanVaanChan != null && $F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstnguHienthi() != null && !"".equals($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstnguHienthi()))?"1":"2"]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="537" y="75" width="12" height="15" uuid="6312beaf-cb14-42e0-8bb5-a9800a9a8218"/>
@@ -5043,7 +5043,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstnguHienthi).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstnguHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstnguHienthi()).length > 2)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstnguHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="523" y="75" width="12" height="15" uuid="16f948bb-9066-46f1-8503-ad4f5d98bf42"/>
@@ -5056,7 +5056,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstnguHienthi).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstnguHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstnguHienthi()).length > 1)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstnguHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="509" y="75" width="12" height="15" uuid="1bcb5287-b6a0-48d8-b226-188e7bb1dd64"/>
@@ -5069,7 +5069,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstnguHienthi).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.lstnguHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstnguHienthi()).length > 0)?$P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.emrYhctBenhanVaanChan.getLstnguHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="16" y="40" width="91" height="17" uuid="45cbc907-34f0-482d-a559-345dd693d596"/>
@@ -5336,8 +5336,8 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.lstchedodinhduongHienthi).length > 2)?
-    $P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.lstchedodinhduongHienthi)[2].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.getLstchedodinhduongHienthi()).length > 2)?
+    $P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.getLstchedodinhduongHienthi())[2].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="525" y="532" width="12" height="15" uuid="4c024b49-97a0-4e0e-8322-954d1fbf2b88"/>
@@ -5350,8 +5350,8 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.lstchedodinhduongHienthi).length > 1)?
-    $P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.lstchedodinhduongHienthi)[1].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.getLstchedodinhduongHienthi()).length > 1)?
+    $P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.getLstchedodinhduongHienthi())[1].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="511" y="532" width="12" height="15" uuid="d7bec36f-e480-4994-8877-d7953debd063"/>
@@ -5364,8 +5364,8 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.lstchedodinhduongHienthi).length > 0)?
-    $P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.lstchedodinhduongHienthi)[0].toString():""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.getLstchedodinhduongHienthi()).length > 0)?
+    $P{Header_SCRIPTLET}.yhctListArray($F{emrYhctBenhAn}.getLstchedodinhduongHienthi())[0].toString():""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="539" y="548" width="12" height="15" uuid="0a8574a8-6f95-4366-81fa-2217ef55c77e"/>
@@ -5378,7 +5378,7 @@ $P{Header_SCRIPTLET}.getTime_HHmmDDMMYYYY_2($F{emrVaoKhoas}[0].ngaygiovaokhoa):"
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{emrYhctBenhAn}.emrDmYhctCheDoChamSoc.ma != null && $F{emrYhctBenhAn}.emrDmYhctCheDoChamSoc.ma != "") ? Integer.parseInt($F{emrYhctBenhAn}.emrDmYhctCheDoChamSoc.ma) : ""]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{emrYhctBenhAn}.emrDmYhctCheDoChamSoc.ma != null && $F{emrYhctBenhAn}.emrDmYhctCheDoChamSoc.ma != "") ? $F{emrYhctBenhAn}.emrDmYhctCheDoChamSoc.ma : ""]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0" isBlankWhenNull="true">
 				<reportElement x="201" y="303" width="12" height="15" uuid="abf704d8-8d0f-4768-89d9-2b927078b227"/>
