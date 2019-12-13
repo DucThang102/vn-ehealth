@@ -128,8 +128,8 @@ VueAsyncComponent('pttt-edit', '/pages/hsba/edit/phauthuat_thuthuat/pttt_edit.ht
       this.$emit('viewPtttList');
     },
 
-    getTextChanDoan: function(chandoans){
-      if(chandoans){
+    getTextChanDoans: function(chandoans){
+      if(chandoans && chandoans.length > 0){
         return chandoans.map(x => x.ma + " - " + x.ten).join(' ; ');
       }
       return '';

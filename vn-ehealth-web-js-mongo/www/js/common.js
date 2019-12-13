@@ -1,20 +1,13 @@
-var API_URL = 'http://34.87.51.9:8001';
+var API_URL = 'http://localhost:8001';
 
 Vue.mixin({
   data: function () {
     return {
-      API_URL: 'http://34.87.51.9:8001'
+      API_URL: 'http://localhost:8001'
     }
   },
 
   methods: {
-    parseDate: function(dateStr) {
-      if(dateStr != null){
-        return new Date(dateStr.substring(0, 10));
-      }
-      return null;
-    },
-
     getParam: function (name) {
       if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search))
         return decodeURIComponent(name[1]);
@@ -43,18 +36,27 @@ Vue.mixin({
         url += '?' + this.serialize(params);
       }
 
+      console.log(url);
       console.log(`%cGET ${uri}`, 'background: blue; color: yellow', params);
 
-      return fetch(url).then(response => response.json());
+      var headers = { 
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      };
+
+      return fetch(url, {headers}).then(response => response.json());
     },
 
     post: function (uri, params) {
       var url = this.API_URL + uri;
+      console.log(url);
       console.log(`%POST ${uri} : `, 'background: blue; color: yellow', params);
 
       return fetch(url, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json' ,
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
         body: JSON.stringify(params)
       }).then(response => response.json());
     },
@@ -63,23 +65,6 @@ Vue.mixin({
       var queryStr = serialize(params);
             return queryStr === ''? htmlURL : htmlURL + '?' + queryStr;
     },
-
-    callService: function (url, method, data) {
-      var headers = {
-        "Authorization": "Bearer " + localStorage.getItem("token")
-      };
-
-      if (method == 'GET' || method == 'get') {
-        return fetch(url, { headers: headers }).then(result => result.json());
-      } else {
-        return fetch(url, {
-          headers: headers,
-          body: data,
-          method: method
-        })
-                .then(result => result.json());
-      }
-    }
   }
 })
 

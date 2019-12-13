@@ -1,0 +1,1659 @@
+{
+  "matraodoi": "18.052294",
+  "mayte": "180340024" ,
+  "ngaytiepnhan": "2018-07-31 09:26",
+  "nguoitiepnhan": "text",
+  "emrDmLoaiBenhAn": {
+    "ma": "06",
+    "ten": "Sơ sinh"
+  },
+  "emrBenhNhan": {
+    "emrDmGioiTinh": {
+      "ma": "M",
+      "ten": "Nam"
+    },
+    "emrDmDanToc": {
+      "ma": "DT01",
+      "ten": "Kinh"
+    },
+    "emrDmQuocGia": {
+      "ma": "VIE",
+      "ten": "Việt Nam"
+    },
+    "emrDmNgheNghiep": {
+      "ma": "679",
+      "ten": "Trẻ <6 tuổi đi học, < 15 t không đi học"
+    },
+    "emrDmPhuongXa": {
+      "ma": "14698",
+      "ten": "Xã Kim Đông"
+    },
+    "emrDmQuanHuyen": {
+      "ma": "376",
+      "ten": "Huyện Kim Sơn"
+    },
+    "emrDmTinhThanh": {
+      "ma": "37",
+      "ten": "Tỉnh Ninh Bình"
+    },
+    "emrDmNgheNghiepBo": {
+      "ma": "683",
+      "ten": "Nông dân"
+    },
+    "emrDmNgheNghiepMe": {
+      "ma": "683",
+      "ten": "Nông dân"
+    },
+    "iddinhdanhchinh": "5400525",
+    "iddinhdanhphu": "112114115",
+    "idhis": "5400525",
+    "tendaydu": "LÊ HỒNG PHÚC",
+    "ngaysinh": "2018-06-13 00:00",
+    "diachi": "Xã Kim Đông, Huyện Kim Sơn, Ninh Bình",
+    "noilamviec": "text",
+    "sobhyt": "TE137010004002437000",
+    "ngayhethanthebhyt": "2024-06-12 00:00",
+    "hotenbo": "Le Thanh Linh",
+    "hotenme": "Phạm Thị Thúy Hòa",
+    "tennguoibaotin": "Le Thanh Linh",
+    "diachinguoibaotin": "Xã Kim Đông, Huyện Kim Sơn, Ninh Bình",
+    "sodienthoainguoibaotin": "098756454",
+    "ngaySinhCuaBo": "",
+    "ngaySinhCuaMe": "",
+    "trinhDoVanHoaCuaBo": "text",
+    "trinhDoVanHoaCuaMe": "text"
+  },
+  "emrCoSoKhamBenh": {
+    "ma": "5980",
+    "ten": "Bệnh viện Đa khoa Trung ương Cần Thơ"
+  },
+  "emrQuanLyNguoiBenh": {
+    "emrDmNoiGioiThieu": {
+      "ma": "001",
+      "ten": "text"
+    },
+    "emrDmLoaiDoiTuongTaiChinh": {
+      "ma": "001",
+      "ten": "text"
+    },
+    "emrDmLoaiRaVien": {
+      "ma": "001",
+      "ten": "text"
+    },
+    "emrDmNoiTrucTiepVao": {
+      "ma": "001",
+      "ten": "text"
+    },
+    "emrDmLoaiChuyenVien": {
+      "ma": "001",
+      "ten": "text"
+    },
+    "emrDmCoSoKhamBenh": {
+      "ma": "001",
+      "ten": "text"
+    },
+    "emrDmLoaiVaoVien": {
+      "ma": "001",
+      "ten": "text"
+    },
+    "sovaovien": "text",
+    "ngaygiovaovien": "2018-06-28 05:06",
+    "vaovienlanthu": 2,
+    "ngaygioravien": "2018-06-29 04:06",
+    "tenbacsikham": "Nguyen Van A",
+    "tenbacsichoravien": "Nguyen Van A",
+    "tongsongaydieutri": 10,
+    "noichuyenden": "text"
+  },
+  "emrTongKetRaVien": {
+    "dienbienlamsang": "text",
+    "canlamsang": "text",
+    "phuongphapdieutri": "text",
+    "tinhtrangnguoibenh": "text",
+    "chidandieutri": "text",
+    "nguoigiaohoso": "text",
+    "ngaygiaohoso": "2018-06-29 00:00",
+    "nguoinhanhoso": "text",
+    "ngaynhanhoso": "2018-06-29 00:00",
+    "bacsydieutri": "text",
+    "ngaybacsydieutriky": "2018-06-29 00:00",
+    "sotodieutri": [
+      {
+        "ma": "XQuang",
+        "ten" : "X Quang",
+        "soluong": 1
+      },
+      {
+        "ma": "CTScanner",
+        "ten" : "Citi Scanner",
+        "soluong": 1
+      },
+      {
+        "ma": "sieuam",
+        "ten" : "Siêu Âm",
+        "soluong": 1
+      },
+      {
+        "ma": "MRI",
+        "ten" : "Cộng hưởng từ",
+        "soluong": 1
+      }
+    ]
+  },
+  "emrTinhTrangRaVien": {
+    "emrDmNguyennhantuvong": {
+      "ma": "001",
+      "ten": "text"
+    },
+    "emrDmKetQuaDieuTri": {
+      "ma": "001",
+      "ten": "text"
+    },
+    "emrDmYhctKetQuaDieuTri": {
+      "ma": "001",
+      "ten": "text"
+    },
+    "emrDmGiaiphaututhi": {
+      "ma": "001",
+      "ten": "text"
+    },
+    "emrDmKetQuaGiaiPhauBenh": {
+      "ma": "001",
+      "ten": "text"
+    },
+    "emrDmThoiDiemTuVong": {
+      "ma": "001",
+      "ten": "text"
+    },
+    "emrDmLyDoTuVong": {
+      "ma": "001",
+      "ten": "text"
+    },
+    "ngaygiotuvong": "2018-06-29 00:00",
+    "khamnghiemtuthi": false,
+    "motagiaiphaututhi": "text",
+    "motanguyennhantuvong": "text"
+  },
+  "emrTongKetSanKhoa": {},
+  "emrBenhAn": {
+    "lydovaovien": "text",
+    "vaongaythu": 2,
+    "quatrinhbenhly": "text",
+    "tiensubanthan": "text",
+    "tiemchung": "text",
+    "diung": "text",
+    "matuy": "text",
+    "ruoubia": "text",
+    "thuocla": "text",
+    "thuoclao": "text",
+    "dacdiemkhac": "text",
+    "tiensugiadinh": "text",
+    "quatrinhsinhtruong": "text",
+    "tinhtrangsanphu": "text",
+    "tinhtrangsosinh": "text",
+    "phuongphaphoisinh": "text",
+    "dichte": "text",
+    "chucnangsinhhoat": "text",
+    "toanthan": "text",
+    "mach": 0.0,
+    "nhietdo": 0.0,
+    "huyetapcao": 0,
+    "huyetapthap": 0,
+    "nhiptho": 0,
+    "cannang": 0.0,
+    "chieucao": 0,
+    "vongnguc": 0,
+    "vongdau": 0,
+    "tuanhoan": "text",
+    "hohap": "text",
+    "tieuhoa": "text",
+    "tietnieusinhduc": "text",
+    "thankinh": "text",
+    "coxuongkhop": "text",
+    "taimuihong": "text",
+    "ranghammat": "text",
+    "noitietdinhduong": "text",
+    "dalieu": "text",
+    "mat": "text",
+    "coquankhac": "text",
+    "xetnghiemcanlamsang": "text",
+    "tomtat": "text",
+    "motachandoanbenhchinh": "text",
+    "motachandoankemtheo": "text",
+    "motachandoanphanbiet": "text",
+    "tamthan": "text",
+    "tiensuphukhoa": "text",
+    "tiensusankhoa": "text",
+    "khamsankhoa": "text",
+    "khamphukhoa": "text",
+    "khamsosinh": "text",
+    "huyethoc": "text",
+    "taychanmieng": "text",
+    "sinhduc": "text",
+    "nhommau": "text",
+    "tienluong": "text",
+    "huongdieutri": "text",
+    "ngaykybenhan": "2018-06-29 00:00",
+    "bacsylambenhan": "text",
+    "emrDmMaBenhChandoanbenhchinh": {
+      "ma": "0001",
+      "ten": "text"
+    },
+    "emrDmMaBenhChandoankemtheo": [
+      {
+        "ma": "0001",
+        "ten": "text"
+      },
+      {
+        "ma": "0002",
+        "ten": "text"
+      },
+    ],
+    "emrDmMaBenhChandoanphanbiet": {
+      "ma": "0001",
+      "ten": "text"
+    },
+    "emrCkTinhTrangSanPhu": { 
+       "ngayvooi":"2018-06-29 00:00",
+       "mauoi":"text",
+       "dethuong":false,
+       "canthiep":false,
+       "ngaycanthiep":"2018-06-29 00:00",
+       "lydo":"text",
+       "thoidiemvaode":"2018-06-29 00:00",
+       "thoidiemmode":"2018-06-29 00:00",
+       "ngoithai":"text",
+       "kiemsoattucung":false,
+       "motakiemsoattucung":"text",
+       "nhommau":"text",
+       "paraDuthang":"text",
+       "paraDenon":"text",
+       "paraSay":"text",
+       "paraSong":"text",
+       "benhcuame":"text",
+       "dieutribenhcuame":"text",
+       "toantrang":"text",
+       "mach":0,
+       "huyetap":"text",
+       "nhietdo":"text",
+       "motacachde":"text",
+       "socon":"text",
+       "sobenhanme":"text",
+       "meNoinam":"text",
+       "meSogiuong":"text"
+    },
+    "emrCkTinhTrangSoSinh": { 
+       "sskhocngay":false,
+       "ssngat":false,
+       "sskhac":false,
+       "nguoidode":"text",
+       "apgar01":0,
+       "apgar05":0,
+       "apgar10":0,
+       "cannang":0.0,
+       "tinhtrangdinhduong":"text",
+       "tennguoichuyensosinh":"text",
+       "tuoi":0
+    },
+    "emrCkPhuongPhapHoiSinh":{ 
+       "hutdich":false,
+       "xoaboptim":false,
+       "thooxy":false,
+       "noikhiquan":false,
+       "bopbongoxy":false,
+       "khac":false,
+       "mota":"text"
+    },
+    "emrCkChucNangSinhHoat": { 
+       "anuong":"text",
+       "chaitoc":"text",
+       "danhrang":"text",
+       "tam":"text",
+       "macquanao":"text",
+       "divesinh":"text",
+       "namguaSap":"text",
+       "namnguaNgoi":"text",
+       "dungNgoi":"text",
+       "dunglen":"text",
+       "dichuyen":"text",
+       "dungcu":"text",
+       "sinhhoatkhac":"text"
+    },
+    "emrCkTuanHoan":{ 
+       "timro":false,
+       "timmo":false,
+       "timgallop":false,
+       "timamthoi":false,
+       "timchitiet":"text",
+       "tinhmachconoi":false,
+       "thoigiandaymaomach":0,
+       "vamohoi":false,
+       "danoibong":false,
+       "roiloantim":"text",
+       "nhiptim":"text"
+    },
+    "emrCkHoHap":{ 
+       "conngungtho":false,
+       "thobung":false,
+       "thonong":false,
+       "thokhokhe":false,
+       "thoritphequan":false,
+       "thoritthanhquan":false,
+       "tholomnguc":false,
+       "thoranphoi":false,
+       "thoranphoichitiet":"text",
+       "roiloan":"text",
+       "silverman":0,
+       "longnguc":"text",
+       "thetichkhi":"text",
+       "tinhtrangbenhly":"text"
+    },
+    "emrCkThanKinh":
+    { 
+       "daythankinhsonao":"text",
+       "daymat":"text",
+       "vandong":"text",
+       "truonglucco":"text",
+       "camgiac":"text",
+       "phanxa":"text",
+       "roiloanchucnang":"text",
+       "kichthuocDongtu":0,
+       "phanxaAnhsang":"text",
+       "coguong":false,
+       "giatminhluckham":false,
+       "le":false,
+       "yeuchi":false,
+       "thatdieu":false,
+       "runggiatnhancau":false,
+       "lietthankinhso":false,
+       "nguga":false
+    },
+    "emrCkCoXuongKhop":
+    { 
+       "hinhthekhop":"text",
+       "tamhoatdongvaovien":"text",
+       "tamhoatdonravien":"text",
+       "ttbenhlyco":"text",
+       "roiloanco":"text",
+       "tencothu":"text",
+       "baccothu":0,
+       "cotsongttbly":"text",
+       "cotsongschober":"text",
+       "cotsongstibor":"text",
+       "cotsongroiloancn":"text"
+    },
+    "emrCkTamThan":{ 
+       "bieuhienchung":"text",
+       "dinhhuongkhonggian":"text",
+       "dinhhuongthoigian":"text",
+       "dinhhuongbanthan":"text",
+       "camxuc":"text",
+       "trigiac":"text",
+       "tuduyhinhthuc":"text",
+       "tuduynoidung":"text",
+       "hoatdongcoychi":"text",
+       "hoatdongbannang":"text",
+       "trinhomaymoc":"text",
+       "trinhothonghieu":"text",
+       "trinangphantich":"text",
+       "trinangtonghop":"text",
+       "khanangchuy":"text",
+       "roiloanythuc":"text",
+       "hoichungroiloanythuc":"text"
+    },
+    "emrCkMat":{ 
+       "thiluckhongkinhtrai":"text",
+       "thiluckhongkinhphai":"text",
+       "thiluccokinhtrai":"text",
+       "thiluccokinhphai":"text",
+       "nhanaptrai":"text",
+       "nhanapphai":"text",
+       "thitruongtrai":"text",
+       "thitruongphai":"text",
+       "choimattrai":false,
+       "choimatphai":false,
+       "chaynuocmattrai":false,
+       "chaynuocmatphai":false,
+       "sosangmattrai":false,
+       "sosangmatphai":false,
+       "momattrai":false,
+       "momatphai":false,
+       "rucmattrai":false,
+       "rucmatphai":false,
+       "trieuchungmattrai":"text",
+       "trieuchungmatphai":"text",
+       "ledaotrai":"text",
+       "ledaophai":"text",
+       "mimattrai":"text",
+       "mimatphai":"text",
+       "ketmacmattrai":"text",
+       "ketmacmatphai":"text",
+       "mathoitrai":"text",
+       "mathoiphai":"text",
+       "giaccungmacmattrai":"text",
+       "giaccungmacmatphai":"text",
+       "cungmacmattrai":"text",
+       "cungmacmatphai":"text",
+       "tienphongmattrai":"text",
+       "tienphongmatphai":"text",
+       "mongmattrai":"text",
+       "mongmatphai":"text",
+       "dongtumattrai":"text",
+       "dongtumatphai":"text",
+       "dichkinhmattrai":"text",
+       "dichkinhmatphai":"text",
+       "thethuytinhmattrai":"text",
+       "thethuytinhmatphai":"text",
+       "soisangdongtumattrai":"text",
+       "soisangdongtumatphai":"text",
+       "goctienphongmattrai":"text",
+       "goctienphongmatphai":"text",
+       "nhancaumattrai":"text",
+       "nhancaumatphai":"text",
+       "vannhanmattrai":"text",
+       "vannhanmatphai":"text",
+       "homattrai":"text",
+       "homatphai":"text",
+       "daymattrai":"text",
+       "daymatphai":"text"
+    },
+    "emrCkQuaTrinhSinhTruong":{ 
+       "conthu":0,
+       "duthang":false,
+       "denon":false,
+       "say":false,
+       "song":false,
+       "dethuong":false,
+       "forceps":false,
+       "giachut":false,
+       "dephauthuat":false,
+       "dechihuy":false,
+       "dekhac":false,
+       "cannangsinh":0.0,
+       "coditat":false,
+       "motaditat":"text",
+       "phattrientinhthan":"text",
+       "phattrienvandong":"text",
+       "benhlykhac":"text",
+       "suame":false,
+       "suagoai":false,
+       "honhop":false,
+       "thangcaisua":0,
+       "tainha":false,
+       "vuontre":false,
+       "paraDuthang":"text",
+       "paraDenon":"text",
+       "paraSay":"text",
+       "paraSong":"text"
+    },
+    "emrCkTiemChung":{ 
+       "tclao":false,
+       "tcbailiet":false,
+       "tcsoi":false,
+       "tchoga":false,
+       "tcuonvan":false,
+       "tcbachhau":false,
+       "tckhac":false,
+       "tcmotakhac":"text"
+    },
+    "emrCkTienSuPhuKhoa":{ 
+       "tuoicokinh":0,
+       "chukikinh":0,
+       "ngaythaykinh":0,
+       "tuoilaychong":0,
+       "benhphukhoa":"text",
+       "khoiubt":false,
+       "uxotc":false,
+       "didangsd":false,
+       "ssd":false,
+       "tsm":false,
+       "dieutrictc":false,
+       "catcutctc":false,
+       "tinhchatkinhnguyet":"text",
+       "luongkinh":"text",
+       "tuoihetkinh":0,
+       "ngaycokinh":"2018-06-29 00:00",
+       "ngaykinhcuoi":"2018-06-29 00:00",
+       "daubung":false,
+       "phauthuatphukhoakhac":"text"
+    },
+    "emrCkTienSuSanKhoa": { 
+       "thoigiandiadiem":"text",
+       "tuoithai":"text",
+       "dienbienthai":"text",
+       "cachde":"text",
+       "tresosinh":"text",
+       "hausan":"text",
+       "paraDuthang":"text",
+       "paraDenon":"text",
+       "paraSay":"text",
+       "paraSong":"text",
+       "solancothai":0,
+       "emrCkTienSuSanKhoaChiTiets":[
+            { 
+               "lancothai":0,
+               "nam":0,
+               "duthang":false,
+               "denon":false,
+               "say":false,
+               "song":false,
+               "hut":false,
+               "nao":false,
+               "covac":false,
+               "chuangoaitucung":false,
+               "chuatrung":false,
+               "thaichetluu":false,
+               "cannang":0.0,
+               "phuongphapde":"text",
+               "taibien":"text",
+               "dienbien":"text",
+               "hausan":"text",
+               "ngayketthucthainghen":"2018-06-29 00:00",
+               "tuoithai":0
+            }
+        ]
+    },
+    "emrCkKhamSanKhoa":{ 
+       "khamthaitai":"text",
+       "tuoithai":0,
+       "phonguonvan":false,
+       "muiuonvanthu":0,
+       "chuyendaluc":"2018-06-29 00:00",
+       "trieuchungbandau":"text",
+       "dauhieusaudo":"text",
+       "seomocu":false,
+       "dauvetmo":false,
+       "hinhdangtc":"text",
+       "tuthetc":"text",
+       "chieucaotc":0,
+       "vongbung":0,
+       "concotc":"text",
+       "timthai":0,
+       "ngoithai":"text",
+       "vu":"text",
+       "dluonggai":0,
+       "dluongmao":0,
+       "dluongmau":0,
+       "dbodeloque":0,
+       "dluongungoi":0,
+       "khungchau":0,
+       "amho":"text",
+       "amdao":"text",
+       "tangsinhmon":"text",
+       "ctcdangxoa":false,
+       "ctcdongkin":false,
+       "ctcmo":0,
+       "bishop":0,
+       "utiendao":false,
+       "motau":"text",
+       "dauoi":0,
+       "bamoi":false,
+       "bamoiluc":"2018-06-29 00:00",
+       "mauoi":0,
+       "ngoi":"text",
+       "the":"text",
+       "kieuthe":"text",
+       "dolot":0,
+       "dnhohauve":0,
+       "kykinhcuoitungay":"2018-06-29 00:00",
+       "kykinhcuoidenngay":"2018-06-29 00:00",
+       "phanphu":"text",
+       "nuocoi":"text",
+       "tencondukien":"text",
+       "tenbo":"text",
+       "tentrai":"text",
+       "tengai":"text"
+    },
+    "emrCkTienSuBanThanSanKhoa":{ 
+       "caohuyetap":false,
+       "benhtim":false,
+       "laophoi":false,
+       "henphequan":false,
+       "benhthan":false,
+       "basedow":false,
+       "viemtactinhmach":false,
+       "dongkinh":false,
+       "moruotthua":false,
+       "diungthuoc":false,
+       "thongtincuthe":"text",
+       "phauthuatobung":"text"
+    },
+    "emrCkKhamPhuKhoa":{ 
+       "dauhieusinhducthuphat":"text",
+       "moilon":"text",
+       "moibe":"text",
+       "amvat":"text",
+       "amho":"text",
+       "mangtrinh":"text",
+       "tangsinhmon":"text",
+       "amdao":"text",
+       "cotucung":"text",
+       "thantucung":"text",
+       "phanphu":"text",
+       "cactuicung":"text",
+       "thongtinkhac":"text"
+    },
+    "emrCkTienSuGiaDinh":{ 
+       "sinhdoi":false,
+       "didang":false,
+       "benhditruyen":false,
+       "daiduong":false,
+       "caohuyetap":false,
+       "benhkhac":"text"
+    },
+    "emrCkKhamSoSinh":{ 
+       "ditatbamsinh":false,
+       "ditathaumon":false,
+       "motaditat":"text",
+       "tinhhinhsosinhvaokhoa":"text",
+       "tinhtrangtoanthan":"text",
+       "mausacda":0,
+       "tinhtranghohap":"text",
+       "nhiptho":0,
+       "silverman":0,
+       "nhiptim":0
+    },
+    "emrCkSkTinhTrangSanPhu":{ 
+       "tinhthan":0,
+       "phu":false,
+       "proteinnieu":"text",
+       "seomocu":false,
+       "dauvetmo":false,
+       "chieucaotucung":0.0,
+       "timthai":0,
+       "tinhtrangtimthai":0,
+       "cotucung":0,
+       "domo":0,
+       "chisobishop":0,
+       "dauoi":0,
+       "thoidiemvooi":"2018-06-29 00:00",
+       "maunuocoi":0,
+       "nhietdo":"text",
+       "mach":"text",
+       "huyetap":"text",
+       "nhiptho":"text",
+       "vongbung":"text",
+       "ngoithai":"text",
+       "concotucung":"text"
+    },
+    "emrCkMoiSinh":{ 
+       "khuvucbenhcaptinh":"text",
+       "khuvucsong":"text",
+       "thoigiansong":"text",
+       "moisinh":"text",
+       "benhdichTruonghoc":false,
+       "treCungnha":false,
+       "treGannha":false,
+       "treCungtruong":false
+    },
+    "emrCkToanThan":{ 
+       "tinhthan":"text",
+       "hinhdang":"text",
+       "thetrang":"text",
+       "da":"text",
+       "niemmac":"text",
+       "biphu":false,
+       "phutoanthan":false,
+       "trieuchungphu":"text",
+       "trieuchungxuathuyet":"text",
+       "longtocmong":"text",
+       "tuyengiap":"text",
+       "ganKichthuoc":"text",
+       "ganMatdo":"text",
+       "ganBogan":"text",
+       "ganDau":"text",
+       "ganThongtinbosung":"text",
+       "lachKichthuoc":"text",
+       "lachMatdo":"text",
+       "lachBolach":"text",
+       "lachMatlach":"text",
+       "lachDaulach":"text",
+       "lachThongtinbosung":"text",
+       "hachKichthuoc":"text",
+       "hachSoluong":"text",
+       "hachDodidong":"text",
+       "hachDodauhach":"text",
+       "hachThongtinbosung":"text",
+       "thanMota":"text",
+       "timMota":"text",
+       "phoiMota":"text",
+       "vuMota":"text",
+       "thieumau":"text",
+       "khuyetTatDacBiet":"text",
+       "matGan":"text",
+       "hachViTri":"text",
+       "tyletonthuongloai1":0,
+       "tyletonthuongloai2":0,
+       "tyletonthuongloai3":0,
+       "tyletonthuongloai4":0,
+       "tyletonthuongloai5":0
+    },
+    "emrCkTieuHoa":{ 
+       "ganto":false,
+       "gankichthuoc":0.0,
+       "gandacdiem":"text",
+       "motakhac":"text",
+       "tinhtrangbenhly":"text",
+       "roiloanchucnang":"text"
+    },
+    "emrCkHuongDieuTriHuyetHoc":{ 
+       "hongcauSolan":0,
+       "hongcauTongluong":0.0,
+       "hongcauruaSolan":0,
+       "hongcauruaTongluong":0.0,
+       "tieucauSolan":0,
+       "tieucauTongluong":0.0,
+       "bachcauSolan":0,
+       "bachcauTongluong":0.0,
+       "huyettuongSolan":0,
+       "huyettuongTongluong":0.0,
+       "huyettuongtuoiSolan":0,
+       "huyettuongtuoiTongluong":0.0,
+       "tualanhSolan":0,
+       "tualanhTongluong":0.0,
+       "mautoanphanSolan":0,
+       "mautoanphanTongluong":0.0,
+       "phanungtruyenmau":0
+    },
+    "emrCkQuaTrinhBenhLyTcm":{ 
+       "sot":false,
+       "phatban":false,
+       "loetmieng":false,
+       "giatminh":false,
+       "giatminh24h":0,
+       "nonoi":false,
+       "cogiat":false,
+       "runchi":false,
+       "dauhieukhac":"text",
+       "dieutrituyentruoc":"text",
+       "motakhac":"text"
+    },
+    "emrCkChanTayMieng":{ 
+       "timtai":false,
+       "spo2":0,
+       "trigiac":0,
+       "loetmieng":false,
+       "phatban":false
+    },
+    "emrCkTomTatBenhAnTcm":{ 
+       "songaybenh":0,
+       "suyhohap":false,
+       "soc":false,
+       "phuphoicap":false,
+       "roiloanhohap":false,
+       "machnhanh":false,
+       "tanghuyetap":false,
+       "gongchi":false,
+       "vamohoi":false,
+       "thatdieu":false,
+       "runggiatnhancau":false,
+       "yeuchi":false,
+       "lietthankinhso":false,
+       "giatminhluckham":false,
+       "benhsugiatminh":false,
+       "bieuhienkhac":"text"
+    },
+    "emrCkHuongDieuTriTcm":{ 
+       "thooxy":false,
+       "chongsoc":false,
+       "dieutricaoHa":false,
+       "anthan":false,
+       "YGlobulin":false,
+       "nhapIcu":false,
+       "dieutrikhac":"text"
+    },
+    "emrCkPhuongPhapDieuTriUngBuou":{ 
+       "kieudieutri":0,
+       "tiaxatienphautaiu":0.0,
+       "tiaxatienphautaihach":0.0,
+       "tiaxadonthuantaiu":0.0,
+       "tiaxadonthuantaihach":0.0,
+       "phauthuatu":"text",
+       "tiaxahauphautaiu":0.0,
+       "tiaxahauphautaihach":0.0,
+       "hoachat":"text",
+       "sodot":0,
+       "dapung":0,
+       "dieutrikhac":"text",
+       "idchuyenkhoa":0
+    },
+    "emrCkTinhTrangRaVienMat":{ 
+       "thiluccokinhphai":"text",
+       "thiluccokinhtrai":"text",
+       "thiluckhongkinhphai":"text",
+       "thiluckhongkinhtrai":"text",
+       "nhanapphai":"text",
+       "nhanaptrai":"text"
+    }
+  },
+  "emrYhctBenhAn": {
+    "emrDmYhctCheDoChamSoc": {
+      "ma": "0001",
+      "ten": "text"
+    },
+    "tomtattuchan": "text",
+    "luantri": "text",
+    "phapdieutri": "text",
+    "phuongthuoc": "text",
+    "phuonghuyet": "text",
+    "phuongphapkhac": "text",
+    "tienluong": "text",
+    "emrDmYhctCheDoDinhDuongs": [
+      {
+        "ma": "0001",
+        "ten": "text"
+      }
+    ],
+    "motachedodinhduong": "text",
+    "motachamsoc": "text",
+    "dieutriXoabopbamhuyet": "text",
+    "dieutriKethopyhhd": "text",
+    "emrYhctBenhanVaanChan": {
+      "emrDmYhctThanNhiets": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctMoHois": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctDauMatCos": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctChanTays": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctLungs": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctBungNgucs": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctAns": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctTuongs": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctDaiTiens": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctTieuTiens": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctNgus": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctKinhNguyets": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctThongKinhs": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctDoiHas": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctSinhDucs": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctSinhDucNus": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctThanNhietBieuHiens": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "motavaanchan": "text",
+      "dkxuatvien": false
+    },
+    "emrYhctBenhanThietChan": {
+      "emrDmYhctXucChans": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctCoNhucs": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctPhucChans": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctMachChanTongQuats": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctMachChanThonTayTrais": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctMachChanQuanTayTrais": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctMachChanXichTayTrais": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctMachChanThonTayPhais": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctMachChanQuanTayPhais": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctMachChanXichTayPhais": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctXucChanMoHois": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "motamachchanTaytrai": "text",
+      "motamachchanTayphai": "text",
+      "motaxucchan": "text",
+      "motathietchan": "text"
+    },
+    "emrYhctBenhanVongChan": {
+      "emrDmYhctHinhThais": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctThans": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctSacs": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctTrachs": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctChatLuois": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctSacLuois": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctReuLuois": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "motavongchan": "text"
+    },
+    "emrYhctBenhanVawnChan": {
+      "emrDmYhctTiengNois": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctHoiThos": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctTiengHos": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctMuiCoThes": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "emrDmYhctChatThaiBenhLys": [
+        {
+          "ma": "001",
+          "ten": "text"
+        }
+      ],
+      "amthanhnac": "text",
+      "amthanho": "text",
+      "motavawnchan": "text"
+    }
+  },
+  "emrChanDoan": {
+    "emrDmLyDoTaiBienBienChung": {
+      "ma": "0001",
+      "ten": "text"
+    },
+    "emrDmMaBenhChandoandieutri": {
+      "ma": "0001",
+      "ten": "text"
+    },
+    "emrDmMaBenhChandoankkb": {
+      "ma": "0001",
+      "ten": "text"
+    },
+    "emrDmMaBenhChandoannoiden": {
+      "ma": "0001",
+      "ten": "text"
+    },
+    "emrDmMaBenhChandoanravienchinh": {
+      "ma": "0001",
+      "ten": "text"
+    },
+    "emrDmMaBenhChandoanravienkemtheo": [
+        {
+            "ma": "0001",
+            "ten": "text"
+        },
+        {
+            "ma": "0002",
+            "ten": "text"
+        }
+    ],
+    "emrDmMaBenhChandoanraviennguyennhan": {
+      "ma": "0001",
+      "ten": "text"
+    },
+    "emrDmMaBenhChandoansaupt": [
+        {
+            "ma": "0001",
+            "ten": "text"
+        },
+        {
+            "ma": "0002",
+            "ten": "text"
+        }
+    ],
+    "emrDmMaBenhChandoantruocpt": [
+        {
+            "ma": "0001",
+            "ten": "text"
+        },
+        {
+            "ma": "0002",
+            "ten": "text"
+        }
+    ],
+    "motachandoannoiden": "text",
+    "motachandoankkb": "text",
+    "motachandoandieutri": "text",
+    "motachandoanravienchinh": "text",
+    "motachandoanraviennguyennhan": "text",
+    "motachandoanravienkemtheo": "text",
+    "motachandoantruocpt": "text",
+    "motachandoansaupt": "text",
+    "bitaibien": {
+      "type": "Boolean"
+    },
+    "bibienchung": {
+      "type": "Boolean"
+    },
+    "tongsongaysaupt": 0,
+    "tongsolanpt": 0
+  },
+  "emrYhctChanDoan": {
+    "emrDmYhctBenhdanhVaovien": {
+      "ma": "0001",
+      "ten": "text"
+    },
+    "emrDmYhctBenhdanhRavien": {
+      "ma": "0001",
+      "ten": "text"
+    },
+    "emrDmYhctBenhdanhVk": {
+      "ma": "0001",
+      "ten": "text"
+    },
+    "emrDmYhctBatCuongs": [
+      {
+        "ma": "0001",
+        "ten": "text"
+      }
+    ],
+    "emrDmYhctBatCuongVvs": [
+      {
+        "ma": "0001",
+        "ten": "text"
+      }
+    ],
+    "emrDmYhctTangPhus": [
+      {
+        "ma": "0001",
+        "ten": "text"
+      }
+    ],
+    "emrDmYhctTangPhuVvs": [
+      {
+        "ma": "0001",
+        "ten": "text"
+      }
+    ],
+    "emrDmYhctKinhMachs": [
+      {
+        "ma": "0001",
+        "ten": "text"
+      }
+    ],
+    "emrDmYhctKinhMachVvs": [
+      {
+        "ma": "0001",
+        "ten": "text"
+      }
+    ],
+    "emrDmYhctDinhViBenhs": [
+      {
+        "ma": "0001",
+        "ten": "text"
+      }
+    ],
+    "emrDmYhctDinhViBenhVvs":[
+      {
+        "ma": "0001",
+        "ten": "text"
+      }
+    ],
+    "emrDmYhctNguyenNhanBenhs": [
+      {
+        "ma": "0001",
+        "ten": "text"
+      }
+    ],
+    "emrDmYhctNguyenNhanBenhVvs": [
+      {
+        "ma": "0001",
+        "ten": "text"
+      }
+    ],
+    "motabatcuong": "text",
+    "motabatcuongVv": "text",
+    "motatangphu": "text",
+    "motatangphuVv": "text",
+    "motakinhmach": "text",
+    "motakinhmachVv": "text",
+    "motanguyennhanbenh": "text",
+    "motanguyennhanbenhVv": "text",
+    "motabenhdanhyhctvaovien": "text",
+    "motabenhdanhyhctvaokhoa": "text",
+    "motabenhdanhyhctravien": "text"
+  },
+  "emrYhctNhaBa": {
+    "ngaybatdauchuaNhaba": "2018-06-29 00:00",
+    "tenbacsichuaNhaba": "text",
+    "chandoanNhaba": "text"
+  },
+  "emrYhctNhaBaGhiChus": [
+    {
+      "ngayhgiohen": "2018-06-29 00:00",
+      "ghichu": "text"
+    }
+  ],
+  "emrQuaTrinhSuDungThuocs": [
+    {
+      "emrDmThuoc": {
+        "ma": "0001",
+        "ten": "text"
+      },
+      "mathuoc": "text",
+      "cachdung": "text",
+      "soluong": 0,
+      "ngaysudungthuoc": "2018-06-29 00:00"
+    }
+  ],
+  "emrFileDinhKems": [
+    {
+      "url": "0001",
+      "format": "text"
+    }
+  ],
+  "emrVaoKhoas": [
+    {
+      "emrDmKhoaDieuTri": {
+        "ma": "0001",
+        "ten": "text"
+      },
+      "ngaygiovaokhoa": "2018-06-29 00:00",
+      "ngayketthucdieutri": "2018-06-29 00:00",
+      "tenkhoa": "text",
+      "bacsidieutri": "text",
+      "phong": "text",
+      "giuong": "text",
+      "songaydieutri": 0,
+      "tentruongkhoa": "text",
+      "emrHoiChans": [
+        {
+          "ngaythuchien": "2018-06-29 00:00",
+          "tomtatdienbien": "text",
+          "ketluanhoichan": "text",
+          "huongdieutri": "text",
+          "emrThanhVienHoiChans": [
+            {
+              "tenbacsi": "text",
+              "emrDmVaiTro": {
+                "ma": "0001",
+                "ten": "text"
+              }
+            }
+          ],
+          "emrFileDinhKemHoiChans": [
+            {
+              "url": "text",
+              "format": "text"
+            }
+          ]
+        }
+      ],
+      "emrChamSocs": [
+        {
+          "sotochamsoc": "text",
+          "emrQuaTrinhChamSocs": [
+            {
+              "ngaychamsoc": "2018-06-29 00:00",
+              "ytachamsoc": "text",
+              "theodoidienbien": "text",
+              "thuchienylenh": "text"
+            }
+          ],
+          "emrFileDinhKemChamSocs": [
+            {
+              "url": "text",
+              "format": "text"
+            }
+          ]
+        }
+      ],
+      "emrDieuTris": [
+        {
+          "sotodieutri": "text",
+          "emrQuaTrinhDieuTris": [
+            {
+              "ngaydieutri": "2018-06-29 00:00",
+              "dienbien": "text",
+              "ylenh": "text",
+              "bacsiraylenh": "text"
+            }
+          ],
+          "emrFileDinhKemDieuTris": [
+            {
+              "url": "text",
+              "format": "text"
+            }
+          ]
+        }
+      ],
+      "emrChucNangSongs": [
+        {
+          "sophieu": "text",
+          "emrChucNangSongChiTiets": [
+            {
+              "ngaytheodoi": "2018-06-29 00:00",
+              "mach": 0.0,
+              "nhietdo": 0.0,
+              "huyetapthap":0,
+              "huyetapcao":0,
+              "nhiptho":0,
+              "cannang": 0.0,
+              "ytatheodoi": "text"
+            }
+          ],
+          "emrFileDinhKemChucNangSongs": [
+            {
+              "url": "text",
+              "format": "text"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "emrHinhAnhTonThuongs": [
+    {
+      "anhtonthuong": "text",
+      "motatonthuong": "text",
+      "dinhdanganh": "text",
+      "emrFileDinhKemHatts": [
+        {
+          "url": "text",
+          "format": "text"
+        }
+      ]
+    }
+  ],
+  "emrGiaiPhauBenhs": [
+    {
+      "emrDmGiaiPhauBenh": {
+        "ma": "0001",
+        "ten": "text"
+      },
+      "emrDmLoaiGiaiPhauBenh": {
+        "ma": "0001",
+        "ten": "text"
+      },
+      "emrDmViTriLayMau": {
+        "ma": "0001",
+        "ten": "text"
+      },
+      "emrDmKetQuaGiaiPhauBenh": {
+        "ma": "0001",
+        "ten": "text"
+      },
+      "ngayyeucau": "2018-06-29 00:00",
+      "bacsiyeucau": "text",
+      "bacsichuyenkhoa": "text",
+      "ngaythuchien": "2018-06-29 00:00",
+      "nhanxetdaithe": "text",
+      "nhanxetvithe": "text",
+      "motachandoangiaiphau": "text",
+      "ngaylaymausinhthiet": "2018-06-29 00:00",
+      "emrFileDinhKemGpbs": [
+        {
+          "url": "text",
+          "format": "text"
+        }
+      ]
+    }
+  ],
+  "emrThamDoChucNangs": [
+    {
+      "emrDmThamDoChucNang": {
+        "ma": "0001",
+        "ten": "text"
+      },
+      "emrDmLoaiThamDoChucNang": {
+        "ma": "0001",
+        "ten": "text"
+      },
+      "ngayyeucau": "2018-06-29 00:00",
+      "bacsiyeucau": "text",
+      "noidungyeucau": "text",
+      "ngaythuchien": "2018-06-29 00:00",
+      "ketqua": "text",
+      "ketluan": "text",
+      "loidan": "text",
+      "bacsichuyenkhoa": "text",
+      "emrFileDinhKemTdcns": [
+        {
+          "url": "text",
+          "format": "text"
+        }
+      ]
+    }
+  ],
+  "emrPhauThuatThuThuats": [
+    {
+      "emrDmMaBenhChandoansau": {
+        "ma": "0001",
+        "ten": "text"
+      },
+      "emrDmMaBenhChandoantruoc": {
+        "ma": "0001",
+        "ten": "text"
+      },
+      "emrDmPhauThuThuat": {
+        "ma": "0001",
+        "ten": "text"
+      },
+      "ngaygiopttt": "2018-06-29 00:00",
+      "bacsithuchien": "text",
+      "bacsygayme": "text",
+      "chidinhptt": "text",
+      "phuongphapvocam": "text",
+      "luocdoptt": "text",
+      "trinhtuptt": "text",
+      "motachandoantruocpt": "text",
+      "motachandoansaupt": "text",
+      "loaipttt": false,
+      "emrThanhVienPttts": [
+        {
+          "emrDmVaiTro": {
+            "ma": "0001",
+            "ten": "text"
+          },
+          "tenbacsi": "text"
+        }
+      ],
+      "emrFileDinhKemPttts": [
+        {
+          "url": "text",
+          "format": "text"
+        }
+      ]
+    }
+  ],
+  "emrChanDoanHinhAnhs": [
+    {
+      "emrDmChanDoanHinhAnh": {
+        "ma": "0001",
+        "ten": "text"
+      },
+      "emrDmLoaiChanDoanHinhAnh": {
+        "ma": "0001",
+        "ten": "text"
+      },
+      "ngayyeucau": "2018-06-29 00:00",
+      "bacsiyeucau": "text",
+      "ngaythuchien": "2018-06-29 00:00",
+      "bacsichuyenkhoa": "text",
+      "ketqua": "text",
+      "ketluan": "text",
+      "loidan": "text",
+      "emrFileDinhKemCdhas": [
+        {
+          "url": "text",
+          "format": "text"
+        }
+      ]
+    }
+  ],
+  "emrDonThuocs": [
+    {
+      "ngaykedon": "2018-06-29 00:00",
+      "bacsikedon": "text",
+      "sodon": "text",
+      "emrDonThuocChiTiets": [
+        {
+          "emrDmThuoc": {
+            "ma": "0001",
+            "ten": "text"
+          },
+          "emrDmDuongDungThuoc": {
+            "ma": "0001",
+            "ten": "text"
+          },
+          "emrDmTanXuatDungThuoc": {
+            "ma": "0001",
+            "ten": "text"
+          },
+          "emrDmChiDanDungThuoc": {
+            "ma": "0001",
+            "ten": "text"
+          },
+          "ngaybatdau": "2018-06-29 00:00",
+          "ngayketthuc": "2018-06-29 00:00",
+          "lieuluongdung": "text",
+          "chidandungthuoc": "text",
+          "bietduoc": "text"
+        }
+      ],
+      "emrFileDinhKemDonThuocs": [
+        {
+          "url": "text",
+          "format": "text"
+        }
+      ]
+    }
+  ],
+  "emrYhctDonThuocs": [
+    {
+      "ngaykedon": "2018-06-29 00:00",
+      "bacsikedon": "text",
+      "sodon": "text",
+      "ngaybatdau": "2018-06-29 00:00",
+      "ngayketthuc": "2018-06-29 00:00",
+      "soluongthang": 0,
+      "chidan": "text",
+      "emrYhctDonThuocChiTiets": [
+        {
+          "emrDmYhctViThuoc": {
+            "ma": "0001",
+            "ten": "text"
+          },
+          "emrDmDuongDungThuoc": {
+            "ma": "0001",
+            "ten": "text"
+          },
+          "emrDmChiDanDungThuoc": {
+            "ma": "0001",
+            "ten": "text"
+          },
+          "emrDmTanXuatDungThuoc": {
+            "ma": "0001",
+            "ten": "text"
+          },
+          "ngaybatdau": "2018-06-29 00:00",
+          "ngayketthuc": "2018-06-29 00:00",
+          "lieuluongdung": "text",
+          "chidandungthuoc": "text"
+        }
+      ],
+      "emrFileDinhKemYhctDonThuocs": [
+        {
+          "url": "text",
+          "format": "text"
+        }
+      ]
+    }
+  ],
+  "emrXetNghiems": [
+    {
+      "emrDmXetNghiem": {
+        "ma": "0001",
+        "ten": "text"
+      },
+      "emrDmLoaiXetNghiem": {
+        "ma": "0001",
+        "ten": "text"
+      },
+      "ngayyeucau": "2018-06-29 00:00",
+      "bacsiyeucau": "text",
+      "noidungyeucau": "text",
+      "ngaythuchien": "2018-06-29 00:00",
+      "bacsixetnghiem": "text",
+      "nhanxet": "text",
+      "emrXetNghiemDichVus": [
+        {
+          "emrDmXetNghiem": {
+            "ma": "0001",
+            "ten": "text"
+          },
+          "emrXetNghiemKetQuas": [
+            {
+              "emrDmChiSoXetNghiem": {
+                "ma": "0001",
+                "ten": "text"
+              },
+              "emrDmDichKetQuaXetNghiem": {
+                "ma": "0001",
+                "ten": "text"
+              },
+              "giatrido": "text"
+            }
+          ]
+        }
+      ],
+      "emrFileDinhKemXetNghiems": [
+        {
+          "url": "text",
+          "format": "text"
+        }
+      ]
+    }
+  ]
+}

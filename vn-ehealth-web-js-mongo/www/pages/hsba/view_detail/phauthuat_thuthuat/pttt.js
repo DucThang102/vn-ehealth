@@ -51,7 +51,14 @@ VueAsyncComponent('pttt-view', '/pages/hsba/view_detail/phauthuat_thuthuat/pttt_
   methods: {
     viewPtttList: function() {
       this.$emit('viewPtttList');
-    }
+    },
+
+    getTextChanDoans: function(chandoans){
+      if(chandoans && chandoans.length > 0){
+        return chandoans.map(x => x.ma + " - " + x.ten).join(' ; ');
+      }
+      return '';
+    },
   },
 
   created: async function() {

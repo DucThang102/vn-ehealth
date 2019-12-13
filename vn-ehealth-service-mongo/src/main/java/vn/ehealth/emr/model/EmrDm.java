@@ -9,6 +9,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import vn.ehealth.emr.utils.ObjectIdUtil;
+
 @JsonInclude(Include.NON_NULL)
 @Document(collection = "emr_dm")
 public class EmrDm {
@@ -24,23 +26,19 @@ public class EmrDm {
     public Map<String, Object> extension;
     
     public String getId() { 
-        return id != null? id.toHexString() : null; 
+        return ObjectIdUtil.idToString(id);
     }
     
     public void setId(String id) {
-        if(id != null) {
-            this.id = new ObjectId(id);
-        }else {
-            this.id = null;
-        }
+        this.id = ObjectIdUtil.stringToId(id);
     }
     
     public String getEmrNhomDmId() {
-        return emrNhomDmId != null? emrNhomDmId.toHexString() : null;
+        return ObjectIdUtil.idToString(emrNhomDmId);
     }
     
     public String getEmrDmChaId() {
-        return emrDmChaId != null? emrDmChaId.toHexString(): null;
+        return ObjectIdUtil.idToString(emrDmChaId);
     }
     /*
     public String kieu = "";

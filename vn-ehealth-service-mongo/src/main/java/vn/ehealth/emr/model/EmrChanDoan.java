@@ -11,37 +11,23 @@ public class EmrChanDoan {
 
     public EmrDmContent emrDmMaBenhChandoandieutri;
     
-    public EmrDmContent emrDmMaBenhChandoantruocpt;
-    
-    public EmrDmContent emrDmMaBenhChandoansaupt;
-    
     public EmrDmContent emrDmMaBenhChandoankkb;
-    
-    public List<EmrDmContent> emrDmMaBenhChandoandieutris = new ArrayList<>();
         
     public List<EmrDmContent> emrDmMaBenhChandoantruocpts = new ArrayList<>();
     
     public List<EmrDmContent> emrDmMaBenhChandoansaupts = new ArrayList<>();
-    
-    public List<EmrDmContent> emrDmMaBenhChandoankkbs = new ArrayList<>();
-    
-    public EmrDmContent emrDmLyDoTaiBienBienChung;
-    
+        
     public EmrDmContent emrDmMaBenhChandoannoiden;
     
     public EmrDmContent emrDmMaBenhChandoanraviennguyennhan;
     
-    public EmrDmContent emrDmMaBenhChandoanravienkemtheo;
-    
     public EmrDmContent emrDmMaBenhChandoanravienchinh;    
-    
-    public List<EmrDmContent> emrDmMaBenhChandoannoidens = new ArrayList<>();
-    
-    public List<EmrDmContent> emrDmMaBenhChandoanraviennguyennhans = new ArrayList<>();
     
     public List<EmrDmContent> emrDmMaBenhChandoanravienkemtheos = new ArrayList<>();
     
-    public List<EmrDmContent> emrDmMaBenhChandoanravienchinhs = new ArrayList<>();
+    public EmrDmContent emrDmMaBenhChandoanravienkemtheo;
+    
+    public EmrDmContent emrDmLyDoTaiBienBienChung;
     
     public String motachandoannoiden;
 
@@ -66,5 +52,28 @@ public class EmrChanDoan {
     public Integer tongsongaysaupt;
 
     public Integer tongsolanpt;
+    
+    public EmrDmContent getEmrDmMaBenhChandoanravienkemtheo() {
+        if(emrDmMaBenhChandoanravienkemtheos != null && emrDmMaBenhChandoanravienkemtheos.size() > 0) {
+            return emrDmMaBenhChandoanravienkemtheos.get(0);
+        }
+        return null;
+    }
+    
+    public EmrDmContent getEmrDmMaBenhChandoantruocpt() {
+        if(emrDmMaBenhChandoantruocpts != null && emrDmMaBenhChandoantruocpts.size() > 0) {
+            return emrDmMaBenhChandoantruocpts.get(0);
+        }
+        
+        return null;        
+    }
+    
+    public EmrDmContent getEmrDmMaBenhChandoansaupt() {
+        if(emrDmMaBenhChandoansaupts != null && emrDmMaBenhChandoansaupts.size() > 0) {
+            return emrDmMaBenhChandoansaupts.get(0);
+        }
+        
+        return null;
+    }
 
 }

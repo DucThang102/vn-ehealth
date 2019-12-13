@@ -35,7 +35,7 @@ public class EmrHoiChanController {
     @GetMapping("/get_ds_hoichan")
     public ResponseEntity<?> getDsHoichan(@RequestParam("hsba_id") String id) {
         var result = new ArrayList<EmrHoiChan>();
-        var vkList = emrVaoKhoaService.getByEmrHoSoBenhAnId(new ObjectId(id), false);
+        var vkList = emrVaoKhoaService.getByEmrHoSoBenhAnId(new ObjectId(id));
         
         for(var vk : vkList) {
             var hoiChanList = emrHoiChanService.getByEmrVaoKhoaId(vk.id);

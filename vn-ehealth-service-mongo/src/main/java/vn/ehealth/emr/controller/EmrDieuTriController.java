@@ -35,7 +35,7 @@ public class EmrDieuTriController {
     @GetMapping("/get_ds_dieutri")
     public ResponseEntity<?> getDsDieutri(@RequestParam("hsba_id") String id) {
         var result = new ArrayList<EmrDieuTri>();
-        var vkList = emrVaoKhoaService.getByEmrHoSoBenhAnId(new ObjectId(id), false);
+        var vkList = emrVaoKhoaService.getByEmrHoSoBenhAnId(new ObjectId(id));
         
         for(var vk : vkList) {
             var dieuTriList = emrDieuTriService.getByEmrVaoKhoaId(vk.id);

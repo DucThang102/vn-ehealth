@@ -42,7 +42,7 @@ VueAsyncComponent('hoichan-list', '/pages/hsba/edit/hoichan/hoichan_list.html', 
     },
 
     getVaoKhoaList: async function() {
-      this.vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', {hsba_id: this.hsba_id, detail: false});
+      this.vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', {hsba_id: this.hsba_id});
     },
     
     addHoichan: async function() {
@@ -99,7 +99,7 @@ VueAsyncComponent('hoichan-edit', '/pages/hsba/edit/hoichan/hoichan_edit.html', 
   created: async function() {
     this.emrVaiTroHoichans = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_VAI_TRO_HOI_CHAN'});
     this.vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', 
-                          {hsba_id: this.hoichan.emrVaoKhoa.emrHoSoBenhAnId, detail: false});
+                          {hsba_id: this.hoichan.emrVaoKhoa.emrHoSoBenhAnId});
     this.maVaoKhoa = this.hoichan.emrVaoKhoa.emrDmKhoaDieuTri.ma;
   },
 

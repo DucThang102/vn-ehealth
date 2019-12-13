@@ -108,7 +108,7 @@ VueAsyncComponent('ttnb', '/pages/hsba/edit/qly_benhnhan/thongtin_nguoibenh.html
   },
 
   created: async function() {
-    this.emrVaoKhoas = await this.get('/api/vaokhoa/get_ds_vaokhoa', { hsba_id: this.hsba_id, detail: false });
+    this.emrVaoKhoas = await this.get('/api/vaokhoa/get_ds_vaokhoa', { hsba_id: this.hsba_id});
     this.emrDmNoiTrucTiepVaos = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_NOI_TRUC_TIEP_VAO'});
     this.emrDmNoiGioiThieus = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_NOI_GIOI_THIEU'});
     this.emrDmLoaiDoiTuongTaiChinhs = await this.get('/api/danhmuc/get_all_dm_list', {dm_type: 'DM_LOAI_DOI_TUONG_TAI_CHINH'});
@@ -234,8 +234,14 @@ VueAsyncComponent('chandoan', '/pages/hsba/edit/qly_benhnhan/chandoan.html', {
   },
 
   methods: {
-    getTextChanDoan: function(chandoans){
-      if(chandoans){
+    getTextChanDoan: function(chandoan){
+      if(chandoan && chandoan.ma != ''){
+        return chandoan.ma + " - " + chandoan.ten;
+      }
+      return '';
+    },
+    getTextChanDoans: function(chandoans){
+      if(chandoans && chandoans.length > 0){
         return chandoans.map(x => x.ma + " - " + x.ten).join(' ; ');
       }
       return '';

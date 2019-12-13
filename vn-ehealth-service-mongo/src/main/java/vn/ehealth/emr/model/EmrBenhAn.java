@@ -41,18 +41,12 @@ import vn.ehealth.emr.model.ck.EmrCkTuanHoan;
 
 @JsonInclude(Include.NON_NULL)
 public class EmrBenhAn {
-
-    public List<EmrDmContent> emrDmMaBenhChandoanphanbiets = new ArrayList<>();
-    
-    public List<EmrDmContent> emrDmMaBenhChandoankemtheos = new ArrayList<>();
-    
-    public List<EmrDmContent> emrDmMaBenhChandoanbenhchinhs = new ArrayList<>();
     
     public EmrDmContent emrDmMaBenhChandoanphanbiet;
     
-    public EmrDmContent emrDmMaBenhChandoankemtheo;
-    
     public EmrDmContent emrDmMaBenhChandoanbenhchinh;
+    
+    public List<EmrDmContent> emrDmMaBenhChandoankemtheos = new ArrayList<>();
     
     public String lydovaovien;
     public Integer vaongaythu;              //??
@@ -201,5 +195,13 @@ public class EmrBenhAn {
     public Integer tyletonthuongloai4;  //??
     
     public Integer tyletonthuongloai5;  //??
+    
+    public EmrDmContent getEmrDmMaBenhChandoankemtheo() {
+        if(emrDmMaBenhChandoankemtheos != null && emrDmMaBenhChandoankemtheos.size() > 0) {
+            return emrDmMaBenhChandoankemtheos.get(0);
+        }
+        
+        return null;
+    }
         
 }

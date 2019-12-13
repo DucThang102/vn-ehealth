@@ -1,6 +1,5 @@
 package vn.ehealth.emr.model;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +12,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import vn.ehealth.emr.utils.ObjectIdUtil;
+
 @JsonInclude(Include.NON_NULL)
 @Document(collection="emr_vao_khoa")
 public class EmrVaoKhoa {
@@ -20,6 +21,10 @@ public class EmrVaoKhoa {
     @Id public ObjectId id;
         
     public ObjectId emrHoSoBenhAnId;
+    
+    public ObjectId emrBenhNhanId;
+    
+    public ObjectId emrCoSoKhamBenhId;
 
     public EmrDmContent emrDmKhoaDieuTri;
     
@@ -41,35 +46,43 @@ public class EmrVaoKhoa {
 
     public String tentruongkhoa;
     
-    @Transient public List<EmrHoiChan> emrHoiChans = new ArrayList<>();
+    @Transient public List<EmrHoiChan> emrHoiChans;
     
-    @Transient public List<EmrChamSoc> emrChamSocs = new ArrayList<>();
+    @Transient public List<EmrChamSoc> emrChamSocs;
     
-    @Transient public List<EmrDieuTri> emrDieuTris = new ArrayList<>();
+    @Transient public List<EmrDieuTri> emrDieuTris;
     
-    @Transient public List<EmrChucNangSong> emrChucNangSongs = new ArrayList<>();
+    @Transient public List<EmrChucNangSong> emrChucNangSongs;
     
     public String getId() { 
-        return id != null? id.toHexString() : null; 
+        return ObjectIdUtil.idToString(id); 
     }
     
     public void setId(String id) {
-        if(id != null) {
-            this.id = new ObjectId(id);
-        }else {
-            this.id = null;
-        }
+        this.id = ObjectIdUtil.stringToId(id);
     }
-    
+
     public String getEmrHoSoBenhAnId() {
-        return emrHoSoBenhAnId != null? emrHoSoBenhAnId.toHexString(): null;
+        return ObjectIdUtil.idToString(emrHoSoBenhAnId);
     }
     
     public void setEmrHoSoBenhAnId(String emrHoSoBenhAnId) {
-        if(emrHoSoBenhAnId != null) {
-            this.emrHoSoBenhAnId = new ObjectId(emrHoSoBenhAnId);
-        }else {
-            this.emrHoSoBenhAnId = null;
-        }            
+        this.emrHoSoBenhAnId = ObjectIdUtil.stringToId(emrHoSoBenhAnId);            
+    }
+
+    public String getEmrBenhNhanId() {
+        return ObjectIdUtil.idToString(emrBenhNhanId);
+    }
+
+    public void setEmrBenhNhanId(String emrBenhNhanId) {
+        this.emrBenhNhanId = ObjectIdUtil.stringToId(emrBenhNhanId);
     }    
+    
+    public String getEmrCoSoKhamBenhId() {
+        return ObjectIdUtil.idToString(emrCoSoKhamBenhId);
+    }
+    
+    public void setEmrCoSoKhamBenhId(String emrCoSoKhamBenhId) {
+        this.emrCoSoKhamBenhId = ObjectIdUtil.stringToId(emrCoSoKhamBenhId);
+    }
 }

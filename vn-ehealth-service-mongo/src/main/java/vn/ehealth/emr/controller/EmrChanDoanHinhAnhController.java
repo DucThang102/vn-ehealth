@@ -40,7 +40,7 @@ public class EmrChanDoanHinhAnhController {
     
     @GetMapping("/get_ds_cdha_by_bn")
     public ResponseEntity<?> getDsChanDoanHinhAnhByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
-        var emrHoSoBenhAns = emrHoSoBenhAnService.getDsHoSoByBenhNhan(new ObjectId(benhNhanId));
+        var emrHoSoBenhAns = emrHoSoBenhAnService.getByEmrBenhNhanId(new ObjectId(benhNhanId));
         var result = new ArrayList<EmrChanDoanHinhAnh>();
         for(var emrHoSoBenhAn : emrHoSoBenhAns) {
             result.addAll(emrChanDoanHinhAnhService.getByEmrHoSoBenhAnId(emrHoSoBenhAn.id));

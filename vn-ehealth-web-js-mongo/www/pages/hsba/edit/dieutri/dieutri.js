@@ -41,7 +41,7 @@ VueAsyncComponent('dieutri-list', '/pages/hsba/edit/dieutri/dieutri_list.html', 
     },
 
     getVaoKhoaList: async function() {
-      this.vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', {hsba_id: this.hsba_id, detail: false});
+      this.vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', {hsba_id: this.hsba_id});
     },
 
     editDieutri : function(dieutri) {
@@ -106,7 +106,7 @@ VueAsyncComponent('dieutri-edit', '/pages/hsba/edit/dieutri/dieutri_edit.html', 
 
   created: async function() {
     this.vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', 
-                          {hsba_id: this.dieutri.emrVaoKhoa.emrHoSoBenhAnId, detail: false});
+                          {hsba_id: this.dieutri.emrVaoKhoa.emrHoSoBenhAnId});
     this.maVaoKhoa = this.dieutri.emrVaoKhoa.emrDmKhoaDieuTri.ma;
   },
   

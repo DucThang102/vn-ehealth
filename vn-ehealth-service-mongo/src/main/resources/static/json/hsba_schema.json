@@ -233,11 +233,8 @@
         "ngaykybenhan": {"type" : "Date"},
         "bacsylambenhan": {"type" : "String"},       
         
-        "emrDmMaBenhChandoanbenhchinhs": {
-        	"type": "Array",
-        	"element":{
-            	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
-            }
+        "emrDmMaBenhChandoanbenhchinh": {
+            "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
         },
         "emrDmMaBenhChandoankemtheos": {
         	"type": "Array",
@@ -245,11 +242,8 @@
             	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
             }
         },
-        "emrDmMaBenhChandoanphanbiets": {
-        	"type": "Array",
-        	"element": {
-            	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
-            }
+        "emrDmMaBenhChandoanphanbiet": {
+            "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
         },
         "emrCkTinhTrangSanPhu": { 
 	       "ngayvooi":{"type" : "Date"},
@@ -1117,29 +1111,17 @@
         "emrDmLyDoTaiBienBienChung": {
             "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
         },
-        "emrDmMaBenhChandoandieutris": {
-        	"type" : "Array",
-        	"element": {
-            	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
-            }
+        "emrDmMaBenhChandoandieutri": {
+        	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
         },
-        "emrDmMaBenhChandoankkbs": {
-        	"type" : "Array",
-        	"element": {
-            	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
-            }
+        "emrDmMaBenhChandoankkb": {
+        	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
         },
-        "emrDmMaBenhChandoannoidens": {
-        	"type" : "Array",
-        	"element": {
-            	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
-            }
+        "emrDmMaBenhChandoannoiden": {
+        	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
         },
-        "emrDmMaBenhChandoanravienchinhs": {
-        	"type" : "Array",
-        	"element": {
-            	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
-            }
+        "emrDmMaBenhChandoanravienchinh": {
+        	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
         },
         "emrDmMaBenhChandoanravienkemtheos": {
         	"type" : "Array",
@@ -1147,11 +1129,8 @@
             	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
             }
         },
-        "emrDmMaBenhChandoanraviennguyennhans": {
-        	"type" : "Array",
-        	"element": {
-            	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
-            }
+        "emrDmMaBenhChandoanraviennguyennhan": {
+        	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
         },
         "emrDmMaBenhChandoansaupts": {
         	"type" : "Array",
@@ -1521,12 +1500,18 @@
     "emrPhauThuatThuThuats": {
     	"type" : "Array",
     	"element" : {
-    		"emrDmMaBenhChandoansau": {
-                "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+    		"emrDmMaBenhChandoansaus": {
+    			"type": "Array",
+    			"element": {
+                	"ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+                }
             },
             
-    		"emrDmMaBenhChandoantruoc": {
-                "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+    		"emrDmMaBenhChandoantruocs": {
+    			"type": "Array",
+                "element": {
+                	 "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+               	 }
             },
             
     		"emrDmPhauThuThuat": {

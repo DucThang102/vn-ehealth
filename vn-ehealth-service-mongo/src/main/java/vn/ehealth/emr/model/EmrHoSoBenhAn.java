@@ -8,26 +8,22 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import vn.ehealth.emr.service.EmrServiceFactory;
+import vn.ehealth.emr.utils.JasperUtils;
+import vn.ehealth.emr.utils.ObjectIdUtil;
+import vn.ehealth.emr.utils.Constants.TRANGTHAI_HOSO;
+
 @JsonInclude(Include.NON_NULL)
 @Document(collection="emr_ho_so_benh_an")
 public class EmrHoSoBenhAn {    
     @Id public ObjectId id;
-    
-    public String getId() { return id != null? id.toHexString() : null; }
-    
-    public void setId(String id) { 
-        if(id != null) {
-            this.id = new ObjectId(id);
-        }else {
-            this.id = null;
-        }
-    }
-        
+            
     public EmrDmContent emrDmLoaiBenhAn;
     
     public transient ObjectId emrBenhNhanId;
@@ -50,14 +46,24 @@ public class EmrHoSoBenhAn {
     public String nguoitiepnhan;
     
     @JsonFormat(pattern="dd/MM/yyyy HH:mm")
-    public Date ngayluutru;
-    
-    public String nguoiluutru;
-    
-    @JsonFormat(pattern="dd/MM/yyyy HH:mm")
     public Date ngaytao;
     
-    public boolean isLatest;
+    public ObjectId nguoitaoId;
+    
+    @JsonFormat(pattern="dd/MM/yyyy HH:mm")
+    public Date ngaysua;
+    
+    public ObjectId nguoisuaId;
+    
+    @JsonFormat(pattern="dd/MM/yyyy HH:mm")
+    public Date ngayluutru;
+    
+    public ObjectId nguoiluutruId;
+    
+    @JsonFormat(pattern="dd/MM/yyyy HH:mm")
+    public Date ngaymoluutru;
+    
+    public ObjectId nguoimoluutruId;    
     
     public EmrQuanLyNguoiBenh emrQuanLyNguoiBenh;
     
@@ -83,63 +89,63 @@ public class EmrHoSoBenhAn {
     
     public List<EmrFileDinhKem> emrFileDinhKems = new ArrayList<>();
         
-    @Transient public List<EmrVaoKhoa> emrVaoKhoas = new ArrayList<>();
+    @Transient public List<EmrVaoKhoa> emrVaoKhoas;
     
-    @Transient public String khoaRaVien;
+    @Transient public List<EmrHinhAnhTonThuong> emrHinhAnhTonThuongs;
     
-    @Transient public List<EmrHinhAnhTonThuong> emrHinhAnhTonThuongs = new ArrayList<>();
+    @Transient public List<EmrGiaiPhauBenh> emrGiaiPhauBenhs;
     
-    @Transient public List<EmrGiaiPhauBenh> emrGiaiPhauBenhs = new ArrayList<>();
+    @Transient public List<EmrThamDoChucNang> emrThamDoChucNangs;
     
-    @Transient public List<EmrThamDoChucNang> emrThamDoChucNangs = new ArrayList<>();
+    @Transient public List<EmrPhauThuatThuThuat> emrPhauThuatThuThuats;
     
-    @Transient public List<EmrPhauThuatThuThuat> emrPhauThuatThuThuats = new ArrayList<>();
+    @Transient  public List<EmrChanDoanHinhAnh> emrChanDoanHinhAnhs;
     
-    @Transient  public List<EmrChanDoanHinhAnh> emrChanDoanHinhAnhs = new ArrayList<>();
+    @Transient  public List<EmrDonThuoc> emrDonThuocs;
     
-    @Transient  public List<EmrDonThuoc> emrDonThuocs = new ArrayList<>();
+    @Transient  public List<EmrYhctDonThuoc> emrYhctDonThuocs;
     
-    @Transient  public List<EmrYhctDonThuoc> emrYhctDonThuocs = new ArrayList<>();
-    
-    @Transient  public List<EmrXetNghiem> emrXetNghiems = new ArrayList<>();
-      
-    
-    @Transient public Boolean coPhauThuat;
-    @Transient public Boolean coThuThuat;
+    @Transient  public List<EmrXetNghiem> emrXetNghiems;
 
+    public String getId() {
+        return ObjectIdUtil.idToString(id);
+    }
+    
+    public void setId(String id) { 
+        this.id = ObjectIdUtil.stringToId(id);
+    }
+    
     public EmrDmContent getEmrDmLoaiBenhAn() {
         return emrDmLoaiBenhAn;
     }
     
     public String getEmrBenhNhanId() {
-        return emrBenhNhanId != null? emrBenhNhanId.toHexString(): null;
+        return ObjectIdUtil.idToString(emrBenhNhanId);
     }
     
     public void setEmrBenhNhanId(String emrBenhNhanId) {
-        if(emrBenhNhanId != null) {
-            this.emrBenhNhanId = new ObjectId(emrBenhNhanId);
-        }else {
-            this.emrBenhNhanId = null;
-        }
+        this.emrBenhNhanId = ObjectIdUtil.stringToId(emrBenhNhanId);
     }
     
     public EmrBenhNhan getEmrBenhNhan() {
+        if(emrBenhNhan == null && emrBenhNhanId != null) {
+            emrBenhNhan = EmrServiceFactory.getEmrBenhNhanService().getById(emrBenhNhanId).orElse(null);
+        }
         return emrBenhNhan;
     }
     
     public String getEmrCoSoKhamBenhId() {
-        return emrCoSoKhamBenhId != null? emrCoSoKhamBenhId.toHexString(): null;
+        return ObjectIdUtil.idToString(emrCoSoKhamBenhId);
     }
     
     public void setEmrCoSoKhamBenhId(String emrCoSoKhamBenhId) {
-        if(emrCoSoKhamBenhId != null) {
-            this.emrCoSoKhamBenhId = new ObjectId(emrCoSoKhamBenhId);
-        }else {
-            this.emrCoSoKhamBenhId = null;
-        }
+        this.emrCoSoKhamBenhId = ObjectIdUtil.stringToId(emrCoSoKhamBenhId);
     }
     
     public EmrCoSoKhamBenh getEmrCoSoKhamBenh() {
+        if(emrCoSoKhamBenh == null && emrCoSoKhamBenhId != null) {
+            emrCoSoKhamBenh = EmrServiceFactory.getEmrCoSoKhamBenhService().getById(emrCoSoKhamBenhId).orElse(null);
+        }
         return emrCoSoKhamBenh;
     }
     
@@ -156,31 +162,19 @@ public class EmrHoSoBenhAn {
     }
     
     public String getGiamdocbenhvien() {
-        if(emrCoSoKhamBenh != null) {
-            return emrCoSoKhamBenh.giamdoc;
-        }
-        return "";
+        return emrCoSoKhamBenh != null? emrCoSoKhamBenh.giamdoc : "";
     }
     
     public String getTenbenhvien() {
-        if(emrCoSoKhamBenh != null) {
-            return emrCoSoKhamBenh.ten;
-        }
-        return "";
+        return emrCoSoKhamBenh != null? emrCoSoKhamBenh.ten : "";
     }
     
     public String getDonvichuquan() {
-        if(emrCoSoKhamBenh != null) {
-            return emrCoSoKhamBenh.donvichuquan;
-        }
-        return "";
+        return emrCoSoKhamBenh != null? emrCoSoKhamBenh.donvichuquan : "";
     }
     
     public String getTruongphongth() {
-        if(emrCoSoKhamBenh != null) {
-            return emrCoSoKhamBenh.truongphongth;
-        }
-        return "";
+        return emrCoSoKhamBenh != null? emrCoSoKhamBenh.truongphongth : "";
     }
     
     public EmrQuanLyNguoiBenh getEmrQuanLyNguoiBenh() {
@@ -230,8 +224,12 @@ public class EmrHoSoBenhAn {
     public List<EmrFileDinhKem> getEmrFileDinhKems() {
         return emrFileDinhKems;
     }
+    
     public EmrVaoKhoa[] getEmrVaoKhoas() {
-        return emrVaoKhoas.toArray(new EmrVaoKhoa[0]);
+        if(emrVaoKhoas != null) {
+            return emrVaoKhoas.toArray(new EmrVaoKhoa[0]);
+        }
+        return null;        
     }
     
     public List<EmrHinhAnhTonThuong> getEmrHinhAnhTonThuongs() {
@@ -267,14 +265,33 @@ public class EmrHoSoBenhAn {
     }
     
     public Boolean getCoPhauThuat() {
-        return coPhauThuat;
+        return false;
     }
     
     public Boolean getCoThuThuat() {
-        return coThuThuat;
+        return false;
     }    
     
-    public Boolean getDaxoa() {
-        return false;
+    public boolean getDaxoa() {
+        return trangThai == TRANGTHAI_HOSO.DA_XOA;
+    }
+    
+    public String getTuoiBenhNhan() {
+        return JasperUtils.getTuoi(this);
+    }
+    
+    public String getKhoaRaVien() {
+        var emrVaoKhoas = getEmrVaoKhoas();
+        
+        if(emrVaoKhoas != null && emrVaoKhoas.length > 0) {
+            var emrKhoaRaVien = emrVaoKhoas[emrVaoKhoas.length - 1];
+            var khoaRaVien = emrKhoaRaVien.tenkhoa;
+            if(StringUtils.isEmpty(khoaRaVien) && emrKhoaRaVien.emrDmKhoaDieuTri != null) {
+                khoaRaVien = emrKhoaRaVien.emrDmKhoaDieuTri.ten;
+            }
+            return khoaRaVien;
+        }
+        
+        return "";
     }
 }

@@ -4,7 +4,7 @@
   <div class="font-weight-bold text-uppercase"></div>
   <div id="content" class="bg-white mt-2">
     <div id="app">
-      <template>
+      <template v-if="hsba">
         <div>
           <div style="display:flex">
             <div class="mt-2" v-if="backURL">
@@ -14,7 +14,7 @@
             </div>
             <div class="ml-3" style="display: flex;">
               <div style="display: inline-block; align-self: flex-end;">
-                <b>Chỉnh sửa hồ sơ bệnh án : {{ mayte }}</b>
+                <b>Chỉnh sửa hồ sơ bệnh án : {{ hsba.mayte }}</b>
               </div>
             </div>
           </div>
@@ -28,21 +28,21 @@
               </li>
             </ul>
             <div style="flex-grow: 0.8">
-              <qlybn :hsba_id="hsba_id" v-if="tab==0"></qlybn>
-              <yhhd :hsba_id="hsba_id" v-if="tab==1"></yhhd>
-              <tkba :hsba_id="hsba_id" v-if="tab==2"></tkba>
-              <hatt :hsba_id="hsba_id" v-if="tab==3"></hatt>
-              <pttt :hsba_id="hsba_id" v-if="tab==4"></pttt>
-              <xetnghiem :hsba_id="hsba_id" v-if="tab==5"></xetnghiem>
-              <cdha :hsba_id="hsba_id" v-if="tab==6"></cdha>
-              <tdcn :hsba_id="hsba_id" v-if="tab==7"></tdcn>
-              <gpb :hsba_id="hsba_id" v-if="tab==8"></gpb>
-              <hoichan :hsba_id="hsba_id" v-if="tab==9"></hoichan>
-              <dieutri :hsba_id="hsba_id" v-if="tab==10"></dieutri>
-              <chamsoc :hsba_id="hsba_id" v-if="tab==11"></chamsoc>
-              <chucnangsong :hsba_id="hsba_id" v-if="tab==12"></chucnangsong>
-              <donthuoc :hsba_id="hsba_id" v-if="tab==13"></donthuoc>
-              <giayto :hsba_id="hsba_id" v-if="tab==14"></giayto>
+              <qlybn :hsba_id="hsba.id" v-if="tab==0"></qlybn>
+              <yhhd :hsba_id="hsba.id" v-if="tab==1"></yhhd>
+              <tkba :hsba_id="hsba.id" v-if="tab==2"></tkba>
+              <hatt :hsba_id="hsba.id" v-if="tab==3"></hatt>
+              <pttt :hsba_id="hsba.id" v-if="tab==4"></pttt>
+              <xetnghiem :hsba_id="hsba.id" v-if="tab==5"></xetnghiem>
+              <cdha :hsba_id="hsba.id" v-if="tab==6"></cdha>
+              <tdcn :hsba_id="hsba.id" v-if="tab==7"></tdcn>
+              <gpb :hsba_id="hsba.id" v-if="tab==8"></gpb>
+              <hoichan :hsba_id="hsba.id" v-if="tab==9"></hoichan>
+              <dieutri :hsba_id="hsba.id" v-if="tab==10"></dieutri>
+              <chamsoc :hsba_id="hsba.id" v-if="tab==11"></chamsoc>
+              <chucnangsong :hsba_id="hsba.id" v-if="tab==12"></chucnangsong>
+              <donthuoc :hsba_id="hsba.id" v-if="tab==13"></donthuoc>
+              <giayto :hsba_id="hsba.id" v-if="tab==14"></giayto>
             </div>
           </div>
         </div>
@@ -59,7 +59,7 @@
       emrDmPhuongXa: null,
       emrDmMaBenhChandoannoidens: [],
       emrDmMaBenhChandoankkbs:[],
-      emrDmMaBenhChandoanbenhchinhs: [],
+      emrDmMaBenhChandoanbenhchinh: null,
       emrDmMaBenhChandoankemtheos: [],
       emrDmMaBenhChandoanravienchinhs: [],
       emrDmMaBenhChandoanravienkemtheos: [],
@@ -125,8 +125,7 @@
       tab: 0,
       step: 0,
       backURL: null,
-      mayte: '',
-      hsba_id: null
+      hsba: null
     },
 
     methods: {
@@ -142,10 +141,9 @@
     },
 
     created: async function () {
-      this.backURL = this.getParam("backURL");
-      this.mayte = this.getParam("mayte");
-      this.hsba = await this.get('/api/hsba/get_hsba_by_ma', { mayte: this.mayte });
-      this.hsba_id = this.hsba.id;
+      this.backURL = this.getParam("backURL");      
+      var hsba_id = this.getParam("hsba_id");
+      this.hsba = await this.get('/api/hsba/get_hsba_by_id', { hsba_id: hsba_id });
       sessionStorage.removeItem('dataChange');
     }
   });

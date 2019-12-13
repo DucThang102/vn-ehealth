@@ -35,7 +35,7 @@ public class EmrChamSocController {
     @GetMapping("/get_ds_chamsoc")
     public ResponseEntity<?> getDsChamSoc(@RequestParam("hsba_id") String id) {
         var result = new ArrayList<EmrChamSoc>();
-        var vkList = emrVaoKhoaService.getByEmrHoSoBenhAnId(new ObjectId(id), false);
+        var vkList = emrVaoKhoaService.getByEmrHoSoBenhAnId(new ObjectId(id));
         
         for(var vk : vkList) {
             var chamSocList = emrChamSocService.getByEmrVaoKhoaId(vk.id);
@@ -70,7 +70,7 @@ public class EmrChamSocController {
             
             var result = Map.of(
                 "success" , true,
-                "emrHinhAnhTonThuong", chamsoc 
+                "emrChamSoc", chamsoc 
             );
                     
             return ResponseEntity.ok(result);

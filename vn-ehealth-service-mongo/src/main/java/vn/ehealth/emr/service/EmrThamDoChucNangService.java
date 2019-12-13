@@ -18,6 +18,12 @@ public class EmrThamDoChucNangService {
         return emrThamDoChucNangRepository.findByEmrHoSoBenhAnId(emrHoSoBenhAnId);
     }
     
+    public void deleteAllByEmrHoSoBenhAnId(ObjectId emrHoSoBenhAnId) {
+        for(var tdcn : getByEmrHoSoBenhAnId(emrHoSoBenhAnId)) {
+            emrThamDoChucNangRepository.delete(tdcn);
+        }
+    }
+    
     public EmrThamDoChucNang createOrUpdate(EmrThamDoChucNang emrThamDoChucNang) {
         return emrThamDoChucNangRepository.save(emrThamDoChucNang);
     }

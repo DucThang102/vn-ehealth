@@ -30,7 +30,6 @@ public class TestExportPdf {
     public static void main(String[] args) throws Exception {
         
         var hsba = getHsba();
-        System.out.println(hsba.emrBenhNhan.tendaydu);
         
         var bytes = ExportUtil.exportPdf(hsba, "http://localhost:8080");
         var f = new FileOutputStream("C:/tmp/output.pdf");

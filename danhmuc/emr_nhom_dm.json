@@ -1,0 +1,122 @@
+[
+  {
+    "ten": "Danh mục nghề nghiệp",
+    "ma": "DM_NGHE_NGHIEP"
+  },
+  {
+    "ten": "Danh mục Quốc gia",
+    "ma": "DM_QUOC_GIA"
+  },
+  {
+    "ten": "Danh mục Dân tộc",
+    "ma": "DM_DAN_TOC"
+  },
+  {
+    "ten": "Danh mục Đơn vị hành chính",
+    "ma": "DM_DVHC"
+  },
+  {
+    "ten": "Danh mục Mã bệnh",
+    "ma": "DM_MA_BENH"
+  },
+  {
+    "ten": "Danh mục Loại chẩn đoán hình ảnh",
+    "ma": "DM_LOAI_CHAN_DOAN_HINH_ANH"
+  },
+  {
+    "ten": "Danh mục Chẩn đoán hình ảnh",
+    "ma": "DM_CHAN_DOAN_HINH_ANH"
+  },
+  {
+    "ten": "Danh mục Loại thăm dò chức năng",
+    "ma": "DM_LOAI_THAM_DO_CHUC_NANG"
+  },
+  {
+    "ten": "Danh mục Thăm dò chức năng",
+    "ma": "DM_THAM_DO_CHUC_NANG"
+  },
+  {
+    "ten": "Danh mục Loại giải phẫu bệnh",
+    "ma": "DM_LOAI_GIAI_PHAU_BENH"
+  },
+  {
+    "ten": "Danh mục Giải phẫu bệnh",
+    "ma": "DM_GIAI_PHAU_BENH"
+  },
+  {
+    "ten": "Danh mục Loại phẫu/thủ thuật",
+    "ma": "DM_LOAI_PHAU_THU_THUAT"
+  },
+  {
+    "ten": "Danh mục Phẫu/thủ thuật",
+    "ma": "DM_PHAU_THU_THUAT"
+  },
+  {
+    "ten": "Danh mục Khoa điều trị",
+    "ma": "DM_KHOA_DIEU_TRI"
+  },
+  {
+    "ten": "Danh mục Loại xét nghiệm",
+    "ma": "DM_LOAI_XET_NGHIEM"
+  },
+  {
+    "ten": "Danh mục Xét nghiệm",
+    "ma": "DM_XET_NGHIEM"
+  },
+  {
+    "ten": "Danh mục Chỉ số xét nghiệm",
+    "ma": "DM_CHI_SO_XET_NGHIEM"
+  },
+  {
+    "ten": "Danh mục Thuốc",
+    "ma": "DM_THUOC"
+  },
+  {
+    "ten": "Danh mục Đường dùng thuốc",
+    "ma": "DM_DUONG_DUNG_THUOC"
+  },
+  {
+    "ten": "Danh mục Tần suất dùng thuốc",
+    "ma": "DM_TAN_SUAT_DUNG_THUOC"
+  },
+  {
+    "ten": "Danh mục Loại ra viện",
+    "ma": "DM_LOAI_RA_VIEN"
+  },
+  {
+    "ten": "Danh mục Loại chuyển viện",
+    "ma": "DM_LOAI_CHUYEN_VIEN"
+  },
+  {
+    "ten": "Danh mục Vai trò phẫu/thủ thuật",
+    "ma": "DM_VAI_TRO_PHAU_THU_THUAT"
+  },
+  {
+    "ten": "Danh mục Vai trò hội chẩn",
+    "ma": "DM_VAI_TRO_HOI_CHAN"
+  },
+  {
+    "ten": "Danh mục Vị trí lấy mẫu",
+    "ma": "DM_VI_TRI_LAY_MAU"
+  },
+  {
+    "ten": "Danh mục Loại đối tượng tài chính",
+    "ma": "DM_LOAI_DOI_TUONG_TAI_CHINH"
+  },
+  {
+    "ten": "Danh mục Nơi giới thiệu",
+    "ma": "DM_NOI_GIOI_THIEU"
+  },
+  {
+    "ten": "Danh mục Nơi trực tiếp vào",
+    "ma": "DM_NOI_TRUC_TIEP_VAO"
+  },
+  {
+    "ten": "Danh mục Loại vào viện",
+    "ma": "DM_LOAI_VAO_VIEN"
+  },
+  {
+    "ten": "Danh mục Kết quả điều trị",
+    "ma": "DM_KET_QUA_DIEU_TRI"
+  }
+]

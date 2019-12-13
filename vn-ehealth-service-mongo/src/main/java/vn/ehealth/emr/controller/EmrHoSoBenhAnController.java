@@ -1,7 +1,6 @@
 package vn.ehealth.emr.controller;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -15,7 +14,6 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,14 +24,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import net.sf.jasperreports.engine.JRException;
-import vn.ehealth.emr.auth.service.UserDetailsServiceImpl;
 import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.service.EmrBenhNhanService;
 import vn.ehealth.emr.service.EmrCoSoKhamBenhService;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.service.EmrVaoKhoaService;
+import vn.ehealth.emr.service.UserService;
 import vn.ehealth.emr.utils.ExportUtil;
-import vn.ehealth.emr.utils.JasperUtils;
+import vn.ehealth.emr.utils.UserUtil;
 import vn.ehealth.emr.validate.ErrorMessage;
 import vn.ehealth.emr.validate.JsonParser;
 
@@ -61,109 +59,56 @@ public class EmrHoSoBenhAnController {
     @Autowired EmrHoSoBenhAnService emrHoSoBenhAnService;    
     @Autowired EmrBenhNhanService emrBenhNhanService;
     @Autowired EmrCoSoKhamBenhService emrCoSoKhamBenhService;
-    @Autowired EmrVaoKhoaService emrVaoKhoaService;
-    
-    @Autowired UserDetailsServiceImpl userDetailsServiceImpl;
-        
-    JasperUtils jasperUtils = new JasperUtils();
+    @Autowired EmrVaoKhoaService emrVaoKhoaService;    
+    @Autowired UserService userService;
 
     @GetMapping("/count_ds_hs")
-    public long countHsba(@RequestParam String username, @RequestParam int trangthai, @RequestParam String mayte) {
-        var user = userDetailsServiceImpl.getUser(username);
-        long count = 0;
-        if(user != null) {
-            var emrCoSoKhamBenh = emrCoSoKhamBenhService.getByMa(user.maDonVi);
-            var emrCoSoKhamBenhId = emrCoSoKhamBenh.map(x -> x.id).orElse(null);
-            count = emrHoSoBenhAnService.countHoSo(emrCoSoKhamBenhId, trangthai, mayte);
-        }
-        return count;
+    public ResponseEntity<?> countHsba(@RequestParam int trangthai, @RequestParam String mayte) {
+        try {
+            var user = UserUtil.getCurrentUser();
+            var count = emrHoSoBenhAnService.countHoSo(user.get().emrCoSoKhamBenhId, trangthai, mayte);
+            return ResponseEntity.ok(count);
+        }catch (Exception e) {
+            logger.error("Error countHsba:", e);
+            return new ResponseEntity<>(0, HttpStatus.BAD_REQUEST);
+        }        
     }
     
     @GetMapping("/get_ds_hs")
-    public ResponseEntity<?> getDsHsba(@RequestParam String username, @RequestParam int trangthai ,
+    public ResponseEntity<?> getDsHsba(@RequestParam int trangthai ,
                                                 @RequestParam String mayte,
                                                 @RequestParam int start, 
                                                 @RequestParam int count) {
         
-        
-        var user = userDetailsServiceImpl.getUser(username);
-        List<EmrHoSoBenhAn> result = new ArrayList<EmrHoSoBenhAn>();
-        
-        if(user != null) {
-            var emrCoSoKhamBenh = emrCoSoKhamBenhService.getByMa(user.maDonVi);
-            var emrCoSoKhamBenhId = emrCoSoKhamBenh.map(x -> x.id).orElse(null);
-            result = emrHoSoBenhAnService.getDsHoSo(emrCoSoKhamBenhId, trangthai, mayte, start, count);
-        
-            result.forEach(x -> {
-                if(x.emrCoSoKhamBenhId != null) {
-                    x.emrCoSoKhamBenh = emrCoSoKhamBenhService.getById(x.emrCoSoKhamBenhId).orElse(null);
-                }
-                
-                if(x.emrBenhNhanId != null) {
-                    x.emrBenhNhan = emrBenhNhanService.getById(x.emrBenhNhanId).orElse(null);
-                }
-                
-                if(x.emrBenhNhan != null) {
-                    x.emrBenhNhan.tuoi = jasperUtils.getTuoi(x);
-                }
-                
-                var emrVaoKhoas = emrVaoKhoaService.getByEmrHoSoBenhAnId(x.id, false);
-                
-                if(emrVaoKhoas.size() > 0) {
-                    var emrKhoaRaVien = emrVaoKhoas.get(emrVaoKhoas.size() - 1);
-                    x.khoaRaVien = emrKhoaRaVien.tenkhoa;
-                    if(StringUtils.isEmpty(x.khoaRaVien) && emrKhoaRaVien.emrDmKhoaDieuTri != null) {
-                        x.khoaRaVien = emrKhoaRaVien.emrDmKhoaDieuTri.ten;
-                    }
-                }
-                
-            });
-        }
-        
-        return ResponseEntity.ok(result);
-    }
-   
-    
-    @GetMapping("/get_hsba_by_ma")
-    public ResponseEntity<?> getHsbaByMa(@RequestParam("mayte") String mayte) {
-        
-        var hsba = emrHoSoBenhAnService.getByMayte(mayte);
-        
-        hsba.ifPresent(x -> {
-            if(x.emrBenhNhan != null) {
-                x.emrBenhNhan.tuoi = jasperUtils.getTuoi(x);
-            }
-        });
-        
-        return ResponseEntity.of(hsba);
+        try {
+            var user = UserUtil.getCurrentUser();
+            var result = emrHoSoBenhAnService.getDsHoSo(user.get().emrCoSoKhamBenhId, trangthai, mayte, start, count);
+            return ResponseEntity.ok(result);
+            
+        }catch(Exception e) {
+            logger.error("Error getDsHsba:", e);
+            return new ResponseEntity<>(new ArrayList<EmrHoSoBenhAn>(), HttpStatus.BAD_REQUEST);
+        }        
     }
     
     @GetMapping("/get_hsba_logs")
-    public ResponseEntity<?> getHsbaLogs(@RequestParam("mayte") String mayte) {
-        
-        return ResponseEntity.ok(emrHoSoBenhAnService.getLogs(mayte));
-    }
-    
+    public ResponseEntity<?> getHsbaLogs(@RequestParam("hsba_id") String id) {        
+        return ResponseEntity.ok(emrHoSoBenhAnService.getHistory(new ObjectId(id)));
+    }    
     
     @GetMapping("/get_hsba_by_id")
-    public ResponseEntity<?> getHsbaById(@RequestParam("hsba_id") String id) {
-        
-        var hsba = emrHoSoBenhAnService.getById(new ObjectId(id), false);
-        
-        hsba.ifPresent(x -> {
-            if(x.emrBenhNhan != null) {
-                x.emrBenhNhan.tuoi = jasperUtils.getTuoi(x);
-            }
-        });
-        
+    public ResponseEntity<?> getHsbaById(@RequestParam("hsba_id") String id) {        
+        var hsba = emrHoSoBenhAnService.getById(new ObjectId(id));
+        //emrHoSoBenhAnService.getEmrHoSoBenhAnDetail(hsba.get());
         return ResponseEntity.of(hsba);
     }
     
     @GetMapping("/archive_hsba")
-    public ResponseEntity<?> archiveHsba(@RequestParam("username")String username, @RequestParam("hsba_id") String id) {        
+    public ResponseEntity<?> archiveHsba(@RequestParam("hsba_id") String id) {
+        
         try {
-            var user = userDetailsServiceImpl.getUser(username);
-            emrHoSoBenhAnService.archiveHsba(new ObjectId(id), user.fullName, new Date());
+            var user = UserUtil.getCurrentUser();
+            emrHoSoBenhAnService.archiveHsba(new ObjectId(id), user.get().id);
             return ResponseEntity.ok(Map.of("success", true));
         }catch(Exception e) {
             var error = Optional.ofNullable(e.getMessage()).orElse("Unknown error");
@@ -174,7 +119,8 @@ public class EmrHoSoBenhAnController {
     @GetMapping("/unarchive_hsba")
     public ResponseEntity<?> unArchiveHsba(@RequestParam("hsba_id") String id) {
         try {
-            emrHoSoBenhAnService.unArchiveHsba(new ObjectId(id));
+            var user = UserUtil.getCurrentUser();            
+            emrHoSoBenhAnService.unArchiveHsba(new ObjectId(id), user.get().id);
             return ResponseEntity.ok(Map.of("success", true));
         }catch(Exception e) {
             var error = Optional.ofNullable(e.getMessage()).orElse("Unknown error");
@@ -185,7 +131,8 @@ public class EmrHoSoBenhAnController {
     @GetMapping("/delete_hsba")
     public ResponseEntity<?> deleteHsba(@RequestParam("hsba_id") String id) {
         try {
-            emrHoSoBenhAnService.deleteHsba(new ObjectId(id));
+            var user = UserUtil.getCurrentUser();
+            emrHoSoBenhAnService.deleteHsba(new ObjectId(id), user.get().id);
             return ResponseEntity.ok(Map.of("success", true));
         }catch(Exception e) {
             var error = Optional.ofNullable(e.getMessage()).orElse("Unknown error");
@@ -196,10 +143,11 @@ public class EmrHoSoBenhAnController {
     @GetMapping("/view_pdf")
     public ResponseEntity<?> viewPdf(@RequestParam("hsba_id") String id) {
         
-        var hsba = emrHoSoBenhAnService.getById(new ObjectId(id), true);
+        var hsba = emrHoSoBenhAnService.getById(new ObjectId(id));
         
         if(hsba.isPresent()) {
             try {
+                emrHoSoBenhAnService.getEmrHoSoBenhAnDetail(hsba.get());
                 var data = ExportUtil.exportPdf(hsba.get(), "");
                 var resource = new ByteArrayResource(data);
                 
@@ -228,10 +176,10 @@ public class EmrHoSoBenhAnController {
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
         try {
+            var user = UserUtil.getCurrentUser();
             var mapper = new ObjectMapper();
             var hsba = mapper.convertValue(objMap, EmrHoSoBenhAn.class);
-            hsba.isLatest = true;
-            hsba = emrHoSoBenhAnService.save2(hsba);            
+            hsba = emrHoSoBenhAnService.update(hsba, user.get().id);            
             
             var result = Map.of(
                 "success" , true,
@@ -251,19 +199,11 @@ public class EmrHoSoBenhAnController {
     }
     
     @PostMapping("/create_or_update_hsba")
-    public ResponseEntity<?> createOrUpdateHsba(@RequestBody String jsonSt) {
-        
-        try {
-            FileOutputStream fo = new FileOutputStream(String.valueOf(System.currentTimeMillis()) + ".json");
-            fo.write(jsonSt.getBytes());
-            fo.close();
-        } catch (IOException e) {
-            logger.error("Cannot save json file ", e);
-        }
-        
+    public ResponseEntity<?> createOrUpdateHsbaHIS(@RequestBody String jsonSt) {        
         
         var errors = new ArrayList<ErrorMessage>();
         var objMap = jsonParser.parseJson(jsonSt, hsbaSchema, errors);
+        objMap.get("emrChanDoan");
         
         if(errors.size() > 0) {
             var result = Map.of(
@@ -274,11 +214,12 @@ public class EmrHoSoBenhAnController {
         }
         
         try {
+            var user = UserUtil.getCurrentUser();
+            var userId = user.map(x -> x.id).orElse(null);
             var mapper = new ObjectMapper();            
             var hsba = mapper.convertValue(objMap, EmrHoSoBenhAn.class);
             hsba.jsonSt = jsonSt;
-            emrHoSoBenhAnService.save(hsba);
-            emrHoSoBenhAnService.setAsLatest(hsba);
+            emrHoSoBenhAnService.createOrUpdateHIS(hsba, userId);
                         
             var result = Map.of(
                 "success" , true,

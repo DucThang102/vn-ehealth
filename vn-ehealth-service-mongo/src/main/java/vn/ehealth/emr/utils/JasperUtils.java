@@ -21,7 +21,6 @@ import vn.ehealth.emr.model.EmrQuanLyNguoiBenh;
 import vn.ehealth.emr.model.EmrThanhVienHoiChan;
 import vn.ehealth.emr.model.EmrThanhVienPttt;
 import vn.ehealth.emr.model.EmrTinhTrangRaVien;
-import vn.ehealth.emr.model.EmrTuoi;
 import vn.ehealth.emr.model.EmrVaoKhoa;
 import vn.ehealth.emr.model.EmrYhctBenhanVaanChan;
 import vn.ehealth.emr.model.ck.EmrCkTinhTrangSanPhu;
@@ -32,9 +31,9 @@ import vn.ehealth.emr.utils.Constants.VaiTroPTTT;
 @Component
 public class JasperUtils extends JRDefaultScriptlet  {
     
-    final String STR_TUOI = " tuổi";
-    final String STR_THANG = " tháng";
-    final String STR_NGAY = " ngày";
+    final static String STR_TUOI = " tuổi";
+    final static String STR_THANG = " tháng";
+    final static String STR_NGAY = " ngày";
     final String EMR_REPORT_DATE_FORMAT = "yyyyMMddHHmmss";
     
     final String reportDateFormat_DDMMYYYY = "'Ngày' dd 'tháng' MM 'năm' yyyy";
@@ -101,17 +100,20 @@ public class JasperUtils extends JRDefaultScriptlet  {
     }
     
     
-    public String getTuoi(EmrHoSoBenhAn danhSachHSBA) {
-        if(danhSachHSBA == null 
-                || danhSachHSBA.emrBenhNhan == null 
-                || danhSachHSBA.emrBenhNhan.ngaysinh == null
-                || danhSachHSBA.emrQuanLyNguoiBenh == null 
-                || danhSachHSBA.emrQuanLyNguoiBenh.ngaygioravien == null) {
+    public static String getTuoi(EmrHoSoBenhAn hsba) {
+        var emrBenhNhan = hsba.getEmrBenhNhan();
+        
+        if(hsba == null
+            || emrBenhNhan == null
+            || emrBenhNhan.ngaysinh == null
+            || hsba == null
+            || hsba.emrQuanLyNguoiBenh == null 
+            || hsba.emrQuanLyNguoiBenh.ngaygioravien == null) {
             return "";
         }
         
-        var d1 = new java.sql.Date(danhSachHSBA.emrBenhNhan.ngaysinh.getTime()).toLocalDate();
-        var d2 = new java.sql.Date(danhSachHSBA.emrQuanLyNguoiBenh.ngaygioravien.getTime()).toLocalDate();
+        var d1 = new java.sql.Date(emrBenhNhan.ngaysinh.getTime()).toLocalDate();
+        var d2 = new java.sql.Date(hsba.emrQuanLyNguoiBenh.ngaygioravien.getTime()).toLocalDate();
         
         var m1 = YearMonth.from(d1);
         var m2 = YearMonth.from(d2);
@@ -236,7 +238,7 @@ public class JasperUtils extends JRDefaultScriptlet  {
     public String getBacSiDieuTri(EmrHoSoBenhAn emrHoSoBenhAn) {
         
         if (emrHoSoBenhAn == null) return "";
-        var vaoKhoas = emrHoSoBenhAn.emrVaoKhoas;
+        var vaoKhoas = emrHoSoBenhAn.getEmrVaoKhoas();
         
         // Tim ra doi tuong khoa ra vien
         EmrVaoKhoa emrKhoaRaVien = null;
@@ -259,20 +261,33 @@ public class JasperUtils extends JRDefaultScriptlet  {
         }
     }
     
-    EmrTuoi getEmrTuoi(EmrHoSoBenhAn danhSachHSBA) {
-        var result = new EmrTuoi();
-        result.flagTuoi = false;
+    public class Tuoi {
+
+        public String tuoi;
+        /*
+         * 1. Tuoi
+         * 2. Thang tuoi
+         * 3. Ngay tuoi
+         * */
+        public int loaiTuoi;
+    }
+    
+    Tuoi getEmrTuoi(EmrHoSoBenhAn hsba) {
+        var result = new Tuoi();
+        result.tuoi = null;
         
-        if(danhSachHSBA == null 
-                || danhSachHSBA.emrBenhNhan == null 
-                || danhSachHSBA.emrBenhNhan.ngaysinh == null
-                || danhSachHSBA.emrQuanLyNguoiBenh == null 
-                || danhSachHSBA.emrQuanLyNguoiBenh.ngaygioravien == null) {
+        var emrBenhNhan = hsba.getEmrBenhNhan();
+        
+        if(hsba == null 
+                || emrBenhNhan == null 
+                || emrBenhNhan.ngaysinh == null
+                || hsba.emrQuanLyNguoiBenh == null 
+                || hsba.emrQuanLyNguoiBenh.ngaygioravien == null) {
             return result;
         }
         
-        var d1 = new java.sql.Date(danhSachHSBA.emrBenhNhan.ngaysinh.getTime()).toLocalDate();
-        var d2 = new java.sql.Date(danhSachHSBA.emrQuanLyNguoiBenh.ngaygioravien.getTime()).toLocalDate();
+        var d1 = new java.sql.Date(emrBenhNhan.ngaysinh.getTime()).toLocalDate();
+        var d2 = new java.sql.Date(hsba.emrQuanLyNguoiBenh.ngaygioravien.getTime()).toLocalDate();
         
         var m1 = YearMonth.from(d1);
         var m2 = YearMonth.from(d2);
@@ -290,8 +305,6 @@ public class JasperUtils extends JRDefaultScriptlet  {
         if(d1.getMonthValue() > d2.getMonthValue() || (d1.getMonthValue() == d2.getMonthValue() && d1.getDayOfMonth() > d2.getDayOfMonth())) 
             years -= 1;
         
-        result.flagTuoi = true;
-        
         if(months < 1) {
             result.tuoi = String.valueOf(days);
             result.loaiTuoi = 3;
@@ -305,11 +318,11 @@ public class JasperUtils extends JRDefaultScriptlet  {
         return result;
     }
     
-    public String getTuoi_yhct(EmrHoSoBenhAn danhSachHSBA, int index) { 
+    public String getTuoi_yhct(EmrHoSoBenhAn hsba, int index) { 
         String tuoi = "";
-        if(danhSachHSBA != null){
-            EmrTuoi object = getEmrTuoi(danhSachHSBA);
-            if (object != null && object.flagTuoi){
+        if(hsba != null){
+            Tuoi object = getEmrTuoi(hsba);
+            if (object != null && object.tuoi != null){
                 String vTuoi = object.tuoi;
                 int length = vTuoi.length();                
                 if(index <= 2){
@@ -375,11 +388,11 @@ public class JasperUtils extends JRDefaultScriptlet  {
         return str;
     }
     
-    public String getNhanTuoi_YHCT(EmrHoSoBenhAn danhSachHSBA) {    
+    public String getNhanTuoi_YHCT(EmrHoSoBenhAn hsba) {    
         String tuoi = "Tuổi";
-        if(danhSachHSBA != null){
-            EmrTuoi object = getEmrTuoi(danhSachHSBA);
-            if (object != null && object.flagTuoi){
+        if(hsba != null){
+            Tuoi object = getEmrTuoi(hsba);
+            if (object != null && object.tuoi != null){
                 int loai = object.loaiTuoi;
                 if(loai == 1){
                     tuoi = "Tuổi";
@@ -406,25 +419,7 @@ public class JasperUtils extends JRDefaultScriptlet  {
             return "";
         }
     }
-    
-    public String getVaiTroPTTT(int ivaitro){
-        if(ivaitro == VaiTroPTTT.PHAU_THUAT_VIEN_CHINH){
-            return ExportUtil.getMessage("vaitro.pttt.ptv.chinh");
-        }else if(ivaitro == VaiTroPTTT.PHAU_THUAT_VIEN_PHU){
-            return ExportUtil.getMessage("vaitro.pttt.ptv.phu");
-        }else if(ivaitro == VaiTroPTTT.THU_THUAT_VIEN_CHINH){
-            return ExportUtil.getMessage("vaitro.pttt.ttv.chinh");
-        }else if(ivaitro == VaiTroPTTT.THU_THUAT_VIEN_PHU){
-            return ExportUtil.getMessage("vaitro.pttt.ttv.phu");
-        }else if(ivaitro == VaiTroPTTT.GAY_ME_CHINH){
-            return ExportUtil.getMessage("vaitro.pttt.gm.chinh");
-        }else if(ivaitro == VaiTroPTTT.GAY_ME_PHU){
-            return ExportUtil.getMessage("vaitro.pttt.gm.phu");
-        }else if(ivaitro == VaiTroPTTT.THANH_VIEN){
-            return ExportUtil.getMessage("vaitro.pttt.tv");
-        }
-        return "";
-    }
+  
     
     public String getBacSyThuKy(List<EmrThanhVienHoiChan> emrThanhVienHoiChanList) {
         return emrThanhVienHoiChanList
@@ -447,7 +442,7 @@ public class JasperUtils extends JRDefaultScriptlet  {
     public String getBacSyGayMeChinh(List<EmrThanhVienPttt> emrThanhVienPttts) {
         return emrThanhVienPttts
                 .stream()
-                .filter(x -> x.emrDmVaiTro.ma.equals(String.valueOf(VaiTroPTTT.GAY_ME_CHINH)))
+                .filter(x -> VaiTroPTTT.GAY_ME_CHINH.equals(x.emrDmVaiTro.ma))
                 .findAny()
                 .map(x -> x.tenbacsi)
                 .orElse("");
@@ -456,8 +451,8 @@ public class JasperUtils extends JRDefaultScriptlet  {
     public String getBacSyPhauThuat(List<EmrThanhVienPttt> emrThanhVienPttts) { 
         return emrThanhVienPttts
                 .stream()
-                .filter(x -> (x.emrDmVaiTro.ma.equals(String.valueOf(VaiTroPTTT.PHAU_THUAT_VIEN_CHINH)) 
-                                || x.emrDmVaiTro.ma.equals(String.valueOf(VaiTroPTTT.THU_THUAT_VIEN_CHINH)))
+                .filter(x -> (VaiTroPTTT.PHAU_THUAT_VIEN_CHINH.equals(x.emrDmVaiTro.ma) 
+                                || VaiTroPTTT.THU_THUAT_VIEN_CHINH.equals(x.emrDmVaiTro.ma))
                         )
                 .findAny()
                 .map(x -> x.tenbacsi)
@@ -511,16 +506,16 @@ public class JasperUtils extends JRDefaultScriptlet  {
     }
     
     public String getTextICD10(EmrChanDoan emrChanDoan, int index){
-        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoannoidens != null && emrChanDoan.emrDmMaBenhChandoannoidens.size() > 0) {
-            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoannoidens.get(0).ma, index);
+        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoannoiden != null) {
+            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoannoiden.ma, index);
         }
         
         return "";
     }
     
     public String getTextICD10FromKKB(EmrChanDoan emrChanDoan, int index){
-        if(emrChanDoan != null  && emrChanDoan.emrDmMaBenhChandoankkbs != null && emrChanDoan.emrDmMaBenhChandoankkbs.size() > 0) {
-            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoankkbs.get(0).ma, index);
+        if(emrChanDoan != null  && emrChanDoan.emrDmMaBenhChandoankkb != null) {
+            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoankkb.ma, index);
         }
         
         return "";
@@ -528,16 +523,16 @@ public class JasperUtils extends JRDefaultScriptlet  {
     
     
     public String getTextICD10BenhChinhFromBenhAN(EmrBenhAn emrBenhAn, int index){
-        if(emrBenhAn != null && emrBenhAn.emrDmMaBenhChandoanbenhchinhs != null && emrBenhAn.emrDmMaBenhChandoanbenhchinhs.size() > 0) {
-            return getText_ICD10(emrBenhAn.emrDmMaBenhChandoanbenhchinhs.get(0).ma, index);
+        if(emrBenhAn != null && emrBenhAn.emrDmMaBenhChandoanbenhchinh != null) {
+            return getText_ICD10(emrBenhAn.emrDmMaBenhChandoanbenhchinh.ma, index);
         }
         
         return "";
     }
     
     public String getTextICD10RaVienFromChanDoan(EmrChanDoan emrChanDoan, int index){
-        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoanravienchinhs!= null && emrChanDoan.emrDmMaBenhChandoanravienchinhs.size() > 0){
-            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoanravienchinhs.get(0).ma, index);
+        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoanravienchinh!= null){
+            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoanravienchinh.ma, index);
             
         }
         
@@ -562,32 +557,32 @@ public class JasperUtils extends JRDefaultScriptlet  {
     }
     
     public String getTextICD10TruocPhauThuatFromChanDoan(EmrChanDoan emrChanDoan, int index){
-        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoantruocpts != null && emrChanDoan.emrDmMaBenhChandoantruocpts.size() > 0) {
-            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoantruocpts.get(0).ma, index);
+        if(emrChanDoan != null && emrChanDoan.getEmrDmMaBenhChandoantruocpt() != null) {
+            return getText_ICD10(emrChanDoan.getEmrDmMaBenhChandoantruocpt().ma, index);
         }
         
         return "";        
     }    
    
     public String getTextICD10SauPhauThuatFromChanDoan(EmrChanDoan emrChanDoan, int index){
-        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoansaupts != null && emrChanDoan.emrDmMaBenhChandoansaupts.size() > 0) {
-            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoansaupts.get(0).ma, index);
+        if(emrChanDoan != null && emrChanDoan.getEmrDmMaBenhChandoansaupt() != null) {
+            return getText_ICD10(emrChanDoan.getEmrDmMaBenhChandoansaupt().ma, index);
         }
         
         return "";
     }
     
     public String getTextICD10NNRaVienFromChanDoan(EmrChanDoan emrChanDoan, int index){
-        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoanraviennguyennhans != null && emrChanDoan.emrDmMaBenhChandoanraviennguyennhans.size() > 0) {
-            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoanraviennguyennhans.get(0).ma, index);
+        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoanraviennguyennhan != null) {
+            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoanraviennguyennhan.ma, index);
         }
         
         return "";
     }
     
     public String getTextICD10KemTheoFromChanDoan(EmrChanDoan emrChanDoan, int index){
-        if(emrChanDoan != null && emrChanDoan.emrDmMaBenhChandoanravienkemtheos != null && emrChanDoan.emrDmMaBenhChandoanravienkemtheos.size() > 0) {
-            return getText_ICD10(emrChanDoan.emrDmMaBenhChandoanravienkemtheos.get(0).ma, index);
+        if(emrChanDoan != null && emrChanDoan.getEmrDmMaBenhChandoanravienkemtheo() != null) {
+            return getText_ICD10(emrChanDoan.getEmrDmMaBenhChandoanravienkemtheo().ma, index);
             
         }
 
@@ -660,7 +655,9 @@ public class JasperUtils extends JRDefaultScriptlet  {
     public String getChuandoanSauPTTT(EmrPhauThuatThuThuat[] emrPTTTs){
         if(emrPTTTs != null && emrPTTTs.length > 0){
             var emrPTTT = emrPTTTs[emrPTTTs.length - 1];
-            return getTextChanDoanYhhd(emrPTTT.motachandoansaupt, emrPTTT.emrDmMaBenhChandoansau);
+            if(emrPTTT.getEmrDmMaBenhChandoansau() != null) {
+                return getTextChanDoanYhhd(emrPTTT.motachandoansaupt, emrPTTT.getEmrDmMaBenhChandoansau());
+            }
         }
         return "";
     }
@@ -668,20 +665,22 @@ public class JasperUtils extends JRDefaultScriptlet  {
     public String getChuandoanTruocPTTT(EmrPhauThuatThuThuat[] emrPTTTs){
         if(emrPTTTs != null && emrPTTTs.length > 0){
             var emrPTTT = emrPTTTs[0];
-            return getTextChanDoanYhhd(emrPTTT.motachandoantruocpt, emrPTTT.emrDmMaBenhChandoantruoc);
+            if(emrPTTT.getemrDmMaBenhChandoantruoc() != null) {
+                return getTextChanDoanYhhd(emrPTTT.motachandoantruocpt, emrPTTT.getemrDmMaBenhChandoantruoc());
+            }
         }
         return "";
     }
     
-    Date getNgayThangBiBong(EmrHoSoBenhAn danhSachHSBA) {
+    Date getNgayThangBiBong(EmrHoSoBenhAn hsba) {
         Date result = null;
         Integer iNgayVaoVienThu = null;
         
         // lay ngay vao vien thu
-        iNgayVaoVienThu = danhSachHSBA.emrBenhAn.vaongaythu;
+        iNgayVaoVienThu = hsba.emrBenhAn.vaongaythu;
         
         // lay ngay gio vao vien
-        Date dNgayVaoVien = danhSachHSBA.emrQuanLyNguoiBenh.ngaygiovaovien;
+        Date dNgayVaoVien = hsba.emrQuanLyNguoiBenh.ngaygiovaovien;
         
         if ( iNgayVaoVienThu == null ) {
             return result;
@@ -693,8 +692,8 @@ public class JasperUtils extends JRDefaultScriptlet  {
         
     }
     
-    public String getThoiGianBiBong(EmrHoSoBenhAn danhSachHSBA){
-        var date = getNgayThangBiBong(danhSachHSBA); 
+    public String getThoiGianBiBong(EmrHoSoBenhAn hsba){
+        var date = getNgayThangBiBong(hsba); 
         if (date == null) {
             return "";
         }else {
@@ -771,8 +770,8 @@ public class JasperUtils extends JRDefaultScriptlet  {
     public String getMaChanDoanYHCT(EmrChanDoan chanDoan) {
         StringBuilder result = new StringBuilder();
         
-        if (chanDoan.emrDmMaBenhChandoanravienchinhs != null && chanDoan.emrDmMaBenhChandoanravienchinhs.size() > 0) {
-            result.append(chanDoan.emrDmMaBenhChandoanravienchinhs.get(0).ma);
+        if (chanDoan.emrDmMaBenhChandoanravienchinh != null) {
+            result.append(chanDoan.emrDmMaBenhChandoanravienchinh.ma);
         }
         
         if (chanDoan.emrDmMaBenhChandoanravienkemtheos != null && chanDoan.emrDmMaBenhChandoanravienkemtheos.size() > 0) {
@@ -780,9 +779,9 @@ public class JasperUtils extends JRDefaultScriptlet  {
             result.append(chanDoan.emrDmMaBenhChandoanravienkemtheos.get(0).ma);
         }
         
-        if (chanDoan.emrDmMaBenhChandoanraviennguyennhans != null && chanDoan.emrDmMaBenhChandoanraviennguyennhans.size() > 0) {
+        if (chanDoan.emrDmMaBenhChandoanraviennguyennhan != null) {
             if (result.length() > 0) result.append(", ");
-            result.append(chanDoan.emrDmMaBenhChandoanraviennguyennhans.get(0).ma);
+            result.append(chanDoan.emrDmMaBenhChandoanraviennguyennhan.ma);
         }
         
         return result.toString();

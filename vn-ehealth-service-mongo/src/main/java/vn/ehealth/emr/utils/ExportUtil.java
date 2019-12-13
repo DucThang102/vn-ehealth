@@ -23,6 +23,7 @@ import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import vn.ehealth.emr.model.EmrHoSoBenhAn;
+import vn.ehealth.emr.utils.Constants.MA_BENH_AN;
 
 public class ExportUtil {
     
@@ -100,99 +101,99 @@ public class ExportUtil {
             params.put("SUBREPORT_DIR", getRealPath("report/BenhAn/ToBAFooter"));
             
             // Check loai ho so benh an
-            if (Constants.EMR_MA_LOAI_BENH_AN_NOI_KHOA.equals(maLoaiBenhAn)) {
+            if (MA_BENH_AN.NOI_KHOA.equals(maLoaiBenhAn)) {
                 jrxmlFile = getRealPath("report/BenhAn/NOIKHOA/BenhAn-NOIKHOA.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_NHI_KHOA.equals(maLoaiBenhAn)) {
+            } else if (MA_BENH_AN.NHI_KHOA.equals(maLoaiBenhAn)) {
                 jrxmlFile = getRealPath("report/BenhAn/NHIKHOA/BenhAn-NHIKHOA.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_TRUYEN_NHIEM.equals(maLoaiBenhAn)) { 
+            } else if (MA_BENH_AN.TRUYEN_NHIEM.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/TRUYENNHIEM/BenhAnTruyenNhiem.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_PHU_KHOA.equals(maLoaiBenhAn)) { 
+            } else if (MA_BENH_AN.PHU_KHOA.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/PHUKHOA/BenhAnPhuKhoa.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_SAN_KHOA.equals(maLoaiBenhAn)) { 
+            } else if (MA_BENH_AN.SAN_KHOA.equals(maLoaiBenhAn)) { 
                 
                 params.put("SUBREPORT_DIR_TIEN_SU", getRealPath("report/BenhAn/San-Khoa"));
                 jrxmlFile = getRealPath("report/BenhAn/San-Khoa/BenhAnSanKhoa.jasper");                    
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_SO_SINH.equals(maLoaiBenhAn)) { 
+            } else if (MA_BENH_AN.SO_SINH.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/SOSINH/BenhAn-SOSINH.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_TAM_THAN.equals(maLoaiBenhAn)) { 
+            } else if (MA_BENH_AN.TAM_THAN.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/TAMTHAN/BenhAn-TAMTHAN.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_DA_LIEU.equals(maLoaiBenhAn)) { 
+            } else if (MA_BENH_AN.DA_LIEU.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/DALIEU/BenhAn-DALIEU.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_DIEU_DUONG_PHUC_HOI_CHUC_NANG.equals(maLoaiBenhAn)) { 
+            } else if (MA_BENH_AN.DIEU_DUONG_PHUC_HOI_CHUC_NANG.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/PHCN/BenhAn-PHCN.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_HUYET_HOC_TRUYEN_MAU.equals(maLoaiBenhAn)) { 
+            } else if (MA_BENH_AN.HUYET_HOC_TRUYEN_MAU.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/HHTM/BenhAn-HHTM.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_NGOAI_KHOA.equals(maLoaiBenhAn)) { 
+            } else if (MA_BENH_AN.NGOAI_KHOA.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/NGOAIKHOA/BenhAn-NGOAIKHOA.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_BONG.equals(maLoaiBenhAn)) { 
+            } else if (MA_BENH_AN.BONG.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/BONG/BenhAn-BONG.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_UNG_BUOU.equals(maLoaiBenhAn)) { 
+            } else if (MA_BENH_AN.UNG_BUOU.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/UNGBUOU/BenhAn-UngBuou.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_RANG_HAM_MAT.equals(maLoaiBenhAn)) { 
+            } else if (MA_BENH_AN.RANG_HAM_MAT.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/RHM/BenhAn-RHM.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_TAI_MUI_HONG.equals(maLoaiBenhAn)) { 
+            } else if (MA_BENH_AN.TAI_MUI_HONG.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/TMH/BenhAn-TMH.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_MAT.equals(maLoaiBenhAn)) { 
+            } else if (MA_BENH_AN.MAT.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/MAT/BenhAn-Mat.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_LAC_VAN_NHAN.equals(maLoaiBenhAn)) { 
+            } else if (MA_BENH_AN.LAC_VAN_NHAN.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/MAT/Benh-An-Mat-Lac.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_MAT_TRE_EM.equals(maLoaiBenhAn)) { 
+            } else if (MA_BENH_AN.MAT_TRE_EM.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/MAT/BenhAnMatTE.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_MAT_GLOCOM.equals(maLoaiBenhAn)) { 
+            } else if (MA_BENH_AN.MAT_GLOCOM.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/MAT/Benh-an-Mat-Glocom.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_LAO.equals(maLoaiBenhAn)) {
+            } else if (MA_BENH_AN.LAO.equals(maLoaiBenhAn)) {
                 jrxmlFile = getRealPath("report/BenhAn/LAO/BenhAn-LAO.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_TAY_CHAN_MIENG.equals(maLoaiBenhAn)) { 
+            } else if (MA_BENH_AN.TAY_CHAN_MIENG.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/TAYCHANMIENG/BenhAnTayChanMieng.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_TIM_MACH.equals(maLoaiBenhAn)) { 
+            } else if (MA_BENH_AN.TIM_MACH.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/TIMMACH/BenhAn-TimMach.jasper");
                 
-            } else if (Constants.EMR_MA_LOAI_BENH_AN_NGOAI_TRU.equals(maLoaiBenhAn)) { 
+            } else if (MA_BENH_AN.NGOAI_TRU.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/NGOAITRU/Benh-an-Ngoai-tru.jasper");
                 
-            }else if (Constants.EMR_MA_LOAI_BENH_AN_NGOAI_TRU_TAI_MUI_HONG.equals(maLoaiBenhAn)) {
+            }else if (MA_BENH_AN.NGOAI_TRU_TAI_MUI_HONG.equals(maLoaiBenhAn)) {
                 jrxmlFile = getRealPath("report/BenhAn/TMH/BenhAn-TMH-NgoaiTru.jasper");
                 
-            }else if (Constants.EMR_MA_LOAI_BENH_AN_NGOAI_TRU_MAT.equals(maLoaiBenhAn)) { 
+            }else if (MA_BENH_AN.NGOAI_TRU_MAT.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/NGOAITRU-MAT/BenhAn-NgoaiTru_Mat.jasper");
                 
-            }else if (Constants.EMR_MA_LOAI_BENH_AN_NGOAI_TRU_RANG_HAM_MAT.equals(maLoaiBenhAn)) { 
+            }else if (MA_BENH_AN.NGOAI_TRU_RANG_HAM_MAT.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/RHM/BenhAn-RHM-NgoaiTru.jasper");
                 
-            }else if (Constants.EMR_MA_LOAI_BENH_AN_YHCT_NOI_TRU.equals(maLoaiBenhAn)) {
+            }else if (MA_BENH_AN.YHCT_NOI_TRU.equals(maLoaiBenhAn)) {
                 jrxmlFile = getRealPath("report/BenhAn/YHCTNoiTru/Benh-an-YHCT-Noi-tru.jasper");
                 
-            }else if (Constants.EMR_MA_LOAI_BENH_AN_YHCT_NGOAI_TRU.equals(maLoaiBenhAn)) { 
+            }else if (MA_BENH_AN.YHCT_NGOAI_TRU.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/YHCTNgoaiTru/Benh-an-YHCT-Ngoai-tru.jasper");
                 
-            }else if (Constants.EMR_MA_LOAI_BENH_AN_YHCT_NOI_TRU_BAN_NGAY.equals(maLoaiBenhAn)) { 
+            }else if (MA_BENH_AN.YHCT_NOI_TRU_BAN_NGAY.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/YHCTNoiTruBanNgay/Benh-an-YHCT-Noi-Tru-BN.jasper");
                 
-            }else if (Constants.EMR_MA_LOAI_BENH_AN_YHCT_NHA_BA.equals(maLoaiBenhAn)) { 
+            }else if (MA_BENH_AN.YHCT_NHA_BA.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/NhaBaYHCT/Nha-ba-YHCT.jasper");
                 
-            }else if (Constants.EMR_MA_LOAI_BENH_AN_YHCT_XA_PHUONG.equals(maLoaiBenhAn)) { 
+            }else if (MA_BENH_AN.YHCT_XA_PHUONG.equals(maLoaiBenhAn)) { 
                 jrxmlFile = getRealPath("report/BenhAn/BAXP/BenhAn-BAXP.jasper");
                 
             }/*                 

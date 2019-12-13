@@ -8,12 +8,12 @@
     <div class="col-6">
       <label class="label-title">Chẩn đoán nơi đến</label>
       <input readonly data-toggle="modal" data-target="#dmChandoannoidensSelect" class="form-control" 
-          :value="getTextChanDoan(hsba.emrChanDoan.emrDmMaBenhChandoannoidens)">
+          :value="getTextChanDoan(hsba.emrChanDoan.emrDmMaBenhChandoannoiden)">
     </div>
     <div class="col-6">
       <label class="label-title">Chẩn đoán vào viện</label>
       <input readonly data-toggle="modal" data-target="#dmChandoankkbsSelect" class="form-control" 
-          :value="getTextChanDoan(hsba.emrChanDoan.emrDmMaBenhChandoankkbs)">
+          :value="getTextChanDoan(hsba.emrChanDoan.emrDmMaBenhChandoankkb)">
     </div>
   </div>
   <div class="row mt-2">
@@ -25,7 +25,7 @@
       <label class="label-title">Mô tả chẩn đoán vào viện</label>
       <textarea rows="3" class="form-control" v-model="hsba.emrChanDoan.motachandoankkb"></textarea>
     </div>
-  </div>{{text}}
+  </div>
   <div class="row mt-3">
     <div class="col-12">
         <label class="label-title label-bold">II. VÀO KHOA ĐIỀU TRỊ</label>
@@ -35,12 +35,12 @@
     <div class="col-6">
       <label class="label-title">Bệnh chính</label>
       <input readonly data-toggle="modal" data-target="#dmChandoanbenhchinhsSelect" class="form-control" 
-          :value="getTextChanDoan(hsba.emrBenhAn.emrDmMaBenhChandoanbenhchinhs)">
+          :value="getTextChanDoan(hsba.emrBenhAn.emrDmMaBenhChandoanbenhchinh)">
     </div>
     <div class="col-6">
       <label class="label-title">Bệnh kèm theo</label>
       <input readonly data-toggle="modal" data-target="#dmChandoankemtheosSelect" class="form-control" 
-          :value="getTextChanDoan(hsba.emrBenhAn.emrDmMaBenhChandoankemtheos)">
+          :value="getTextChanDoans(hsba.emrBenhAn.emrDmMaBenhChandoankemtheos)">
     </div>
   </div>
   <div class="row mt-2">
@@ -63,12 +63,12 @@
     <div class="col-6">
       <label class="label-title">Bệnh chính</label>
       <input readonly class="form-control" data-toggle="modal" data-target="#dmChandoanravienchinhsSelect"
-          :value="getTextChanDoan(hsba.emrChanDoan.emrDmMaBenhChandoanravienchinhs)">
+          :value="getTextChanDoan(hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh)">
     </div>
     <div class="col-6">
       <label class="label-title">Bệnh kèm theo</label>
       <input readonly class="form-control" data-toggle="modal" data-target="#dmChandoanravienkemtheosSelect" 
-          :value="getTextChanDoan(hsba.emrChanDoan.emrDmMaBenhChandoanravienkemtheos)">
+          :value="getTextChanDoans(hsba.emrChanDoan.emrDmMaBenhChandoanravienkemtheos)">
     </div>
   </div>
   <div class="row mt-2">

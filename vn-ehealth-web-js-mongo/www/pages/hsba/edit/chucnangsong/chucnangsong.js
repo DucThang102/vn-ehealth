@@ -41,7 +41,7 @@ VueAsyncComponent('chucnangsong-list', '/pages/hsba/edit/chucnangsong/chucnangso
     },
 
     getVaoKhoaList: async function() {
-      this.vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', {hsba_id: this.hsba_id, detail: false});
+      this.vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', {hsba_id: this.hsba_id});
     },
 
     editChucnangsong : function(chucnangsong) {
@@ -102,7 +102,7 @@ VueAsyncComponent('chucnangsong-edit', '/pages/hsba/edit/chucnangsong/chucnangso
 
   created: async function() {
     this.vaokhoa_list = await this.get('/api/vaokhoa/get_ds_vaokhoa', 
-                          {hsba_id: this.chucnangsong.emrVaoKhoa.emrHoSoBenhAnId, detail: false});
+                          {hsba_id: this.chucnangsong.emrVaoKhoa.emrHoSoBenhAnId});
     this.maVaoKhoa = this.chucnangsong.emrVaoKhoa.emrDmKhoaDieuTri.ma;
   },
 

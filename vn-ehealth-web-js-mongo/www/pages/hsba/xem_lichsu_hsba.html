@@ -4,7 +4,7 @@
   <div class="font-weight-bold text-uppercase"></div>
   <div id="content" class="bg-white mt-2">
     <div id="app">
-      <template>
+      <template v-if="hsba">
         <div>
           <div class="mb-2" style="display:flex">
             <div v-if="backURL">
@@ -14,12 +14,12 @@
             </div>
             <div class="ml-3" style="display: flex;">
               <div style="display: inline-block; align-self: flex-end;">
-                <b>Lịch sử hồ sơ bệnh án : {{ mayte }}</b>
+                <b>Lịch sử hồ sơ bệnh án : {{ hsba.mayte }}</b>
               </div>
             </div>
           </div>
         </div>
-        <div v-if="dsHsba" class="container mt-3">
+        <div v-if="logs" class="container mt-3">
           <table class="table table-bordered">
             <tr>
               <th class="text-center" style="width:10%">Thao tác</th>
@@ -27,7 +27,7 @@
               <th class="text-center" style="width:45%">Người sửa</th>
               <th class="text-center" style="width:40%">Ngày sửa</th>
             </tr>
-            <tr v-for="(hs, i) in dsHsba">
+            <tr v-for="(log, i) in logs">
               <td class="text-center">
                 <button class="btn btn-small dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false">
@@ -35,13 +35,13 @@
                 </button>
                 <div class="dropdown-menu">
                   <a class="dropdown-item"
-                    :href="createURL('/pages/hsba/xem_hsba.html', {hsba_id: hs.id, backURL: currentURL})">Xem HSBA</a>
-                  <a class="dropdown-item" v-on:click="xemHoSoGoc(hs.id)" href="javascript:void(0)">Thông tin gốc</a>
+                    :href="createURL('/pages/hsba/xem_hsba.html', {hsba_id: log.hsba.id, backURL: currentURL})">Xem HSBA</a>
+                  <a class="dropdown-item" v-on:click="xemHoSoGoc(log.hsba)" href="javascript:void(0)">Thông tin gốc</a>
                 </div>
               </td>
               <td class="text-center">{{ i + 1 }}</td>
-              <td class="text-center"></td>
-              <td class="text-center">{{ hs.ngaytao }}</td>
+              <td class="text-center">{{ log.nguoiSua }}</td>
+              <td class="text-center">{{ log.ngaySua }}</td>
             </tr>
           </table>
         </div>
@@ -75,30 +75,29 @@
     data: {
       step: 0,
       backURL: null,
-      mayte: '',
-      dsHsba: null,
+      hsba: null,
+      logs: null,
       hsGocJson: null
     },
 
     computed: {
       currentURL() {
-        return this.createURL("/pages/hsba/xem_lichsu_hsba.html", { mayte: this.mayte ,backURL: this.backURL })
+        return this.createURL("/pages/hsba/xem_lichsu_hsba.html", { hsba_id: this.hsba.id ,backURL: this.backURL })
       }
     },
 
     methods: {
-      xemHoSoGoc: async function (id) {
-        this.hsGocJson = null;
-        var hsba = await this.get("/api/hsba/get_hsba_by_id", { "hsba_id": id });
-        this.hsGocJson = hsba.jsonSt;
+      xemHoSoGoc: async function (hs) {
+        this.hsGocJson = hs.jsonSt;
         $('#hsGocModal').modal();
       },
     },
 
     created: async function () {
       this.backURL = this.getParam("backURL");
-      this.mayte = this.getParam("mayte");
-      this.dsHsba = await this.get("/api/hsba/get_hsba_logs", { mayte: this.mayte });
+      var hsba_id = this.getParam("hsba_id");
+      this.hsba = await this.get("/api/hsba/get_hsba_by_id", {hsba_id: hsba_id});
+      this.logs = await this.get("/api/hsba/get_hsba_logs", { hsba_id: hsba_id });
     }
   });
 </script>

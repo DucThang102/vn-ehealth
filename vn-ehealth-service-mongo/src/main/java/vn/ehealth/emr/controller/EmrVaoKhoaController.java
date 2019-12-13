@@ -28,8 +28,8 @@ public class EmrVaoKhoaController {
     @Autowired EmrVaoKhoaService emrVaoKhoaService;
     
     @GetMapping("/get_ds_vaokhoa")
-    public ResponseEntity<?> getDsVaoKhoa(@RequestParam("hsba_id") String id, @RequestParam boolean detail) {
-        var vkList = emrVaoKhoaService.getByEmrHoSoBenhAnId(new ObjectId(id), detail);
+    public ResponseEntity<?> getDsVaoKhoa(@RequestParam("hsba_id") String id) {
+        var vkList = emrVaoKhoaService.getByEmrHoSoBenhAnId(new ObjectId(id));
         return ResponseEntity.ok(vkList);
     }
     

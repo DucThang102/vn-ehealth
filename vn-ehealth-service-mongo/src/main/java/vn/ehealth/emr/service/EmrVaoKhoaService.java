@@ -1,8 +1,6 @@
 package vn.ehealth.emr.service;
 
 import java.util.List;
-import java.util.stream.Collectors;
-
 import javax.annotation.Nonnull;
 
 import org.bson.types.ObjectId;
@@ -22,70 +20,80 @@ public class EmrVaoKhoaService {
     @Autowired EmrDieuTriService emrDieuTriService;
     @Autowired EmrHoiChanService emrHoiChanService;
     
-    public List<EmrVaoKhoa> getByEmrHoSoBenhAnId(ObjectId hsbaId, boolean detail) {
+    public List<EmrVaoKhoa> getByEmrHoSoBenhAnId(ObjectId hsbaId) {
         var sort = new Sort(Sort.Direction.ASC, "ngaygiovaokhoa");                
-        var lst = emrVaoKhoaRespository.findByEmrHoSoBenhAnId(hsbaId, sort);
-        if(detail) {
-            lst.forEach(x -> {
-                x.emrChamSocs = emrChamSocService.getByEmrVaoKhoaId(x.id);
-                x.emrChucNangSongs = emrChucNangSongService.getByEmrVaoKhoaId(x.id);
-                x.emrDieuTris = emrDieuTriService.getByEmrVaoKhoaId(x.id);
-                x.emrHoiChans = emrHoiChanService.getByEmrVaoKhoaId(x.id);
-            });
-        }
-        
-        return lst;        
+        return emrVaoKhoaRespository.findByEmrHoSoBenhAnId(hsbaId, sort);
     }
     
-    public EmrVaoKhoa save(@Nonnull EmrVaoKhoa emrVaoKhoa) {
+    public void deleteAllByEmrHoSoBenhAnId(ObjectId hsbaId) {
+        for(var emrVaoKhoa : getByEmrHoSoBenhAnId(hsbaId)) {
+            emrVaoKhoaRespository.delete(emrVaoKhoa);
+        }
+    }
+    
+    public void getEmrVaoKhoaDetail(@Nonnull EmrVaoKhoa emrVaoKhoa) {
+        emrVaoKhoa.emrChamSocs = emrChamSocService.getByEmrVaoKhoaId(emrVaoKhoa.id);
+        emrVaoKhoa.emrChucNangSongs = emrChucNangSongService.getByEmrVaoKhoaId(emrVaoKhoa.id);
+        emrVaoKhoa.emrDieuTris = emrDieuTriService.getByEmrVaoKhoaId(emrVaoKhoa.id);
+        emrVaoKhoa.emrHoiChans = emrHoiChanService.getByEmrVaoKhoaId(emrVaoKhoa.id);
+    }
+    
+    public EmrVaoKhoa createOrUpdate(@Nonnull EmrVaoKhoa emrVaoKhoa) {
         emrVaoKhoa = emrVaoKhoaRespository.save(emrVaoKhoa);
-        final ObjectId emrVaoKhoaId = emrVaoKhoa.id;
         
-        if(emrVaoKhoa.emrChamSocs != null) {
-            emrVaoKhoa.emrChamSocs.forEach(x -> x.emrVaoKhoaId = emrVaoKhoaId);
-            
-            emrVaoKhoa.emrChamSocs = emrVaoKhoa.emrChamSocs.stream()
-                                        .map(x -> emrChamSocService.createOrUpdate(x))
-                                        .collect(Collectors.toList());
+        emrChamSocService.deleteAllByEmrVaoKhoaId(emrVaoKhoa.id);
+        
+        for(int i = 0; emrVaoKhoa.emrChamSocs != null && i < emrVaoKhoa.emrChamSocs.size(); i++) {
+            var chamsoc = emrVaoKhoa.emrChamSocs.get(i);
+            chamsoc.emrVaoKhoaId = emrVaoKhoa.id;
+            chamsoc.emrHoSoBenhAnId = emrVaoKhoa.emrHoSoBenhAnId;
+            chamsoc.emrBenhNhanId = emrVaoKhoa.emrBenhNhanId;
+            chamsoc.emrCoSoKhamBenhId = emrVaoKhoa.emrCoSoKhamBenhId;
+            chamsoc = emrChamSocService.createOrUpdate(chamsoc);
+            emrVaoKhoa.emrChamSocs.set(i, chamsoc);
         }
         
-        if(emrVaoKhoa.emrChucNangSongs != null) {
-            emrVaoKhoa.emrChucNangSongs.forEach(x -> x.emrVaoKhoaId = emrVaoKhoaId);
-            
-            emrVaoKhoa.emrChucNangSongs = emrVaoKhoa.emrChucNangSongs.stream()
-                                        .map(x -> emrChucNangSongService.createOrUpdate(x))
-                                        .collect(Collectors.toList());
+        emrChucNangSongService.deleteAllByEmrVaoKhoaId(emrVaoKhoa.id);
+        
+        for(int i = 0; emrVaoKhoa.emrChucNangSongs != null && i < emrVaoKhoa.emrChucNangSongs.size(); i++) {
+            var chucnangsong = emrVaoKhoa.emrChucNangSongs.get(i);
+            chucnangsong.emrVaoKhoaId = emrVaoKhoa.id;
+            chucnangsong.emrHoSoBenhAnId = emrVaoKhoa.emrHoSoBenhAnId;
+            chucnangsong.emrBenhNhanId = emrVaoKhoa.emrBenhNhanId;
+            chucnangsong.emrCoSoKhamBenhId = emrVaoKhoa.emrCoSoKhamBenhId;
+            chucnangsong = emrChucNangSongService.createOrUpdate(chucnangsong);
+            emrVaoKhoa.emrChucNangSongs.set(i, chucnangsong);
         }
         
-        if(emrVaoKhoa.emrDieuTris != null) {
-            emrVaoKhoa.emrDieuTris.forEach(x -> x.emrVaoKhoaId = emrVaoKhoaId);
-            
-            emrVaoKhoa.emrDieuTris = emrVaoKhoa.emrDieuTris.stream()
-                                        .map(x -> emrDieuTriService.createOrUpdate(x))
-                                        .collect(Collectors.toList());
-        }
+        emrDieuTriService.deleteAllByEmrVaoKhoaId(emrVaoKhoa.id);
         
-        if(emrVaoKhoa.emrHoiChans != null) {
-            emrVaoKhoa.emrHoiChans.forEach(x -> x.emrVaoKhoaId = emrVaoKhoaId);
-            
-            emrVaoKhoa.emrHoiChans = emrVaoKhoa.emrHoiChans.stream()
-                                        .map(x -> emrHoiChanService.createOrUpdate(x))
-                                        .collect(Collectors.toList());
+        for(int i = 0; emrVaoKhoa.emrDieuTris != null && i < emrVaoKhoa.emrDieuTris.size(); i++) {
+            var dieutri = emrVaoKhoa.emrDieuTris.get(i);
+            dieutri.emrVaoKhoaId = emrVaoKhoa.id;
+            dieutri.emrHoSoBenhAnId = emrVaoKhoa.emrHoSoBenhAnId;
+            dieutri.emrBenhNhanId = emrVaoKhoa.emrBenhNhanId;
+            dieutri.emrCoSoKhamBenhId = emrVaoKhoa.emrCoSoKhamBenhId;
+            dieutri = emrDieuTriService.createOrUpdate(dieutri);
+            emrVaoKhoa.emrDieuTris.set(i, dieutri);            
         }
+       
+        emrHoiChanService.deleteAllByEmrVaoKhoaId(emrVaoKhoa.id);
         
+        for(int i = 0; emrVaoKhoa.emrDieuTris != null && i < emrVaoKhoa.emrDieuTris.size(); i++) {
+            var hoichan = emrVaoKhoa.emrHoiChans.get(i);
+            hoichan.emrVaoKhoaId = emrVaoKhoa.id;
+            hoichan.emrHoSoBenhAnId = emrVaoKhoa.emrHoSoBenhAnId;
+            hoichan.emrBenhNhanId = emrVaoKhoa.emrBenhNhanId;
+            hoichan.emrCoSoKhamBenhId = emrVaoKhoa.emrCoSoKhamBenhId;
+            hoichan = emrHoiChanService.createOrUpdate(hoichan);
+            emrVaoKhoa.emrHoiChans.set(i, hoichan);                    
+        }
+       
         return emrVaoKhoa;
     }
     
     public void saveByEmrHoSoBenhAnId(ObjectId hsbaId, List<EmrVaoKhoa> emrVaoKhoas) {
-        var vaoKhoaIds = emrVaoKhoas.stream()
-                                    .map(x -> x.id.toHexString())
-                                    .collect(Collectors.toSet());
-        
-        for(var emrVaoKhoa : getByEmrHoSoBenhAnId(hsbaId, false)) {
-            if(!vaoKhoaIds.contains(emrVaoKhoa.id.toHexString())) {
-                emrVaoKhoaRespository.delete(emrVaoKhoa);
-            }
-        }
+        deleteAllByEmrHoSoBenhAnId(hsbaId);
         
         for(var emrVaoKhoa : emrVaoKhoas) {
             emrVaoKhoaRespository.save(emrVaoKhoa);

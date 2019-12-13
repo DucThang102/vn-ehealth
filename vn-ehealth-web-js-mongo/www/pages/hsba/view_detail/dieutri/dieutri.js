@@ -29,23 +29,20 @@ VueAsyncComponent('dieutri-list', '/pages/hsba/view_detail/dieutri/dieutri_list.
       this.$emit('viewDieutri', dieutri);
     },
     getNgayDieuTri : function(dieutri) {
-      var ngayDieuTris = dieutri.emrQuaTrinhDieuTris.map(x => parseDate(x.ngaydieutri));
+      var ngayDieuTris = dieutri.emrQuaTrinhDieuTris.map(x => x.ngaydieutri);
       ngayDieuTris = ngayDieuTris.sort(x => x.getTime());
       
       if(ngayDieuTris.length == 0) {
         return "";
       }
-      ngayBatDau = ngayDieuTris[0];
-      ngayBatDau = ngayBatDau? ngayBatDau.substring(10) : "";
-      
-      ngayKetThuc = ngayDieuTris[ngayDieuTris.length-1];
-      ngayKetThuc = ngayKetThuc? ngayKetThuc.substring(10) : "";
 
-      if(ngayBatDau == ngayKetThuc){
-        return ngayBatDau
-      }else{
-        return "Từ " + ngayBatDau + " đến " + ngayKetThuc;
+      if(ngayDieuTris.length == 1) {
+        return ngayDieuTris[0];
       }
+
+      ngayBatDau = ngayDieuTris[0];
+      ngayKetThuc = ngayDieuTris[ngayDieuTris.length-1];
+      return "Từ " + ngayBatDau + " đến " + ngayKetThuc;
     },
     getTenKhoa: function(khoadieutri){
       return khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten');

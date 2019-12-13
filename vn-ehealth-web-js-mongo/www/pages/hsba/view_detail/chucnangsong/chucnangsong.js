@@ -29,23 +29,19 @@ VueAsyncComponent('chucnangsong-list', '/pages/hsba/view_detail/chucnangsong/chu
       this.$emit('viewChucnangsong', chucnangsong);
     },
     getNgayTheoDoi : function(chucnangsong) {
-      var ngayTheoDois = chucnangsong.emrChucNangSongChiTiets.map(x => parseDate(x.ngaytheodoi));
-      ngayTheoDois = ngayTheoDois.sort(x => x.getTime());
+      var ngayTheoDois = chucnangsong.emrChucNangSongChiTiets.map(x => x.ngaytheodoi);
       
       if(ngayTheoDois.length == 0) {
         return "";
       }
-      ngayBatDau = ngayTheoDois[0];
-      ngayBatDau = ngayBatDau? ngayBatDau.substring(10) : "";
-      
-      ngayKetThuc = ngayTheoDois[ngayTheoDois.length-1];
-      ngayKetThuc = ngayKetThuc? ngayKetThuc.substring(10) : "";
 
-      if(ngayBatDau == ngayKetThuc){
-        return ngayBatDau
-      }else{
-        return "Từ " + ngayBatDau + " đến " + ngayKetThuc;
+      if(ngayTheoDois.length == 0) {
+        return ngayTheoDois[0];
       }
+
+      ngayBatDau = ngayTheoDois[0];
+      ngayKetThuc = ngayTheoDois[ngayTheoDois.length-1];
+      return "Từ " + ngayBatDau + " đến " + ngayKetThuc;
     },
     getTenKhoa: function(khoadieutri){
       return khoadieutri.tenkhoa || attr(khoadieutri, 'emrDmKhoaDieuTri.ten');

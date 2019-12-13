@@ -4,7 +4,7 @@
   <div class="font-weight-bold text-uppercase"></div>
   <div id="content" class="bg-white mt-2">
     <div id="app">
-      <template>
+      <template v-if="hsba">
         <div>
           <div class="mb-2" style="display:flex">
             <div v-if="backURL">
@@ -14,7 +14,7 @@
             </div>
             <div class="ml-3" style="display: flex;">
               <div style="display: inline-block; align-self: flex-end;">
-                <b>Chi tiết hồ sơ bệnh án : {{ mayte }}</b>
+                <b>Chi tiết hồ sơ bệnh án : {{ hsba.mayte }}</b>
               </div>
             </div>
           </div>
@@ -22,43 +22,43 @@
           <b-card no-body>
             <b-tabs content-class="mt-3" card vertical v-model="step">
               <b-tab title="Tờ bệnh án">
-                <benh-an :hsba_id="hsba_id" v-if="step==0"></benh-an>
+                <benh-an :hsba_id="hsba.id" v-if="step==0"></benh-an>
               </b-tab>
               <b-tab title="Hình ảnh tổn thương">
-                <hatt :hsba_id="hsba_id" v-if="step==1"></hatt>
+                <hatt :hsba_id="hsba.id" v-if="step==1"></hatt>
               </b-tab>
               <b-tab title="Phẫu thuật thủ thuật">
-                <pttt :hsba_id="hsba_id" v-if="step==2"></pttt>
+                <pttt :hsba_id="hsba.id" v-if="step==2"></pttt>
               </b-tab>
               <b-tab title="Xét nghiệm">
-                <xetnghiem :hsba_id="hsba_id" v-if="step==3"></xetnghiem>
+                <xetnghiem :hsba_id="hsba.id" v-if="step==3"></xetnghiem>
               </b-tab>
               <b-tab title="Chẩn đoán hình ảnh">
-                <cdha :hsba_id="hsba_id" v-if="step==4"></cdha>
+                <cdha :hsba_id="hsba.id" v-if="step==4"></cdha>
               </b-tab>
               <b-tab title="Thăm dò chức năng">
-                <tdcn :hsba_id="hsba_id" v-if="step==5"></tdcn>
+                <tdcn :hsba_id="hsba.id" v-if="step==5"></tdcn>
               </b-tab>
               <b-tab title="Giải phẫu bệnh">
-                <gpb :hsba_id="hsba_id" v-if="step==6"></gpb>
+                <gpb :hsba_id="hsba.id" v-if="step==6"></gpb>
               </b-tab>
               <b-tab title="Hội chẩn">
-                <hoichan :hsba_id="hsba_id" v-if="step==7"></hoichan>
+                <hoichan :hsba_id="hsba.id" v-if="step==7"></hoichan>
               </b-tab>
               <b-tab title="Điều trị">
-                <dieutri :hsba_id="hsba_id" v-if="step==8"></dieutri>
+                <dieutri :hsba_id="hsba.id" v-if="step==8"></dieutri>
               </b-tab>
               <b-tab title="Chăm sóc">
-                <chamsoc :hsba_id="hsba_id" v-if="step==9"></chamsoc>
+                <chamsoc :hsba_id="hsba.id" v-if="step==9"></chamsoc>
               </b-tab>
               <b-tab title="Theo dõi chức năng sống">
-                <chucnangsong :hsba_id="hsba_id" v-if="step==10"></chucnangsong>
+                <chucnangsong :hsba_id="hsba.id" v-if="step==10"></chucnangsong>
               </b-tab>
               <b-tab title="Đơn thuốc">
-                <donthuoc :hsba_id="hsba_id" v-if="step==11"></donthuoc>
+                <donthuoc :hsba_id="hsba.id" v-if="step==11"></donthuoc>
               </b-tab>
               <b-tab title="Các giấy tờ đi kèm khác">
-                <giayto :hsba_id="hsba_id" v-if="step==12"></giayto>
+                <giayto :hsba_id="hsba.id" v-if="step==12"></giayto>
               </b-tab>
             </b-tabs>
           </b-card>
@@ -89,22 +89,13 @@
     data: {
       step: 0,
       backURL: null,
-      mayte: '',
-      hsba_id: null
+      hsba: null
     },
 
     created: async function () {
       this.backURL = this.getParam("backURL");
-      this.mayte = this.getParam("mayte");
-      this.hsba_id = this.getParam("hsba_id");
-
-      if(this.mayte) {
-        this.hsba = await this.get('/api/hsba/get_hsba_by_ma', { mayte: this.mayte });
-        this.hsba_id = this.hsba.id;
-      }else {        
-        this.hsba = await this.get('/api/hsba/get_hsba_by_id', { hsba_id: this.hsba_id });
-        this.mayte = this.hsba.mayte + "(" + this.hsba.ngaytao + ")"
-      }
+      var hsba_id = this.getParam("hsba_id");
+      this.hsba = await this.get('/api/hsba/get_hsba_by_id', { hsba_id: hsba_id });
     }
   });
 </script>

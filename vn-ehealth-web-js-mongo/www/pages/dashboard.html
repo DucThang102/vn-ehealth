@@ -203,18 +203,10 @@
         },
         methods: {
             countTotalPatient: function () {
-                this.callService(`/STU3/Patient/$total`)
-                    .then(result => {
-                        this.totalPatient = result.parameter[0].valueString;
-                        console.log(result);
-                    });
+                return 0;
             },
             countTotalEncounter: function () {
-                this.callService(`/STU3/Encounter/$total`)
-                    .then(result => {
-                        this.totalEncounter = result.parameter[0].valueString;
-                        console.log(result);
-                    });
+                return 0;
             },
         },
         watch: {

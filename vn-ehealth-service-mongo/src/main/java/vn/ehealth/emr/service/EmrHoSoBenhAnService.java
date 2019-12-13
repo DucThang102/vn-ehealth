@@ -1,15 +1,14 @@
 package vn.ehealth.emr.service;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Collectors;
-
 import javax.annotation.Nonnull;
 
 import org.bson.types.ObjectId;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -18,16 +17,19 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import vn.ehealth.emr.Constants;
-import vn.ehealth.emr.Constants.NGUON_DU_LIEU;
-import vn.ehealth.emr.Constants.TRANGTHAI_HOSO;
 import vn.ehealth.emr.model.EmrHoSoBenhAn;
+import vn.ehealth.emr.model.EmrLog;
 import vn.ehealth.emr.repository.EmrHoSoBenhAnRepository;
+import vn.ehealth.emr.utils.Constants.MA_HANH_DONG;
+import vn.ehealth.emr.utils.Constants.NGUON_DU_LIEU;
+import vn.ehealth.emr.utils.Constants.TRANGTHAI_HOSO;
+import vn.ehealth.emr.utils.JsonUtil;
 
 @Service
 public class EmrHoSoBenhAnService {
    
-    Logger logger = LoggerFactory.getLogger(EmrHoSoBenhAnService.class);
+    //private Logger logger = LoggerFactory.getLogger(EmrHoSoBenhAnService.class);
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
             
     @Autowired EmrHoSoBenhAnRepository emrHoSoBenhAnRepository;
     
@@ -44,6 +46,8 @@ public class EmrHoSoBenhAnService {
     @Autowired EmrVaoKhoaService emrVaoKhoaService;
     @Autowired EmrBenhNhanService emrBenhNhanService;
     @Autowired EmrCoSoKhamBenhService emrCoSoKhamBenhService;
+    @Autowired EmrLogService emrLogService;
+    @Autowired UserService userService;
     
     @Autowired MongoTemplate mongoTemplate;
     
@@ -51,7 +55,6 @@ public class EmrHoSoBenhAnService {
         var query = new Query(Criteria.where("emrCoSoKhamBenhId").is(emrCoSoKhamBenhId)
                                         .and("trangThai").is(trangThai)
                                         .and("mayte").regex(mayte)
-                                        .and("isLatest").is(true)
                              );
         
         return mongoTemplate.count(query, EmrHoSoBenhAn.class);
@@ -63,42 +66,23 @@ public class EmrHoSoBenhAnService {
         var query = new Query(Criteria.where("emrCoSoKhamBenhId").is(emrCoSoKhamBenhId)
                                         .and("trangThai").is(trangThai)
                                         .and("mayte").regex(mayte)
-                                        .and("isLatest").is(true)
                              ).with(pageable);
         
         return mongoTemplate.find(query, EmrHoSoBenhAn.class);
     }
     
-    public List<EmrHoSoBenhAn> getDsHoSoByBenhNhan(ObjectId emrBenhNhanId) {
-        return emrHoSoBenhAnRepository.findByEmrBenhNhanIdAndIsLatest(emrBenhNhanId, true);
+    public List<EmrHoSoBenhAn> getByEmrBenhNhanId(ObjectId emrBenhNhanId) {
+        return emrHoSoBenhAnRepository.findByEmrBenhNhanId(emrBenhNhanId);
     }
     
-    /*
-    public List<EmrHoSoBenhAn> getByTrangThaiAndIsLatest(int trangThai, boolean isLatest, int offset, int limit){
-        var sort = new Sort(Sort.Direction.DESC, "ngaytiepnhan");
-        var pageable = new OffsetBasedPageRequest(limit, offset, sort);        
-        return emrHoSoBenhAnRepository.findByTrangThaiAndIsLatest(trangThai, isLatest, pageable);
-    }*/
-    
-    public long countByTrangThaiAndIsLatest(int trangThai, boolean isLatest) {
-        return emrHoSoBenhAnRepository.countByTrangThaiAndIsLatest(trangThai, isLatest);
+    public Optional<EmrHoSoBenhAn> getById(ObjectId id){
+        return emrHoSoBenhAnRepository.findById(id);
     }
     
-    public Optional<EmrHoSoBenhAn> getById(ObjectId id, boolean detail){
-        var hsba = emrHoSoBenhAnRepository.findById(id);
-        hsba.ifPresent(x -> {
-            x.emrBenhNhan = emrBenhNhanService.getById(x.emrBenhNhanId).orElse(null);
-            x.emrCoSoKhamBenh = emrCoSoKhamBenhService.getById(x.emrCoSoKhamBenhId).orElse(null);
-        });
+    public void getEmrHoSoBenhAnDetail(@Nonnull EmrHoSoBenhAn hsba) {
+        hsba.emrVaoKhoas = emrVaoKhoaService.getByEmrHoSoBenhAnId(hsba.id);
+        hsba.emrVaoKhoas.forEach(x -> emrVaoKhoaService.getEmrVaoKhoaDetail(x));
         
-        if(detail && hsba.isPresent()) {
-            getEmrHoSoBenhAnDetail(hsba.get());
-        }
-        return hsba;
-    }
-    
-    public void getEmrHoSoBenhAnDetail(@Nonnull EmrHoSoBenhAn hsba) {        
-        hsba.emrVaoKhoas = emrVaoKhoaService.getByEmrHoSoBenhAnId(hsba.id, true);
         hsba.emrHinhAnhTonThuongs = emrHinhAnhTonThuongService.getByEmrHoSoBenhAnId(hsba.id);
         hsba.emrGiaiPhauBenhs = emrGiaiPhauBenhService.getByEmrHoSoBenhAnId(hsba.id) ;
         hsba.emrThamDoChucNangs = emrThamDoChucNangService.getByEmrHoSoBenhAnId(hsba.id);
@@ -109,32 +93,57 @@ public class EmrHoSoBenhAnService {
         hsba.emrXetNghiems = emrXetNghiemService.getByEmrHoSoBenhAnId(hsba.id);  
     }
     
-    public Optional<EmrHoSoBenhAn> getByMayte(String mayte) {
-        return emrHoSoBenhAnRepository.findByMayteAndIsLatest(mayte, true);
+    public List<Object> getHistory(ObjectId id) {
+        var createLogs = emrLogService.getLogs(EmrHoSoBenhAn.class.getName(), id, MA_HANH_DONG.TAO_MOI, false);
+        var updateLogs = emrLogService.getLogs(EmrHoSoBenhAn.class.getName(), id, MA_HANH_DONG.CHINH_SUA, false);
+        
+        var logs = new ArrayList<EmrLog>();
+        logs.addAll(updateLogs);
+        logs.addAll(createLogs);
+        
+        var result = new ArrayList<>();
+        for(var log : logs) {
+            var hsba = JsonUtil.parseObject(log.noiDung, EmrHoSoBenhAn.class);
+            String nguoiThucHien = "", ngayThucHien = "";
+            
+            if(log.nguoiThucHienId != null) {
+                var user = userService.getById(log.nguoiThucHienId);
+                nguoiThucHien = user.map(x -> x.fullName).orElse("");
+            }
+            
+            if(log.ngayThucHien != null) {
+                ngayThucHien = sdf.format(log.ngayThucHien);
+            }            
+                    
+            result.add(Map.of("hsba", hsba, "ngaySua", ngayThucHien, "nguoiSua", nguoiThucHien));
+        }
+        
+        return result;
     }
     
-    public List<EmrHoSoBenhAn> getLogs(String mayte) {
-        var sort = new Sort(Sort.Direction.DESC, "ngaytao");
-        return emrHoSoBenhAnRepository.findByMayte(mayte, sort);
-    }
-    
-    public EmrHoSoBenhAn save2(EmrHoSoBenhAn hsba) {
+    public EmrHoSoBenhAn update(@Nonnull EmrHoSoBenhAn hsba, ObjectId userId) {
+        emrLogService.logAction(EmrHoSoBenhAn.class.getName(), hsba.id, MA_HANH_DONG.CHINH_SUA, new Date(), userId, 
+                JsonUtil.dumpObject(hsba), "");
+        
         return emrHoSoBenhAnRepository.save(hsba);
     }
     
-    public EmrHoSoBenhAn save(EmrHoSoBenhAn hsba) {
-        var maCoSoKhamBenh = hsba.emrCoSoKhamBenh != null? hsba.emrCoSoKhamBenh.ma : "";
-        var emrCoSoKhamBenh = emrCoSoKhamBenhService.getByMa(maCoSoKhamBenh).orElse(null);
+    public EmrHoSoBenhAn createOrUpdateHIS(@Nonnull EmrHoSoBenhAn hsba, ObjectId userId) {
+        hsba.id = emrHoSoBenhAnRepository.findByMatraodoi(hsba.matraodoi).map(x -> x.id).orElse(null);
+        boolean createNew = hsba.id == null;
         
-        if(hsba.emrBenhNhan == null) {
-            throw new RuntimeException("No patient info");
-        }
-        
+        var emrCoSoKhamBenh = hsba.getEmrCoSoKhamBenh();
+        var maCoSoKhamBenh = emrCoSoKhamBenh != null? emrCoSoKhamBenh.ma : "";
+        emrCoSoKhamBenh = emrCoSoKhamBenhService.getByMa(maCoSoKhamBenh).orElse(null);
+                
         if(emrCoSoKhamBenh == null) {
             throw new RuntimeException("No emrCoSoKhamBenh for ma : " + maCoSoKhamBenh);
         }
         
-        var emrBenhNhan = hsba.emrBenhNhan;
+        var emrBenhNhan = hsba.getEmrBenhNhan();
+        if(emrBenhNhan == null) {
+            throw new RuntimeException("No patient info");
+        }
         
         if(StringUtils.isEmpty(emrBenhNhan.iddinhdanhchinh)) {
             emrBenhNhan.iddinhdanhchinh = emrBenhNhan.idhis;
@@ -146,136 +155,142 @@ public class EmrHoSoBenhAnService {
         
         emrBenhNhan = emrBenhNhanService.createOrUpdate(emrBenhNhan);
         
-        hsba.emrBenhNhan = emrBenhNhan;
-        hsba.emrBenhNhanId = emrBenhNhan.id;
-        
-        hsba.emrCoSoKhamBenh = emrCoSoKhamBenh;
-        hsba.emrCoSoKhamBenhId = emrCoSoKhamBenh.id;
-        
+        hsba.emrBenhNhanId = emrBenhNhan.id;        
+        hsba.emrCoSoKhamBenhId = emrCoSoKhamBenh.id;        
         hsba.ngaytao = new Date();
         
-        //var maLoaiBenhAn = hsba.emrDmLoaiBenhAn != null? hsba.emrDmLoaiBenhAn.ma : null;
-        //hsba.emrDmLoaiBenhAn = emrDmService.getEmrDmByNhom_Ma(MA_NHOM_DANH_MUC.LOAI_BENH_AN, maLoaiBenhAn);
         hsba.nguonDuLieu = NGUON_DU_LIEU.TU_HIS;
-        hsba.trangThai = TRANGTHAI_HOSO.NHAP;
+        hsba.trangThai = TRANGTHAI_HOSO.CHUA_XULY;
         hsba = emrHoSoBenhAnRepository.save(hsba);
         
-        final var hsbaId = hsba.id;
-        
-        if(hsba.emrVaoKhoas != null) {
-            for(var item : hsba.emrVaoKhoas) item.emrHoSoBenhAnId = hsba.id;
-            
-            hsba.emrVaoKhoas = hsba.emrVaoKhoas.stream()
-                                    .map(x -> emrVaoKhoaService.save(x))
-                                    .collect(Collectors.toList());
+        if(!createNew) {
+            emrVaoKhoaService.deleteAllByEmrHoSoBenhAnId(hsba.id);
+            emrHinhAnhTonThuongService.deleteAllByEmrHoSoBenhAnId(hsba.id);
+            emrGiaiPhauBenhService.deleteAllByEmrHoSoBenhAnId(hsba.id);
+            emrThamDoChucNangService.deleteAllByEmrHoSoBenhAnId(hsba.id);
+            emrPhauThuatThuThuatService.deleteAllByEmrHoSoBenhAnId(hsba.id);
+            emrChanDoanHinhAnhService.deleteAllByEmrHoSoBenhAnId(hsba.id);
+            emrDonThuocService.deleteAllByEmrHoSoBenhAnId(hsba.id);
+            emrYhctDonThuocService.deleteAllByEmrHoSoBenhAnId(hsba.id);
+            emrXetNghiemService.deleteAllByEmrHoSoBenhAnId(hsba.id);
         }
         
-        if(hsba.emrHinhAnhTonThuongs != null) {
-            hsba.emrHinhAnhTonThuongs.forEach(x -> x.emrHoSoBenhAnId = hsbaId);
-            
-            hsba.emrHinhAnhTonThuongs = hsba.emrHinhAnhTonThuongs.stream()
-                                            .map(x -> emrHinhAnhTonThuongService.createOrUpdate(x))
-                                            .collect(Collectors.toList());
+        for(int i = 0; hsba.emrVaoKhoas != null && i < hsba.emrVaoKhoas.size(); i++) {
+            var vk = hsba.emrVaoKhoas.get(i);
+            vk.emrHoSoBenhAnId = hsba.id;
+            vk.emrBenhNhanId = hsba.emrBenhNhanId;
+            vk.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
+            vk = emrVaoKhoaService.createOrUpdate(vk);
+            hsba.emrVaoKhoas.set(i, vk);            
         }
         
-        if(hsba.emrGiaiPhauBenhs != null) {
-            hsba.emrGiaiPhauBenhs.forEach(x -> x.emrHoSoBenhAnId = hsbaId);
-            
-            hsba.emrGiaiPhauBenhs = hsba.emrGiaiPhauBenhs.stream()
-                                            .map(x -> emrGiaiPhauBenhService.createOrUpdate(x))
-                                            .collect(Collectors.toList());
+        for(int i = 0; hsba.emrHinhAnhTonThuongs != null && i < hsba.emrHinhAnhTonThuongs.size(); i++) {
+            var hatt = hsba.emrHinhAnhTonThuongs.get(i);
+            hatt.emrHoSoBenhAnId = hsba.id;
+            hatt.emrBenhNhanId = hsba.emrBenhNhanId;
+            hatt.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
+            hatt = emrHinhAnhTonThuongService.createOrUpdate(hatt);
+            hsba.emrHinhAnhTonThuongs.set(i, hatt);
         }
         
-        if(hsba.emrThamDoChucNangs != null) {
-            hsba.emrThamDoChucNangs.forEach(x -> x.emrHoSoBenhAnId = hsbaId);
-            
-            hsba.emrThamDoChucNangs = hsba.emrThamDoChucNangs.stream()
-                                            .map(x -> emrThamDoChucNangService.createOrUpdate(x))
-                                            .collect(Collectors.toList());
+        for(int i = 0; hsba.emrGiaiPhauBenhs != null && i < hsba.emrGiaiPhauBenhs.size(); i++) {
+            var gpb = hsba.emrGiaiPhauBenhs.get(i);
+            gpb.emrHoSoBenhAnId = hsba.id;
+            gpb.emrBenhNhanId = hsba.emrBenhNhanId;
+            gpb.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
+            gpb = emrGiaiPhauBenhService.createOrUpdate(gpb);
+            hsba.emrGiaiPhauBenhs.set(i, gpb);
         }
         
-        if(hsba.emrPhauThuatThuThuats != null) {
-            for(var item : hsba.emrPhauThuatThuThuats) item.emrHoSoBenhAnId = hsbaId;
-            
-            hsba.emrPhauThuatThuThuats = hsba.emrPhauThuatThuThuats.stream()
-                                            .map(x -> emrPhauThuatThuThuatService.createOrUpdate(x))
-                                            .collect(Collectors.toList());
+        for(int i = 0; hsba.emrThamDoChucNangs != null && i < hsba.emrThamDoChucNangs.size(); i++) {
+            var tdcn = hsba.emrThamDoChucNangs.get(i);
+            tdcn.emrHoSoBenhAnId = hsba.id;
+            tdcn.emrBenhNhanId = hsba.emrBenhNhanId;
+            tdcn.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
+            tdcn = emrThamDoChucNangService.createOrUpdate(tdcn);
+            hsba.emrThamDoChucNangs.set(i, tdcn);
         }
         
-        if(hsba.emrChanDoanHinhAnhs != null) {
-            hsba.emrChanDoanHinhAnhs.forEach(x -> x.emrHoSoBenhAnId = hsbaId);
-            
-            hsba.emrChanDoanHinhAnhs = hsba.emrChanDoanHinhAnhs.stream()
-                                            .map(x -> emrChanDoanHinhAnhService.createOrUpdate(x))
-                                            .collect(Collectors.toList());
+        for(int i = 0; hsba.emrPhauThuatThuThuats != null && i < hsba.emrPhauThuatThuThuats.size(); i++) {
+            var pttt = hsba.emrPhauThuatThuThuats.get(i);
+            pttt.emrHoSoBenhAnId = hsba.id;
+            pttt.emrBenhNhanId = hsba.emrBenhNhanId;
+            pttt.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
+            pttt = emrPhauThuatThuThuatService.createOrUpdate(pttt);
+            hsba.emrPhauThuatThuThuats.set(i, pttt);
         }
         
-        if(hsba.emrDonThuocs != null) {
-            hsba.emrDonThuocs.forEach(x -> x.emrHoSoBenhAnId = hsbaId);
-            
-            hsba.emrDonThuocs = hsba.emrDonThuocs.stream()
-                                            .map(x -> emrDonThuocService.createOrUpdate(x))
-                                            .collect(Collectors.toList());
+        for(int i = 0; hsba.emrChanDoanHinhAnhs != null && i < hsba.emrChanDoanHinhAnhs.size(); i++) {
+            var cdha = hsba.emrChanDoanHinhAnhs.get(i);
+            cdha.emrHoSoBenhAnId = hsba.id;
+            cdha.emrBenhNhanId = hsba.emrBenhNhanId;
+            cdha.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
+            cdha = emrChanDoanHinhAnhService.createOrUpdate(cdha);
+            hsba.emrChanDoanHinhAnhs.set(i, cdha);
         }
         
-        if(hsba.emrYhctDonThuocs != null) {
-            hsba.emrYhctDonThuocs.forEach(x -> x.emrHoSoBenhAnId = hsbaId);
-            
-            hsba.emrYhctDonThuocs = hsba.emrYhctDonThuocs.stream()
-                                            .map(x -> emrYhctDonThuocService.createOrUpdate(x))
-                                            .collect(Collectors.toList());
+        for(int i = 0; hsba.emrDonThuocs != null && i < hsba.emrDonThuocs.size(); i++) {
+            var donthuoc = hsba.emrDonThuocs.get(i);
+            donthuoc.emrHoSoBenhAnId = hsba.id;
+            donthuoc.emrBenhNhanId = hsba.emrBenhNhanId;
+            donthuoc.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
+            donthuoc = emrDonThuocService.createOrUpdate(donthuoc);
+            hsba.emrDonThuocs.set(i, donthuoc);
         }
         
-        if(hsba.emrXetNghiems != null) {
-            hsba.emrXetNghiems.forEach(x -> x.emrHoSoBenhAnId = hsbaId);
-            
-            hsba.emrXetNghiems = hsba.emrXetNghiems.stream()
-                                            .map(x -> emrXetNghiemService.createOrUpdate(x))
-                                            .collect(Collectors.toList());
+        for(int i = 0; hsba.emrYhctDonThuocs != null && i < hsba.emrYhctDonThuocs.size(); i++) {
+            var yhctdt =  hsba.emrYhctDonThuocs.get(i);
+            yhctdt.emrHoSoBenhAnId = hsba.id;
+            yhctdt.emrBenhNhanId = hsba.emrBenhNhanId;
+            yhctdt.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
+            yhctdt = emrYhctDonThuocService.createOrUpdate(yhctdt);
+            hsba.emrYhctDonThuocs.set(i, yhctdt);            
         }
+        
+        for(int i = 0; hsba.emrXetNghiems != null && i < hsba.emrXetNghiems.size(); i++) {
+            var xn = hsba.emrXetNghiems.get(i);
+            xn.emrHoSoBenhAnId = hsba.id;
+            xn.emrBenhNhanId = hsba.emrBenhNhanId;
+            xn.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
+            xn = emrXetNghiemService.createOrUpdate(xn);
+            hsba.emrXetNghiems.set(i, xn);
+        }
+        
+        String maHanhDong = createNew? MA_HANH_DONG.TAO_MOI: MA_HANH_DONG.CHINH_SUA;
+        emrLogService.logAction(EmrHoSoBenhAn.class.getName(), hsba.id, maHanhDong, new Date(), userId, 
+                                    JsonUtil.dumpObject(hsba), "");
         
         return hsba;
     }
-    
-    
-    public void setAsLatest(final EmrHoSoBenhAn hsba) {
-        var sort = new Sort(Sort.Direction.ASC, "ngaytao");
-        var hsbaList = emrHoSoBenhAnRepository.findByMayte(hsba.mayte, sort);
-        hsbaList.forEach(x -> {
-            if(x.id.compareTo(hsba.id) != 0) {
-                x.isLatest = false;
-                emrHoSoBenhAnRepository.save(x);              
-            }            
-        });
-        
-        hsba.isLatest = true;
-        hsba.trangThai = TRANGTHAI_HOSO.CHUA_XULY;
-        emrHoSoBenhAnRepository.save(hsba);
-    }    
-    
-    public void archiveHsba(ObjectId id, String nguoiluutru, Date ngayluutru) {
+   
+    public void archiveHsba(ObjectId id, ObjectId userId) {
         var hsba = emrHoSoBenhAnRepository.findById(id);
         hsba.ifPresent(x -> {
-            x.trangThai = Constants.TRANGTHAI_HOSO.DA_LUU;
-            x.nguoiluutru = nguoiluutru;
-            x.ngayluutru = ngayluutru;
+            emrLogService.logAction(EmrHoSoBenhAn.class.getName(), id, MA_HANH_DONG.LUU_TRU, new Date(), userId, "", "");            
+            x.trangThai = TRANGTHAI_HOSO.DA_LUU;
+            x.nguoiluutruId = userId;
+            x.ngayluutru = new Date();
             x.maluutru = x.mayte;
             emrHoSoBenhAnRepository.save(x);
         });
     }
     
-    public void unArchiveHsba(ObjectId id) {
+    public void unArchiveHsba(ObjectId id, ObjectId userId) {
         var hsba = emrHoSoBenhAnRepository.findById(id);
         hsba.ifPresent(x -> {
-            x.trangThai = Constants.TRANGTHAI_HOSO.CHUA_XULY;
+            emrLogService.logAction(EmrHoSoBenhAn.class.getName(), id, MA_HANH_DONG.MO_LUU_TRU, new Date(), userId, "", "");            
+            x.trangThai = TRANGTHAI_HOSO.CHUA_XULY;
+            x.nguoimoluutruId = userId;
+            x.ngaymoluutru = new Date();
             emrHoSoBenhAnRepository.save(x);
         });
     }
     
-    public void deleteHsba(ObjectId id) {
+    public void deleteHsba(ObjectId id, ObjectId userId) {
         var hsba = emrHoSoBenhAnRepository.findById(id);
         hsba.ifPresent(x -> {
-            x.trangThai = Constants.TRANGTHAI_HOSO.DA_XOA;
+            emrLogService.logAction(EmrHoSoBenhAn.class.getName(), id, MA_HANH_DONG.XOA, new Date(), userId, "", "");
+            x.trangThai = TRANGTHAI_HOSO.DA_XOA;
             emrHoSoBenhAnRepository.save(x);
         });
     }

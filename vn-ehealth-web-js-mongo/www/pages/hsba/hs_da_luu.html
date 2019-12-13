@@ -74,9 +74,9 @@
               <td class="text-center">{{ attr(hs, 'emrDmLoaiBenhAn.ten') }}</td>
               <td class="text-center">{{ hs.mayte }}</td>
               <td class="text-center">{{ hs.maluutru }}</td>
-              <td class="text-center">{{ getTextChanDoan(attr(hs, 'emrChanDoan.emrDmMaBenhChandoankkbs')) }}</td>
+              <td class="text-center">{{ getTextChanDoan(hs.emrChanDoan.emrDmMaBenhChandoankkb) }}</td>
               <td>{{ attr(hs, 'emrChanDoan.motachandoankkb') }}</td>
-              <td class="text-center">{{ getTextChanDoan(attr(hs, 'emrChanDoan.emrDmMaBenhChandoanravienchinhs')) }}
+              <td class="text-center">{{ getTextChanDoan(hs.emrChanDoan.emrDmMaBenhChandoanravienchinh') }}
               </td>
               <td>{{ attr(hs, 'emrChanDoan.motachandoanravienchinh') }}</td>
               <td class="text-center">{{ hs.khoaRaVien }}</td>
@@ -130,12 +130,12 @@
 
     methods: {
       getTotal: async function () {
-        this.total = await this.get("/api/hsba/count_ds_hs", { username: localStorage.getItem("username"), trangthai: 2, mayte: this.mayte });
+        this.total = await this.get("/api/hsba/count_ds_hs", { trangthai: 2, mayte: this.mayte });
       },
 
-      getTextChanDoan: function (chandoans) {
-        if (chandoans) {
-          return chandoans.map(x => x.ma + " - " + x.ten).join(' ; ');
+      getTextChanDoan: function (chandoan) {
+        if (chandoan && chandoan.ma != '') {
+          return chandoan.ma + " - " + chandoan.ten;
         }
         return '';
       },
@@ -147,7 +147,7 @@
 
       getItems: async function () {
         this.items = await this.get("/api/hsba/get_ds_hs",
-          { username: localStorage.getItem("username"), trangthai: 2, mayte: this.mayte, start: this.offset, count: this.perPage });
+                                  { trangthai: 2, mayte: this.mayte, start: this.offset, count: this.perPage });
 
         this.items.forEach(x => {
           x.nguonDuLieu = this.getNguonDuLieuStr(x.nguonDuLieu);
@@ -185,7 +185,7 @@
           return;
         }
 
-        var result = await this.get("/api/hsba/delete_hsba", { username: localStorage.getItem("username"), hsba_id: id });
+        var result = await this.get("/api/hsba/delete_hsba", { hsba_id: id });
         if (result.success) {
           this.currentPage = 1;
           location.href = this.currentURL;

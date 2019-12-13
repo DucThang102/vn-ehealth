@@ -34,6 +34,9 @@
         <td>{{ attr(dtct, 'emrDmtanXuatDungThuoc.ten') }}</td>
         <td>{{ attr(dtct, 'emrDmChiDanDungThuoc.ten') || dtct.chidandungthuoc }}</td>
       </tr>
+      <tr v-if="donthuoc.emrDonThuocChiTiets.length==0">
+        <td colspan="9">Không có dữ liệu</td>
+      </tr>
     </table>
 
     <div v-if="donthuoc.emrFileDinhKemDonThuocs.length > 0">
