@@ -68,7 +68,7 @@ public class EmrDmService {
         if(nhomId != null) {
             
             var criteria = Criteria.where("emrNhomDmId").is(nhomId);
-            if(keyword.isPresent()) {
+            if(keyword.isPresent() && !StringUtils.isEmpty(keyword.get())) {
                 criteria = criteria.andOperator(
                     new Criteria().orOperator(
                         Criteria.where("ten").regex(keyword.get()),
@@ -77,12 +77,12 @@ public class EmrDmService {
                 );
             }
            
-            if(maCha.isPresent()) {
+            if(maCha.isPresent() && !StringUtils.isEmpty(maCha.get())) {
                 var chaId = emrDmRepository.findByEmrNhomDmIdAndMa(nhomId, maCha.get()).map(x -> x.id).orElse(null);
                 criteria = criteria.and("emrDmChaId").is(chaId);
             }
             
-            if(capdo.isPresent()) {
+            if(capdo.isPresent() && capdo.get() > 0) {
                 criteria = criteria.and("capdo").is(capdo.get());
             }
             
