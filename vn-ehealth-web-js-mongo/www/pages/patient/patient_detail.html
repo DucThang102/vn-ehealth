@@ -316,11 +316,32 @@
   VueAsyncComponent("pttt", "/pages/patient/patient_detail/pttt.html", {
     data: function() {
       return {
-        patientId: 0
+        patientId: 0,
+        pttt_list: null,
+        pttt: null,
+        hsba: null
       };
     },
+    methods: {
+      viewPttt: function(pttt) {
+        this.pttt = pttt;
+        $("#ptttModal").modal();
+      }
+    },
+
     created: async function() {
       this.patientId = getParam("id");
+
+      if (this.hsba_id) {
+        this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
+          hsba_id: this.hsba_id
+        });
+      }
+
+      this.pttt_list = await this.get("/api/pttt/get_ds_pttt_by_bn", {
+        benhnhan_id: this.patientId
+      });
+      console.log(this.pttt_list);
     }
   });
 
