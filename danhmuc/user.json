@@ -3,21 +3,21 @@
         "username": "bvct",
         "password": "$2a$10$i0mK.rl/oG5GMKcdlDChY.VeVdYOVjJIXrexUcFcNp8tVGKetFhfa",
         "fullName": "Bệnh viện đa khoa Cần Thơ",
-        "emrCoSoKhamBenhId": ObjectId("5df7292c3a9b27ebd8681b4a"),
+        "emrCoSoKhamBenhId": ObjectId("5df740da94033385c2838f21"),
         "roles" : ["USER"]
     },
     {
         "username": "test",
         "password": "$2a$10$Kg1NNGVZ9K1YlNrgJsy6Q.TdqZfrC0Z5FmkjLXolLxQeOM0encmAa",
         "fullName": "Test",
-        "emrCoSoKhamBenhId": ObjectId("5df09b9f3ff935b62c59459e"),
+        "emrCoSoKhamBenhId": ObjectId("5df740da94033385c2838f20"),
         "roles" : ["USER"]
     },
     {
         "username": "admin",
         "password": "$2a$10$Lp6eay3fKk9PcRUuDJ9CAedXtd9g6voBsdULDDyfWOiOPy1J1Xtqe",
         "fullName": "Admin",
-        "emrCoSoKhamBenhId": ObjectId("5df09b9f3ff935b62c59459e"),
+        "emrCoSoKhamBenhId": ObjectId("5df740da94033385c2838f20"),
         "roles" : ["USER", "ADMIN"]
     }
 ]

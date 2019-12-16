@@ -79,7 +79,7 @@ public class EmrVaoKhoaService {
        
         emrHoiChanService.deleteAllByEmrVaoKhoaId(emrVaoKhoa.id);
         
-        for(int i = 0; emrVaoKhoa.emrDieuTris != null && i < emrVaoKhoa.emrDieuTris.size(); i++) {
+        for(int i = 0; emrVaoKhoa.emrHoiChans != null && i < emrVaoKhoa.emrHoiChans.size(); i++) {
             var hoichan = emrVaoKhoa.emrHoiChans.get(i);
             hoichan.emrVaoKhoaId = emrVaoKhoa.id;
             hoichan.emrHoSoBenhAnId = emrVaoKhoa.emrHoSoBenhAnId;

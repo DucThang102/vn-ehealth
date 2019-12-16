@@ -1,5 +1,7 @@
 package vn.ehealth.emr.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,11 +29,11 @@ public class EmrDmController {
     
     @GetMapping("/get_dm_list")
     public ResponseEntity<?> getDmList(@RequestParam("dm_type") String dmType, 
-                                        @RequestParam String keyword,
-                                        @RequestParam int level,
-                                        @RequestParam String parentCode,
-                                        @RequestParam int start, 
-                                        @RequestParam int count) {
+                                        @RequestParam Optional<String> keyword,
+                                        @RequestParam Optional<Integer> level,
+                                        @RequestParam Optional<String> parentCode,
+                                        @RequestParam Optional<Integer> start, 
+                                        @RequestParam Optional<Integer> count) {
         var lst = emrDmService.getEmrDmList(dmType, keyword, level, parentCode, start, count);
         return ResponseEntity.ok(lst);
     }
