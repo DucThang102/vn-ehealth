@@ -40,92 +40,100 @@
           <div>
             <meta charset="UTF-8" />
             <table border="1" cellpadding="10" class="table table-bordered">
-              <div class="row" v-if="pttt">
-                <div class="col-12">
-                  <b>Phẫu thuật/thủ thuật: {{ pttt.emrDmPhauThuThuat.ten }}</b
-                  ><br />
-                  <span>- Ngày thực hiện: {{ pttt.ngaygiopttt }} </span><br />
-                  <span>- Bác sĩ thực hiện: {{ getBacsithuchien(pttt)}}</span
-                  ><br />
-                  <span>- Bác sĩ gây mê: {{ getBacsigayme(pttt) }}</span><br />
-                  <span
-                    >- Chẩn đoán trước phẫu thuật, thủ thuật: {{ getTextChanDoans(pttt.emrDmMaBenhChandoantruocs) || pttt.motachandoantruocpt }} </span
-                  ><br />
-                  <span
-                    >- Chẩn đoán sau phẫu thuật, thủ thuật: {{ getTextChanDoans(pttt.emrDmMaBenhChandoansaus) || pttt.motachandoansaupt }} </span
-                  ><br />
+              <font size="2.5">
+                <div class="row" v-if="pttt">
+                  <div class="col-12">
+                    <b>Phẫu thuật/thủ thuật: {{ pttt.emrDmPhauThuThuat.ten }}</b
+                    ><br />
+                    <span>- Ngày thực hiện: {{ pttt.ngaygiopttt }} </span><br />
+                    <span>- Bác sĩ thực hiện: {{ getBacsithuchien(pttt)}}</span
+                    ><br />
+                    <span>- Bác sĩ gây mê: {{ getBacsigayme(pttt) }}</span
+                    ><br />
+                    <span
+                      >- Chẩn đoán trước phẫu thuật, thủ thuật: {{
+                      getTextChanDoans(pttt.emrDmMaBenhChandoantruocs) ||
+                      pttt.motachandoantruocpt }} </span
+                    ><br />
+                    <span
+                      >- Chẩn đoán sau phẫu thuật, thủ thuật: {{
+                      getTextChanDoans(pttt.emrDmMaBenhChandoansaus) ||
+                      pttt.motachandoansaupt }} </span
+                    ><br />
+                  </div>
                 </div>
-              </div>
-              <hr />
-
-              <div class="row">
-                <div class="col-12">
-                  <b><span>Thông tin chỉ định</span> <br /></b>
-                  <span>{{ pttt.chidinhptt }} </span>
-                </div>
-              </div>
-              <hr />
-
-              <div class="row">
-                <div class="col-12">
-                  <b><span>Phương pháp vô cảm</span> <br /></b>
-                  <span>{{ pttt.phuongphapvocam }}</span>
-                </div>
-              </div>
-              <hr />
-
-              <div class="row">
-                <div class="col-12">
-                  <b
-                    ><span>Thông tin lược đồ phẫu thuật, thủ thuật</span> <br
-                  /></b>
-                  <span>{{ pttt.luocdoptt }}</span>
-                </div>
-              </div>
-              <hr />
-
-              <div class="row">
-                <div class="col-12">
-                  <b
-                    ><span>Thông tin trình tự phẫu thuật, thủ thuật</span> <br
-                  /></b>
-                  <span>{{ pttt.trinhtuptt }}</span>
-                </div>
-              </div>
-              <hr />
-
-              <div class="row">
-                <div class="col-12">
-                  <b><span>Thành viên tham gia</span> <br /></b>
-                </div>
-              </div>
-              <table class="table table-bordered mt-3">
-                <tr>
-                  <th style="width:7%" class="text-center">STT</th>
-                  <th style="width:45%" class="text-center">Tên bác sĩ</th>
-                  <th style="width:48%" class="text-center">Vai trò</th>
-                </tr>
-                <tr v-for="(tvpttt, i) in pttt.emrThanhVienPttts">
-                  <td>{{ i + 1}}</td>
-                  <td>{{ tvpttt.tenbacsi }}</td>
-                  <td>{{ tvpttt.emrDmVaiTro.ten }}</td>
-                </tr>
-              </table>
-
-              <div v-if="pttt.emrFileDinhKemPttts.length > 0">
                 <hr />
-                <b>Danh sách file đính kèm:</b>
+
+                <div class="row">
+                  <div class="col-12">
+                    <b><span>Thông tin chỉ định</span> <br /></b>
+                    <span>{{ pttt.chidinhptt }} </span>
+                  </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                  <div class="col-12">
+                    <b><span>Phương pháp vô cảm</span> <br /></b>
+                    <span>{{ pttt.phuongphapvocam }}</span>
+                  </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                  <div class="col-12">
+                    <b
+                      ><span>Thông tin lược đồ phẫu thuật, thủ thuật</span> <br
+                    /></b>
+                    <span>{{ pttt.luocdoptt }}</span>
+                  </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                  <div class="col-12">
+                    <b
+                      ><span>Thông tin trình tự phẫu thuật, thủ thuật</span>
+                      <br
+                    /></b>
+                    <span>{{ pttt.trinhtuptt }}</span>
+                  </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                  <div class="col-12">
+                    <b><span>Thành viên tham gia</span> <br /></b>
+                  </div>
+                </div>
                 <table class="table table-bordered mt-3">
                   <tr>
-                    <th style="width:10%" class="text-center">STT</th>
-                    <th style="width:90%" class="text-center">Tên file</th>
+                    <th style="width:7%" class="text-center">STT</th>
+                    <th style="width:45%" class="text-center">Tên bác sĩ</th>
+                    <th style="width:48%" class="text-center">Vai trò</th>
                   </tr>
-                  <tr v-for="(file, i) in pttt.emrFileDinhKemPttts">
-                    <td>{{ i + 1 }}</td>
-                    <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+                  <tr v-for="(tvpttt, i) in pttt.emrThanhVienPttts">
+                    <td>{{ i + 1}}</td>
+                    <td>{{ tvpttt.tenbacsi }}</td>
+                    <td>{{ tvpttt.emrDmVaiTro.ten }}</td>
                   </tr>
                 </table>
-              </div>
+
+                <div v-if="pttt.emrFileDinhKemPttts.length > 0">
+                  <hr />
+                  <b>Danh sách file đính kèm:</b>
+                  <table class="table table-bordered mt-3">
+                    <tr>
+                      <th style="width:10%" class="text-center">STT</th>
+                      <th style="width:90%" class="text-center">Tên file</th>
+                    </tr>
+                    <tr v-for="(file, i) in pttt.emrFileDinhKemPttts">
+                      <td>{{ i + 1 }}</td>
+                      <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+                    </tr>
+                  </table>
+                </div>
+              </font>
             </table>
           </div>
         </div>

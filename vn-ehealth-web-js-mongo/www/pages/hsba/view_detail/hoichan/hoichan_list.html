@@ -38,69 +38,71 @@
           <div>
             <meta charset="UTF-8" />
             <table border="1" cellpadding="10" class="table table-bordered">
-              <div class="row">
-                <div class="col-12">
-                  <b>Hội chẩn lúc: {{ hoichan.ngaythuchien }}</b><br />
-                  <span>- Tại khoa: {{ getTenKhoa(hoichan.emrVaoKhoa) }}</span
-                  ><br />
-                  <div class="row">
-                    <div class="col-6">
-                      <span>- Bác sĩ chủ tọa:</span>
-                      <span>{{ bacsichutoa }}</span>
+              <font size="2.5">
+                <div class="row">
+                  <div class="col-12">
+                    <b>Hội chẩn lúc: {{ hoichan.ngaythuchien }}</b><br />
+                    <span>- Tại khoa: {{ getTenKhoa(hoichan.emrVaoKhoa) }}</span
+                    ><br />
+                    <div class="row">
+                      <div class="col-6">
+                        <span>- Bác sĩ chủ tọa:</span>
+                        <span>{{ bacsichutoa }}</span>
+                      </div>
+                      <div class="col-6">
+                        <span>- Thư ký:</span>
+                        <span>{{ thuky }}</span>
+                      </div>
+                      <div class="col-6"></div>
                     </div>
-                    <div class="col-6">
-                      <span>- Thư ký:</span>
-                      <span>{{ thuky }}</span>
-                    </div>
-                    <div class="col-6"></div>
+                    <span>- Thành viên tham gia:</span>
+                    <ul>
+                      <li v-for="bs in hoichan.emrThanhVienHoiChans">
+                        {{ bs.tenbacsi }}
+                      </li>
+                    </ul>
                   </div>
-                  <span>- Thành viên tham gia:</span>
-                  <ul>
-                    <li v-for="bs in hoichan.emrThanhVienHoiChans">
-                      {{ bs.tenbacsi }}
-                    </li>
-                  </ul>
                 </div>
-              </div>
-              <hr />
-
-              <div class="row">
-                <div class="col-12">
-                  <b><span>Tóm tắt diễn biến</span> <br /></b>
-                  <span>{{ hoichan.tomtatdienbien }}</span>
-                </div>
-              </div>
-              <hr />
-
-              <div class="row">
-                <div class="col-12">
-                  <b><span>Kết luận</span> <br /></b>
-                  <span>{{ hoichan.ketluanhoichan }}</span>
-                </div>
-              </div>
-              <hr />
-
-              <div class="row">
-                <div class="col-12">
-                  <b><span>Hướng điều trị tiếp theo</span> <br /></b>
-                  <span>{{ hoichan.huongdieutri }}</span>
-                </div>
-              </div>
-
-              <div v-if="hoichan.emrFileDinhKemHoiChans.length > 0">
                 <hr />
-                <b>Danh sách file đính kèm:</b>
-                <table class="table table-bordered mt-3">
-                  <tr>
-                    <th style="width:10%" class="text-center">STT</th>
-                    <th style="width:90%" class="text-center">Tên file</th>
-                  </tr>
-                  <tr v-for="(file, i) in hoichan.emrFileDinhKemHoiChans">
-                    <td>{{ i + 1 }}</td>
-                    <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
-                  </tr>
-                </table>
-              </div>
+
+                <div class="row">
+                  <div class="col-12">
+                    <b><span>Tóm tắt diễn biến</span> <br /></b>
+                    <span>{{ hoichan.tomtatdienbien }}</span>
+                  </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                  <div class="col-12">
+                    <b><span>Kết luận</span> <br /></b>
+                    <span>{{ hoichan.ketluanhoichan }}</span>
+                  </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                  <div class="col-12">
+                    <b><span>Hướng điều trị tiếp theo</span> <br /></b>
+                    <span>{{ hoichan.huongdieutri }}</span>
+                  </div>
+                </div>
+
+                <div v-if="hoichan.emrFileDinhKemHoiChans.length > 0">
+                  <hr />
+                  <b>Danh sách file đính kèm:</b>
+                  <table class="table table-bordered mt-3">
+                    <tr>
+                      <th style="width:10%" class="text-center">STT</th>
+                      <th style="width:90%" class="text-center">Tên file</th>
+                    </tr>
+                    <tr v-for="(file, i) in hoichan.emrFileDinhKemHoiChans">
+                      <td>{{ i + 1 }}</td>
+                      <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+                    </tr>
+                  </table>
+                </div>
+              </font>
             </table>
           </div>
         </div>

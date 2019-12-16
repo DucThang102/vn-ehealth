@@ -44,60 +44,64 @@
           <div>
             <meta charset="UTF-8" />
             <table border="1" cellpadding="10" class="table table-bordered">
-              <div class="row">
-                <div class="col-12">
-                  <b>Chẩn đoán hình ảnh: {{ cdha.emrDmChanDoanHinhAnh.ten }}</b
-                  ><br />
-                  <span
-                    >- Loại chẩn đoán: {{ cdha.emrDmLoaiChanDoanHinhAnh.ten
-                    }}</span
-                  ><br />
-                  <span>- Ngày yêu cầu: {{ cdha.ngayyeucau }}</span><br />
-                  <span>- Bác sĩ yêu cầu: {{ cdha.bacsiyeucau }}</span><br />
-                  <span>- Ngày thực hiện: {{ cdha.ngaythuchien }}</span><br />
-                  <span>- Bác sĩ thực hiện: {{ cdha.bacsichuyenkhoa }}</span
-                  ><br />
+              <font size="2.5">
+                <div class="row">
+                  <div class="col-12">
+                    <b
+                      >Chẩn đoán hình ảnh: {{ cdha.emrDmChanDoanHinhAnh.ten
+                      }}</b
+                    ><br />
+                    <span
+                      >- Loại chẩn đoán: {{ cdha.emrDmLoaiChanDoanHinhAnh.ten
+                      }}</span
+                    ><br />
+                    <span>- Ngày yêu cầu: {{ cdha.ngayyeucau }}</span><br />
+                    <span>- Bác sĩ yêu cầu: {{ cdha.bacsiyeucau }}</span><br />
+                    <span>- Ngày thực hiện: {{ cdha.ngaythuchien }}</span><br />
+                    <span>- Bác sĩ thực hiện: {{ cdha.bacsichuyenkhoa }}</span
+                    ><br />
+                  </div>
                 </div>
-              </div>
-              <hr />
-
-              <div class="row">
-                <div class="col-12">
-                  <b><span>Kết quả</span> <br /></b>
-                  <span>{{ cdha.ketqua }}</span>
-                </div>
-              </div>
-              <hr />
-
-              <div class="row">
-                <div class="col-12">
-                  <b><span>Kết luận</span> <br /></b>
-                  <span>{{ cdha.ketluan }}</span>
-                </div>
-              </div>
-              <hr />
-
-              <div class="row">
-                <div class="col-12">
-                  <b><span>Lời dặn</span> <br /></b>
-                  <span>{{ cdha.loidan }}</span>
-                </div>
-              </div>
-
-              <div v-if="cdha.emrFileDinhKemCdhas.length > 0">
                 <hr />
-                <b>Danh sách file đính kèm:</b>
-                <table class="table table-bordered mt-3">
-                  <tr>
-                    <th style="width:10%" class="text-center">STT</th>
-                    <th style="width:90%" class="text-center">Tên file</th>
-                  </tr>
-                  <tr v-for="(file, i) in cdha.emrFileDinhKemCdhas">
-                    <td>{{ i + 1 }}</td>
-                    <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
-                  </tr>
-                </table>
-              </div>
+
+                <div class="row">
+                  <div class="col-12">
+                    <b><span>Kết quả</span> <br /></b>
+                    <span>{{ cdha.ketqua }}</span>
+                  </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                  <div class="col-12">
+                    <b><span>Kết luận</span> <br /></b>
+                    <span>{{ cdha.ketluan }}</span>
+                  </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                  <div class="col-12">
+                    <b><span>Lời dặn</span> <br /></b>
+                    <span>{{ cdha.loidan }}</span>
+                  </div>
+                </div>
+
+                <div v-if="cdha.emrFileDinhKemCdhas.length > 0">
+                  <hr />
+                  <b>Danh sách file đính kèm:</b>
+                  <table class="table table-bordered mt-3">
+                    <tr>
+                      <th style="width:10%" class="text-center">STT</th>
+                      <th style="width:90%" class="text-center">Tên file</th>
+                    </tr>
+                    <tr v-for="(file, i) in cdha.emrFileDinhKemCdhas">
+                      <td>{{ i + 1 }}</td>
+                      <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+                    </tr>
+                  </table>
+                </div>
+              </font>
             </table>
           </div>
         </div>
