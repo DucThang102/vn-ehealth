@@ -3,7 +3,7 @@
         "username": "bvct",
         "password": "$2a$10$i0mK.rl/oG5GMKcdlDChY.VeVdYOVjJIXrexUcFcNp8tVGKetFhfa",
         "fullName": "Bệnh viện đa khoa Cần Thơ",
-        "emrCoSoKhamBenhId": ObjectId("5df09b9f3ff935b62c59459e"),
+        "emrCoSoKhamBenhId": ObjectId("5df7292c3a9b27ebd8681b4a"),
         "roles" : ["USER"]
     },
     {

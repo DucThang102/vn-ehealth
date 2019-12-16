@@ -14,8 +14,10 @@ public class EmrChanDoan {
     public EmrDmContent emrDmMaBenhChandoankkb;
         
     public List<EmrDmContent> emrDmMaBenhChandoantruocpts = new ArrayList<>();
+    public EmrDmContent emrDmMaBenhChandoantruocpt;
     
     public List<EmrDmContent> emrDmMaBenhChandoansaupts = new ArrayList<>();
+    public EmrDmContent emrDmMaBenhChandoansaupt;
         
     public EmrDmContent emrDmMaBenhChandoannoiden;
     
@@ -23,8 +25,7 @@ public class EmrChanDoan {
     
     public EmrDmContent emrDmMaBenhChandoanravienchinh;    
     
-    public List<EmrDmContent> emrDmMaBenhChandoanravienkemtheos = new ArrayList<>();
-    
+    public List<EmrDmContent> emrDmMaBenhChandoanravienkemtheos = new ArrayList<>();    
     public EmrDmContent emrDmMaBenhChandoanravienkemtheo;
     
     public EmrDmContent emrDmLyDoTaiBienBienChung;

@@ -46,6 +46,7 @@ public class EmrBenhAn {
     
     public EmrDmContent emrDmMaBenhChandoanbenhchinh;
     
+    public EmrDmContent emrDmMaBenhChandoankemtheo;
     public List<EmrDmContent> emrDmMaBenhChandoankemtheos = new ArrayList<>();
     
     public String lydovaovien;
