@@ -1,0 +1,142 @@
+<% include ../../header.html %>
+<style>
+  #app {
+    overflow: scroll;
+    width: 100%;
+  }
+</style>
+
+<div id="app" class="container-fluid pt-2 mb-4">
+  <template v-if="total == 0">
+    <b>Không có dữ liệu</b>
+  </template>
+  
+  <template>
+	    <form @submit.prevent="timKiemHoso()" class="mb-3">
+	      <div class="w">
+		     	<div class="box-content">
+		     	 <div class="row">
+			        <div class="col-4">
+			          <input v-model="ma_yte" class="form-control" placeholder="Mã danh mục dùng chung"></input>
+			        </div>
+			        <div class="col-4">
+			          <input v-model="ma_yte" class="form-control" placeholder="Tên danh mục dùng chung"></input>
+			        </div>
+			        <div class="col-4">
+			        	<b-button variant="primary" class="search" type="submit">Tìm kiếm</b-button>
+			        </div>
+		        </div>
+		        <div class="row">
+			        <div class="col-4">
+			        	<label for="input-none">Thời gian bắt đầu có hiệu lực từ ngày:</label><br/>
+			        	<b-form-input  id="type-date" type="date"></b-form-input>
+			        </div>
+			        <div class="col-4">
+			        	<label for="input-none">Đến:</label><br/>
+			        	<b-form-input  id="type-date" type="date"></b-form-input>
+			        </div>
+		        </div>
+		     </div>
+	      </div>
+	    </form>
+    <!-- <table class="table table-bordered table-width-100" v-if="total > 0"> -->
+    <table class="table table-bordered table-width-100">
+
+      <thead>
+        <tr>
+          <th style="width:5%">STT</th>
+          <th style="width:10%">Mã loại danh mục</th>
+          <th style="width:30%">Tên danh mục</th>
+          <th style="width:10%">Phiên bản mới nhất</th>
+          <th style="width:10%">Ngày đồng bộ</th>
+          <th style="width:10%">Hiệu lực</th>
+          <th style="width:10%">Trạng thái</th>
+          <th style="width:5%">Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr v-for="(hs, index) in items"> -->
+        <tr>  
+          <!-- <td>{{ index + offset + 1 }}</td> -->
+          <td>01</td>
+          <!-- <td>{{ hs.ma_yte }}</td> -->
+          <td>00000</td>
+          <!-- <td>{{ hs.ma_yte }}</td> -->
+          <td>danhmuc</td>
+          <!-- <td>{{ hs.ten_benh_nhan }}</td> -->
+          <td>3.0</td>
+          <!-- <td>{{ hs.ngay_vaovien }}</td> -->
+          <td>11/11/1111</td>
+          <!-- <td>{{ hs.ma_yte }}</td> -->
+          <td>22/22/2222</td>
+          <!-- <td>{{ hs.loai_benh_an }}</td> -->
+          <td>trang thai</td>
+           <td>
+             <!-- <a :href="createURL('/pages/danhmuc/dm_dungchung_detail/chitiet.html', {danhmuc_id: hs.id, backURL: currentURL})" title="Xem chi tiết danh mục"><i class="fa fa-eye"></i></a> -->
+             <a href=""></a>
+             <!-- <a :href="createURL('/pages/danhmuc/dm_dungchung_detail/quan_ly_phien_ban.html', {danhmuc_id: hs.id, backURL: currentURL})" title="Quản lý phiên bản"><i class="fa fa-cog"></i></a> -->
+             <a href=""></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <b-pagination v-if="total > perPage" size="sm" v-model="currentPage" :total-rows="total" :per-page="perPage"></b-pagination>
+    <!-- <label class="label">Tổng số : {{ total }} bản ghi</label> -->
+    <label class="label">Tổng số : 1 bản ghi</label>
+
+  </template>
+</div>
+<script  type="text/javascript"> 
+  new Vue({
+    el: "#app",
+    data: {  
+    	perPage: 5,
+    	currentPage: null,
+    	items: [],
+    	total : null,
+    	ma_yte : '',
+    	listNoiGuiDen: ['NguyenVanA', 'NguyenVanB', 'NguyenVanC', 'NguyenVanD'],
+    	listLoaiBenhAn: ['Điều trị tự nguyện - S1', 'Điều trị tự nguyện - S2', 'Điều trị tự nguyện - S3', 'Điều trị tự nguyện - S4']
+    },
+    
+    methods: {
+	  //getTotal: async function() {
+		//this.total = await this.get("/api/hsba/count_ds_hs", {trangthai: 1, ma_yte : this.ma_yte});},
+
+	  //getItems : async function() {
+		//this.items = await this.get("/api/hsba/get_ds_hs", 
+		//		{ trangthai: 1, start: this.offset, count: this.perPage, ma_yte : this.ma_yte });		
+	  //},
+	  
+	  timKiemHoso : async function() {
+	    this.currentPage = 1;
+	    location.href = this.currentURL;
+	  }
+    },
+    
+    computed: {      
+      offset() {
+        return (this.currentPage - 1) * this.perPage;
+	  },
+
+	  currentURL() {
+		return this.createURL("", {ma_yte: this.ma_yte, currentPage: this.currentPage})
+	  }
+    },
+    
+    watch: {
+      currentPage : async function(newVal, oldVal) {
+		if(oldVal){	  
+		  location.href = this.currentURL;
+		}
+      }
+    },
+    
+    created: async function () {
+      this.currentPage = this.getParam("currentPage") || 1;
+      this.ma_yte = this.getParam("ma_yte") || "";
+//      await this.getTotal();
+//      await this.getItems();	  
+    }
+  });
+</script>
