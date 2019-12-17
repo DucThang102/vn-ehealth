@@ -15,9 +15,9 @@ import vn.ehealth.emr.utils.ExportUtil;
 
 public class TestExportPdf {
     
-    //static DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    static ObjectMapper mapper = EmrUtils.createObjectMapper();
-    static SimpleDateFormat sdf = EmrUtils.createSimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+    static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    static ObjectMapper mapper = new ObjectMapper();
+    //static SimpleDateFormat sdf = EmrUtils.createSimpleDateFormat("yyyy-MM-dd HH:mm");
     
     static EmrHoSoBenhAn getHsba() throws IOException {
         mapper.setDateFormat(sdf);
