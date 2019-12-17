@@ -2,6 +2,7 @@ package vn.ehealth.emr.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -61,29 +62,38 @@ public class EmrDmService {
         return 0;
     }
     
-    public List<EmrDm> getEmrDmList(String maNhom, String keyword, int capdo, String maCha, int offset, int limit) {
+    public List<EmrDm> getEmrDmList(String maNhom, Optional<String> keyword, Optional<Integer> capdo, 
+                                        Optional<String> maCha, Optional<Integer> offset, Optional<Integer> limit) {
         var nhomId = emrNhomDmRepository.findByMa(maNhom).map(x -> x.id).orElse(null);
         if(nhomId != null) {
-            var sort = new Sort(Sort.Direction.ASC, "id");
-            var pageable = new OffsetBasedPageRequest(limit, offset, sort);
             
             var criteria = Criteria.where("emrNhomDmId").is(nhomId);
-            criteria = criteria.andOperator(
+            if(keyword.isPresent() && !StringUtils.isEmpty(keyword.get())) {
+                criteria = criteria.andOperator(
                     new Criteria().orOperator(
-                            Criteria.where("ten").regex(keyword),
-                            Criteria.where("ma").regex(keyword)
-                         )
+                        Criteria.where("ten").regex(keyword.get()),
+                        Criteria.where("ma").regex(keyword.get())
+                     )
                 );
-            
-            if(!StringUtils.isEmpty(maCha)) {
-                var chaId = emrDmRepository.findByEmrNhomDmIdAndMa(nhomId, maCha).map(x -> x.id).orElse(null);
+            }
+           
+            if(maCha.isPresent() && !StringUtils.isEmpty(maCha.get())) {
+                var chaId = emrDmRepository.findByEmrNhomDmIdAndMa(nhomId, maCha.get()).map(x -> x.id).orElse(null);
                 criteria = criteria.and("emrDmChaId").is(chaId);
             }
             
-            if(capdo > 0) {
-                criteria = criteria.and("capdo").is(capdo);
+            if(capdo.isPresent() && capdo.get() > 0) {
+                criteria = criteria.and("capdo").is(capdo.get());
             }
-            return mongoTemplate.find(new Query(criteria).with(pageable), EmrDm.class);
+            
+            var sort = new Sort(Sort.Direction.ASC, "id");
+            
+            if(offset.isPresent() && limit.isPresent()) {
+                var pageable = new OffsetBasedPageRequest(limit.get(), offset.get(), sort);
+                return mongoTemplate.find(new Query(criteria).with(pageable), EmrDm.class);
+            }else {
+                return mongoTemplate.find(new Query(criteria).with(sort), EmrDm.class);                
+            }
         }
         return new ArrayList<>();
     }

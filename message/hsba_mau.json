@@ -239,7 +239,7 @@
       "ma": "0001",
       "ten": "text"
     },
-    "emrDmMaBenhChandoankemtheo": [
+    "emrDmMaBenhChandoankemtheos": [
       {
         "ma": "0001",
         "ten": "text"
@@ -1128,7 +1128,7 @@
       "ma": "0001",
       "ten": "text"
     },
-    "emrDmMaBenhChandoanravienkemtheo": [
+    "emrDmMaBenhChandoanravienkemtheos": [
         {
             "ma": "0001",
             "ten": "text"
@@ -1142,7 +1142,7 @@
       "ma": "0001",
       "ten": "text"
     },
-    "emrDmMaBenhChandoansaupt": [
+    "emrDmMaBenhChandoansaupts": [
         {
             "ma": "0001",
             "ten": "text"
@@ -1152,7 +1152,7 @@
             "ten": "text"
         }
     ],
-    "emrDmMaBenhChandoantruocpt": [
+    "emrDmMaBenhChandoantruocpts": [
         {
             "ma": "0001",
             "ten": "text"
@@ -1468,14 +1468,26 @@
   ],
   "emrPhauThuatThuThuats": [
     {
-      "emrDmMaBenhChandoansau": {
-        "ma": "0001",
-        "ten": "text"
-      },
-      "emrDmMaBenhChandoantruoc": {
-        "ma": "0001",
-        "ten": "text"
-      },
+      "emrDmMaBenhChandoansaus": [
+        {
+            "ma": "0001",
+            "ten": "text"
+        },
+        {
+            "ma": "0002",
+            "ten": "text"
+        },
+      ],
+      "emrDmMaBenhChandoantruocs": [
+        {
+            "ma": "0001",
+            "ten": "text"
+        },
+        {
+            "ma": "0002",
+            "ten": "text"
+        },
+      ],
       "emrDmPhauThuThuat": {
         "ma": "0001",
         "ten": "text"
