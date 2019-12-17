@@ -1,267 +1,291 @@
-<div class="container">
-  <div class="row mt-3">
+<div class="container-fluid pt-2 mb-4">
+  <div class="w mt-3">
     <h4>A- BỆNH ÁN</h4>
   </div>
-  <div class="row mt-2">
+  <div class="w mt-2">
     <h5>I. Lý do vào viện:</h5>
   </div>
-  <div class="row">
-    <span>{{hsba.emrBenhAn.lydovaovien}}</span>
-  </div>
-  <div class="row mt-3">
-    Vào ngày thứ <span>{{hsba.emrBenhAn.vaongaythu}}</span> của bệnh
-  </div>
-  <div class="row mt-3">
+  <table class="table table-bordered table-sm">
+    <div class="w mt-2 mb-2">
+      <span>- {{hsba.emrBenhAn.lydovaovien}}</span>
+    </div>
+    <div class="w mb-2">
+      - Vào ngày thứ <span> {{hsba.emrBenhAn.vaongaythu}} </span> của bệnh
+    </div>
+  </table>
+  <div class="w mt-3">
     <h5>II. Hỏi bệnh:</h5>
   </div>
-  <div class="row mt-2">
-    <h6>1. Quá trình bệnh lý:</h6>
-    <i>(khởi phát, diễn biến, chẩn đoán, điều trị của tuyến dưới v.v...).</i>
-  </div>
-  <div class="row mt-2">
-    <span>{{hsba.emrBenhAn.quatrinhbenhly}}</span>
-  </div>
-  <div class="row mt-2">
-    <h6>2. Tiền sử bệnh:</h6>
-  </div>
-  <div class="row mt-2">
-    + Bản thân:
-    <i
-      >(phát triển thể lực từ nhỏ đến lớn, những bệnh đã mắc, phương pháp ĐTr,
-      tiêm phòng, ăn uống, sinh hoạt vv...)</i
-    >
-  </div>
-  <div class="row mt-2">
-    <span>{{hsba.emrBenhAn.tiensubanthan}}</span>
-  </div>
+  <table class="table table-bordered table-sm">
+    <div class="w mt-2">
+      <span
+        ><h6>1. Quá trình bệnh lý:</h6>
+        <i
+          >(khởi phát, diễn biến, chẩn đoán, điều trị của tuyến dưới v.v...).</i
+        >
+      </span>
+    </div>
+    <div class="w mt-2">
+      <span>{{hsba.emrBenhAn.quatrinhbenhly}}</span>
+    </div>
+    <div class="w">
+      <h6>2. Tiền sử bệnh:</h6>
+    </div>
+    <div class="w">
+      + Bản thân:
+      <i
+        >(phát triển thể lực từ nhỏ đến lớn, những bệnh đã mắc, phương pháp ĐTr,
+        tiêm phòng, ăn uống, sinh hoạt vv...)</i
+      >
+    </div>
+    <div class="w">
+      <span>{{hsba.emrBenhAn.tiensubanthan}}</span>
+    </div>
 
-  <div class="row">
-    Đặc điểm bệnh liên quan
-  </div>
-  <div class="container">
-    <table style="width:100%" class="table table-bordered mt-3">
-      <tr>
-        <th>STT</th>
-        <th>Ký hiệu</th>
-        <th>Thời gian (tính theo tháng)</th>
-        <th>STT</th>
-        <th>Ký hiệu</th>
-        <th>Thời gian (tính theo tháng)</th>
-      </tr>
-      <tr>
-        <td>01</td>
-        <td>- Dị ứng <input type="checkbox" /><label class="mr-3"></label></td>
-        <td><i> {{hsba.emrBenhAn.diung}}(dị nguyên)</i></td>
-        <td>04</td>
-        <td>-Thuốc lá<input type="checkbox" /><label class="mr-3"></label></td>
-        <td>{{hsba.emrBenhAn.thuocla}}</td>
-      </tr>
-      <tr>
-        <td>02</td>
-        <td>- Ma Tuý <input type="checkbox" /><label class="mr-3"></label></td>
-        <td><i>{{hsba.emrBenhAn.matuy}}</i></td>
-        <td>05</td>
-        <td>-Thuốc lào<input type="checkbox" /><label class="mr-3"></label></td>
-        <td><i>{{hsba.emrBenhAn.thuoclao}}</i></td>
-      </tr>
-      <tr>
-        <td>03</td>
-        <td>
-          - Rượu bia <input type="checkbox" /><label class="mr-3"></label>
-        </td>
-        <td><i>{{hsba.emrBenhAn.ruoubia}}</i></td>
-        <td>06</td>
-        <td>- Khác<input type="checkbox" /><label class="mr-3"></label></td>
-        <td><i>{{hsba.emrBenhAn.dacdiemkhac}}</i></td>
-      </tr>
-    </table>
-  </div>
-  <div class="row mt-2">
-    + Gia đình:
-    <i>
-      (Những người trong gia đình: bệnh đã mắc, đời sống, tinh thần, vật chất
-      v.v...).
-    </i>
-  </div>
-  <div class="row mt-2">
-    <span>{{hsba.emrBenhAn.tiensugiadinh}}</span>
-  </div>
-  <div class="row mt-3">
+    <div class="w mt-2">
+      Đặc điểm bệnh liên quan:
+    </div>
+    <div class="container-fluid ">
+      <table style="width:100%" class="table table-bordered mt-3">
+        <tr>
+          <th style="width: 5%">STT</th>
+          <th style="width: 15%">Ký hiệu</th>
+          <th style="width: 30%">Thời gian (tính theo tháng)</th>
+          <th style="width: 5%">STT</th>
+          <th style="width: 15%">Ký hiệu</th>
+          <th style="width: 30%">Thời gian (tính theo tháng)</th>
+        </tr>
+        <tr>
+          <td>01</td>
+          <td>
+            - Dị ứng <input type="checkbox" /><label class="mr-3"></label>
+          </td>
+          <td><i> {{hsba.emrBenhAn.diung}}(dị nguyên)</i></td>
+          <td>04</td>
+          <td>
+            -Thuốc lá<input type="checkbox" /><label class="mr-3"></label>
+          </td>
+          <td>{{hsba.emrBenhAn.thuocla}}</td>
+        </tr>
+        <tr>
+          <td>02</td>
+          <td>
+            - Ma Tuý <input type="checkbox" /><label class="mr-3"></label>
+          </td>
+          <td><i>{{hsba.emrBenhAn.matuy}}</i></td>
+          <td>05</td>
+          <td>
+            -Thuốc lào<input type="checkbox" /><label class="mr-3"></label>
+          </td>
+          <td><i>{{hsba.emrBenhAn.thuoclao}}</i></td>
+        </tr>
+        <tr>
+          <td>03</td>
+          <td>
+            - Rượu bia <input type="checkbox" /><label class="mr-3"></label>
+          </td>
+          <td><i>{{hsba.emrBenhAn.ruoubia}}</i></td>
+          <td>06</td>
+          <td>- Khác<input type="checkbox" /><label class="mr-3"></label></td>
+          <td><i>{{hsba.emrBenhAn.dacdiemkhac}}</i></td>
+        </tr>
+      </table>
+    </div>
+    <div class="w">
+      + Gia đình:
+      <i>
+        (Những người trong gia đình: bệnh đã mắc, đời sống, tinh thần, vật chất
+        v.v...).
+      </i>
+    </div>
+    <div class="w mb-2">
+      <span>{{hsba.emrBenhAn.tiensugiadinh}}</span>
+    </div>
+  </table>
+  <div class="w mt-3">
     <h5>III. Khám bệnh:</h5>
   </div>
-  <div class="row mt-2">
-    <h6>1. Toàn thân</h6>
-    <i>
-      (ý thức, da niêm mạc, hệ thống hạch, tuyến giáp, vị trí, kích thước, số
-      lượng, di động v.v...)
-    </i>
+  <table class="table table-bordered table-sm">
+    <div class="w mt-2">
+      <h6>1. Toàn thân</h6>
+      <i>
+        (ý thức, da niêm mạc, hệ thống hạch, tuyến giáp, vị trí, kích thước, số
+        lượng, di động v.v...)
+      </i>
+      <div>
+        {{hsba.emrBenhAn.toanthan}}
+      </div>
+    </div>
+    <div class="w">
+      <div class="col-8 offset-8">
+        <div class="row">
+          <i>Mạch:</i> <span>{{hsba.emrBenhAn.mach}}</span> <i> lần/ph</i>
+        </div>
+        <div class="row">
+          <i>Nhiệt độ:</i> <span>{{hsba.emrBenhAn.nhietdo}}</span> <i>°C</i>
+        </div>
+        <div class="row">
+          <i>Huyết áp:</i>
+          <span
+            >{{hsba.emrBenhAn.huyetapcao}}/{{hsba.emrBenhAn.huyetapthap}}</span
+          >
+          <i> mmHg</i>
+        </div>
+        <div class="row">
+          <i>Nhịp thở:</i> <span>{{hsba.emrBenhAn.nhiptho}}</span>
+          <i> lần/ph</i>
+        </div>
+        <div class="row">
+          <i>Cân nặng</i> <span>{{hsba.emrBenhAn.cannang}}</span> <i> kg</i>
+        </div>
+      </div>
+    </div>
+    <div class="w mt-2">
+      <h6>2. Bệnh ngoại khoa</h6>
+    </div>
     <div>
-      {{hsba.emrBenhAn.toanthan}}
+      <span
+        >.......................................................................................................................</span
+      >
+      <span
+        >.......................................................................................................................</span
+      >
+      <span
+        >.......................................................................................................................</span
+      >
+      <span
+        >.......................................................................................................................</span
+      >
+      <span
+        >.......................................................................................................................</span
+      >
+      <span
+        >.......................................................................................................................</span
+      >
     </div>
-  </div>
-  <div class="row">
-    <div class="col-4 offset-4">
-      <div class="row">
-        <i>Mạch:</i> <span>{{hsba.emrBenhAn.mach}}</span> <i> lần/ph</i>
-      </div>
-      <div class="row">
-        <i>Nhiệt độ:</i> <span>{{hsba.emrBenhAn.nhietdo}}</span> <i>°C</i>
-      </div>
-      <div class="row">
-        <i>Huyết áp:</i>
-        <span
-          >{{hsba.emrBenhAn.huyetapcao}}/{{hsba.emrBenhAn.huyetapthap}}</span
-        >
-        <i> mmHg</i>
-      </div>
-      <div class="row">
-        <i>Nhịp thở:</i> <span>{{hsba.emrBenhAn.nhiptho}}</span> <i> lần/ph</i>
-      </div>
-      <div class="row">
-        <i>Cân nặng</i> <span>{{hsba.emrBenhAn.cannang}}</span> <i> kg</i>
-      </div>
+    <div class="w mt-2 mb-2">
+      <h6>3. Các cơ quan:</h6>
     </div>
-  </div>
-  <div class="row mt-2">
-    <h6>2. Bệnh ngoại khoa</h6>
-  </div>
-  <div>
-    <span
-      >.......................................................................................................................</span
-    >
-    <span
-      >.......................................................................................................................</span
-    >
-    <span
-      >.......................................................................................................................</span
-    >
-    <span
-      >.......................................................................................................................</span
-    >
-    <span
-      >.......................................................................................................................</span
-    >
-    <span
-      >.......................................................................................................................</span
-    >
-  </div>
-  <div class="row mt-2">
-    <h6>3. Các cơ quan:</h6>
-  </div>
-  <div>
-    + Tuần hoàn:
-  </div>
-  <div class="row mt-2">
-    <span>{{hsba.emrBenhAn.tuanhoan}}</span>
-  </div>
-  <div>
-    + Hô hấp:
-  </div>
-  <div class="row mt-2">
-    <span>{{hsba.emrBenhAn.hohap}}</span>
-  </div>
-  <div>
-    + Tiêu hóa:
-  </div>
-  <div class="row mt-2">
-    <span>{{hsba.emrBenhAn.tieuhoa}}</span>
-  </div>
-  <div>
-    + Thận- Tiết niệu- Sinh dục:
-  </div>
-  <div class="row mt-2">
-    <span>{{hsba.emrBenhAn.tietnieusinhduc}}</span>
-  </div>
-  <div>
-    + Thần Kinh:
-  </div>
-  <div class="row mt-2">
-    <span>{{hsba.emrBenhAn.thankinh}}</span>
-  </div>
-  <div>
-    + Cơ- Xương- Khớp:
-  </div>
-  <div class="row mt-2">
-    <span>{{hsba.emrBenhAn.coxuongkhop}}</span>
-  </div>
-  <div>
-    + Tai- Mũi- Họng:
-  </div>
-  <div class="row mt-2">
-    <span>{{hsba.emrBenhAn.taimuihong}}</span>
-  </div>
-  <div>
-    + Răng- Hàm- Mặt:
-  </div>
-  <div class="row mt-2">
-    <span>{{hsba.emrBenhAn.ranghammat}}</span>
-  </div>
-  <div>
-    + Mắt:
-  </div>
-  <div class="row mt-2">
-    <span>{{hsba.emrBenhAn.mat}}</span>
-  </div>
-  <div>
-    + Nội tiết, dinh dưỡng và các bệnh lý khác:
-  </div>
-  <div class="row mt-2">
-    <span>{{hsba.emrBenhAn.noitietdinhduong}}</span>
-    <span>{{hsba.emrBenhAn.dalieu}}</span>
-    <span>{{hsba.emrBenhAn.coquankhac}}</span>
-  </div>
-  <div class="row mt-2">
-    <h6>4. Các xét nghiệm cận lâm sáng cần làm:</h6>
-  </div>
-  <div class="row mt-2">
-    <span>{{hsba.emrBenhAn.xetnghiemcanlamsang}}</span>
-  </div>
-  <div class="row mt-2">
-    <h6>5. Tóm tắt bệnh án:</h6>
-  </div>
-  <div class="row mt-2">
-    <span>{{hsba.emrBenhAn.tomtat}}</span>
-  </div>
-  <div class="row mt-3">
+    <div>
+      &nbsp;&nbsp;+ Tuần hoàn:
+    </div>
+    <div class="row mt-2">
+      &nbsp;&nbsp;<span>{{hsba.emrBenhAn.tuanhoan}}</span>
+    </div>
+    <div>
+      &nbsp;&nbsp;+ Hô hấp:
+    </div>
+    <div class="row mt-2">
+      &nbsp;&nbsp;<span>{{hsba.emrBenhAn.hohap}}</span>
+    </div>
+    <div>
+      &nbsp;&nbsp;+ Tiêu hóa:
+    </div>
+    <div class="row mt-2">
+      &nbsp;&nbsp;<span>{{hsba.emrBenhAn.tieuhoa}}</span>
+    </div>
+    <div>
+      &nbsp;&nbsp;+ Thận- Tiết niệu- Sinh dục:
+    </div>
+    <div class="row mt-2">
+      &nbsp;&nbsp;<span>{{hsba.emrBenhAn.tietnieusinhduc}}</span>
+    </div>
+    <div>
+      &nbsp;&nbsp;+ Thần Kinh:
+    </div>
+    <div class="row mt-2">
+      &nbsp;&nbsp;<span>{{hsba.emrBenhAn.thankinh}}</span>
+    </div>
+    <div>
+      &nbsp;&nbsp;+ Cơ- Xương- Khớp:
+    </div>
+    <div class="row mt-2">
+      &nbsp;&nbsp;<span>{{hsba.emrBenhAn.coxuongkhop}}</span>
+    </div>
+    <div>
+      &nbsp;&nbsp;+ Tai- Mũi- Họng:
+    </div>
+    <div class="row mt-2">
+      &nbsp;&nbsp;<span>{{hsba.emrBenhAn.taimuihong}}</span>
+    </div>
+    <div>
+      &nbsp;&nbsp;+ Răng- Hàm- Mặt:
+    </div>
+    <div class="row mt-2">
+      &nbsp;&nbsp;<span>{{hsba.emrBenhAn.ranghammat}}</span>
+    </div>
+    <div>
+      &nbsp;&nbsp;+ Mắt:
+    </div>
+    <div class="row mt-2">&nbsp;&nbsp;<span>{{hsba.emrBenhAn.mat}}</span></div>
+    <div>
+      &nbsp;&nbsp;+ Nội tiết, dinh dưỡng và các bệnh lý khác:
+    </div>
+    <div class="row mt-2">
+      &nbsp;&nbsp;<span>{{hsba.emrBenhAn.noitietdinhduong}}</span>
+      &nbsp;&nbsp;<span>{{hsba.emrBenhAn.dalieu}}</span> &nbsp;&nbsp;<span
+        >{{hsba.emrBenhAn.coquankhac}}</span
+      >
+    </div>
+    <div class="w mt-2 mb-2">
+      <h6>4. Các xét nghiệm cận lâm sáng cần làm:</h6>
+    </div>
+    <div class="w mt-2 mb-2">
+      <span>{{hsba.emrBenhAn.xetnghiemcanlamsang}}</span>
+    </div>
+    <div class="w mt-2 mb-2">
+      <h6>5. Tóm tắt bệnh án:</h6>
+    </div>
+    <div class="w mt-2 mb-2">
+      <span>{{hsba.emrBenhAn.tomtat}}</span>
+    </div>
+  </table>
+  <div class="w mt-3">
     <h5>IV. Chuẩn đoán khi vào khoa điều trị:</h5>
   </div>
-  <div>
-    + Bệnh chính: {{ hsba.emrBenhAn.emrDmMaBenhChandoanbenhchinh.ten }}
-  </div>
-  <div>
-    + Bệnh kèm theo <i>(nếu có):</i>
-    <span>{{hsba.emrBenhAn.motachuandoankemtheo}}</span>
-    <span v-for="(emrDm,i) in hsba.emrBenhAn.emrDmMaBenhChandoankemtheos">
-      {{ emrDm.ten }}
-      <span v-if="i+1< hsba.emrBenhAn.emrDmMaBenhChandoankemtheos.length"
-        >,</span
+  <table class="table table-bordered table-sm">
+    <div class="mt-2">
+      + Bệnh chính: {{ hsba.emrBenhAn.emrDmMaBenhChandoanbenhchinh.ten }}
+    </div>
+    <div>
+      + Bệnh kèm theo <i>(nếu có):</i>
+      <span>{{hsba.emrBenhAn.motachuandoankemtheo}}</span>
+      <span v-for="(emrDm,i) in hsba.emrBenhAn.emrDmMaBenhChandoankemtheos">
+        {{ emrDm.ten }}
+        <span v-if="i+1< hsba.emrBenhAn.emrDmMaBenhChandoankemtheos.length"
+          >,</span
+        >
+      </span>
+    </div>
+    <div class="mb-2">
+      + Phân biệt:
+      <span
+        >.................................................................</span
       >
-    </span>
-  </div>
-  <div>
-    + Phân biệt:
-    <span
-      >.................................................................</span
-    >
-  </div>
-  <div class="row mt-3">
+    </div>
+  </table>
+  <div class="w mt-3">
     <h5>V. Tiên lượng:</h5>
   </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-  <div class="row mt-3">
+  <table class="table table-bordered table-sm">
+    <div class="w mt-2 mb-2">
+      <span
+        >.................................................................................................................................</span
+      >
+    </div>
+  </table>
+  <div class="w mt-3">
     <h5>VI. Hướng điều trị:</h5>
   </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
+  <table class="table table-bordered table-sm">
+    <div class="w mt-2 mb-2">
+      <span
+        >.................................................................................................................................</span
+      >
+    </div>
+  </table>
   <div class="row">
-    <div class="col-4 offset-4">
+    <div class="col-8 offset-8">
       <div class="row">
         <i>Ngày</i> <span>.........</span> <i>tháng</i> <span>.........</span>
         <i>năm</i> <span>.........</span>
@@ -274,89 +298,120 @@
       </div>
     </div>
   </div>
-  <div class="row mt-3">
+  <div class="w mt-3">
     <h4>B- TỔNG KẾT BỆNH ÁN</h4>
   </div>
-  <div>
-    <h5>1. Quá trình bệnh lý và diễn biến lâm sàng:</h5>
+  <div class="w mt-2">
+    <h6>1. Quá trình bệnh lý và diễn biến lâm sàng:</h6>
   </div>
-  <div class="row mt-2">
-    <span>{{hsba.emrTongKetRaVien.dienbienlamsang}}</span>
+  <table class="table table-bordered table-sm">
+    <div class="w mt-2">
+      <span>{{hsba.emrTongKetRaVien.dienbienlamsang}}</span>
+    </div>
+    <div class="w mt-2">
+      <span
+        >.................................................................................................................................</span
+      >
+    </div>
+    <div class="w mt-2">
+      <span
+        >.................................................................................................................................</span
+      >
+    </div>
+  </table>
+  <div class="w mt-2">
+    <h6>2. Tóm tắt kết quả xét nghiệm cận lâm sàng có giá trị chẩn đoán:</h6>
   </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
+  <table class="table table-bordered table-sm">
+    <div class="w mt-2">
+      <span>{{hsba.emrTongKetRaVien.canlamsang}}</span>
+    </div>
+    <div class="w mt-2">
+      <span
+        >.................................................................................................................................</span
+      >
+    </div>
+    <div class="w mt-2">
+      <span
+        >.................................................................................................................................</span
+      >
+    </div>
+  </table>
+  <div class="w mt-2">
+    <h6>3. Phương pháp điều trị:</h6>
   </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
+  <table class="table table-bordered table-sm">
+    <div class="w mt-2 mb-2">
+      <span>{{hsba.emrTongKetRaVien.phuongphapdieutri}}</span>
+    </div>
+    <div class="w mt-2">
+      <span
+        >.................................................................................................................................</span
+      >
+    </div>
+    <div class="w mt-2">
+      <span
+        >.................................................................................................................................</span
+      >
+    </div>
+    <table class="table">
+      <tr>
+        <td>- Phẫu thuật</td>
+        <td>- Thủ thuật</td>
+      </tr>
+    </table>
+
+    <table class="table">
+      <tr>
+        <th class="width=10%">Giờ, ngày</th>
+        <th class="width=40%">Phương pháp phẫu thuật/vô cảm</th>
+        <th class="width=25%">Bác sỹ phẫu thuật</th>
+        <th class="width=25%">Bác sỹ gây mê</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </table>
+  <div class="w mt-2">
+    <h6>4. Tình trạng người bệnh ra viện:</h6>
   </div>
-  <div>
-    <h5>2. Tóm tắt kết quả xét nghiệm cận lâm sàng có giá trị chẩn đoán:</h5>
+  <table class="table table-bordered table-sm">
+    <div class="row mt-2 mb-2">
+      <span>{{hsba.emrTongKetRaVien.tinhtrangnguoibenh}}</span>
+    </div>
+    <div class="w mt-2">
+      <span
+        >.................................................................................................................................</span
+      >
+    </div>
+    <div class="w mt-2">
+      <span
+        >.................................................................................................................................</span
+      >
+    </div>
+  </table>
+  <div class="w mt-2 mb-2">
+    <h6>5. Hướng điều trị và các chế độ tiếp theo:</h6>
   </div>
-  <div class="row mt-2">
-    <span>{{hsba.emrTongKetRaVien.canlamsang}}</span>
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-  <div>
-    <h5>3. Phương pháp điều trị:</h5>
-  </div>
-  <div class="row mt-2">
-    <span>{{hsba.emrTongKetRaVien.phuongphapdieutri}}</span>
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-  <div>
-    <h5>4. Tình trạng người bệnh ra viện:</h5>
-  </div>
-  <div class="row mt-2">
-    <span>{{hsba.emrTongKetRaVien.tinhtrangnguoibenh}}</span>
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-  <div>
-    <h5>5. Hướng điều trị và các chế độ tiếp theo:</h5>
-  </div>
-  <div class="row mt-2">
-    <span>{{hsba.emrBenhAn.huongdieutri}}</span>
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
+  <table class="table table-bordered table-sm">
+    <div class="w mt-2 mb-2">
+      <span>{{hsba.emrBenhAn.huongdieutri}}</span>
+    </div>
+    <div class="w mt-2">
+      <span
+        >.................................................................................................................................</span
+      >
+    </div>
+    <div class="w mt-2">
+      <span
+        >.................................................................................................................................</span
+      >
+    </div>
+  </table>
   <div>
     <table style="width:100%" border="1">
       <tr>
