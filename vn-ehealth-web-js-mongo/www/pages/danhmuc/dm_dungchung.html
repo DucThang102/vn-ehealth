@@ -15,7 +15,11 @@
 	    <form @submit.prevent="timKiemHoso()" class="mb-3">
 	      <div class="w">
 		     	<div class="box-content">
-		     	 <div class="row">
+            <div class="row mb-2">
+                <div class="col-4"><strong>Mã danh mục dùng chung:</strong></div>
+                <div class="col-4"><strong>Tên danh mục dùng chung:</strong></div>
+            </div>
+            <div class="row">
 			        <div class="col-4">
 			          <input v-model="ma_yte" class="form-control" placeholder="Mã danh mục dùng chung"></input>
 			        </div>
@@ -26,13 +30,13 @@
 			        	<b-button variant="primary" class="search" type="submit">Tìm kiếm</b-button>
 			        </div>
 		        </div>
-		        <div class="row">
+		        <div class="row mt-2">
 			        <div class="col-4">
-			        	<label for="input-none">Thời gian bắt đầu có hiệu lực từ ngày:</label><br/>
+			        	<label for="input-none"><strong>Thời gian bắt đầu có hiệu lực từ ngày:</strong></label><br/>
 			        	<b-form-input  id="type-date" type="date"></b-form-input>
 			        </div>
 			        <div class="col-4">
-			        	<label for="input-none">Đến:</label><br/>
+			        	<label for="input-none"><strong> Đến:</strong></label><br/>
 			        	<b-form-input  id="type-date" type="date"></b-form-input>
 			        </div>
 		        </div>
@@ -40,7 +44,7 @@
 	      </div>
 	    </form>
     <!-- <table class="table table-bordered table-width-100" v-if="total > 0"> -->
-    <table class="table table-bordered table-width-100">
+    <table class="table table-bordered table-width-100 mt-4">
 
       <thead>
         <tr>

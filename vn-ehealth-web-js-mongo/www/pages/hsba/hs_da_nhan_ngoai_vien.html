@@ -1,1 +1,175 @@
-Đã nhận - HSBA ngoài viện
+<% include ../../header.html %>
+
+<style>
+  #app {
+    overflow: scroll;
+    width: 100%;
+  }
+</style>
+
+<div id="app" class="container-fluid pt-2 mb-4 mt-2">
+  <template v-if="total == 0">
+    <b>Không có dữ liệu</b>
+  </template>
+  
+  <template>
+	    <form @submit.prevent="timKiemHoso()" class="mb-3">
+	      <div class="w">
+		     	<div class="box-content">
+		     	 <div class="row">
+			        <div class="col-3">
+			        <label for="input-none"><strong>Tìm theo mã y tế:</strong></label><br/>
+			          <input v-model="ma_yte" class="form-control" placeholder="Nhập thông tin tìm kiếm"></input>
+			        </div>
+			        <div class="col-3">
+			        <label for="input-none"></label><strong>Nơi gửi đến:</strong><br/>
+			        	<b-form-select size="m" class="mt-2 noLabel" v-model="selected" :options="listNoiGuiDen"></b-form-select>
+			        </div>
+			        <div class="col-3">
+			        <label for="input-none"></label><strong>Loại bệnh án:</strong><br/>
+		        		<b-form-select size="m" class="mt-2 noLabel" v-model="selected2" :options="listLoaiBenhAn"></b-form-select>
+			        </div>
+			        <div class="col-3">
+			        	<label for="input-none">&nbsp;&nbsp;</label><br/>
+			        	<b-button variant="primary" class="search" type="submit">Tìm kiếm</b-button>
+			        </div>
+		        </div>
+		        <div class="row mt-2">
+			        <div class="col-3">
+			        	<label for="input-none"><strong>Ngày đến từ:</strong></label><br/>
+			        	<b-form-input  id="type-date" type="date"></b-form-input>
+			        </div>
+			        <div class="col-3">
+			        	<label for="input-none"><strong>Đến:</strong></label><br/>
+			        	<b-form-input  id="type-date" type="date"></b-form-input>
+			        </div>
+			        <div class="col-3">
+			        	<label for="input-none"><strong>Ngày hết hạn từ:</strong></label><br/>
+			        	<b-form-input  id="type-date" type="date"></b-form-input>
+			        </div>
+			        <div class="col-3">
+			        	<label for="input-none"><strong>Đến:</strong></label><br/>
+			        	<b-form-input  id="type-date" type="date"></b-form-input>
+			        </div>
+		        </div>
+		     </div>
+	      </div>
+	    </form>
+    <!-- <table class="table table-bordered table-width-100" v-if="total > 0"> -->
+    <table class="table table-bordered table-width-100 mt-4">
+
+      <thead>
+        <tr>
+          <th style="width:5%">STT</th>
+          <th style="width:15%">Mã phiên trao đổi</th>
+          <th style="width:12%">Tên bệnh nhân</th>
+          <th style="width:10%">Loại bệnh án</th>
+          <th style="width:7%">Mã y tế</th>
+          <th style="width:10%">Gửi từ</th>
+          <th style="width:10%">Ngày đến</th>
+          <th style="width:10%">Ngày hết hạn</th>
+          <th style="width:5%">Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr v-for="(hs, index) in items"> -->
+        <tr>
+
+          <!-- <td>{{ index + offset + 1 }}</td> -->
+          <td>0001</td>
+          <!-- <td>{{ hs.so_benh_an }}</td> -->
+          <td>00000</td>
+          <!-- <td>{{ hs.ten_benh_nhan }}</td> -->
+          <td>Nguyễn Văn A</td>
+          <!-- <td>{{ hs.loai_benh_an }}</td> -->
+          <td>Loại bệnh án</td>
+          <!-- <td>{{ hs.ma_yte }}</td> -->
+          <td>19008888</td>
+          <!-- <td>{{ hs.ngay_vaovien }}</td> -->
+          <td>TP.Hải Phòng</td>
+          <!-- <td>{{ hs.ngay_tiepnhan }}</td> -->
+          <td>23/10/2018</td>
+          <!-- <td>{{ hs.ngay_ravien }}</td> -->
+          <td>23/10/2019</td>
+           <td>
+            <button class="btn btn-small dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    <i class="fas fa-fw fa-tasks"></i>
+			  </button>
+			  <div class="dropdown-menu">
+                <!-- <a class="dropdown-item" :href="createURL('/html/hsba/xem_hsba.html', {hs_id: hs.id, backURL: currentURL})">Xem HSBA</a> -->
+			    <a class="dropdown-item" href="#">Xem HSBA</a>
+			    <a class="dropdown-item" href="#">Chỉnh sửa</a>
+			    <a class="dropdown-item" href="#">Lưu trữ</a>
+			    <a class="dropdown-item" href="#">Thông tin gốc</a>
+			    <a class="dropdown-item" href="#">Xóa</a>			    
+			  </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <b-pagination v-if="total > perPage" size="sm" v-model="currentPage" :total-rows="total" :per-page="perPage"></b-pagination>
+    <!-- <label class="label">Tổng số : {{ total }} bản ghi</label> -->
+    <label class="label">Tổng số : 1 bản ghi</label>
+
+  </template>
+</div>
+<script>
+  new Vue({
+    el: "#app",
+    data: {  
+    	perPage: 5,
+    	currentPage: null,
+    	items: [],
+    	total : null,
+    	ma_yte : '',
+  		listLoaiBenhAn: [ 
+			{ value: null, text: '--Tất cả các lại bệnh án--' },
+		    { value: '1', text: '1' },
+		    { value: '2', text: '2' },
+		    { value: '3', text: '3' },
+		  ],
+		 listNoiGuiDen: [ 
+				{ value: null, text: '--Nơi gửi đến--' },
+		      { value: '5', text: '1' },
+		      { value: '6', text: '2' },
+		      { value: '7', text: '3' },
+		  ],
+		  selected: null,
+		  selected2: null,
+    },
+    
+    methods: {
+//	  getTotal: async function() {this.total = await this.get("/api/hsba/count_ds_hs", {trangthai: 1, ma_yte : this.ma_yte});},
+//	  getItems : async function() {this.items = await this.get("/api/hsba/get_ds_hs", { trangthai: 1, start: this.offset, count: this.perPage, ma_yte : this.ma_yte });},
+	  
+	  timKiemHoso : async function() {
+	    this.currentPage = 1;
+	    location.href = this.currentURL;
+	  }
+    },
+    
+    computed: {      
+      offset() {
+        return (this.currentPage - 1) * this.perPage;
+	  },
+	  currentURL() {
+		return this.createURL("", {ma_yte: this.ma_yte, currentPage: this.currentPage})
+	  }
+    },
+    
+    watch: {
+      currentPage : async function(newVal, oldVal) {
+		if(oldVal){	  
+		  location.href = this.currentURL;
+		}
+      }
+    },
+    
+    created: async function () {
+      this.currentPage = this.getParam("currentPage") || 1;
+      this.ma_yte = this.getParam("ma_yte") || "";
+//      await this.getTotal();
+//      await this.getItems();	  
+    }
+  });
+</script>
