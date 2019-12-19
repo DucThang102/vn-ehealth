@@ -67,6 +67,7 @@
                     sửa</a>
                   <a class="dropdown-item" v-on:click="luuTruHoSo(hs.id)" href="javascript:void(0)">Lưu trữ</a>
                   <a class="dropdown-item" v-on:click="xemHoSoGoc(hs.id)" href="javascript:void(0)">Thông tin gốc</a>
+                  <a class="dropdown-item" :href="API_URL + '/api/hsba/download_cda?hsba_id=' + hs.id">Xuất ra CDA</a>
                   <a class="dropdown-item" v-on:click="xoaHoSo(hs.id)" href="javascript:void(0)">Xóa</a>
                 </div>
               </td>
@@ -127,7 +128,9 @@
       total: null,
       mayte: '',
       loading: true,
-      hsGocJson: null
+      hsGocJson: null,
+      hsba_id:null,
+
     },
 
     methods: {

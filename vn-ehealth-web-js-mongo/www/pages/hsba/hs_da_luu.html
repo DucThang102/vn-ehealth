@@ -64,6 +64,7 @@
                     :href="createURL('/pages/hsba/xem_lichsu_hsba.html', {hsba_id: hs.id, backURL: currentURL})">Xem lịch sử</a>  
                   <a class="dropdown-item" v-on:click="moLuuTruHoSo(hs.id)" href="javascript:void(0)">Mở lưu trữ</a>
                   <a class="dropdown-item" v-on:click="xemHoSoGoc(hs.id)" href="javascript:void(0)">Thông tin gốc</a>
+                  <a class="dropdown-item" :href="API_URL + '/api/hsba/download_cda?hsba_id=' + hs.id">Xuất ra CDA</a>
                   <a class="dropdown-item" v-on:click="xoaHoSo(hs.id)" href="javascript:void(0)">Xóa</a>
                 </div>
               </td>
