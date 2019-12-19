@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.utils.EmrUtils;
-import vn.ehealth.emr.utils.ExportUtil;
+import vn.ehealth.emr.utils.PDFExportUtil;
 
 public class TestExportPdf {
     
@@ -27,7 +27,7 @@ public class TestExportPdf {
         
         var hsba = getHsba();
         
-        var bytes = ExportUtil.exportPdf(hsba, "http://localhost:8080");
+        var bytes = PDFExportUtil.exportPdf(hsba, "http://localhost:8080");
         var f = new FileOutputStream("C:/tmp/output.pdf");
         f.write(bytes);
         f.close();

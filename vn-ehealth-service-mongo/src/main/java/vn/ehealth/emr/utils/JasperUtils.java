@@ -158,7 +158,7 @@ public class JasperUtils extends JRDefaultScriptlet  {
         return "";
     }
     
-    int tinhSoNgayDieuTri(Date startDate, Date endDate) {
+    public static int tinhSoNgayDieuTri(Date startDate, Date endDate) {
         var d1 = startDate.toInstant();
         var d2 = endDate.toInstant();
         return 1 + (int) d1.until(d2, ChronoUnit.DAYS);

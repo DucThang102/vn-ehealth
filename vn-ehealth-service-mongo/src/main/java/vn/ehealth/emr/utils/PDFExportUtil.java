@@ -25,7 +25,7 @@ import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.utils.Constants.MA_BENH_AN;
 
-public class ExportUtil {
+public class PDFExportUtil {
     
     static String getRealPath(String path) {
         return "src/main/resources/" + path;

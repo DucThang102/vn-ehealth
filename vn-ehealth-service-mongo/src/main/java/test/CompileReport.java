@@ -10,11 +10,11 @@ import net.sf.jasperreports.engine.util.JRSaver;
 
 public class CompileReport {
 
-    static String[] paths = {
+    static String[] paths1 = {
             "src\\main\\resources\\report\\BenhAn\\YHCTNoiTru\\Benh-an-YHCT-Noi-tru.jasper"
     };
     
-    static String[] paths1 = {            
+    static String[] paths = {            
             "src\\main\\resources\\report\\BenhAn\\BenhAn.jasper",
             "src\\main\\resources\\report\\BenhAn\\BAXP\\BenhAn-BAXP.jasper",
             "src\\main\\resources\\report\\BenhAn\\BONG\\BenhAn-BONG.jasper",
@@ -48,7 +48,8 @@ public class CompileReport {
             "src\\main\\resources\\report\\BenhAn\\ToBAFooter\\ToBAFooter.jasper",
             "src\\main\\resources\\report\\BenhAn\\TRUYENNHIEM\\BenhAnTruyenNhiem.jasper",
             "src\\main\\resources\\report\\BenhAn\\UNGBUOU\\BenhAn-UngBuou.jasper",
-            "src\\main\\resources\\report\\BenhAn\\YHCTNgoaiTru\\Benh-an-YHCT-Ngoai-tru.jasper",            
+            "src\\main\\resources\\report\\BenhAn\\YHCTNgoaiTru\\Benh-an-YHCT-Ngoai-tru.jasper",
+            "src\\main\\resources\\report\\BenhAn\\YHCTNoiTru\\Benh-an-YHCT-Noi-tru.jasper",
             "src\\main\\resources\\report\\BenhAn\\YHCTNoiTruBanNgay\\Benh-an-YHCT-Noi-Tru-BN.jasper"            
     };
     

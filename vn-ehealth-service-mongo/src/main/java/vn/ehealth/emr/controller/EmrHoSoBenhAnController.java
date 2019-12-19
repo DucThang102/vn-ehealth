@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import net.sf.jasperreports.engine.JRException;
+import vn.ehealth.emr.cda.CDAExportUtil;
 import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.service.EmrBenhNhanService;
 import vn.ehealth.emr.service.EmrCoSoKhamBenhService;
@@ -29,7 +30,7 @@ import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.service.EmrVaoKhoaService;
 import vn.ehealth.emr.service.UserService;
 import vn.ehealth.emr.utils.EmrUtils;
-import vn.ehealth.emr.utils.ExportUtil;
+import vn.ehealth.emr.utils.PDFExportUtil;
 import vn.ehealth.emr.utils.UserUtil;
 import vn.ehealth.emr.validate.ErrorMessage;
 import vn.ehealth.emr.validate.JsonParser;
@@ -144,6 +145,33 @@ public class EmrHoSoBenhAnController {
             return ResponseEntity.ok(Map.of("success", false, "error", error));
         }
     }
+    
+    @GetMapping("/download_cda")
+    public ResponseEntity<?> downloadCDA(@RequestParam("hsba_id") String id) {
+        
+        var hsbaOpt = emrHoSoBenhAnService.getById(new ObjectId(id));
+        
+        if(hsbaOpt.isPresent()) {
+            try {
+                var hsba = hsbaOpt.get();
+                hsba.getEmrBenhNhan();
+                hsba.getEmrCoSoKhamBenh();
+                emrHoSoBenhAnService.getEmrHoSoBenhAnDetail(hsba);
+                var data = CDAExportUtil.exportCDA(hsba);
+                var resource = new ByteArrayResource(data);
+                
+                return ResponseEntity.ok()
+                        .contentLength(data.length)
+                        .contentType(MediaType.parseMediaType("application/xml"))
+                        .header("Content-disposition", "attachment; filename=cda_" + id + ".xml")
+                        .body(resource);
+            }catch(Exception e) {
+                logger.error("Error exporting pdf :", e);
+            }
+        }
+        
+        return ResponseEntity.badRequest().build();
+    }
      
     @GetMapping("/view_pdf")
     public ResponseEntity<?> viewPdf(@RequestParam("hsba_id") String id) {
@@ -153,7 +181,7 @@ public class EmrHoSoBenhAnController {
         if(hsba.isPresent()) {
             try {
                 emrHoSoBenhAnService.getEmrHoSoBenhAnDetail(hsba.get());
-                var data = ExportUtil.exportPdf(hsba.get(), "");
+                var data = PDFExportUtil.exportPdf(hsba.get(), "");
                 var resource = new ByteArrayResource(data);
                 
                 return ResponseEntity.ok()
