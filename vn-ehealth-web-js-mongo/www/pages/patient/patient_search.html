@@ -62,8 +62,8 @@
         </form>
 
         <div class="portlet-body">
-          <table class="table mt-3">
-            <tr>
+          <table class="table mt-3 table-bordered">
+            <tr class="table-active ">
               <th style="width: 5%">STT</th>
               <th style="width: 20%">Họ tên</th>
               <th style="width: 10%">Ngày sinh</th>
@@ -73,7 +73,7 @@
             </tr>
 
             <tr v-for="(patient, index) in currentItems">
-              <td>{{ index + (currentPage-1)*perPage + 1}}</td>
+              <td align="center">{{ index + (currentPage-1)*perPage + 1}}</td>
               <td>
                 <a
                   v-bind:href='createURL("/pages/patient/patient_detail.html", {"id" : patient.id})'
