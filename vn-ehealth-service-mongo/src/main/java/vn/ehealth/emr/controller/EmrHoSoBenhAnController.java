@@ -1,6 +1,7 @@
 package vn.ehealth.emr.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -29,9 +30,11 @@ import vn.ehealth.emr.service.EmrCoSoKhamBenhService;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.service.EmrVaoKhoaService;
 import vn.ehealth.emr.service.UserService;
+import vn.ehealth.emr.utils.DateUtil;
 import vn.ehealth.emr.utils.EmrUtils;
 import vn.ehealth.emr.utils.PDFExportUtil;
 import vn.ehealth.emr.utils.UserUtil;
+import vn.ehealth.emr.utils.Constants.TRANGTHAI_HOSO;
 import vn.ehealth.emr.validate.ErrorMessage;
 import vn.ehealth.emr.validate.JsonParser;
 
@@ -269,5 +272,29 @@ public class EmrHoSoBenhAnController {
             logger.error("Error save hsba:", e);
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
+    }
+    
+    @GetMapping("/report")
+    public ResponseEntity<?> getReportHsba(String maLoaiBenhAn, String maCoSoKhamBenh, Optional<String> startDate, Optional<String> endDate) {
+        var fromDate = startDate.map(x -> DateUtil.parseStringToDate(x, DateUtil.FORMAT_DD_MM_YYYY_HH_MM)).orElse(null);
+        var toDate = endDate.map(x -> DateUtil.parseStringToDate(x, DateUtil.FORMAT_DD_MM_YYYY_HH_MM)).orElse(null);
+        var emrCoSoKhamBenhId = emrCoSoKhamBenhService.getByMa(maCoSoKhamBenh).map(x -> x.id).orElse(null);
+        var hsbaList = emrHoSoBenhAnService.getReport(emrCoSoKhamBenhId, maLoaiBenhAn, fromDate, toDate);
+        var groups = new HashMap<>();
+        
+        for(var hsba : hsbaList) {
+            if(!groups.containsKey(hsba.emrDmLoaiBenhAn.ma)) {
+                groups.put(hsba.emrDmLoaiBenhAn.ma, new int[2]);
+            }
+            var group = (int[]) groups.get(hsba.emrDmLoaiBenhAn.ma);
+            if(hsba.trangThai == TRANGTHAI_HOSO.CHUA_XULY) {
+                group[0] += 1;
+            }else if(hsba.trangThai == TRANGTHAI_HOSO.DA_LUU) {
+                group[1] += 1;
+            }
+        }
+        
+        return ResponseEntity.ok(groups);
+        
     }
 }

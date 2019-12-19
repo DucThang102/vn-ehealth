@@ -313,4 +313,25 @@ public class EmrHoSoBenhAnService {
             emrHoSoBenhAnRepository.save(x);
         });
     }
+    
+    public List<EmrHoSoBenhAn> getReport(ObjectId emrCoSoKhamBenhId, String maLoaiBenhAn, Date fromDate, Date toDate) {
+        var criteria = new Criteria();
+        if(emrCoSoKhamBenhId != null) {
+            criteria = criteria.and("emrCoSoKhamBenhId").is(emrCoSoKhamBenhId);            
+        }
+        if(!StringUtils.isEmpty(maLoaiBenhAn)) {
+            criteria = criteria.and("emrDmLoaiBenhAn.ma").is(maLoaiBenhAn);
+        }
+        if(fromDate != null && toDate != null) {
+            criteria = criteria.and("ngaytiepnhan").gte(fromDate).lte(toDate);
+        }else {
+            if(fromDate != null) {
+                criteria = criteria.and("ngaytiepnhan").gte(fromDate);
+            }
+            if(toDate != null) {
+                criteria = criteria.and("ngaytiepnhan").lte(toDate);           
+            }
+        }
+        return mongoTemplate.find(new Query(criteria), EmrHoSoBenhAn.class);
+    }
 }
