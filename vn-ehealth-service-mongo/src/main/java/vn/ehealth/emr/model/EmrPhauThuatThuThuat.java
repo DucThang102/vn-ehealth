@@ -26,6 +26,9 @@ public class EmrPhauThuatThuThuat {
     public List<EmrDmContent> emrDmMaBenhChandoansaus = new ArrayList<>();
     public List<EmrDmContent> emrDmMaBenhChandoantruocs = new ArrayList<>();
     
+    public EmrDmContent emrDmMaBenhChandoansau;
+    public EmrDmContent emrDmMaBenhChandoantruoc;
+    
     public EmrDmContent emrDmPhauThuThuat;
     
     @JsonFormat(pattern="dd/MM/yyyy HH:mm")

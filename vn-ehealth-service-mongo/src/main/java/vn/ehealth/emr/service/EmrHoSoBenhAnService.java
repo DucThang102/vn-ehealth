@@ -129,6 +129,9 @@ public class EmrHoSoBenhAnService {
         emrLogService.logAction(EmrHoSoBenhAn.class.getName(), hsba.id, MA_HANH_DONG.CHINH_SUA, new Date(), userId, 
                 JsonUtil.dumpObject(hsba), jsonSt);
         
+        hsba.ngaysua = new Date();
+        hsba.nguoisuaId = userId;
+        
         return emrHoSoBenhAnRepository.save(hsba);
     }
     
@@ -160,8 +163,16 @@ public class EmrHoSoBenhAnService {
         emrBenhNhan = emrBenhNhanService.createOrUpdate(emrBenhNhan);
         
         hsba.emrBenhNhanId = emrBenhNhan.id;        
-        hsba.emrCoSoKhamBenhId = emrCoSoKhamBenh.id;        
-        hsba.ngaytao = new Date();
+        hsba.emrCoSoKhamBenhId = emrCoSoKhamBenh.id;
+        
+        if(createNew) {
+            hsba.ngaytao = new Date();
+            hsba.nguoitaoId = userId;
+        }else {
+            hsba.ngaysua = new Date();
+            hsba.nguoisuaId = userId;
+        }
+        
         
         hsba.nguonDuLieu = NGUON_DU_LIEU.TU_HIS;
         hsba.trangThai = TRANGTHAI_HOSO.CHUA_XULY;

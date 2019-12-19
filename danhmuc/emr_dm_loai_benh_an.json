@@ -1,0 +1,126 @@
+[
+    {
+        "ma": "01",
+        "ten": "Nội khoa"
+    },
+    {
+        "ma": "02",
+        "ten": "Nhi khoa"
+    },
+    {
+        "ma": "03",
+        "ten": "Truyền nhiễm"
+    },
+    {
+        "ma": "04",
+        "ten": "Phụ khoa"
+    },
+    {
+        "ma": "05",
+        "ten": "Sản khoa"
+    },
+    {
+        "ma": "06",
+        "ten": "Sơ sinh"
+    },
+    {
+        "ma": "07",
+        "ten": "Tâm thần"
+    },
+    {
+        "ma": "08",
+        "ten": "Da liễu"
+    },
+    {
+        "ma": "09",
+        "ten": "Điều dưỡng phục hồi chức năng"
+    },
+    {
+        "ma": "10",
+        "ten": "Huyết học truyền máu"
+    },
+    {
+        "ma": "11",
+        "ten": "Ngoại khoa"
+    },
+    {
+        "ma": "12",
+        "ten": "Bỏng"
+    },
+    {
+        "ma": "13",
+        "ten": "Ung bướu"
+    },
+    {
+        "ma": "14",
+        "ten": "Răng hàm mặt"
+    },
+    {
+        "ma": "15",
+        "ten": "Tai mũi họng"
+    },
+    {
+        "ma": "16",
+        "ten": "Mắt"
+    },
+    {
+        "ma": "17",
+        "ten": "Lác"
+    },
+    {
+        "ma": "18",
+        "ten": "Mắt trẻ em"
+    },    
+    {
+        "ma": "19",
+        "ten": "Mắt glocom"
+    },
+    {
+        "ma": "20",
+        "ten": "Lao"
+    },
+    {
+        "ma": "21",
+        "ten": "Tay chân miệng"
+    },
+    {
+        "ma": "22",
+        "ten": "Tim mạch"
+    },
+    {
+        "ma": "23",
+        "ten": "Ngoại trú"
+    },
+    {
+        "ma": "24",
+        "ten": "Ngoại trú Răng hàm mặt"
+    },
+    {
+        "ma": "25",
+        "ten": "Ngoại trú tai mũi họng"
+    },
+    {
+        "ma": "26",
+        "ten": "Ngoại trú mắt"
+    },
+    {
+        "ma": "27",
+        "ten": "YHCT nội trú"
+    },
+    {
+        "ma": "28",
+        "ten": "YHCT ngoại trú"
+    },
+    {
+        "ma": "29",
+        "ten": "YHCT xã phường"
+    },
+    {
+        "ma": "33",
+        "ten": "YHCT nội trú ban ngày"
+    },
+    {
+        "ma": "35",
+        "ten": "Cấp cứu"
+    }    
+]

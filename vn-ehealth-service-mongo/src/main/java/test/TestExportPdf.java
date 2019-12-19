@@ -3,24 +3,19 @@ package test;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-
 import org.springframework.core.io.ClassPathResource;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.utils.EmrUtils;
-import vn.ehealth.emr.utils.ExportUtil;
+import vn.ehealth.emr.utils.PDFExportUtil;
 
 public class TestExportPdf {
     
-    static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    static ObjectMapper mapper = new ObjectMapper();
-    //static SimpleDateFormat sdf = EmrUtils.createSimpleDateFormat("yyyy-MM-dd HH:mm");
+    static ObjectMapper mapper = EmrUtils.createObjectMapper();
     
     static EmrHoSoBenhAn getHsba() throws IOException {
-        mapper.setDateFormat(sdf);
         var file = new ClassPathResource("static/json/hsba.json").getInputStream();
         var jsonSt = new String(file.readAllBytes());
         file.close();
@@ -32,7 +27,7 @@ public class TestExportPdf {
         
         var hsba = getHsba();
         
-        var bytes = ExportUtil.exportPdf(hsba, "http://localhost:8080");
+        var bytes = PDFExportUtil.exportPdf(hsba, "http://localhost:8080");
         var f = new FileOutputStream("C:/tmp/output.pdf");
         f.write(bytes);
         f.close();
