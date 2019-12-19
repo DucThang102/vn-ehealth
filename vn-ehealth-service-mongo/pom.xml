@@ -78,32 +78,24 @@
             <groupId>vn.dtt.emr</groupId>
             <artifactId>hl7</artifactId>
             <version>0.0.1</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/vn.dtt.emr.hl7-0.0.1.jar</systemPath>
         </dependency>
         
         <dependency>
             <groupId>vn.dtt.emr</groupId>
             <artifactId>ie</artifactId>
             <version>0.0.1</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/vn.dtt.emr.ie-0.0.1.jar</systemPath>
         </dependency>
         
         <dependency>
             <groupId>vn.dtt.emr</groupId>
             <artifactId>ie-cda</artifactId>
             <version>0.0.1</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/vn.dtt.emr.ie.cda-0.0.1.jar</systemPath>
         </dependency>
         
         <dependency>
             <groupId>vn.dtt.emr</groupId>
             <artifactId>mdht</artifactId>
             <version>0.0.1</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/vn.dtt.openhealthtools.mdht.uml.cda.hsba-0.0.1.jar</systemPath>
         </dependency>
         
 		<dependency>
