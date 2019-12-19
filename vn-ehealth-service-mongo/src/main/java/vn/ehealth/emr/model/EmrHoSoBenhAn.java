@@ -292,4 +292,8 @@ public class EmrHoSoBenhAn {
         
         return "";
     }
+    
+    public String getTongketsankhoaCda() {
+        return "";
+    }
 }

@@ -13,6 +13,7 @@ import org.springframework.util.StringUtils;
 
 import net.sf.jasperreports.engine.JRDefaultScriptlet;
 import vn.ehealth.emr.model.EmrBenhAn;
+import vn.ehealth.emr.model.EmrBenhNhan;
 import vn.ehealth.emr.model.EmrChanDoan;
 import vn.ehealth.emr.model.EmrDmContent;
 import vn.ehealth.emr.model.EmrHoSoBenhAn;
@@ -213,7 +214,7 @@ public class JasperUtils extends JRDefaultScriptlet  {
         return String.valueOf(tinhSoNgayDieuTri(emrQuanLyNguoiBenh.ngaygioravien, emrQuanLyNguoiBenh.ngaygioravien));
     }
     
-    public int getLoaiThoiGianTuVong(EmrHoSoBenhAn danhSachHSBA) {
+    public static int getLoaiThoiGianTuVong(EmrHoSoBenhAn danhSachHSBA) {
         
         EmrQuanLyNguoiBenh qlnb = danhSachHSBA.emrQuanLyNguoiBenh;
         EmrTinhTrangRaVien ttRaVien = danhSachHSBA.emrTinhTrangRaVien;
@@ -316,6 +317,19 @@ public class JasperUtils extends JRDefaultScriptlet  {
             result.loaiTuoi = 1;
         }
         return result;
+    }
+    
+    @SuppressWarnings("deprecation")
+    public static Integer getTuoi(EmrHoSoBenhAn hsba, Date ngaySinh) {
+        
+        EmrBenhNhan benhNhan = hsba.getEmrBenhNhan();
+        EmrQuanLyNguoiBenh qlnb = hsba.getEmrQuanLyNguoiBenh();        
+        if (benhNhan == null || qlnb == null) return null;
+        
+        Date ngayVaoVien = qlnb.ngaygiovaovien;        
+        if (ngaySinh == null || ngayVaoVien == null) return null;
+        
+        return (ngayVaoVien.getYear() - ngaySinh.getYear());
     }
     
     public String getTuoi_yhct(EmrHoSoBenhAn hsba, int index) { 
