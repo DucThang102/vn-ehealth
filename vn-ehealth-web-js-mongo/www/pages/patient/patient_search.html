@@ -64,14 +64,16 @@
         <div class="portlet-body">
           <table class="table mt-3">
             <tr>
+              <th style="width: 5%">STT</th>
               <th style="width: 20%">Họ tên</th>
               <th style="width: 10%">Ngày sinh</th>
               <th style="width: 10%">Giới tính</th>
-              <th style="width: 30%">Định danh y tế</th>
-              <th style="width: 30%">Địa chỉ</th>
+              <th style="width: 20%">Định danh y tế</th>
+              <th style="width: 35%">Địa chỉ</th>
             </tr>
 
-            <tr v-for="patient in currentItems">
+            <tr v-for="(patient, index) in currentItems">
+              <td>{{ index + (currentPage-1)*perPage + 1}}</td>
               <td>
                 <a
                   v-bind:href='createURL("/pages/patient/patient_detail.html", {"id" : patient.id})'
