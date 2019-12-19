@@ -28,10 +28,10 @@ public class EmrVaoKhoa {
 
     public EmrDmContent emrDmKhoaDieuTri;
     
-    @JsonFormat(pattern="dd/MM/yyyy HH:mm", timezone="Asia/Ho_Chi_Minh")
+    @JsonFormat(pattern="dd/MM/yyyy HH:mm")
     public Date ngaygiovaokhoa;
 
-    @JsonFormat(pattern="dd/MM/yyyy HH:mm", timezone="Asia/Ho_Chi_Minh")
+    @JsonFormat(pattern="dd/MM/yyyy HH:mm")
     public Date ngayketthucdieutri;
 
     public String tenkhoa;
