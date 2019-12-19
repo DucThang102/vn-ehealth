@@ -78,7 +78,7 @@ importJson("emr_dm_noi_gioi_thieu.json", "DM_NOI_GIOI_THIEU")
 importJson("emr_dm_noi_truc_tiep_vao.json", "DM_NOI_TRUC_TIEP_VAO")
 importJson("emr_dm_loai_vao_vien.json", "DM_LOAI_VAO_VIEN")
 importJson("emr_dm_ket_qua_dieu_tri.json", "DM_KET_QUA_DIEU_TRI")
-importJson("emr_dm_loai_benh_an.json", "DM_LOAI_BENH_ANH")
+importJson("emr_dm_loai_benh_an.json", "DM_LOAI_BENH_AN")
 
 
 importJson2('emr_dm_dvhc.json', 'DM_DVHC')

@@ -27,3 +27,4 @@ db.emr_nhom_dm.insert({ten:'Danh mục Loại đối tượng tài chính', ma:'
 db.emr_nhom_dm.insert({ten:'Danh mục Nơi giới thiệu', ma:'DM_NOI_GIOI_THIEU'})
 db.emr_nhom_dm.insert({ten:'Danh mục Nơi trực tiếp vào', ma:'DM_NOI_TRUC_TIEP_VAO'})
 db.emr_nhom_dm.insert({ten:'Danh mục Kết quả điều trị', ma:'DM_KET_QUA_DIEU_TRI'})
+db.emr_nhom_dm.insert({ten:'Danh mục Loại bệnh án', ma:'DM_LOAI_BENH_AN'})
