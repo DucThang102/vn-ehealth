@@ -936,41 +936,33 @@ public class YHCTUtil {
     
     
     public static void addTomTatTuChanSection(HsbaBenhAnYHCTSection benhAnYhctSection, EmrYhctBenhAn emrYhctBenhAn, Map<String, String> emrParameters, Properties properties){
-        try {
-            var tomTatTuChanSection = HSBAFactory.eINSTANCE.createHsbaTomTatTuChanSection().init();
-            benhAnYhctSection.addSection(tomTatTuChanSection);
-            String tomTatTuChanTitle = properties.getProperty("YHCT_TOMTATTUCHAN_TITLE", "YHCT_TOMTATTUCHAN_TITLE");
-            CDAExportUtil.addSectionTitle(tomTatTuChanSection, tomTatTuChanTitle);
-            StringBuilder  tomTatTuChanText = new StringBuilder();
-            
-            String tomTatTuChan = emrYhctBenhAn.tomtattuchan;
-            if(!StringUtils.isEmpty(tomTatTuChan)){
-                tomTatTuChanText.append(tomTatTuChan);
-            }
-            
-            CDAExportUtil.setSectionData(tomTatTuChanSection, tomTatTuChanText.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }       
+        var tomTatTuChanSection = HSBAFactory.eINSTANCE.createHsbaTomTatTuChanSection().init();
+        benhAnYhctSection.addSection(tomTatTuChanSection);
+        String tomTatTuChanTitle = properties.getProperty("YHCT_TOMTATTUCHAN_TITLE", "YHCT_TOMTATTUCHAN_TITLE");
+        CDAExportUtil.addSectionTitle(tomTatTuChanSection, tomTatTuChanTitle);
+        StringBuilder  tomTatTuChanText = new StringBuilder();
+        
+        String tomTatTuChan = emrYhctBenhAn.tomtattuchan;
+        if(!StringUtils.isEmpty(tomTatTuChan)){
+            tomTatTuChanText.append(tomTatTuChan);
+        }
+        
+        CDAExportUtil.setSectionData(tomTatTuChanSection, tomTatTuChanText.toString());       
     }
     
     public static void addBienChungLuanTriSection(HsbaBenhAnYHCTSection benhAnYhctSection, EmrYhctBenhAn emrYhctBenhAn, Map<String, String> emrParameters, Properties properties){
-        try {
-            var bienChungLuanTriSection = HSBAFactory.eINSTANCE.createHsbaBienChungLuanTriSection().init();
-            benhAnYhctSection.addSection(bienChungLuanTriSection);
-            String bienChungLuanTriTitle = properties.getProperty("YHCT_BIENCHUNGLUANTRI_TITLE", "YHCT_BIENCHUNGLUANTRI_TITLE");
-            CDAExportUtil.addSectionTitle(bienChungLuanTriSection, bienChungLuanTriTitle);
-            StringBuilder  bienChungLuanTriText = new StringBuilder();
-            
-            String bienChungLuanTri = emrYhctBenhAn.luantri;
-            if(!StringUtils.isEmpty(bienChungLuanTri)){
-                bienChungLuanTriText.append(bienChungLuanTri);
-            }
-            
-            CDAExportUtil.setSectionData(bienChungLuanTriSection, bienChungLuanTriText.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }       
+        var bienChungLuanTriSection = HSBAFactory.eINSTANCE.createHsbaBienChungLuanTriSection().init();
+        benhAnYhctSection.addSection(bienChungLuanTriSection);
+        String bienChungLuanTriTitle = properties.getProperty("YHCT_BIENCHUNGLUANTRI_TITLE", "YHCT_BIENCHUNGLUANTRI_TITLE");
+        CDAExportUtil.addSectionTitle(bienChungLuanTriSection, bienChungLuanTriTitle);
+        StringBuilder  bienChungLuanTriText = new StringBuilder();
+        
+        String bienChungLuanTri = emrYhctBenhAn.luantri;
+        if(!StringUtils.isEmpty(bienChungLuanTri)){
+            bienChungLuanTriText.append(bienChungLuanTri);
+        }
+        
+        CDAExportUtil.setSectionData(bienChungLuanTriSection, bienChungLuanTriText.toString());       
     }
     
     public static void addYhctDieuTriAct(Section section, Act act, String strActText){
@@ -997,122 +989,118 @@ public class YHCTUtil {
     }
     
     public static void addDieuTriYhctSection(HsbaBenhAnYHCTSection benhAnYhctSection,  EmrYhctBenhAn emrYhctBenhAn, Map<String, String> emrParameters, Properties properties, String strSplit){
-        try {
-            var dieuTriYhctSection = HSBAFactory.eINSTANCE.createHsbaDieuTriYHCTSection().init();
-            benhAnYhctSection.addSection(dieuTriYhctSection);
-            String dieuTriYhctTitle = properties.getProperty("YHCT_DIEUTRI_TITLE", "YHCT_DIEUTRI_TITLE");
-            CDAExportUtil.addSectionTitle(dieuTriYhctSection, dieuTriYhctTitle);
-            StringBuilder  dieuTriYhctText = new StringBuilder();
-            String sectionDelimiter = properties.getProperty("SECTION_CONTENT_DELIMITER", "SECTION_CONTENT_DELIMITER");
-            String splitDelimiter = properties.getProperty("SPLIT_YHCT_CHANDOAN_VALUE", "SPLIT_YHCT_CHANDOAN_VALUE");
-            
-                    
-            //Pháp điều trị     
-            String phapDieuTri = emrYhctBenhAn.phapdieutri;
-            if(!StringUtils.isEmpty(phapDieuTri)){   
-                String phapDieuTriTitle = properties.getProperty("YHCT_DIEUTRI_PHAPDIEUTRI_TITLE", "YHCT_DIEUTRI_PHUONGTHUOC_TITLE");
-                dieuTriYhctText.append(phapDieuTriTitle).append(sectionDelimiter).append(phapDieuTri).append(splitDelimiter);
-                var phapDieuTriAct = HSBAFactory.eINSTANCE.createHsbaPhapDieuTriAct().init();
-                addYhctDieuTriAct(dieuTriYhctSection, phapDieuTriAct, phapDieuTri);                     
-            }
-            
-            //Phương thuốc
-            String phuongThuoc = emrYhctBenhAn.phuongthuoc;
-            if(!StringUtils.isEmpty(phuongThuoc)){   
-                String phuongThuocTitle = properties.getProperty("YHCT_DIEUTRI_PHUONGTHUOC_TITLE", "YHCT_DIEUTRI_PHUONGTHUOC_TITLE");
-                dieuTriYhctText.append(phuongThuocTitle).append(sectionDelimiter).append(phuongThuoc).append(splitDelimiter);
-                var phuongThuocAct = HSBAFactory.eINSTANCE.createHsbaPhuongThuocAct().init();
-                addYhctDieuTriAct(dieuTriYhctSection, phuongThuocAct, phuongThuoc);                     
-            }
-            
-            //Phương huyệt
-            String phuongHuyet = emrYhctBenhAn.phuonghuyet;
-            if(!StringUtils.isEmpty(phuongHuyet)){   
-                String phuongHuyetTitle = properties.getProperty("YHCT_DIEUTRI_PHUONGHUYET_TITLE", "YHCT_DIEUTRI_PHUONGHUYET_TITLE");
-                dieuTriYhctText.append(phuongHuyetTitle).append(sectionDelimiter).append(phuongHuyet).append(splitDelimiter);
-                var phuongHuyetAct = HSBAFactory.eINSTANCE.createHsbaPhuongHuyetAct().init();
-                addYhctDieuTriAct(dieuTriYhctSection, phuongHuyetAct, phuongHuyet);                     
-            }
-            
-            //Xoa bóp bấm huyệt
-            String xoaBopBamHuyet = emrYhctBenhAn.dieutriXoabopbamhuyet;
-            if(!StringUtils.isEmpty(xoaBopBamHuyet)){    
-                String xoaBopBamHuyetTitle = properties.getProperty("YHCT_DIEUTRI_XOABOPBAMHUYET_TITLE", "YHCT_DIEUTRI_XOABOPBAMHUYET_TITLE");
-                dieuTriYhctText.append(xoaBopBamHuyetTitle).append(sectionDelimiter).append(xoaBopBamHuyet).append(splitDelimiter);
-                var xoaBopBamHuyetAct = HSBAFactory.eINSTANCE.createHsbaXoaBopBamHuyetAct().init();
-                addYhctDieuTriAct(dieuTriYhctSection, xoaBopBamHuyetAct, xoaBopBamHuyet);                       
-            }
-            
-            //Phương pháp khác
-            String phuongPhapKhac = emrYhctBenhAn.phuongphapkhac;
-            if(!StringUtils.isEmpty(phuongPhapKhac)){    
-                String phuongPhapKhacTitle = properties.getProperty("YHCT_DIEUTRI_PHUONGPHAPKHAC_TITLE", "YHCT_DIEUTRI_PHUONGPHAPKHAC_TITLE");
-                dieuTriYhctText.append(phuongPhapKhacTitle).append(sectionDelimiter).append(phuongPhapKhac).append(splitDelimiter);
-                var phuongPhapKhacAct = HSBAFactory.eINSTANCE.createHsbaPhuongPhapKhacAct().init();
-                addYhctDieuTriAct(dieuTriYhctSection, phuongPhapKhacAct, phuongPhapKhac);                       
-            }
-            
-            //Điều trị kết hợp YHHĐ
-            String dieuTriKetHopYhhd = emrYhctBenhAn.dieutriKethopyhhd;
-            if(!StringUtils.isEmpty(dieuTriKetHopYhhd)){
-                String dieuTriKetHopYhhdTitle = properties.getProperty("YHCT_DIEUTRI_KETHOPYHHD_TITLE", "YHCT_DIEUTRI_KETHOPYHHD_TITLE");
-                dieuTriYhctText.append(dieuTriKetHopYhhdTitle).append(sectionDelimiter).append(dieuTriKetHopYhhd).append(splitDelimiter);
-                var dieuTriKetHopYhhdAct = HSBAFactory.eINSTANCE.createHsbaDieuTriKetHopVoiYhhdAct().init();
-                addYhctDieuTriAct(dieuTriYhctSection, dieuTriKetHopYhhdAct, dieuTriKetHopYhhd);
-            }
-            
-            //Chế độ dinh dưỡng
-            String lstCheDoDinhDuong = "";//emrYhctBenhAn.getLstchedodinhduong();
-            String lstCheDoDinhDuongTen = "";//emrYhctBenhAn.getLstchedodinhduongTen();
-            if(!StringUtils.isEmpty(lstCheDoDinhDuong)){         
-                var cheDoDinhDuongOrganizer = HSBAFactory.eINSTANCE.createHsbaCheDoDinhDuongOrganizer().init();
-                II cheDoDinhDuongOrganizerId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-                cheDoDinhDuongOrganizer.getIds().add(cheDoDinhDuongOrganizerId);
-                dieuTriYhctSection.addOrganizer(cheDoDinhDuongOrganizer);           
-                //add lstTen
-                addLstTenForOrganizer(cheDoDinhDuongOrganizer, lstCheDoDinhDuongTen);
+        var dieuTriYhctSection = HSBAFactory.eINSTANCE.createHsbaDieuTriYHCTSection().init();
+        benhAnYhctSection.addSection(dieuTriYhctSection);
+        String dieuTriYhctTitle = properties.getProperty("YHCT_DIEUTRI_TITLE", "YHCT_DIEUTRI_TITLE");
+        CDAExportUtil.addSectionTitle(dieuTriYhctSection, dieuTriYhctTitle);
+        StringBuilder  dieuTriYhctText = new StringBuilder();
+        String sectionDelimiter = properties.getProperty("SECTION_CONTENT_DELIMITER", "SECTION_CONTENT_DELIMITER");
+        String splitDelimiter = properties.getProperty("SPLIT_YHCT_CHANDOAN_VALUE", "SPLIT_YHCT_CHANDOAN_VALUE");
+        
                 
-                if(!StringUtils.isEmpty(strSplit)){
-                    String[] arrActCodeCda = lstCheDoDinhDuong.split(strSplit);
-                    for (String actCodeCdaItem : arrActCodeCda) {
-                        var cheDoDinhDuongAct = HSBAFactory.eINSTANCE.createHsbaCheDoDinhDuongAct().init();
-                        addOrganizerAct(cheDoDinhDuongOrganizer, cheDoDinhDuongAct, actCodeCdaItem);
-                    }               
-                }
-            }
-            //Mô tả chế độ dinh dưỡng
-            String moTaCheDoDinhDuong = emrYhctBenhAn.motachedodinhduong;      
-            if(!StringUtils.isEmpty(moTaCheDoDinhDuong)){
-                String cheDoDinhDuongTitle = properties.getProperty("YHCT_DIEUTRI_CHEDODINHDUONG_TITLE", "YHCT_DIEUTRI_CHEDODINHDUONG_TITLE");
-                dieuTriYhctText.append(cheDoDinhDuongTitle).append(sectionDelimiter).append(moTaCheDoDinhDuong).append(splitDelimiter);
-                var moTaCheDoDinhDuongAct = HSBAFactory.eINSTANCE.createHsbaCheDoDinhDuongTextMotaAct().init();
-                dieuTriYhctSection.addAct(moTaCheDoDinhDuongAct);
-                II moTaCheDoDinhDuongActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-                moTaCheDoDinhDuongAct.getIds().add(moTaCheDoDinhDuongActId);
-                ED moTaText = DatatypesFactory.eINSTANCE.createED(moTaCheDoDinhDuong);
-                moTaCheDoDinhDuongAct.setText(moTaText);            
-            }
+        //Pháp điều trị     
+        String phapDieuTri = emrYhctBenhAn.phapdieutri;
+        if(!StringUtils.isEmpty(phapDieuTri)){   
+            String phapDieuTriTitle = properties.getProperty("YHCT_DIEUTRI_PHAPDIEUTRI_TITLE", "YHCT_DIEUTRI_PHUONGTHUOC_TITLE");
+            dieuTriYhctText.append(phapDieuTriTitle).append(sectionDelimiter).append(phapDieuTri).append(splitDelimiter);
+            var phapDieuTriAct = HSBAFactory.eINSTANCE.createHsbaPhapDieuTriAct().init();
+            addYhctDieuTriAct(dieuTriYhctSection, phapDieuTriAct, phapDieuTri);                     
+        }
+        
+        //Phương thuốc
+        String phuongThuoc = emrYhctBenhAn.phuongthuoc;
+        if(!StringUtils.isEmpty(phuongThuoc)){   
+            String phuongThuocTitle = properties.getProperty("YHCT_DIEUTRI_PHUONGTHUOC_TITLE", "YHCT_DIEUTRI_PHUONGTHUOC_TITLE");
+            dieuTriYhctText.append(phuongThuocTitle).append(sectionDelimiter).append(phuongThuoc).append(splitDelimiter);
+            var phuongThuocAct = HSBAFactory.eINSTANCE.createHsbaPhuongThuocAct().init();
+            addYhctDieuTriAct(dieuTriYhctSection, phuongThuocAct, phuongThuoc);                     
+        }
+        
+        //Phương huyệt
+        String phuongHuyet = emrYhctBenhAn.phuonghuyet;
+        if(!StringUtils.isEmpty(phuongHuyet)){   
+            String phuongHuyetTitle = properties.getProperty("YHCT_DIEUTRI_PHUONGHUYET_TITLE", "YHCT_DIEUTRI_PHUONGHUYET_TITLE");
+            dieuTriYhctText.append(phuongHuyetTitle).append(sectionDelimiter).append(phuongHuyet).append(splitDelimiter);
+            var phuongHuyetAct = HSBAFactory.eINSTANCE.createHsbaPhuongHuyetAct().init();
+            addYhctDieuTriAct(dieuTriYhctSection, phuongHuyetAct, phuongHuyet);                     
+        }
+        
+        //Xoa bóp bấm huyệt
+        String xoaBopBamHuyet = emrYhctBenhAn.dieutriXoabopbamhuyet;
+        if(!StringUtils.isEmpty(xoaBopBamHuyet)){    
+            String xoaBopBamHuyetTitle = properties.getProperty("YHCT_DIEUTRI_XOABOPBAMHUYET_TITLE", "YHCT_DIEUTRI_XOABOPBAMHUYET_TITLE");
+            dieuTriYhctText.append(xoaBopBamHuyetTitle).append(sectionDelimiter).append(xoaBopBamHuyet).append(splitDelimiter);
+            var xoaBopBamHuyetAct = HSBAFactory.eINSTANCE.createHsbaXoaBopBamHuyetAct().init();
+            addYhctDieuTriAct(dieuTriYhctSection, xoaBopBamHuyetAct, xoaBopBamHuyet);                       
+        }
+        
+        //Phương pháp khác
+        String phuongPhapKhac = emrYhctBenhAn.phuongphapkhac;
+        if(!StringUtils.isEmpty(phuongPhapKhac)){    
+            String phuongPhapKhacTitle = properties.getProperty("YHCT_DIEUTRI_PHUONGPHAPKHAC_TITLE", "YHCT_DIEUTRI_PHUONGPHAPKHAC_TITLE");
+            dieuTriYhctText.append(phuongPhapKhacTitle).append(sectionDelimiter).append(phuongPhapKhac).append(splitDelimiter);
+            var phuongPhapKhacAct = HSBAFactory.eINSTANCE.createHsbaPhuongPhapKhacAct().init();
+            addYhctDieuTriAct(dieuTriYhctSection, phuongPhapKhacAct, phuongPhapKhac);                       
+        }
+        
+        //Điều trị kết hợp YHHĐ
+        String dieuTriKetHopYhhd = emrYhctBenhAn.dieutriKethopyhhd;
+        if(!StringUtils.isEmpty(dieuTriKetHopYhhd)){
+            String dieuTriKetHopYhhdTitle = properties.getProperty("YHCT_DIEUTRI_KETHOPYHHD_TITLE", "YHCT_DIEUTRI_KETHOPYHHD_TITLE");
+            dieuTriYhctText.append(dieuTriKetHopYhhdTitle).append(sectionDelimiter).append(dieuTriKetHopYhhd).append(splitDelimiter);
+            var dieuTriKetHopYhhdAct = HSBAFactory.eINSTANCE.createHsbaDieuTriKetHopVoiYhhdAct().init();
+            addYhctDieuTriAct(dieuTriYhctSection, dieuTriKetHopYhhdAct, dieuTriKetHopYhhd);
+        }
+        
+        //Chế độ dinh dưỡng
+        String lstCheDoDinhDuong = "";//emrYhctBenhAn.getLstchedodinhduong();
+        String lstCheDoDinhDuongTen = "";//emrYhctBenhAn.getLstchedodinhduongTen();
+        if(!StringUtils.isEmpty(lstCheDoDinhDuong)){         
+            var cheDoDinhDuongOrganizer = HSBAFactory.eINSTANCE.createHsbaCheDoDinhDuongOrganizer().init();
+            II cheDoDinhDuongOrganizerId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+            cheDoDinhDuongOrganizer.getIds().add(cheDoDinhDuongOrganizerId);
+            dieuTriYhctSection.addOrganizer(cheDoDinhDuongOrganizer);           
+            //add lstTen
+            addLstTenForOrganizer(cheDoDinhDuongOrganizer, lstCheDoDinhDuongTen);
             
-            //Chế độ chăm sóc
-            var emrDmYhctChamSoc = emrYhctBenhAn.emrDmYhctCheDoChamSoc;
-            if(emrDmYhctChamSoc != null){
-                String code = emrDmYhctChamSoc.maicd;                    
-                String displayName = emrDmYhctChamSoc.ten;         
-                var cheDoChamSocAct = HSBAFactory.eINSTANCE.createHsbaCheDoChamSocAct().init();
-                II cheDoChamSocActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-                cheDoChamSocAct.getIds().add(cheDoChamSocActId);
-                dieuTriYhctSection.addAct(cheDoChamSocAct);         
-                ThongTinCanLamSangUtil.addActCdCodeTag(cheDoChamSocAct, code, displayName); 
+            if(!StringUtils.isEmpty(strSplit)){
+                String[] arrActCodeCda = lstCheDoDinhDuong.split(strSplit);
+                for (String actCodeCdaItem : arrActCodeCda) {
+                    var cheDoDinhDuongAct = HSBAFactory.eINSTANCE.createHsbaCheDoDinhDuongAct().init();
+                    addOrganizerAct(cheDoDinhDuongOrganizer, cheDoDinhDuongAct, actCodeCdaItem);
+                }               
             }
-            
-            if(dieuTriYhctText.length() > 0){
-                dieuTriYhctText.setLength(dieuTriYhctText.length() - 1);
-            }
-            
-            CDAExportUtil.setSectionData(dieuTriYhctSection, dieuTriYhctText.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }   
+        }
+        //Mô tả chế độ dinh dưỡng
+        String moTaCheDoDinhDuong = emrYhctBenhAn.motachedodinhduong;      
+        if(!StringUtils.isEmpty(moTaCheDoDinhDuong)){
+            String cheDoDinhDuongTitle = properties.getProperty("YHCT_DIEUTRI_CHEDODINHDUONG_TITLE", "YHCT_DIEUTRI_CHEDODINHDUONG_TITLE");
+            dieuTriYhctText.append(cheDoDinhDuongTitle).append(sectionDelimiter).append(moTaCheDoDinhDuong).append(splitDelimiter);
+            var moTaCheDoDinhDuongAct = HSBAFactory.eINSTANCE.createHsbaCheDoDinhDuongTextMotaAct().init();
+            dieuTriYhctSection.addAct(moTaCheDoDinhDuongAct);
+            II moTaCheDoDinhDuongActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+            moTaCheDoDinhDuongAct.getIds().add(moTaCheDoDinhDuongActId);
+            ED moTaText = DatatypesFactory.eINSTANCE.createED(moTaCheDoDinhDuong);
+            moTaCheDoDinhDuongAct.setText(moTaText);            
+        }
+        
+        //Chế độ chăm sóc
+        var emrDmYhctChamSoc = emrYhctBenhAn.emrDmYhctCheDoChamSoc;
+        if(emrDmYhctChamSoc != null){
+            String code = emrDmYhctChamSoc.maicd;                    
+            String displayName = emrDmYhctChamSoc.ten;         
+            var cheDoChamSocAct = HSBAFactory.eINSTANCE.createHsbaCheDoChamSocAct().init();
+            II cheDoChamSocActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+            cheDoChamSocAct.getIds().add(cheDoChamSocActId);
+            dieuTriYhctSection.addAct(cheDoChamSocAct);         
+            ThongTinCanLamSangUtil.addActCdCodeTag(cheDoChamSocAct, code, displayName); 
+        }
+        
+        if(dieuTriYhctText.length() > 0){
+            dieuTriYhctText.setLength(dieuTriYhctText.length() - 1);
+        }
+        
+        CDAExportUtil.setSectionData(dieuTriYhctSection, dieuTriYhctText.toString());   
     }
     
     public static void addDuHauSection(HsbaBenhAnYHCTSection benhAnYhctSection,  EmrYhctBenhAn emrYhctBenhAn, Map<String, String> emrParameters, Properties properties){

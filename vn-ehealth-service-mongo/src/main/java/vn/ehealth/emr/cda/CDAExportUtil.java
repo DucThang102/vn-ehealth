@@ -323,134 +323,118 @@ public class CDAExportUtil {
     }
     
     public static void addPhysicianAttendingDischargeSummarySection(HsbaDocument doc, EmrHoSoBenhAn emrDanhSachHoSoBenhAn, Map<String, String> emrParameters, Properties properties){
-        try {
-            var emrTongKetRaVien = emrDanhSachHoSoBenhAn.emrTongKetRaVien;
-            var physicianAttendingSection = HSBAFactory.eINSTANCE.createHsbaPhysicianAttendingDischargeSummarySection().init();
-            doc.addSection(physicianAttendingSection);
-            String tkbaTitle = properties.getProperty("TONGKETBENHAN_TITLE", "TONGKETBENHAN_TITLE");
-            addSectionTitle(physicianAttendingSection, tkbaTitle);
+        var emrTongKetRaVien = emrDanhSachHoSoBenhAn.emrTongKetRaVien;
+        var physicianAttendingSection = HSBAFactory.eINSTANCE.createHsbaPhysicianAttendingDischargeSummarySection().init();
+        doc.addSection(physicianAttendingSection);
+        String tkbaTitle = properties.getProperty("TONGKETBENHAN_TITLE", "TONGKETBENHAN_TITLE");
+        addSectionTitle(physicianAttendingSection, tkbaTitle);
+        
+        StringBuilder physicianAttendingText = new StringBuilder();
+        
+        
+        if(emrTongKetRaVien != null){
+            //Quá trình bệnh lý và diễn biến lâm sàng
+            var hospitalCourseSection = HSBAFactory.eINSTANCE.createHsbaHospitalCourseSection().init();
+            physicianAttendingSection.addSection(hospitalCourseSection);
+            String qtBenhLyDienBenLamSangTitle = properties.getProperty("TKBA_DIENBIENLAMSANG_TITLE", "TKBA_DIENBIENLAMSANG_TITLE");
+            addSectionTitle(hospitalCourseSection, qtBenhLyDienBenLamSangTitle);
             
-            StringBuilder physicianAttendingText = new StringBuilder();
+            String hospitalCourseText = emrTongKetRaVien.dienbienlamsang;
+            setSectionData(hospitalCourseSection, hospitalCourseText);
             
+            //Kết quả cận lâm sàng
+            var dischargeStudiesSection = HSBAFactory.eINSTANCE.createHsbaHospitalDischargeStudiesSummarySection().init();
+            physicianAttendingSection.addSection(dischargeStudiesSection);
+            String kqCanLamSangTitle = properties.getProperty("TKBA_XETNGHIEMCANLAMSANG_TITLE", "TKBA_XETNGHIEMCANLAMSANG_TITLE");
+            addSectionTitle(dischargeStudiesSection, kqCanLamSangTitle);
             
-            if(emrTongKetRaVien != null){
-                //Quá trình bệnh lý và diễn biến lâm sàng
-                var hospitalCourseSection = HSBAFactory.eINSTANCE.createHsbaHospitalCourseSection().init();
-                physicianAttendingSection.addSection(hospitalCourseSection);
-                String qtBenhLyDienBenLamSangTitle = properties.getProperty("TKBA_DIENBIENLAMSANG_TITLE", "TKBA_DIENBIENLAMSANG_TITLE");
-                addSectionTitle(hospitalCourseSection, qtBenhLyDienBenLamSangTitle);
-                
-                String hospitalCourseText = emrTongKetRaVien.dienbienlamsang;
-                setSectionData(hospitalCourseSection, hospitalCourseText);
-                
-                //Kết quả cận lâm sàng
-                var dischargeStudiesSection = HSBAFactory.eINSTANCE.createHsbaHospitalDischargeStudiesSummarySection().init();
-                physicianAttendingSection.addSection(dischargeStudiesSection);
-                String kqCanLamSangTitle = properties.getProperty("TKBA_XETNGHIEMCANLAMSANG_TITLE", "TKBA_XETNGHIEMCANLAMSANG_TITLE");
-                addSectionTitle(dischargeStudiesSection, kqCanLamSangTitle);
-                
-                String dischargeStudiesText = emrTongKetRaVien.canlamsang;
-                setSectionData(dischargeStudiesSection, dischargeStudiesText);
-                
-                //Phương pháp điều trị
-                var planOfCareNoteSection = HSBAFactory.eINSTANCE.createHsbaPlanOfCareNoteSection().init();
-                physicianAttendingSection.addSection(planOfCareNoteSection);
-                String ppDieuTriTitle = properties.getProperty("TKBA_PHUONGPHAPDIEUTRI_TITLE", "TKBA_PHUONGPHAPDIEUTRI_TITLE");
-                addSectionTitle(planOfCareNoteSection, ppDieuTriTitle);
-                
-                String planOfCareNoteText = emrTongKetRaVien.phuongphapdieutri;
-                setSectionData(planOfCareNoteSection, planOfCareNoteText);                  
-                
-                //Tình trạng người bệnh ra viện
-                var dischargePhysicalSection = HSBAFactory.eINSTANCE.createHsbaHospitalDischargePhysicalSection().init();
-                physicianAttendingSection.addSection(dischargePhysicalSection);
-                String tinhTrangRaVienTitle = properties.getProperty("TKBA_TINHTRANGNGUOIBENHRAVIEN_TITLE", "TKBA_TINHTRANGNGUOIBENHRAVIEN_TITLE");
-                addSectionTitle(dischargePhysicalSection, tinhTrangRaVienTitle);
-                
-                String dischargePhysicalText = emrTongKetRaVien.tinhtrangnguoibenh;
-                setSectionData(dischargePhysicalSection, dischargePhysicalText);
-                
-                //Hướng điều trị và các chế độ tiếp theo
-                var dischargeInstructionsSection = HSBAFactory.eINSTANCE.createHsbaHospitalDischargeInstructionsSection().init();
-                physicianAttendingSection.addSection(dischargeInstructionsSection);
-                String huongDieuTriVaCheDoTitle = properties.getProperty("TKBA_HUONGDIEUTRI_CHEDO_TITLE", "TKBA_HUONGDIEUTRI_CHEDO_TITLE");
-                addSectionTitle(dischargeInstructionsSection, huongDieuTriVaCheDoTitle);
-                String dischargeInstructionsText = emrTongKetRaVien.chidandieutri;
-                setSectionData(dischargeInstructionsSection, dischargeInstructionsText);
-                
-                //Tổng kết sản khoa
-                addTongKetSanKhoa(physicianAttendingSection, properties, emrDanhSachHoSoBenhAn);    
-                
-                //Phương pháp điều trị ung bướu
-                addPhuongPhapDieuTriUngBuou(physicianAttendingSection, properties, emrDanhSachHoSoBenhAn);   
-                
-                //Tình trạng ra viện Mắt
-                addTinhTrangRaVienMat(physicianAttendingSection, properties, emrDanhSachHoSoBenhAn);
-            }
+            String dischargeStudiesText = emrTongKetRaVien.canlamsang;
+            setSectionData(dischargeStudiesSection, dischargeStudiesText);
             
-            setSectionData(physicianAttendingSection, physicianAttendingText.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }       
+            //Phương pháp điều trị
+            var planOfCareNoteSection = HSBAFactory.eINSTANCE.createHsbaPlanOfCareNoteSection().init();
+            physicianAttendingSection.addSection(planOfCareNoteSection);
+            String ppDieuTriTitle = properties.getProperty("TKBA_PHUONGPHAPDIEUTRI_TITLE", "TKBA_PHUONGPHAPDIEUTRI_TITLE");
+            addSectionTitle(planOfCareNoteSection, ppDieuTriTitle);
+            
+            String planOfCareNoteText = emrTongKetRaVien.phuongphapdieutri;
+            setSectionData(planOfCareNoteSection, planOfCareNoteText);                  
+            
+            //Tình trạng người bệnh ra viện
+            var dischargePhysicalSection = HSBAFactory.eINSTANCE.createHsbaHospitalDischargePhysicalSection().init();
+            physicianAttendingSection.addSection(dischargePhysicalSection);
+            String tinhTrangRaVienTitle = properties.getProperty("TKBA_TINHTRANGNGUOIBENHRAVIEN_TITLE", "TKBA_TINHTRANGNGUOIBENHRAVIEN_TITLE");
+            addSectionTitle(dischargePhysicalSection, tinhTrangRaVienTitle);
+            
+            String dischargePhysicalText = emrTongKetRaVien.tinhtrangnguoibenh;
+            setSectionData(dischargePhysicalSection, dischargePhysicalText);
+            
+            //Hướng điều trị và các chế độ tiếp theo
+            var dischargeInstructionsSection = HSBAFactory.eINSTANCE.createHsbaHospitalDischargeInstructionsSection().init();
+            physicianAttendingSection.addSection(dischargeInstructionsSection);
+            String huongDieuTriVaCheDoTitle = properties.getProperty("TKBA_HUONGDIEUTRI_CHEDO_TITLE", "TKBA_HUONGDIEUTRI_CHEDO_TITLE");
+            addSectionTitle(dischargeInstructionsSection, huongDieuTriVaCheDoTitle);
+            String dischargeInstructionsText = emrTongKetRaVien.chidandieutri;
+            setSectionData(dischargeInstructionsSection, dischargeInstructionsText);
+            
+            //Tổng kết sản khoa
+            addTongKetSanKhoa(physicianAttendingSection, properties, emrDanhSachHoSoBenhAn);    
+            
+            //Phương pháp điều trị ung bướu
+            addPhuongPhapDieuTriUngBuou(physicianAttendingSection, properties, emrDanhSachHoSoBenhAn);   
+            
+            //Tình trạng ra viện Mắt
+            addTinhTrangRaVienMat(physicianAttendingSection, properties, emrDanhSachHoSoBenhAn);
+        }
+        
+        setSectionData(physicianAttendingSection, physicianAttendingText.toString());       
     }
     
     
     public static void addProcedureCodeTag(HsbaProceduresProcedure procedure, String code, String codeSystem, String displayName){
-        try {
-            CD procedureCode = DatatypesFactory.eINSTANCE.createCD();       
-            if(!StringUtils.isEmpty(code)){
-                procedureCode.setCode(code);
-            }
-            if(!StringUtils.isEmpty(codeSystem)){
-                procedureCode.setCodeSystem(codeSystem);
-            }
-            if(!StringUtils.isEmpty(displayName)){
-                procedureCode.setDisplayName(displayName);
-            }                   
-            procedure.setCode(procedureCode);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }       
+        CD procedureCode = DatatypesFactory.eINSTANCE.createCD();       
+        if(!StringUtils.isEmpty(code)){
+            procedureCode.setCode(code);
+        }
+        if(!StringUtils.isEmpty(codeSystem)){
+            procedureCode.setCodeSystem(codeSystem);
+        }
+        if(!StringUtils.isEmpty(displayName)){
+            procedureCode.setDisplayName(displayName);
+        }                   
+        procedure.setCode(procedureCode);       
     }
     
     public static void addProcedureAssignedEntity(HsbaProceduresProcedure proc, AssignedEntity assignedEntity, String assignPersonName){
-        try {
-            II assignedEntityId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-            assignedEntity.getIds().add(assignedEntityId);
-            var performer = CDAFactory.eINSTANCE.createPerformer2();
-            proc.getPerformers().add(performer);                    
-            performer.setAssignedEntity(assignedEntity);
-            
-            
-            org.openhealthtools.mdht.uml.cda.Person requestPerson = CDAFactory.eINSTANCE.createPerson();
-            PN personName = DatatypesFactory.eINSTANCE.createPN();      
-            if(!StringUtils.isEmpty(assignPersonName)){
-                personName.addText(assignPersonName);
-            }
-            requestPerson.getNames().add(personName);
-            assignedEntity.setAssignedPerson(requestPerson);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }   
+        II assignedEntityId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+        assignedEntity.getIds().add(assignedEntityId);
+        var performer = CDAFactory.eINSTANCE.createPerformer2();
+        proc.getPerformers().add(performer);                    
+        performer.setAssignedEntity(assignedEntity);
+        
+        
+        org.openhealthtools.mdht.uml.cda.Person requestPerson = CDAFactory.eINSTANCE.createPerson();
+        PN personName = DatatypesFactory.eINSTANCE.createPN();      
+        if(!StringUtils.isEmpty(assignPersonName)){
+            personName.addText(assignPersonName);
+        }
+        requestPerson.getNames().add(personName);
+        assignedEntity.setAssignedPerson(requestPerson);  
     }
     
     public static void addProcedureObservationContent(Observation obs, String obsTitle, String obsText, EmrDmContent emrDmMaBenh, String codeSystem, Map<String, String> emrParameters){
-        try {
-            II obsId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-            obs.getIds().add(obsId);
-            ED preliminaryObsText = DatatypesFactory.eINSTANCE.createED();
-            String convertObsText = STR_NA_VALUE;
-            if(obsText != null){
-                convertObsText = obsText;
-            }
-            preliminaryObsText.addText(convertObsText);
-            obs.setText(preliminaryObsText);
-            
-            if(emrDmMaBenh != null){
-                addCdObservationValueTag(obs, emrDmMaBenh.maicd, codeSystem, emrDmMaBenh.ten);      
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        II obsId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+        obs.getIds().add(obsId);
+        ED preliminaryObsText = DatatypesFactory.eINSTANCE.createED();
+        String convertObsText = STR_NA_VALUE;
+        if(obsText != null){
+            convertObsText = obsText;
+        }
+        preliminaryObsText.addText(convertObsText);
+        obs.setText(preliminaryObsText);
+        
+        if(emrDmMaBenh != null){
+            addCdObservationValueTag(obs, emrDmMaBenh.maicd, codeSystem, emrDmMaBenh.ten);      
         }
     }
     
@@ -663,64 +647,56 @@ public class CDAExportUtil {
         }       
     }
     
-    public static void addProcedures(HsbaDocument doc, EmrHoSoBenhAn emrDanhSachHoSoBenhAn, Map<String, String> emrParameters,  Properties properties){
-        try {
-            var lstEmrPhauThuatThuThuat = emrDanhSachHoSoBenhAn.getEmrPhauThuatThuThuats();          
-            var proceduresSection = HSBAFactory.eINSTANCE.createHsbaProceduresSection().init();
-            doc.addSection(proceduresSection);      
-            II proceduresSectionId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-            proceduresSection.setId(proceduresSectionId);
-            String ptttTitle = properties.getProperty("TKBA_DS_PHAUTHUATTHUTHUAT_TITLE", "TKBA_DS_PHAUTHUATTHUTHUAT_TITLE");
-            String endLine = properties.getProperty("ENDLINE_DELIMITER", "ENDLINE_DELIMITER");;
-            addSectionTitle(proceduresSection, ptttTitle);
-                        
-            StringBuilder proceduresText = new StringBuilder();
+    public static void addProcedures(HsbaDocument doc, EmrHoSoBenhAn emrDanhSachHoSoBenhAn, Map<String, String> emrParameters,  Properties properties) throws IOException{
+        var lstEmrPhauThuatThuThuat = emrDanhSachHoSoBenhAn.getEmrPhauThuatThuThuats();          
+        var proceduresSection = HSBAFactory.eINSTANCE.createHsbaProceduresSection().init();
+        doc.addSection(proceduresSection);      
+        II proceduresSectionId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+        proceduresSection.setId(proceduresSectionId);
+        String ptttTitle = properties.getProperty("TKBA_DS_PHAUTHUATTHUTHUAT_TITLE", "TKBA_DS_PHAUTHUATTHUTHUAT_TITLE");
+        String endLine = properties.getProperty("ENDLINE_DELIMITER", "ENDLINE_DELIMITER");;
+        addSectionTitle(proceduresSection, ptttTitle);
+                    
+        StringBuilder proceduresText = new StringBuilder();
 
-            if(lstEmrPhauThuatThuThuat != null && lstEmrPhauThuatThuThuat.size() > 0){          
-                for (var ptttItem : lstEmrPhauThuatThuThuat) {
-                    var lstEmrQuanLyFileDinhKemPttts = ptttItem.emrFileDinhKemPttts;           
-                    addEmrPhauThuatThuThuat(proceduresSection, ptttItem, emrParameters, lstEmrQuanLyFileDinhKemPttts, properties, proceduresText);
-                    if(proceduresText.length() > 0){
-                        proceduresText.append(endLine);
-                    }
-                }   
-                
-                //Loại phẫu thuật/thủ thuật
-                var ptSupply = CDAFactory.eINSTANCE.createSupply();
-                ptSupply.setCode(DatatypesFactory.eINSTANCE.createCS(PT_TYPE));
-                ptSupply.setMoodCode(x_DocumentSubstanceMood.EVN);              
-                ptSupply.setText(DatatypesFactory.eINSTANCE.createED(String.valueOf(true)));
-                proceduresSection.addSupply(ptSupply);
-                
-                var ttSupply = CDAFactory.eINSTANCE.createSupply();
-                ttSupply.setCode(DatatypesFactory.eINSTANCE.createCS(TT_TYPE));             
-                ttSupply.setMoodCode(x_DocumentSubstanceMood.EVN);              
-                ttSupply.setText(DatatypesFactory.eINSTANCE.createED(String.valueOf(true)));
-                proceduresSection.addSupply(ttSupply);
-            }       
+        if(lstEmrPhauThuatThuThuat != null && lstEmrPhauThuatThuThuat.size() > 0){          
+            for (var ptttItem : lstEmrPhauThuatThuThuat) {
+                var lstEmrQuanLyFileDinhKemPttts = ptttItem.emrFileDinhKemPttts;           
+                addEmrPhauThuatThuThuat(proceduresSection, ptttItem, emrParameters, lstEmrQuanLyFileDinhKemPttts, properties, proceduresText);
+                if(proceduresText.length() > 0){
+                    proceduresText.append(endLine);
+                }
+            }   
+            
+            //Loại phẫu thuật/thủ thuật
+            var ptSupply = CDAFactory.eINSTANCE.createSupply();
+            ptSupply.setCode(DatatypesFactory.eINSTANCE.createCS(PT_TYPE));
+            ptSupply.setMoodCode(x_DocumentSubstanceMood.EVN);              
+            ptSupply.setText(DatatypesFactory.eINSTANCE.createED(String.valueOf(true)));
+            proceduresSection.addSupply(ptSupply);
+            
+            var ttSupply = CDAFactory.eINSTANCE.createSupply();
+            ttSupply.setCode(DatatypesFactory.eINSTANCE.createCS(TT_TYPE));             
+            ttSupply.setMoodCode(x_DocumentSubstanceMood.EVN);              
+            ttSupply.setText(DatatypesFactory.eINSTANCE.createED(String.valueOf(true)));
+            proceduresSection.addSupply(ttSupply);
+        }       
 
-            setSectionData(proceduresSection, proceduresText.toString());   
-        } catch (Exception e) {
-            e.printStackTrace();
-        }                       
+        setSectionData(proceduresSection, proceduresText.toString());                       
     }
     
     public static void addEncounterAssignedEntity(HsbaConsultationEncounter consultationEncounter, AssignedEntity assignedEntity, String assignPersonName){
-        try {
-            var performer = CDAFactory.eINSTANCE.createPerformer2();
-            consultationEncounter.getPerformers().add(performer);       
-            performer.setAssignedEntity(assignedEntity);
-            
-            org.openhealthtools.mdht.uml.cda.Person requestPerson = CDAFactory.eINSTANCE.createPerson();
-            PN personName = DatatypesFactory.eINSTANCE.createPN();      
-            if(!StringUtils.isEmpty(assignPersonName)){
-                personName.addText(assignPersonName);
-            }
-            requestPerson.getNames().add(personName);
-            assignedEntity.setAssignedPerson(requestPerson);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }       
+        var performer = CDAFactory.eINSTANCE.createPerformer2();
+        consultationEncounter.getPerformers().add(performer);       
+        performer.setAssignedEntity(assignedEntity);
+        
+        org.openhealthtools.mdht.uml.cda.Person requestPerson = CDAFactory.eINSTANCE.createPerson();
+        PN personName = DatatypesFactory.eINSTANCE.createPN();      
+        if(!StringUtils.isEmpty(assignPersonName)){
+            personName.addText(assignPersonName);
+        }
+        requestPerson.getNames().add(personName);
+        assignedEntity.setAssignedPerson(requestPerson);      
     }
     
     public static void addEncounterExternalDocument(HsbaConsultationEncounter consultationEncounter, String externalDocumentUrl) throws IOException{   
@@ -885,57 +861,49 @@ public class CDAExportUtil {
         }   
     }
     
-    public static void addHospitalConsultations(HsbaDocument doc, EmrHoSoBenhAn emrDanhSachHoSoBenhAn, Map<String, String> emrParameters,  Properties properties){              
-        try {
-            var hospitalConsultationsSection = HSBAFactory.eINSTANCE.createHsbaHospitalConsultationsSection().init();
-            doc.addSection(hospitalConsultationsSection);
-            II hospitalConsultationsSectionId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-            hospitalConsultationsSection.setId(hospitalConsultationsSectionId);
-            String hospitalConsultationsTitle = properties.getProperty("THONGTIN_HOICHAN_TITLE", "THONGTIN_HOICHAN_TITLE");
-            String contentDelimiter = properties.getProperty("SECTION_CONTENT_DELIMITER", "SECTION_CONTENT_DELIMITER");
-            String splitDelimiter = properties.getProperty("SPLIT_YHCT_CHANDOAN_SYMBOL", "SPLIT_YHCT_CHANDOAN_SYMBOL");
-            String endLineDelimiter = properties.getProperty("ENDLINE_DELIMITER", "ENDLINE_DELIMITER");
-            addSectionTitle(hospitalConsultationsSection, hospitalConsultationsTitle);
-            StringBuilder hospitalConsultationsText = new StringBuilder();      
+    public static void addHospitalConsultations(HsbaDocument doc, EmrHoSoBenhAn emrDanhSachHoSoBenhAn, Map<String, String> emrParameters,  Properties properties) throws IOException{              
+        var hospitalConsultationsSection = HSBAFactory.eINSTANCE.createHsbaHospitalConsultationsSection().init();
+        doc.addSection(hospitalConsultationsSection);
+        II hospitalConsultationsSectionId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+        hospitalConsultationsSection.setId(hospitalConsultationsSectionId);
+        String hospitalConsultationsTitle = properties.getProperty("THONGTIN_HOICHAN_TITLE", "THONGTIN_HOICHAN_TITLE");
+        String contentDelimiter = properties.getProperty("SECTION_CONTENT_DELIMITER", "SECTION_CONTENT_DELIMITER");
+        String splitDelimiter = properties.getProperty("SPLIT_YHCT_CHANDOAN_SYMBOL", "SPLIT_YHCT_CHANDOAN_SYMBOL");
+        String endLineDelimiter = properties.getProperty("ENDLINE_DELIMITER", "ENDLINE_DELIMITER");
+        addSectionTitle(hospitalConsultationsSection, hospitalConsultationsTitle);
+        StringBuilder hospitalConsultationsText = new StringBuilder();      
 
-            var lstEmrVaoKhoas = emrDanhSachHoSoBenhAn.emrVaoKhoas;
-            if(lstEmrVaoKhoas != null){
-                for (var vaoKhoaItem : lstEmrVaoKhoas) {
-                    var lstHoiChans = vaoKhoaItem.emrHoiChans;
-                    if(lstHoiChans != null){
-                        for (var item : lstHoiChans) {    
-                            addEmrHoiChan(hospitalConsultationsSection, item, hospitalConsultationsText, contentDelimiter, splitDelimiter, endLineDelimiter, item.emrFileDinhKemHoiChans, properties);
-                        }
+        var lstEmrVaoKhoas = emrDanhSachHoSoBenhAn.emrVaoKhoas;
+        if(lstEmrVaoKhoas != null){
+            for (var vaoKhoaItem : lstEmrVaoKhoas) {
+                var lstHoiChans = vaoKhoaItem.emrHoiChans;
+                if(lstHoiChans != null){
+                    for (var item : lstHoiChans) {    
+                        addEmrHoiChan(hospitalConsultationsSection, item, hospitalConsultationsText, contentDelimiter, splitDelimiter, endLineDelimiter, item.emrFileDinhKemHoiChans, properties);
                     }
                 }
-            }       
-            if(hospitalConsultationsText.length() > 0){
-                hospitalConsultationsText.setLength(hospitalConsultationsText.length() - 1);
             }
-            setSectionData(hospitalConsultationsSection, hospitalConsultationsText.toString());     
-        } catch (Exception e) {
-            e.printStackTrace();
+        }       
+        if(hospitalConsultationsText.length() > 0){
+            hospitalConsultationsText.setLength(hospitalConsultationsText.length() - 1);
         }
+        setSectionData(hospitalConsultationsSection, hospitalConsultationsText.toString());  
     }
     
     public static void addOrganizerAssignedEntity(Organizer organizer, AssignedEntity assignedEntity, String assignPersonName){
-        try {
-            var performer = CDAFactory.eINSTANCE.createPerformer2();
-            organizer.getPerformers().add(performer);       
-            performer.setAssignedEntity(assignedEntity);
-            II assignedEntityId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-            assignedEntity.getIds().add(assignedEntityId);
-            
-            org.openhealthtools.mdht.uml.cda.Person requestPerson = CDAFactory.eINSTANCE.createPerson();
-            PN personName = DatatypesFactory.eINSTANCE.createPN();      
-            if(!StringUtils.isEmpty(assignPersonName)){
-                personName.addText(assignPersonName);
-            }
-            requestPerson.getNames().add(personName);
-            assignedEntity.setAssignedPerson(requestPerson);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }       
+        var performer = CDAFactory.eINSTANCE.createPerformer2();
+        organizer.getPerformers().add(performer);       
+        performer.setAssignedEntity(assignedEntity);
+        II assignedEntityId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+        assignedEntity.getIds().add(assignedEntityId);
+        
+        org.openhealthtools.mdht.uml.cda.Person requestPerson = CDAFactory.eINSTANCE.createPerson();
+        PN personName = DatatypesFactory.eINSTANCE.createPN();      
+        if(!StringUtils.isEmpty(assignPersonName)){
+            personName.addText(assignPersonName);
+        }
+        requestPerson.getNames().add(personName);
+        assignedEntity.setAssignedPerson(requestPerson);       
     }
     
     public static void addEmrQuaTrinhDieuTri(Act act, EmrQuaTrinhDieuTri qtDieuTriItem, StringBuilder generalMedicineProgressText,  Properties properties){
@@ -1075,109 +1043,101 @@ public class CDAExportUtil {
         }
     }
     
-    public static void addGeneralMedicineProgress(HsbaDocument doc, EmrHoSoBenhAn emrDanhSachHoSoBenhAn, Map<String, String> emrParameters,  Properties properties){
-        try {
-            var generalMedicineSection = HSBAFactory.eINSTANCE.createHsbaGeneralMedicineProgressSection().init();
-            doc.addSection(generalMedicineSection);
-            II generalMedicineSectionId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-            generalMedicineSection.setId(generalMedicineSectionId);
-            String generalMedicineTitle = properties.getProperty("THONGTIN_DIEUTRI_TITLE", "THONGTIN_DIEUTRI_TITLE");
-            addSectionTitle(generalMedicineSection, generalMedicineTitle);
-            
-            StringBuilder generalMedicineProgressText = new StringBuilder();
-                    
-            var lstEmrVaoKhoas = emrDanhSachHoSoBenhAn.getEmrVaoKhoas();
-            if(lstEmrVaoKhoas != null){
-                for (var vaoKhoaItem : lstEmrVaoKhoas) {
-                    var lstDieuTris = vaoKhoaItem.emrDieuTris;
-                    if(lstDieuTris != null){
-                        for (var item : lstDieuTris) {    
-                            addEmrDieuTri(generalMedicineSection, vaoKhoaItem, item, generalMedicineProgressText, item.emrFileDinhKemDieuTris, properties);
-                        }
+    public static void addGeneralMedicineProgress(HsbaDocument doc, EmrHoSoBenhAn emrDanhSachHoSoBenhAn, Map<String, String> emrParameters,  Properties properties) throws IOException{
+        var generalMedicineSection = HSBAFactory.eINSTANCE.createHsbaGeneralMedicineProgressSection().init();
+        doc.addSection(generalMedicineSection);
+        II generalMedicineSectionId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+        generalMedicineSection.setId(generalMedicineSectionId);
+        String generalMedicineTitle = properties.getProperty("THONGTIN_DIEUTRI_TITLE", "THONGTIN_DIEUTRI_TITLE");
+        addSectionTitle(generalMedicineSection, generalMedicineTitle);
+        
+        StringBuilder generalMedicineProgressText = new StringBuilder();
+                
+        var lstEmrVaoKhoas = emrDanhSachHoSoBenhAn.getEmrVaoKhoas();
+        if(lstEmrVaoKhoas != null){
+            for (var vaoKhoaItem : lstEmrVaoKhoas) {
+                var lstDieuTris = vaoKhoaItem.emrDieuTris;
+                if(lstDieuTris != null){
+                    for (var item : lstDieuTris) {    
+                        addEmrDieuTri(generalMedicineSection, vaoKhoaItem, item, generalMedicineProgressText, item.emrFileDinhKemDieuTris, properties);
                     }
                 }
-            }               
-                
-            setSectionData(generalMedicineSection, generalMedicineProgressText.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }   
+            }
+        }               
+            
+        setSectionData(generalMedicineSection, generalMedicineProgressText.toString());  
     }
     
     public static void addEmrQuaTrinhChamSoc(Act act, EmrQuaTrinhChamSoc qtChamSocItem, StringBuilder nurseProgressNoteText,  Properties properties){
-        try {
-            if(qtChamSocItem != null){
-                var nurseProgressNoteER = CDAFactory.eINSTANCE.createEntryRelationship();
-                nurseProgressNoteER.setTypeCode(x_ActRelationshipEntryRelationship.COMP);
-                act.getEntryRelationships().add(nurseProgressNoteER);
+        if(qtChamSocItem != null){
+            var nurseProgressNoteER = CDAFactory.eINSTANCE.createEntryRelationship();
+            nurseProgressNoteER.setTypeCode(x_ActRelationshipEntryRelationship.COMP);
+            act.getEntryRelationships().add(nurseProgressNoteER);
+        
+            var nurseProgressNoteOrganizer = HSBAFactory.eINSTANCE.createHsbaNurseProgressNoteOrganizer().init();
+            nurseProgressNoteER.setOrganizer(nurseProgressNoteOrganizer);
+            II nurseProgressNoteOrganizerId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+            nurseProgressNoteOrganizer.getIds().add(nurseProgressNoteOrganizerId);
             
-                var nurseProgressNoteOrganizer = HSBAFactory.eINSTANCE.createHsbaNurseProgressNoteOrganizer().init();
-                nurseProgressNoteER.setOrganizer(nurseProgressNoteOrganizer);
-                II nurseProgressNoteOrganizerId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-                nurseProgressNoteOrganizer.getIds().add(nurseProgressNoteOrganizerId);
-                
-                String ngayGioChamSocTitle = properties.getProperty("CS_NGAYGIOCHAMSOC_TITLE", "CS_NGAYGIOCHAMSOC_TITLE");
-                String dienBienTitle = properties.getProperty("CS_DIENBIENNGUOIBENH_TITLE", "CS_DIENBIENNGUOIBENH_TITLE");
-                String thucHienYlenhTitle = properties.getProperty("CS_THUCHIENYLENH_TITLE", "CS_THUCHIENYLENH_TITLE");
-                String yTaChamSocTitle = properties.getProperty("CS_YTACHAMSOC_TITLE", "CS_YTACHAMSOC_TITLE");
-                String contentDelimiter = properties.getProperty("SECTION_CONTENT_DELIMITER", "SECTION_CONTENT_DELIMITER");
-                String endLineDelimiter = properties.getProperty("ENDLINE_DELIMITER", "ENDLINE_DELIMITER") ;
-                String splitDelimiter = properties.getProperty("SPLIT_YHCT_CHANDOAN_SYMBOL", "SPLIT_YHCT_CHANDOAN_SYMBOL");
-                
-                //Ngày giờ chăm sóc
-                IVL_TS nurseProgressNoteEffectiveTime = DatatypesFactory.eINSTANCE.createIVL_TS();
-                nurseProgressNoteOrganizer.setEffectiveTime(nurseProgressNoteEffectiveTime);
-                        
-                Date ngayChamSoc = qtChamSocItem.ngaychamsoc;
-                if(ngayChamSoc != null){
-                    String thoiDiemChamSoc = CDAExportUtil.getGMTDate(ngayChamSoc);
-                    if(thoiDiemChamSoc != null){
-                        nurseProgressNoteText.append(ngayGioChamSocTitle).append(contentDelimiter).append(thoiDiemChamSoc).append(splitDelimiter);
-                        nurseProgressNoteEffectiveTime.setValue(thoiDiemChamSoc);
-                    }
-                }   
-                //Diễn biến người bệnh      
-                var reviewOfSystemComponent = CDAFactory.eINSTANCE.createComponent4();
-                reviewOfSystemComponent.setTypeCode(ActRelationshipHasComponent.COMP);
-                nurseProgressNoteOrganizer.getComponents().add(reviewOfSystemComponent);
-                
-                var reviewOfSystemObs = HSBAFactory.eINSTANCE.createHsbaReviewOfSystemObservation().init();
-                reviewOfSystemComponent.setObservation(reviewOfSystemObs);
-                String dienBien = qtChamSocItem.theodoidienbien;
-                if(!StringUtils.isEmpty(dienBien)){
-                    nurseProgressNoteText.append(dienBienTitle).append(contentDelimiter).append(dienBien).append(splitDelimiter);
-                    ED dienBienText = DatatypesFactory.eINSTANCE.createED(dienBien);
-                    reviewOfSystemObs.setText(dienBienText);
+            String ngayGioChamSocTitle = properties.getProperty("CS_NGAYGIOCHAMSOC_TITLE", "CS_NGAYGIOCHAMSOC_TITLE");
+            String dienBienTitle = properties.getProperty("CS_DIENBIENNGUOIBENH_TITLE", "CS_DIENBIENNGUOIBENH_TITLE");
+            String thucHienYlenhTitle = properties.getProperty("CS_THUCHIENYLENH_TITLE", "CS_THUCHIENYLENH_TITLE");
+            String yTaChamSocTitle = properties.getProperty("CS_YTACHAMSOC_TITLE", "CS_YTACHAMSOC_TITLE");
+            String contentDelimiter = properties.getProperty("SECTION_CONTENT_DELIMITER", "SECTION_CONTENT_DELIMITER");
+            String endLineDelimiter = properties.getProperty("ENDLINE_DELIMITER", "ENDLINE_DELIMITER") ;
+            String splitDelimiter = properties.getProperty("SPLIT_YHCT_CHANDOAN_SYMBOL", "SPLIT_YHCT_CHANDOAN_SYMBOL");
+            
+            //Ngày giờ chăm sóc
+            IVL_TS nurseProgressNoteEffectiveTime = DatatypesFactory.eINSTANCE.createIVL_TS();
+            nurseProgressNoteOrganizer.setEffectiveTime(nurseProgressNoteEffectiveTime);
+                    
+            Date ngayChamSoc = qtChamSocItem.ngaychamsoc;
+            if(ngayChamSoc != null){
+                String thoiDiemChamSoc = CDAExportUtil.getGMTDate(ngayChamSoc);
+                if(thoiDiemChamSoc != null){
+                    nurseProgressNoteText.append(ngayGioChamSocTitle).append(contentDelimiter).append(thoiDiemChamSoc).append(splitDelimiter);
+                    nurseProgressNoteEffectiveTime.setValue(thoiDiemChamSoc);
                 }
-                //Thực hiện y lệnh      
-                var treatmentInformationComponent = CDAFactory.eINSTANCE.createComponent4();
-                treatmentInformationComponent.setTypeCode(ActRelationshipHasComponent.COMP);
-                nurseProgressNoteOrganizer.getComponents().add(treatmentInformationComponent);
-                
-                var treatmentInformationAct = HSBAFactory.eINSTANCE.createHsbaTreatmentInformationAct().init();
-                II treatmentInformationActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-                treatmentInformationAct.getIds().add(treatmentInformationActId);
-                treatmentInformationComponent.setAct(treatmentInformationAct);
-                String yLenh = qtChamSocItem.thuchienylenh;
-                if(!StringUtils.isEmpty(yLenh)){
-                    nurseProgressNoteText.append(thucHienYlenhTitle).append(contentDelimiter).append(yLenh).append(splitDelimiter);
-                    ED yLenhText = DatatypesFactory.eINSTANCE.createED(yLenh);
-                    treatmentInformationAct.setText(yLenhText);
-                }
-                //Y tá chăm sóc
-                var nursingOccupationAssignedEntity = HSBAFactory.eINSTANCE.createHsbaNursingOccupationAssignedEntity().init();
-                String yTaChamSoc = qtChamSocItem.ytachamsoc;
-                if(!StringUtils.isEmpty(yTaChamSoc)){
-                    nurseProgressNoteText.append(yTaChamSocTitle).append(contentDelimiter).append(yTaChamSoc).append(splitDelimiter);
-                    addOrganizerAssignedEntity(nurseProgressNoteOrganizer, nursingOccupationAssignedEntity, yTaChamSoc);
-                }
-                if(nurseProgressNoteText.length() > 0){
-                    nurseProgressNoteText.setLength(nurseProgressNoteText.length() - 1);
-                    nurseProgressNoteText.append(endLineDelimiter);
-                }
+            }   
+            //Diễn biến người bệnh      
+            var reviewOfSystemComponent = CDAFactory.eINSTANCE.createComponent4();
+            reviewOfSystemComponent.setTypeCode(ActRelationshipHasComponent.COMP);
+            nurseProgressNoteOrganizer.getComponents().add(reviewOfSystemComponent);
+            
+            var reviewOfSystemObs = HSBAFactory.eINSTANCE.createHsbaReviewOfSystemObservation().init();
+            reviewOfSystemComponent.setObservation(reviewOfSystemObs);
+            String dienBien = qtChamSocItem.theodoidienbien;
+            if(!StringUtils.isEmpty(dienBien)){
+                nurseProgressNoteText.append(dienBienTitle).append(contentDelimiter).append(dienBien).append(splitDelimiter);
+                ED dienBienText = DatatypesFactory.eINSTANCE.createED(dienBien);
+                reviewOfSystemObs.setText(dienBienText);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            //Thực hiện y lệnh      
+            var treatmentInformationComponent = CDAFactory.eINSTANCE.createComponent4();
+            treatmentInformationComponent.setTypeCode(ActRelationshipHasComponent.COMP);
+            nurseProgressNoteOrganizer.getComponents().add(treatmentInformationComponent);
+            
+            var treatmentInformationAct = HSBAFactory.eINSTANCE.createHsbaTreatmentInformationAct().init();
+            II treatmentInformationActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+            treatmentInformationAct.getIds().add(treatmentInformationActId);
+            treatmentInformationComponent.setAct(treatmentInformationAct);
+            String yLenh = qtChamSocItem.thuchienylenh;
+            if(!StringUtils.isEmpty(yLenh)){
+                nurseProgressNoteText.append(thucHienYlenhTitle).append(contentDelimiter).append(yLenh).append(splitDelimiter);
+                ED yLenhText = DatatypesFactory.eINSTANCE.createED(yLenh);
+                treatmentInformationAct.setText(yLenhText);
+            }
+            //Y tá chăm sóc
+            var nursingOccupationAssignedEntity = HSBAFactory.eINSTANCE.createHsbaNursingOccupationAssignedEntity().init();
+            String yTaChamSoc = qtChamSocItem.ytachamsoc;
+            if(!StringUtils.isEmpty(yTaChamSoc)){
+                nurseProgressNoteText.append(yTaChamSocTitle).append(contentDelimiter).append(yTaChamSoc).append(splitDelimiter);
+                addOrganizerAssignedEntity(nurseProgressNoteOrganizer, nursingOccupationAssignedEntity, yTaChamSoc);
+            }
+            if(nurseProgressNoteText.length() > 0){
+                nurseProgressNoteText.setLength(nurseProgressNoteText.length() - 1);
+                nurseProgressNoteText.append(endLineDelimiter);
+            }
         }   
     }
     
@@ -1243,150 +1203,133 @@ public class CDAExportUtil {
     }
     
     
-    public static void addHsbaNurseProgressNote(HsbaDocument doc, EmrHoSoBenhAn emrDanhSachHoSoBenhAn, Map<String, String> emrParameters,  Properties properties){      
-        try {
-            var nurseProgressNoteSection = HSBAFactory.eINSTANCE.createHsbaNurseProgressNoteSection().init();
-            doc.addSection(nurseProgressNoteSection);
-            II nurseProgressNoteSectionId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-            nurseProgressNoteSection.setId(nurseProgressNoteSectionId);
-            String nurseProgressNoteTitle = properties.getProperty("THONGTIN_CHAMSOC_TITLE", "THONGTIN_CHAMSOC_TITLE");
-            addSectionTitle(nurseProgressNoteSection, nurseProgressNoteTitle);
-            StringBuilder nurseProgressNoteText = new StringBuilder();
+    public static void addHsbaNurseProgressNote(HsbaDocument doc, EmrHoSoBenhAn emrDanhSachHoSoBenhAn, Map<String, String> emrParameters,  Properties properties) throws IOException{      
+        var nurseProgressNoteSection = HSBAFactory.eINSTANCE.createHsbaNurseProgressNoteSection().init();
+        doc.addSection(nurseProgressNoteSection);
+        II nurseProgressNoteSectionId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+        nurseProgressNoteSection.setId(nurseProgressNoteSectionId);
+        String nurseProgressNoteTitle = properties.getProperty("THONGTIN_CHAMSOC_TITLE", "THONGTIN_CHAMSOC_TITLE");
+        addSectionTitle(nurseProgressNoteSection, nurseProgressNoteTitle);
+        StringBuilder nurseProgressNoteText = new StringBuilder();
 
-            List<EmrVaoKhoa> lstEmrVaoKhoas = emrDanhSachHoSoBenhAn.emrVaoKhoas;
-            if(lstEmrVaoKhoas != null){
-                for (EmrVaoKhoa vaoKhoaItem : lstEmrVaoKhoas) { 
-                    var lstEmrChamSocs = vaoKhoaItem.emrChamSocs;
-                    if(lstEmrChamSocs != null){
-                        for (var item : lstEmrChamSocs) { 
-                            addEmrChamSoc(nurseProgressNoteSection, vaoKhoaItem, item, nurseProgressNoteText, item.emrFileDinhKemChamSocs, properties);
-                        }
+        List<EmrVaoKhoa> lstEmrVaoKhoas = emrDanhSachHoSoBenhAn.emrVaoKhoas;
+        if(lstEmrVaoKhoas != null){
+            for (EmrVaoKhoa vaoKhoaItem : lstEmrVaoKhoas) { 
+                var lstEmrChamSocs = vaoKhoaItem.emrChamSocs;
+                if(lstEmrChamSocs != null){
+                    for (var item : lstEmrChamSocs) { 
+                        addEmrChamSoc(nurseProgressNoteSection, vaoKhoaItem, item, nurseProgressNoteText, item.emrFileDinhKemChamSocs, properties);
                     }
                 }
-            }                           
-            setSectionData(nurseProgressNoteSection, nurseProgressNoteText.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }   
+            }
+        }                           
+        setSectionData(nurseProgressNoteSection, nurseProgressNoteText.toString());  
     }
     
-    public static void addOrganizerVitalSignObservation(Organizer organizer, Observation obs, Double value, String unit){
-        try {
-            var component = CDAFactory.eINSTANCE.createComponent4();
-            component.setTypeCode(ActRelationshipHasComponent.COMP);
-            organizer.getComponents().add(component);
-            
-            component.setObservation(obs);
-            II obsId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-            obs.getIds().add(obsId);
-            
-            if(value != null && unit != null){
-                var valueTag = DatatypesFactory.eINSTANCE.createPQ(value, unit);
-                obs.getValues().add(valueTag);
-            }   
-        } catch (Exception e) {
-            e.printStackTrace();
-        }           
+    public static void addOrganizerVitalSignObservation(Organizer organizer, Observation obs, double value, String unit){
+        var component = CDAFactory.eINSTANCE.createComponent4();
+        component.setTypeCode(ActRelationshipHasComponent.COMP);
+        organizer.getComponents().add(component);
+        
+        component.setObservation(obs);
+        II obsId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+        obs.getIds().add(obsId);
+        
+        var valueTag = DatatypesFactory.eINSTANCE.createPQ(value, unit);
+        obs.getValues().add(valueTag);            
     }
     
     public static void addEmrChucNangSongChiTiet(Act act, EmrChucNangSongChiTiet chucNangSongCtItem, Properties properties, StringBuilder vitalSignsFunctionalText){
-        try {
-            if(chucNangSongCtItem != null){
-                var vitalSignsFunctionalER = CDAFactory.eINSTANCE.createEntryRelationship();
-                vitalSignsFunctionalER.setTypeCode(x_ActRelationshipEntryRelationship.COMP);
-                act.getEntryRelationships().add(vitalSignsFunctionalER);
+        if(chucNangSongCtItem != null){
+            var vitalSignsFunctionalER = CDAFactory.eINSTANCE.createEntryRelationship();
+            vitalSignsFunctionalER.setTypeCode(x_ActRelationshipEntryRelationship.COMP);
+            act.getEntryRelationships().add(vitalSignsFunctionalER);
+        
+            var vitalSignsOrganizer = HSBAFactory.eINSTANCE.createHsbaVitalSignsOrganizer().init();
+            vitalSignsFunctionalER.setOrganizer(vitalSignsOrganizer);
+            II vitalSignsOrganizerId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+            vitalSignsOrganizer.getIds().add(vitalSignsOrganizerId);                
             
-                var vitalSignsOrganizer = HSBAFactory.eINSTANCE.createHsbaVitalSignsOrganizer().init();
-                vitalSignsFunctionalER.setOrganizer(vitalSignsOrganizer);
-                II vitalSignsOrganizerId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-                vitalSignsOrganizer.getIds().add(vitalSignsOrganizerId);                
-                
-                //Ngày giờ theo dõi
-                IVL_TS vitalSignsFunctionalEffectiveTime = DatatypesFactory.eINSTANCE.createIVL_TS();
-                vitalSignsOrganizer.setEffectiveTime(vitalSignsFunctionalEffectiveTime);
-                        
-                Date ngayTheoDoi = chucNangSongCtItem.ngaytheodoi;
-                if(ngayTheoDoi != null){
-                    String thoiDiemTheoDoi = CDAExportUtil.getGMTDate(ngayTheoDoi);
-                    if(thoiDiemTheoDoi != null){
-                        vitalSignsFunctionalEffectiveTime.setValue(thoiDiemTheoDoi);
-                    }
-                }   
-                
-                //Chi tiết thông tin sinh hiệu
-                String contentDelimiter = properties.getProperty("SECTION_CONTENT_DELIMITER", "SECTION_CONTENT_DELIMITER");
-                String splitDelimiter = properties.getProperty("SPLIT_YHCT_CHANDOAN_SYMBOL", "SPLIT_YHCT_CHANDOAN_SYMBOL");
-                //--- Mạch      
-                var hearRateObs = HSBAFactory.eINSTANCE.createHsbaHeartRateObservation().init();
-                Double mach = chucNangSongCtItem.mach;
-                String machUnit = properties.getProperty("BA_DHST_MACH_UNIT", "BA_DHST_MACH_UNIT");
-                if(mach != null){           
-                    addOrganizerVitalSignObservation(vitalSignsOrganizer, hearRateObs, mach, machUnit);
-                    vitalSignsFunctionalText.append(properties.getProperty("BA_DHST_MACH_TITLE", "BA_DHST_MACH_TITLE")).append(contentDelimiter)
-                                            .append(mach).append(properties.getProperty("BA_DHST_MACH_UNIT", "BA_DHST_MACH_UNIT")).append(splitDelimiter);
+            //Ngày giờ theo dõi
+            IVL_TS vitalSignsFunctionalEffectiveTime = DatatypesFactory.eINSTANCE.createIVL_TS();
+            vitalSignsOrganizer.setEffectiveTime(vitalSignsFunctionalEffectiveTime);
+                    
+            Date ngayTheoDoi = chucNangSongCtItem.ngaytheodoi;
+            if(ngayTheoDoi != null){
+                String thoiDiemTheoDoi = CDAExportUtil.getGMTDate(ngayTheoDoi);
+                if(thoiDiemTheoDoi != null){
+                    vitalSignsFunctionalEffectiveTime.setValue(thoiDiemTheoDoi);
                 }
-                //--- Nhiệt độ
-                var bodyTemperatureObs = HSBAFactory.eINSTANCE.createHsbaBodyTemperatureObservation().init();
-                Double nhietDo = chucNangSongCtItem.nhietdo;
-                String nhietDoUnit = properties.getProperty("BA_DHST_NHIETDO_UNIT", "BA_DHST_NHIETDO_UNIT");
-                if(nhietDo != null){            
-                    addOrganizerVitalSignObservation(vitalSignsOrganizer, bodyTemperatureObs, nhietDo, nhietDoUnit);
-                    vitalSignsFunctionalText.append(properties.getProperty("BA_DHST_NHIETDO_TITLE", "BA_DHST_NHIETDO_TITLE")).append(contentDelimiter)
-                                            .append(nhietDo).append(properties.getProperty("BA_DHST_NHIETDO_UNIT", "BA_DHST_NHIETDO_UNIT")).append(splitDelimiter);
-                }
-                //--- Huyết áp tâm thu
-                var bpSystolicObs = HSBAFactory.eINSTANCE.createHsbaBPSystolicObservation().init();
-                Integer haTamThu = chucNangSongCtItem.huyetapcao;
-                String haTamThuUnit = properties.getProperty("BA_DHST_HUYETAP_UNIT", "BA_DHST_HUYETAP_UNIT");
-                if(haTamThu != null){
-                    Double haTamThuValue = (double)haTamThu;
-                    addOrganizerVitalSignObservation(vitalSignsOrganizer, bpSystolicObs, haTamThuValue, haTamThuUnit);
-                    vitalSignsFunctionalText.append(properties.getProperty("BA_DHST_HUYETAPTAMTHU_TITLE", "BA_DHST_HUYETAPTAMTHU_TITLE")).append(contentDelimiter)
-                                            .append(haTamThuValue).append(properties.getProperty("BA_DHST_HUYETAP_UNIT", "BA_DHST_HUYETAP_UNIT")).append(splitDelimiter);
-                }
-                //--- Huyết áp tâm trương 
-                var bpDiastolicObs = HSBAFactory.eINSTANCE.createHsbaBPDiastolicObservation().init();
-                Integer haTamTruong = chucNangSongCtItem.huyetapthap;
-                String haTamTruongUnit = properties.getProperty("BA_DHST_HUYETAP_UNIT", "BA_DHST_HUYETAP_UNIT");
-                if(haTamThu != null){
-                    Double haTamTruongValue = (double)haTamTruong;
-                    addOrganizerVitalSignObservation(vitalSignsOrganizer, bpDiastolicObs, haTamTruongValue, haTamTruongUnit);
-                    vitalSignsFunctionalText.append(properties.getProperty("BA_DHST_HUYETAPTAMTRUONG_TITLE", "BA_DHST_HUYETAPTAMTRUONG_TITLE")).append(contentDelimiter)
-                                            .append(haTamTruongValue).append(properties.getProperty("BA_DHST_HUYETAP_UNIT", "BA_DHST_HUYETAP_UNIT")).append(splitDelimiter);
-                }
-                
-                //--- Nhịp thở
-                var respiratoryRateObs = HSBAFactory.eINSTANCE.createHsbaRespiratoryRateObservation().init();
-                Integer nhipTho = chucNangSongCtItem.nhiptho;
-                String nhipThoUnit = properties.getProperty("BA_DHST_NHIPTHO_UNIT", "BA_DHST_NHIPTHO_UNIT");
-                if(nhipTho != null){
-                    Double nhipThoValue = (double)nhipTho;
-                    addOrganizerVitalSignObservation(vitalSignsOrganizer, respiratoryRateObs, nhipThoValue, nhipThoUnit);
-                    vitalSignsFunctionalText.append(properties.getProperty("BA_DHST_NHIPTHO_TITLE", "BA_DHST_NHIPTHO_TITLE")).append(contentDelimiter)
-                                            .append(nhipThoValue).append(properties.getProperty("BA_DHST_NHIPTHO_UNIT", "BA_DHST_NHIPTHO_UNIT")).append(splitDelimiter);
-                }
-                
-                //--- Cân nặng
-                var weightMeasuredObs = HSBAFactory.eINSTANCE.createHsbaWeightMeasuredObservation().init();
-                Integer canNang = (int)(double) chucNangSongCtItem.cannang;
-                String canNangUnit = properties.getProperty("BA_DHST_CANNANG_UNIT", "BA_DHST_CANNANG_UNIT");
-                if(canNang != null){
-                    Double canNangValue = (double)canNang;
-                    addOrganizerVitalSignObservation(vitalSignsOrganizer, weightMeasuredObs, canNangValue, canNangUnit);
-                    vitalSignsFunctionalText.append(properties.getProperty("BA_DHST_CANNANG_TITLE", "BA_DHST_CANNANG_TITLE")).append(contentDelimiter)
-                                            .append(canNangValue).append(properties.getProperty("BA_DHST_CANNANG_UNIT", "BA_DHST_CANNANG_UNIT")).append(splitDelimiter);
-                }       
-                vitalSignsFunctionalText.setLength(vitalSignsFunctionalText.length() - 1);  
-                
-                //Y tá theo dõi
-                var nursingOccupationAssignedEntity = HSBAFactory.eINSTANCE.createHsbaNursingOccupationAssignedEntity().init();
-                String yTaTheoDoi = chucNangSongCtItem.ytatheodoi;
-                if(!StringUtils.isEmpty(yTaTheoDoi)){
-                    addOrganizerAssignedEntity(vitalSignsOrganizer, nursingOccupationAssignedEntity, yTaTheoDoi);
-                }   
+            }   
+            
+            //Chi tiết thông tin sinh hiệu
+            String contentDelimiter = properties.getProperty("SECTION_CONTENT_DELIMITER", "SECTION_CONTENT_DELIMITER");
+            String splitDelimiter = properties.getProperty("SPLIT_YHCT_CHANDOAN_SYMBOL", "SPLIT_YHCT_CHANDOAN_SYMBOL");
+            //--- Mạch      
+            var hearRateObs = HSBAFactory.eINSTANCE.createHsbaHeartRateObservation().init();
+            Double mach = chucNangSongCtItem.mach;
+            String machUnit = properties.getProperty("BA_DHST_MACH_UNIT", "BA_DHST_MACH_UNIT");
+            if(mach != null){           
+                addOrganizerVitalSignObservation(vitalSignsOrganizer, hearRateObs, mach, machUnit);
+                vitalSignsFunctionalText.append(properties.getProperty("BA_DHST_MACH_TITLE", "BA_DHST_MACH_TITLE")).append(contentDelimiter)
+                                        .append(mach).append(properties.getProperty("BA_DHST_MACH_UNIT", "BA_DHST_MACH_UNIT")).append(splitDelimiter);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            //--- Nhiệt độ
+            var bodyTemperatureObs = HSBAFactory.eINSTANCE.createHsbaBodyTemperatureObservation().init();
+            Double nhietDo = chucNangSongCtItem.nhietdo;
+            String nhietDoUnit = properties.getProperty("BA_DHST_NHIETDO_UNIT", "BA_DHST_NHIETDO_UNIT");
+            if(nhietDo != null){            
+                addOrganizerVitalSignObservation(vitalSignsOrganizer, bodyTemperatureObs, nhietDo, nhietDoUnit);
+                vitalSignsFunctionalText.append(properties.getProperty("BA_DHST_NHIETDO_TITLE", "BA_DHST_NHIETDO_TITLE")).append(contentDelimiter)
+                                        .append(nhietDo).append(properties.getProperty("BA_DHST_NHIETDO_UNIT", "BA_DHST_NHIETDO_UNIT")).append(splitDelimiter);
+            }
+            //--- Huyết áp tâm thu
+            var bpSystolicObs = HSBAFactory.eINSTANCE.createHsbaBPSystolicObservation().init();
+            String haTamThuUnit = properties.getProperty("BA_DHST_HUYETAP_UNIT", "BA_DHST_HUYETAP_UNIT");
+            
+            if(chucNangSongCtItem.huyetapcao != null){
+                addOrganizerVitalSignObservation(vitalSignsOrganizer, bpSystolicObs, chucNangSongCtItem.huyetapcao, haTamThuUnit);
+                vitalSignsFunctionalText.append(properties.getProperty("BA_DHST_HUYETAPTAMTHU_TITLE", "BA_DHST_HUYETAPTAMTHU_TITLE")).append(contentDelimiter)
+                                        .append(chucNangSongCtItem.huyetapcao).append(properties.getProperty("BA_DHST_HUYETAP_UNIT", "BA_DHST_HUYETAP_UNIT")).append(splitDelimiter);
+            }
+            //--- Huyết áp tâm trương 
+            var bpDiastolicObs = HSBAFactory.eINSTANCE.createHsbaBPDiastolicObservation().init();
+            String haTamTruongUnit = properties.getProperty("BA_DHST_HUYETAP_UNIT", "BA_DHST_HUYETAP_UNIT");
+            
+            if(chucNangSongCtItem.huyetapthap != null){
+                addOrganizerVitalSignObservation(vitalSignsOrganizer, bpDiastolicObs, chucNangSongCtItem.huyetapthap, haTamTruongUnit);
+                vitalSignsFunctionalText.append(properties.getProperty("BA_DHST_HUYETAPTAMTRUONG_TITLE", "BA_DHST_HUYETAPTAMTRUONG_TITLE")).append(contentDelimiter)
+                                        .append(chucNangSongCtItem.huyetapthap).append(properties.getProperty("BA_DHST_HUYETAP_UNIT", "BA_DHST_HUYETAP_UNIT")).append(splitDelimiter);
+            }
+            
+            //--- Nhịp thở
+            var respiratoryRateObs = HSBAFactory.eINSTANCE.createHsbaRespiratoryRateObservation().init();
+            String nhipThoUnit = properties.getProperty("BA_DHST_NHIPTHO_UNIT", "BA_DHST_NHIPTHO_UNIT");
+            
+            if(chucNangSongCtItem.nhiptho != null){
+                addOrganizerVitalSignObservation(vitalSignsOrganizer, respiratoryRateObs, chucNangSongCtItem.nhiptho, nhipThoUnit);
+                vitalSignsFunctionalText.append(properties.getProperty("BA_DHST_NHIPTHO_TITLE", "BA_DHST_NHIPTHO_TITLE")).append(contentDelimiter)
+                                        .append(chucNangSongCtItem.nhiptho).append(properties.getProperty("BA_DHST_NHIPTHO_UNIT", "BA_DHST_NHIPTHO_UNIT")).append(splitDelimiter);
+            }
+            
+            //--- Cân nặng
+            var weightMeasuredObs = HSBAFactory.eINSTANCE.createHsbaWeightMeasuredObservation().init();
+            String canNangUnit = properties.getProperty("BA_DHST_CANNANG_UNIT", "BA_DHST_CANNANG_UNIT");
+            
+            if(chucNangSongCtItem.cannang != null){
+                addOrganizerVitalSignObservation(vitalSignsOrganizer, weightMeasuredObs, chucNangSongCtItem.cannang, canNangUnit);
+                vitalSignsFunctionalText.append(properties.getProperty("BA_DHST_CANNANG_TITLE", "BA_DHST_CANNANG_TITLE")).append(contentDelimiter)
+                                        .append(chucNangSongCtItem.cannang).append(properties.getProperty("BA_DHST_CANNANG_UNIT", "BA_DHST_CANNANG_UNIT")).append(splitDelimiter);
+            }
+            
+            //vitalSignsFunctionalText.setLength(vitalSignsFunctionalText.length() - 1);  
+            
+            //Y tá theo dõi
+            var nursingOccupationAssignedEntity = HSBAFactory.eINSTANCE.createHsbaNursingOccupationAssignedEntity().init();
+            String yTaTheoDoi = chucNangSongCtItem.ytatheodoi;
+            if(!StringUtils.isEmpty(yTaTheoDoi)){
+                addOrganizerAssignedEntity(vitalSignsOrganizer, nursingOccupationAssignedEntity, yTaTheoDoi);
+            }   
         }
     }
     
@@ -1452,30 +1395,26 @@ public class CDAExportUtil {
     }
     
     
-    public static void addHsbaVitalSignsFunctional(HsbaDocument doc, EmrHoSoBenhAn emrDanhSachHoSoBenhAn, Map<String, String> emrParameters,  Properties properties){
-        try {
-            var vitalSignsFunctionalSection = HSBAFactory.eINSTANCE.createHsbaVitalSignsFunctionalSection().init();
-            doc.addSection(vitalSignsFunctionalSection);
-            II vitalSignsFunctionalSectionId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-            vitalSignsFunctionalSection.setId(vitalSignsFunctionalSectionId);
-            String vitalSignsFunctionalTitle = properties.getProperty("THEODOI_CHUCNANGSONG_TITLE", "THEODOI_CHUCNANGSONG_TITLE");
-            addSectionTitle(vitalSignsFunctionalSection, vitalSignsFunctionalTitle);
-            StringBuilder vitalSignsFunctionalText = new StringBuilder();
+    public static void addHsbaVitalSignsFunctional(HsbaDocument doc, EmrHoSoBenhAn emrDanhSachHoSoBenhAn, Map<String, String> emrParameters,  Properties properties) throws IOException{
+        var vitalSignsFunctionalSection = HSBAFactory.eINSTANCE.createHsbaVitalSignsFunctionalSection().init();
+        doc.addSection(vitalSignsFunctionalSection);
+        II vitalSignsFunctionalSectionId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+        vitalSignsFunctionalSection.setId(vitalSignsFunctionalSectionId);
+        String vitalSignsFunctionalTitle = properties.getProperty("THEODOI_CHUCNANGSONG_TITLE", "THEODOI_CHUCNANGSONG_TITLE");
+        addSectionTitle(vitalSignsFunctionalSection, vitalSignsFunctionalTitle);
+        StringBuilder vitalSignsFunctionalText = new StringBuilder();
 
-            var lstEmrVaoKhoas = emrDanhSachHoSoBenhAn.emrVaoKhoas;
-            for (EmrVaoKhoa vaoKhoaItem : lstEmrVaoKhoas) {
-                var lstEmrChucNangSongs = vaoKhoaItem.emrChucNangSongs;
-                if(lstEmrChucNangSongs != null){
-                    for (var item : lstEmrChucNangSongs) {  
-                        addEmrChucNangSong(vitalSignsFunctionalSection, vaoKhoaItem, item, vitalSignsFunctionalText, item.emrFileDinhKemChucNangSongs, properties);
-                    }
+        var lstEmrVaoKhoas = emrDanhSachHoSoBenhAn.emrVaoKhoas;
+        for (EmrVaoKhoa vaoKhoaItem : lstEmrVaoKhoas) {
+            var lstEmrChucNangSongs = vaoKhoaItem.emrChucNangSongs;
+            if(lstEmrChucNangSongs != null){
+                for (var item : lstEmrChucNangSongs) {  
+                    addEmrChucNangSong(vitalSignsFunctionalSection, vaoKhoaItem, item, vitalSignsFunctionalText, item.emrFileDinhKemChucNangSongs, properties);
                 }
-            }   
-            
-            setSectionData(vitalSignsFunctionalSection, vitalSignsFunctionalText.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
+            }
         }   
+        
+        setSectionData(vitalSignsFunctionalSection, vitalSignsFunctionalText.toString());   
     }
     
     public static void addEmrDonThuocChiTiet(HsbaAdministrationOfSubstanceAct administrationOfSubstanceAct, EmrDonThuocChiTiet chiTietDonThuocItem,  Map<String, String> emrParameters, StringBuilder medicationsSectionText, String medicationSplit){
@@ -1647,132 +1586,124 @@ public class CDAExportUtil {
         }   
     }
     
-    public static void addMedications(HsbaDocument doc, EmrHoSoBenhAn emrDanhSachHoSoBenhAn, Map<String, String> emrParameters,  Properties properties){        
-        try {
-            var medicationsSection = HSBAFactory.eINSTANCE.createHsbaMedicationsSection().init();
-            doc.addSection(medicationsSection);
-            II medicationsSectionId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-            medicationsSection.setId(medicationsSectionId);
-            String medicationsSectionTitle = properties.getProperty("DUNGTHUOC_TITLE", "DUNGTHUOC_TITLE");
-            addSectionTitle(medicationsSection, medicationsSectionTitle);
-            StringBuilder medicationsSectionText = new StringBuilder(); 
-            String ngayKeDonTitle = properties.getProperty("DUNGTHUOC_NGAYKEDON_TITLE", "DUNGTHUOC_NGAYKEDON_TITLE");
-            String bacSiKeDonTitle = properties.getProperty("DUNGTHUOC_BACSIKEDON_TITLE", "DUNGTHUOC_BACSIKEDON_TITLE");
-            String tenThuocTitle = properties.getProperty("DUNGTHUOC_TENTHUOC_TITLE", "DUNGTHUOC_TENTHUOC_TITLE");
-            String contentDelimiter = properties.getProperty("SECTION_CONTENT_DELIMITER", "SECTION_CONTENT_DELIMITER");
-            String strSplit = properties.getProperty("SPLIT_YHCT_CHANDOAN_SYMBOL", "SPLIT_YHCT_CHANDOAN_SYMBOL");
-            String medicationSplit = properties.getProperty("HC_SPLIT_BACSIHOICHAN", "HC_SPLIT_BACSIHOICHAN");                          
-            
-            var lstEmrDonThuocs = emrDanhSachHoSoBenhAn.getEmrDonThuocs();        
-            if(lstEmrDonThuocs != null){            
-                for (var donThuocItem : lstEmrDonThuocs) {
-                    var medicationsEntry = CDAFactory.eINSTANCE.createEntry();
-                    medicationsEntry.setTypeCode(x_ActRelationshipEntry.DRIV);
-                    medicationsSection.getEntries().add(medicationsEntry);
-                    
-                    var lstEmrQuanLyFileDinhKemDonThuocs = donThuocItem.emrFileDinhKemDonThuocs;
+    public static void addMedications(HsbaDocument doc, EmrHoSoBenhAn emrDanhSachHoSoBenhAn, Map<String, String> emrParameters,  Properties properties) throws IOException{        
+        var medicationsSection = HSBAFactory.eINSTANCE.createHsbaMedicationsSection().init();
+        doc.addSection(medicationsSection);
+        II medicationsSectionId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+        medicationsSection.setId(medicationsSectionId);
+        String medicationsSectionTitle = properties.getProperty("DUNGTHUOC_TITLE", "DUNGTHUOC_TITLE");
+        addSectionTitle(medicationsSection, medicationsSectionTitle);
+        StringBuilder medicationsSectionText = new StringBuilder(); 
+        String ngayKeDonTitle = properties.getProperty("DUNGTHUOC_NGAYKEDON_TITLE", "DUNGTHUOC_NGAYKEDON_TITLE");
+        String bacSiKeDonTitle = properties.getProperty("DUNGTHUOC_BACSIKEDON_TITLE", "DUNGTHUOC_BACSIKEDON_TITLE");
+        String tenThuocTitle = properties.getProperty("DUNGTHUOC_TENTHUOC_TITLE", "DUNGTHUOC_TENTHUOC_TITLE");
+        String contentDelimiter = properties.getProperty("SECTION_CONTENT_DELIMITER", "SECTION_CONTENT_DELIMITER");
+        String strSplit = properties.getProperty("SPLIT_YHCT_CHANDOAN_SYMBOL", "SPLIT_YHCT_CHANDOAN_SYMBOL");
+        String medicationSplit = properties.getProperty("HC_SPLIT_BACSIHOICHAN", "HC_SPLIT_BACSIHOICHAN");                          
+        
+        var lstEmrDonThuocs = emrDanhSachHoSoBenhAn.getEmrDonThuocs();        
+        if(lstEmrDonThuocs != null){            
+            for (var donThuocItem : lstEmrDonThuocs) {
+                var medicationsEntry = CDAFactory.eINSTANCE.createEntry();
+                medicationsEntry.setTypeCode(x_ActRelationshipEntry.DRIV);
+                medicationsSection.getEntries().add(medicationsEntry);
+                
+                var lstEmrQuanLyFileDinhKemDonThuocs = donThuocItem.emrFileDinhKemDonThuocs;
 
-                    //Thuốc sử dụng
-                    var lstEmrDonThuocChiTiets = donThuocItem.emrDonThuocChiTiets;
-                    if(lstEmrDonThuocChiTiets != null){ 
-                        var administrationOfSubstanceAct = HSBAFactory.eINSTANCE.createHsbaAdministrationOfSubstanceAct().init();
-                        //Số đơn thuốc
-                        II administrationOfSubstanceActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-                        String sodonthuoc = donThuocItem.sodon;
-                        if(!StringUtils.isEmpty(sodonthuoc)){
-                            administrationOfSubstanceActId.setExtension(sodonthuoc);
+                //Thuốc sử dụng
+                var lstEmrDonThuocChiTiets = donThuocItem.emrDonThuocChiTiets;
+                if(lstEmrDonThuocChiTiets != null){ 
+                    var administrationOfSubstanceAct = HSBAFactory.eINSTANCE.createHsbaAdministrationOfSubstanceAct().init();
+                    //Số đơn thuốc
+                    II administrationOfSubstanceActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+                    String sodonthuoc = donThuocItem.sodon;
+                    if(!StringUtils.isEmpty(sodonthuoc)){
+                        administrationOfSubstanceActId.setExtension(sodonthuoc);
+                    }
+                    administrationOfSubstanceAct.getIds().add(administrationOfSubstanceActId);
+                    medicationsEntry.setAct(administrationOfSubstanceAct);              
+                    
+                    //Ngày giờ kê đơn                   
+                    Date ngayKeDon = donThuocItem.ngaykedon;
+                    if(ngayKeDon != null){
+                        String ngayKeDonThuoc = CDAExportUtil.getGMTDate(ngayKeDon);
+                        if(!StringUtils.isEmpty(ngayKeDonThuoc)){
+                            medicationsSectionText.append(ngayKeDonTitle).append(contentDelimiter).append(ngayKeDonThuoc).append(strSplit);
                         }
-                        administrationOfSubstanceAct.getIds().add(administrationOfSubstanceActId);
-                        medicationsEntry.setAct(administrationOfSubstanceAct);              
-                        
-                        //Ngày giờ kê đơn                   
-                        Date ngayKeDon = donThuocItem.ngaykedon;
-                        if(ngayKeDon != null){
-                            String ngayKeDonThuoc = CDAExportUtil.getGMTDate(ngayKeDon);
-                            if(!StringUtils.isEmpty(ngayKeDonThuoc)){
-                                medicationsSectionText.append(ngayKeDonTitle).append(contentDelimiter).append(ngayKeDonThuoc).append(strSplit);
-                            }
-                        }
-                        addActEffectiveTime(administrationOfSubstanceAct, ngayKeDon);
-                        
-                        //Bác sĩ kê đơn 
-                        var dischargeDoctorAssignedEntity = HSBAFactory.eINSTANCE.createHsbaDischargeDoctorAssignedEntity().init();
-                        String bacSiKeDon = donThuocItem.bacsikedon;
-                        if(!StringUtils.isEmpty(bacSiKeDon)){
-                            medicationsSectionText.append(bacSiKeDonTitle).append(contentDelimiter).append(bacSiKeDon).append(strSplit);
-                        }
-                        ThongTinCanLamSangUtil.addActAssignedEntity(administrationOfSubstanceAct, dischargeDoctorAssignedEntity, bacSiKeDon);
-                        medicationsSectionText.append(tenThuocTitle).append(contentDelimiter);
-                        
-                        for (var item : lstEmrDonThuocChiTiets) {
-                            addEmrDonThuocChiTiet(administrationOfSubstanceAct, item, emrParameters, medicationsSectionText, medicationSplit);
-                        }   
-                        
-                        //Tài liệu đính kèm                                     
-                        if(lstEmrQuanLyFileDinhKemDonThuocs != null){
-                            for (var item : lstEmrQuanLyFileDinhKemDonThuocs) {                            
-                                addActExternalDocument(administrationOfSubstanceAct, item.url);
-                            }                   
-                        }
-                    }  
-                }
+                    }
+                    addActEffectiveTime(administrationOfSubstanceAct, ngayKeDon);
+                    
+                    //Bác sĩ kê đơn 
+                    var dischargeDoctorAssignedEntity = HSBAFactory.eINSTANCE.createHsbaDischargeDoctorAssignedEntity().init();
+                    String bacSiKeDon = donThuocItem.bacsikedon;
+                    if(!StringUtils.isEmpty(bacSiKeDon)){
+                        medicationsSectionText.append(bacSiKeDonTitle).append(contentDelimiter).append(bacSiKeDon).append(strSplit);
+                    }
+                    ThongTinCanLamSangUtil.addActAssignedEntity(administrationOfSubstanceAct, dischargeDoctorAssignedEntity, bacSiKeDon);
+                    medicationsSectionText.append(tenThuocTitle).append(contentDelimiter);
+                    
+                    for (var item : lstEmrDonThuocChiTiets) {
+                        addEmrDonThuocChiTiet(administrationOfSubstanceAct, item, emrParameters, medicationsSectionText, medicationSplit);
+                    }   
+                    
+                    //Tài liệu đính kèm                                     
+                    if(lstEmrQuanLyFileDinhKemDonThuocs != null){
+                        for (var item : lstEmrQuanLyFileDinhKemDonThuocs) {                            
+                            addActExternalDocument(administrationOfSubstanceAct, item.url);
+                        }                   
+                    }
+                }  
             }
-            setSectionData(medicationsSection, medicationsSectionText.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }       
+        }
+        setSectionData(medicationsSection, medicationsSectionText.toString());       
     }
     
     
-    public static void generateCDABody(HsbaDocument doc, EmrHoSoBenhAn emrDanhSachHoSoBenhAn, Map<String, String> emrParameters, Map<String, Integer> emrDmChucNangs, Properties properties, String srcLocalFolder){
-        try {
-            //II. QUẢN LÝ NGƯỜI BỆNH
-            addPatientManagement(doc, emrDanhSachHoSoBenhAn, properties, emrParameters);
-            
-            //III.CHẨN ĐOÁN
-            addDiagnosis(doc, emrDanhSachHoSoBenhAn, properties, emrParameters);
-
-            //IV.TÌNH TRẠNG RA VIỆN
-            addDischargeSummary(doc, emrDanhSachHoSoBenhAn, properties, emrParameters);
+    public static void generateCDABody(HsbaDocument doc, EmrHoSoBenhAn emrDanhSachHoSoBenhAn, Map<String, String> emrParameters, Map<String, Integer> emrDmChucNangs, Properties properties, String srcLocalFolder) throws IOException{
+      //II. QUẢN LÝ NGƯỜI BỆNH
+        addPatientManagement(doc, emrDanhSachHoSoBenhAn, properties, emrParameters);
         
-            //A.BỆNH ÁN
-            ThongTinBenhAnUtil.addHistoryAndPhysicalNote(doc, emrDanhSachHoSoBenhAn, emrParameters, properties, srcLocalFolder);
-            
-            //B.TỔNG KẾT BỆNH ÁN
-            addPhysicianAttendingDischargeSummarySection(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
-            
-            //Thông tin cận lâm sàng
-            ThongTinCanLamSangUtil.addRelevantDiagnostic(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
-            
-            //Phẫu thủ thuật  
-            addProcedures(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
-            
-            //Thông tin hội chẩn
-            addHospitalConsultations(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
-            
-            //Thông tin điều trị
-            addGeneralMedicineProgress(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
-            
-            //Thông tin chăm sóc
-            addHsbaNurseProgressNote(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
-            
-            //Theo dõi chức năng sống
-            addHsbaVitalSignsFunctional(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
-            
-            //Dùng thuốc
-            addMedications(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
-            
-            //Chẩn đoán YHCT
-            YHCTUtil.addChanDoanYHCT(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
-            
-            //Bệnh án YHCT
-            YHCTUtil.addBenhAnYHCT(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
-            
-            //Dùng thuốc YHCT
-            YHCTUtil.addYhctMedications(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        //III.CHẨN ĐOÁN
+        addDiagnosis(doc, emrDanhSachHoSoBenhAn, properties, emrParameters);
+
+        //IV.TÌNH TRẠNG RA VIỆN
+        addDischargeSummary(doc, emrDanhSachHoSoBenhAn, properties, emrParameters);
+    
+        //A.BỆNH ÁN
+        ThongTinBenhAnUtil.addHistoryAndPhysicalNote(doc, emrDanhSachHoSoBenhAn, emrParameters, properties, srcLocalFolder);
+        
+        //B.TỔNG KẾT BỆNH ÁN
+        addPhysicianAttendingDischargeSummarySection(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
+        
+        //Thông tin cận lâm sàng
+        ThongTinCanLamSangUtil.addRelevantDiagnostic(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
+        
+        //Phẫu thủ thuật  
+        addProcedures(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
+        
+        //Thông tin hội chẩn
+        addHospitalConsultations(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
+        
+        //Thông tin điều trị
+        addGeneralMedicineProgress(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
+        
+        //Thông tin chăm sóc
+        addHsbaNurseProgressNote(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
+        
+        //Theo dõi chức năng sống
+        addHsbaVitalSignsFunctional(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
+        
+        //Dùng thuốc
+        addMedications(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
+        
+        //Chẩn đoán YHCT
+        YHCTUtil.addChanDoanYHCT(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
+        
+        //Bệnh án YHCT
+        YHCTUtil.addBenhAnYHCT(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
+        
+        //Dùng thuốc YHCT
+        YHCTUtil.addYhctMedications(doc, emrDanhSachHoSoBenhAn, emrParameters, properties);
     }
     
     public static void addActExternalDocument(Act act, String externalDocumentUrl) throws IOException{     
@@ -1797,17 +1728,13 @@ public class CDAExportUtil {
     }
     
     public static void addActEffectiveTime(Act act, Date ngayYeuCau){   
-        try {
-            IVL_TS effectiveTimeRequest = DatatypesFactory.eINSTANCE.createIVL_TS();
-            act.setEffectiveTime(effectiveTimeRequest);
-            if(ngayYeuCau != null){             
-                String thoiDiemYeuCau = CDAExportUtil.getGMTDate(ngayYeuCau);
-                if(thoiDiemYeuCau != null){
-                    effectiveTimeRequest.setValue(thoiDiemYeuCau);
-                }
+        IVL_TS effectiveTimeRequest = DatatypesFactory.eINSTANCE.createIVL_TS();
+        act.setEffectiveTime(effectiveTimeRequest);
+        if(ngayYeuCau != null){             
+            String thoiDiemYeuCau = CDAExportUtil.getGMTDate(ngayYeuCau);
+            if(thoiDiemYeuCau != null){
+                effectiveTimeRequest.setValue(thoiDiemYeuCau);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }       
     }
      
@@ -1831,633 +1758,588 @@ public class CDAExportUtil {
     }
     
     public static void addPatientInfor(Patient patient, PatientRole patientRole, EmrHoSoBenhAn emrDanhSachHoSoBenhAn, Map<String, String> emrParameters,  Properties properties){
-        try {
-            var emrBenhNhan = emrDanhSachHoSoBenhAn.getEmrBenhNhan();
-            //Mã y tế quốc gia(nếu có)
-            II maYteQuocGiaId = DatatypesFactory.eINSTANCE.createII(properties.getProperty("OID_DINHDANHYTEQUOCGIA", "OID_DINHDANHYTEQUOCGIA"));
-            patientRole.getIds().add(maYteQuocGiaId);
-            String maYteQuocGia = emrBenhNhan.iddinhdanhchinh;
-            if(!StringUtils.isEmpty(maYteQuocGia)){
-                maYteQuocGiaId.setExtension(maYteQuocGia);
-            }
+        var emrBenhNhan = emrDanhSachHoSoBenhAn.getEmrBenhNhan();
+        //Mã y tế quốc gia(nếu có)
+        II maYteQuocGiaId = DatatypesFactory.eINSTANCE.createII(properties.getProperty("OID_DINHDANHYTEQUOCGIA", "OID_DINHDANHYTEQUOCGIA"));
+        patientRole.getIds().add(maYteQuocGiaId);
+        String maYteQuocGia = emrBenhNhan.iddinhdanhchinh;
+        if(!StringUtils.isEmpty(maYteQuocGia)){
+            maYteQuocGiaId.setExtension(maYteQuocGia);
+        }
+        
+        //Mã ID thay thế(CMT, Hộ chiếu)
+        II maCmndHoChieuId = DatatypesFactory.eINSTANCE.createII(properties.getProperty("OID_CMND_HOCHIEU", "OID_CMND_HOCHIEU"));
+        patientRole.getIds().add(maCmndHoChieuId);
+        String maCmndHoChieu = emrBenhNhan.iddinhdanhphu;
+        if(!StringUtils.isEmpty(maCmndHoChieu)){
+            maCmndHoChieuId.setExtension(maCmndHoChieu);
+        }
+        
+        //2. Số bhyt + Tên bệnh nhân                
+        String soBHYT = emrBenhNhan.sobhyt;
+        if(!StringUtils.isEmpty(soBHYT)){         
+            //12. Số thẻ BHYT
+            II insuranceId = DatatypesFactory.eINSTANCE.createII(properties.getProperty("OID_DM_SO_BHYT", "OID_DM_SO_BHYT"), soBHYT);               
+            patientRole.getIds().add(insuranceId);  
             
-            //Mã ID thay thế(CMT, Hộ chiếu)
-            II maCmndHoChieuId = DatatypesFactory.eINSTANCE.createII(properties.getProperty("OID_CMND_HOCHIEU", "OID_CMND_HOCHIEU"));
-            patientRole.getIds().add(maCmndHoChieuId);
-            String maCmndHoChieu = emrBenhNhan.iddinhdanhphu;
-            if(!StringUtils.isEmpty(maCmndHoChieu)){
-                maCmndHoChieuId.setExtension(maCmndHoChieu);
-            }
-            
-            //2. Số bhyt + Tên bệnh nhân                
-            String soBHYT = emrBenhNhan.sobhyt;
-            if(!StringUtils.isEmpty(soBHYT)){         
-                //12. Số thẻ BHYT
-                II insuranceId = DatatypesFactory.eINSTANCE.createII(properties.getProperty("OID_DM_SO_BHYT", "OID_DM_SO_BHYT"), soBHYT);               
-                patientRole.getIds().add(insuranceId);  
-                
-                //Ngày hết hạn BHYT
-                Date insuranceDate = emrBenhNhan.ngayhethanthebhyt;
-                if(insuranceDate != null){
-                    String ngayHetHanBh = convertDateToString(insuranceDate);
-                    if(!StringUtils.isEmpty(ngayHetHanBh)){
-                        Organization po = CDAFactory.eINSTANCE.createOrganization();
-                        OrganizationPartOf opo = CDAFactory.eINSTANCE.createOrganizationPartOf();
-                        opo.setEffectiveTime(DatatypesFactory.eINSTANCE.createIVL_TS(ngayHetHanBh));
-                        
-                        po.setAsOrganizationPartOf(opo);
-                        patientRole.setProviderOrganization(po);
-                    }
+            //Ngày hết hạn BHYT
+            Date insuranceDate = emrBenhNhan.ngayhethanthebhyt;
+            if(insuranceDate != null){
+                String ngayHetHanBh = convertDateToString(insuranceDate);
+                if(!StringUtils.isEmpty(ngayHetHanBh)){
+                    Organization po = CDAFactory.eINSTANCE.createOrganization();
+                    OrganizationPartOf opo = CDAFactory.eINSTANCE.createOrganizationPartOf();
+                    opo.setEffectiveTime(DatatypesFactory.eINSTANCE.createIVL_TS(ngayHetHanBh));
+                    
+                    po.setAsOrganizationPartOf(opo);
+                    patientRole.setProviderOrganization(po);
                 }
             }
-            // Họ tên bệnh nhân
-            String tenBenhNhan = emrBenhNhan.tendaydu;
-            if(!StringUtils.isEmpty(tenBenhNhan)){            
-                PN name = DatatypesFactory.eINSTANCE.createPN();
-                name.addText(tenBenhNhan);
-                patient.getNames().add(name);   
-            }
+        }
+        // Họ tên bệnh nhân
+        String tenBenhNhan = emrBenhNhan.tendaydu;
+        if(!StringUtils.isEmpty(tenBenhNhan)){            
+            PN name = DatatypesFactory.eINSTANCE.createPN();
+            name.addText(tenBenhNhan);
+            patient.getNames().add(name);   
+        }
+        
+        //3. Sinh ngày
+        Date ngaySinh = emrBenhNhan.ngaysinh;
+        if(ngaySinh != null){
+            TS birthTime = DatatypesFactory.eINSTANCE.createTS();
+            birthTime.setValue(convertDateToString(ngaySinh));
+            patient.setBirthTime(birthTime);
             
-            //3. Sinh ngày
-            Date ngaySinh = emrBenhNhan.ngaysinh;
-            if(ngaySinh != null){
-                TS birthTime = DatatypesFactory.eINSTANCE.createTS();
-                birthTime.setValue(convertDateToString(ngaySinh));
-                patient.setBirthTime(birthTime);
-                
-                //Tính tuổi
-                String age = JasperUtils.getTuoi(emrDanhSachHoSoBenhAn);
-                if(!StringUtils.isEmpty(age)){
-                    II patientAgeId = DatatypesFactory.eINSTANCE.createII();
-                    patientAgeId.setRoot(properties.getProperty("DOCUMENT_OID", "DOCUMENT_OID"));
-                    patient.setId(patientAgeId);
-                    patientAgeId.setExtension(String.valueOf(age));
-                }
+            //Tính tuổi
+            String age = JasperUtils.getTuoi(emrDanhSachHoSoBenhAn);
+            if(!StringUtils.isEmpty(age)){
+                II patientAgeId = DatatypesFactory.eINSTANCE.createII();
+                patientAgeId.setRoot(properties.getProperty("DOCUMENT_OID", "DOCUMENT_OID"));
+                patient.setId(patientAgeId);
+                patientAgeId.setExtension(String.valueOf(age));
             }
+        }
 
-            //4. Giới tính      
-            CE gender;
-            var emrDmGioiTinh = emrBenhNhan.emrDmGioiTinh;
-            if(emrDmGioiTinh != null){
-                String gioiTinhCodeCDA = emrDmGioiTinh.maicd;                        
-                if(!StringUtils.isEmpty(gioiTinhCodeCDA)){
-                    if( "M".equals(gioiTinhCodeCDA)){//Male
-                        gender = DatatypesFactory.eINSTANCE.createCE(gioiTinhCodeCDA, emrParameters.get("emr_dm_gioi_tinh"));           
-                    }else{//Female
-                        gender = DatatypesFactory.eINSTANCE.createCE(gioiTinhCodeCDA, emrParameters.get("emr_dm_gioi_tinh"));
-                    }   
-                    patient.setAdministrativeGenderCode(gender);
-                }
+        //4. Giới tính      
+        CE gender;
+        var emrDmGioiTinh = emrBenhNhan.emrDmGioiTinh;
+        if(emrDmGioiTinh != null){
+            String gioiTinhCodeCDA = emrDmGioiTinh.maicd;                        
+            if(!StringUtils.isEmpty(gioiTinhCodeCDA)){
+                if( "M".equals(gioiTinhCodeCDA)){//Male
+                    gender = DatatypesFactory.eINSTANCE.createCE(gioiTinhCodeCDA, emrParameters.get("emr_dm_gioi_tinh"));           
+                }else{//Female
+                    gender = DatatypesFactory.eINSTANCE.createCE(gioiTinhCodeCDA, emrParameters.get("emr_dm_gioi_tinh"));
+                }   
+                patient.setAdministrativeGenderCode(gender);
             }
+        }
 
-            //6. Dân tộc
-            var emrDmDanToc = emrBenhNhan.emrDmDanToc;
-            if(emrDmDanToc != null){
-                CE ethnicGC = DatatypesFactory.eINSTANCE.createCE();
-                if(!StringUtils.isEmpty(emrDmDanToc.maicd)){
-                    ethnicGC.setCode(emrDmDanToc.maicd);
-                }
-                String codeSystem = emrParameters.get("emr_dm_dan_toc");
-                if(!StringUtils.isEmpty(codeSystem)){
-                    ethnicGC.setCodeSystem(codeSystem);
-                }                       
-                if(!StringUtils.isEmpty(emrDmDanToc.ten)){
-                    ethnicGC.setDisplayName(emrDmDanToc.ten);
-                }
-                patient.setEthnicGroupCode(ethnicGC);
+        //6. Dân tộc
+        var emrDmDanToc = emrBenhNhan.emrDmDanToc;
+        if(emrDmDanToc != null){
+            CE ethnicGC = DatatypesFactory.eINSTANCE.createCE();
+            if(!StringUtils.isEmpty(emrDmDanToc.maicd)){
+                ethnicGC.setCode(emrDmDanToc.maicd);
             }
-                        
-            //8. Địa chỉ
-            AD address = DatatypesFactory.eINSTANCE.createAD();     
-            String addressDetails = emrBenhNhan.diachi;
-            if(!StringUtils.isEmpty(addressDetails)){         
-                address.addStreetAddressLine(addressDetails);
-            }   
-            StringBuilder strAddress = new StringBuilder(); 
-            
-            var emrDonViHcXaPhuong = emrBenhNhan.emrDmPhuongXa;
-            if(emrDonViHcXaPhuong != null){
-                String xaPhuongCodeCda = emrDonViHcXaPhuong.maicd;   
-                String xaPhuongTen = emrDonViHcXaPhuong.ten;
-                if(!StringUtils.isEmpty(xaPhuongCodeCda)){
-                    address.addPrecinct(xaPhuongCodeCda);
-                }           
-                if(!StringUtils.isEmpty(xaPhuongTen)){                    
-                    strAddress.append(xaPhuongTen);
-                }
+            String codeSystem = emrParameters.get("emr_dm_dan_toc");
+            if(!StringUtils.isEmpty(codeSystem)){
+                ethnicGC.setCodeSystem(codeSystem);
+            }                       
+            if(!StringUtils.isEmpty(emrDmDanToc.ten)){
+                ethnicGC.setDisplayName(emrDmDanToc.ten);
             }
-            
-            var emrDonViHcQuanHuyen = emrBenhNhan.emrDmQuanHuyen;
-            if(emrDonViHcQuanHuyen != null){
-                String quanHuyenCodeCda = emrDonViHcQuanHuyen.maicd;
-                String quanHuyenTen = emrDonViHcQuanHuyen.ten;
-                if(!StringUtils.isEmpty(quanHuyenCodeCda)){
-                    address.addCity(quanHuyenCodeCda);
-                }
-                if(!StringUtils.isEmpty(quanHuyenTen)){
-                    strAddress.append(properties.getProperty("SPLIT_DELIMITER", "SPLIT_DELIMITER")).append(quanHuyenTen);
-                }
+            patient.setEthnicGroupCode(ethnicGC);
+        }
+                    
+        //8. Địa chỉ
+        AD address = DatatypesFactory.eINSTANCE.createAD();     
+        String addressDetails = emrBenhNhan.diachi;
+        if(!StringUtils.isEmpty(addressDetails)){         
+            address.addStreetAddressLine(addressDetails);
+        }   
+        StringBuilder strAddress = new StringBuilder(); 
+        
+        var emrDonViHcXaPhuong = emrBenhNhan.emrDmPhuongXa;
+        if(emrDonViHcXaPhuong != null){
+            String xaPhuongCodeCda = emrDonViHcXaPhuong.maicd;   
+            String xaPhuongTen = emrDonViHcXaPhuong.ten;
+            if(!StringUtils.isEmpty(xaPhuongCodeCda)){
+                address.addPrecinct(xaPhuongCodeCda);
+            }           
+            if(!StringUtils.isEmpty(xaPhuongTen)){                    
+                strAddress.append(xaPhuongTen);
             }
-            var emrDonViHcTinhThanh = emrBenhNhan.emrDmTinhThanh;
-            if(emrDonViHcTinhThanh != null){
-                String tinhThanhCodeCda = emrDonViHcTinhThanh.maicd;
-                String tinhThanhTen = emrDonViHcTinhThanh.ten;
-                if(!StringUtils.isEmpty(tinhThanhCodeCda)){
-                    address.addState(tinhThanhCodeCda);
-                }
-                if(!StringUtils.isEmpty(tinhThanhTen)){
-                    strAddress.append(properties.getProperty("SPLIT_DELIMITER", "SPLIT_DELIMITER")).append(tinhThanhTen);
-                }
+        }
+        
+        var emrDonViHcQuanHuyen = emrBenhNhan.emrDmQuanHuyen;
+        if(emrDonViHcQuanHuyen != null){
+            String quanHuyenCodeCda = emrDonViHcQuanHuyen.maicd;
+            String quanHuyenTen = emrDonViHcQuanHuyen.ten;
+            if(!StringUtils.isEmpty(quanHuyenCodeCda)){
+                address.addCity(quanHuyenCodeCda);
             }
-            if(strAddress.toString().length() > 0){
-                address.addDirection(strAddress.toString());
+            if(!StringUtils.isEmpty(quanHuyenTen)){
+                strAddress.append(properties.getProperty("SPLIT_DELIMITER", "SPLIT_DELIMITER")).append(quanHuyenTen);
             }
-            
-            patientRole.getAddrs().add(address);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }               
+        }
+        var emrDonViHcTinhThanh = emrBenhNhan.emrDmTinhThanh;
+        if(emrDonViHcTinhThanh != null){
+            String tinhThanhCodeCda = emrDonViHcTinhThanh.maicd;
+            String tinhThanhTen = emrDonViHcTinhThanh.ten;
+            if(!StringUtils.isEmpty(tinhThanhCodeCda)){
+                address.addState(tinhThanhCodeCda);
+            }
+            if(!StringUtils.isEmpty(tinhThanhTen)){
+                strAddress.append(properties.getProperty("SPLIT_DELIMITER", "SPLIT_DELIMITER")).append(tinhThanhTen);
+            }
+        }
+        if(strAddress.toString().length() > 0){
+            address.addDirection(strAddress.toString());
+        }
+        
+        patientRole.getAddrs().add(address);              
     }
     
     public static void addGuardianPerson(Patient patient, EmrBenhNhan emrBenhNhan){
-        try {
-            var guardian = CDAFactory.eINSTANCE.createGuardian();      
-            org.openhealthtools.mdht.uml.cda.Person guardianPerson = CDAFactory.eINSTANCE.createPerson();
-            guardian.setGuardianPerson(guardianPerson); 
-                        
-            //add guardian person name
-            String nguoiBaoTin = emrBenhNhan.tennguoibaotin;
-            if(!StringUtils.isEmpty(nguoiBaoTin)){    
-                PN guardianPersonName = DatatypesFactory.eINSTANCE.createPN();
-                guardianPerson.getNames().add(guardianPersonName);
-                guardianPersonName.addText(nguoiBaoTin);                                
-            }
-            
-            //add guardian person address       
-            String diaChiNguoiBaoTin = emrBenhNhan.diachinguoibaotin;
-            if(!StringUtils.isEmpty(diaChiNguoiBaoTin)){  
-                AD guardianAddress = DatatypesFactory.eINSTANCE.createAD();
-                guardian.getAddrs().add(guardianAddress);
-                guardianAddress.addText(diaChiNguoiBaoTin);         
-            }
+        var guardian = CDAFactory.eINSTANCE.createGuardian();      
+        org.openhealthtools.mdht.uml.cda.Person guardianPerson = CDAFactory.eINSTANCE.createPerson();
+        guardian.setGuardianPerson(guardianPerson); 
                     
-            //add guardian phone        
-            String sdtNguoiBaoTin = emrBenhNhan.sodienthoainguoibaotin;
-            if(!StringUtils.isEmpty(sdtNguoiBaoTin)){
-                TEL telecom = DatatypesFactory.eINSTANCE.createTEL();
-                guardian.getTelecoms().add(telecom);
-                telecom.setValue(sdtNguoiBaoTin);       
-            }               
-            
-            //add guardian to patient
-            patient.getGuardians().add(guardian);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }       
+        //add guardian person name
+        String nguoiBaoTin = emrBenhNhan.tennguoibaotin;
+        if(!StringUtils.isEmpty(nguoiBaoTin)){    
+            PN guardianPersonName = DatatypesFactory.eINSTANCE.createPN();
+            guardianPerson.getNames().add(guardianPersonName);
+            guardianPersonName.addText(nguoiBaoTin);                                
+        }
+        
+        //add guardian person address       
+        String diaChiNguoiBaoTin = emrBenhNhan.diachinguoibaotin;
+        if(!StringUtils.isEmpty(diaChiNguoiBaoTin)){  
+            AD guardianAddress = DatatypesFactory.eINSTANCE.createAD();
+            guardian.getAddrs().add(guardianAddress);
+            guardianAddress.addText(diaChiNguoiBaoTin);         
+        }
+                
+        //add guardian phone        
+        String sdtNguoiBaoTin = emrBenhNhan.sodienthoainguoibaotin;
+        if(!StringUtils.isEmpty(sdtNguoiBaoTin)){
+            TEL telecom = DatatypesFactory.eINSTANCE.createTEL();
+            guardian.getTelecoms().add(telecom);
+            telecom.setValue(sdtNguoiBaoTin);       
+        }               
+        
+        //add guardian to patient
+        patient.getGuardians().add(guardian);       
     }
     
     public static void addPatientParents(HsbaDocument doc, EmrHoSoBenhAn emrDanhSachHoSoBenhAn){
-        try {
-            EmrBenhNhan emrBenhNhan = emrDanhSachHoSoBenhAn.getEmrBenhNhan();
-            var fParticipant = CDAFactory.eINSTANCE.createParticipant1();
-            fParticipant.setTypeCode(ParticipationType.IND);
-                        
-            doc.getParticipants().add(fParticipant);
-            
-            var fAssociateEntity = HSBAFactory.eINSTANCE.createHsbaFatherAssociatedEntity().init();
-            fParticipant.setAssociatedEntity(fAssociateEntity);
-            org.openhealthtools.mdht.uml.cda.Person fAssignedPerson = CDAFactory.eINSTANCE.createPerson();
-            fAssociateEntity.setAssociatedPerson(fAssignedPerson);
-            PN fatherPN = DatatypesFactory.eINSTANCE.createPN();
-            fAssignedPerson.getNames().add(fatherPN);
-            
-            String dad = emrBenhNhan.hotenbo; 
-            if(!StringUtils.isEmpty(dad)){
-                fatherPN.addText(dad);
-            }
-            
-            Organization orgDad = CDAFactory.eINSTANCE.createOrganization();
-            //Trình độ văn hóa
-            String trinhdoVhbo = emrBenhNhan.trinhDoVanHoaCuaBo;
-            if(!StringUtils.isEmpty(trinhdoVhbo)){                
-                ON onTrinhdovhbo = DatatypesFactory.eINSTANCE.createON();           
-                onTrinhdovhbo.addText(trinhdoVhbo);
-                orgDad.getNames().add(onTrinhdovhbo);
-            }
+        EmrBenhNhan emrBenhNhan = emrDanhSachHoSoBenhAn.getEmrBenhNhan();
+        var fParticipant = CDAFactory.eINSTANCE.createParticipant1();
+        fParticipant.setTypeCode(ParticipationType.IND);
+                    
+        doc.getParticipants().add(fParticipant);
+        
+        var fAssociateEntity = HSBAFactory.eINSTANCE.createHsbaFatherAssociatedEntity().init();
+        fParticipant.setAssociatedEntity(fAssociateEntity);
+        org.openhealthtools.mdht.uml.cda.Person fAssignedPerson = CDAFactory.eINSTANCE.createPerson();
+        fAssociateEntity.setAssociatedPerson(fAssignedPerson);
+        PN fatherPN = DatatypesFactory.eINSTANCE.createPN();
+        fAssignedPerson.getNames().add(fatherPN);
+        
+        String dad = emrBenhNhan.hotenbo; 
+        if(!StringUtils.isEmpty(dad)){
+            fatherPN.addText(dad);
+        }
+        
+        Organization orgDad = CDAFactory.eINSTANCE.createOrganization();
+        //Trình độ văn hóa
+        String trinhdoVhbo = emrBenhNhan.trinhDoVanHoaCuaBo;
+        if(!StringUtils.isEmpty(trinhdoVhbo)){                
+            ON onTrinhdovhbo = DatatypesFactory.eINSTANCE.createON();           
+            onTrinhdovhbo.addText(trinhdoVhbo);
+            orgDad.getNames().add(onTrinhdovhbo);
+        }
 
-            //Ngày sinh
-            OrganizationPartOf opoDad = CDAFactory.eINSTANCE.createOrganizationPartOf();
-            Date ngaysinhbo = emrBenhNhan.ngaySinhCuaBo;
-            if(ngaysinhbo != null){
-                String dadBirthTime = convertDateToString(ngaysinhbo);
-                if(!StringUtils.isEmpty(dadBirthTime)){
-                    IVL_TS ngaysinhboIvlTs = DatatypesFactory.eINSTANCE.createIVL_TS(dadBirthTime);
-                    opoDad.setEffectiveTime(ngaysinhboIvlTs);
-                    //Tính tuổi bố
-                    Integer tuoibo = JasperUtils.getTuoi(emrDanhSachHoSoBenhAn, ngaysinhbo);
-                    if(tuoibo != null && tuoibo > 0){
-                        ngaysinhboIvlTs.setCenter(DatatypesFactory.eINSTANCE.createTS(String.valueOf(tuoibo)));
-                    }
-                }               
-            }
-            
-            //Nghề nghiệp
-            CE dadCode = DatatypesFactory.eINSTANCE.createCE();
-            var dmNgheBo = emrBenhNhan.emrDmNgheNghiepBo;
-            if(dmNgheBo != null){
-                String ngheboCodeCda = dmNgheBo.maicd;
-                String ngheboTen = dmNgheBo.ten;
-                if(!StringUtils.isEmpty(ngheboCodeCda)){
-                    dadCode.setCode(ngheboCodeCda);
-                    if(!StringUtils.isEmpty(ngheboTen)){
-                        dadCode.setDisplayName(ngheboTen);
-                    }
+        //Ngày sinh
+        OrganizationPartOf opoDad = CDAFactory.eINSTANCE.createOrganizationPartOf();
+        Date ngaysinhbo = emrBenhNhan.ngaySinhCuaBo;
+        if(ngaysinhbo != null){
+            String dadBirthTime = convertDateToString(ngaysinhbo);
+            if(!StringUtils.isEmpty(dadBirthTime)){
+                IVL_TS ngaysinhboIvlTs = DatatypesFactory.eINSTANCE.createIVL_TS(dadBirthTime);
+                opoDad.setEffectiveTime(ngaysinhboIvlTs);
+                //Tính tuổi bố
+                Integer tuoibo = JasperUtils.getTuoi(emrDanhSachHoSoBenhAn, ngaysinhbo);
+                if(tuoibo != null && tuoibo > 0){
+                    ngaysinhboIvlTs.setCenter(DatatypesFactory.eINSTANCE.createTS(String.valueOf(tuoibo)));
+                }
+            }               
+        }
+        
+        //Nghề nghiệp
+        CE dadCode = DatatypesFactory.eINSTANCE.createCE();
+        var dmNgheBo = emrBenhNhan.emrDmNgheNghiepBo;
+        if(dmNgheBo != null){
+            String ngheboCodeCda = dmNgheBo.maicd;
+            String ngheboTen = dmNgheBo.ten;
+            if(!StringUtils.isEmpty(ngheboCodeCda)){
+                dadCode.setCode(ngheboCodeCda);
+                if(!StringUtils.isEmpty(ngheboTen)){
+                    dadCode.setDisplayName(ngheboTen);
                 }
             }
-            opoDad.setCode(dadCode);            
-            orgDad.setAsOrganizationPartOf(opoDad);
-            fAssociateEntity.setScopingOrganization(orgDad);                            
-                        
-            
-            //Thông tin mẹ bệnh nhân 
-            var mParticipant = CDAFactory.eINSTANCE.createParticipant1();
-            mParticipant.setTypeCode(ParticipationType.IND);
-            doc.getParticipants().add(mParticipant);
-            
-            var mAssociateEntity = HSBAFactory.eINSTANCE.createHsbaMotherAssociatedEntity().init();
-            mParticipant.setAssociatedEntity(mAssociateEntity);
-            org.openhealthtools.mdht.uml.cda.Person mAssignedPerson = CDAFactory.eINSTANCE.createPerson();
-            mAssociateEntity.setAssociatedPerson(mAssignedPerson);
-            PN mumPN = DatatypesFactory.eINSTANCE.createPN();
-            mAssignedPerson.getNames().add(mumPN);                  
-            
-            String mum = emrBenhNhan.hotenme; 
-            if(!StringUtils.isEmpty(mum)){
-                mumPN.addText(mum);
-            }
-            
-            Organization orgMum = CDAFactory.eINSTANCE.createOrganization();
-            //Trình độ văn hóa
-            String trinhdoVhme = emrBenhNhan.trinhDoVanHoaCuaMe;
-            if(!StringUtils.isEmpty(trinhdoVhme)){                
-                ON onTrinhdovhme = DatatypesFactory.eINSTANCE.createON();           
-                onTrinhdovhme.addText(trinhdoVhme);
-                orgMum.getNames().add(onTrinhdovhme);
-            }
-            
-            //Ngày sinh
-            OrganizationPartOf opoMum = CDAFactory.eINSTANCE.createOrganizationPartOf();
-            Date ngaysinhme = emrBenhNhan.ngaySinhCuaMe;
-            if(ngaysinhme != null){
-                String mumBirthTime = convertDateToString(ngaysinhme);
-                if(!StringUtils.isEmpty(mumBirthTime)){
-                    IVL_TS ngaysinhmeIvlTs = DatatypesFactory.eINSTANCE.createIVL_TS(mumBirthTime);
-                    opoMum.setEffectiveTime(ngaysinhmeIvlTs);
-                    //Tính tuổi mẹ
-                    Integer tuoime = JasperUtils.getTuoi(emrDanhSachHoSoBenhAn, ngaysinhme);
-                    if(tuoime != null && tuoime > 0){
-                        ngaysinhmeIvlTs.setCenter(DatatypesFactory.eINSTANCE.createTS(String.valueOf(tuoime)));
-                    }
-                }               
-            }
-            
-            //Nghề nghiệp
-            CE mumCode = DatatypesFactory.eINSTANCE.createCE();
-            var dmNgheMe = emrBenhNhan.emrDmNgheNghiepMe;
-            if(dmNgheMe != null){
-                String nghemeCodeCda = dmNgheMe.maicd;
-                String nghemeTen = dmNgheMe.ten;
-                if(!StringUtils.isEmpty(nghemeCodeCda)){
-                    mumCode.setCode(nghemeCodeCda);
-                    if(!StringUtils.isEmpty(nghemeTen)){
-                        mumCode.setDisplayName(nghemeTen);
-                    }
+        }
+        opoDad.setCode(dadCode);            
+        orgDad.setAsOrganizationPartOf(opoDad);
+        fAssociateEntity.setScopingOrganization(orgDad);                            
+                    
+        
+        //Thông tin mẹ bệnh nhân 
+        var mParticipant = CDAFactory.eINSTANCE.createParticipant1();
+        mParticipant.setTypeCode(ParticipationType.IND);
+        doc.getParticipants().add(mParticipant);
+        
+        var mAssociateEntity = HSBAFactory.eINSTANCE.createHsbaMotherAssociatedEntity().init();
+        mParticipant.setAssociatedEntity(mAssociateEntity);
+        org.openhealthtools.mdht.uml.cda.Person mAssignedPerson = CDAFactory.eINSTANCE.createPerson();
+        mAssociateEntity.setAssociatedPerson(mAssignedPerson);
+        PN mumPN = DatatypesFactory.eINSTANCE.createPN();
+        mAssignedPerson.getNames().add(mumPN);                  
+        
+        String mum = emrBenhNhan.hotenme; 
+        if(!StringUtils.isEmpty(mum)){
+            mumPN.addText(mum);
+        }
+        
+        Organization orgMum = CDAFactory.eINSTANCE.createOrganization();
+        //Trình độ văn hóa
+        String trinhdoVhme = emrBenhNhan.trinhDoVanHoaCuaMe;
+        if(!StringUtils.isEmpty(trinhdoVhme)){                
+            ON onTrinhdovhme = DatatypesFactory.eINSTANCE.createON();           
+            onTrinhdovhme.addText(trinhdoVhme);
+            orgMum.getNames().add(onTrinhdovhme);
+        }
+        
+        //Ngày sinh
+        OrganizationPartOf opoMum = CDAFactory.eINSTANCE.createOrganizationPartOf();
+        Date ngaysinhme = emrBenhNhan.ngaySinhCuaMe;
+        if(ngaysinhme != null){
+            String mumBirthTime = convertDateToString(ngaysinhme);
+            if(!StringUtils.isEmpty(mumBirthTime)){
+                IVL_TS ngaysinhmeIvlTs = DatatypesFactory.eINSTANCE.createIVL_TS(mumBirthTime);
+                opoMum.setEffectiveTime(ngaysinhmeIvlTs);
+                //Tính tuổi mẹ
+                Integer tuoime = JasperUtils.getTuoi(emrDanhSachHoSoBenhAn, ngaysinhme);
+                if(tuoime != null && tuoime > 0){
+                    ngaysinhmeIvlTs.setCenter(DatatypesFactory.eINSTANCE.createTS(String.valueOf(tuoime)));
+                }
+            }               
+        }
+        
+        //Nghề nghiệp
+        CE mumCode = DatatypesFactory.eINSTANCE.createCE();
+        var dmNgheMe = emrBenhNhan.emrDmNgheNghiepMe;
+        if(dmNgheMe != null){
+            String nghemeCodeCda = dmNgheMe.maicd;
+            String nghemeTen = dmNgheMe.ten;
+            if(!StringUtils.isEmpty(nghemeCodeCda)){
+                mumCode.setCode(nghemeCodeCda);
+                if(!StringUtils.isEmpty(nghemeTen)){
+                    mumCode.setDisplayName(nghemeTen);
                 }
             }
-            opoMum.setCode(mumCode);            
-            orgMum.setAsOrganizationPartOf(opoMum);
-            mAssociateEntity.setScopingOrganization(orgMum);
-            
-            //Đẻ lần mấy
-            /*ED delanmay = DatatypesFactory.eINSTANCE.createED("1");
-            mumCode.setOriginalText(delanmay);*/
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }       
+        }
+        opoMum.setCode(mumCode);            
+        orgMum.setAsOrganizationPartOf(opoMum);
+        mAssociateEntity.setScopingOrganization(orgMum);
+        
+        //Đẻ lần mấy
+        /*ED delanmay = DatatypesFactory.eINSTANCE.createED("1");
+        mumCode.setOriginalText(delanmay);*/       
     }
     
     public static void addEmployer(HsbaDocument doc, EmrBenhNhan emrBenhNhan){
-        try {
-            var eParticipant = CDAFactory.eINSTANCE.createParticipant1();
-            eParticipant.setTypeCode(ParticipationType.IND);
-            doc.getParticipants().add(eParticipant);
-            
-            var eAssociateEntity = HSBAFactory.eINSTANCE.createHsbaEmployerAssociatedEntity().init();
-            eParticipant.setAssociatedEntity(eAssociateEntity);
-            org.openhealthtools.mdht.uml.cda.Person eAssignedPerson = CDAFactory.eINSTANCE.createPerson();
-            eAssociateEntity.setAssociatedPerson(eAssignedPerson);
-            PN employerPN = DatatypesFactory.eINSTANCE.createPN();
-            eAssignedPerson.getNames().add(employerPN);
-            
-            String employer = emrBenhNhan.noilamviec; 
-            if(!StringUtils.isEmpty(employer)){
-                employerPN.addText(employer);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }   
+        var eParticipant = CDAFactory.eINSTANCE.createParticipant1();
+        eParticipant.setTypeCode(ParticipationType.IND);
+        doc.getParticipants().add(eParticipant);
+        
+        var eAssociateEntity = HSBAFactory.eINSTANCE.createHsbaEmployerAssociatedEntity().init();
+        eParticipant.setAssociatedEntity(eAssociateEntity);
+        org.openhealthtools.mdht.uml.cda.Person eAssignedPerson = CDAFactory.eINSTANCE.createPerson();
+        eAssociateEntity.setAssociatedPerson(eAssignedPerson);
+        PN employerPN = DatatypesFactory.eINSTANCE.createPN();
+        eAssignedPerson.getNames().add(employerPN);
+        
+        String employer = emrBenhNhan.noilamviec; 
+        if(!StringUtils.isEmpty(employer)){
+            employerPN.addText(employer);
+        }  
     }
     
     public static void addDvcq_Tpkhth(HsbaDocument doc, EmrCoSoKhamBenh emrCoSoKhamBenh, EmrHoSoBenhAn emrDanhSachHoSoBenhAn){
-        try {
-            var dvcqParticipant = CDAFactory.eINSTANCE.createParticipant1();           
-            dvcqParticipant.setTypeCode(ParticipationType.IND);
-            doc.getParticipants().add(dvcqParticipant);
+        var dvcqParticipant = CDAFactory.eINSTANCE.createParticipant1();           
+        dvcqParticipant.setTypeCode(ParticipationType.IND);
+        doc.getParticipants().add(dvcqParticipant);
 
-            var associatedEntity = HSBAFactory.eINSTANCE.createHsbaDvcqVaTpkhthAssociatedEntity().init();
-            dvcqParticipant.setAssociatedEntity(associatedEntity);
-            org.openhealthtools.mdht.uml.cda.Person eAssignedPerson = CDAFactory.eINSTANCE.createPerson();
-            associatedEntity.setAssociatedPerson(eAssignedPerson);
-            PN tpkhthPN = DatatypesFactory.eINSTANCE.createPN();
-            eAssignedPerson.getNames().add(tpkhthPN);
-            
-            String tpkhth = emrDanhSachHoSoBenhAn.getTruongphongth();
-            
-            if(tpkhth == null || tpkhth.isEmpty()){
-                tpkhth = emrCoSoKhamBenh.truongphongth;
-                if(tpkhth == null){
-                    tpkhth = "";
-                }
-                tpkhthPN.addText(tpkhth);
+        var associatedEntity = HSBAFactory.eINSTANCE.createHsbaDvcqVaTpkhthAssociatedEntity().init();
+        dvcqParticipant.setAssociatedEntity(associatedEntity);
+        org.openhealthtools.mdht.uml.cda.Person eAssignedPerson = CDAFactory.eINSTANCE.createPerson();
+        associatedEntity.setAssociatedPerson(eAssignedPerson);
+        PN tpkhthPN = DatatypesFactory.eINSTANCE.createPN();
+        eAssignedPerson.getNames().add(tpkhthPN);
+        
+        String tpkhth = emrDanhSachHoSoBenhAn.getTruongphongth();
+        
+        if(tpkhth == null || tpkhth.isEmpty()){
+            tpkhth = emrCoSoKhamBenh.truongphongth;
+            if(tpkhth == null){
+                tpkhth = "";
             }
-            
-            Organization org = CDAFactory.eINSTANCE.createOrganization();
-            ON dvcqON = DatatypesFactory.eINSTANCE.createON();
-            org.getNames().add(dvcqON);
-            associatedEntity.setScopingOrganization(org);
-            
-            String dvcq = emrDanhSachHoSoBenhAn.getDonvichuquan(); 
-            if(dvcq == null || dvcq.isEmpty()){ 
-                dvcq = emrCoSoKhamBenh.donvichuquan;
-                if(dvcq == null){
-                    dvcq = "";
-                }
-                dvcqON.addText(dvcq);               
-            }           
-        } catch (Exception e) {
-            e.printStackTrace();
+            tpkhthPN.addText(tpkhth);
         }
+        
+        Organization org = CDAFactory.eINSTANCE.createOrganization();
+        ON dvcqON = DatatypesFactory.eINSTANCE.createON();
+        org.getNames().add(dvcqON);
+        associatedEntity.setScopingOrganization(org);
+        
+        String dvcq = emrDanhSachHoSoBenhAn.getDonvichuquan(); 
+        if(dvcq == null || dvcq.isEmpty()){ 
+            dvcq = emrCoSoKhamBenh.donvichuquan;
+            if(dvcq == null){
+                dvcq = "";
+            }
+            dvcqON.addText(dvcq);               
+        }   
     }
     
     public static void input_OutputHospital(EncompassingEncounter ecpEncounter, EmrHoSoBenhAn hsba, Map<String, String> emrParameters, EmrCoSoKhamBenh emrCoSoKhamBenh ){
         var emrQuanLyNguoiBenh =  hsba.emrQuanLyNguoiBenh;
-        try {
-            IVL_TS effectiveTime = DatatypesFactory.eINSTANCE.createIVL_TS();
-            ecpEncounter.setEffectiveTime(effectiveTime);
-            var lowTime = DatatypesFactory.eINSTANCE.createIVXB_TS();               
-            
-            //Ngay vao vien
-            Date inputDate = emrQuanLyNguoiBenh.ngaygiovaovien;
-            if(inputDate != null){
-                lowTime.setValue(getGMTDate(inputDate));                            
+        IVL_TS effectiveTime = DatatypesFactory.eINSTANCE.createIVL_TS();
+        ecpEncounter.setEffectiveTime(effectiveTime);
+        var lowTime = DatatypesFactory.eINSTANCE.createIVXB_TS();               
+        
+        //Ngay vao vien
+        Date inputDate = emrQuanLyNguoiBenh.ngaygiovaovien;
+        if(inputDate != null){
+            lowTime.setValue(getGMTDate(inputDate));                            
+        }
+        effectiveTime.setLow(lowTime);
+        
+        //Ngày ra viện
+        var highTime = DatatypesFactory.eINSTANCE.createIVXB_TS();  
+        Date outputDate = emrQuanLyNguoiBenh.ngaygioravien;
+        if(outputDate != null){
+            highTime.setValue(getGMTDate(outputDate));
+        }
+        effectiveTime.setHigh(highTime);    
+        
+        //Loại vào viện
+        var emrDmLoaiVaoVien = emrQuanLyNguoiBenh.emrDmLoaiVaoVien;
+        if(emrDmLoaiVaoVien != null){
+            CE ecpEncounterCode = DatatypesFactory.eINSTANCE.createCE();
+            if(!StringUtils.isEmpty(emrDmLoaiVaoVien.maicd)){
+                ecpEncounterCode.setCode(emrDmLoaiVaoVien.maicd);
             }
-            effectiveTime.setLow(lowTime);
-            
-            //Ngày ra viện
-            var highTime = DatatypesFactory.eINSTANCE.createIVXB_TS();  
-            Date outputDate = emrQuanLyNguoiBenh.ngaygioravien;
-            if(outputDate != null){
-                highTime.setValue(getGMTDate(outputDate));
+            String codeSystem = emrParameters.get("emr_dm_loai_vao_vien");
+            if(!StringUtils.isEmpty(codeSystem)){
+                ecpEncounterCode.setCodeSystem(codeSystem);
             }
-            effectiveTime.setHigh(highTime);    
-            
-            //Loại vào viện
-            var emrDmLoaiVaoVien = emrQuanLyNguoiBenh.emrDmLoaiVaoVien;
-            if(emrDmLoaiVaoVien != null){
-                CE ecpEncounterCode = DatatypesFactory.eINSTANCE.createCE();
-                if(!StringUtils.isEmpty(emrDmLoaiVaoVien.maicd)){
-                    ecpEncounterCode.setCode(emrDmLoaiVaoVien.maicd);
-                }
-                String codeSystem = emrParameters.get("emr_dm_loai_vao_vien");
-                if(!StringUtils.isEmpty(codeSystem)){
-                    ecpEncounterCode.setCodeSystem(codeSystem);
-                }
-                String loaivaovienDisplayName = emrDmLoaiVaoVien.ten;
-                if(!StringUtils.isEmpty(loaivaovienDisplayName)){
-                    ecpEncounterCode.setDisplayName(loaivaovienDisplayName);
-                }
-                ecpEncounter.setCode(ecpEncounterCode);
+            String loaivaovienDisplayName = emrDmLoaiVaoVien.ten;
+            if(!StringUtils.isEmpty(loaivaovienDisplayName)){
+                ecpEncounterCode.setDisplayName(loaivaovienDisplayName);
             }
-            
-            //Cơ sở y tế
-            var responsibleParty = CDAFactory.eINSTANCE.createResponsibleParty();
-            ecpEncounter.setResponsibleParty(responsibleParty);
-            
-            var assignedEntity = CDAFactory.eINSTANCE.createAssignedEntity();
-            responsibleParty.setAssignedEntity(assignedEntity);
-            II assignedEntityId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-            assignedEntity.getIds().add(assignedEntityId);
-            
-            Organization organization = CDAFactory.eINSTANCE.createOrganization();      
-            assignedEntity.getRepresentedOrganizations().add(organization);
-            
-            ON tencosoyte = DatatypesFactory.eINSTANCE.createON();      
-            organization.getNames().add(tencosoyte);
-            String tenCoSoYte = hsba.getTenbenhvien();
-            tencosoyte.addText(tenCoSoYte);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }       
+            ecpEncounter.setCode(ecpEncounterCode);
+        }
+        
+        //Cơ sở y tế
+        var responsibleParty = CDAFactory.eINSTANCE.createResponsibleParty();
+        ecpEncounter.setResponsibleParty(responsibleParty);
+        
+        var assignedEntity = CDAFactory.eINSTANCE.createAssignedEntity();
+        responsibleParty.setAssignedEntity(assignedEntity);
+        II assignedEntityId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+        assignedEntity.getIds().add(assignedEntityId);
+        
+        Organization organization = CDAFactory.eINSTANCE.createOrganization();      
+        assignedEntity.getRepresentedOrganizations().add(organization);
+        
+        ON tencosoyte = DatatypesFactory.eINSTANCE.createON();      
+        organization.getNames().add(tencosoyte);
+        String tenCoSoYte = hsba.getTenbenhvien();
+        tencosoyte.addText(tenCoSoYte);      
     }
     
     public static void addPersonCreateDocument(HsbaDocument doc,  EmrBenhAn emrBenhAn){
-        try {
-            var author = CDAFactory.eINSTANCE.createAuthor();
-            doc.getAuthors().add(author);
-            TS authorTime = DatatypesFactory.eINSTANCE.createTS();
-            author.setTime(authorTime);
-            TS createTime = DatatypesFactory.eINSTANCE.createTS();
-            doc.setEffectiveTime(createTime);
-                    
-            //set document create time      
-            Date aprroveDate = emrBenhAn.ngaykybenhan;     
-            if(aprroveDate != null){        
-                String ngayKyBenhAn = getGMTDate(aprroveDate);
-                if(ngayKyBenhAn != null){
-                    authorTime.setValue(ngayKyBenhAn);                                                  
-                }                       
-            }       
-            Date createDate = new Date();
-            String ngayTao = getGMTDate(createDate);
-            if(!StringUtils.isEmpty(ngayTao)){
-                createTime.setValue(ngayTao);
-            }       
-            
-            //set assignedAuthor
-            var assignAuthor = CDAFactory.eINSTANCE.createAssignedAuthor();
-            author.setAssignedAuthor(assignAuthor);     
-            II assignAuthorId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-            assignAuthor.getIds().add(assignAuthorId);
+        var author = CDAFactory.eINSTANCE.createAuthor();
+        doc.getAuthors().add(author);
+        TS authorTime = DatatypesFactory.eINSTANCE.createTS();
+        author.setTime(authorTime);
+        TS createTime = DatatypesFactory.eINSTANCE.createTS();
+        doc.setEffectiveTime(createTime);
+                
+        //set document create time      
+        Date aprroveDate = emrBenhAn.ngaykybenhan;     
+        if(aprroveDate != null){        
+            String ngayKyBenhAn = getGMTDate(aprroveDate);
+            if(ngayKyBenhAn != null){
+                authorTime.setValue(ngayKyBenhAn);                                                  
+            }                       
+        }       
+        Date createDate = new Date();
+        String ngayTao = getGMTDate(createDate);
+        if(!StringUtils.isEmpty(ngayTao)){
+            createTime.setValue(ngayTao);
+        }       
         
-            org.openhealthtools.mdht.uml.cda.Person authAssignPerson = CDAFactory.eINSTANCE.createPerson();     
-            assignAuthor.setAssignedPerson(authAssignPerson);
-            
-            PN authAssignPersonName = DatatypesFactory.eINSTANCE.createPN();
-            authAssignPerson.getNames().add(authAssignPersonName);
-            
-            String bacsylambenhan = emrBenhAn.bacsylambenhan;
-            if(!StringUtils.isEmpty(bacsylambenhan)){
-                authAssignPersonName.addText(bacsylambenhan);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        //set assignedAuthor
+        var assignAuthor = CDAFactory.eINSTANCE.createAssignedAuthor();
+        author.setAssignedAuthor(assignAuthor);     
+        II assignAuthorId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+        assignAuthor.getIds().add(assignAuthorId);
+    
+        org.openhealthtools.mdht.uml.cda.Person authAssignPerson = CDAFactory.eINSTANCE.createPerson();     
+        assignAuthor.setAssignedPerson(authAssignPerson);
+        
+        PN authAssignPersonName = DatatypesFactory.eINSTANCE.createPN();
+        authAssignPerson.getNames().add(authAssignPersonName);
+        
+        String bacsylambenhan = emrBenhAn.bacsylambenhan;
+        if(!StringUtils.isEmpty(bacsylambenhan)){
+            authAssignPersonName.addText(bacsylambenhan);
         }       
     }
     
     public static void addDean(HsbaDocument doc, EmrVaoKhoa emrVaoKhoa,  Properties properties){
-        try {
-            var authenticator = CDAFactory.eINSTANCE.createAuthenticator();       
-            doc.getAuthenticators().add(authenticator);
-            CS authenticatorSignatureCode = DatatypesFactory.eINSTANCE.createCS();
-            authenticator.setSignatureCode(authenticatorSignatureCode);
-            TS authenticatorTime = DatatypesFactory.eINSTANCE.createTS();
+        var authenticator = CDAFactory.eINSTANCE.createAuthenticator();       
+        doc.getAuthenticators().add(authenticator);
+        CS authenticatorSignatureCode = DatatypesFactory.eINSTANCE.createCS();
+        authenticator.setSignatureCode(authenticatorSignatureCode);
+        TS authenticatorTime = DatatypesFactory.eINSTANCE.createTS();
+        authenticator.setTime(authenticatorTime);
+        //add authenticator time
+        if(emrVaoKhoa.ngaygiovaokhoa != null){
+            authenticatorTime.setValue(getGMTDate(emrVaoKhoa.ngaygiovaokhoa));
             authenticator.setTime(authenticatorTime);
-            //add authenticator time
-            if(emrVaoKhoa.ngaygiovaokhoa != null){
-                authenticatorTime.setValue(getGMTDate(emrVaoKhoa.ngaygiovaokhoa));
-                authenticator.setTime(authenticatorTime);
-            }
-            
-            //add assigned entity for authenticator 
-            var authenAssignedEntity = CDAFactory.eINSTANCE.createAssignedEntity();
-            authenticator.setAssignedEntity(authenAssignedEntity);
-            II authenAssignedEntityId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-            authenAssignedEntity.getIds().add(authenAssignedEntityId);
-                    
-            //add authenAssignedPerson
-            org.openhealthtools.mdht.uml.cda.Person authenAssignedPerson = CDAFactory.eINSTANCE.createPerson();
-            authenAssignedEntity.setAssignedPerson(authenAssignedPerson);
-            
-            PN authenAssignedPersonName = DatatypesFactory.eINSTANCE.createPN();
-            authenAssignedPerson.getNames().add(authenAssignedPersonName);  
-            
-            String truongkhoa = emrVaoKhoa.tentruongkhoa;
-            if(!StringUtils.isEmpty(truongkhoa)){
-                authenAssignedPersonName.addText(truongkhoa);           
-                authenticatorSignatureCode.setCode(properties.getProperty("CDA_SIGNATURE_CODE", "CDA_SIGNATURE_CODE"));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }       
+        }
+        
+        //add assigned entity for authenticator 
+        var authenAssignedEntity = CDAFactory.eINSTANCE.createAssignedEntity();
+        authenticator.setAssignedEntity(authenAssignedEntity);
+        II authenAssignedEntityId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+        authenAssignedEntity.getIds().add(authenAssignedEntityId);
+                
+        //add authenAssignedPerson
+        org.openhealthtools.mdht.uml.cda.Person authenAssignedPerson = CDAFactory.eINSTANCE.createPerson();
+        authenAssignedEntity.setAssignedPerson(authenAssignedPerson);
+        
+        PN authenAssignedPersonName = DatatypesFactory.eINSTANCE.createPN();
+        authenAssignedPerson.getNames().add(authenAssignedPersonName);  
+        
+        String truongkhoa = emrVaoKhoa.tentruongkhoa;
+        if(!StringUtils.isEmpty(truongkhoa)){
+            authenAssignedPersonName.addText(truongkhoa);           
+            authenticatorSignatureCode.setCode(properties.getProperty("CDA_SIGNATURE_CODE", "CDA_SIGNATURE_CODE"));
+        }      
     }
     
     public static void addHospitalDirector(HsbaDocument doc, EmrCoSoKhamBenh emrCoSoKhamBenh, EmrHoSoBenhAn emrDanhSachHoSoBenhAn,  Properties properties){
-        try {
-            var legalAuthenticator = CDAFactory.eINSTANCE.createLegalAuthenticator();
-            doc.setLegalAuthenticator(legalAuthenticator);
-            CS legalSignatureCode = DatatypesFactory.eINSTANCE.createCS();
-            legalAuthenticator.setSignatureCode(legalSignatureCode);
-            TS legalAuthenticatorTime = DatatypesFactory.eINSTANCE.createTS();
-            legalAuthenticator.setTime(legalAuthenticatorTime);
-            
-            //add assigned entity for legalAuthenticator 
-            var legalAssignedEntity = CDAFactory.eINSTANCE.createAssignedEntity();
-            legalAuthenticator.setAssignedEntity(legalAssignedEntity);
-            II legalAssignedEntityId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-            legalAssignedEntity.getIds().add(legalAssignedEntityId);
-                    
-            
-            //add legalAssignedPerson
-            org.openhealthtools.mdht.uml.cda.Person legalAssignedPerson = CDAFactory.eINSTANCE.createPerson();
-            legalAssignedEntity.setAssignedPerson(legalAssignedPerson);
-            
-            PN legalAssignedPersonName = DatatypesFactory.eINSTANCE.createPN();     
-            legalAssignedPerson.getNames().add(legalAssignedPersonName);    
+        var legalAuthenticator = CDAFactory.eINSTANCE.createLegalAuthenticator();
+        doc.setLegalAuthenticator(legalAuthenticator);
+        CS legalSignatureCode = DatatypesFactory.eINSTANCE.createCS();
+        legalAuthenticator.setSignatureCode(legalSignatureCode);
+        TS legalAuthenticatorTime = DatatypesFactory.eINSTANCE.createTS();
+        legalAuthenticator.setTime(legalAuthenticatorTime);
+        
+        //add assigned entity for legalAuthenticator 
+        var legalAssignedEntity = CDAFactory.eINSTANCE.createAssignedEntity();
+        legalAuthenticator.setAssignedEntity(legalAssignedEntity);
+        II legalAssignedEntityId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+        legalAssignedEntity.getIds().add(legalAssignedEntityId);
+                
+        
+        //add legalAssignedPerson
+        org.openhealthtools.mdht.uml.cda.Person legalAssignedPerson = CDAFactory.eINSTANCE.createPerson();
+        legalAssignedEntity.setAssignedPerson(legalAssignedPerson);
+        
+        PN legalAssignedPersonName = DatatypesFactory.eINSTANCE.createPN();     
+        legalAssignedPerson.getNames().add(legalAssignedPersonName);    
 
-            String directorName = emrDanhSachHoSoBenhAn.getGiamdocbenhvien();
-            if(directorName == null || directorName.isEmpty()){             
-                directorName = emrCoSoKhamBenh.giamdoc;    
-                if(directorName == null){
-                    directorName = "";
-                }
-                legalAssignedPersonName.addText(directorName);
-                legalSignatureCode.setCode(properties.getProperty("CDA_SIGNATURE_CODE", "CDA_SIGNATURE_CODE"));     
+        String directorName = emrDanhSachHoSoBenhAn.getGiamdocbenhvien();
+        if(directorName == null || directorName.isEmpty()){             
+            directorName = emrCoSoKhamBenh.giamdoc;    
+            if(directorName == null){
+                directorName = "";
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            legalAssignedPersonName.addText(directorName);
+            legalSignatureCode.setCode(properties.getProperty("CDA_SIGNATURE_CODE", "CDA_SIGNATURE_CODE"));     
         }       
     }
     
     public static void addPatientManagement(HsbaDocument doc, EmrHoSoBenhAn emrDanhSachHoSoBenhAn, Properties properties, Map<String, String> emrParameters){      
-        try {
-            var emrQuanLyNguoiBenh = emrDanhSachHoSoBenhAn.getEmrQuanLyNguoiBenh();
-            
-            var historyOfEncountersSection = HSBAFactory.eINSTANCE.createHsbaHistoryOfEncountersSection().init();
-            doc.addSection(historyOfEncountersSection);
-            String quanLyNguoiBenhTitle = properties.getProperty("QUANLYNGUOIBENH_TITLE", "QUANLYNGUOIBENH_TITLE");
-            addSectionTitle(historyOfEncountersSection, quanLyNguoiBenhTitle);
-                
-            StringBuilder historyEncounterText = new StringBuilder();
-            
-            //Thông tin vào ra viện
-            var inOutHospitalEncounter = HSBAFactory.eINSTANCE.createHsbaInOutHospitalEncounter().init();
-            historyOfEncountersSection.addEncounter(inOutHospitalEncounter);    
-            
-            //I.HÀNH CHÍNH - Ngoại kiều 
-            addNgoaiKieu(inOutHospitalEncounter, emrDanhSachHoSoBenhAn);    
+        var emrQuanLyNguoiBenh = emrDanhSachHoSoBenhAn.getEmrQuanLyNguoiBenh();
         
-            if(emrQuanLyNguoiBenh != null){
-                //II.QUẢN LÝ NGƯỜI BỆNH - 12,18. Ngày vào ra viện
-                addPatientInputOutputDate(inOutHospitalEncounter, emrDanhSachHoSoBenhAn, emrParameters, historyEncounterText, properties);
-                
-                //II.QUẢN LÝ NGƯỜI BỆNH - 13. Trực tiếp vào
-                addDirectlyInTo(inOutHospitalEncounter, emrQuanLyNguoiBenh, emrParameters, properties, historyEncounterText);
-                
-                //II.QUẢN LÝ NGƯỜI BỆNH - 14. Nơi giới thiệu
-                addReferredBy(inOutHospitalEncounter, emrQuanLyNguoiBenh, emrParameters, properties, historyEncounterText);
-                
-                //II.QUẢN LÝ NGƯỜI BỆNH - Vào viện do bệnh này lần thứ
-                addVaoVienLanThu(inOutHospitalEncounter, emrQuanLyNguoiBenh);
-                
-                //II.QUẢN LÝ NGƯỜI BỆNH - 17. Nơi chuyển viện
-                addReferredTo(inOutHospitalEncounter, emrQuanLyNguoiBenh, emrParameters, properties, historyEncounterText);
+        var historyOfEncountersSection = HSBAFactory.eINSTANCE.createHsbaHistoryOfEncountersSection().init();
+        doc.addSection(historyOfEncountersSection);
+        String quanLyNguoiBenhTitle = properties.getProperty("QUANLYNGUOIBENH_TITLE", "QUANLYNGUOIBENH_TITLE");
+        addSectionTitle(historyOfEncountersSection, quanLyNguoiBenhTitle);
+            
+        StringBuilder historyEncounterText = new StringBuilder();
         
-            }
-            //II.QUẢN LÝ NGƯỜI BỆNH - 15,16. Vào khoa/chuyển khoa
-            var lstVaoKhoa = emrDanhSachHoSoBenhAn.emrVaoKhoas;
-            if(lstVaoKhoa != null && lstVaoKhoa.size() > 0){
-                historyEncounterText.append(properties.getProperty("VAOKHOA_CHUYENKHOA_TITLE", "VAOKHOA_CHUYENKHOA_TITLE"));
-                for (EmrVaoKhoa item : lstVaoKhoa) {
-                    addInput_SwitchDepartment(historyOfEncountersSection, item, historyEncounterText, emrQuanLyNguoiBenh, properties);
-                }
-            }
+        //Thông tin vào ra viện
+        var inOutHospitalEncounter = HSBAFactory.eINSTANCE.createHsbaInOutHospitalEncounter().init();
+        historyOfEncountersSection.addEncounter(inOutHospitalEncounter);    
+        
+        //I.HÀNH CHÍNH - Ngoại kiều 
+        addNgoaiKieu(inOutHospitalEncounter, emrDanhSachHoSoBenhAn);    
+    
+        if(emrQuanLyNguoiBenh != null){
+            //II.QUẢN LÝ NGƯỜI BỆNH - 12,18. Ngày vào ra viện
+            addPatientInputOutputDate(inOutHospitalEncounter, emrDanhSachHoSoBenhAn, emrParameters, historyEncounterText, properties);
             
-            if(historyEncounterText.length() > 0){
-                historyEncounterText.setLength(historyEncounterText.length() - 1);
-            }
+            //II.QUẢN LÝ NGƯỜI BỆNH - 13. Trực tiếp vào
+            addDirectlyInTo(inOutHospitalEncounter, emrQuanLyNguoiBenh, emrParameters, properties, historyEncounterText);
             
-            setSectionData(historyOfEncountersSection, historyEncounterText.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }               
+            //II.QUẢN LÝ NGƯỜI BỆNH - 14. Nơi giới thiệu
+            addReferredBy(inOutHospitalEncounter, emrQuanLyNguoiBenh, emrParameters, properties, historyEncounterText);
+            
+            //II.QUẢN LÝ NGƯỜI BỆNH - Vào viện do bệnh này lần thứ
+            addVaoVienLanThu(inOutHospitalEncounter, emrQuanLyNguoiBenh);
+            
+            //II.QUẢN LÝ NGƯỜI BỆNH - 17. Nơi chuyển viện
+            addReferredTo(inOutHospitalEncounter, emrQuanLyNguoiBenh, emrParameters, properties, historyEncounterText);
+    
+        }
+        //II.QUẢN LÝ NGƯỜI BỆNH - 15,16. Vào khoa/chuyển khoa
+        var lstVaoKhoa = emrDanhSachHoSoBenhAn.emrVaoKhoas;
+        if(lstVaoKhoa != null && lstVaoKhoa.size() > 0){
+            historyEncounterText.append(properties.getProperty("VAOKHOA_CHUYENKHOA_TITLE", "VAOKHOA_CHUYENKHOA_TITLE"));
+            for (EmrVaoKhoa item : lstVaoKhoa) {
+                addInput_SwitchDepartment(historyOfEncountersSection, item, historyEncounterText, emrQuanLyNguoiBenh, properties);
+            }
+        }
+        
+        if(historyEncounterText.length() > 0){
+            historyEncounterText.setLength(historyEncounterText.length() - 1);
+        }
+        
+        setSectionData(historyOfEncountersSection, historyEncounterText.toString());               
     }
     
     public static void setSectionData(Section section, String sectionText){ 
-        try {
-            var haDiagnosisText = CDAFactory.eINSTANCE.createStrucDocText();
-            StringBuilder builder = new StringBuilder();
+        var haDiagnosisText = CDAFactory.eINSTANCE.createStrucDocText();
+        StringBuilder builder = new StringBuilder();
 
-            section.setText(haDiagnosisText);
-            if(!StringUtils.isEmpty(sectionText)){
-                builder.append(sectionText);    
-            }else{  
-                builder.append("");
-            }
-            haDiagnosisText.addText(builder.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }       
+        section.setText(haDiagnosisText);
+        if(!StringUtils.isEmpty(sectionText)){
+            builder.append(sectionText);    
+        }else{  
+            builder.append("");
+        }
+        haDiagnosisText.addText(builder.toString());      
     }
     
     private static void addReferredTo(HsbaInOutHospitalEncounter inOutHospitalEncounter,
@@ -3160,170 +3042,166 @@ public class CDAExportUtil {
     }
     
     public static void addDischargeSummary(HsbaDocument doc, EmrHoSoBenhAn emrDanhSachHoSoBenhAn, Properties properties, Map<String, String> emrParameters){       
-        try {
-            var emrTinhTrangRaVien = emrDanhSachHoSoBenhAn.getEmrTinhTrangRaVien();
-            
-            var dischargeSummarySection = HSBAFactory.eINSTANCE.createHsbaDischargeSummarySection().init();
-            doc.addSection(dischargeSummarySection);
-            String tinhTrangRaVienTitle = properties.getProperty("TINHTRANGRAVIEN_TITLE", "TINHTRANGRAVIEN_TITLE");
-            addSectionTitle(dischargeSummarySection, tinhTrangRaVienTitle);
-            
-            StringBuilder dischargeSummaryText = new StringBuilder();
-            String splitDelimiter = properties.getProperty("SPLIT_YHCT_CHANDOAN_SYMBOL", "SPLIT_YHCT_CHANDOAN_SYMBOL");
-            String contentDelimiter = properties.getProperty("SECTION_CONTENT_DELIMITER", "SECTION_CONTENT_DELIMITER");     
+        var emrTinhTrangRaVien = emrDanhSachHoSoBenhAn.getEmrTinhTrangRaVien();
         
-            if(emrTinhTrangRaVien != null){ 
-                //Kết quả điều trị
-                var healthStatusObs = HSBAFactory.eINSTANCE.createHsbaHealthStatusObservation().init();
-                dischargeSummarySection.addObservation(healthStatusObs);        
-                II healthStatusId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-                healthStatusObs.getIds().add(healthStatusId);       
-                var emrDmKetQuaDieuTri = emrTinhTrangRaVien.emrDmKetQuaDieuTri;
-                if(emrDmKetQuaDieuTri != null){
-                    String healthStatusCthStatusCode = emrDmKetQuaDieuTri.maicd;
-                    String healthStatusCodeSystem = emrParameters.get("emr_dm_ket_qua_dieu_tri");
-                    String healthStatusDisplayName = emrDmKetQuaDieuTri.ten;
-                    dischargeSummaryText.append(properties.getProperty("TTRV_KETQUADIEUTRI_TITLE", "TTRV_KETQUADIEUTRI_TITLE")).append(contentDelimiter).append(healthStatusDisplayName).append(splitDelimiter);
-                    addCdObservationValueTag(healthStatusObs, healthStatusCthStatusCode, healthStatusCodeSystem, healthStatusDisplayName);
-                }
-                
-                //Giải phẫu bệnh
-                var pathologyDiagnosisObs = HSBAFactory.eINSTANCE.createHsbaPathologyDiagnosisObservation().init();
-                dischargeSummarySection.addObservation(pathologyDiagnosisObs);      
-                II pathologyDiagnosisId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-                pathologyDiagnosisObs.getIds().add(pathologyDiagnosisId);           
-                
-                var emrDmKetQuaGiaiPhauBenh = emrTinhTrangRaVien.emrDmKetQuaGiaiPhauBenh;          
-                if(emrDmKetQuaGiaiPhauBenh != null){
-                    String pathologyCode = emrDmKetQuaGiaiPhauBenh.maicd;
-                    String pathologyCodeSystem = emrParameters.get("emr_dm_giai_phau_benh");        
-                    String pathologyDisplayName = emrDmKetQuaGiaiPhauBenh.ten;
-                    dischargeSummaryText.append(properties.getProperty("TTRV_GIAIPHAUBENH_TITLE", "TTRV_GIAIPHAUBENH_TITLE")).append(contentDelimiter).append(pathologyDisplayName).append(splitDelimiter);
-                    addCdObservationValueTag(pathologyDiagnosisObs, pathologyCode, pathologyCodeSystem, pathologyDisplayName);
-                }
-                
-                //Tình hình tử vong
-                var deadObs = HSBAFactory.eINSTANCE.createHsbaDeadObservation().init();
-                dischargeSummarySection.addObservation(deadObs);
-                II deadObsId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-                deadObs.getIds().add(deadObsId);                
-                IVL_TS effectiveTime = DatatypesFactory.eINSTANCE.createIVL_TS();
-                deadObs.setEffectiveTime(effectiveTime);
-                var lowTime = DatatypesFactory.eINSTANCE.createIVXB_TS();
-                Date deadTime = emrTinhTrangRaVien.ngaygiotuvong;
-                
-                if(deadTime != null){
-                    lowTime.setValue(getGMTDate(deadTime).toString());
-                    //--Loại thời điểm tử vong
-                    Integer thoidiemTuvong = JasperUtils.getLoaiThoiGianTuVong(emrDanhSachHoSoBenhAn);
-                    if(thoidiemTuvong != null){
-                        deadObs.setText(DatatypesFactory.eINSTANCE.createED(String.valueOf(thoidiemTuvong)));
-                    }
-                }
-                effectiveTime.setLow(lowTime);
-                
-                //Lý do tử vong
-                var emrDmLyDoTuVong = emrTinhTrangRaVien.emrDmLyDoTuVong;
-                if(emrDmLyDoTuVong != null){
-                    var causeOfDeathER = CDAFactory.eINSTANCE.createEntryRelationship();
-                    causeOfDeathER.setTypeCode(x_ActRelationshipEntryRelationship.CAUS);
-                    deadObs.getEntryRelationships().add(causeOfDeathER);                
-                    var causeOfDeathAct = HSBAFactory.eINSTANCE.createHsbaCauseOfDeathAct().init();
-                    II causeOfDeathActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-                    causeOfDeathAct.getIds().add(causeOfDeathActId);
-                    causeOfDeathER.setAct(causeOfDeathAct);
-                    CD causeOfDeathCode = DatatypesFactory.eINSTANCE.createCD();                    
-                    
-                    String code = emrDmLyDoTuVong.maicd; 
-                    if(!StringUtils.isEmpty(code)){
-                        causeOfDeathCode.setCode(code);                 
-                    }
-                    String codeSystem = emrParameters.get("emr_dm_ly_do_tu_vong");
-                    causeOfDeathCode.setCodeSystem(codeSystem);
-            
-                    String displayName = emrDmLyDoTuVong.ten;
-                    if(!StringUtils.isEmpty(displayName)){
-                        causeOfDeathCode.setDisplayName(displayName);
-                    }
-                    causeOfDeathAct.setCode(causeOfDeathCode);
-                }                                   
-                        
-                //Chẩn đoán nguyên nhân tử vong 
-                var diagnosisCauseOfDeathER = CDAFactory.eINSTANCE.createEntryRelationship();
-                diagnosisCauseOfDeathER.setTypeCode(x_ActRelationshipEntryRelationship.COMP);
-                deadObs.getEntryRelationships().add(diagnosisCauseOfDeathER);           
-                
-                var diagnosisCauseOfDeathObs = HSBAFactory.eINSTANCE.createHsbaPrimaryDiagnosisObservation().init();
-                diagnosisCauseOfDeathER.setObservation(diagnosisCauseOfDeathObs);
-                
-                II diagnosisCauseOfDeathId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-                diagnosisCauseOfDeathObs.getIds().add(diagnosisCauseOfDeathId); 
-                //-- mô tả nguyên nhân tử vong
-                String nguyennhan = emrTinhTrangRaVien.motanguyennhantuvong;
-                if(!StringUtils.isEmpty(nguyennhan)){
-                    ED deathDiagnosis = DatatypesFactory.eINSTANCE.createED(nguyennhan);
-                    diagnosisCauseOfDeathObs.setText(deathDiagnosis);
-                }
-                var emrNguyenNhanTuVong = emrTinhTrangRaVien.emrDmNguyennhantuvong;
-                if(emrNguyenNhanTuVong != null){
-                    String code = emrNguyenNhanTuVong.maicd;
-                    String codeSystem = emrParameters.get("emr_dm_ma_benh");            
-                    String displayName = emrNguyenNhanTuVong.ten;
-                    dischargeSummaryText.append(properties.getProperty("TTRV_GIAIPHAUTUTHI_TITLE", "TTRV_GIAIPHAUTUTHI_TITLE")).append(contentDelimiter).append(displayName).append(splitDelimiter);
-                    addCdObservationValueTag(diagnosisCauseOfDeathObs, code, codeSystem, displayName);
-                }               
-                    
-                var autopsyExaminationER = CDAFactory.eINSTANCE.createEntryRelationship();
-                autopsyExaminationER.setTypeCode(x_ActRelationshipEntryRelationship.COMP);
-                deadObs.getEntryRelationships().add(autopsyExaminationER);
-                
-                //Khám nghiệm giải phẫu tử thi              
-                Boolean isAutospy = emrTinhTrangRaVien.khamnghiemtuthi;        
-                var autospyExaminationProc = HSBAFactory.eINSTANCE.createHsbaAutopsyExaminationProcedure().init();
-                autopsyExaminationER.setProcedure(autospyExaminationProc);
-                II autospyExaminationProcId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-                autospyExaminationProc.getIds().add(autospyExaminationProcId);
-                if(isAutospy != null && isAutospy){
-                    autospyExaminationProc.setText(DatatypesFactory.eINSTANCE.createED("true"));                    
-                }else{
-                    autospyExaminationProc.setText(DatatypesFactory.eINSTANCE.createED("false"));
-                }
-                
-                //Chẩn đoán giải phẫu tử thi
-                var autopsyDiagnosisER = CDAFactory.eINSTANCE.createEntryRelationship();
-                autopsyDiagnosisER.setTypeCode(x_ActRelationshipEntryRelationship.COMP);
-                autospyExaminationProc.getEntryRelationships().add(autopsyDiagnosisER);
-                
-                var autopsyDiagnosisCauseOfDeathObs = HSBAFactory.eINSTANCE.createHsbaPrimaryDiagnosisObservation().init();
-                autopsyDiagnosisER.setObservation(autopsyDiagnosisCauseOfDeathObs);
-                
-                II autopsyDiagnosisCauseOfDeathId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-                autopsyDiagnosisCauseOfDeathObs.getIds().add(autopsyDiagnosisCauseOfDeathId);       
-                String autospyCause = emrTinhTrangRaVien.motagiaiphaututhi;
-                //-- mô tả chẩn đoán giải phẫu tử thi
-                if(!StringUtils.isEmpty(autospyCause)){
-                    ED autospyCauseDiagnosisText = DatatypesFactory.eINSTANCE.createED(autospyCause);
-                    autopsyDiagnosisCauseOfDeathObs.setText(autospyCauseDiagnosisText);
-                }           
-                var emrGiaiPhauTuThi = emrTinhTrangRaVien.emrDmGiaiphaututhi;
-                if(emrGiaiPhauTuThi != null){
-                    String code = emrGiaiPhauTuThi.maicd;
-                    String codeSystem = emrParameters.get("emr_dm_ma_benh");            
-                    String displayName = emrGiaiPhauTuThi.ten;
-                    dischargeSummaryText.append(properties.getProperty("TTRV_GIAIPHAUTUTHI_TITLE", "TTRV_GIAIPHAUTUTHI_TITLE")).append(contentDelimiter).append(displayName).append(splitDelimiter);
-                    addCdObservationValueTag(autopsyDiagnosisCauseOfDeathObs, code, codeSystem, displayName);
-                }       
-                
+        var dischargeSummarySection = HSBAFactory.eINSTANCE.createHsbaDischargeSummarySection().init();
+        doc.addSection(dischargeSummarySection);
+        String tinhTrangRaVienTitle = properties.getProperty("TINHTRANGRAVIEN_TITLE", "TINHTRANGRAVIEN_TITLE");
+        addSectionTitle(dischargeSummarySection, tinhTrangRaVienTitle);
+        
+        StringBuilder dischargeSummaryText = new StringBuilder();
+        String splitDelimiter = properties.getProperty("SPLIT_YHCT_CHANDOAN_SYMBOL", "SPLIT_YHCT_CHANDOAN_SYMBOL");
+        String contentDelimiter = properties.getProperty("SECTION_CONTENT_DELIMITER", "SECTION_CONTENT_DELIMITER");     
+    
+        if(emrTinhTrangRaVien != null){ 
+            //Kết quả điều trị
+            var healthStatusObs = HSBAFactory.eINSTANCE.createHsbaHealthStatusObservation().init();
+            dischargeSummarySection.addObservation(healthStatusObs);        
+            II healthStatusId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+            healthStatusObs.getIds().add(healthStatusId);       
+            var emrDmKetQuaDieuTri = emrTinhTrangRaVien.emrDmKetQuaDieuTri;
+            if(emrDmKetQuaDieuTri != null){
+                String healthStatusCthStatusCode = emrDmKetQuaDieuTri.maicd;
+                String healthStatusCodeSystem = emrParameters.get("emr_dm_ket_qua_dieu_tri");
+                String healthStatusDisplayName = emrDmKetQuaDieuTri.ten;
+                dischargeSummaryText.append(properties.getProperty("TTRV_KETQUADIEUTRI_TITLE", "TTRV_KETQUADIEUTRI_TITLE")).append(contentDelimiter).append(healthStatusDisplayName).append(splitDelimiter);
+                addCdObservationValueTag(healthStatusObs, healthStatusCthStatusCode, healthStatusCodeSystem, healthStatusDisplayName);
             }
             
-            if(dischargeSummaryText.length() > 0){
-                dischargeSummaryText.setLength(dischargeSummaryText.length() - 1);
+            //Giải phẫu bệnh
+            var pathologyDiagnosisObs = HSBAFactory.eINSTANCE.createHsbaPathologyDiagnosisObservation().init();
+            dischargeSummarySection.addObservation(pathologyDiagnosisObs);      
+            II pathologyDiagnosisId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+            pathologyDiagnosisObs.getIds().add(pathologyDiagnosisId);           
+            
+            var emrDmKetQuaGiaiPhauBenh = emrTinhTrangRaVien.emrDmKetQuaGiaiPhauBenh;          
+            if(emrDmKetQuaGiaiPhauBenh != null){
+                String pathologyCode = emrDmKetQuaGiaiPhauBenh.maicd;
+                String pathologyCodeSystem = emrParameters.get("emr_dm_giai_phau_benh");        
+                String pathologyDisplayName = emrDmKetQuaGiaiPhauBenh.ten;
+                dischargeSummaryText.append(properties.getProperty("TTRV_GIAIPHAUBENH_TITLE", "TTRV_GIAIPHAUBENH_TITLE")).append(contentDelimiter).append(pathologyDisplayName).append(splitDelimiter);
+                addCdObservationValueTag(pathologyDiagnosisObs, pathologyCode, pathologyCodeSystem, pathologyDisplayName);
             }
             
-            setSectionData(dischargeSummarySection, dischargeSummaryText.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }       
+            //Tình hình tử vong
+            var deadObs = HSBAFactory.eINSTANCE.createHsbaDeadObservation().init();
+            dischargeSummarySection.addObservation(deadObs);
+            II deadObsId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+            deadObs.getIds().add(deadObsId);                
+            IVL_TS effectiveTime = DatatypesFactory.eINSTANCE.createIVL_TS();
+            deadObs.setEffectiveTime(effectiveTime);
+            var lowTime = DatatypesFactory.eINSTANCE.createIVXB_TS();
+            Date deadTime = emrTinhTrangRaVien.ngaygiotuvong;
+            
+            if(deadTime != null){
+                lowTime.setValue(getGMTDate(deadTime).toString());
+                //--Loại thời điểm tử vong
+                Integer thoidiemTuvong = JasperUtils.getLoaiThoiGianTuVong(emrDanhSachHoSoBenhAn);
+                if(thoidiemTuvong != null){
+                    deadObs.setText(DatatypesFactory.eINSTANCE.createED(String.valueOf(thoidiemTuvong)));
+                }
+            }
+            effectiveTime.setLow(lowTime);
+            
+            //Lý do tử vong
+            var emrDmLyDoTuVong = emrTinhTrangRaVien.emrDmLyDoTuVong;
+            if(emrDmLyDoTuVong != null){
+                var causeOfDeathER = CDAFactory.eINSTANCE.createEntryRelationship();
+                causeOfDeathER.setTypeCode(x_ActRelationshipEntryRelationship.CAUS);
+                deadObs.getEntryRelationships().add(causeOfDeathER);                
+                var causeOfDeathAct = HSBAFactory.eINSTANCE.createHsbaCauseOfDeathAct().init();
+                II causeOfDeathActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+                causeOfDeathAct.getIds().add(causeOfDeathActId);
+                causeOfDeathER.setAct(causeOfDeathAct);
+                CD causeOfDeathCode = DatatypesFactory.eINSTANCE.createCD();                    
+                
+                String code = emrDmLyDoTuVong.maicd; 
+                if(!StringUtils.isEmpty(code)){
+                    causeOfDeathCode.setCode(code);                 
+                }
+                String codeSystem = emrParameters.get("emr_dm_ly_do_tu_vong");
+                causeOfDeathCode.setCodeSystem(codeSystem);
+        
+                String displayName = emrDmLyDoTuVong.ten;
+                if(!StringUtils.isEmpty(displayName)){
+                    causeOfDeathCode.setDisplayName(displayName);
+                }
+                causeOfDeathAct.setCode(causeOfDeathCode);
+            }                                   
+                    
+            //Chẩn đoán nguyên nhân tử vong 
+            var diagnosisCauseOfDeathER = CDAFactory.eINSTANCE.createEntryRelationship();
+            diagnosisCauseOfDeathER.setTypeCode(x_ActRelationshipEntryRelationship.COMP);
+            deadObs.getEntryRelationships().add(diagnosisCauseOfDeathER);           
+            
+            var diagnosisCauseOfDeathObs = HSBAFactory.eINSTANCE.createHsbaPrimaryDiagnosisObservation().init();
+            diagnosisCauseOfDeathER.setObservation(diagnosisCauseOfDeathObs);
+            
+            II diagnosisCauseOfDeathId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+            diagnosisCauseOfDeathObs.getIds().add(diagnosisCauseOfDeathId); 
+            //-- mô tả nguyên nhân tử vong
+            String nguyennhan = emrTinhTrangRaVien.motanguyennhantuvong;
+            if(!StringUtils.isEmpty(nguyennhan)){
+                ED deathDiagnosis = DatatypesFactory.eINSTANCE.createED(nguyennhan);
+                diagnosisCauseOfDeathObs.setText(deathDiagnosis);
+            }
+            var emrNguyenNhanTuVong = emrTinhTrangRaVien.emrDmNguyennhantuvong;
+            if(emrNguyenNhanTuVong != null){
+                String code = emrNguyenNhanTuVong.maicd;
+                String codeSystem = emrParameters.get("emr_dm_ma_benh");            
+                String displayName = emrNguyenNhanTuVong.ten;
+                dischargeSummaryText.append(properties.getProperty("TTRV_GIAIPHAUTUTHI_TITLE", "TTRV_GIAIPHAUTUTHI_TITLE")).append(contentDelimiter).append(displayName).append(splitDelimiter);
+                addCdObservationValueTag(diagnosisCauseOfDeathObs, code, codeSystem, displayName);
+            }               
+                
+            var autopsyExaminationER = CDAFactory.eINSTANCE.createEntryRelationship();
+            autopsyExaminationER.setTypeCode(x_ActRelationshipEntryRelationship.COMP);
+            deadObs.getEntryRelationships().add(autopsyExaminationER);
+            
+            //Khám nghiệm giải phẫu tử thi              
+            Boolean isAutospy = emrTinhTrangRaVien.khamnghiemtuthi;        
+            var autospyExaminationProc = HSBAFactory.eINSTANCE.createHsbaAutopsyExaminationProcedure().init();
+            autopsyExaminationER.setProcedure(autospyExaminationProc);
+            II autospyExaminationProcId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+            autospyExaminationProc.getIds().add(autospyExaminationProcId);
+            if(isAutospy != null && isAutospy){
+                autospyExaminationProc.setText(DatatypesFactory.eINSTANCE.createED("true"));                    
+            }else{
+                autospyExaminationProc.setText(DatatypesFactory.eINSTANCE.createED("false"));
+            }
+            
+            //Chẩn đoán giải phẫu tử thi
+            var autopsyDiagnosisER = CDAFactory.eINSTANCE.createEntryRelationship();
+            autopsyDiagnosisER.setTypeCode(x_ActRelationshipEntryRelationship.COMP);
+            autospyExaminationProc.getEntryRelationships().add(autopsyDiagnosisER);
+            
+            var autopsyDiagnosisCauseOfDeathObs = HSBAFactory.eINSTANCE.createHsbaPrimaryDiagnosisObservation().init();
+            autopsyDiagnosisER.setObservation(autopsyDiagnosisCauseOfDeathObs);
+            
+            II autopsyDiagnosisCauseOfDeathId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+            autopsyDiagnosisCauseOfDeathObs.getIds().add(autopsyDiagnosisCauseOfDeathId);       
+            String autospyCause = emrTinhTrangRaVien.motagiaiphaututhi;
+            //-- mô tả chẩn đoán giải phẫu tử thi
+            if(!StringUtils.isEmpty(autospyCause)){
+                ED autospyCauseDiagnosisText = DatatypesFactory.eINSTANCE.createED(autospyCause);
+                autopsyDiagnosisCauseOfDeathObs.setText(autospyCauseDiagnosisText);
+            }           
+            var emrGiaiPhauTuThi = emrTinhTrangRaVien.emrDmGiaiphaututhi;
+            if(emrGiaiPhauTuThi != null){
+                String code = emrGiaiPhauTuThi.maicd;
+                String codeSystem = emrParameters.get("emr_dm_ma_benh");            
+                String displayName = emrGiaiPhauTuThi.ten;
+                dischargeSummaryText.append(properties.getProperty("TTRV_GIAIPHAUTUTHI_TITLE", "TTRV_GIAIPHAUTUTHI_TITLE")).append(contentDelimiter).append(displayName).append(splitDelimiter);
+                addCdObservationValueTag(autopsyDiagnosisCauseOfDeathObs, code, codeSystem, displayName);
+            }       
+            
+        }
+        
+        if(dischargeSummaryText.length() > 0){
+            dischargeSummaryText.setLength(dischargeSummaryText.length() - 1);
+        }
+        
+        setSectionData(dischargeSummarySection, dischargeSummaryText.toString());       
     }
         
     @SuppressWarnings("unchecked")

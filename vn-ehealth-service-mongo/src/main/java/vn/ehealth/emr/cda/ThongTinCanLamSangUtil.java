@@ -31,132 +31,116 @@ import vn.ehealth.emr.model.EmrXetNghiemKetQua;
 public class ThongTinCanLamSangUtil {
 
     public static void addActCdCodeTag(Act act, String codeCda, String displayName){
-        try {
-            var codeTag = act.getCode();                         
-            if(!StringUtils.isEmpty(codeCda)){
-                codeTag.setCode(codeCda);
-            }
-            if(!StringUtils.isEmpty(displayName)){
-                codeTag.setDisplayName(displayName);
-            }   
-        } catch (Exception e) {
-            e.printStackTrace();
+        var codeTag = act.getCode();                         
+        if(!StringUtils.isEmpty(codeCda)){
+            codeTag.setCode(codeCda);
+        }
+        if(!StringUtils.isEmpty(displayName)){
+            codeTag.setDisplayName(displayName);
         }           
     }
     
     public static void addActAssignedEntity(Act act, AssignedEntity assignedEntity, String assignPersonName){       
-        try {
-            var performer = CDAFactory.eINSTANCE.createPerformer2();
-            act.getPerformers().add(performer);     
-            performer.setAssignedEntity(assignedEntity);
-            II assignedEntityId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-            assignedEntity.getIds().add(assignedEntityId);
-            
-            org.openhealthtools.mdht.uml.cda.Person requestPerson = CDAFactory.eINSTANCE.createPerson();
-            var personName = DatatypesFactory.eINSTANCE.createPN();      
-            if(!StringUtils.isEmpty(assignPersonName)){
-                personName.addText(assignPersonName);
-            }
-            requestPerson.getNames().add(personName);
-            assignedEntity.setAssignedPerson(requestPerson);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }       
+        var performer = CDAFactory.eINSTANCE.createPerformer2();
+        act.getPerformers().add(performer);     
+        performer.setAssignedEntity(assignedEntity);
+        II assignedEntityId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+        assignedEntity.getIds().add(assignedEntityId);
+        
+        org.openhealthtools.mdht.uml.cda.Person requestPerson = CDAFactory.eINSTANCE.createPerson();
+        var personName = DatatypesFactory.eINSTANCE.createPN();      
+        if(!StringUtils.isEmpty(assignPersonName)){
+            personName.addText(assignPersonName);
+        }
+        requestPerson.getNames().add(personName);
+        assignedEntity.setAssignedPerson(requestPerson);      
     }
     
     public static void addActRequestService(Act act, Act requestServiceAct, String codeCdaRequestService, String requestServiceCodeSystem, String requestServiceName){
-        try {
-            var requestServiceEntryRelationship = CDAFactory.eINSTANCE.createEntryRelationship();     
-            act.getEntryRelationships().add(requestServiceEntryRelationship);
-            requestServiceEntryRelationship.setTypeCode(x_ActRelationshipEntryRelationship.COMP);
-                    
-            requestServiceEntryRelationship.setAct(requestServiceAct);
-            var codeTag = DatatypesFactory.eINSTANCE.createCD();
-            requestServiceAct.setCode(codeTag);
-            if(!StringUtils.isEmpty(codeCdaRequestService)){
-                codeTag.setCode(codeCdaRequestService);
-            }
-            if(!StringUtils.isEmpty(requestServiceCodeSystem)){
-                codeTag.setCodeSystem(requestServiceCodeSystem);
-            }
-            if(!StringUtils.isEmpty(requestServiceName)){
-                codeTag.setDisplayName(requestServiceName);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        var requestServiceEntryRelationship = CDAFactory.eINSTANCE.createEntryRelationship();     
+        act.getEntryRelationships().add(requestServiceEntryRelationship);
+        requestServiceEntryRelationship.setTypeCode(x_ActRelationshipEntryRelationship.COMP);
+                
+        requestServiceEntryRelationship.setAct(requestServiceAct);
+        var codeTag = DatatypesFactory.eINSTANCE.createCD();
+        requestServiceAct.setCode(codeTag);
+        if(!StringUtils.isEmpty(codeCdaRequestService)){
+            codeTag.setCode(codeCdaRequestService);
+        }
+        if(!StringUtils.isEmpty(requestServiceCodeSystem)){
+            codeTag.setCodeSystem(requestServiceCodeSystem);
+        }
+        if(!StringUtils.isEmpty(requestServiceName)){
+            codeTag.setDisplayName(requestServiceName);
         }       
     }
     
     public static void addTestResultObservation(HsbaTestsResultOrganizer testsResultOrganizer, EmrXetNghiemKetQua emrXetNghiemKetQua, Properties properties, Map<String, String> emrParameters){
-        try {
-            var emrDmChiSoXetNghiem = emrXetNghiemKetQua.emrDmChiSoXetNghiem;
-            if(emrDmChiSoXetNghiem != null){
-                var testResultObs = HSBAFactory.eINSTANCE.createHsbaTestsResultObservation().init();         
-                testsResultOrganizer.addObservation(testResultObs);         
-                
-                //Mã chỉ số
-                var codeTag = testResultObs.getCode();
-                String codeCda = emrDmChiSoXetNghiem.maicd;
-                String displayName = emrDmChiSoXetNghiem.ten;
-                if(!StringUtils.isEmpty(codeCda)){
-                    codeTag.setCode(codeCda);                       
-                }
-                if(!StringUtils.isEmpty(displayName)){
-                    codeTag.setDisplayName(displayName);                        
-                }
-                
-                //Giá trị đo
-                Double giaTriChiSoDo = Double.parseDouble(emrXetNghiemKetQua.giatrido);
-                if(giaTriChiSoDo != null){
-                    String unit = properties.getProperty("BA_CHISOXETNGHIEM_UNIT", "BA_CHISOXETNGHIEM_UNIT");
-                    var valueTag = DatatypesFactory.eINSTANCE.createPQ();                
-                        valueTag.setValue(giaTriChiSoDo);
-                        if(!StringUtils.isEmpty(unit)){
-                            valueTag.setUnit(unit);
-                        }
-                        testResultObs.getValues().add(valueTag);                        
-                }                               
-                
-                //Chỉ số bình thường ở nam và nữ
-                var referenceRange = CDAFactory.eINSTANCE.createReferenceRange();            
-                var obsRange = CDAFactory.eINSTANCE.createObservationRange();      
-                referenceRange.setObservationRange(obsRange);                   
-                StringBuilder moTaChiSo = new StringBuilder();
-                var emrDmXetNghiem = emrXetNghiemKetQua.emrXetNghiemId;
-                
-                if(emrDmXetNghiem != null){
-                    String chiSoBtNam = "";//emrDmChiSoXetNghiem.chisobtnam;
-                    String chiSoBtNu = ""; // emrDmChiSoXetNghiem.chisobtnu();
-                    if(!StringUtils.isEmpty(chiSoBtNam)){
-                        moTaChiSo.append(chiSoBtNam).append(properties.getProperty("CHISO_XETNGHIEM_SPLIT", "CHISO_XETNGHIEM_SPLIT"));                  
-                    }
-                    if(!StringUtils.isEmpty(chiSoBtNu)){
-                        moTaChiSo.append(chiSoBtNu);
-                    }
-                    ED obsRangeText = DatatypesFactory.eINSTANCE.createED(moTaChiSo.toString());
-                    obsRange.setText(obsRangeText);
-                }                       
-                testResultObs.getReferenceRanges().add(referenceRange);
-                
-                //Thông dịch 
-                var emrDmDichKetQuaXetNghiem = emrXetNghiemKetQua.emrDmDichKetQuaXetNghiem;       
-                if(emrDmDichKetQuaXetNghiem != null){
-                    String interpretationCode = emrDmDichKetQuaXetNghiem.maicd;
-                    String interpretationCodeSystem = emrParameters.get("emr_dm_dich_ket_qua_xet_nghiem");
-                    String interpretationDisplayName = emrDmDichKetQuaXetNghiem.ten;
-                    var interpretationCodeTag = DatatypesFactory.eINSTANCE.createCE();
-                    if(interpretationCode != null && interpretationCodeSystem != null){
-                        interpretationCodeTag.setCode(interpretationCode);
-                        interpretationCodeTag.setCodeSystem(interpretationCodeSystem);
-                    }
-                    if(!StringUtils.isEmpty(interpretationDisplayName)){
-                        interpretationCodeTag.setDisplayName(interpretationDisplayName);
-                    }
-                    testResultObs.getInterpretationCodes().add(interpretationCodeTag);  
-                }
+        var emrDmChiSoXetNghiem = emrXetNghiemKetQua.emrDmChiSoXetNghiem;
+        if(emrDmChiSoXetNghiem != null){
+            var testResultObs = HSBAFactory.eINSTANCE.createHsbaTestsResultObservation().init();         
+            testsResultOrganizer.addObservation(testResultObs);         
+            
+            //Mã chỉ số
+            var codeTag = testResultObs.getCode();
+            String codeCda = emrDmChiSoXetNghiem.maicd;
+            String displayName = emrDmChiSoXetNghiem.ten;
+            if(!StringUtils.isEmpty(codeCda)){
+                codeTag.setCode(codeCda);                       
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            if(!StringUtils.isEmpty(displayName)){
+                codeTag.setDisplayName(displayName);                        
+            }
+            
+            //Giá trị đo
+            Double giaTriChiSoDo = Double.parseDouble(emrXetNghiemKetQua.giatrido);
+            if(giaTriChiSoDo != null){
+                String unit = properties.getProperty("BA_CHISOXETNGHIEM_UNIT", "BA_CHISOXETNGHIEM_UNIT");
+                var valueTag = DatatypesFactory.eINSTANCE.createPQ();                
+                    valueTag.setValue(giaTriChiSoDo);
+                    if(!StringUtils.isEmpty(unit)){
+                        valueTag.setUnit(unit);
+                    }
+                    testResultObs.getValues().add(valueTag);                        
+            }                               
+            
+            //Chỉ số bình thường ở nam và nữ
+            var referenceRange = CDAFactory.eINSTANCE.createReferenceRange();            
+            var obsRange = CDAFactory.eINSTANCE.createObservationRange();      
+            referenceRange.setObservationRange(obsRange);                   
+            StringBuilder moTaChiSo = new StringBuilder();
+            var emrDmXetNghiem = emrXetNghiemKetQua.emrXetNghiemId;
+            
+            if(emrDmXetNghiem != null){
+                String chiSoBtNam = "";//emrDmChiSoXetNghiem.chisobtnam;
+                String chiSoBtNu = ""; // emrDmChiSoXetNghiem.chisobtnu();
+                if(!StringUtils.isEmpty(chiSoBtNam)){
+                    moTaChiSo.append(chiSoBtNam).append(properties.getProperty("CHISO_XETNGHIEM_SPLIT", "CHISO_XETNGHIEM_SPLIT"));                  
+                }
+                if(!StringUtils.isEmpty(chiSoBtNu)){
+                    moTaChiSo.append(chiSoBtNu);
+                }
+                ED obsRangeText = DatatypesFactory.eINSTANCE.createED(moTaChiSo.toString());
+                obsRange.setText(obsRangeText);
+            }                       
+            testResultObs.getReferenceRanges().add(referenceRange);
+            
+            //Thông dịch 
+            var emrDmDichKetQuaXetNghiem = emrXetNghiemKetQua.emrDmDichKetQuaXetNghiem;       
+            if(emrDmDichKetQuaXetNghiem != null){
+                String interpretationCode = emrDmDichKetQuaXetNghiem.maicd;
+                String interpretationCodeSystem = emrParameters.get("emr_dm_dich_ket_qua_xet_nghiem");
+                String interpretationDisplayName = emrDmDichKetQuaXetNghiem.ten;
+                var interpretationCodeTag = DatatypesFactory.eINSTANCE.createCE();
+                if(interpretationCode != null && interpretationCodeSystem != null){
+                    interpretationCodeTag.setCode(interpretationCode);
+                    interpretationCodeTag.setCodeSystem(interpretationCodeSystem);
+                }
+                if(!StringUtils.isEmpty(interpretationDisplayName)){
+                    interpretationCodeTag.setDisplayName(interpretationDisplayName);
+                }
+                testResultObs.getInterpretationCodes().add(interpretationCodeTag);  
+            }
         }       
     }
     
@@ -256,18 +240,14 @@ public class ThongTinCanLamSangUtil {
     }   
     
     public static void addChildActEntryRelationship(Act parentAct, Act childAct, String childActText){
-        try {
-            var entryRelationship = CDAFactory.eINSTANCE.createEntryRelationship();
-            parentAct.getEntryRelationships().add(entryRelationship);
-            entryRelationship.setTypeCode(x_ActRelationshipEntryRelationship.COMP);
-            
-            entryRelationship.setAct(childAct);
-            if(!StringUtils.isEmpty(childActText)){
-                ED childText = DatatypesFactory.eINSTANCE.createED(childActText);
-                childAct.setText(childText);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        var entryRelationship = CDAFactory.eINSTANCE.createEntryRelationship();
+        parentAct.getEntryRelationships().add(entryRelationship);
+        entryRelationship.setTypeCode(x_ActRelationshipEntryRelationship.COMP);
+        
+        entryRelationship.setAct(childAct);
+        if(!StringUtils.isEmpty(childActText)){
+            ED childText = DatatypesFactory.eINSTANCE.createED(childActText);
+            childAct.setText(childText);
         }       
     }
     
@@ -277,129 +257,126 @@ public class ThongTinCanLamSangUtil {
      * @param relevantDiagnosticSection
      * @param emrGiaiPhauBenh
      * @param emrParameters
+     * @throws IOException 
      */
-    public static void addPathology(HsbaRelevantDiagnosticSection relevantDiagnosticSection, EmrGiaiPhauBenh emrGiaiPhauBenh, Map<String, String> emrParameters, List<EmrFileDinhKem> lstEmrQuanLyFileDinhKemGpbs){
-        try {
-            if(emrGiaiPhauBenh != null){
-                var pathologyEntry = CDAFactory.eINSTANCE.createEntry();      
-                relevantDiagnosticSection.getEntries().add(pathologyEntry);
-                pathologyEntry.setTypeCode(x_ActRelationshipEntry.DRIV);
-                
-                var pathologyAct = HSBAFactory.eINSTANCE.createHsbaPathologyAct().init();
-                pathologyEntry.setAct(pathologyAct);
-                II pathologyActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-                pathologyAct.getIds().add(pathologyActId);
-                
-                //Loại giải phẫu bệnh
-                var emrDmLoaiGiaiPhauBenh = emrGiaiPhauBenh.emrDmLoaiGiaiPhauBenh;           
-                if(emrDmLoaiGiaiPhauBenh != null){
-                    addActCdCodeTag(pathologyAct, emrDmLoaiGiaiPhauBenh.maicd, emrDmLoaiGiaiPhauBenh.ten);              
-                }
-                //Thời điểm thực hiện   
-                CDAExportUtil.addActEffectiveTime(pathologyAct, emrGiaiPhauBenh.ngaythuchien);
-                
-                //Tài liệu đính kèm     
-                if(lstEmrQuanLyFileDinhKemGpbs != null){
-                    for (var item : lstEmrQuanLyFileDinhKemGpbs) {
-                        CDAExportUtil.addActExternalDocument(pathologyAct, item.url);
-                    }               
-                }
-                
-                //Thông tin yêu cầu
-                var requestEntryRelationship = CDAFactory.eINSTANCE.createEntryRelationship();
-                pathologyAct.getEntryRelationships().add(requestEntryRelationship);
-                requestEntryRelationship.setTypeCode(x_ActRelationshipEntryRelationship.SUBJ);
-                requestEntryRelationship.setInversionInd(true);
-                
-                var procedureRequestAct = HSBAFactory.eINSTANCE.createHsbaProceduresRequestAct().init();
-                II procedureRequestActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-                procedureRequestAct.getIds().add(procedureRequestActId);
-                requestEntryRelationship.setAct(procedureRequestAct);
-                
-                //-- Thời điểm yêu cầu  
-                CDAExportUtil.addActEffectiveTime(procedureRequestAct, emrGiaiPhauBenh.ngayyeucau);
-                            
-                //-- Bác sĩ yêu cầu
-                var requestDoctorAssingedEntity = HSBAFactory.eINSTANCE.createHsbaDischargeDoctorAssignedEntity().init();
-                String bacSiYeuCau = emrGiaiPhauBenh.bacsiyeucau;      
-                addActAssignedEntity(procedureRequestAct, requestDoctorAssingedEntity, bacSiYeuCau);
-                
-                //-- Dịch vụ yêu cầu cần làm 
-                var pathologyActServicesRequestAct = HSBAFactory.eINSTANCE.createHsbaPathologyActServicesRequestAct().init();
-                II pathologyActServicesRequestActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-                pathologyActServicesRequestAct.getIds().add(pathologyActServicesRequestActId);
-                
-                var emrDmGiaiPhauBenh = emrGiaiPhauBenh.emrDmGiaiPhauBenh;
-                if(emrDmGiaiPhauBenh!= null){
-                    String codeCda = emrDmGiaiPhauBenh.maicd;
-                    String codeSystem = emrParameters.get("emr_dm_giai_phau_benh");
-                    String displayName = emrDmGiaiPhauBenh.ten;
-                    addActRequestService(procedureRequestAct, pathologyActServicesRequestAct, codeCda, codeSystem, displayName);
-                }
-                
-                //-- Mẫu sinh thiết
-                var entryRelationship = CDAFactory.eINSTANCE.createEntryRelationship();
-                pathologyAct.getEntryRelationships().add(entryRelationship);
-                entryRelationship.setTypeCode(x_ActRelationshipEntryRelationship.COMP);
-                
-                var specimenCollectionProcedure = HSBAFactory.eINSTANCE.createHsbaSpecimenCollectionProcedure().init();
-                entryRelationship.setProcedure(specimenCollectionProcedure);
-                
-                //------ Thời điểm lấy mẫu  
-                var specimenCollectionEffectiveTime = DatatypesFactory.eINSTANCE.createIVL_TS();
-                specimenCollectionProcedure.setEffectiveTime(specimenCollectionEffectiveTime);
-                var ngayLayMau = emrGiaiPhauBenh.ngaylaymausinhthiet;
-                if(ngayLayMau != null){
-                    String thoiDiemLayMau = CDAExportUtil.getGMTDate(ngayLayMau);
-                    if(thoiDiemLayMau != null){
-                        specimenCollectionEffectiveTime.setValue(thoiDiemLayMau);
-                    }
-                }                       
-                
-                //------Vị trí lấy mẫu sinh thiết
-                var emrDmViTriLayMau = emrGiaiPhauBenh.emrDmViTriLayMau;
-                if(emrDmViTriLayMau != null){
-                    var targetSiteCode = DatatypesFactory.eINSTANCE.createCD();
-                    String code = emrDmViTriLayMau.maicd;
-                    String displayName = emrDmViTriLayMau.ten;
-                    String codeSystem = emrParameters.get("emr_dm_vi_tri_lay_mau");
-                    if(!StringUtils.isEmpty(code)){
-                        targetSiteCode.setCode(code);               
-                    }
-                    if(!StringUtils.isEmpty(codeSystem)){
-                        targetSiteCode.setCodeSystem(codeSystem);               
-                    }
-                    if(!StringUtils.isEmpty(displayName)){
-                        targetSiteCode.setDisplayName(displayName);
-                    }
-                    specimenCollectionProcedure.getTargetSiteCodes().add(targetSiteCode);
-                }
-                
-                //Bác sĩ đọc kết quả
-                var specializedAssignedEntity = HSBAFactory.eINSTANCE.createHsbaSpecializedPhysicianAssignedEntity().init();
-                String bacSiChuyenKhoa = emrGiaiPhauBenh.bacsichuyenkhoa;
-                addActAssignedEntity(pathologyAct, specializedAssignedEntity, bacSiChuyenKhoa);
-        
-                //Nhận xét đại thể
-                var pathologyReportGrossAct = HSBAFactory.eINSTANCE.createHsbaPathologyReportGrossAct().init();
-                II pathologyReportGrossActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-                pathologyReportGrossAct.getIds().add(pathologyReportGrossActId);
-                addChildActEntryRelationship(pathologyAct, pathologyReportGrossAct, emrGiaiPhauBenh.nhanxetdaithe);            
-                            
-                //Nhận xét vi thể
-                var pathologyReportMicroscopicAct = HSBAFactory.eINSTANCE.createHsbaPathologyReportMicroscopicAct().init();
-                II pathologyReportMicroscopicActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-                pathologyReportMicroscopicAct.getIds().add(pathologyReportMicroscopicActId);
-                addChildActEntryRelationship(pathologyAct, pathologyReportMicroscopicAct, emrGiaiPhauBenh.nhanxetvithe);   
-                
-                //Mô tả chẩn đoán giải phẫu
-                var pathologyReportDiagnosisAct = HSBAFactory.eINSTANCE.createHsbaPathologyReportDiagnosisAct().init();
-                II pathologyReportDiagnosisActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-                pathologyReportDiagnosisAct.getIds().add(pathologyReportDiagnosisActId);
-                addChildActEntryRelationship(pathologyAct, pathologyReportDiagnosisAct, emrGiaiPhauBenh.motachandoangiaiphau);         
+    public static void addPathology(HsbaRelevantDiagnosticSection relevantDiagnosticSection, EmrGiaiPhauBenh emrGiaiPhauBenh, Map<String, String> emrParameters, List<EmrFileDinhKem> lstEmrQuanLyFileDinhKemGpbs) throws IOException{
+        if(emrGiaiPhauBenh != null){
+            var pathologyEntry = CDAFactory.eINSTANCE.createEntry();      
+            relevantDiagnosticSection.getEntries().add(pathologyEntry);
+            pathologyEntry.setTypeCode(x_ActRelationshipEntry.DRIV);
+            
+            var pathologyAct = HSBAFactory.eINSTANCE.createHsbaPathologyAct().init();
+            pathologyEntry.setAct(pathologyAct);
+            II pathologyActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+            pathologyAct.getIds().add(pathologyActId);
+            
+            //Loại giải phẫu bệnh
+            var emrDmLoaiGiaiPhauBenh = emrGiaiPhauBenh.emrDmLoaiGiaiPhauBenh;           
+            if(emrDmLoaiGiaiPhauBenh != null){
+                addActCdCodeTag(pathologyAct, emrDmLoaiGiaiPhauBenh.maicd, emrDmLoaiGiaiPhauBenh.ten);              
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            //Thời điểm thực hiện   
+            CDAExportUtil.addActEffectiveTime(pathologyAct, emrGiaiPhauBenh.ngaythuchien);
+            
+            //Tài liệu đính kèm     
+            if(lstEmrQuanLyFileDinhKemGpbs != null){
+                for (var item : lstEmrQuanLyFileDinhKemGpbs) {
+                    CDAExportUtil.addActExternalDocument(pathologyAct, item.url);
+                }               
+            }
+            
+            //Thông tin yêu cầu
+            var requestEntryRelationship = CDAFactory.eINSTANCE.createEntryRelationship();
+            pathologyAct.getEntryRelationships().add(requestEntryRelationship);
+            requestEntryRelationship.setTypeCode(x_ActRelationshipEntryRelationship.SUBJ);
+            requestEntryRelationship.setInversionInd(true);
+            
+            var procedureRequestAct = HSBAFactory.eINSTANCE.createHsbaProceduresRequestAct().init();
+            II procedureRequestActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+            procedureRequestAct.getIds().add(procedureRequestActId);
+            requestEntryRelationship.setAct(procedureRequestAct);
+            
+            //-- Thời điểm yêu cầu  
+            CDAExportUtil.addActEffectiveTime(procedureRequestAct, emrGiaiPhauBenh.ngayyeucau);
+                        
+            //-- Bác sĩ yêu cầu
+            var requestDoctorAssingedEntity = HSBAFactory.eINSTANCE.createHsbaDischargeDoctorAssignedEntity().init();
+            String bacSiYeuCau = emrGiaiPhauBenh.bacsiyeucau;      
+            addActAssignedEntity(procedureRequestAct, requestDoctorAssingedEntity, bacSiYeuCau);
+            
+            //-- Dịch vụ yêu cầu cần làm 
+            var pathologyActServicesRequestAct = HSBAFactory.eINSTANCE.createHsbaPathologyActServicesRequestAct().init();
+            II pathologyActServicesRequestActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+            pathologyActServicesRequestAct.getIds().add(pathologyActServicesRequestActId);
+            
+            var emrDmGiaiPhauBenh = emrGiaiPhauBenh.emrDmGiaiPhauBenh;
+            if(emrDmGiaiPhauBenh!= null){
+                String codeCda = emrDmGiaiPhauBenh.maicd;
+                String codeSystem = emrParameters.get("emr_dm_giai_phau_benh");
+                String displayName = emrDmGiaiPhauBenh.ten;
+                addActRequestService(procedureRequestAct, pathologyActServicesRequestAct, codeCda, codeSystem, displayName);
+            }
+            
+            //-- Mẫu sinh thiết
+            var entryRelationship = CDAFactory.eINSTANCE.createEntryRelationship();
+            pathologyAct.getEntryRelationships().add(entryRelationship);
+            entryRelationship.setTypeCode(x_ActRelationshipEntryRelationship.COMP);
+            
+            var specimenCollectionProcedure = HSBAFactory.eINSTANCE.createHsbaSpecimenCollectionProcedure().init();
+            entryRelationship.setProcedure(specimenCollectionProcedure);
+            
+            //------ Thời điểm lấy mẫu  
+            var specimenCollectionEffectiveTime = DatatypesFactory.eINSTANCE.createIVL_TS();
+            specimenCollectionProcedure.setEffectiveTime(specimenCollectionEffectiveTime);
+            var ngayLayMau = emrGiaiPhauBenh.ngaylaymausinhthiet;
+            if(ngayLayMau != null){
+                String thoiDiemLayMau = CDAExportUtil.getGMTDate(ngayLayMau);
+                if(thoiDiemLayMau != null){
+                    specimenCollectionEffectiveTime.setValue(thoiDiemLayMau);
+                }
+            }                       
+            
+            //------Vị trí lấy mẫu sinh thiết
+            var emrDmViTriLayMau = emrGiaiPhauBenh.emrDmViTriLayMau;
+            if(emrDmViTriLayMau != null){
+                var targetSiteCode = DatatypesFactory.eINSTANCE.createCD();
+                String code = emrDmViTriLayMau.maicd;
+                String displayName = emrDmViTriLayMau.ten;
+                String codeSystem = emrParameters.get("emr_dm_vi_tri_lay_mau");
+                if(!StringUtils.isEmpty(code)){
+                    targetSiteCode.setCode(code);               
+                }
+                if(!StringUtils.isEmpty(codeSystem)){
+                    targetSiteCode.setCodeSystem(codeSystem);               
+                }
+                if(!StringUtils.isEmpty(displayName)){
+                    targetSiteCode.setDisplayName(displayName);
+                }
+                specimenCollectionProcedure.getTargetSiteCodes().add(targetSiteCode);
+            }
+            
+            //Bác sĩ đọc kết quả
+            var specializedAssignedEntity = HSBAFactory.eINSTANCE.createHsbaSpecializedPhysicianAssignedEntity().init();
+            String bacSiChuyenKhoa = emrGiaiPhauBenh.bacsichuyenkhoa;
+            addActAssignedEntity(pathologyAct, specializedAssignedEntity, bacSiChuyenKhoa);
+    
+            //Nhận xét đại thể
+            var pathologyReportGrossAct = HSBAFactory.eINSTANCE.createHsbaPathologyReportGrossAct().init();
+            II pathologyReportGrossActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+            pathologyReportGrossAct.getIds().add(pathologyReportGrossActId);
+            addChildActEntryRelationship(pathologyAct, pathologyReportGrossAct, emrGiaiPhauBenh.nhanxetdaithe);            
+                        
+            //Nhận xét vi thể
+            var pathologyReportMicroscopicAct = HSBAFactory.eINSTANCE.createHsbaPathologyReportMicroscopicAct().init();
+            II pathologyReportMicroscopicActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+            pathologyReportMicroscopicAct.getIds().add(pathologyReportMicroscopicActId);
+            addChildActEntryRelationship(pathologyAct, pathologyReportMicroscopicAct, emrGiaiPhauBenh.nhanxetvithe);   
+            
+            //Mô tả chẩn đoán giải phẫu
+            var pathologyReportDiagnosisAct = HSBAFactory.eINSTANCE.createHsbaPathologyReportDiagnosisAct().init();
+            II pathologyReportDiagnosisActId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+            pathologyReportDiagnosisAct.getIds().add(pathologyReportDiagnosisActId);
+            addChildActEntryRelationship(pathologyAct, pathologyReportDiagnosisAct, emrGiaiPhauBenh.motachandoangiaiphau);         
         }       
     }
     
@@ -565,51 +542,47 @@ public class ThongTinCanLamSangUtil {
     }
     
     
-    public static void addRelevantDiagnostic(HsbaDocument doc, EmrHoSoBenhAn emrDanhSachHoSoBenhAn, Map<String, String> emrParameters, Properties properties){  
-        try {
-            var lstEmrChanDoanHinhAnh = emrDanhSachHoSoBenhAn.getEmrChanDoanHinhAnhs();
-            var lstEmrThamDoChucNangs = emrDanhSachHoSoBenhAn.getEmrThamDoChucNangs();
-            var lstEmrGiaiPhauBenhs = emrDanhSachHoSoBenhAn.getEmrGiaiPhauBenhs();
-            var lstEmrXetNghiems = emrDanhSachHoSoBenhAn.getEmrXetNghiems();
-            var relevantDiagnosticSection = HSBAFactory.eINSTANCE.createHsbaRelevantDiagnosticSection().init();
-            doc.addSection(relevantDiagnosticSection);
-            II relevantDiagnosticSectionId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
-            relevantDiagnosticSection.setId(relevantDiagnosticSectionId);
-            String relevantDiagnositcTitle = properties.getProperty("THONGTIN_CANLAMSANG_TITLE", "THONGTIN_CANLAMSANG_TITLE");
-            CDAExportUtil.addSectionTitle(relevantDiagnosticSection, relevantDiagnositcTitle);               
-            
-            //Xét nghiệm
-            if(lstEmrXetNghiems != null && lstEmrXetNghiems.size() > 0){
-                for (var item : lstEmrXetNghiems) {
-                    addMedicalTests(relevantDiagnosticSection, item, emrParameters, properties, item.emrFileDinhKemXetNghiems);
-                }
+    public static void addRelevantDiagnostic(HsbaDocument doc, EmrHoSoBenhAn emrDanhSachHoSoBenhAn, Map<String, String> emrParameters, Properties properties) throws IOException{  
+        var lstEmrChanDoanHinhAnh = emrDanhSachHoSoBenhAn.getEmrChanDoanHinhAnhs();
+        var lstEmrThamDoChucNangs = emrDanhSachHoSoBenhAn.getEmrThamDoChucNangs();
+        var lstEmrGiaiPhauBenhs = emrDanhSachHoSoBenhAn.getEmrGiaiPhauBenhs();
+        var lstEmrXetNghiems = emrDanhSachHoSoBenhAn.getEmrXetNghiems();
+        var relevantDiagnosticSection = HSBAFactory.eINSTANCE.createHsbaRelevantDiagnosticSection().init();
+        doc.addSection(relevantDiagnosticSection);
+        II relevantDiagnosticSectionId = DatatypesFactory.eINSTANCE.createII(UUID.randomUUID().toString());
+        relevantDiagnosticSection.setId(relevantDiagnosticSectionId);
+        String relevantDiagnositcTitle = properties.getProperty("THONGTIN_CANLAMSANG_TITLE", "THONGTIN_CANLAMSANG_TITLE");
+        CDAExportUtil.addSectionTitle(relevantDiagnosticSection, relevantDiagnositcTitle);               
+        
+        //Xét nghiệm
+        if(lstEmrXetNghiems != null && lstEmrXetNghiems.size() > 0){
+            for (var item : lstEmrXetNghiems) {
+                addMedicalTests(relevantDiagnosticSection, item, emrParameters, properties, item.emrFileDinhKemXetNghiems);
             }
-            
-            //Chẩn đoán hình ảnh
-            if(lstEmrChanDoanHinhAnh != null && lstEmrChanDoanHinhAnh.size() > 0){
-                for (var item : lstEmrChanDoanHinhAnh) {
-                    addDiagnosisThums(relevantDiagnosticSection, item, emrParameters, item.emrFileDinhKemCdhas);
-                }
+        }
+        
+        //Chẩn đoán hình ảnh
+        if(lstEmrChanDoanHinhAnh != null && lstEmrChanDoanHinhAnh.size() > 0){
+            for (var item : lstEmrChanDoanHinhAnh) {
+                addDiagnosisThums(relevantDiagnosticSection, item, emrParameters, item.emrFileDinhKemCdhas);
             }
-            
-            //Thăm dò chức năng
-            if(lstEmrThamDoChucNangs != null && lstEmrThamDoChucNangs.size() > 0){
-                for (var item : lstEmrThamDoChucNangs) {
-                    addFunctionalProbe(relevantDiagnosticSection, item, emrParameters, item.emrFileDinhKemTdcns);
-                }
+        }
+        
+        //Thăm dò chức năng
+        if(lstEmrThamDoChucNangs != null && lstEmrThamDoChucNangs.size() > 0){
+            for (var item : lstEmrThamDoChucNangs) {
+                addFunctionalProbe(relevantDiagnosticSection, item, emrParameters, item.emrFileDinhKemTdcns);
             }
-            
-            //Giải phẫu bệnh
-            if(lstEmrGiaiPhauBenhs != null && lstEmrGiaiPhauBenhs.size() > 0){
-                for (var item : lstEmrGiaiPhauBenhs) {
-                    addPathology(relevantDiagnosticSection, item, emrParameters, item.emrFileDinhKemGpbs);
-                }
+        }
+        
+        //Giải phẫu bệnh
+        if(lstEmrGiaiPhauBenhs != null && lstEmrGiaiPhauBenhs.size() > 0){
+            for (var item : lstEmrGiaiPhauBenhs) {
+                addPathology(relevantDiagnosticSection, item, emrParameters, item.emrFileDinhKemGpbs);
             }
-                
-            String cacXnCanLamSang = emrDanhSachHoSoBenhAn.emrBenhAn.xetnghiemcanlamsang;
-            CDAExportUtil.setSectionData(relevantDiagnosticSection, cacXnCanLamSang);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }           
+        }
+            
+        String cacXnCanLamSang = emrDanhSachHoSoBenhAn.emrBenhAn.xetnghiemcanlamsang;
+        CDAExportUtil.setSectionData(relevantDiagnosticSection, cacXnCanLamSang);           
     }
 }
