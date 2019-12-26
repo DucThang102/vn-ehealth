@@ -41,7 +41,7 @@
     <table class="table table-bordered table-width-100 mt-4" v-if="total > 0">
 
       <thead>
-        <tr>
+        <tr> 
           <th style="width:5%">STT</th>
           <th style="width:20%">Mã loại danh mục</th>
           <th style="width:40%">Tên danh mục</th>
@@ -50,13 +50,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(hs, index) in items">
+        <tr v-for="(dm, index) in items">
           <td align="center">{{ index + (currentPage-1)*perPage + 1 }}</td>
-          <td>{{ hs.ma }}</td>
-          <td>{{ hs.ten }}</td>
-          <td>{{ hs.trang_thai }}</td>
+          <td>{{ dm.ma }}</td>
+          <td>{{ dm.ten }}</td>
+          <td>{{ dm.trang_thai }}</td>
            <td>
-             <a href="#" title="Xem chi tiết danh mục"><i class="fa fa-eye"></i></a>
+             <a :href='createURL("/pages/danhmuc/dm_dungchung/dm_con.html", {"dm_type" : dm.ma})' title="Xem chi tiết danh mục"><i class="fa fa-eye"></i></a>
              <a href="#" title="Quản lý phiên bản"><i class="fa fa-cog"></i></a>
           </td>
         </tr>
