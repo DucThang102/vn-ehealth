@@ -1,16 +1,15 @@
 <% include ../../../header.html %>
 <div class="container mt-3" id="app" >
-    
     <div class="row mt-3">
-      <strong class="mb-3">Danh sách chi tiết danh mục</strong>
+      <strong class="mb-3">Danh sách chi tiết {{ dm_type }}:</strong>
       <form @submit.prevent="search()" class="search-detail" >
-        <input v-model="keyword" class="form-control" placeholder="Mã/ Tên danh mục con "></input>
+        <input v-model="keyword" class="form-control" placeholder="Search "></input>
       </form>
     <table class="table table-bordered">
       <tr>
         <th class="text-center" >STT</th>
         <th  >Mã</th>
-        <th  >Tên danh mục con</th>
+        <th  >Tên {{ dm_type}} </th>
       </tr>
       <tr v-for='(dmType, i) in dmTypeList'>
         <td class="text-center" >{{ i + 1 + offset}}</td>
@@ -31,7 +30,7 @@
       data: {
       dmTypeList: [],
       currentPage: 1,
-      perPage: 15,
+      perPage: 10,
       total:0,
       keyword: '',
       },
@@ -49,7 +48,7 @@
         getTotal: async function() {
           this.total = await this.get("http://34.87.51.9:8001/api/danhmuc/count_dm_list?level=-1&parentCode=&dm_type=" + this.dm_type + "&keyword="+this.keyword); 
         },
-  
+
         getData: async function() {
           this.dmTypeList = await this.get("http://34.87.51.9:8001/api/danhmuc/get_dm_list?level=-1&parentCode=&dm_type=" + this.dm_type +"&keyword="+this.keyword+"&start=" + this.offset + "&count=" + this.perPage);
         },
