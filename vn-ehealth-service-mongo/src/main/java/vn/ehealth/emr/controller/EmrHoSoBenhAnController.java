@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import net.sf.jasperreports.engine.JRException;
-import vn.ehealth.emr.cda.CDAExportUtil;
 import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.service.EmrBenhNhanService;
 import vn.ehealth.emr.service.EmrCoSoKhamBenhService;
@@ -160,7 +159,7 @@ public class EmrHoSoBenhAnController {
                 hsba.getEmrBenhNhan();
                 hsba.getEmrCoSoKhamBenh();
                 emrHoSoBenhAnService.getEmrHoSoBenhAnDetail(hsba);
-                var data = CDAExportUtil.exportCDA(hsba);
+                var data = new byte[0];// CDAExportUtil.exportCDA(hsba);
                 var resource = new ByteArrayResource(data);
                 
                 return ResponseEntity.ok()

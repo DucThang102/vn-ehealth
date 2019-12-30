@@ -13,6 +13,7 @@ import org.springframework.util.StringUtils;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import vn.ehealth.emr.service.EmrServiceFactory;
 import vn.ehealth.emr.utils.JasperUtils;
@@ -103,6 +104,7 @@ public class EmrHoSoBenhAn {
     
     @Transient  public List<EmrYhctDonThuoc> emrYhctDonThuocs;
     
+    @JsonProperty("emr_xet_nghiems")
     @Transient  public List<EmrXetNghiem> emrXetNghiems;
 
     public String getId() {
