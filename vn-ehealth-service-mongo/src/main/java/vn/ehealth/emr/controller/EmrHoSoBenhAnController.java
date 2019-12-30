@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Properties;
 
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
@@ -50,6 +51,8 @@ public class EmrHoSoBenhAnController {
     
     private static String hsbaSchema = "";
     
+    private static Properties fieldsConvertProp = new Properties();
+    
     
     static {
         try {
@@ -57,6 +60,13 @@ public class EmrHoSoBenhAnController {
         } catch (IOException e) {
             logger.error("Cannot read hsba schema", e);
         }
+        
+        try {
+            fieldsConvertProp.load(new ClassPathResource("fields_convert.properties").getInputStream());
+        } catch (IOException e) {
+            logger.error("Cannot read fieldsConvert properties", e);
+        }
+        
     }
     
     @Autowired EmrHoSoBenhAnService emrHoSoBenhAnService;    
@@ -234,9 +244,20 @@ public class EmrHoSoBenhAnController {
         
     }
     
+    private String preprocessJsonFields(String jsonSt) {
+        for(var entry: fieldsConvertProp.entrySet()) {
+            String field = (String) entry.getKey();
+            String fieldReplace = (String) entry.getValue();
+            System.out.println(field);
+            jsonSt = jsonSt.replace("\"" + field + "\"", "\"" + fieldReplace + "\"");
+        }
+        return jsonSt;
+    }
+    
     @PostMapping("/create_or_update_hsba")
     public ResponseEntity<?> createOrUpdateHsbaHIS(@RequestBody String jsonSt) {        
         
+        jsonSt = preprocessJsonFields(jsonSt);
         var errors = new ArrayList<ErrorMessage>();
         var objMap = jsonParser.parseJson(jsonSt, hsbaSchema, errors);
         objMap.get("emrChanDoan");
