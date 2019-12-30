@@ -204,3 +204,7 @@ footer p {
 .label-bold {
   font-weight: bold;
 }
+
+.search-detail {
+  width: 100%;
+}
