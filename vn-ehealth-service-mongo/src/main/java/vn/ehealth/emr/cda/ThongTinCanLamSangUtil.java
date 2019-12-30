@@ -93,7 +93,13 @@ public class ThongTinCanLamSangUtil {
             }
             
             //Giá trị đo
-            Double giaTriChiSoDo = Double.parseDouble(emrXetNghiemKetQua.giatrido);
+            Double giaTriChiSoDo = null;
+            try {
+                giaTriChiSoDo = Double.parseDouble(emrXetNghiemKetQua.giatrido);
+            }catch(NumberFormatException e) {
+                
+            }
+            
             if(giaTriChiSoDo != null){
                 String unit = properties.getProperty("BA_CHISOXETNGHIEM_UNIT", "BA_CHISOXETNGHIEM_UNIT");
                 var valueTag = DatatypesFactory.eINSTANCE.createPQ();                
