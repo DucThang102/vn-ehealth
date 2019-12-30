@@ -248,7 +248,6 @@ public class EmrHoSoBenhAnController {
         for(var entry: fieldsConvertProp.entrySet()) {
             String field = (String) entry.getKey();
             String fieldReplace = (String) entry.getValue();
-            System.out.println(field);
             jsonSt = jsonSt.replace("\"" + field + "\"", "\"" + fieldReplace + "\"");
         }
         return jsonSt;
