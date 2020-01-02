@@ -15,8 +15,6 @@ import org.openhealthtools.mdht.uml.cda.CDAFactory;
 import org.openhealthtools.mdht.uml.cda.ClinicalDocument;
 import org.openhealthtools.mdht.uml.cda.Component3;
 import org.openhealthtools.mdht.uml.cda.Custodian;
-import org.openhealthtools.mdht.uml.cda.Entry;
-import org.openhealthtools.mdht.uml.cda.EntryRelationship;
 import org.openhealthtools.mdht.uml.cda.Observation;
 import org.openhealthtools.mdht.uml.cda.PatientRole;
 import org.openhealthtools.mdht.uml.cda.Section;
@@ -42,7 +40,6 @@ import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import test.TestCDA.Const.COMPONENT.DIAGNOSIS;
 import test.TestCDA.Const.OID;
 import vn.ehealth.emr.model.EmrBenhNhan;
 import vn.ehealth.emr.model.EmrDmContent;
@@ -50,6 +47,17 @@ import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.utils.EmrUtils;
 
 public class TestCDA {
+    
+    static CDATemplateFactory cdaTemplateFactory;
+    
+    static {
+        try {
+            var file = new ClassPathResource("static/json/cda_template.json").getInputStream();
+            cdaTemplateFactory = new CDATemplateFactory(file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }        
+    }
 
     static SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
     static class Const {
@@ -58,40 +66,6 @@ public class TestCDA {
         
         public static final String DOC_SET_ID_EXTENSION = "180340024";
         
-        public static class COMPONENT {
-            public static class DIAGNOSIS {
-                public static final String TEMPLATE_ID = "2.16.840.1.113883.3.6000.4.3";
-                public static final String OBS_TEMPLATE_ID = "2.16.840.1.113883.3.6000.5.1.0.1";
-                public static final String TITLE = "CHẨN ĐOÁN";
-                public static final CE CODE = createCE("29308-4", OID.LOINC, "LOINC", "Diagnosis");
-                public static final CE OBS_CODE = createCE("282291009", OID.SNOMED_CT, "SNOMED CT", "Diagnosis");
-                
-                public static class PRELIMINARY {
-                    public static final String TEMPLATE_ID = "2.16.840.1.113883.3.6000.5.1.1";                    
-                    public static final CE CODE = createCE("44833-2", OID.LOINC, "LOINC", "Preliminary diagnosis");                    
-                }
-                
-                public static class ADMISSION {
-                    public static final String TEMPLATE_ID = "2.16.840.1.113883.3.6000.5.1.2";                    
-                    public static final CE CODE = createCE("8646-2", OID.LOINC, "LOINC", "Admission diagnosis");                    
-                }
-                
-                public static class DISCHARGE {
-                    public static final String TEMPLATE_ID = "2.16.840.1.113883.3.6000.5.1.4";                    
-                    public static final CE CODE = createCE("8651-2", OID.LOINC, "LOINC", "Discharge diagnosis");                    
-                }
-                
-                public static class PRE_OPERATIVE {
-                    public static final String TEMPLATE_ID = "2.16.840.1.113883.3.6000.5.1.5";                    
-                    public static final CE CODE = createCE("8720-5", OID.LOINC, "LOINC", "Preoperative diagnosis");                    
-                }
-                
-                public static class POST_OPERATIVE {
-                    public static final String TEMPLATE_ID = "2.16.840.1.113883.3.6000.5.1.6";                    
-                    public static final CE CODE = createCE("8719-7", OID.LOINC, "LOINC", "Postoperative diagnosis");                    
-                }
-            }
-        }
         
         public class OID {
             public static final String LOINC = "2.16.840.1.113883.6.1";
@@ -142,9 +116,6 @@ public class TestCDA {
         return DatatypesFactory.eINSTANCE.createCE(code, codeSystem);        
     }
     
-    static CE cloneCE(CE ce) {
-        return DatatypesFactory.eINSTANCE.createCE(ce.getCode(), ce.getCodeSystem(), ce.getCodeSystemName(), ce.getDisplayName());
-    }
     
     static CE createCE(String code, String codeSystem, String codeSystemName, String displayName) {
         if(StringUtils.isEmpty(codeSystemName))
@@ -273,65 +244,110 @@ public class TestCDA {
         return custodian;
     }
     
-    static EntryRelationship addChanDoanEntryRelationship(@Nonnull Entry entry, String text, EmrDmContent emrDmMaBenh) {
-        return addChanDoanEntryRelationship(entry, text, List.of(emrDmMaBenh));
-    }
-    
-    static EntryRelationship addChanDoanEntryRelationship(@Nonnull Entry entry, String text, List<EmrDmContent> emrDmMaBenhs) {
-        var entryRelationship = CDAFactory.eINSTANCE.createEntryRelationship();
-        entryRelationship.setTypeCode(x_ActRelationshipEntryRelationship.COMP);
-        entry.getAct().getEntryRelationships().add(entryRelationship);
-        
-        var obs = createObs();
-        entryRelationship.setObservation(obs);
-        
-        obs.getTemplateIds().add(createII(DIAGNOSIS.OBS_TEMPLATE_ID));
-        obs.setCode(cloneCE(DIAGNOSIS.OBS_CODE));
+    static void fillChanDoanObservation(@Nonnull Observation obs, String text, List<EmrDmContent> emrDmMaBenhs) {
         obs.setText(createED(text));
         for(var emrDmMaBenh : emrDmMaBenhs) {
             obs.getValues().add(createCD(emrDmMaBenh.ma, OID.DM_MA_BENH, null, emrDmMaBenh.ten));
         }
-        return entryRelationship;
     }
     
-    static Entry addChanDoanEntry(@Nonnull Section chandoanSection, String templateId, CE code) {
-     
-        var entry = CDAFactory.eINSTANCE.createEntry();
-        var act = createAct();
-        entry.setAct(act);
-                        
-        act.getTemplateIds().add(createII(templateId));
-        act.setCode(code);         
-        
-        chandoanSection.getEntries().add(entry);
-        return entry;
+    static void fillChanDoanObservation(@Nonnull Observation obs, String text, EmrDmContent emrDmMaBenh) {
+        fillChanDoanObservation(obs, text, List.of(emrDmMaBenh));
     }
     
-    static Component3 createChanDoanComponent(EmrHoSoBenhAn hsba) {
+    static Component3 createChanDoanComponent(EmrHoSoBenhAn hsba) throws ReflectiveOperationException {
         if(hsba.emrChanDoan != null) {
             var component = CDAFactory.eINSTANCE.createComponent3();
-            var section = CDAFactory.eINSTANCE.createSection();
+            var section = (Section) cdaTemplateFactory.createObject("chandoan_Section");
             component.setSection(section);
             
-            section.getTemplateIds().add(createII(DIAGNOSIS.TEMPLATE_ID));
-            section.setCode(cloneCE(DIAGNOSIS.CODE));
-            section.setTitle(createST(DIAGNOSIS.TITLE));
+            // Chan doan noi den
+            var entryChandoanNoiden = CDAFactory.eINSTANCE.createEntry();
+            section.getEntries().add(entryChandoanNoiden);
             
-            var entryChandoanNoiden = addChanDoanEntry(section, DIAGNOSIS.PRELIMINARY.TEMPLATE_ID, cloneCE(DIAGNOSIS.PRELIMINARY.CODE));
-            addChanDoanEntryRelationship(entryChandoanNoiden, hsba.emrChanDoan.motachandoannoiden, hsba.emrChanDoan.emrDmMaBenhChandoannoiden);
+            var act = (Act) cdaTemplateFactory.createObject("chandoan_Act_noiden");
+            entryChandoanNoiden.setAct(act);            
             
-            var entryChandoanKkb = addChanDoanEntry(section, DIAGNOSIS.ADMISSION.TEMPLATE_ID, cloneCE(DIAGNOSIS.ADMISSION.CODE));
-            addChanDoanEntryRelationship(entryChandoanKkb, hsba.emrChanDoan.motachandoankkb, hsba.emrChanDoan.emrDmMaBenhChandoankkb);
+            var entryRelationship = CDAFactory.eINSTANCE.createEntryRelationship();
+            act.getEntryRelationships().add(entryRelationship);
             
-            var entryChandoanRavien = addChanDoanEntry(section, DIAGNOSIS.DISCHARGE.TEMPLATE_ID, cloneCE(DIAGNOSIS.DISCHARGE.CODE));
-            addChanDoanEntryRelationship(entryChandoanRavien, hsba.emrChanDoan.motachandoanravienchinh, hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh);
-            addChanDoanEntryRelationship(entryChandoanRavien, hsba.emrChanDoan.motachandoanravienkemtheo, hsba.emrChanDoan.emrDmMaBenhChandoanravienkemtheos);
+            var obs = (Observation) cdaTemplateFactory.createObject("chandoan_Observation_chinh");
+            entryRelationship.setObservation(obs);
+            fillChanDoanObservation(obs, hsba.emrChanDoan.motachandoannoiden, hsba.emrChanDoan.emrDmMaBenhChandoannoiden);
             
-            var entryChandoanTruocPttt = addChanDoanEntry(section, DIAGNOSIS.PRE_OPERATIVE.TEMPLATE_ID, cloneCE(DIAGNOSIS.PRE_OPERATIVE.CODE));
-            addChanDoanEntryRelationship(entryChandoanTruocPttt, hsba.emrChanDoan.motachandoantruocpt, hsba.emrChanDoan.emrDmMaBenhChandoantruocpts);
+            // Chan doan vao vien
+            var entryChandoanKkb = CDAFactory.eINSTANCE.createEntry();
+            section.getEntries().add(entryChandoanKkb);
             
-            var entryChandoanSauPttt = addChanDoanEntry(section, DIAGNOSIS.POST_OPERATIVE.TEMPLATE_ID, cloneCE(DIAGNOSIS.POST_OPERATIVE.CODE));
-            addChanDoanEntryRelationship(entryChandoanSauPttt, hsba.emrChanDoan.motachandoansaupt, hsba.emrChanDoan.emrDmMaBenhChandoansaupts);
+            act = (Act) cdaTemplateFactory.createObject("chandoan_Act_vaovien");
+            entryChandoanKkb.setAct(act);
+                        
+            entryRelationship = CDAFactory.eINSTANCE.createEntryRelationship();
+            act.getEntryRelationships().add(entryRelationship);
+            
+            obs = (Observation) cdaTemplateFactory.createObject("chandoan_Observation_chinh");
+            entryRelationship.setObservation(obs);
+            fillChanDoanObservation(obs, hsba.emrChanDoan.motachandoankkb, hsba.emrChanDoan.emrDmMaBenhChandoankkb);
+            
+            // Chan doan ra vien
+            var entryChandoanRavien = CDAFactory.eINSTANCE.createEntry();
+            section.getEntries().add(entryChandoanRavien);
+            
+            act = (Act) cdaTemplateFactory.createObject("chandoan_Act_ravien");
+            entryChandoanRavien.setAct(act);
+            
+            // Ra vien chinh
+            entryRelationship = CDAFactory.eINSTANCE.createEntryRelationship();
+            act.getEntryRelationships().add(entryRelationship);
+            
+            obs = (Observation) cdaTemplateFactory.createObject("chandoan_Observation_chinh");
+            entryRelationship.setObservation(obs);
+            fillChanDoanObservation(obs, hsba.emrChanDoan.motachandoanravienchinh, hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh);
+            
+            // Ra vien kem theo
+            entryRelationship = CDAFactory.eINSTANCE.createEntryRelationship();
+            act.getEntryRelationships().add(entryRelationship);
+            
+            obs = (Observation) cdaTemplateFactory.createObject("chandoan_Observation_kemtheo");
+            entryRelationship.setObservation(obs);
+            fillChanDoanObservation(obs, hsba.emrChanDoan.motachandoanravienkemtheo, hsba.emrChanDoan.emrDmMaBenhChandoanravienkemtheos);
+            
+            // Ra vien kem nguyen nhan
+            entryRelationship = CDAFactory.eINSTANCE.createEntryRelationship();
+            act.getEntryRelationships().add(entryRelationship);
+            
+            obs = (Observation) cdaTemplateFactory.createObject("chandoan_Observation_nguyennhan");
+            entryRelationship.setObservation(obs);
+            fillChanDoanObservation(obs, hsba.emrChanDoan.motachandoanraviennguyennhan, hsba.emrChanDoan.emrDmMaBenhChandoanraviennguyennhan);
+            
+            // Truoc pttt
+            var entryChandoanTruocPttt = CDAFactory.eINSTANCE.createEntry();
+            section.getEntries().add(entryChandoanTruocPttt);
+            
+            act = (Act) cdaTemplateFactory.createObject("chandoan_Act_truocpt");
+            entryChandoanTruocPttt.setAct(act);
+                        
+            entryRelationship = CDAFactory.eINSTANCE.createEntryRelationship();
+            act.getEntryRelationships().add(entryRelationship);
+            
+            obs = (Observation) cdaTemplateFactory.createObject("chandoan_Observation_chinh");
+            entryRelationship.setObservation(obs);
+            fillChanDoanObservation(obs, hsba.emrChanDoan.motachandoantruocpt, hsba.emrChanDoan.emrDmMaBenhChandoantruocpts);
+            
+            // Sau pttt
+            var entryChandoanSauPttt = CDAFactory.eINSTANCE.createEntry();
+            section.getEntries().add(entryChandoanSauPttt);
+            
+            act = (Act) cdaTemplateFactory.createObject("chandoan_Act_saupt");
+            entryChandoanSauPttt.setAct(act);
+                        
+            entryRelationship = CDAFactory.eINSTANCE.createEntryRelationship();
+            act.getEntryRelationships().add(entryRelationship);
+            
+            obs = (Observation) cdaTemplateFactory.createObject("chandoan_Observation_chinh");
+            entryRelationship.setObservation(obs);
+            fillChanDoanObservation(obs, hsba.emrChanDoan.motachandoansaupt, hsba.emrChanDoan.emrDmMaBenhChandoansaupts);
+            
             return component;
         }
         return null;
