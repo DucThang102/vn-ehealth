@@ -3,6 +3,8 @@ package vn.ehealth.emr.controller;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,4 +45,24 @@ public class EmrDmController {
         var lst = emrDmService.getAllEmrDm(dmType);
         return ResponseEntity.ok(lst);
     }
+    
+    @GetMapping("/export_dm_list")
+    public ResponseEntity<?> export(@RequestParam("dm_type") String dmType) {
+        var builder = new StringBuilder("STT,Mã,Tên\n");
+        var lst = emrDmService.getAllEmrDm(dmType);
+        for(int i = 0; i < lst.size(); i++) {
+            var item = lst.get(i);
+            builder.append((i+1)).append(",")
+                    .append(item.ma).append(",")
+                    .append(item.ten).append("\n");
+        }
+        
+        var data = builder.toString().getBytes();
+        return ResponseEntity.ok()
+                .contentLength(data.length)
+                .contentType(MediaType.parseMediaType("text/csv"))
+                .header("Content-disposition", "attachment; filename=" + dmType + ".csv")
+                .body(new ByteArrayResource(data));
+        
+    }    
 }
