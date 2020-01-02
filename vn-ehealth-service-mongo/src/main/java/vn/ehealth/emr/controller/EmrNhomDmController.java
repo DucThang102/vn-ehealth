@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,5 +30,11 @@ public class EmrNhomDmController {
                             @RequestParam Optional<Integer> start, 
                             @RequestParam Optional<Integer> count) {
         return emrNhomDmService.getEmrNhomDmList(keyword, start, count);
+    }
+    
+    @GetMapping("/get_ten_nhom_dm")
+    public ResponseEntity<?> getTenNhomDm(@RequestParam String ma) {
+        var emrNhomDm = emrNhomDmService.getByMa(ma);
+        return ResponseEntity.of(emrNhomDm.map(x -> x.ten));
     }
 }
