@@ -137,18 +137,16 @@
 				var result = await this.get("http://emr.com.vn:8001/api/hsba/report", params);
 				console.log(result);
 				this.report = [];
-				var lbaList = this.maLoaiBenhAn == ''? this.lbaList: this.lbaList.filter(x => x.ma == this.maLoaiBenhAn);
-				for(var i = 0; i < lbaList.length; i++) {
-					var lba = lbaList[i];
-					var soluong = result[lba.ma];
+				for(var key in result) {
+					var loaiBenhAn = this.lbaList.find(x => x.ma == key).ten;
+					var soluong = result[key];
 					this.report.push({
-						lba: lba.ten, 
-						chuaxuly: soluong? soluong[0] : 0,
-						daluu: soluong? soluong[1]: 0
+						lba: loaiBenhAn, 
+						chuaxuly: soluong[0],
+						daluu: soluong[1]
 					});
 				}
 				console.log(this.report);
-
 			}
 
 		},
