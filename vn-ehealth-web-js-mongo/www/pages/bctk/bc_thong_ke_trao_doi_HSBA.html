@@ -1,10 +1,12 @@
 <% include ../../header.html %>
 
 <div class="container mt-3" id='app'>
-	<h5>Báo cáo thống kê trao đổi hồ sơ bệnh án </h5>
-	<div class="row mt-2">
+	<div class="row mb-2">
+		<div class="col-4"><strong>Báo cáo thống kê trao đổi HSBA:</strong></div>
+	</div>
+		<div class="row mt-2">
 		<div class="col-6">
-			<label>Cơ sở khám bệnh</label>
+			<label class="label-title">Cơ sở khám bệnh</label>
 			<select v-model='maCoSoKhamBenh' class="form-control">
 				<option value="">---Tất cả các bệnh viện---</option>
 				<option v-for='cskb in cskbList' :value="cskb.ma">
@@ -13,7 +15,7 @@
 			</select>
 		</div>	
 		<div class="col-6">
-			<label>Loại bệnh án</label>	
+			<label class="label-title" >Loại bệnh án</label>	
 			<select  v-model='maLoaiBenhAn' class="form-control">
 				<option value="">----Chọn loại bệnh án---</option>
 				<option v-for='lba in lbaList' :value="lba.ma">
@@ -32,7 +34,7 @@
 			<date-picker v-model="denNgay" :config="{format: 'DD/MM/YYYY', sideBySide:true}"></date-picker>
 		</div>
 		<div class="col-4">
-			<label>Loại báo cáo</label>
+			<label class="label-title" >Loại báo cáo</label>
 			<select v-model='loaiBaoCao' class="form-control">
 				<option value="">Tất cả</option>
 				<option value="1">Chuyển đến</option>
