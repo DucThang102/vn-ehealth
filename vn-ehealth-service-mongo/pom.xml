@@ -75,6 +75,12 @@
         </dependency>
         
         <dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>3.8</version>
+		</dependency>
+        
+        <dependency>
             <groupId>vn.dtt.emr</groupId>
             <artifactId>hl7</artifactId>
             <version>0.0.1</version>
