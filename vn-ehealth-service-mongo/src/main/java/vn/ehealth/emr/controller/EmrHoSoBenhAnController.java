@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import net.sf.jasperreports.engine.JRException;
-import vn.ehealth.emr.cda.CDAExportUtil;
+//import vn.ehealth.emr.cda.CDAExportUtil;
 import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.service.EmrBenhNhanService;
 import vn.ehealth.emr.service.EmrCoSoKhamBenhService;
@@ -161,7 +161,7 @@ public class EmrHoSoBenhAnController {
     
     @GetMapping("/download_cda")
     public ResponseEntity<?> downloadCDA(@RequestParam("hsba_id") String id) {
-        
+        /*
         var hsbaOpt = emrHoSoBenhAnService.getById(new ObjectId(id));
         
         if(hsbaOpt.isPresent()) {
@@ -181,7 +181,7 @@ public class EmrHoSoBenhAnController {
             }catch(Exception e) {
                 logger.error("Error exporting pdf :", e);
             }
-        }
+        }*/
         
         return ResponseEntity.badRequest().build();
     }
