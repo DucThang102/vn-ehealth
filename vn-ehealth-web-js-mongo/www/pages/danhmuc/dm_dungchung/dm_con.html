@@ -46,11 +46,11 @@
         },
   
         getTotal: async function() {
-          this.total = await this.get("http://34.87.51.9:8001/api/danhmuc/count_dm_list?level=-1&parentCode=&dm_type=" + this.dm_type + "&keyword="+this.keyword); 
+          this.total = await this.get("http://34.87.24.163:8001/api/danhmuc/count_dm_list?level=-1&parentCode=&dm_type=" + this.dm_type + "&keyword="+this.keyword); 
         },
 
         getData: async function() {
-          this.dmTypeList = await this.get("http://34.87.51.9:8001/api/danhmuc/get_dm_list?level=-1&parentCode=&dm_type=" + this.dm_type +"&keyword="+this.keyword+"&start=" + this.offset + "&count=" + this.perPage);
+          this.dmTypeList = await this.get("http://34.87.24.163:8001/api/danhmuc/get_dm_list?level=-1&parentCode=&dm_type=" + this.dm_type +"&keyword="+this.keyword+"&start=" + this.offset + "&count=" + this.perPage);
         },
         search: async function () {       
           this.currentPage = 1; 

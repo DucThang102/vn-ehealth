@@ -1,13 +1,13 @@
-var API_URL = "http://34.87.51.9:8001";
+var API_URL = "http://34.87.24.163:8001";
 
 Vue.mixin({
   data: function() {
     return {
-      API_URL: "http://34.87.51.9:8001"
+      API_URL: "http://34.87.24.163:8001"
     };
   },
 
-  methods: {   
+  methods: {
     getParam: function(name) {
       if (
         (name = new RegExp("[?&]" + encodeURIComponent(name) + "=([^&]*)").exec(
@@ -46,11 +46,11 @@ Vue.mixin({
 
       console.log(url);
 
-      var headers = { 
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      var headers = {
+        Authorization: "Bearer " + localStorage.getItem("token")
       };
 
-      return fetch(url, {headers}).then(response => response.json());
+      return fetch(url, { headers }).then(response => response.json());
     },
 
     post: function(uri, params) {
@@ -59,10 +59,9 @@ Vue.mixin({
 
       return fetch(url, {
         method: "POST",
-        headers: { 
-          "Content-Type": "application/json" ,
-          "Authorization": "Bearer " + localStorage.getItem("token")
-
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + localStorage.getItem("token")
         },
         body: JSON.stringify(params)
       }).then(response => response.json());
@@ -71,7 +70,7 @@ Vue.mixin({
     createURL: function(htmlURL, params) {
       var queryStr = serialize(params);
       return queryStr === "" ? htmlURL : htmlURL + "?" + queryStr;
-    },
+    }
   }
 });
 
