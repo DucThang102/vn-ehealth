@@ -572,64 +572,73 @@
     <h6>5. Hướng điều trị và các chế độ tiếp theo</h6>
     <span>................................</span>
   </div>
-  <div class="row">
-    <table style="width:50%">
+  <div>
+    <table style="width:100%" border="1">
       <tr>
-        <th colspan="2">Hồ sơ, phim, ảnh</th>
+        <th colspan="2"><center>Hồ sơ, phim, ảnh</center></th>
         <td rowspan="4">
-          <b>Người giao hồ sơ:</b>
+          <center><b>Người giao hồ sơ:</b></center>
           <br />
           <br />
           <br />
-          <p>Họ và tên:..............</p>
+          <p>Họ và tên:{{hsba.emrTongKetRaVien.nguoigiaohoso}}</p>
         </td>
         <td rowspan="8">
-          <p>Ngày ... tháng ... năm...</p>
-          <b> Bác sĩ điều trị </b>
+          <p>Ngày:{{hsba.emrQuanLyNguoiBenh.ngaygioravien}}</p>
+
+          <center><b> Bác sĩ điều trị </b></center>
           <br />
           <br />
           <br />
           <br />
           <br />
           <br />
-          <p>Họ và tên:..............</p>
+          <p>Họ và tên:{{hsba.emrTongKetRaVien.bacsydieutri}}</p>
         </td>
       </tr>
 
       <tr>
-        <td>Loại</td>
-        <td>Số tờ</td>
+        <td>
+          <center><b>Loại</b></center>
+        </td>
+        <td>
+          <center><b>Số tờ</b></center>
+        </td>
       </tr>
       <tr>
         <td>- X - Quang</td>
-        <td></td>
+        <td><center>{{hsba.emrTongKetRaVien.soToXQuang}}</center></td>
       </tr>
       <tr>
         <td>- CT Scanner</td>
-        <td></td>
+        <td><center>{{hsba.emrTongKetRaVien.soToCTScanner}}</center></td>
       </tr>
       <tr>
         <td>- Siêu âm</td>
-        <td></td>
+        <td><center>{{hsba.emrTongKetRaVien.soToSieuAm}}</center></td>
         <td rowspan="4">
-          <b> Người nhận hồ sơ</b>
+          <center><b> Người nhận hồ sơ</b></center>
           <br />
           <br />
           <br />
-          <p>Họ và tên:......</p>
+          <p>Họ và tên:{{hsba.emrTongKetRaVien.nguoinhanhoso}}</p>
         </td>
       </tr>
       <tr>
         <td>- Xét nghiệm</td>
-        <td></td>
+        <td><center>{{hsba.emrTongKetRaVien.soToXetNghiem}}</center></td>
       </tr>
       <tr>
         <td>- Khác</td>
-        <td></td>
+        <td><center>{{hsba.emrTongKetRaVien.soToKhac}}</center></td>
       </tr>
       <tr>
         <td>- Toàn bộ hồ sơ</td>
-        <td></td>
+        <td>
+          <center>
+            {{hsba.emrTongKetRaVien.soToXQuang+hsba.emrTongKetRaVien.soToCTScanner+hsba.emrTongKetRaVien.soToSieuAm+hsba.emrTongKetRaVien.soToXetNghiem+hsba.emrTongKetRaVien.soToKhac}}
+          </center>
+        </td>
       </tr>
     </table>
   </div>
