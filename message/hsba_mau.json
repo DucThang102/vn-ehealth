@@ -1667,5 +1667,11 @@
         }
       ]
     }
+  ],
+  "emr_quan_ly_file_dinh_kem_benh_an" : [
+    {
+      "url": "text",
+      "format": "text"
+    }
   ]
 }

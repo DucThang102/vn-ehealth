@@ -149,6 +149,39 @@ public class EmrHoSoBenhAn {
         return emrCoSoKhamBenh;
     }
     
+    public String getNguoitaoId() {
+        return ObjectIdUtil.idToString(nguoitaoId);
+    }
+    
+    public void setNguoitaoId(String nguoitaoId) {
+        this.nguoitaoId = ObjectIdUtil.stringToId(nguoitaoId);
+    }
+    
+    public String getNguoisuaId() {
+        return ObjectIdUtil.idToString(nguoisuaId);
+    }
+    
+    public void setNguoisuaId(String nguoisuaId) {
+        this.nguoitaoId = ObjectIdUtil.stringToId(nguoisuaId);
+    }
+    
+    public String getNguoiluutruId() {
+        return ObjectIdUtil.idToString(nguoiluutruId);
+    }
+    
+    public void setNguoiluutruId(String nguoiluutruId) {
+        this.nguoiluutruId = ObjectIdUtil.stringToId(nguoiluutruId);
+    }
+    
+    public String getNguoimoluutruId() {
+        return ObjectIdUtil.idToString(nguoimoluutruId);
+    }
+    
+    public void setNguoimoluutruId(String nguoimoluutruId) {
+        this.nguoimoluutruId = ObjectIdUtil.stringToId(nguoimoluutruId);
+    }
+    
+    
     public String getMayte() {
         return mayte;
     }

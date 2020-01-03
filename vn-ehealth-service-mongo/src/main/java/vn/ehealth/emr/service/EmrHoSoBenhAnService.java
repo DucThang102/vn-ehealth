@@ -17,6 +17,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import vn.ehealth.emr.model.EmrFileDinhKem;
 import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.repository.EmrHoSoBenhAnRepository;
 import vn.ehealth.emr.utils.Constants.MA_HANH_DONG;
@@ -333,5 +334,16 @@ public class EmrHoSoBenhAnService {
             }
         }
         return mongoTemplate.find(new Query(criteria), EmrHoSoBenhAn.class);
+    }
+    
+    public void addEmrFileDinhKems(ObjectId id, List<EmrFileDinhKem> emrFileDinhKems) {
+        var hsba = emrHoSoBenhAnRepository.findById(id);
+        hsba.ifPresent(x -> {
+            if(x.emrFileDinhKems == null) {
+                x.emrFileDinhKems = new ArrayList<>();
+            }
+            x.emrFileDinhKems.addAll(emrFileDinhKems);
+            emrHoSoBenhAnRepository.save(x);
+        });
     }
 }

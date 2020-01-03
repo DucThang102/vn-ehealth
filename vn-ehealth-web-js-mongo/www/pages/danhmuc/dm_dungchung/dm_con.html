@@ -1,0 +1,80 @@
+<% include ../../../header.html %>
+<div class="container mt-3" id="app" >
+    <div class="row mt-3">
+      <strong class="mb-3">Danh sách chi tiết thêm{{ dm_type }}:</strong>
+      <form @submit.prevent="search()" class="search-detail" >
+        <input v-model="keyword" class="form-control" placeholder="Search "></input>
+      </form>
+
+      <table class="table table-bordered">
+      <tr>
+        <th class="text-center" >STT</th>
+        <th  >Mã</th>
+        <th  >Tên {{ dm_type}} </th>
+      </tr>
+      <tr v-for='(dmType, i) in dmTypeList'>
+        <td class="text-center" >{{ i + 1 + offset}}</td>
+        <td  >{{ dmType.ma }} </td>
+        <td >{{ dmType.ten }} </td>  
+      </tr>
+    </table>
+    <div v-if="total > perPage">
+    <b-pagination  v-model="currentPage"  :total-rows="total"  :per-page="perPage"></b-pagination>
+    <p class="mt-3">Trang {{ currentPage }} / {{ Math.ceil(total/perPage) }}</p>
+  </div>
+  </div>
+
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+      dmTypeList: [],
+      currentPage: 1,
+      perPage: 10,
+      total:0,
+      keyword: '',
+      },
+      methods: {
+  
+        get: async function(url, params) {
+          if(params) {
+            url = url + '?' + this.serialize(params);
+          }
+          console.log(url);
+          var resp = await fetch(url);
+          return resp.json();
+        },
+  
+        getTotal: async function() {
+          this.total = await this.get("http://34.87.51.9:8001/api/danhmuc/count_dm_list?level=-1&parentCode=&dm_type=" + this.dm_type + "&keyword="+this.keyword); 
+        },
+
+        getData: async function() {
+          this.dmTypeList = await this.get("http://34.87.51.9:8001/api/danhmuc/get_dm_list?level=-1&parentCode=&dm_type=" + this.dm_type +"&keyword="+this.keyword+"&start=" + this.offset + "&count=" + this.perPage);
+        },
+        search: async function () {       
+          this.currentPage = 1; 
+          this.getTotal();
+          this.getData(); 
+        }
+      },
+      watch:{
+        currentPage: async function(value) {
+          this.getData();
+        }
+      },
+      computed: {
+        offset() {
+            return (this.currentPage -1) * this.perPage;
+          }   
+        },
+      created: async function() {
+        this.dm_type = this.getParam('dm_type');
+        this.getTotal();
+        this.getData();
+      }
+    });
+  </script>
+  
+  

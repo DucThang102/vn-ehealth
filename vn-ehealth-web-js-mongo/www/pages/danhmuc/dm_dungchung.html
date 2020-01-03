@@ -6,7 +6,7 @@
   }
 </style>
 
-<div id="app" class="container-fluid pt-2 mb-4 mt-2">
+<div id="app" class="container pt-2 mb-4 mt-2">
   <template v-if="total == 0">
     <b>Không có dữ liệu</b>
   </template>
@@ -18,13 +18,18 @@
             <div class="row mb-2">
                 <div class="col-4"><strong>Mã/tên danh mục dùng chung:</strong></div>
             </div>
+            <form @submit.prevent="search()" class="search-detail" >
+              <input v-model="keyword" class="form-control" placeholder="Search "></input>
+            </form>
+            <!--
             <div class="row">
 			        <div class="col-8">
 			          <input v-model="keyword" class="form-control" placeholder="Mã/Tên danh mục dùng chung"></input>
 			        </div>
 			        	<b-button variant="primary" class="search" type="submit">Tìm kiếm</b-button>
 			        </div>
-		        </div>
+            </div>
+          -->
 		        <!-- <div class="row mt-2">
 			        <div class="col-4">
 			        	<label for="input-none"><strong>Thời gian bắt đầu có hiệu lực từ ngày:</strong></label><br/>
@@ -41,24 +46,28 @@
     <table class="table table-bordered table-width-100 mt-4" v-if="total > 0">
 
       <thead>
-        <tr>
+        <tr> 
           <th style="width:5%">STT</th>
           <th style="width:20%">Mã loại danh mục</th>
           <th style="width:40%">Tên danh mục</th>
-          <th style="width:20%">Trạng thái</th>
-          <th style="width:5%">Thao tác</th>
+          <th style="width:10%">Trạng thái</th>
+          <th style="width:15%">Thao tác</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(hs, index) in items">
+        <tr v-for="(dm, index) in items">
           <td align="center">{{ index + (currentPage-1)*perPage + 1 }}</td>
-          <td>{{ hs.ma }}</td>
-          <td>{{ hs.ten }}</td>
-          <td>{{ hs.trang_thai }}</td>
-           <td>
-             <a href="#" title="Xem chi tiết danh mục"><i class="fa fa-eye"></i></a>
-             <a href="#" title="Quản lý phiên bản"><i class="fa fa-cog"></i></a>
-          </td>
+          <td>{{ dm.ma }}</td>
+          <td>{{ dm.ten }}</td>
+          <td>{{ dm.trang_thai }}</td>
+           <td align="center">
+             <a :href='createURL("/pages/danhmuc/dm_dungchung/dm_con.html", {"dm_type" : dm.ma})' title="Xem chi tiết danh mục"><i class="fa fa-eye"></i></a>
+             <a :href='createURL("/pages/danhmuc/dm_dungchung/dm_quanly.html", {"dm_type" : dm.ma})' title="Quản lý phiên bản"><i class="fa fa-cog"></i></a>
+             <a :href='createURL("http://emr.com.vn:8001/api/danhmuc/export_dm_list?dm_type=", {"dm_type" : dm.ma})' title="Tải xuống"><i class="fa fa-download"></i></a>
+ 
+             <a href='#' v-on:click="khoadieutri=khoa" data-toggle="modal" data-target="#vkModal"><i
+              class="fas fa-fw fa-edit"></i></a>
+           </td>
         </tr>
       </tbody>
     </table>
@@ -66,13 +75,50 @@
     <label class="label">Tổng số : {{ total }} bản ghi</label>
 
   </template>
+
+  <div class="modal fade"  aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+
+          <h5 class="modal-title">Danh mục dùng chung</h5>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+        </div>
+
+        <div class="row">
+          <label for="">Loại danh mục</label>
+          <select name="" id="">
+            <option value="">---Chọn loại danh mục---</option>
+            <option v-for='dmType in dmTypeList' :value="dmType.ma">
+              {{ dmType.ten}}
+            </option>
+          </select>
+          <a :href='createURL("/pages/danhmuc/dm_dungchung/dm_quanly.html", {"dm_type" : dm.ma})' title="Cập nhật"><i class="fa fa-upload"></i></a>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <button type="button"  >Lưu lại</button>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+  </div>
 </div>
 <script  type="text/javascript"> 
   new Vue({
     el: "#app",
     data: {  
+      dmTypeList: [],
       keyword: "",
-      perPage: 5,
+      perPage: 10,
     	currentPage: 1,
     	items: [],
     	total : null,
@@ -90,6 +136,10 @@
                             start: start, count: this.perPage});
         console.log(this.items);
       },
+
+      getData: async function() {
+          this.dmTypeList = await this.get("http://34.87.51.9:8001/api/danhmuc/get_dm_list?level=-1&parentCode=&dm_type=" + this.dm_type +"&keyword="+this.keyword+"&start=" + this.offset + "&count=" + this.perPage);
+        },
 
       getData: async function() {
         await this.getTotal();
@@ -112,6 +162,7 @@
     },
     
     created: async function () {
+      this.dm_type = this.getParam('dm_type');
       await this.getData();	  
     }
   });
