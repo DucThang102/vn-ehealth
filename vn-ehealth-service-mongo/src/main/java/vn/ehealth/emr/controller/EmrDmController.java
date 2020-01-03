@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -97,7 +98,7 @@ public class EmrDmController {
             return ResponseEntity.ok(Map.of("success", true, "csv", csv));
         } catch (Exception e) {
             logger.error("Fail to upload file:", e);
-            return ResponseEntity.ok(Map.of("success", false, "error", e.getMessage()));
+            return new ResponseEntity<>(Map.of("success", false, "error", e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
 }
