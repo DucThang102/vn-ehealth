@@ -54,3 +54,8 @@ VueAsyncComponent(
   "/pages/hsba/view_detail/benh_an/benh_an_ngoai_tru.html",
   { props: ["hsba"] }
 );
+VueAsyncComponent(
+  "benh-an-san-khoa",
+  "/pages/hsba/view_detail/benh_an/benh_an_san_khoa.html",
+  { props: ["hsba"] }
+);
