@@ -18,9 +18,9 @@ public class EmrCkChucNangSinhHoat {
     
     public String divesinh;
     
-    public String namguaSap;
+    public String namNguaSap;
     
-    public String namnguaNgoi;
+    public String namNguaNgoi;
     
     public String dungNgoi;
     

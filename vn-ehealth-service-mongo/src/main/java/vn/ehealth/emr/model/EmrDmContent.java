@@ -10,5 +10,6 @@ public class EmrDmContent {
     public String ten = "";
     
     public String maicd = "";
-
+    public String code = "";
+    public String codeSystem = "";
 }

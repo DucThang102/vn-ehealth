@@ -106,4 +106,18 @@ public class EmrDmService {
         }
         return new ArrayList<>();
     }
+    
+    public void importEmrDmList(String maNhom, List<EmrDm> emrDmList) {
+        var nhomId = emrNhomDmRepository.findByMa(maNhom).map(x -> x.id).orElse(null);
+        if(nhomId != null) {
+            for(var emrDm : emrDmRepository.findByEmrNhomDmId(nhomId)) {
+                emrDmRepository.delete(emrDm);
+            }
+            
+            for(var emrDm : emrDmList) {
+                emrDm.emrNhomDmId = nhomId;
+                emrDmRepository.save(emrDm);
+            }
+        }
+    }
 }

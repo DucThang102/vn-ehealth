@@ -1,0 +1,194 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link type="text/css" rel="stylesheet" href="css/bootstrap-vue.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pc-bootstrap4-datetimepicker@4.17/build/css/bootstrap-datetimepicker.min.css"/>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/e2db74ebd5.js"></script>
+
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pc-bootstrap4-datetimepicker@4.17/build/js/bootstrap-datetimepicker.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/bootstrap-vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-bootstrap-datetimepicker@5"></script>
+
+<script>
+  Vue.component("date-picker", VueBootstrapDatetimePicker);
+</script>
+
+
+<div class="container" id='app'>
+	<h5>Báo cáo các giao ban liên tuyến </h5>
+
+	<div class="row mt-3">
+		<div class="col-8">
+			<label>Loai bao cao</label>
+			<select v-model='loaiBaoCao' class="form-control">
+				<option value="">Tất cả</option>
+				<option value="1">Chuyển đến</option>
+				<option value="2">Chuyển đi</option>
+			</select>
+		</div>
+		<div class="col-4">
+			<label>&nbsp;</label><br>
+			<button class="btn btn-primary" v-on:click="search()">Tìm kiếm</button>
+
+		</div>
+	</div>
+
+	<div class="row mt-2">
+		<div class="col-4">
+			<label>Co so kham benh</label>
+			<select v-model='maCoSoKhamBenh' class="form-control">
+				<option value="">---Tất cả các bệnh viện---</option>
+				<option v-for='cskb in cskbList' :value="cskb.ma">
+					{{ cskb.ten}}
+				</option>
+			</select>
+
+
+		</div>
+
+			
+		<div class="col-4">
+			<label>Loai benh an</label>	
+			<select  v-model='maLoaiBenhAn' class="form-control">
+				<option value="">----Chon loai benh an---</option>
+				<option v-for='lba in lbaList' :value="lba.ma">
+					{{lba.ten}}
+				</option>
+			</select>
+
+		
+		</div>	
+	</div>
+
+	<div class="row mt-2">
+		<div class="col-4">
+			<label  class="label-title" >Từ ngày</label>
+			<date-picker v-model="tuNgay" :config="{format: 'DD/MM/YYYY', sideBySide:true}"></date-picker>
+		</div>
+		<div class="col-4">
+			<label  class="label-title" >Đến ngày</label>
+			<date-picker v-model="denNgay" :config="{format: 'DD/MM/YYYY', sideBySide:true}"></date-picker>
+		</div>
+	</div>
+	<div class="row mt-3">
+		<div class="col-12" v-if="report">
+			<table class="table table-bordered">
+				<tr>
+					<th class="text-center">STT</th>
+					<th class="text-center">Loai benh an</th>
+					<th class="text-center">So ho so cho xu ly</th>
+					<th class="text-center">So ho so da luu</th>
+				</tr>
+
+				<tr v-for='(item,i) in currentItems'>
+					<td class="text-center">{{i + 1 + offset}}</td>
+					<td class="text-center">{{item.lba}}</td>
+					<td class="text-center">{{item.chuaxuly}}</td>
+					<td class="text-center">{{item.daluu}}</td>
+				</tr>			
+			</table>
+
+			<div v-if="rows > perPage">
+				<b-pagination  v-model="currentPage"  :total-rows="rows"  :per-page="perPage"></b-pagination>
+				<p class="mt-3">Trang {{ currentPage }} / {{ Math.ceil(rows/perPage) }}</p>			
+			</div>
+		</div>
+	</div>	
+</div>
+
+
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			maCoSoKhamBenh: '',
+			maLoaiBenhAn:'',
+			tuNgay:'',
+			denNgay:'',
+			loaiBaoCao: '',
+			cskbList : [],
+			lbaList : [],
+			report: [],
+			currentPage: 1,
+			perPage: 5
+		},
+
+//Coso kham benh : http://emr.com.vn:8001/api/coso_khambenh/get_all_cskb
+//Loai benh an: http://emr.com.vn:8001/api/danhmuc/get_all_dm_list?dm_type=DM_LOAI_BENH_AN
+
+		methods : {			
+			serialize: function(obj) {
+			  var str = [];
+			  for (var param in obj) {
+			    str.push(encodeURIComponent(param) + "=" + encodeURIComponent(obj[param]));
+			  }
+			  return str.join("&");
+			},
+
+			get: async function(url, params) {
+				if(params) {
+					url = url + '?' + this.serialize(params);
+				}
+				console.log(url);
+				var resp = await fetch(url);
+				return resp.json();
+			},
+
+			search: async function() {
+				var params = {
+					maLoaiBenhAn: this.maLoaiBenhAn,
+					maCoSoKhamBenh: this.maCoSoKhamBenh,
+					//loaiBaoCao: this.loaiBaoCao,
+					startDate: this.tuNgay? this.tuNgay + " 00:00" : "",
+					endDate: this.denNgay? this.denNgay + " 00:00": ""
+
+				};
+				console.log(params);
+
+				var result = await this.get("http://emr.com.vn:8001/api/hsba/report", params);
+				console.log(result);
+				this.report = [];
+				var lbaList = this.maLoaiBenhAn == ''? this.lbaList: this.lbaList.filter(x => x.ma == this.maLoaiBenhAn);
+				for(var i = 0; i < lbaList.length; i++) {
+					var lba = lbaList[i];
+					var soluong = result[lba.ma];
+					this.report.push({
+						lba: lba.ten, 
+						chuaxuly: soluong? soluong[0] : 0,
+						daluu: soluong? soluong[1]: 0
+					});
+				}
+				console.log(this.report);
+
+			}
+
+		},
+
+computed: {
+		  rows() {
+			return this.report.length
+		  },
+		  currentItems() {
+		    return this.report.slice((this.currentPage -1) * this.perPage, this.currentPage * this.perPage)
+		  }	,
+		  offset() {
+		  	return (this.currentPage -1) * this.perPage;
+		  }	  
+		},
+created: async function() {
+			this.cskbList = await  this.get('http://emr.com.vn:8001/api/coso_khambenh/get_all_cskb');
+			this.lbaList = await  this.get('http://emr.com.vn:8001/api/danhmuc/get_all_dm_list?dm_type=DM_LOAI_BENH_AN');
+		}
+})
+</script>
+
+
+			

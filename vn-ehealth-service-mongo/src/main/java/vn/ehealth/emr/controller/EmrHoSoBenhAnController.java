@@ -5,11 +5,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Properties;
 
 import org.bson.types.ObjectId;
+import org.jfree.util.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
@@ -21,9 +24,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import net.sf.jasperreports.engine.JRException;
-import vn.ehealth.emr.cda.CDAExportUtil;
+import vn.ehealth.emr.model.EmrFileDinhKem;
+//import vn.ehealth.emr.cda.CDAExportUtil;
 import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.service.EmrBenhNhanService;
 import vn.ehealth.emr.service.EmrCoSoKhamBenhService;
@@ -44,11 +49,16 @@ import java.io.*;
 @RequestMapping("/api/hsba")
 public class EmrHoSoBenhAnController {
     
+    @Value("${server.upload.path}")
+    private String uploadPath;
+    
     private static Logger logger = LoggerFactory.getLogger(EmrHoSoBenhAnController.class);
     
     private JsonParser jsonParser = new JsonParser();
     
     private static String hsbaSchema = "";
+    
+    private static Properties fieldsConvertProp = new Properties();
     
     
     static {
@@ -57,6 +67,13 @@ public class EmrHoSoBenhAnController {
         } catch (IOException e) {
             logger.error("Cannot read hsba schema", e);
         }
+        
+        try {
+            fieldsConvertProp.load(new ClassPathResource("fields_convert.properties").getInputStream());
+        } catch (IOException e) {
+            logger.error("Cannot read fieldsConvert properties", e);
+        }
+        
     }
     
     @Autowired EmrHoSoBenhAnService emrHoSoBenhAnService;    
@@ -151,7 +168,7 @@ public class EmrHoSoBenhAnController {
     
     @GetMapping("/download_cda")
     public ResponseEntity<?> downloadCDA(@RequestParam("hsba_id") String id) {
-        
+        /*
         var hsbaOpt = emrHoSoBenhAnService.getById(new ObjectId(id));
         
         if(hsbaOpt.isPresent()) {
@@ -160,7 +177,7 @@ public class EmrHoSoBenhAnController {
                 hsba.getEmrBenhNhan();
                 hsba.getEmrCoSoKhamBenh();
                 emrHoSoBenhAnService.getEmrHoSoBenhAnDetail(hsba);
-                var data = CDAExportUtil.exportCDA(hsba);
+                var data = new byte[0];// CDAExportUtil.exportCDA(hsba);
                 var resource = new ByteArrayResource(data);
                 
                 return ResponseEntity.ok()
@@ -171,7 +188,7 @@ public class EmrHoSoBenhAnController {
             }catch(Exception e) {
                 logger.error("Error exporting pdf :", e);
             }
-        }
+        }*/
         
         return ResponseEntity.badRequest().build();
     }
@@ -234,9 +251,19 @@ public class EmrHoSoBenhAnController {
         
     }
     
+    private String preprocessJsonFields(String jsonSt) {
+        for(var entry: fieldsConvertProp.entrySet()) {
+            String field = (String) entry.getKey();
+            String fieldReplace = (String) entry.getValue();
+            jsonSt = jsonSt.replace("\"" + field + "\"", "\"" + fieldReplace + "\"");
+        }
+        return jsonSt;
+    }
+    
     @PostMapping("/create_or_update_hsba")
     public ResponseEntity<?> createOrUpdateHsbaHIS(@RequestBody String jsonSt) {        
         
+        jsonSt = preprocessJsonFields(jsonSt);
         var errors = new ArrayList<ErrorMessage>();
         var objMap = jsonParser.parseJson(jsonSt, hsbaSchema, errors);
         objMap.get("emrChanDoan");
@@ -296,5 +323,39 @@ public class EmrHoSoBenhAnController {
         
         return ResponseEntity.ok(groups);
         
+    }
+    
+    private String modifyFilename(String filename) {        
+        long time = System.currentTimeMillis();
+        int pos = filename.lastIndexOf('.');
+        if(pos >= 0) {
+            return filename.substring(0, pos) + "_" + String.valueOf(time) + filename.substring(pos);
+        }else {
+            return filename + "_" + String.valueOf(time);
+        }        
+    }
+    
+    @PostMapping("/add_giayto")
+    public ResponseEntity<?> addGiayToDinhKem(@RequestParam("hsba_id") String id, @RequestParam("attached_files") MultipartFile[] attachedFiles) {
+        try {
+            var emrFileDinhKems = new ArrayList<EmrFileDinhKem>();
+            
+            for(var attachedFile : attachedFiles) {
+                var filename = modifyFilename(attachedFile.getOriginalFilename());
+                var file = new File(uploadPath + "/" + filename);
+                attachedFile.transferTo(file);
+                
+                var emrFileDinhKem = new EmrFileDinhKem();
+                emrFileDinhKem.url = "/upload/" + filename;
+                emrFileDinhKem.name = attachedFile.getOriginalFilename();
+                emrFileDinhKems.add(emrFileDinhKem);
+            }
+            
+            emrHoSoBenhAnService.addEmrFileDinhKems(new ObjectId(id), emrFileDinhKems);
+            return ResponseEntity.ok(Map.of("success", true));
+        }catch(Exception e) {
+            Log.error("Fail to upload giayto:", e);
+            return new ResponseEntity<>(Map.of("success", false, "error", e.getMessage()), HttpStatus.BAD_REQUEST);
+        }
     }
 }

@@ -10,7 +10,7 @@ public class EmrCkHuongDieuTriTcm {
     public Boolean chongsoc;
     public Boolean dieutricaoHa;
     public Boolean anthan;
-    public Boolean YGlobulin;
+    public Boolean yGlobulin;
     public Boolean nhapIcu;
     public String dieutrikhac;
 }

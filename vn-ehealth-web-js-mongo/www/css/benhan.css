@@ -1,0 +1,24 @@
+.title-1 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.title-2 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.title-3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.bullet {
+  font-size: 0.35rem;  
+  vertical-align: middle;
+}
+
+.bullet-small {  
+  font-size: 0.3rem;  
+  vertical-align: middle;
+}

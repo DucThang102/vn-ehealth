@@ -20,6 +20,10 @@ public class EmrNhomDmService {
     @Autowired MongoTemplate mongoTemplate;
     @Autowired EmrNhomDmRepository emrNhomDmRepository;
     
+    public Optional<EmrNhomDm> getByMa(String ma){
+        return emrNhomDmRepository.findByMa(ma);
+    }
+    
     public long countEmrNhomDm(String keyword) {
         var criteria = new Criteria().orOperator(
                 Criteria.where("ten").regex(keyword),

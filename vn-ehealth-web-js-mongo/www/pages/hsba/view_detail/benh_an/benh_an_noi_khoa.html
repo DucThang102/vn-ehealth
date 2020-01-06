@@ -1,368 +1,306 @@
 <div class="container">
   <div class="row mt-3">
-    <h4>A- BỆNH ÁN</h4>
+    <span class="text-tle title-1">A- BỆNH ÁN</span>
   </div>
   <div class="row mt-2">
-    <h5>I. Lý do vào viện:</h5>
-  </div>
-  <div class="row">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-  <div class="row mt-3">Vào ngày thứ <span>............</span> của bệnh</div>
-  <div class="row mt-3">
-    <h5>II. Hỏi bệnh:</h5>
-  </div>
-  <div class="row mt-2">
-    <h6>1. Quá trình bệnh lý:</h6>
-    <i>(khởi phát, diễn biến, chẩn đoán, điều trị của tuyến dưới v.v...).</i>
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-  <div class="row mt-2">
-    <h6>2. Tiền sử bệnh:</h6>
-  </div>
-  <div class="row mt-2">
-    + Bản thân:
-    <i
-      >(phát triển thể lực từ nhỏ đến lớn, những bệnh đã mắc, phương pháp ĐTr,
-      tiêm phòng, ăn uống, sinh hoạt vv...)</i
-    >
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-
-  <div>
-    Đặc điểm bệnh liên quan
-  </div>
-  <div class="container">
-    <table style="width:100%" class="table table-bordered mt-3">
-      <tr>
-        <th>STT</th>
-        <th>Ký hiệu</th>
-        <th>Thời gian (tính theo tháng)</th>
-        <th>STT</th>
-        <th>Ký hiệu</th>
-        <th>Thời gian (tính theo tháng)</th>
-      </tr>
-      <tr>
-        <td>01</td>
-        <td>- Dị ứng <input type="checkbox" /><label class="mr-3"></label></td>
-        <td><i> {{hsba.emrBenhAn.diung}}(dị nguyên)</i></td>
-        <td>04</td>
-        <td>-Thuốc lá<input type="checkbox" /><label class="mr-3"></label></td>
-        <td>{{hsba.emrBenhAn.thuocla}}</td>
-      </tr>
-      <tr>
-        <td>02</td>
-        <td>- Ma Tuý <input type="checkbox" /><label class="mr-3"></label></td>
-        <td><i>{{hsba.emrBenhAn.matuy}}</i></td>
-        <td>05</td>
-        <td>-Thuốc lào<input type="checkbox" /><label class="mr-3"></label></td>
-        <td><i>{{hsba.emrBenhAn.thuoclao}}</i></td>
-      </tr>
-      <tr>
-        <td>03</td>
-        <td>
-          - Rượu bia <input type="checkbox" /><label class="mr-3"></label>
-        </td>
-        <td><i>{{hsba.emrBenhAn.ruoubia}}</i></td>
-        <td>06</td>
-        <td>- Khác<input type="checkbox" /><label class="mr-3"></label></td>
-        <td><i>{{hsba.emrBenhAn.dacdiemkhac}}</i></td>
-      </tr>
-    </table>
-  </div>
-  <div class="row mt-2">
-    + Gia đình:
-    <i>
-      (Những người trong gia đình: bệnh đã mắc, đời sống, tinh thần, vật chất
-      v.v...).
-    </i>
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-  <div class="row mt-3">
-    <h5>III. Khám bệnh:</h5>
-  </div>
-  <div class="row mt-2">
-    <h6>1. Toàn thân</h6>
-    <i>
-      (ý thức, da niêm mạc, hệ thống hạch, tuyến giáp, vị trí, kích thước, số
-      lượng, di động v.v...)
-    </i>
-  </div>
-  <div class="row">
-    <div class="col-4 offset-4">
-      <div class="row">
-        <i>Mạch:</i> <span>{{hsba.emrBenhAn.mach}}</span> <i> lần/ph</i>
-      </div>
-      <div class="row">
-        <i>Nhiệt độ:</i> <span>{{hsba.emrBenhAn.nhietdo}}</span> <i>°C</i>
-      </div>
-      <div class="row">
-        <i>Huyết áp:</i>
-        <span
-          >{{hsba.emrBenhAn.huyetapcao}}/{{hsba.emrBenhAn.huyetapthap}}</span
-        >
-        <i> mmHg</i>
-      </div>
-      <div class="row">
-        <i>Nhịp thở:</i> <span>{{hsba.emrBenhAn.nhiptho}}</span> <i> lần/ph</i>
-      </div>
-      <div class="row">
-        <i>Cân nặng</i> <span>{{hsba.emrBenhAn.cannang}}</span> <i> kg</i>
-      </div>
-    </div>
+    <span class="title-2">I. Vào viện:</span>
   </div>
 
   <div class="row mt-2">
-    <h6>2. Các cơ quan</h6>
-  </div>
-  <div>
-    + Tuần hoàn:
+    <span class="title-3"><i class="fas fa-fw bullet fa-square"></i> Lý do vào viện: </span>
   </div>
   <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
+    <span class="ml-2">Vào viện do .....</span>
   </div>
-  <div>
-    + Hô hấp:
-  </div>
+
   <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
+    <span class="title-3"><i class="fas fa-fw bullet fa-square"></i> Vào ngày thứ <span>......</span> của bệnh</span>
   </div>
-  <div>
-    + Tiêu hóa:
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-  <div>
-    + Thận- Tiết niệu- Sinh dục:
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-  <div>
-    + Thần Kinh:
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-  <div>
-    + Cơ- Xương- Khớp:
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-  <div>
-    + Tai- Mũi- Họng:
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-  <div>
-    + Răng- Hàm- Mặt:
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-  <div>
-    + Mắt:
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-  <div>
-    + Nội tiết, dinh dưỡng và các bệnh lý khác:
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-  <div class="row mt-2">
-    <h6>3. Các xét nghiệm cận lâm sáng cần làm:</h6>
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
-  <div class="row mt-2">
-    <h6>4. Tóm tắt bệnh án:</h6>
-  </div>
-  <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
-  </div>
+
   <div class="row mt-3">
-    <h5>IV. Chuẩn đoán khi vào khoa điều trị:</h5>
+    <span class="title-2">II. Hỏi bệnh:</span>
   </div>
-  <div>
-    + Bệnh chính: {{ hsba.emrBenhAn.emrDmMaBenhChandoanbenhchinh.ten }}
-  </div>
-  <div>
-    + Bệnh kèm theo <i>(nếu có):</i>
-    <span v-for="(emrDm,i) in hsba.emrBenhAn.emrDmMaBenhChandoankemtheos">
-      {{ emrDm.ten }}
-      <span v-if="i+1< hsba.emrBenhAn.emrDmMaBenhChandoankemtheos.length"
-        >,</span
-      >
+  <div class="row mt-2">
+    <span class="title-3">
+      <i class="fas fa-fw bullet fa-square"></i> Quá trình bệnh lý <i>(khởi phát, diễn biến, chẩn đoán, điều trị của
+        tuyến dưới v.v...).</i>
     </span>
   </div>
-  <div>
-    + Phân biệt:
-    <span
-      >.................................................................</span
-    >
-  </div>
-  <div class="row mt-3">
-    <h5>V. Tiên lượng:</h5>
-  </div>
   <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
+    <span class="ml-2">Quá trình bệnh lý .....</span>
   </div>
+
   <div class="row mt-3">
-    <h5>VI. Hướng điều trị:</h5>
+    <span class="title-3">
+      <i class="fas fa-fw bullet fa-square"></i> Tiền sử bệnh:
+    </span>
   </div>
+
   <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
+    <span class="ml-3"><i class="fas fa-fw bullet-small fa-circle"></i> Bản thân
+      <i>(phát triển thể lực từ nhỏ đến lớn, những bệnh đã mắc, phương pháp ĐTr, tiêm phòng, ăn uống, sinh hoạt vv...):</i>
+    </span>
   </div>
-  <div class="row">
-    <div class="col-4 offset-4">
-      <div class="row">
-        <i>Ngày</i> <span>.........</span> <i>tháng</i> <span>.........</span>
-        <i>năm</i> <span>.........</span>
-      </div>
-      <div class="row mt-2">
-        <h6>Bác sỹ làm bệnh án</h6>
-      </div>
-      <div class="row mt-2">
-        <i>Họ và tên: </i> <span>{{hsba.emrBenhAn.bacsylambenhan}}</span>
-      </div>
+
+  <div class="row mt-2">
+    <span class="ml-4">Chi tiết bản thân .....</span>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-6">
+      <span class="ml-2"><i>Đặc điểm bệnh liên quan</i></span>
+      <br>
+      <table class="table table-bordered mt-3 ml-4 mr-4">
+        <tr>
+          <th style="width:10%" class="text-center">STT</th>
+          <th style="width:30%" class="text-center">Ký hiệu</th class="text-center">
+          <th style="width:20%" class="text-center">Thời gian (tính theo tháng)</th class="text-center">
+        </tr>
+        <tr>
+          <td class="text-cener">1</td>
+          <td>
+            <input type="checkbox"> <label>Dị ứng</label>
+          </td>
+          <td class="text-center"></td>
+        </tr>
+        <tr>
+          <td class="text-cener">2</td>
+          <td>
+            <input type="checkbox"> <label>Ma Tuý</label>
+          </td>
+          <td class="text-center"></td>
+        </tr>
+        <tr>
+          <td class="text-cener">3</td>
+          <td>
+            <input type="checkbox"> <label>Rượu bia</label>
+          </td>
+          <td class="text-center"></td>
+        </tr>
+        <tr>
+          <td class="text-cener">4</td>
+          <td>
+            <input type="checkbox"> <label>Thuốc lá</label>
+          </td>
+          <td class="text-center"></td>
+        </tr>
+        <tr>
+          <td class="text-cener">5</td>
+          <td>
+            <input type="checkbox"> <label>Thuốc lào</label>
+          </td>
+          <td class="text-center"></td>
+        </tr>
+        <tr>
+          <td class="text-cener">6</td>
+          <td>
+            <input type="checkbox"> <label>Khác</label>
+          </td>
+          <td class="text-center"></td>
+        </tr>
+      </table>
     </div>
   </div>
+
+  <div class="row mt-2">
+    <span class="ml-3"><i class="fas fa-fw bullet-small fa-circle"></i> Gia đình
+      <i>(Những người trong gia đình: bệnh đã mắc, đời sống, tinh thần, vật chất v.v...):</i>
+    </span>
+  </div>
+
+  <div class="row mt-2">
+    <span class="ml-4">Gia đình .....</span>
+  </div>
+
   <div class="row mt-3">
-    <h4>B- TỔNG KẾT BỆNH ÁN</h4>
-  </div>
-  <div>
-    <h5>1. Quá trình bệnh lý và diễn biến lâm sàng:</h5>
+    <span class="title-2">III. Khám bệnh:</span>
   </div>
   <div class="row mt-2">
-    <span>{{hsba.emrTongKetRaVien.dienbienlamsang}}</span>
+    <span class="title-3">
+      <i class="fas fa-fw bullet fa-square"></i> Toàn thân <i> (ý thức, da niêm mạc, hệ thống hạch, tuyến giáp, vị trí, kích thước, số lượng, di động v.v...):</i>
+    </span>
   </div>
+  <div class="row-mt-2">
+    <ul>
+      <li>
+        Mạch: {{hsba.emrBenhAn.mach}} lần/ph
+      </li>
+      <li>
+        Nhiệt độ: {{hsba.emrBenhAn.nhietdo}} °C
+      </li>
+      <li>
+        Huyết áp: {{hsba.emrBenhAn.huyetapcao}}/{{hsba.emrBenhAn.huyetapthap}} mmHg        
+      </li>
+      <li>
+        Nhịp thở: {{hsba.emrBenhAn.nhiptho}} lần/ph
+      </li>
+      <li>
+        Cân nặng: {{hsba.emrBenhAn.cannang}} kg
+      </li>
+    </ul>
+  </div>
+ 
   <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
+    <span class="title-3">
+      <i class="fas fa-fw bullet fa-square"></i> Các cơ quan:
+    </span>
   </div>
+  <div class="row-mt-2">
+    <ul>
+      <li>Tuần hoàn:</li>
+      <li>Hô hấp:</li>
+      <li>Tiêu hóa:</li>
+      <li>Thận- Tiết niệu- Sinh dục:</li>
+      <li>Thần Kinh:</li>
+      <li>Cơ- Xương- Khớp:</li>
+      <li>Tai- Mũi- Họng:</li>
+      <li>Răng- Hàm- Mặt:</li>
+      <li>Mắt:</li>
+      <li>Nội tiết, dinh dưỡng và các bệnh lý khác:</li>
+    </ul>
+  </div>
+
   <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
+    <span class="title-3">
+      <i class="fas fa-fw bullet fa-square"></i> Các xét nghiệm cận lâm sáng cần làm:
+    </span>
   </div>
-  <div>
-    <h5>2. Tóm tắt kết quả xét nghiệm cận lâm sàng có giá trị chẩn đoán:</h5>
-  </div>
+
   <div class="row mt-2">
-    <span>{{hsba.emrTongKetRaVien.canlamsang}}</span>
+    <span class="ml-4">Các xét nghiệm cận lâm sáng cần làm .....</span>
   </div>
+
+  <div class="row mt-3">
+    <span class="title-3">
+      <i class="fas fa-fw bullet fa-square"></i> Tóm tắt bệnh án:
+    </span>
+  </div>
+
   <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
+    <span class="ml-4">Tóm tắt bệnh án .....</span>
   </div>
+
+  <div class="row mt-3">
+    <span class="title-2">IV. Chuẩn đoán khi vào khoa điều trị:</span>
+  </div>
+
+  <div class="row mt-3">
+    <span class="title-3">
+      <i class="fas fa-fw bullet fa-square"></i> Bệnh chính:
+    </span>
+  </div>
+
   <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
+    <span class="ml-4">Bệnh chính .....</span>
   </div>
-  <div>
-    <h5>3. Phương pháp điều trị:</h5>
+
+  <div class="row mt-3">
+    <span class="title-3">
+      <i class="fas fa-fw bullet fa-square"></i> Bệnh kèm theo <i>(nếu có):</i>
+    </span>
   </div>
+
   <div class="row mt-2">
-    <span>{{hsba.emrTongKetRaVien.phuongphapdieutri}}</span>
+    <span class="ml-4">Bệnh kèm theo .....</span>
   </div>
+
+  <div class="row mt-3">
+    <span class="title-3">
+      <i class="fas fa-fw bullet fa-square"></i> Phân biệt:
+    </span>
+  </div>
+
   <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
+    <span class="ml-4">Phân biệt .....</span>
   </div>
+
+  <div class="row mt-3">
+    <span class="title-2">V. Tiên lượng:</span>
+  </div>
+
   <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
+    <span class="ml-4">Tiên lượng .....</span>
   </div>
-  <div>
-    <h5>4. Tình trạng người bệnh ra viện:</h5>
+
+  <div class="row mt-3">
+    <span class="title-2">VI. Hướng điều trị:</span>
   </div>
+
   <div class="row mt-2">
-    <span>{{hsba.emrTongKetRaVien.tinhtrangnguoibenh}}</span>
+    <span class="ml-4">Hướng điều trị .....</span>
   </div>
+
+  <div class="row mt-3">
+    <div class="col text-center">
+      <em>Ngày ....... tháng ...... năm .............</em>
+      <p class="mt-3"><span class="title-3 text-center mb-3">Bác sĩ điều trị</span> </p>
+      <br/>
+      <br/>
+      <br/>
+      <p class="">Họ và tên <strong>{{hsba.emrBenhAn.bacsylambenhan}}</strong></p>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <span class="text-tle title-1">B- TỔNG KẾT BỆNH ÁN</span>
+  </div>
+
+  <div class="row mt-3">
+    <span class="title-3">
+      <i class="fas fa-fw bullet fa-square"></i> Quá trình bệnh lý và diễn biến lâm sàng:
+    </span>
+  </div>
+
   <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
+    <span class="ml-4">Quá trình bệnh lý và diễn biến lâm sàng .....</span>
   </div>
+
+  <div class="row mt-3">
+    <span class="title-3">
+      <i class="fas fa-fw bullet fa-square"></i> Tóm tắt kết quả xét nghiệm cận lâm sàng có giá trị chẩn đoán:
+    </span>
+  </div>
+
   <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
+    <span class="ml-4">Tóm tắt kết quả xét nghiệm cận lâm sàng có giá trị chẩn đoán .....</span>
   </div>
-  <div>
-    <h5>5. Hướng điều trị và các chế độ tiếp theo:</h5>
+
+  <div class="row mt-3">
+    <span class="title-3">
+      <i class="fas fa-fw bullet fa-square"></i> Phương pháp điều trị:
+    </span>
   </div>
+
   <div class="row mt-2">
-    <span>{{hsba.emrBenhAn.huongdieutri}}</span>
+    <span class="ml-4">Phương pháp điều trị .....</span>
   </div>
+
+  <div class="row mt-3">
+    <span class="title-3">
+      <i class="fas fa-fw bullet fa-square"></i> Tình trạng người bệnh ra viện:
+    </span>
+  </div>
+
   <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
+    <span class="ml-4">Tình trạng người bệnh ra viện .....</span>
   </div>
+
+  <div class="row mt-3">
+    <span class="title-3">
+      <i class="fas fa-fw bullet fa-square"></i> Hướng điều trị và các chế độ tiếp theo:
+    </span>
+  </div>
+
   <div class="row mt-2">
-    <span
-      >.................................................................................................................................</span
-    >
+    <span class="ml-4">Hướng điều trị và các chế độ tiếp theo .....</span>
   </div>
-  <div>
-    <table style="width:100%" border="1">
+
+  <div class="row mt-3">
+    <table class="table table-bordered">
       <tr>
-        <th colspan="2"><center>Hồ sơ, phim, ảnh</center></th>
+        <th colspan="2">
+          <center>Hồ sơ, phim, ảnh</center>
+        </th>
         <td rowspan="4">
           <center><b>Người giao hồ sơ:</b></center>
           <br />
@@ -371,16 +309,14 @@
           <p>Họ và tên:{{hsba.emrTongKetRaVien.nguoigiaohoso}}</p>
         </td>
         <td rowspan="8">
-          <p>Ngày:{{hsba.emrQuanLyNguoiBenh.ngaygioravien}}</p>
-
-          <center><b> Bác sĩ điều trị </b></center>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <p>Họ và tên:{{hsba.emrTongKetRaVien.bacsydieutri}}</p>
+          <div class="col text-center">
+            <em>Ngày ....... tháng ...... năm .............</em>
+            <p class="mt-3"><span class="title-3 text-center mb-3">Bác sĩ điều trị</span> </p>
+            <br/>
+            <br/>
+            <br/>
+            <p class="">Họ và tên <strong>{{hsba.emrTongKetRaVien.bacsydieutri}}</strong></p>
+          </div>
         </td>
       </tr>
 
@@ -394,15 +330,21 @@
       </tr>
       <tr>
         <td>- X - Quang</td>
-        <td><center>{{hsba.emrTongKetRaVien.soToXQuang}}</center></td>
+        <td>
+          <center>{{hsba.emrTongKetRaVien.soToXQuang}}</center>
+        </td>
       </tr>
       <tr>
         <td>- CT Scanner</td>
-        <td><center>{{hsba.emrTongKetRaVien.soToCTScanner}}</center></td>
+        <td>
+          <center>{{hsba.emrTongKetRaVien.soToCTScanner}}</center>
+        </td>
       </tr>
       <tr>
         <td>- Siêu âm</td>
-        <td><center>{{hsba.emrTongKetRaVien.soToSieuAm}}</center></td>
+        <td>
+          <center>{{hsba.emrTongKetRaVien.soToSieuAm}}</center>
+        </td>
         <td rowspan="4">
           <center><b> Người nhận hồ sơ</b></center>
           <br />
@@ -413,17 +355,21 @@
       </tr>
       <tr>
         <td>- Xét nghiệm</td>
-        <td><center>{{hsba.emrTongKetRaVien.soToXetNghiem}}</center></td>
+        <td>
+          <center>{{hsba.emrTongKetRaVien.soToXetNghiem}}</center>
+        </td>
       </tr>
       <tr>
         <td>- Khác</td>
-        <td><center>{{hsba.emrTongKetRaVien.soToKhac}}</center></td>
+        <td>
+          <center>{{hsba.emrTongKetRaVien.soToKhac}}</center>
+        </td>
       </tr>
       <tr>
         <td>- Toàn bộ hồ sơ</td>
         <td>
           <center>
-            {{hsba.emrTongKetRaVien.soToXQuang+hsba.emrTongKetRaVien.soToCTScanner+hsba.emrTongKetRaVien.soToSieuAm+hsba.emrTongKetRaVien.soToXetNghiem+hsba.emrTongKetRaVien.soToKhac}}
+            {{hsba.emrTongKetRaVien.soToXQuang+hsba.emrTongKetRaVien.soToCTScanner+hsba.emrTongKetRaVien.soToSieuAm+hsba.emrTongKetRaVien.soToXetNghiem+hsba.emrTongKetRaVien.soToKhac || ""}}
           </center>
         </td>
       </tr>
