@@ -199,6 +199,7 @@ public class EmrHoSoBenhAn {
     }
     
     public String getTenbenhvien() {
+        getEmrCoSoKhamBenh();
         return emrCoSoKhamBenh != null? emrCoSoKhamBenh.ten : "";
     }
     
