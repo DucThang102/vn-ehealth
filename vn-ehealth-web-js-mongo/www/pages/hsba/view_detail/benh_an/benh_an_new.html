@@ -1,25 +1,9 @@
 <div v-if="hsba">
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="utf-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>Nhi khoa</title>
-      <!-- Bootstrap -->
-      <link
-        href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&subset=latin,vietnamese"
-        rel="stylesheet"
-        type="text/css"
-      />
-      <link
-        href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
-        rel="stylesheet"
-      />
-      <link href="/css/benhan.css" rel="stylesheet" />
-    </head>
-    <body>
-      <!-- body code goes here -->
+  <link href="/css/benhan.css" rel="stylesheet" />
+
+  <body id="benhan_new">
+    <!-- body code goes here -->
+    <div class="container">
       <section class="container-fluid pt-2 mb-4">
         <div class="row">
           <div class="col-auto mr-auto">
@@ -117,9 +101,9 @@
             {{hsba.emrBenhNhan.diachi}}
             <!-- Xã, phường: {{hsba.emrBenhNhan.emrDmPhuongXa.ten}} -->
             <!-- Huyện (Q, Tx) {{hsba.emrBenhNhan.emrDmQuanHuyen.ten}}<em class="text-o">2</em>
-            <em class="text-o mr-4">9</em>Tỉnh, thành phố
-            {{hsba.emrBenhNhan.emrDmTinhThanh.ten}}<em class="text-o">2</em>
-            <em class="text-o">9</em> -->
+          <em class="text-o mr-4">9</em>Tỉnh, thành phố
+          {{hsba.emrBenhNhan.emrDmTinhThanh.ten}}<em class="text-o">2</em>
+          <em class="text-o">9</em> -->
           </div>
         </div>
         <div class="row mb-2">
@@ -128,27 +112,19 @@
             Họ tên bố:
             <strong class="mr-4">{{hsba.emrBenhNhan.hotenbo}}</strong>Trình độ
             VH của bố:
-            <strong class="mr-4"
-              >{{hsba.emrBenhNhan.trinhDoVanHoaCuaBo}}</strong
-            >
+            <strong class="mr-4">{{hsba.emrBenhNhan.trinhDoVanHoaCuaBo}}</strong>
             <br />
             Nghề nghiệp của bố:
-            <strong class="mr-4"
-              >{{hsba.emrBenhNhan.emrDmNgheNghiepBo.ten}}</strong
-            >
+            <strong class="mr-4">{{hsba.emrBenhNhan.emrDmNgheNghiepBo.ten}}</strong>
           </div>
           <div class="col">
             Họ tên mẹ:
             <strong class="mr-4">{{hsba.emrBenhNhan.hotenme}}</strong>Trình độ
             VH của mẹ:
-            <strong class="mr-4"
-              >{{hsba.emrBenhNhan.trinhDoVanHoaCuaMe}}</strong
-            >
+            <strong class="mr-4">{{hsba.emrBenhNhan.trinhDoVanHoaCuaMe}}</strong>
             <br />
             Nghề nghiệp của mẹ:
-            <strong class="mr-4"
-              >{{hsba.emrBenhNhan.emrDmNgheNghiepMe.ten}}</strong
-            >
+            <strong class="mr-4">{{hsba.emrBenhNhan.emrDmNgheNghiepMe.ten}}</strong>
           </div>
         </div>
         <div class="row mb-2">
@@ -172,9 +148,8 @@
         <div class="row mb-2">
           <div class="col">
             <strong class="text-primary">10.</strong> Họ tên, địa chỉ người nhà
-            khi cần báo tin:<strong class="mr-4"
-              >{{hsba.emrBenhNhan.tennguoibaotin}}{{hsba.emrBenhNhan.diachinguoibaotin}}</strong
-            >Điện thoại:
+            khi cần báo tin:<strong
+              class="mr-4">{{hsba.emrBenhNhan.tennguoibaotin}}{{hsba.emrBenhNhan.diachinguoibaotin}}</strong>Điện thoại:
             <strong>{{hsba.emrBenhNhan.sodienthoainguoibaotin}}</strong>
           </div>
         </div>
@@ -221,19 +196,13 @@
                     <strong class="text-primary">14.</strong> Vào khoa:
                   </div>
                   <div class="col-3">
-                    <em class="text-o mr-2"
-                      >{{hsba.emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao.ten}}</em
-                    >
+                    <em class="text-o mr-2">{{hsba.emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao.ten}}</em>
                   </div>
                   <div class="col">
-                    <em class="text-o"
-                      >{{hsba.emrQuanLyNguoiBenh.ngaygiovaovien}}</em
-                    >
+                    <em class="text-o">{{hsba.emrQuanLyNguoiBenh.ngaygiovaovien}}</em>
                   </div>
                   <div class="col text-center">
-                    <em class="text-o"
-                      >{{hsba.emrQuanLyNguoiBenh.tongsongaydieutri}}</em
-                    >
+                    <em class="text-o">{{hsba.emrQuanLyNguoiBenh.tongsongaydieutri}}</em>
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -247,10 +216,7 @@
                     <strong>15</strong> Giờ <strong>00</strong> phút
                   </div>
                   <div class="col">
-                    <em class="text-o">10</em>/<em class="text-o">10</em>/<em
-                      class="text-o"
-                      >2019</em
-                    >
+                    <em class="text-o">10</em>/<em class="text-o">10</em>/<em class="text-o">2019</em>
                   </div>
                   <div class="col text-center">
                     <em class="text-o">1</em>
@@ -266,10 +232,7 @@
                     <strong>15</strong> Giờ <strong>00</strong> phút
                   </div>
                   <div class="col">
-                    <em class="text-o">10</em>/<em class="text-o">10</em>/<em
-                      class="text-o"
-                      >2019</em
-                    >
+                    <em class="text-o">10</em>/<em class="text-o">10</em>/<em class="text-o">2019</em>
                   </div>
                   <div class="col text-center">
                     <em class="text-o">1</em>
@@ -285,10 +248,7 @@
                     <strong>15</strong> Giờ <strong>00</strong> phút
                   </div>
                   <div class="col">
-                    <em class="text-o">10</em>/<em class="text-o">10</em>/<em
-                      class="text-o"
-                      >2019</em
-                    >
+                    <em class="text-o">10</em>/<em class="text-o">10</em>/<em class="text-o">2019</em>
                   </div>
                   <div class="col text-center">
                     <em class="text-o">1</em>
@@ -315,9 +275,7 @@
                 <p class="mb-0">
                   <strong class="text-primary">18.</strong> Tổng số ngày điều
                   trị:
-                  <strong
-                    >{{hsba.emrQuanLyNguoiBenh.tongsongaydieutri}} ngày</strong
-                  >
+                  <strong>{{hsba.emrQuanLyNguoiBenh.tongsongaydieutri}} ngày</strong>
                 </p>
               </td>
             </tr>
@@ -326,7 +284,9 @@
       </section>
       <section class="container-fluid">
         <div class="row">
-          <div class="col-5"><h5 class="text-tle1">III. CHẨN ĐOÁN:</h5></div>
+          <div class="col-5">
+            <h5 class="text-tle1">III. CHẨN ĐOÁN:</h5>
+          </div>
           <div class="col-1 text-center mr-auto">
             <strong class="text-uppercase">Mã</strong>
           </div>
@@ -342,11 +302,7 @@
                   <div class="col mr-auto">
                     <p>
                       <strong class="text-primary">19.</strong> Nơi chuyển đến:
-                      <span
-                        ><strong
-                          >{{hsba.emrChanDoan.motachandoannoiden}}</strong
-                        ></span
-                      >
+                      <span><strong>{{hsba.emrChanDoan.motachandoannoiden}}</strong></span>
                     </p>
                   </div>
                   <div class="col-auto">
@@ -362,11 +318,7 @@
                   <div class="col mr-auto">
                     <p>
                       <strong class="text-primary">20.</strong> KKB, Cấp cứu:
-                      <span
-                        ><strong
-                          >{{hsba.emrChanDoan.motachandoankkb}}</strong
-                        ></span
-                      >
+                      <span><strong>{{hsba.emrChanDoan.motachandoankkb}}</strong></span>
                     </p>
                   </div>
                   <div class="col-auto">
@@ -383,11 +335,7 @@
                     <p>
                       <strong class="text-primary">21.</strong> Khi vào khoa
                       điều trị:
-                      <span
-                        ><strong
-                          >{{hsba.emrChanDoan.motachandoanbenhchinh}}</strong
-                        ></span
-                      >
+                      <span><strong>{{hsba.emrChanDoan.motachandoanbenhchinh}}</strong></span>
                     </p>
                   </div>
                   <div class="col-auto">
@@ -426,14 +374,9 @@
                     <p>
                       + Bệnh kèm theo:
                       <strong>
-                        <span
-                          v-for="(emrDm,i) in hsba.emrChanDoan.emrDmMaBenhChandoanravienkemtheos"
-                        >
+                        <span v-for="(emrDm,i) in hsba.emrChanDoan.emrDmMaBenhChandoanravienkemtheos">
                           {{ emrDm.ten }}
-                          <span
-                            v-if="i+1< hsba.emrChanDoan.emrDmMaBenhChandoanravienkemtheos.length"
-                            >,</span
-                          >
+                          <span v-if="i+1< hsba.emrChanDoan.emrDmMaBenhChandoanravienkemtheos.length">,</span>
                         </span>
                       </strong>
                     </p>
@@ -449,14 +392,10 @@
                 </div>
                 <div class="row align-items-center">
                   <div class="col">
-                    + Tai biến:<em class="text-o"
-                      >{{hsba.emrChanDoan.bitaibien}}</em
-                    >
+                    + Tai biến:<em class="text-o">{{hsba.emrChanDoan.bitaibien}}</em>
                   </div>
                   <div class="col">
-                    + Biến chứng:<em class="text-o"
-                      >{{hsba.emrChanDoan.bibienchung}}</em
-                    >
+                    + Biến chứng:<em class="text-o">{{hsba.emrChanDoan.bibienchung}}</em>
                   </div>
                 </div>
               </td>
@@ -477,9 +416,7 @@
                   <div class="col-6">
                     <div class="row mb-3">
                       <div class="col mr-auto">
-                        <em
-                          >{{hsba.emrTinhTrangRaVien.emrDmKetQuaDieuTri.ten}}</em
-                        >
+                        <em>{{hsba.emrTinhTrangRaVien.emrDmKetQuaDieuTri.ten}}</em>
                       </div>
                     </div>
                   </div>
@@ -490,8 +427,7 @@
                 </p>
                 <div class="row">
                   <div class="col">
-                    <em
-                      >{{hsba.emrTinhTrangRaVien.emrDmKetQuaGiaiPhauBenh.ten}}
+                    <em>{{hsba.emrTinhTrangRaVien.emrDmKetQuaGiaiPhauBenh.ten}}
                     </em>
                   </div>
                 </div>
@@ -499,9 +435,7 @@
               <td class="">
                 <p>
                   <strong class="text-primary">25.</strong> Tình hình tử vong:
-                  <strong
-                    >{{hsba.emrTinhTrangRaVien.emrDmThoiDiemTuVong.ten}}</strong
-                  >
+                  <strong>{{hsba.emrTinhTrangRaVien.emrDmThoiDiemTuVong.ten}}</strong>
                 </p>
                 <div class="row">
                   <div class="col-4">
@@ -512,9 +446,7 @@
                     </div>
                     <div class="row mb-3">
                       <div class="col mr-auto">
-                        <em
-                          >{{hsba.emrTinhTrangRaVien.emrDmThoiDiemTuVong.ten}}</em
-                        >
+                        <em>{{hsba.emrTinhTrangRaVien.emrDmThoiDiemTuVong.ten}}</em>
                       </div>
                       <div class="col-auto">
                         <em class="text-o"></em>
@@ -547,8 +479,7 @@
                       <strong class="text-primary">26.</strong> Nguyên nhân
                       chính tử vong: <br />
                       + Bệnh chính:
-                      <strong
-                        >{{hsba.emrTinhTrangRaVien.motanguyennhantuvong}}
+                      <strong>{{hsba.emrTinhTrangRaVien.motanguyennhantuvong}}
                       </strong>
                     </p>
                   </div>
@@ -566,12 +497,10 @@
                     <p>
                       <strong class="text-primary">27.</strong> Khám nghiệm tử
                       thi:
-                      <em class="text-o mr-4"
-                        >{{hsba.emrTinhTrangRaVien.khamnghiemtuthi}}</em
-                      ><strong class="text-primary">28.</strong>Chẩn đoán giải
+                      <em class="text-o mr-4">{{hsba.emrTinhTrangRaVien.khamnghiemtuthi}}</em><strong
+                        class="text-primary">28.</strong>Chẩn đoán giải
                       phẫu tử thi:
-                      <strong
-                        >{{hsba.emrTinhTrangRaVien.motagiaiphaututhi}}
+                      <strong>{{hsba.emrTinhTrangRaVien.motagiaiphaututhi}}
                       </strong>
                     </p>
                   </div>
@@ -604,30 +533,14 @@
       </section>
       <br />
       <br />
-      <br />
-      <br />
-      <br />
+    </div>
 
-      <benh-an-nhi
-        :hsba="hsba"
-        v-if="hsba.emrDmLoaiBenhAn.ma=='02'"
-      ></benh-an-nhi>
-      <benh-an-so-sinh
-        :hsba="hsba"
-        v-if="hsba.emrDmLoaiBenhAn.ma=='06'"
-      ></benh-an-so-sinh>
-      <benh-an-noi-khoa
-        :hsba="hsba"
-        v-if="hsba.emrDmLoaiBenhAn.ma=='01'"
-      ></benh-an-noi-khoa>
-      <benh-an-ngoai-khoa
-        :hsba="hsba"
-        v-if="hsba.emrDmLoaiBenhAn.ma=='11'"
-      ></benh-an-ngoai-khoa>
-      <benh-an-ngoai-tru
-        :hsba="hsba"
-        v-if="hsba.emrDmLoaiBenhAn.ma=='20'"
-      ></benh-an-ngoai-tru>
-    </body>
-  </html>
+    <benh-an-nhi :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='02'"></benh-an-nhi>
+    <benh-an-so-sinh :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='06'"></benh-an-so-sinh>
+    <benh-an-noi-khoa :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='01'"></benh-an-noi-khoa>
+    <benh-an-ngoai-khoa :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='11'"></benh-an-ngoai-khoa>
+    <benh-an-ngoai-tru :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='20'"></benh-an-ngoai-tru>
+  </body>
+
+  <button class="btn btn-primary btn-sm" v-on:click="printToPdf()">In tờ bệnh án</button>
 </div>
