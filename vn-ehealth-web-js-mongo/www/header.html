@@ -193,25 +193,22 @@
         BÁO CÁO THỐNG KÊ
       </a>
       <div class="dropdown-menu">
-     
-
         <a class="dropdown-item"
           id="bctk_traodoi"
-          :href="/pages/bctk/bc_thong_ke_trao_doi_HSBA.html"
-          <i class="fas fa-angle-right blacke"> </i>
-        </i> Thống kê trao đổi HSBA</a>
-        <a
-          class="dropdown-item"
+          href="/pages/bctk/bc_thong_ke_trao_doi_HSBA.html">
+          <i class="fas fa-angle-right black"> </i> Thống kê trao đổi HSBA
+        </a>
+        <a  class="dropdown-item"
           id="bctk_chitiet"
           href="/pages/bctk/bc_thong_ke_chi_tiet_HSBA.html"
-          ><i class="fas fa-angle-right black"></i> Thống kê chi tiết HSBA</a
-        >
+          ><i class="fas fa-angle-right black"></i> Thống kê chi tiết HSBA
+        </a>
         <a
           class="dropdown-item"
           id="bctk_dinhky"
           href="/pages/bctk/bc_thong_ke_dinh_ky.html"
-          ><i class="fas fa-angle-right black"></i> Báo cáo thống kê định kỳ</a>
-        
+          ><i class="fas fa-angle-right black"></i> Báo cáo thống kê định kỳ
+        </a>        
       </div>
     </li>
     <li id="tab_kt" class="nav-item active dropdown">
@@ -306,12 +303,6 @@
       }
     }
     return "";
-  }
-
-  methods : {
-    getCurrentURL: function() {
-        return this.createURL("/pages/danhmuc/dm_dungchung.html", { keyword: this.keyword, currentPage: this.currentPage });
-      }
   }
 
   $(document).ready(function() {
