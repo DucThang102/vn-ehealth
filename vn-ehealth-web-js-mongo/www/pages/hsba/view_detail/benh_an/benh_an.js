@@ -17,12 +17,12 @@ var benh_an_script = {
       var wnd = window.open('', '');//window.open('', '', 'width=1024');
       wnd.document.write(`<html><head>
       <title>Tờ bệnh án</title>
-      <link href="http://localhost:8080/css/fontawesome/all.css" rel="stylesheet" type="text/css" />
+      <link href="/css/fontawesome/all.css" rel="stylesheet" type="text/css" />
       <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />      
-      <link href="http://localhost:8080/css/bootstrap.css" rel="stylesheet" />
+      <link href="/css/bootstrap.css" rel="stylesheet" />
       <link href="http://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"  rel="stylesheet"/>
-      <link href="http://localhost:8080/css/style.css" rel="stylesheet" />
-      <link href="http://localhost:8080/css/benhan.css" rel="stylesheet" />
+      <link href="/css/style.css" rel="stylesheet" />
+      <link href="/css/benhan.css" rel="stylesheet" />
       <script src="/js/jquery.min.js"></script>
       <script>
       $(document).ready(function(){ window.print() });
