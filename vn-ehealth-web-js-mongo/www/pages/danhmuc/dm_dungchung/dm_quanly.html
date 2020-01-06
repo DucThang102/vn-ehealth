@@ -23,8 +23,13 @@
 
 
 <div class="container" id='app'>
+	<div class="row mt-3" v-if="backURL">
+		<div>
+		  <a class="btn btn-sm btn-primary" :href="backURL">
+			<i class="fas fa-fw fa-arrow-left"></i> </a> &nbsp;
+		</div>
 	<h5>Báo cáo các giao ban liên tuyến </h5>
-
+	</div>
 	<div class="row mt-3">
 		<div class="col-8">
 			<label>Loai bao cao</label>
@@ -109,6 +114,7 @@
 	new Vue({
 		el: '#app',
 		data: {
+			backURL: null,
 			maCoSoKhamBenh: '',
 			maLoaiBenhAn:'',
 			tuNgay:'',
@@ -121,9 +127,6 @@
 			perPage: 5
 		},
 
-//Coso kham benh : http://emr.com.vn:8001/api/coso_khambenh/get_all_cskb
-//Loai benh an: http://emr.com.vn:8001/api/danhmuc/get_all_dm_list?dm_type=DM_LOAI_BENH_AN
-
 		methods : {			
 			serialize: function(obj) {
 			  var str = [];
@@ -132,7 +135,7 @@
 			  }
 			  return str.join("&");
 			},
-
+/*
 			get: async function(url, params) {
 				if(params) {
 					url = url + '?' + this.serialize(params);
@@ -141,7 +144,7 @@
 				var resp = await fetch(url);
 				return resp.json();
 			},
-
+*/
 			search: async function() {
 				var params = {
 					maLoaiBenhAn: this.maLoaiBenhAn,
@@ -153,7 +156,7 @@
 				};
 				console.log(params);
 
-				var result = await this.get("http://emr.com.vn:8001/api/hsba/report", params);
+				var result = await this.get("/api/hsba/report", params);
 				console.log(result);
 				this.report = [];
 				var lbaList = this.maLoaiBenhAn == ''? this.lbaList: this.lbaList.filter(x => x.ma == this.maLoaiBenhAn);
@@ -184,8 +187,9 @@ computed: {
 		  }	  
 		},
 created: async function() {
-			this.cskbList = await  this.get('http://emr.com.vn:8001/api/coso_khambenh/get_all_cskb');
-			this.lbaList = await  this.get('http://emr.com.vn:8001/api/danhmuc/get_all_dm_list?dm_type=DM_LOAI_BENH_AN');
+			this.backURL = this.getParam("backURL");
+			this.cskbList = await  this.get('/api/coso_khambenh/get_all_cskb');
+			this.lbaList = await  this.get('/api/danhmuc/get_all_dm_list?dm_type=DM_LOAI_BENH_AN');
 		}
 })
 </script>

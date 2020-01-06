@@ -16,30 +16,11 @@
 	      <div class="w">
 		     	<div class="box-content">
             <div class="row mb-2">
-                <div class="col-4"><strong>Mã/tên danh mục dùng chung:</strong></div>
+              <div class="col-4"><strong>Mã/tên danh mục dùng chung:</strong></div>
             </div>
             <form @submit.prevent="search()" class="search-detail" >
               <input v-model="keyword" class="form-control" placeholder="Search "></input>
             </form>
-            <!--
-            <div class="row">
-			        <div class="col-8">
-			          <input v-model="keyword" class="form-control" placeholder="Mã/Tên danh mục dùng chung"></input>
-			        </div>
-			        	<b-button variant="primary" class="search" type="submit">Tìm kiếm</b-button>
-			        </div>
-            </div>
-          -->
-		        <!-- <div class="row mt-2">
-			        <div class="col-4">
-			        	<label for="input-none"><strong>Thời gian bắt đầu có hiệu lực từ ngày:</strong></label><br/>
-			        	<b-form-input  id="type-date" type="date"></b-form-input>
-			        </div>
-			        <div class="col-4">
-			        	<label for="input-none"><strong> Đến:</strong></label><br/>
-			        	<b-form-input  id="type-date" type="date"></b-form-input>
-			        </div>
-		        </div> -->
 		     </div>
 	      </div>
 	    </form>
@@ -61,11 +42,11 @@
           <td>{{ dm.ten }}</td>
           <td>{{ dm.trang_thai }}</td>
            <td align="center">
-             <a :href='createURL("/pages/danhmuc/dm_dungchung/dm_con.html", {"dm_type" : dm.ma})' title="Xem chi tiết danh mục"><i class="fa fa-eye"></i></a>
+             <a :href='createURL("/pages/danhmuc/dm_dungchung/dm_con.html", {dm_type : dm.ma, backURL : getCurrentURL()})' title="Xem chi tiết danh mục"><i class="fa fa-eye"></i></a>
              <a :href='createURL("/pages/danhmuc/dm_dungchung/dm_quanly.html", {"dm_type" : dm.ma})' title="Quản lý phiên bản"><i class="fa fa-cog"></i></a>
-             <a :href='createURL("http://emr.com.vn:8001/api/danhmuc/export_dm_list", {"dm_type" : dm.ma})' title="Tải xuống"><i class="fa fa-download"></i></a>
+             <a :href='createURL("/api/danhmuc/export_dm_list", {"dm_type" : dm.ma})' title="Tải xuống"><i class="fa fa-download"></i></a>
  
-             <a href='#' class="" v-on:click="openUploadModal()"><i
+             <a href='#' class="" v-on:click="openUploadModal(dm.ma)"><i
               class="fas fa-fw fa-edit"></i></a>
            </td>
         </tr>
@@ -86,8 +67,8 @@
         </div>
         <div class="modal-body">
           <form id='fmt'>
-            <input type="hidden" name="dm_type" value="DM_DAN_TOC">
-            Chọn file : <input type="file" name="csv_file">
+            <input type="hidden" v-model="dmType" name="dm_type">
+            Chọn file : <input type="file" id="csv_file" name="csv_file">
             <input type='button' v-on:click="upload()" value="Upload" >
           </form>
         </div>
@@ -106,6 +87,7 @@
     	currentPage: 1,
     	items: [],
     	total : null,
+      dmType: ''
     },
     
     methods: {
@@ -122,7 +104,7 @@
       },
 
       getData: async function() {
-          this.dmTypeList = await this.get("http://34.87.51.9:8001/api/danhmuc/get_dm_list?level=-1&parentCode=&dm_type=" + this.dm_type +"&keyword="+this.keyword+"&start=" + this.offset + "&count=" + this.perPage);
+          this.dmTypeList = await this.get("/api/danhmuc/get_dm_list?level=-1&parentCode=&dm_type=" + this.dm_type +"&keyword="+this.keyword+"&start=" + this.offset + "&count=" + this.perPage);
         },
 
       getData: async function() {
@@ -138,20 +120,35 @@
         }
       },  
 
-      openUploadModal: function() {
+      openUploadModal: function(ma) {
+        this.dmType = ma;
         $('#csvUpload').modal();
       },
     
  
       upload: async function() {
-        var formData = new FormData(document.getElementById("fmt"));
-        var response = await fetch('http://emr.com.vn:8001/api/danhmuc/import_dm_list',
-          { body: formData, method: 'POST' });
-        var result = await response.json();
-        alert(result.success);
-        console.log(result);
+        if(this.dmType != '') {         
+          var formData = new FormData(document.getElementById("fmt"));
+          var response = await this.post("/api/danhmuc/import_dm_list", formData);
+          var result = await response.json();
+          if(result.success) {
+            $('#csv_file').val('');
+            $('#csvUpload').modal('hide');
+          }else {
+            alert('Lỗi khi upload.');
+          }
+        }
+      },
+      getCurrentURL: function() {
+        return this.createURL("/pages/danhmuc/dm_dungchung.html", { keyword: this.keyword, currentPage: this.currentPage });
       }
     
+    },
+
+    computed: {
+      currentURL : function() {
+
+      }
     },
 
     watch: {
@@ -161,7 +158,8 @@
     },
     
     created: async function () {
-
+      this.currentPage =  this.getParam("currentPage") || 1;      
+      this.keyword = this.getParam("keyword") || "";
       await this.getData();	  
     }
   });
