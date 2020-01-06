@@ -63,9 +63,9 @@
            <td align="center">
              <a :href='createURL("/pages/danhmuc/dm_dungchung/dm_con.html", {"dm_type" : dm.ma})' title="Xem chi tiết danh mục"><i class="fa fa-eye"></i></a>
              <a :href='createURL("/pages/danhmuc/dm_dungchung/dm_quanly.html", {"dm_type" : dm.ma})' title="Quản lý phiên bản"><i class="fa fa-cog"></i></a>
-             <a :href='createURL("http://emr.com.vn:8001/api/danhmuc/export_dm_list?dm_type=", {"dm_type" : dm.ma})' title="Tải xuống"><i class="fa fa-download"></i></a>
+             <a :href='createURL("http://emr.com.vn:8001/api/danhmuc/export_dm_list", {"dm_type" : dm.ma})' title="Tải xuống"><i class="fa fa-download"></i></a>
  
-             <a href='#' v-on:click="khoadieutri=khoa" data-toggle="modal" data-target="#vkModal"><i
+             <a href='#' class="" v-on:click="openUploadModal()"><i
               class="fas fa-fw fa-edit"></i></a>
            </td>
         </tr>
@@ -75,42 +75,33 @@
     <label class="label">Tổng số : {{ total }} bản ghi</label>
 
   </template>
-
-  <div class="modal fade"  aria-hidden="true">
+<!--
+  <form id='fmt'>
+    <input type="hidden" name="dm_type" value="dmType">
+    Chọn file : <input type="file" name="csv_file">
+    <br><input type='button' v-on:click="upload()" value="Upload" >
+  </form>
+-->
+  <div class="modal fade" id="csvUpload">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-
         <div class="modal-header">
-
-          <h5 class="modal-title">Danh mục dùng chung</h5>
-
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <h5 class="modal-title">Cập nhật danh mục dung chung</h5>
+          <button type="button" class="close" data-dismiss="modal">
             <span aria-hidden="true">&times;</span>
           </button>
-
         </div>
-
-        <div class="row">
-          <label for="">Loại danh mục</label>
-          <select name="" id="">
-            <option value="">---Chọn loại danh mục---</option>
-            <option v-for='dmType in dmTypeList' :value="dmType.ma">
-              {{ dmType.ten}}
-            </option>
-          </select>
-          <a :href='createURL("/pages/danhmuc/dm_dungchung/dm_quanly.html", {"dm_type" : dm.ma})' title="Cập nhật"><i class="fa fa-upload"></i></a>
+        <div class="modal-body">
+          <input class="form-control-file" type="file">
         </div>
-
-        <div class="row">
-          <div class="col-12">
-            <button type="button"  >Lưu lại</button>
-          </div>
-        </div>
-
         
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <input type='button' v-on:click="upload()" value="Upload" >
+        </div>
       </div>
     </div>
   </div>
+
 </div>
 <script  type="text/javascript"> 
   new Vue({
@@ -153,6 +144,20 @@
           await this.getData();        
         }
       },  
+
+      openUploadModal: function() {
+        $('#csvUpload').modal();
+      },
+    /*
+      upload: async function() {
+        var formData = new FormData(document.getElementById("fmt"));
+        var response = await fetch('http://emr.com.vn:8001/api/danhmuc/import_dm_list',
+          { body: formData, method: 'POST' });
+        var result = await response.json();
+        alert(result.success);
+        console.log(result);
+      }
+      */
     },
 
     watch: {
@@ -162,7 +167,7 @@
     },
     
     created: async function () {
-      this.dm_type = this.getParam('dm_type');
+
       await this.getData();	  
     }
   });
