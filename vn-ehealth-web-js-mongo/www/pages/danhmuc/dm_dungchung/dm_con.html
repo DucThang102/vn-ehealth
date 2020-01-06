@@ -38,7 +38,6 @@
       perPage: 10,
       total: 0,
       keyword: '',
-<<<<<<< HEAD
       dm_type: '',
       dm_type_name: ''
     },
@@ -46,32 +45,6 @@
 
       getTotal: async function () {
         this.total = await this.get("/api/danhmuc/count_dm_list?level=-1&parentCode=&dm_type=" + this.dm_type + "&keyword=" + this.keyword);
-=======
-      },
-      methods: {
-  
-        get: async function(url, params) {
-          if(params) {
-            url = url + '?' + this.serialize(params);
-          }
-          console.log(url);
-          var resp = await fetch(url);
-          return resp.json();
-        },
-  
-        getTotal: async function() {
-          this.total = await this.get("http://34.87.24.163:8001/api/danhmuc/count_dm_list?level=-1&parentCode=&dm_type=" + this.dm_type + "&keyword="+this.keyword); 
-        },
-
-        getData: async function() {
-          this.dmTypeList = await this.get("http://34.87.24.163:8001/api/danhmuc/get_dm_list?level=-1&parentCode=&dm_type=" + this.dm_type +"&keyword="+this.keyword+"&start=" + this.offset + "&count=" + this.perPage);
-        },
-        search: async function () {       
-          this.currentPage = 1; 
-          this.getTotal();
-          this.getData(); 
-        }
->>>>>>> a109a933c31ff871f713eafa866bac5f79749fa4
       },
 
       getData: async function () {
