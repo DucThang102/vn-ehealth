@@ -177,7 +177,7 @@ public class EmrHoSoBenhAnController {
                 hsba.getEmrBenhNhan();
                 hsba.getEmrCoSoKhamBenh();
                 emrHoSoBenhAnService.getEmrHoSoBenhAnDetail(hsba);
-                var data = CDAExportUtil.exportCDA(hsba);
+                var data = new byte[0];// CDAExportUtil.exportCDA(hsba);
                 var resource = new ByteArrayResource(data);
                 
                 return ResponseEntity.ok()

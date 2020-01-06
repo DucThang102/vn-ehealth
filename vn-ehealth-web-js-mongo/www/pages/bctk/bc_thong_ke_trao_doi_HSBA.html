@@ -89,8 +89,8 @@
 			currentPage: 1,
 			perPage: 5
 		},
-//Coso kham benh : http://emr.com.vn:8001/api/coso_khambenh/get_all_cskb
-//Loai benh an: http://emr.com.vn:8001/api/danhmuc/get_all_dm_list?dm_type=DM_LOAI_BENH_AN
+//Coso kham benh : /api/coso_khambenh/get_all_cskb
+//Loai benh an: /api/danhmuc/get_all_dm_list?dm_type=DM_LOAI_BENH_AN
 		methods : {			
 			serialize: function(obj) {
 			  var str = [];
@@ -99,14 +99,7 @@
 			  }
 			  return str.join("&");
 			},
-			get: async function(url, params) {
-				if(params) {
-					url = url + '?' + this.serialize(params);
-				}
-				console.log(url);
-				var resp = await fetch(url);
-				return resp.json();
-			},
+			
 			search: async function() {
 				var params = {
 					maLoaiBenhAn: this.maLoaiBenhAn,
@@ -116,7 +109,7 @@
 					endDate: this.denNgay? this.denNgay + " 00:00": ""
 				};
 				console.log(params);
-				var result = await this.get("http://emr.com.vn:8001/api/hsba/report", params);
+				var result = await this.get("/api/hsba/report", params);
 				console.log(result);
 				this.report = [];
 				for(var key in result) {
@@ -144,8 +137,8 @@ computed: {
 		  }	  
 		},
 created: async function() {
-			this.cskbList = await  this.get('http://emr.com.vn:8001/api/coso_khambenh/get_all_cskb');
-			this.lbaList = await  this.get('http://emr.com.vn:8001/api/danhmuc/get_all_dm_list?dm_type=DM_LOAI_BENH_AN');
+			this.cskbList = await  this.get('/api/coso_khambenh/get_all_cskb');
+			this.lbaList = await  this.get('/api/danhmuc/get_all_dm_list?dm_type=DM_LOAI_BENH_AN');
 		}
 })
 </script>

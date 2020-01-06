@@ -75,34 +75,16 @@
         </dependency>
         
         <dependency>
+            <groupId>org.openehealth.ipf.modules</groupId>
+            <artifactId>ipf-modules-cda-mdht</artifactId>
+            <version>3.6.3</version>
+        </dependency>
+
+		<dependency>
 			<groupId>com.opencsv</groupId>
 			<artifactId>opencsv</artifactId>
 			<version>3.8</version>
 		</dependency>
-        
-        <dependency>
-            <groupId>vn.dtt.emr</groupId>
-            <artifactId>hl7</artifactId>
-            <version>0.0.1</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>vn.dtt.emr</groupId>
-            <artifactId>ie</artifactId>
-            <version>0.0.1</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>vn.dtt.emr</groupId>
-            <artifactId>ie-cda</artifactId>
-            <version>0.0.1</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>vn.dtt.emr</groupId>
-            <artifactId>mdht</artifactId>
-            <version>0.0.1</version>
-        </dependency>
         
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

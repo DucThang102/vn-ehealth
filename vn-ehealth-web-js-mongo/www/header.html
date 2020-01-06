@@ -193,12 +193,13 @@
         BÁO CÁO THỐNG KÊ
       </a>
       <div class="dropdown-menu">
-        <a
-          class="dropdown-item"
+     
+
+        <a class="dropdown-item"
           id="bctk_traodoi"
-          href="/pages/bctk/bc_thong_ke_trao_doi_HSBA.html"
-          ><i class="fas fa-angle-right black"></i> Thống kê trao đổi HSBA</a
-        >
+          :href='createURL("/pages/bctk/bc_thong_ke_trao_doi_HSBA.html", { backURL : getCurrentURL()})
+          <i class="fas fa-angle-right blacke"> </i>
+        </i> Thống kê trao đổi HSBA</a>
         <a
           class="dropdown-item"
           id="bctk_chitiet"
@@ -305,6 +306,12 @@
       }
     }
     return "";
+  }
+
+  methods : {
+    getCurrentURL: function() {
+        return this.createURL("/pages/danhmuc/dm_dungchung.html", { keyword: this.keyword, currentPage: this.currentPage });
+      }
   }
 
   $(document).ready(function() {
