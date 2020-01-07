@@ -5,7 +5,6 @@ a {
   font-family: Verdana, "Lucida Grande", "Trebuchet MS", Arial, Sans-Serif,
     "Roboto Condensed";
   font-size: 15px;
-  color: #333;
   line-height: 1.8;
 }
 
@@ -233,6 +232,10 @@ footer p {
   font-size: 1rem;
 }
 
+.label-title-small {
+  font-family: "Arial Narrow";
+}
+
 .label-bold {
   font-weight: bold;
 }
@@ -245,17 +248,8 @@ footer p {
 .text-tle {
   font-family: "Roboto", sans-serif;
   font-weight: 900;
-  text-align: center;
   color: #007bff;
   text-transform: uppercase;
-}
-.text-tle1 {
-  color: #007bff;
-  text-transform: uppercase;
-  border-bottom: solid 2px #007bff;
-  font-family: "Roboto", sans-serif;
-  font-weight: 900;
-  margin-bottom: 30px;
 }
 .text-o {
   border: solid 1px #ccc;
@@ -300,7 +294,21 @@ footer p {
   width: 60px !important;
   text-align: center;
 }
+.w-140px {
+  width: 140px !important;
+  text-align: center;
+}
 .input-lr2 input {
   margin-left: 2px;
   margin-right: 2px;
+}
+
+.bullet {
+  font-size: 0.35rem;  
+  vertical-align: middle;
+}
+
+.bullet-small {  
+  font-size: 0.3rem;  
+  vertical-align: middle;
 }
