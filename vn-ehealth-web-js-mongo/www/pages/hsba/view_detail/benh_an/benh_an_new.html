@@ -1,546 +1,1045 @@
 <div v-if="hsba">
-  <link href="/css/benhan.css" rel="stylesheet" />
+  <link href="/css/bootstrap.css" rel="stylesheet" />
+	  <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&subset=latin,vietnamese" rel="stylesheet" type="text/css">
+	  <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+	  <link href="/css/style.css" rel="stylesheet">
 
   <body id="benhan_new">
     <!-- body code goes here -->
-    <div class="container">
-      <section class="container-fluid pt-2 mb-4">
-        <div class="row">
-          <div class="col-auto mr-auto">
-            {{hsba.emrCoSoKhamBenh.donvichuquan}}<br />
-            {{hsba.emrCoSoKhamBenh.ten}}<br />
-            Khoa: <strong class="mr-3">Gan mật</strong>Giường
-            <strong>Số 5</strong>
-          </div>
-          <div class="col">
-            <h3 class="text-tle mt-3" v-if="hsba.emrDmLoaiBenhAn.ma=='01'">
-              BỆNH ÁN NỘI KHOA
-            </h3>
-            <h3 class="text-tle mt-3" v-if="hsba.emrDmLoaiBenhAn.ma=='02'">
-              BỆNH ÁN NHI KHOA
-            </h3>
-            <h3 class="text-tle mt-3" v-if="hsba.emrDmLoaiBenhAn.ma=='05'">
-              BỆNH ÁN SẢN KHOA
-            </h3>
-            <h3 class="text-tle mt-3" v-if="hsba.emrDmLoaiBenhAn.ma=='06'">
-              BỆNH ÁN SƠ SINH
-            </h3>
-            <h3 class="text-tle mt-3" v-if="hsba.emrDmLoaiBenhAn.ma=='11'">
-              BỆNH ÁN NGOẠI KHOA
-            </h3>
-            <h3 class="text-tle mt-3" v-if="hsba.emrDmLoaiBenhAn.ma=='20'">
-              BỆNH ÁN NGOẠI TRÚ
-            </h3>
-          </div>
-          <div class="col-auto">
-            Số lưu trữ: <strong>20102019</strong> <br />
-            Mã YT:
-            <strong>{{hsba.mayte}}</strong>
-          </div>
-        </div>
-      </section>
-      <section class="container-fluid mb-4">
-        <h5 class="text-tle1">I. HÀNH CHÍNH:</h5>
-        <div class="row mb-2">
-          <div class="col">
-            <strong class="text-primary">1.</strong> Họ và tên (In hoa):
-            {{hsba.emrBenhNhan.tendaydu }}
-          </div>
-          <div class="col">
-            <div class="row">
-              <div class="col-auto mr-auto">
-                <strong class="text-primary">2.</strong> Sinh ngày:
-                {{hsba.emrBenhNhan.ngaysinh }}
-              </div>
-              <div class="col-auto">
-                Tuổi:
-                <span class="">
-                  {{hsba.emrBenhNhan.tuoi}}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col-2">
-            <strong class="text-primary">3.</strong> Giới:
-          </div>
-          <div class="col-2">
-            {{hsba.emrBenhNhan.emrDmGioiTinh.ten}}
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col">
-            <div class="row">
-              <span class="col-auto mr-auto">
-                <strong class="text-primary">4.</strong> Dân tộc:
-                {{hsba.emrBenhNhan.emrDmDanToc.ten}}
-              </span>
-              <span class="col-auto">
-                <em class="text-o">2</em>
-                <em class="text-o">9</em>
-              </span>
-            </div>
-          </div>
-          <div class="col">
-            <div class="row">
-              <span class="col-auto mr-auto">
-                <strong class="text-primary">5.</strong> Ngoại kiều:
-                {{hsba.emrBenhNhan.emrDmQuocGia.ten}}
-              </span>
-              <span class="col-auto">
-                <em class="text-o">2</em>
-                <em class="text-o">9</em>
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col">
-            <strong class="text-primary">6.</strong> Địa chỉ:
-            {{hsba.emrBenhNhan.diachi}}
-            <!-- Xã, phường: {{hsba.emrBenhNhan.emrDmPhuongXa.ten}} -->
-            <!-- Huyện (Q, Tx) {{hsba.emrBenhNhan.emrDmQuanHuyen.ten}}<em class="text-o">2</em>
-          <em class="text-o mr-4">9</em>Tỉnh, thành phố
-          {{hsba.emrBenhNhan.emrDmTinhThanh.ten}}<em class="text-o">2</em>
-          <em class="text-o">9</em> -->
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col">
-            <strong class="text-primary">7.</strong>
-            Họ tên bố:
-            <strong class="mr-4">{{hsba.emrBenhNhan.hotenbo}}</strong>Trình độ
-            VH của bố:
-            <strong class="mr-4">{{hsba.emrBenhNhan.trinhDoVanHoaCuaBo}}</strong>
-            <br />
-            Nghề nghiệp của bố:
-            <strong class="mr-4">{{hsba.emrBenhNhan.emrDmNgheNghiepBo.ten}}</strong>
-          </div>
-          <div class="col">
-            Họ tên mẹ:
-            <strong class="mr-4">{{hsba.emrBenhNhan.hotenme}}</strong>Trình độ
-            VH của mẹ:
-            <strong class="mr-4">{{hsba.emrBenhNhan.trinhDoVanHoaCuaMe}}</strong>
-            <br />
-            Nghề nghiệp của mẹ:
-            <strong class="mr-4">{{hsba.emrBenhNhan.emrDmNgheNghiepMe.ten}}</strong>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col">
-            <strong class="text-primary">8.</strong> Đối tượng:
-            <em>1.BHYT <em class="text-o mr-4">X</em></em>
-            <em>2.Thu phí <em class="text-o mr-4"></em></em>
-            <em>3.Miễn <em class="text-o mr-4"></em></em>
-            <em>4.Khác <em class="text-o"></em></em>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col">
-            <strong class="text-primary">9.</strong> BHYT giá trị đến
-            ngày:<strong>{{hsba.emrBenhNhan.ngayhethanthebhyt}}</strong>
-          </div>
-          <div class="col">
-            Số thẻ BHYT: {{hsba.emrBenhNhan.sobhyt}}
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col">
-            <strong class="text-primary">10.</strong> Họ tên, địa chỉ người nhà
-            khi cần báo tin:<strong
-              class="mr-4">{{hsba.emrBenhNhan.tennguoibaotin}}{{hsba.emrBenhNhan.diachinguoibaotin}}</strong>Điện thoại:
-            <strong>{{hsba.emrBenhNhan.sodienthoainguoibaotin}}</strong>
-          </div>
-        </div>
-      </section>
-      <section class="container-fluid">
-        <h5 class="text-tle1">II. QUẢN LÝ NGƯỜI BỆNH:</h5>
-        <table class="table table-bordered table-sm">
-          <tbody>
-            <tr>
-              <td class="w-50">
-                <p>
-                  <strong class="text-primary">11.</strong> Vào viện:
-                  <strong>{{hsba.ngaytiepnhan}}</strong>
-                </p>
-                <p>
-                  <strong class="text-primary">12.</strong> Trực tiếp vào:
-                  {{hsba.emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao.ten}}
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong class="text-primary">13.</strong> Nơi giới thiệu:
-                  {{hsba.emrQuanLyNguoiBenh.emrDmNoiGioiThieu.ten}}
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td class="w-50">
-                <div class="row mb-3">
-                  <div class="col"></div>
-                  <div class="col-3 text-center">
-                    <strong>Khoa</strong>
-                  </div>
-                  <div class="col text-center"></div>
-                  <div class="col text-center">
-                    <strong> ng / th / năm</strong>
-                  </div>
-                  <div class="col text-center">
-                    <strong>Số ngày ĐTr</strong>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <div class="col">
-                    <strong class="text-primary">14.</strong> Vào khoa:
-                  </div>
-                  <div class="col-3">
-                    <em class="text-o mr-2">{{hsba.emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao.ten}}</em>
-                  </div>
-                  <div class="col">
-                    <em class="text-o">{{hsba.emrQuanLyNguoiBenh.ngaygiovaovien}}</em>
-                  </div>
-                  <div class="col text-center">
-                    <em class="text-o">{{hsba.emrQuanLyNguoiBenh.tongsongaydieutri}}</em>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <div class="col">
-                    <strong class="text-primary">15.</strong> Chuyển khoa:
-                  </div>
-                  <div class="col-3">
-                    <em class="text-o mr-2">Khoa nội</em>
-                  </div>
-                  <div class="col">
-                    <strong>15</strong> Giờ <strong>00</strong> phút
-                  </div>
-                  <div class="col">
-                    <em class="text-o">10</em>/<em class="text-o">10</em>/<em class="text-o">2019</em>
-                  </div>
-                  <div class="col text-center">
-                    <em class="text-o">1</em>
-                    <em class="text-o">3</em>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <div class="col"></div>
-                  <div class="col-3">
-                    <em class="text-o mr-2">Khoa Phẫu thuật chỉnh hình</em>
-                  </div>
-                  <div class="col">
-                    <strong>15</strong> Giờ <strong>00</strong> phút
-                  </div>
-                  <div class="col">
-                    <em class="text-o">10</em>/<em class="text-o">10</em>/<em class="text-o">2019</em>
-                  </div>
-                  <div class="col text-center">
-                    <em class="text-o">1</em>
-                    <em class="text-o">3</em>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col"></div>
-                  <div class="col-3">
-                    <em class="text-o mr-2">Khoa Phẫu thuật chỉnh hình</em>
-                  </div>
-                  <div class="col">
-                    <strong>15</strong> Giờ <strong>00</strong> phút
-                  </div>
-                  <div class="col">
-                    <em class="text-o">10</em>/<em class="text-o">10</em>/<em class="text-o">2019</em>
-                  </div>
-                  <div class="col text-center">
-                    <em class="text-o">1</em>
-                    <em class="text-o">3</em>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <p>
-                  <strong class="text-primary">16.</strong> Chuyển viện:
-                  {{hsba.emrQuanLyNguoiBenh.emrDmLoaiChuyenVien.ten}}
-                </p>
-                <p>
-                  - Chuyển đến
-                  <strong>{{hsba.emrQuanLyNguoiBenh.noichuyenden}}</strong>
-                </p>
-                <p class="">
-                  <strong class="text-primary">17.</strong> Ra viện:
-                  <strong>{{hsba.emrQuanLyNguoiBenh.ngaygioravien}}</strong>
-                </p>
-                <p class="ml-4">
-                  {{hsba.emrQuanLyNguoiBenh.emrDmLoaiRaVien.ten}}
-                </p>
-                <p class="mb-0">
-                  <strong class="text-primary">18.</strong> Tổng số ngày điều
-                  trị:
-                  <strong>{{hsba.emrQuanLyNguoiBenh.tongsongaydieutri}} ngày</strong>
-                </p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-      <section class="container-fluid">
-        <div class="row">
-          <div class="col-5">
-            <h5 class="text-tle1">III. CHẨN ĐOÁN:</h5>
-          </div>
-          <div class="col-1 text-center mr-auto">
-            <strong class="text-uppercase">Mã</strong>
-          </div>
-          <div class="col-1 text-center col-auto">
-            <strong class="text-uppercase">Mã</strong>
-          </div>
-        </div>
-        <table class="table table-bordered table-sm">
-          <tbody>
-            <tr>
-              <td class="w-50">
-                <div class="row align-items-center">
-                  <div class="col mr-auto">
-                    <p>
-                      <strong class="text-primary">19.</strong> Nơi chuyển đến:
-                      <span><strong>{{hsba.emrChanDoan.motachandoannoiden}}</strong></span>
-                    </p>
-                  </div>
-                  <div class="col-auto">
-                    <p class="mb-0">
-                      <em class="text-o">A</em>
-                      <em class="text-o">B</em>
-                      <em class="text-o">C</em>
-                      <em class="text-o">3</em>
-                    </p>
-                  </div>
-                </div>
-                <div class="row align-items-center">
-                  <div class="col mr-auto">
-                    <p>
-                      <strong class="text-primary">20.</strong> KKB, Cấp cứu:
-                      <span><strong>{{hsba.emrChanDoan.motachandoankkb}}</strong></span>
-                    </p>
-                  </div>
-                  <div class="col-auto">
-                    <p class="mb-0">
-                      <em class="text-o">A</em>
-                      <em class="text-o">B</em>
-                      <em class="text-o">C</em>
-                      <em class="text-o">3</em>
-                    </p>
-                  </div>
-                </div>
-                <div class="row align-items-center">
-                  <div class="col mr-auto">
-                    <p>
-                      <strong class="text-primary">21.</strong> Khi vào khoa
-                      điều trị:
-                      <span><strong>{{hsba.emrChanDoan.motachandoanbenhchinh}}</strong></span>
-                    </p>
-                  </div>
-                  <div class="col-auto">
-                    <p class="mb-0">
-                      <em class="text-o">A</em>
-                      <em class="text-o">B</em>
-                      <em class="text-o">C</em>
-                      <em class="text-o">3</em>
-                    </p>
-                  </div>
-                </div>
-                <div class="row align-items-center">
-                  <div class="col">+ Thủ thuật:<em class="text-o">X</em></div>
-                  <div class="col">+ Phẫu thuật:<em class="text-o"></em></div>
-                </div>
-              </td>
-              <td>
-                <div class="row align-items-center">
-                  <div class="col mr-auto">
-                    <p>
-                      <strong class="text-primary">22.</strong> Ra viện: <br />
-                      + Bệnh chính: <strong>{{ hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten }}</strong>
-                    </p>
-                  </div>
-                  <div class="col-auto">
-                    <p class="mb-0">
-                      <em class="text-o">A</em>
-                      <em class="text-o">B</em>
-                      <em class="text-o">C</em>
-                      <em class="text-o">3</em>
-                    </p>
-                  </div>
-                </div>
-                <div class="row align-items-center">
-                  <div class="col mr-auto">
-                    <p>
-                      + Bệnh kèm theo:
-                      <strong>
-                        <span v-for="(emrDm,i) in hsba.emrChanDoan.emrDmMaBenhChandoanravienkemtheos">
-                          {{ emrDm.ten }}
-                          <span v-if="i+1< hsba.emrChanDoan.emrDmMaBenhChandoanravienkemtheos.length">,</span>
-                        </span>
-                      </strong>
-                    </p>
-                  </div>
-                  <div class="col-auto">
-                    <p class="mb-0">
-                      <em class="text-o">A</em>
-                      <em class="text-o">B</em>
-                      <em class="text-o">C</em>
-                      <em class="text-o">3</em>
-                    </p>
-                  </div>
-                </div>
-                <div class="row align-items-center">
-                  <div class="col">
-                    + Tai biến:<em class="text-o">{{hsba.emrChanDoan.bitaibien}}</em>
-                  </div>
-                  <div class="col">
-                    + Biến chứng:<em class="text-o">{{hsba.emrChanDoan.bibienchung}}</em>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-      <section class="container-fluid">
-        <h5 class="text-tle1">IV. TÌNH TRẠNG RA VIỆN</h5>
-        <table class="table table-bordered table-sm">
-          <tbody>
-            <tr>
-              <td class="w-40">
-                <p>
-                  <strong class="text-primary">23.</strong> Kết quả điều trị
-                </p>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="row mb-3">
-                      <div class="col mr-auto">
-                        <em>{{hsba.emrTinhTrangRaVien.emrDmKetQuaDieuTri.ten}}</em>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <p>
-                  <strong class="text-primary">24.</strong> Giải phẫu bệnh
-                  <em>(khi có sinh thiết):</em>
-                </p>
-                <div class="row">
-                  <div class="col">
-                    <em>{{hsba.emrTinhTrangRaVien.emrDmKetQuaGiaiPhauBenh.ten}}
-                    </em>
-                  </div>
-                </div>
-              </td>
-              <td class="">
-                <p>
-                  <strong class="text-primary">25.</strong> Tình hình tử vong:
-                  <strong>{{hsba.emrTinhTrangRaVien.emrDmThoiDiemTuVong.ten}}</strong>
-                </p>
-                <div class="row">
-                  <div class="col-4">
-                    <div class="row mb-3">
-                      <div class="col mr-auto">
-                        {{hsba.emrTinhTrangRaVien.emrDmLyDoTuVong.ten}}
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <div class="col mr-auto">
-                        <em>{{hsba.emrTinhTrangRaVien.emrDmThoiDiemTuVong.ten}}</em>
-                      </div>
-                      <div class="col-auto">
-                        <em class="text-o"></em>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-4">
-                    <div class="row mb-3">
-                      <div class="col-auto">
-                        <em class="text-o"></em>
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <div class="col-auto">
-                        <em class="text-o"></em>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-4">
-                    <div class="row mb-3">
-                      <div class="col-auto">
-                        <em class="text-o"></em>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row align-items-center">
-                  <div class="col mr-auto">
-                    <p>
-                      <strong class="text-primary">26.</strong> Nguyên nhân
-                      chính tử vong: <br />
-                      + Bệnh chính:
-                      <strong>{{hsba.emrTinhTrangRaVien.motanguyennhantuvong}}
-                      </strong>
-                    </p>
-                  </div>
-                  <div class="col-auto">
-                    <p class="mb-0">
-                      <em class="text-o">A</em>
-                      <em class="text-o">B</em>
-                      <em class="text-o">C</em>
-                      <em class="text-o">3</em>
-                    </p>
-                  </div>
-                </div>
-                <div class="row align-items-center">
-                  <div class="col mr-auto">
-                    <p>
-                      <strong class="text-primary">27.</strong> Khám nghiệm tử
-                      thi:
-                      <em class="text-o mr-4">{{hsba.emrTinhTrangRaVien.khamnghiemtuthi}}</em><strong
-                        class="text-primary">28.</strong>Chẩn đoán giải
-                      phẫu tử thi:
-                      <strong>{{hsba.emrTinhTrangRaVien.motagiaiphaututhi}}
-                      </strong>
-                    </p>
-                  </div>
-                  <div class="col-auto">
-                    <p class="mb-0">
-                      <em class="text-o">A</em>
-                      <em class="text-o">B</em>
-                      <em class="text-o">C</em>
-                      <em class="text-o">3</em>
-                    </p>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-      <section class="container-fluid">
-        <div class="row align-items-end">
-          <div class="col text-center">
-            <h5 class="mb-3">Giám đốc bệnh viện</h5>
-            <p class="">Họ và tên <strong>Nguyễn Văn Bác Sỹ</strong></p>
-          </div>
-          <div class="col text-center">
-            <em>Ngày ....... tháng ...... năm .............</em>
-            <h5 class="text-center mb-3">Trưởng khoa</h5>
-            <p class="">Họ và tên <strong>Nguyễn Văn Bác Sỹ</strong></p>
-          </div>
-        </div>
-      </section>
-      <br />
-      <br />
-    </div>
 
-    <benh-an-nhi :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='02'"></benh-an-nhi>
-    <benh-an-so-sinh :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='06'"></benh-an-so-sinh>
-    <benh-an-noi-khoa :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='01'"></benh-an-noi-khoa>
-    <benh-an-ngoai-khoa :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='11'"></benh-an-ngoai-khoa>
-    <benh-an-ngoai-tru :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='20'"></benh-an-ngoai-tru>
+  <!-- benh an moi -->
+    
+	  <main class="bg-xam">
+  	<!-- body code goes here -->
+	  <section class="container-fluid pt-2 mb-3">
+		  <div class="row">
+			  <div class="col-auto mr-auto">
+				  Sở Y tế: <strong>{{hsba.emrCoSoKhamBenh.donvichuquan}}</strong><br>
+				  Bệnh viện: <strong class="text-danger">{{hsba.emrCoSoKhamBenh.ten}}</strong> <br>
+				  Khoa: <strong class="mr-3 text-primary">Gan mật</strong>Giường <strong class="text-success">Số 5</strong>
+			  </div>
+			  <div class="col">
+				  <h3 class="text-tle mt-3">BỆNH ÁN NHI KHOA</h3>
+			  </div>
+			  <div class="col-auto">
+				  Số lưu trữ: <strong class="text-info">20102019</strong> <br>
+				  Mã YT: <span class="text-danger"> <strong>{{hsba.mayte}}</strong></span>
+			  </div>
+		  </div>
+	  </section>
+	  <section class="container-fluid">  
+		  <div class="box">
+	  <section class="mb-5">
+			  <h5 class="text-tle1">I. HÀNH CHÍNH:</h5>
+			  <div class="row mb-2">
+				  <div class="col">
+					   <form class="" action="/action_page.php">
+					  	<div class="row">
+						  	<label class="col-auto" for="email"><strong class="text-primary mr-1">1.</strong> Họ và tên (In hoa): {{hsba.emrBenhNhan.tendaydu }}</label>
+							  <!-- <div class="col">
+						  		<input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder=".................................................................................................................................................................................................................................................................." id="usr">
+							</div>
+						  </div> -->
+						  
+						</form>
+				  </div>
+				  <div class="col">
+					  <div class="row">
+						  <div class="col-auto mr-auto">
+							  <form class="form-inline input-lr2" action="/action_page.php">
+								  <label for="email" class="mr-2"><strong class="text-primary mr-1">2.</strong> Sinh ngày:{{hsba.emrBenhNhan.ngaysinh }}</label>
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px mr-2" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px mr-2" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  
+							  </form>
+						  </div>
+						  <div class="col-auto">
+							  <form class="form-inline input-lr2" action="/action_page.php">
+								  <label for="email" class="mr-2">Tuổi</label>
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  
+							  </form>
+						  </div>
+					  </div>
+
+				  </div>
+			  </div>
+			  <div class="row mb-2">
+				  <div class="col-2"><strong class="text-primary mr-1">3.</strong> Giới:</div>
+				  <div class="col-4">
+					    <form>
+						  <div class="custom-control custom-radio custom-control-inline">
+							<input type="radio" class="custom-control-input" id="customRadio" name="example" value="customEx">
+							<label class="custom-control-label" for="customRadio">nam</label>
+						  </div>
+						  <div class="custom-control custom-radio custom-control-inline">
+							<input type="radio" class="custom-control-input" id="customRadio2" name="example" value="customEx">
+							<label class="custom-control-label" for="customRadio2">nữ</label>
+						  </div>
+						</form> 
+				  </div>
+			  </div>
+			  <div class="row mb-2">
+				  <div class="col">
+					  <div class="row">
+						  <span class="col-auto mr-auto">
+							  <form class="form-inline" action="/action_page.php">
+								  <label for="email"><strong class="text-primary mr-1">4.</strong>Dân tộc:</label>
+								  <input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder=".................." id="usr">
+								</form> 
+						  </span>
+						  <span class="col-auto">
+							  <form class="form-inline input-lr2" action="/action_page.php">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+							  </form>
+						  </span>
+					  </div>
+				  </div>
+				  <div class="col">
+					  <div class="row">
+						  <span class="col-auto mr-auto">
+							  <form class="form-inline" action="/action_page.php">
+								  <label for="email"><strong class="text-primary mr-1">5.</strong>  Ngoại kiều:</label>
+								  <input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder=".................." id="usr">
+								</form> 
+						  </span>
+						  <span class="col-auto">
+							  <form class="form-inline input-lr2" action="/action_page.php">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+							  </form>
+						  </span>
+					  </div>
+				  </div>
+			  </div>
+			  <div class="row mb-2">
+				  <div class="col-auto">
+					  <strong class="text-primary mr-1">6.</strong> Địa chỉ:
+				  </div>
+				  <div class="col-auto">
+					  <form class="form-inline" action="/action_page.php">
+						  <label for="email">Số nhà</label>
+						  <input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder=".................." id="usr">
+					  </form> 
+				  </div>
+				  <div class="col-4">
+					  <form class="" action="/action_page.php">
+						  <div class="row">
+						  	<label class="col-auto" for="email">Thôn, phố</label>
+							  <div class="col">
+						  		<input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder=".................................................................................................................................................................................................................................................................." id="usr">
+							</div>
+						  </div>
+					  </form> 
+				  </div>
+				  <div class="col">
+					  <form class="" action="/action_page.php">
+						  <div class="row">
+						  	<label class="col-auto" for="email">Xã, phường</label>
+							  <div class="col">
+						  		<input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder=".................................................................................................................................................................................................................................................................." id="usr">
+							</div>
+						  </div>
+						  
+					  </form> 
+				  </div>
+				  
+			  </div>
+			  <div class="row mb-2">
+				  <div class="col">
+					  <form class="" action="/action_page.php">
+						  <div class="row">
+						  	<label class="col-auto" for="email">Huyện (Q, Tx)</label>
+							  <div class="col">
+						  		<input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder=".................................................................................................................................................................................................................................................................." id="usr">
+							</div>
+						  </div>
+						  
+					  </form> 
+				  </div>
+				  <div class="col">
+					  <form class="" action="/action_page.php">
+						  <div class="row">
+						  	<label class="col-auto" for="email">Tỉnh, thành phố</label>
+							  <div class="col">
+						  		<input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder=".................................................................................................................................................................................................................................................................." id="usr">
+							</div>
+						  </div>
+						  
+					  </form> 
+				  </div>
+			  </div>
+			  <div class="row mb-2">
+				  <div class="col">
+					  <div class="row">
+						  <div class="col-12">
+							  <div class="row">
+								  <div class="col-6">
+									  <form class="" action="/action_page.php">
+										  <div class="row">
+											  <label class="col-auto" for="email"><strong class="text-primary mr-1">7.</strong>Họ tên bố</label>
+											  <div class="col">
+												  <input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder="........................................................................................................................................................................................................................................................................................................................................................................" id="usr">
+											  </div>
+										  </div>
+									  </form> 
+								  </div>
+								  <div class="col-6">
+									  <form class="" action="/action_page.php">
+										  <div class="row">
+											  <label class="col-auto" for="email">Trình độ VH của bố</label>
+											  <div class="col">
+												  <input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder="........................................................................................................................................................................................................................................................................................................................................................................" id="usr">
+											  </div>
+										  </div>
+									  </form>
+								  </div>
+								  
+							  </div>
+							  
+						  </div>
+						  <div class="col-12">
+							  <form class="" action="/action_page.php">
+								  <div class="row">
+									<label class="col-auto" for="email">Nghề nghiệp của bố</label>
+									  <div class="col">
+										<input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder=".................................................................................................................................................................................................................................................................." id="usr">
+									</div>
+								  </div>
+
+							  </form>
+						  </div>
+					  </div>
+				  </div>
+				  <div class="col">
+					  <div class="row">
+						  <div class="col-12">
+							  <div class="row">
+								  <div class="col-6">
+									  <form class="" action="/action_page.php">
+										  <div class="row">
+											  <label class="col-auto" for="email">Họ tên mẹ</label>
+											  <div class="col">
+												  <input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder="........................................................................................................................................................................................................................................................................................................................................................................" id="usr">
+											  </div>
+										  </div>
+									  </form> 
+								  </div>
+								  <div class="col-6">
+									  <form class="" action="/action_page.php">
+										  <div class="row">
+											  <label class="col-auto" for="email">Trình độ VH của mẹ</label>
+											  <div class="col">
+												  <input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder="........................................................................................................................................................................................................................................................................................................................................................................" id="usr">
+											  </div>
+										  </div>
+									  </form>
+								  </div>
+								  
+							  </div>
+							  
+						  </div>
+						  <div class="col-12">
+							  <form class="" action="/action_page.php">
+								  <div class="row">
+									<label class="col-auto" for="email">Nghề nghiệp của mẹ</label>
+									  <div class="col">
+										<input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder=".................................................................................................................................................................................................................................................................." id="usr">
+									</div>
+								  </div>
+
+							  </form>
+						  </div>
+					  </div>
+				  </div>
+			  </div>
+			  <div class="row mb-2">
+				  <div class="col-auto">
+					  <strong class="text-primary mr-1">8.</strong> Đối tượng: 
+				  </div>
+				  <div class="col">
+					  <form>
+						  <div class="custom-control custom-radio custom-control-inline">
+							  <label class="custom-control-label" for="customRadio3">1.BHYT</label>
+							  <input type="radio" class="custom-control-input" id="customRadio3" name="example" value="customEx">
+						  </div>
+						  <div class="custom-control custom-radio custom-control-inline">
+							  <label class="custom-control-label" for="customRadio4">2.Thu phí</label>
+							<input type="radio" class="custom-control-input" id="customRadio4" name="example" value="customEx">
+						  </div>
+						  <div class="custom-control custom-radio custom-control-inline">
+							  <label class="custom-control-label" for="customRadio5">3.Miễn</label>
+							<input type="radio" class="custom-control-input" id="customRadio5" name="example" value="customEx">
+						  </div>
+						  <div class="custom-control custom-radio custom-control-inline">
+							  <label class="custom-control-label" for="customRadio6">4.Khác</label>
+							<input type="radio" class="custom-control-input" id="customRadio6" name="example" value="customEx">
+						  </div>
+						</form> 
+				  </div>
+			  </div>
+			  <div class="row mb-2">
+				  <div class="col-auto">
+					  <label for=""><strong class="text-primary mr-1">9.</strong> BHYT giá trị đến </label>
+				  </div>
+				  <div class="col">
+					  <form class="form-inline" action="/action_page.php">
+						  <label for="email">ngày</label>
+						  <input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder=".................." id="usr">
+						  <label for="email">tháng</label>
+						  <input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder=".................." id="usr">
+						  <label for="email">năm</label>
+						  <input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder=".................." id="usr">
+					  </form> 
+				  </div>
+				  <div class="col-6">
+					  <form class="form-inline input-lr2" action="/action_page.php">
+								  <label for="email" class="mr-2">Số thẻ BHYT</label>
+								  <input type="text" class="form-control form-control-sm text-placeholder w-60px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-60px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-60px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-60px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-100px" placeholder="..." id="usr">
+								  
+							  </form>
+				  </div>
+			  </div>
+			  <div class="row mb-2">
+				  <div class="col">
+					  <form class="" action="/action_page.php">
+						  <div class="row">
+							  <label class="col-auto" for="email"><strong class="text-primary mr-1">10.</strong>Họ tên, địa chỉ người nhà khi cần báo tin:</label>
+							  <div class="col">
+							  <input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder=".............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................." id="usr">
+							  </div>
+						  </div>
+					  </form> 
+					 
+				  </div>
+				  <div class="col">
+					  <form class="form-inline" action="/action_page.php">
+						  <label for="email">Điện thoại:</label>
+						  <input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder="......................................................................................................................." id="usr">
+					  </form> 
+				  </div>
+			  </div>
+	  </section>
+	  <section class="mb-5">
+		  <h5 class="text-tle1">II. QUẢN LÝ NGƯỜI BỆNH:</h5>
+		  <table class="table table-bordered">
+			<tbody>
+			  <tr>
+				<td class="w-50">
+					
+					<form class="" action="/action_page.php">
+						<div class="row">
+						  <label class="col-auto" for=""><strong class="text-primary mr-1">11.</strong>Vào viện:</label>
+						  <div class="col">
+							  <div class="row">
+								  <div class="col-auto">
+									  <input type="text" class="form-control form-control-sm text-placeholder border-0 w-60px" placeholder="......................................................................................................................." id="usr">
+								  </div>
+								  <label class="col" for="email">giờ</label>
+							  </div>
+						  </div>
+						  <div class="col">
+							  <div class="row">
+								  <div class="col-auto">
+									  <input type="text" class="form-control form-control-sm text-placeholder border-0 w-60px" placeholder="......................................................................................................................." id="usr">
+								  </div>
+								  <label class="col" for="email">ph</label>
+							  </div>
+						  </div>
+							<div class="col">
+							  <div class="row">
+								  <label class="col-auto" for="email">ngày</label>
+								  <div class="col">
+									  <input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder="......................................................................................................................." id="usr">
+								  </div>								  
+							  </div>
+						  </div>
+						</div>
+					  </form> 
+					<div class="row">
+					<div class="col-auto">
+					  <strong class="text-primary mr-1">12.</strong>Trực tiếp vào: 
+					  </div>
+					  <div class="col">
+						  <form>
+							  <div class="custom-control custom-radio custom-control-inline">
+								  <label class="custom-control-label" for="customRadio3">1.Cấp cứu</label>
+								  <input type="radio" class="custom-control-input" id="customRadio3" name="example" value="customEx">
+							  </div>
+							  <div class="custom-control custom-radio custom-control-inline">
+								  <label class="custom-control-label" for="customRadio4">2.KKB</label>
+								<input type="radio" class="custom-control-input" id="customRadio4" name="example" value="customEx">
+							  </div>
+							  <div class="custom-control custom-radio custom-control-inline">
+								  <label class="custom-control-label" for="customRadio5">3.Khoa điều trị</label>
+								<input type="radio" class="custom-control-input" id="customRadio5" name="example" value="customEx">
+							  </div>
+							</form> 
+					  </div>
+					</div>
+				  </td>
+				<td>
+					<div class="row">
+						<div class="col-auto">
+						  <strong class="text-primary mr-1">13.</strong>Nơi giới thiệu: 
+						  </div>
+						  <div class="col">
+							  <form>
+								  <div class="custom-control custom-radio custom-control-inline">
+									  <label class="custom-control-label" for="customRadio3">1.Cơ quan y tế</label>
+									  <input type="radio" class="custom-control-input" id="customRadio3" name="example" value="customEx">
+								  </div>
+								  <div class="custom-control custom-radio custom-control-inline">
+									  <label class="custom-control-label" for="customRadio4">2.Tự đến</label>
+									<input type="radio" class="custom-control-input" id="customRadio4" name="example" value="customEx">
+								  </div>
+								  <div class="custom-control custom-radio custom-control-inline">
+									  <label class="custom-control-label" for="customRadio5">3.Khác</label>
+									<input type="radio" class="custom-control-input" id="customRadio5" name="example" value="customEx">
+								  </div>
+								</form> 
+						  </div>
+						<div class="col-12">
+						<form class="form-inline" action="/action_page.php">
+						  <label for="email" class="mr-2">- Vào viện do bệnh này lần thứ</label>
+						  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder=".................." id="usr">
+					  </form> </div>
+					</div>
+				  </td>
+			  </tr>
+			  <tr>
+				<td class="w-50">
+					
+					<div class="row mb-3">
+						<div class="col">
+						</div>
+						<div class="col-3 text-center">
+							<strong>Khoa</strong>
+						</div>
+						<div class="col text-center">
+						</div>
+						<div class="col text-center">
+							<strong>ng / th / năm</strong>
+						</div>
+						<div class="col-auto text-center">
+							<strong>Số ngày ĐTr</strong>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<div class="col">
+							<strong class="text-primary mr-1">14.</strong> Vào khoa:
+						</div>
+						<div class="col-3">
+							<input type="text" class="form-control form-control-sm text-placeholder" placeholder=".................." id="usr">
+						</div>
+						<div class="col">
+							<form class="form-inline" action="/action_page.php">
+									<input type="text" class="form-control form-control-sm text-placeholder border-0 w-40px" placeholder="......................................................................................................................." id="usr">
+									<label for="email">giờ</label>
+								  <input type="text" class="form-control form-control-sm text-placeholder border-0 w-40px" placeholder="......................................................................................................................." id="usr">
+								<label for="email">phút</label>
+							</form>
+							
+						</div>
+						<div class="col">
+							 <form class="form-inline" action="/action_page.php">
+									<input type="text" class="form-control form-control-sm text-placeholder border-0 w-40px" placeholder="......................................................................................................................." id="usr">
+									<label for="email">/</label>
+								  <input type="text" class="form-control form-control-sm text-placeholder border-0 w-40px" placeholder="......................................................................................................................." id="usr">
+								<label for="email">/</label>
+								 <input type="text" class="form-control form-control-sm text-placeholder border-0 w-60px" placeholder="......................................................................................................................." id="usr">
+							</form>
+						</div>
+						<div class="col-auto text-center">
+							<form class="form-inline input-lr2" action="/action_page.php">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  
+							  </form>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<div class="col">
+							<strong class="text-primary mr-1">15.</strong> Chuyển khoa:
+						</div>
+						<div class="col-3">
+							<input type="text" class="form-control form-control-sm text-placeholder" placeholder=".................." id="usr">
+						</div>
+						<div class="col">
+							<form class="form-inline" action="/action_page.php">
+									<input type="text" class="form-control form-control-sm text-placeholder border-0 w-40px" placeholder="......................................................................................................................." id="usr">
+									<label for="email">giờ</label>
+								  <input type="text" class="form-control form-control-sm text-placeholder border-0 w-40px" placeholder="......................................................................................................................." id="usr">
+								<label for="email">phút</label>
+							</form>
+							
+						</div>
+						<div class="col">
+							 <form class="form-inline" action="/action_page.php">
+									<input type="text" class="form-control form-control-sm text-placeholder border-0 w-40px" placeholder="......................................................................................................................." id="usr">
+									<label for="email">/</label>
+								  <input type="text" class="form-control form-control-sm text-placeholder border-0 w-40px" placeholder="......................................................................................................................." id="usr">
+								<label for="email">/</label>
+								 <input type="text" class="form-control form-control-sm text-placeholder border-0 w-60px" placeholder="......................................................................................................................." id="usr">
+							</form>
+						</div>
+						<div class="col-auto text-center">
+							<form class="form-inline input-lr2" action="/action_page.php">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  
+							  </form>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<div class="col"></div>
+						<div class="col-3">
+							<input type="text" class="form-control form-control-sm text-placeholder" placeholder=".................." id="usr">
+						</div>
+						<div class="col">
+							<form class="form-inline" action="/action_page.php">
+									<input type="text" class="form-control form-control-sm text-placeholder border-0 w-40px" placeholder="......................................................................................................................." id="usr">
+									<label for="email">giờ</label>
+								  <input type="text" class="form-control form-control-sm text-placeholder border-0 w-40px" placeholder="......................................................................................................................." id="usr">
+								<label for="email">phút</label>
+							</form>
+							
+						</div>
+						<div class="col">
+							 <form class="form-inline" action="/action_page.php">
+									<input type="text" class="form-control form-control-sm text-placeholder border-0 w-40px" placeholder="......................................................................................................................." id="usr">
+									<label for="email">/</label>
+								  <input type="text" class="form-control form-control-sm text-placeholder border-0 w-40px" placeholder="......................................................................................................................." id="usr">
+								<label for="email">/</label>
+								 <input type="text" class="form-control form-control-sm text-placeholder border-0 w-60px" placeholder="......................................................................................................................." id="usr">
+							</form>
+						</div>
+						<div class="col-auto text-center">
+							<form class="form-inline input-lr2" action="/action_page.php">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  
+							  </form>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col"></div>
+						<div class="col-3">
+							<input type="text" class="form-control form-control-sm text-placeholder" placeholder=".................." id="usr">
+						</div>
+						<div class="col">
+							<form class="form-inline" action="/action_page.php">
+									<input type="text" class="form-control form-control-sm text-placeholder border-0 w-40px" placeholder="......................................................................................................................." id="usr">
+									<label for="email">giờ</label>
+								  <input type="text" class="form-control form-control-sm text-placeholder border-0 w-40px" placeholder="......................................................................................................................." id="usr">
+								<label for="email">phút</label>
+							</form>
+							
+						</div>
+						<div class="col">
+							 <form class="form-inline" action="/action_page.php">
+									<input type="text" class="form-control form-control-sm text-placeholder border-0 w-40px" placeholder="......................................................................................................................." id="usr">
+									<label for="email">/</label>
+								  <input type="text" class="form-control form-control-sm text-placeholder border-0 w-40px" placeholder="......................................................................................................................." id="usr">
+								<label for="email">/</label>
+								 <input type="text" class="form-control form-control-sm text-placeholder border-0 w-60px" placeholder="......................................................................................................................." id="usr">
+							</form>
+						</div>
+						<div class="col-auto text-center">
+							<form class="form-inline input-lr2" action="/action_page.php">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  
+							  </form>
+						</div>
+					</div>
+			    </td>
+				<td>
+					<div class="row">
+						<div class="col-auto">
+						  <strong class="text-primary mr-1">16.</strong>Chuyển viện:
+						  </div>
+						  <div class="col">
+							  <form>
+								  <div class="custom-control custom-radio custom-control-inline">
+									  <label class="custom-control-label" for="customRadio3">1.Tuyến trên</label>
+									  <input type="radio" class="custom-control-input" id="customRadio3" name="example" value="customEx">
+								  </div>
+								  <div class="custom-control custom-radio custom-control-inline">
+									  <label class="custom-control-label" for="customRadio4">2.Tuyến dưới</label>
+									<input type="radio" class="custom-control-input" id="customRadio4" name="example" value="customEx">
+								  </div>
+								  <div class="custom-control custom-radio custom-control-inline">
+									  <label class="custom-control-label" for="customRadio5">3.CK</label>
+									<input type="radio" class="custom-control-input" id="customRadio5" name="example" value="customEx">
+								  </div>
+								</form> 
+						  </div>
+						<div class="col-12">
+							<form class="" action="/action_page.php">
+								<div class="row">
+									<label class="col-auto" for="email">- Chuyển đến</label>
+									<div class="col"><input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder="................................................................................................................................................................................................................................................................................................" id="usr"></div>
+								</div>
+						   </form> 
+						</div>
+					</div>
+					
+					
+					
+					
+					
+					<form class="mb-2" action="/action_page.php">
+						<div class="row">
+						  <label class="col-auto" for=""><strong class="text-primary mr-1">17.</strong>Ra viện:</label>
+						  <div class="col">
+							  <div class="row">
+								  <div class="col-auto">
+									  <input type="text" class="form-control form-control-sm text-placeholder border-0 w-60px" placeholder="......................................................................................................................." id="usr">
+								  </div>
+								  <label class="col" for="email">giờ</label>
+							  </div>
+						  </div>
+						  <div class="col">
+							  <div class="row">
+								  <div class="col-auto">
+									  <input type="text" class="form-control form-control-sm text-placeholder border-0 w-60px" placeholder="......................................................................................................................." id="usr">
+								  </div>
+								  <label class="col" for="email">ph</label>
+							  </div>
+						  </div>
+							<div class="col">
+							  <div class="row">
+								  <label class="col-auto" for="email">ngày</label>
+								  <div class="col">
+									  <input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder="......................................................................................................................." id="usr">
+								  </div>								  
+							  </div>
+						  </div>
+						</div>
+					  </form> 
+					
+					<form class="mb-3">
+								  <div class="custom-control custom-radio custom-control-inline">
+									  <label class="custom-control-label" for="customRadio3">1. Ra viện</label>
+									  <input type="radio" class="custom-control-input" id="customRadio3" name="example" value="customEx">
+								  </div>
+								  <div class="custom-control custom-radio custom-control-inline">
+									  <label class="custom-control-label" for="customRadio4">2. Xin về</label>
+									<input type="radio" class="custom-control-input" id="customRadio4" name="example" value="customEx">
+								  </div>
+								  <div class="custom-control custom-radio custom-control-inline">
+									  <label class="custom-control-label" for="customRadio5">3. Bỏ về</label>
+									<input type="radio" class="custom-control-input" id="customRadio5" name="example" value="customEx">
+								  </div>
+						<div class="custom-control custom-radio custom-control-inline">
+									  <label class="custom-control-label" for="customRadio5">4.Đưa về</label>
+									<input type="radio" class="custom-control-input" id="customRadio5" name="example" value="customEx">
+								  </div>
+								</form> 
+					<form class="form-inline input-lr2" action="/action_page.php">
+								  <label for="email" class="mr-2"><strong class="text-primary mr-1">18.</strong>Tổng số ngày điều trị:</label>
+						<input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder="......................................................................................................................." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  
+							  </form>
+				</td>
+			  </tr>
+			</tbody>
+		  </table>
+	  </section>
+	  <section class="mb-5">
+		  <div class="row">
+			  <div class="col-5"><h5 class="text-tle1">III. CHẨN ĐOÁN:</h5></div>
+			  <div class="col-1 text-center mr-auto"><strong class="text-uppercase">Mã</strong></div>
+			  <div class="col-1 text-center col-auto"><strong class="text-uppercase">Mã</strong></div>
+		  </div>
+		  <table class="table table-bordered">
+			<tbody>
+			  <tr>
+				<td class="w-50">
+					<div class="row align-items-center">
+						<div class="col mr-auto">
+							<form class="" action="/action_page.php">
+								<div class="row">
+									<label class="col-auto" for="email"><strong class="text-primary mr-1">19.</strong> Nơi chuyển đến:</label>
+									<div class="col">
+										<input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder=".............................................................................................................................................................................................................................................." id="usr">
+									</div>
+								</div>
+							  </form> 
+						</div>
+						<div class="col-auto">
+							<form class="form-inline input-lr2" action="/action_page.php">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+							</form>
+						</div>
+					</div>
+					<div class="row align-items-center">
+						<div class="col mr-auto">
+							<form class="" action="/action_page.php">
+								<div class="row">
+									<label class="col-auto" for="email"><strong class="text-primary mr-1">20.</strong>KKB, Cấp cứu:</label>
+									<div class="col">
+										<input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder=".............................................................................................................................................................................................................................................." id="usr">
+									</div>
+								</div>
+							  </form> 
+						</div>
+						<div class="col-auto">
+							<form class="form-inline input-lr2" action="/action_page.php">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+							</form>
+						</div>
+						
+					</div>
+					<div class="row align-items-center">
+						<div class="col mr-auto">
+							<form class="" action="/action_page.php">
+								<div class="row">
+									<label class="col-auto" for="email"><strong class="text-primary mr-1">21.</strong>Khi vào khoa điều trị:</label>
+									<div class="col">
+										<input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder=".............................................................................................................................................................................................................................................." id="usr">
+									</div>
+								</div>
+							  </form> 
+						</div>
+						<div class="col-auto">
+							<form class="form-inline input-lr2" action="/action_page.php">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+							</form>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="custom-control custom-radio custom-control-inline">
+								  <label class="custom-control-label" for="customRadio3">Thủ thuật</label>
+								  <input type="radio" class="custom-control-input" id="customRadio3" name="example" value="customEx">
+							  </div>
+						</div>
+						<div class="col">
+							<div class="custom-control custom-radio custom-control-inline">
+								  <label class="custom-control-label" for="customRadio4">Phẫu thuật</label>
+								<input type="radio" class="custom-control-input" id="customRadio4" name="example" value="customEx">
+							</div>
+						</div>
+					</div>
+					
+				  </td>
+				<td>
+					<div class="row align-items-center">
+						<label class="col-12" for="email"><strong class="text-primary mr-1">22.</strong>Ra viện:</label>
+						<div class="col mr-auto">
+							<form class="" action="/action_page.php">
+								<div class="row">
+									<label class="col-auto" for="email">+ Bệnh chính:</label>
+									<div class="col">
+										<input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder=".............................................................................................................................................................................................................................................." id="usr">
+									</div>
+								</div>
+							  </form> 
+						</div>
+						<div class="col-auto">
+							<form class="form-inline input-lr2" action="/action_page.php">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+							</form>
+						</div>
+					</div>
+					<div class="row align-items-center">
+						<div class="col mr-auto">
+							<form class="" action="/action_page.php">
+								<div class="row">
+									<label class="col-auto" for="email">+ Bệnh kèm theo:</label>
+									<div class="col">
+										<input type="text" class="form-control form-control-sm text-placeholder border-0" placeholder=".............................................................................................................................................................................................................................................." id="usr">
+									</div>
+								</div>
+							  </form> 
+						</div>
+						<div class="col-auto">
+							<form class="form-inline input-lr2" action="/action_page.php">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+								  <input type="text" class="form-control form-control-sm text-placeholder w-40px" placeholder="..." id="usr">
+							</form>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col">
+							<div class="custom-control custom-radio custom-control-inline">
+								  <label class="custom-control-label" for="customRadio3">Tai biến</label>
+								  <input type="radio" class="custom-control-input" id="customRadio3" name="example" value="customEx">
+							  </div>
+						</div>
+						<div class="col">
+							<div class="custom-control custom-radio custom-control-inline">
+								  <label class="custom-control-label" for="customRadio4">Biến chứng:</label>
+								<input type="radio" class="custom-control-input" id="customRadio4" name="example" value="customEx">
+							</div>
+						</div>
+					</div>
+				</td>
+			  </tr>
+			</tbody>
+			</table>
+		</section>
+	  <section class="mb-5">
+		  <h5 class="text-tle1">IV. TÌNH TRẠNG RA VIỆN</h5>
+		  <table class="table table-bordered">
+			<tbody>
+			  <tr>
+				<td class="w-40">
+					<p><strong class="text-primary">23.</strong> Kết quả điều trị</p>
+					<div class="row">
+						<div class="col-6">
+							<div class="row mb-3">
+								<div class="col mr-auto">
+									<em>1. Khỏi</em>
+								</div>
+								<div class="col-auto">
+									<div class="custom-control custom-radio">
+										<input type="radio" class="custom-control-input" id="customRadio" name="example1" value="customEx">
+										<label class="custom-control-label" for="customRadio"></label>
+									  </div>
+								</div>
+							</div>
+							<div class="row mb-3">
+								<div class="col mr-auto">
+									<em>2. Đỡ, giảm</em>
+								</div>
+								<div class="col-auto">
+									<div class="custom-control custom-radio">
+										<input type="radio" class="custom-control-input" id="customRadio" name="example1" value="customEx">
+										<label class="custom-control-label" for="customRadio"></label>
+									  </div>
+								</div>
+							</div>
+							<div class="row mb-3">
+								<div class="col mr-auto">
+									<em>3. Không thay đổi</em>
+								</div>
+								<div class="col-auto">
+									<div class="custom-control custom-radio">
+										<input type="radio" class="custom-control-input" id="customRadio" name="example1" value="customEx">
+										<label class="custom-control-label" for="customRadio"></label>
+									  </div>
+								</div>
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="row mb-3">
+								<div class="col mr-auto">
+									<em>4. Nặng hơn</em>
+								</div>
+								<div class="col-auto">
+									<div class="custom-control custom-radio">
+										<input type="radio" class="custom-control-input" id="customRadio" name="example1" value="customEx">
+										<label class="custom-control-label" for="customRadio"></label>
+									  </div>
+								</div>
+							</div>
+							<div class="row mb-3">
+								<div class="col mr-auto">
+									<em>5. Tử vong</em>
+								</div>
+								<div class="col-auto">
+									<div class="custom-control custom-radio">
+										<input type="radio" class="custom-control-input" id="customRadio" name="example1" value="customEx">
+										<label class="custom-control-label" for="customRadio"></label>
+									  </div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					<p><strong class="text-primary">24.</strong> Giải phẫu bệnh <em>(khi có sinh thiết):</em></p>
+					<div class="row">
+						<div class="col">
+							<em>1. Lành tính </em><em class="text-o">X</em>         
+						</div>
+						<div class="col">
+							<em>2. Nghi ngờ </em><em class="text-o"> </em>         
+						</div>
+						<div class="col">
+							<em>3. Ác tính </em><em class="text-o"> </em>         
+						</div>
+					</div>
+			    </td>
+				  <td class="">
+					<p><strong class="text-primary">25.</strong> Tình hình tử vong: <strong>21</strong> giờ <strong>50</strong> ph <span class="mr-3"></span>           ngày <strong>25</strong> tháng <strong>11</strong> năm <strong>2019</strong></p>
+					 <div class="row">
+						<div class="col-4">
+							<div class="row mb-3">
+								<div class="col mr-auto">
+									<em>1. Do bệnh</em>
+								</div>
+								<div class="col-auto">
+									<div class="custom-control custom-radio">
+										<input type="radio" class="custom-control-input" id="customRadio" name="example1" value="customEx">
+										<label class="custom-control-label" for="customRadio"></label>
+									  </div>
+								</div>
+							</div>
+							<div class="row mb-3">
+								<div class="col mr-auto">
+									<em>1. Trong 24 giờ vào viện</em>
+								</div>
+								<div class="col-auto">
+									<div class="custom-control custom-radio">
+										<input type="radio" class="custom-control-input" id="customRadio" name="example1" value="customEx">
+										<label class="custom-control-label" for="customRadio"></label>
+									  </div>
+								</div>
+							</div>
+						</div>
+						 <div class="col-4">
+							<div class="row mb-3">
+								<div class="col mr-auto">
+									<em>2. Do tai biến điều trị</em>
+								</div>
+								<div class="col-auto">
+									<div class="custom-control custom-radio">
+										<input type="radio" class="custom-control-input" id="customRadio" name="example1" value="customEx">
+										<label class="custom-control-label" for="customRadio"></label>
+									  </div>
+								</div>
+							</div>
+							 <div class="row mb-3">
+								<div class="col mr-auto">
+									<em>2. Sau 24 giờ vào viện</em>
+								</div>
+								<div class="col-auto">
+									<div class="custom-control custom-radio">
+										<input type="radio" class="custom-control-input" id="customRadio" name="example1" value="customEx">
+										<label class="custom-control-label" for="customRadio"></label>
+									  </div>
+								</div>
+							</div>
+						</div>
+						 <div class="col-4">
+							<div class="row mb-3">
+								<div class="col mr-auto">
+									<em>3. Khác</em>
+								</div>
+								<div class="col-auto">
+									<div class="custom-control custom-radio">
+										<input type="radio" class="custom-control-input" id="customRadio" name="example1" value="customEx">
+										<label class="custom-control-label" for="customRadio"></label>
+									  </div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					  <div class="row align-items-center">
+						<div class="col mr-auto">
+							<p><strong class="text-primary">26.</strong> Nguyên nhân chính tử vong: <br>
+								+ Bệnh chính:
+								<strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi vel, ut facilis ex! Placeat, libero odit nihil quidem sequi consectetur illo qui animi error </strong>
+							</p>
+						</div>
+						<div class="col-auto">
+							<p class="mb-0">
+								<em class="text-o">A</em>
+								<em class="text-o">B</em>
+								<em class="text-o">C</em>
+								<em class="text-o">3</em>
+							</p>
+						</div>
+					</div>
+					  <div class="row align-items-center">
+						<div class="col mr-auto">
+							<p><strong class="text-primary">27.</strong> Khám nghiệm tử thi: <em class="text-o mr-4">X</em><strong class="text-primary">28.</strong>Chẩn đoán giải phẫu tử thi: 
+								<strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi vel, ut facilis ex! Placeat, libero odit nihil quidem sequi consectetur illo qui animi error </strong>
+							</p>
+						</div>
+						<div class="col-auto">
+							<p class="mb-0">
+								<em class="text-o">A</em>
+								<em class="text-o">B</em>
+								<em class="text-o">C</em>
+								<em class="text-o">3</em>
+							</p>
+						</div>
+					</div>
+			    </td>
+			  </tr>
+			</tbody>
+		  </table>
+	  </section>
+	  <section class="mb-5">
+		  
+		  <div class="row align-items-end">
+			  <div class="col text-center">
+				  <h5 class="mb-3">Giám đốc bệnh viện</h5>
+				  <p class="">Họ và tên <strong>Nguyễn Văn Bác Sỹ</strong></p>
+			  </div>
+			  <div class="col text-center">
+				  <em>Ngày ....... tháng ...... năm .............</em>
+				  <h5 class="text-center mb-3">Trưởng khoa</h5>
+				  <p class="">Họ và tên <strong>Nguyễn Văn Bác Sỹ</strong></p>
+			  </div>
+		  </div>
+    </section>
+      <benh-an-nhi
+        :hsba="hsba"
+        v-if="hsba.emrDmLoaiBenhAn.ma=='02'"
+      ></benh-an-nhi>
+      <benh-an-so-sinh
+        :hsba="hsba"
+        v-if="hsba.emrDmLoaiBenhAn.ma=='06'"
+      ></benh-an-so-sinh>
+      <benh-an-noi-khoa
+        :hsba="hsba"
+        v-if="hsba.emrDmLoaiBenhAn.ma=='01'"
+      ></benh-an-noi-khoa>
+      <benh-an-ngoai-khoa
+        :hsba="hsba"
+        v-if="hsba.emrDmLoaiBenhAn.ma=='11'"
+      ></benh-an-ngoai-khoa>
+      <benh-an-ngoai-tru
+        :hsba="hsba"
+        v-if="hsba.emrDmLoaiBenhAn.ma=='20'"
+      ></benh-an-ngoai-tru>
+    
+	</div>
+	  </section>
+	</main>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+	<script src="js/jquery.js"></script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/popper.js"></script> 
+	<script src="js/bootstrap.js"></script>
   </body>
 
-  <button class="btn btn-primary btn-sm" v-on:click="printToPdf()">In tờ bệnh án</button>
 </div>
