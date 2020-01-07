@@ -37,13 +37,13 @@
       </thead>
       <tbody>
         <tr v-for="(dm, index) in items">
-          <td align="center">{{ index + (currentPage-1)*perPage + 1 }}</td>
+          <td align:="center">{{ index + (currentPage-1)*perPage + 1 }}</td>
           <td>{{ dm.ma }}</td>
           <td>{{ dm.ten }}</td>
           <td>{{ dm.trang_thai }}</td>
-           <td align="center">
+           <td align:="center">
              <a :href='createURL("/pages/danhmuc/dm_dungchung/dm_con.html", {dm_type : dm.ma, backURL : getCurrentURL()})' title="Xem chi tiết danh mục"><i class="fa fa-eye"></i></a>
-             <a :href='createURL("/pages/danhmuc/dm_dungchung/dm_quanly.html", {"dm_type" : dm.ma})' title="Quản lý phiên bản"><i class="fa fa-cog"></i></a>
+             <a :href='createURL("/pages/danhmuc/dm_dungchung/dm_quanly.html", {dm_type : dm.ma, backURL : getCurrentURL()})' title="Quản lý phiên bản"><i class="fa fa-cog"></i></a>
              <a :href='createURL("/api/danhmuc/export_dm_list", {"dm_type" : dm.ma})' title="Tải xuống"><i class="fa fa-download"></i></a>
  
              <a href='#' class="" v-on:click="openUploadModal(dm.ma)"><i
@@ -144,13 +144,6 @@
       }
     
     },
-/*
-    computed: {
-      currentURL : function() {
-
-      }
-    },
-*/
     watch: {
       currentPage: async function() {
         await this.getData();
