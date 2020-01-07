@@ -13,12 +13,21 @@ var benh_an_script = {
 
   methods: {
     printToPdf: function() {
-      var body = $("#benhan_new").html();
+      var body = $("#benh_an").html();
       var wnd = window.open('', '');//window.open('', '', 'width=1024');
       wnd.document.write(`<html><head>
       <title>Tờ bệnh án</title>
+      <style>
+        @media print  
+        {
+            div{
+                page-break-inside: avoid;
+            }
+        }
+      </style>
       <link href="/css/fontawesome/all.css" rel="stylesheet" type="text/css" />
-      <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />      
+      <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&subset=latin,vietnamese" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
       <link href="/css/bootstrap.css" rel="stylesheet" />
       <link href="http://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"  rel="stylesheet"/>
       <link href="/css/style.css" rel="stylesheet" />
@@ -42,13 +51,13 @@ var benh_an_script = {
     this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
       hsba_id: this.hsba_id
     });
-    console.log(this.hsba);
+    setTimeout(function(){ $("#printButton").removeClass("d-none"); }, 2000);
   }
 };
 
 VueAsyncComponent(
   "benh-an",
-  "/pages/hsba/view_detail/benh_an/benh_an_new.html",
+  "/pages/hsba/view_detail/benh_an/benh_an_new2.html",
   benh_an_script
 );
 

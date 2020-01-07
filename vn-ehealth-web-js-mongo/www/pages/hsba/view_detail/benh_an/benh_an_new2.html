@@ -1,0 +1,10 @@
+<div v-if="hsba">
+  <body id="benh_an">
+    <benh-an-nhi :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='02'"></benh-an-nhi>
+    <benh-an-so-sinh :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='06'"></benh-an-so-sinh>
+    <benh-an-noi-khoa :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='01'"></benh-an-noi-khoa>
+    <benh-an-ngoai-khoa :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='11'"></benh-an-ngoai-khoa>
+    <benh-an-ngoai-tru :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='20'"></benh-an-ngoai-tru>    
+  </body>
+  <button id="printButton" class="d-none btn btn-primary btn-sm" v-on:click="printToPdf()">In tờ bệnh án</button>
+</div>
