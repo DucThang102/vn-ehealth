@@ -32,12 +32,12 @@
   </table> 
   <div>
     <form id='fmt'>
-    <input type="hidden" name="hsba_id" value="5dfb9361d98d0d1d88304b60">
+      {{hsba_id}}
+    <input type="hidden" name="hsba_id" :value="hsba_id">
     Chọn file : <input type="file" multiple name="attached_files">
     <br><input type='button' v-on:click="upload()" value="Upload" >
   </form> 
   </div>
-  
 </div>
 
 
