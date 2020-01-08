@@ -1,14 +1,18 @@
-VueAsyncComponent('giayto', '/pages/hsba/view_detail/giayto/giayto.html', {
-  data: function() {
+VueAsyncComponent('giayto', '/pages/hsba/edit/giayto/giayto.html', {
+  data: function () {
     return {
-      hsba: null
+      giayto_list: [],
     }
   },
-
-  props: ["hsba_id"],
-
-  created: async function() {
-    this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
+  methods: {
+    upload: async function() {
+      var formData = new FormData(document.getElementById("fmt"));
+      var response = await fetch('/api/hsba/add_giayto',
+        { body: formData, method: 'POST' });
+      var result = await response.json();
+      alert(result.success);
+      console.log(result);
+    }
   }
 
 });
