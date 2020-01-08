@@ -20,13 +20,14 @@
   </div>
   <table class="table">
     <tr>
+      
       <th style="width:85%" class="text-center">File</th>
       <th style="width:15%" class="text-center">Thao tác</th>
     </tr>
     <tr>
       <td><input type="file" class="form-control-file"></td>
       <td class="text-center">
-        <a href='#' title="Xóa"><i class="fas fa-fw fa-lg fa-trash" style="color:red"></i></a>
+        <a href='#' title="Xóa" ><i class="fas fa-fw fa-lg fa-trash" style="color:red"></i></a>
       </td>
     </tr>
   </table>  
@@ -42,14 +43,39 @@
       </div>
       <div class="modal-body">
         <form id='fmt'>
+          <input type="hidden" name="hsba_id" value="5dfb9310d98d0d1d88304992">
+          Chọn file : <input type="file" multiple name="attached_files">
+          <br><input type='button' v-on:click="upload()" value="Upload" >
+        </form>
+        <!--
+        <form id='fmt'>
           <input type="hidden" v-model="hsbaId" name="hsba_id">
           Chọn file : <input type="file" id="csv_file" name="csv_file">
           <input type='button' v-on:click="upload()" value="Upload" >
         </form>
+      -->
       </div>
     </div>
   </div>
 </div>
+<script>
+  new Vue({
+    'el': '#app',
+    methods: {
+      upload: async function() {
+        var formData = new FormData(document.getElementById("fmt"));
+        var response = await fetch('http://emr.com.vn:8001/api/hsba/add_giayto',
+          { body: formData, method: 'POST' });
+        var result = await response.json();
+        alert(result.success);
+        console.log(result);
+      }
+    }
+  })
+</script>
+<!--
+
+  
 <script type="text/javascript">
   new Vue({
     el: "#app",
@@ -88,3 +114,4 @@
 
 http://emr.com.vn/pages/hsba/chinhsua_hsba?hsba_id=pages/hsba/hs_chua_xl/mayte/currentPage
 
+-->
