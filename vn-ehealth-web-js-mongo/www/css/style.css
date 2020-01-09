@@ -283,7 +283,7 @@ footer p {
   font-weight: 700;
 }
 .w-40px {
-  width: 36px !important;
+  width: 28px !important;
   text-align: center;
 }
 .w-100px {
@@ -304,11 +304,11 @@ footer p {
 }
 
 .bullet {
-  font-size: 0.35rem;  
+  font-size: 0.35rem;
   vertical-align: middle;
 }
 
-.bullet-small {  
-  font-size: 0.3rem;  
+.bullet-small {
+  font-size: 0.3rem;
   vertical-align: middle;
 }
