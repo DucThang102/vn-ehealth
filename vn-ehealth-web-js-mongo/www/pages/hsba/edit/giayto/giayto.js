@@ -1,7 +1,7 @@
 VueAsyncComponent('giayto', '/pages/hsba/edit/giayto/giayto.html', {
   data: function () {
     return {
-      giayto_list: [],
+      hsba: null
     }
   },
   
@@ -18,7 +18,13 @@ VueAsyncComponent('giayto', '/pages/hsba/edit/giayto/giayto.html', {
       var result = await response.json();
       alert(result.success);
       console.log(result);
+
+      this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
     }
+  },
+  created: async function() {
+    this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
+    console.log(this.hsba);
   }
 
 });
