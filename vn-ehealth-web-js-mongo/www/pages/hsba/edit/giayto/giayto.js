@@ -8,6 +8,10 @@ VueAsyncComponent('giayto', '/pages/hsba/edit/giayto/giayto.html', {
   props: ["hsba_id"],
 
   methods: {
+    openUploadModal: function(id) {
+      this.hsba.id=id;
+      $('#csvUpload').modal();
+    },
     upload: async function() {
       var formData = new FormData(document.getElementById("fmt"));
       var response = await fetch( this.API_URL + '/api/hsba/add_giayto',
