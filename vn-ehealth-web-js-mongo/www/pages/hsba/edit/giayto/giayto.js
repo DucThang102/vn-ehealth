@@ -8,9 +8,8 @@ VueAsyncComponent('giayto', '/pages/hsba/edit/giayto/giayto.html', {
   props: ["hsba_id"],
 
   methods: {
-    openUploadModal: function(id) {
-      this.hsba.id=id;
-      $('#csvUpload').modal();
+    openUploadModal: function() {
+      $('#upload').modal();
     },
     upload: async function() {
       var formData = new FormData(document.getElementById("fmt"));
