@@ -98,8 +98,8 @@
       getItems : async function() {
         var start = (this.currentPage - 1) * this.perPage;
         this.items = await this.get("/api/nhom_danhmuc/get_nhom_dm_list", { 
-                            keyword : this.keyword,
-                            start: start, count: this.perPage});
+        keyword : this.keyword,
+        start: start, count: this.perPage});
         console.log(this.items);
       },
 
