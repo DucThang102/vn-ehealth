@@ -4,7 +4,9 @@
     <benh-an-so-sinh :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='06'"></benh-an-so-sinh>
     <benh-an-noi-khoa :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='01'"></benh-an-noi-khoa>
     <benh-an-ngoai-khoa :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='11'"></benh-an-ngoai-khoa>
-    <benh-an-ngoai-tru :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='20'"></benh-an-ngoai-tru>    
+    <benh-an-ngoai-tru :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='20'"></benh-an-ngoai-tru>   
+    <benh-an-san-khoa :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='05'"></benh-an-san-khoa>    
+	
   </body>
   <button id="printButton" class="d-none btn btn-primary btn-sm" v-on:click="printToPdf()">In tờ bệnh án</button>
 </div>
