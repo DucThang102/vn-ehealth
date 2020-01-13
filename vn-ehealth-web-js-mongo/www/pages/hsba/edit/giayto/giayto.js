@@ -27,15 +27,17 @@ VueAsyncComponent('giayto', '/pages/hsba/edit/giayto/giayto.html', {
     deleteFileDinhKem: function(index) {
       this.hsba.emrFileDinhKems.splice(index, 1);
     },
-    saveFileDinhKem: async function() {
-      var result = await this.post("/api/FileDinhKem/create_or_update_FileDinhKem", this.FileDinhKem);
-      if(result.success) {
-        sessionStorage.removeItem('dataChange');
-        this.$emit('hsba.emrFileDinhKems');
-      }else {
-        alert('Lỗi xảy ra quá trình lưu thông tin');
-      }
+    saveHsba: async function() {
+      var result = await this.post("/api/hsba/update_hsba", this.hsba);
+        if(result.success) {
+          alert('Cập nhật thông tin thành công');
+          sessionStorage.removeItem('dataChange');
+        }else {
+          alert('Lỗi xảy ra quá trình lưu thông tin');
+        }
     },
+
+
       },
 
   watch: {
