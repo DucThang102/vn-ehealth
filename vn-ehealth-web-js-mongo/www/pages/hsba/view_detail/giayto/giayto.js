@@ -13,7 +13,7 @@ VueAsyncComponent('giayto', '/pages/hsba/view_detail/giayto/giayto.html', {
   methods: {
     openUploadModal: function() {
       $('#upload').modal();
-    },
+    },  
     upload: async function() {
       var formData = new FormData(document.getElementById("fmt"));
       var response = await fetch( this.API_URL + '/api/hsba/add_giayto',

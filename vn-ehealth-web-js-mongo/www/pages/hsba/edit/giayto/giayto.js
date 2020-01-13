@@ -27,7 +27,7 @@ VueAsyncComponent('giayto', '/pages/hsba/edit/giayto/giayto.html', {
     deleteFileDinhKem: function(index) {
       this.hsba.emrFileDinhKems.splice(index, 1);
     },
-    saveHsba: async function() {
+    saveHsba: async function() {   
       var result = await this.post("/api/hsba/update_hsba", this.hsba);
         if(result.success) {
           alert('Cập nhật thông tin thành công');
