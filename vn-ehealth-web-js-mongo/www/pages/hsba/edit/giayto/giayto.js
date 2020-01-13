@@ -1,13 +1,16 @@
 VueAsyncComponent('giayto', '/pages/hsba/edit/giayto/giayto.html', {
   data: function () {
     return {
-      giayto_list: [],
+      hsba: null
     }
   },
   
   props: ["hsba_id"],
 
   methods: {
+    openUploadModal: function() {
+      $('#upload').modal();
+    },
     upload: async function() {
       var formData = new FormData(document.getElementById("fmt"));
       var response = await fetch( this.API_URL + '/api/hsba/add_giayto',
@@ -15,7 +18,13 @@ VueAsyncComponent('giayto', '/pages/hsba/edit/giayto/giayto.html', {
       var result = await response.json();
       alert(result.success);
       console.log(result);
+
+      this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
     }
+  },
+  created: async function() {
+    this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
+    console.log(this.hsba);
   }
 
 });
