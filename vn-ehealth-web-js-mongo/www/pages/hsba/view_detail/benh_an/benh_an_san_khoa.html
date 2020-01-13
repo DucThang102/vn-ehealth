@@ -52,7 +52,7 @@
       <div class="row mb-2">
         <span class="col-6">
           <label><b class="text-primary mr-1">3.</b>Nghề nghiệp:</label>
-          <span>Kinh doanh</span>
+          <span>{{hsba.emrBenhNhan.emrDmNgheNghiep.ten}}</span>
           <form class="form-inline input-lr2 float-right">
             <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
             <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
@@ -61,7 +61,7 @@
       <div class="row mb-2">
         <div class="col-6">
           <label><b class="text-primary mr-1">4.</b>Dân tộc:</label>
-          <span>Kinh</span>
+          <span>{{hsba.emrBenhNhan.emrDmDanToc.ten}}</span>
           <form class="form-inline input-lr2 float-right">
             <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
             <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
@@ -80,17 +80,17 @@
       <div class="row mb-2">
         <div class="col-6">
           <label><b class="text-primary mr-1">6.</b>Địa chỉ:</label>
-          <span>Số nhà....., đường .....</span>
+          <span>{{hsba.emrBenhNhan.diachi}}</span>
         </div>
         <div class="col-6">
           <label>Xã, phường:</label>
-          <span>Cát Linh</span>
+          <span>{{hsba.emrBenhNhan.emrDmPhuongXa.ten}}</span>
         </div>
       </div>
       <div class="row mb-2">
         <div class="col-6">
           <label>Huyện (Q, Tx):</label>
-          <span>Đống Đa</span>
+          <span>{{hsba.emrBenhNhan.emrDmQuanHuyen.ten}}</span>
           <form class="form-inline input-lr2 float-right">
             <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
             <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
@@ -98,7 +98,7 @@
         </div>
         <div class="col-6">
           <label>Tỉnh, thành phố:</label>
-          <span>Hà Nội</span>
+          <span>{{hsba.emrBenhNhan.emrDmTinhThanh.ten}}</span>
           <form class="form-inline input-lr2 float-right">
             <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
             <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
@@ -109,7 +109,7 @@
       <div class="row mb-2">
         <div class="col-6">
           <label><b class="text-primary mr-1">8.</b>Nơi làm việc:</label>
-          <span>Tòa nhà Giảng Võ</span>
+          <span>{{hsba.emrBenhNhan.noilamviec}}</span>
         </div>
         <div class="col-6">
           <label><b class="text-primary mr-1">9.</b>Đối tượng:
@@ -139,32 +139,19 @@
         </div>
       </div>
 
+      
       <div class="row mb-2">
         <div class="col-12">
           <label><b class="text-primary mr-1">10.</b>Họ tên, địa chỉ người nhà khi cần
             báo tin:</label>
-          <span>Nguyễn Văn A</span>
-        </div>
-      </div>
-
-      <div class="row mb-2">
-        <div class="col-12">
-          <label>Địa chỉ:</label>
-          <span>Nhà số ...., đường, xã ..., huyện ...., tỉnh .....</span>
-        </div>
-      </div>
-      <div class="row mb-2">
-        <div class="col-12">
-          <label><b class="text-primary mr-1">11.</b>Họ tên, địa chỉ người nhà khi cần
-            báo tin:</label>
-          <span>Nguyễn Văn A</span>
+            <span>{{hsba.emrBenhNhan.tennguoibaotin}}</span>
         </div>
       </div>
 
       <div class="row mb-2">
         <div class="col-6">
           <label>Địa chỉ:</label>
-          <span>Nhà số ...., đường, xã ..., huyện ...., tỉnh .....</span>
+          <span>{{hsba.emrBenhNhan.diachinguoibaotin}}</span>
         </div>
         <div class="col-6">
           <span>Điện thoại số:
@@ -339,7 +326,7 @@
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">19.</b>Nơi chuyển đến: </label>
-              <span>Vàng da do thiếu máu .....</span>
+              <span>{{hsba.emrQuanLyNguoiBenh.noichuyenden}}</span>
               <form class="form-inline input-lr2 float-right">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
