@@ -25,9 +25,7 @@ VueAsyncComponent('giayto', '/pages/hsba/view_detail/giayto/giayto.html', {
       $('#upload').modal('hide');
     },
 
-    deleteFileDinhKem: function(index) {
-      this.hsba.emrFileDinhKems.splice(index, 1);
-    },
+
     saveFileDinhKem: async function() {
       var result = await this.post("/api/FileDinhKem/create_or_update_FileDinhKem", this.FileDinhKem);
       if(result.success) {
