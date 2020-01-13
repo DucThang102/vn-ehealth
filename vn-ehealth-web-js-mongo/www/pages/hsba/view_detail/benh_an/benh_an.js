@@ -14,7 +14,7 @@ var benh_an_script = {
   methods: {
     printToPdf: function() {
       var body = $("#benh_an").html();
-      var wnd = window.open('', '');//window.open('', '', 'width=1024');
+      var wnd = window.open("", ""); //window.open('', '', 'width=1024');
       wnd.document.write(`<html><head>
       <title>Tờ bệnh án</title>
       <style>
@@ -39,11 +39,10 @@ var benh_an_script = {
       
       `);
 
-      wnd.document.write('</head><body >');
+      wnd.document.write("</head><body >");
       wnd.document.write(body);
-      wnd.document.write('</body></html>');
+      wnd.document.write("</body></html>");
       wnd.document.close();
-      
     }
   },
 
@@ -51,7 +50,9 @@ var benh_an_script = {
     this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
       hsba_id: this.hsba_id
     });
-    setTimeout(function(){ $("#printButton").removeClass("d-none"); }, 2000);
+    setTimeout(function() {
+      $("#printButton").removeClass("d-none");
+    }, 2000);
   }
 };
 
@@ -93,5 +94,20 @@ VueAsyncComponent(
 VueAsyncComponent(
   "benh-an-san-khoa",
   "/pages/hsba/view_detail/benh_an/benh_an_san_khoa.html",
+  { props: ["hsba"] }
+);
+VueAsyncComponent(
+  "benh-an-truyen-nhiem",
+  "/pages/hsba/view_detail/benh_an/benh_an_truyen_nhiem.html",
+  { props: ["hsba"] }
+);
+VueAsyncComponent(
+  "benh-an-phu-khoa",
+  "/pages/hsba/view_detail/benh_an/benh_an_phu_khoa.html",
+  { props: ["hsba"] }
+);
+VueAsyncComponent(
+  "benh-an-tam-than",
+  "/pages/hsba/view_detail/benh_an/benh_an_tam_than.html",
   { props: ["hsba"] }
 );
