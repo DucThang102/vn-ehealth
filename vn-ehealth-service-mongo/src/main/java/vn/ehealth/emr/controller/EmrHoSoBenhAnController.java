@@ -266,7 +266,6 @@ public class EmrHoSoBenhAnController {
         jsonSt = preprocessJsonFields(jsonSt);
         var errors = new ArrayList<ErrorMessage>();
         var objMap = jsonParser.parseJson(jsonSt, hsbaSchema, errors);
-        objMap.get("emrChanDoan");
         
         if(errors.size() > 0) {
             var result = Map.of(

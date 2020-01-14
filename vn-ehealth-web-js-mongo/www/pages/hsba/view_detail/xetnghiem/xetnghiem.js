@@ -54,7 +54,10 @@ VueAsyncComponent(
             hsba_id: this.hsba_id
           }
         );
-        console.log(this.xetnghiem_list);
+        this.xetnghiem_list.forEach(xn => {
+          xn.emrXetNghiemDichVus = xn.emrXetNghiemDichVus.filter(xndv => 
+              xndv.emrXetNghiemKetQuas.length > 0);
+        });
       }
     }
   }
