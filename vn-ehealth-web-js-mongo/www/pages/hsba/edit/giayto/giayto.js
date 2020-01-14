@@ -11,17 +11,25 @@ VueAsyncComponent('giayto', '/pages/hsba/edit/giayto/giayto.html', {
 
   methods: {
     openUploadModal: function() {
+      document.getElementById("attached_files").value = "";
       $('#upload').modal();
     },
     upload: async function() {
+      if(document.getElementById("attached_files").value == "") {
+        alert("Bạn cần chọn file tải lên");
+        return;
+      }
+      
       var formData = new FormData(document.getElementById("fmt"));
       var response = await fetch( this.API_URL + '/api/hsba/add_giayto',
         { body: formData, method: 'POST' });
       var result = await response.json();
-      //alert(result.success);
-      console.log(result);
-      this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
-      $('#upload').modal('hide');
+      if(result.success) {
+        this.hsba = await this.get("/api/hsba/get_hsba_by_id", {"hsba_id": this.hsba_id});
+        $('#upload').modal('hide');
+      }else {
+        alert("Tải file không thành công");
+      }
     },
 
     deleteFileDinhKem: function(index) {

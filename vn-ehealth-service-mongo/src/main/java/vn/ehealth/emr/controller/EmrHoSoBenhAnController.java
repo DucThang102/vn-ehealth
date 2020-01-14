@@ -232,7 +232,7 @@ public class EmrHoSoBenhAnController {
             var user = UserUtil.getCurrentUser();
             var mapper = EmrUtils.createObjectMapper();
             var hsba = mapper.convertValue(objMap, EmrHoSoBenhAn.class);
-            hsba = emrHoSoBenhAnService.update(hsba, user.get().id);            
+            hsba = emrHoSoBenhAnService.update(hsba, user.get().id);          
             
             var result = Map.of(
                 "success" , true,
@@ -266,7 +266,6 @@ public class EmrHoSoBenhAnController {
         jsonSt = preprocessJsonFields(jsonSt);
         var errors = new ArrayList<ErrorMessage>();
         var objMap = jsonParser.parseJson(jsonSt, hsbaSchema, errors);
-        objMap.get("emrChanDoan");
         
         if(errors.size() > 0) {
             var result = Map.of(

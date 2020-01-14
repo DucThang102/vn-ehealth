@@ -54,8 +54,8 @@
           <label class="mr-auto "><b class="text-primary mr-1">3.</b>Giới:</label>
         </div>
         <div class="col-4">
-          <input disabled type="checkbox"> <span class="mr-3">Nam</span>
-          <input disabled type="checkbox"> <span class="mr-3">Nữ</span>
+          <input disabled :checked="attr(hsba, 'emrBenhNhan.emrDmGioiTinh.ma') == 'M' " type="checkbox"> <span class="mr-3">Nam</span>
+          <input disabled :checked="attr(hsba, 'emrBenhNhan.emrDmGioiTinh.ma') == 'F' " type="checkbox"> <span class="mr-3">Nữ</span>
         </div>
       </div>
       <div class="row mb-2">
@@ -70,7 +70,7 @@
 
         <div class="col-6">
           <label><b class="text-primary mr-1">5.</b>Ngoại kiều:</label>
-          <span>Việt Nam</span>
+          <span>{{ hsba.emrBenhNhan.emrDmQuocGia.ten}}</span>
           <form class="form-inline input-lr2 float-right">
             <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
             <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
@@ -112,7 +112,7 @@
         </div>
         <div class="col-4">
           <label>Trình độ VH của bố:</label>
-          <span>1/12</span>
+          <span>{{hsba.emrBenhNhan.trinhDoVanHoaCuaBo}}</span>
         </div>
         <div class="col-4">
           <label>Nghề nghiệp của bố:</label>
@@ -128,7 +128,7 @@
         </div>
         <div class="col-4">
           <label>Trình độ VH của mẹ:</label>
-          <span>PGS.TSKH</span>
+          <span>{{ hsba.emrBenhNhan.trinhDoVanHoaCuaMe }}</span>
         </div>
         <div class="col-4">
           <label>Nghề nghiệp của mẹ:</label>
@@ -136,13 +136,16 @@
         </div>
       </div>
 
+
+      
+
       <div class="row mb-2">
         <div class="col-8">
           <label><b class="text-primary mr-1">8.</b>Đối tượng:
-            <input disabled checked type="checkbox"> <span class="mr-3">1.BHYT</span>
-            <input disabled type="checkbox"> <span class="mr-3">2.Thu phí</span>
-            <input disabled type="checkbox"> <span class="mr-3">3.Miễn</span>
-            <input disabled type="checkbox"> <span class="mr-3">4.Khác</span>
+            <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma') == '01' " type="checkbox"> <span class="mr-3">1.BHYT</span>
+            <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma') == '02' " type="checkbox"> <span class="mr-3">2.Thu phí</span>
+            <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma') == '03' type="checkbox"> <span class="mr-3">3.Miễn</span>
+            <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma') == '04' type="checkbox"> <span class="mr-3">4.Khác</span>
           </label>
         </div>
 
@@ -724,7 +727,8 @@
 
     <div class="row mb-2">
       <div class="col-12">
-        <span class="ml-2"><i class="fas fa-fw bullet-small fa-circle"></i> Đã tiêm chủng:
+        <span class="ml-2">
+          <i class="fas fa-fw bullet-small fa-circle"></i> Đã tiêm chủng:
           <input disabled type="checkbox" checked> <span class="mr-3">1. Lao</span>
           <input disabled type="checkbox" checked> <span class="mr-3">2.Bại liệt</span>
           <input disabled type="checkbox" checked> <span class="mr-3">3.Sởi</span>
@@ -732,7 +736,6 @@
           <input disabled type="checkbox"> <span class="mr-3">5.Uốn ván</span>
           <input disabled type="checkbox"> <span class="mr-3">6.Bạch hầu</span>
           <input disabled type="checkbox"> <span class="mr-3">7.Tiêm chủng khác</span>
-
         </span>
       </div>
     </div>

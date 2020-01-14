@@ -1296,7 +1296,7 @@
     	"type" : "Array",
     	"element" : {
     		"url": {"type" : "String", "required" : true},
-            "format": {"type" : "String"}
+            "name": {"type" : "String"}
     	}
     },
     
@@ -1677,10 +1677,7 @@
     "emrXetNghiems": {
     	"type" : "Array",
     	"element": {
-    		"emrDmXetNghiem": {
-                "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
-            },
-            
+    		
             "emrDmLoaiXetNghiem": {
                 "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
             },
