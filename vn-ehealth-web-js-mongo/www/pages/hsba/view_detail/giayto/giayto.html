@@ -9,31 +9,12 @@
        <th style="width:75%" class="text-center">Tên file</th>
     </tr>
     <tr v-for="(fileDinhKem,index) in hsba.emrFileDinhKems">
-      <td class="text-center">{{ index + (currentPage-1)*perPage + 1 }}</td>
+      <td class="text-center">{{ index + 1 }}</td>
       <td class="text-center">
         <a href='#' title="Xem"><i class="fas fa-fw fa-lg fa-binoculars"></i></a>
       </td>
       <td><a :href='fileDinhKem.url'>{{ fileDinhKem.name }}</a></td>
     </tr>
-  </table>
-  <div class="modal fade" id="upload">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Thêm giấy tờ:</h5>
-          <button type="button" class="close" data-dismiss="modal">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form id='fmt'>
-          <input type="hidden" name="hsba_id" :value="hsba_id">
-          Chọn file : <input type="file" multiple name="attached_files">
-          <br><input type='button' v-on:click="upload()" value="Upload" >
-        </form>
-        </div>
-      </div>
-    </div>
-  </div>
+  </table> 
 </div>
   

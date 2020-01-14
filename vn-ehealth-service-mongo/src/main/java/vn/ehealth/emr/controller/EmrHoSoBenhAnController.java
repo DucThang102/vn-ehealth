@@ -232,7 +232,7 @@ public class EmrHoSoBenhAnController {
             var user = UserUtil.getCurrentUser();
             var mapper = EmrUtils.createObjectMapper();
             var hsba = mapper.convertValue(objMap, EmrHoSoBenhAn.class);
-            hsba = emrHoSoBenhAnService.update(hsba, user.get().id);            
+            hsba = emrHoSoBenhAnService.update(hsba, user.get().id);          
             
             var result = Map.of(
                 "success" , true,

@@ -1296,7 +1296,7 @@
     	"type" : "Array",
     	"element" : {
     		"url": {"type" : "String", "required" : true},
-            "format": {"type" : "String"}
+            "name": {"type" : "String"}
     	}
     },
     
