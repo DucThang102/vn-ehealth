@@ -1677,10 +1677,7 @@
     "emrXetNghiems": {
     	"type" : "Array",
     	"element": {
-    		"emrDmXetNghiem": {
-                "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
-            },
-            
+    		
             "emrDmLoaiXetNghiem": {
                 "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
             },

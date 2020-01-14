@@ -15,31 +15,47 @@
         </div>
       </div>
       <hr>
-      <b>Dịch vụ xét nghiệm :</b>
-      <div v-for="(xndv, i) in xetnghiem.emrXetNghiemDichVus">
-        <b>{{ i + 1 }}. {{ xndv.emrDmXetNghiem.ten }}</b>
-        <table class='table table-bordered mt-3'>
-          <tr>
-            <th style='width:5%' class="text-center">STT</th>
-            <th style='width:25%' class="text-center">Chỉ số xét nghiệm</th>
-            <th style='width:20%' class="text-center">Kết quả đo</th>
-            <th style='width:20%' class="text-center">Đơn vị</th>
-            <th style='width:30%' class="text-center">Chỉ số bình thường</th>
-          </tr>
-          <tr v-for="(xnkq,j) in xndv.emrXetNghiemKetQuas">
-            <td>{{ j + 1 }}</td>
-            <td>{{ xnkq.emrDmChiSoXetNghiem.ten }}</td>
-            <td>{{ xnkq.giatrido }}</td>
-            <td>{{ xnkq.emrDmChiSoXetNghiem.donvi }}</td>
-            <td>Nam: {{xnkq.emrDmChiSoXetNghiem.chisobt_nam}} /
-              Nữ: {{xnkq.emrDmChiSoXetNghiem.chisobt_nu}}</td>
-          </tr>
-          <tr v-if="xndv.emrXetNghiemKetQuas.length == 0">
-            <td colspan="5">Không có dữ liệu</td>            
-          </tr>
-        </table>
-      </div>
-      
+      <table class='table table-bordered mt-3'>
+        <tr>
+          <th style='width:5%' class="text-center">STT</th>
+          <th style='width:25%' class="text-center">Xét nghiệm</th>
+          <th style='width:20%' class="text-center">Kết quả đo</th>
+          <th style='width:20%' class="text-center">Đơn vị</th>
+          <th style='width:30%' class="text-center">Chỉ số bình thường</th>
+        </tr>
+        <tbody v-for="(xndv, i) in xetnghiem.emrXetNghiemDichVus">
+          <template v-if="xndv.emrXetNghiemKetQuas.length==1">
+            <tr>
+              <td></td>
+              <td>{{ xndv.emrDmXetNghiem.ten }}</td>
+              <td>{{ xndv.emrXetNghiemKetQuas[0].giatrido }}</td>
+              <td>{{ xndv.emrDmXetNghiem.donvi }}</td>
+              <td>Nam: {{xndv.emrDmXetNghiem.chisobt_nam}} /
+                Nữ: {{xndv.emrDmXetNghiem.chisobt_nu}}</td>
+            </tr>
+          </template>
+          <template v-if="xndv.emrXetNghiemKetQuas.length>1">
+            <tr>
+              <td></td>
+              <td>{{ xndv.emrDmXetNghiem.ten }}</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr v-for="(xnkq,j) in xndv.emrXetNghiemKetQuas">
+              <td></td>
+              <td>{{ xnkq.emrDmChiSoXetNghiem.ten }}</td>
+              <td>{{ xnkq.giatrido }}</td>
+              <td>{{ xnkq.emrDmChiSoXetNghiem.donvi }}</td>
+              <td>Nam: {{xnkq.emrDmChiSoXetNghiem.chisobt_nam}} /
+                Nữ: {{xnkq.emrDmChiSoXetNghiem.chisobt_nu}}</td>
+            </tr>
+          </template>
+        </tbody>
+        <tr v-if="xndv.emrXetNghiemDichVus.length == 0">
+          <td colspan="5">Không có dữ liệu</td>
+        </tr>
+      </table>
       <div v-if="xetnghiem.emrFileDinhKemXetNghiems.length > 0">
         <hr>
         <b>Danh sách file đính kèm:</b>
