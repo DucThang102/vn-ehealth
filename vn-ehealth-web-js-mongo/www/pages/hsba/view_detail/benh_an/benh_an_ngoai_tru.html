@@ -2,15 +2,17 @@
   <section class="container-fluid pt-2 mb-3">
     <div class="row">
       <div class="col-5">
-        Sở Y tế: <strong>{{hsba.emrCoSoKhamBenh.donvichuquan}}</strong><br>
-        Bệnh viện: <strong class="text-danger">{{hsba.emrCoSoKhamBenh.ten}}</strong> <br>
-        Khoa: <strong class="mr-3 text-primary">Gan mật</strong>Giường <strong class="text-success">Số 5</strong>
+        Sở Y tế: <strong>{{hsba.emrCoSoKhamBenh.donvichuquan}}</strong><br />
+        Bệnh viện:
+        <strong class="text-danger">{{hsba.emrCoSoKhamBenh.ten}}</strong> <br />
+        Khoa: <strong class="mr-3 text-primary">Gan mật</strong>Giường
+        <strong class="text-success">Số 5</strong>
       </div>
       <div class="col-4">
         <h3 class="text-tle mt-3">BỆNH ÁN NGOẠI TRÚ</h3>
       </div>
       <div class="col-3">
-        Số lưu trữ: <strong class="text-info">20102019</strong> <br>
+        Số lưu trữ: <strong class="text-info">20102019</strong> <br />
         Mã YT: <span class="text-danger"> <strong>{{hsba.mayte}}</strong></span>
       </div>
     </div>
@@ -28,41 +30,95 @@
           <label><b class="text-primary mr-1">1.</b>Họ và tên:</label>
         </div>
         <div class="col-4">
-          <span class="text-uppercase"><b>{{hsba.emrBenhNhan.tendaydu }}</b></span>
+          <span class="text-uppercase"
+            ><b>{{hsba.emrBenhNhan.tendaydu }}</b></span
+          >
         </div>
         <div class="col-6">
           <div class="form-inline input-lr2 float-left">
             <label><b class="text-primary mr-1">2.</b>Sinh ngày:</label>
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px mr-2">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px mr-2">
-            <input readonly value="2" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
+            <input
+              readonly
+              value="0"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
+            <input
+              readonly
+              value="1"
+              class="form-control form-control-sm text-placeholder w-40px mr-2"
+            />
+            <input
+              readonly
+              value="0"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
+            <input
+              readonly
+              value="1"
+              class="form-control form-control-sm text-placeholder w-40px mr-2"
+            />
+            <input
+              readonly
+              value="2"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
+            <input
+              readonly
+              value="0"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
+            <input
+              readonly
+              value="0"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
+            <input
+              readonly
+              value="0"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
           </div>
 
           <div class="form-inline input-lr2 float-right">
-            <input readonly value="2" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
+            <input
+              readonly
+              value="2"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
+            <input
+              readonly
+              value="0"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
           </div>
         </div>
       </div>
       <div class="row mb-2">
         <div class="col-2">
-          <label class="mr-auto "><b class="text-primary mr-1">3.</b>Giới:</label>
+          <label class="mr-auto "
+            ><b class="text-primary mr-1">3.</b>Giới:</label
+          >
         </div>
         <div class="col-4">
-          <input disabled type="checkbox"> <span class="mr-3">Nam</span>
-          <input disabled type="checkbox"> <span class="mr-3">Nữ</span>
+          <input disabled type="checkbox" /> <span class="mr-3">Nam</span>
+          <input disabled type="checkbox" /> <span class="mr-3">Nữ</span>
         </div>
         <div class="col-6">
-          <label class="mr-auto "><b class="text-primary mr-1">4.</b>Nghề nghiệp:</label>
+          <label class="mr-auto "
+            ><b class="text-primary mr-1">4.</b>Nghề nghiệp:</label
+          >
           <span>{{ hsba.emrBenhNhan.emrDmNgheNghiep.ten}}</span>
           <form class="form-inline input-lr2 float-right">
-            <input readonly value="" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="" class="form-control form-control-sm text-placeholder w-40px">
+            <input
+              readonly
+              value=""
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
+            <input
+              readonly
+              value=""
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
           </form>
         </div>
       </div>
@@ -71,8 +127,16 @@
           <label><b class="text-primary mr-1">5.</b>Dân tộc:</label>
           <span>{{hsba.emrBenhNhan.emrDmDanToc.ten}}</span>
           <form class="form-inline input-lr2 float-right">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+            <input
+              readonly
+              value="0"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
+            <input
+              readonly
+              value="1"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
           </form>
         </div>
 
@@ -80,8 +144,16 @@
           <label><b class="text-primary mr-1">6.</b>Ngoại kiều:</label>
           <span>Việt Nam</span>
           <form class="form-inline input-lr2 float-right">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+            <input
+              readonly
+              value="0"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
+            <input
+              readonly
+              value="1"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
           </form>
         </div>
       </div>
@@ -100,16 +172,32 @@
           <label class="ml-3">Huyện (Q, Tx):</label>
           <span>{{hsba.emrBenhNhan.emrDmQuanHuyen.ten}}</span>
           <form class="form-inline input-lr2 float-right">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+            <input
+              readonly
+              value="0"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
+            <input
+              readonly
+              value="1"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
           </form>
         </div>
         <div class="col-6">
           <label>Tỉnh, thành phố:</label>
           <span>{{hsba.emrBenhNhan.emrDmTinhThanh.ten}}</span>
           <form class="form-inline input-lr2 float-right">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+            <input
+              readonly
+              value="0"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
+            <input
+              readonly
+              value="1"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
           </form>
         </div>
       </div>
@@ -119,36 +207,57 @@
           <span>{{hsba.emrBenhNhan.noilamviec}}</span>
         </div>
         <div class="col-6">
-          <label><b class="text-primary mr-1">9.</b>Đối tượng:
-              <input disabled checked type="checkbox"> <span class="mr-3">1.BHYT</span>
-              <input disabled type="checkbox"> <span class="mr-3">2.Thu phí</span>
-              <input disabled type="checkbox"> <span class="mr-3">3.Miễn</span>
-              <input disabled type="checkbox"> <span class="mr-3">4.Khác</span>
+          <label
+            ><b class="text-primary mr-1">9.</b>Đối tượng:
+            <input disabled checked type="checkbox" />
+            <span class="mr-3">1.BHYT</span> <input disabled type="checkbox" />
+            <span class="mr-3">2.Thu phí</span>
+            <input disabled type="checkbox" /> <span class="mr-3">3.Miễn</span>
+            <input disabled type="checkbox" /> <span class="mr-3">4.Khác</span>
           </label>
         </div>
-
       </div>
       <div class="row mb-2">
         <div class="col-6">
-          <label><b class="text-primary mr-1">10.</b>BHYT giá trị đến ngày:</label> <span>01</span>
-          <label>tháng</label> <span>01</span>
+          <label
+            ><b class="text-primary mr-1">10.</b>BHYT giá trị đến ngày:</label
+          >
+          <span>01</span> <label>tháng</label> <span>01</span>
           <label>năm</label> <span>2020</span>
         </div>
         <div class="col-6">
           <label>Số thẻ BHYT:</label>
           <form class="form-inline input-lr2 float-right">
-            <input readonly value="CN" class="form-control form-control-sm text-placeholder w-60px">
-            <input readonly value="3" class="form-control form-control-sm text-placeholder w-60px">
-            <input readonly value="01" class="form-control form-control-sm text-placeholder w-60px">
-            <input readonly value="0003500099" class="form-control form-control-sm text-placeholder w-140px">
+            <input
+              readonly
+              value="CN"
+              class="form-control form-control-sm text-placeholder w-60px"
+            />
+            <input
+              readonly
+              value="3"
+              class="form-control form-control-sm text-placeholder w-60px"
+            />
+            <input
+              readonly
+              value="01"
+              class="form-control form-control-sm text-placeholder w-60px"
+            />
+            <input
+              readonly
+              value="0003500099"
+              class="form-control form-control-sm text-placeholder w-140px"
+            />
           </form>
         </div>
       </div>
 
       <div class="row mb-2">
         <div class="col-12">
-          <label><b class="text-primary mr-1">11.</b>Họ tên, địa chỉ người nhà khi cần
-            báo tin:</label>
+          <label
+            ><b class="text-primary mr-1">11.</b>Họ tên, địa chỉ người nhà khi
+            cần báo tin:</label
+          >
           <span>{{hsba.emrBenhNhan.tennguoibaotin}}</span>
         </div>
       </div>
@@ -159,18 +268,59 @@
           <span>{{hsba.emrBenhNhan.diachinguoibaotin}}</span>
         </div>
         <div class="col-6">
-          <span>Điện thoại số:
+          <span
+            >Điện thoại số:
             <form class="form-inline input-lr2 float-right">
-              <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="2" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="3" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="4" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="5" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="6" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="7" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="8" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="9" class="form-control form-control-sm text-placeholder w-40px">
+              <input
+                readonly
+                value="0"
+                class="form-control form-control-sm text-placeholder w-40px"
+              />
+              <input
+                readonly
+                value="1"
+                class="form-control form-control-sm text-placeholder w-40px"
+              />
+              <input
+                readonly
+                value="2"
+                class="form-control form-control-sm text-placeholder w-40px"
+              />
+              <input
+                readonly
+                value="3"
+                class="form-control form-control-sm text-placeholder w-40px"
+              />
+              <input
+                readonly
+                value="4"
+                class="form-control form-control-sm text-placeholder w-40px"
+              />
+              <input
+                readonly
+                value="5"
+                class="form-control form-control-sm text-placeholder w-40px"
+              />
+              <input
+                readonly
+                value="6"
+                class="form-control form-control-sm text-placeholder w-40px"
+              />
+              <input
+                readonly
+                value="7"
+                class="form-control form-control-sm text-placeholder w-40px"
+              />
+              <input
+                readonly
+                value="8"
+                class="form-control form-control-sm text-placeholder w-40px"
+              />
+              <input
+                readonly
+                value="9"
+                class="form-control form-control-sm text-placeholder w-40px"
+              />
             </form>
           </span>
         </div>
@@ -178,25 +328,25 @@
       <div class="row mb-2">
         <div class="col">
           <label><b class="text-primary mr-1">12.</b>Đến khám bệnh lúc: </label>
-          <span>10</span> <label>giờ</label>
-          <span>00</span> <label>ph</label>
-          <label>ngày</label> <span>01</span>
-          <label>tháng</label> <span>02</span>
-          <label>năm</label> <span>2020</span>
+          <span>10</span> <label>giờ</label> <span>00</span> <label>ph</label>
+          <label>ngày</label> <span>01</span> <label>tháng</label>
+          <span>02</span> <label>năm</label> <span>2020</span>
         </div>
       </div>
       <div class="row mb-2">
         <div class="col">
-          <label><b class="text-primary mr-1">13.</b>Chẩn đoán của nơi giới thiệu:</label>
+          <label
+            ><b class="text-primary mr-1">13.</b>Chẩn đoán của nơi giới
+            thiệu:</label
+          >
           <span>..... .....</span>
-          <span  class="form-inline input-lr2 float-right">
-            <input disabled checked type="checkbox"> <span class="mr-3">1.Y tế</span>
-            <input disabled type="checkbox"> <span class="mr-3">2.Tự đến</span>
+          <span class="form-inline input-lr2 float-right">
+            <input disabled checked type="checkbox" />
+            <span class="mr-3">1.Y tế</span> <input disabled type="checkbox" />
+            <span class="mr-3">2.Tự đến</span>
           </span>
-
         </div>
-
-
+      </div>
     </section>
   </section>
 
@@ -207,7 +357,7 @@
 
     <div class="row mt-2">
       <span class="ml-4">
-      {{hsba.emrBenhAn.lydovaovien}}
+        {{hsba.emrBenhAn.lydovaovien}}
       </span>
     </div>
 
@@ -216,7 +366,10 @@
     </div>
     <div class="row mt-2">
       <span>
-        <b>1. Quá trình bệnh lý</b> <i>(khởi phát, diễn biến, chẩn đoán, điều trị của tuyến dưới v.v...):</i>
+        <b>1. Quá trình bệnh lý</b>
+        <i
+          >(khởi phát, diễn biến, chẩn đoán, điều trị của tuyến dưới v.v...):</i
+        >
       </span>
     </div>
     <div class="row mt-2">
@@ -224,13 +377,13 @@
     </div>
 
     <div class="row mt-3">
-      <span>
-        <b>2. Tiền sử bệnh</b>:
-      </span>
+      <span> <b>2. Tiền sử bệnh</b>: </span>
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet-small fa-circle"></i> Bản thân</span>
+      <span class="ml-4"
+        ><i class="fas fa-fw bullet-small fa-circle"></i> Bản thân</span
+      >
     </div>
 
     <div class="row mt-2 ml-2">
@@ -238,7 +391,9 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet-small fa-circle"></i> Gia đình</span>
+      <span class="ml-4"
+        ><i class="fas fa-fw bullet-small fa-circle"></i> Gia đình</span
+      >
     </div>
 
     <div class="row mt-2 ml-2">
@@ -250,8 +405,11 @@
     </div>
     <div class="row mt-2">
       <span>
-        <b>1. Toàn thân</b> <i> (ý thức, da niêm mạc, hệ thống hạch, tuyến giáp, vị trí, kích thước, số lượng, di động
-          v.v...):</i>
+        <b>1. Toàn thân</b>
+        <i>
+          (ý thức, da niêm mạc, hệ thống hạch, tuyến giáp, vị trí, kích thước,
+          số lượng, di động v.v...):</i
+        >
       </span>
     </div>
     <div class="row mt-2">
@@ -266,7 +424,8 @@
           Nhiệt độ: {{hsba.emrBenhAn.nhietdo}} °C
         </li>
         <li>
-          Huyết áp: {{hsba.emrBenhAn.huyetapcao}}/{{hsba.emrBenhAn.huyetapthap}} mmHg
+          Huyết áp: {{hsba.emrBenhAn.huyetapcao}}/{{hsba.emrBenhAn.huyetapthap}}
+          mmHg
         </li>
         <li>
           Nhịp thở: {{hsba.emrBenhAn.nhiptho}} lần/ph
@@ -278,9 +437,7 @@
     </div>
 
     <div class="row mt-2">
-      <span>
-        <b>2. Các bộ phận:</b>:
-      </span>
+      <span> <b>2. Các bộ phận:</b>: </span>
     </div>
     <div class="row-mt-2">
       <span class="ml-4">...............</span>
@@ -306,9 +463,7 @@
     </div>
 
     <div class="row mt-3">
-      <span>
-        <b>5. Đã xử lý </b><i>(thuốc, chăm sóc):</i>
-      </span>
+      <span> <b>5. Đã xử lý </b><i>(thuốc, chăm sóc):</i> </span>
     </div>
     <div class="row mt-2">
       <span class="ml-4">........</span>
@@ -321,40 +476,56 @@
       <div class="col ml-3">
         <span>Không thấy gì .....</span>
         <form class="form-inline input-lr2 float-right">
-          <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-          <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-          <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-          <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+          <input
+            readonly
+            value="0"
+            class="form-control form-control-sm text-placeholder w-40px"
+          />
+          <input
+            readonly
+            value="0"
+            class="form-control form-control-sm text-placeholder w-40px"
+          />
+          <input
+            readonly
+            value="0"
+            class="form-control form-control-sm text-placeholder w-40px"
+          />
+          <input
+            readonly
+            value="1"
+            class="form-control form-control-sm text-placeholder w-40px"
+          />
         </form>
-      </div>  
+      </div>
     </div>
-
 
     <div class="row mt-3">
       <span>
-        <b>7. Điều trị ngoại trú từ ngày  </b>
+        <b>7. Điều trị ngoại trú từ ngày </b>
         <span>01</span>
-        <label>tháng</label> <span>02</span>
-        <label>năm</label> <span>2020</span>
-        <span>đến ngày</span> 
+        <label>tháng</label> <span>02</span> <label>năm</label>
+        <span>2020</span>
+        <span>đến ngày</span>
         <span>03</span>
-        <label>tháng</label> <span>02</span>
-        <label>năm</label> <span>2020</span>
-
+        <label>tháng</label> <span>02</span> <label>năm</label>
+        <span>2020</span>
       </span>
     </div>
-  </section>  
+  </section>
   <section class="mb-4">
     <div class="row align-items-end">
       <div class="col text-center">
         <h6 class="mb-5">Giám đốc bệnh viện</h6>
-        <br>
+        <br />
         <p>Họ và tên <b>Nguyễn Văn Bác Sỹ</b></p>
       </div>
       <div class="col text-center">
-        <i class="mb-2">Ngày <span>10</span> tháng <span>01</span> năm <span>2020</span></i>
+        <i class="mb-2"
+          >Ngày <span>10</span> tháng <span>01</span> năm <span>2020</span></i
+        >
         <h6 class="text-center mb-5">Trưởng khoa</h6>
-        <br>
+        <br />
         <p>Họ và tên <b>Nguyễn Văn Bác Sỹ</b></p>
       </div>
     </div>
@@ -381,7 +552,10 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">Tóm tắt kết quả xét nghiệm cận lâm sàng có giá trị chẩn đoán .....</span>
+      <span class="ml-4"
+        >Tóm tắt kết quả xét nghiệm cận lâm sàng có giá trị chẩn đoán
+        .....</span
+      >
     </div>
 
     <div class="row mt-3">
@@ -392,25 +566,59 @@
 
     <div class="row mt-2">
       <div class="col">
-        <span class="ml-2">Bệnh chính: ....
+        <span class="ml-2"
+          >Bệnh chính: ....
           <form class="form-inline input-lr2 float-right">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+            <input
+              readonly
+              value="0"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
+            <input
+              readonly
+              value="0"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
+            <input
+              readonly
+              value="0"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
+            <input
+              readonly
+              value="1"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
           </form>
         </span>
       </div>
     </div>
 
     <div class="row mt-2">
-      <div class="col"> 
-        <span class="ml-2">Bệnh kèm theo <i>(nếu có)</i>: ....
+      <div class="col">
+        <span class="ml-2"
+          >Bệnh kèm theo <i>(nếu có)</i>: ....
           <form class="form-inline input-lr2 float-right">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+            <input
+              readonly
+              value="0"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
+            <input
+              readonly
+              value="0"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
+            <input
+              readonly
+              value="0"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
+            <input
+              readonly
+              value="1"
+              class="form-control form-control-sm text-placeholder w-40px"
+            />
           </form>
         </span>
       </div>
@@ -458,9 +666,12 @@
           </td>
           <td rowspan="8">
             <div class="col text-center">
-              <i>Ngày <span>10</span> tháng <span>01</span> năm <span>2020</span></i>
+              <i
+                >Ngày <span>10</span> tháng <span>01</span> năm
+                <span>2020</span></i
+              >
               <h6 class="text-center mt-2 mb-5">Bác sĩ điều trị</h6>
-              <br>
+              <br />
               <p>Họ và tên <b></b></p>
             </div>
           </td>
@@ -512,7 +723,8 @@
           <td>- Toàn bộ hồ sơ</td>
           <td>
             <center>
-              {{hsba.emrTongKetRaVien.soToXQuang+hsba.emrTongKetRaVien.soToCTScanner+hsba.emrTongKetRaVien.soToSieuAm+hsba.emrTongKetRaVien.soToXetNghiem+hsba.emrTongKetRaVien.soToKhac || ""}}
+              {{hsba.emrTongKetRaVien.soToXQuang+hsba.emrTongKetRaVien.soToCTScanner+hsba.emrTongKetRaVien.soToSieuAm+hsba.emrTongKetRaVien.soToXetNghiem+hsba.emrTongKetRaVien.soToKhac
+              || ""}}
             </center>
           </td>
         </tr>
