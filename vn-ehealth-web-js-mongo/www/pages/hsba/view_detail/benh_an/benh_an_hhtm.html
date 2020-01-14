@@ -7,7 +7,7 @@
         Khoa: <strong class="mr-3 text-primary">Gan mật</strong>Giường <strong class="text-success">Số 5</strong>
       </div>
       <div class="col-4">
-        <h3 class="text-tle mt-3">BỆNH ÁN NGOẠI KHOA</h3>
+        <h3 class="text-tle mt-3">BỆNH ÁN HUYẾT HỌC TRUYỀN MÁU</h3>
       </div>
       <div class="col-3">
         Số lưu trữ: <strong class="text-info">20102019</strong> <br>
@@ -59,7 +59,7 @@
         </div>
         <div class="col-6">
           <label class="mr-auto "><b class="text-primary mr-1">4.</b>Nghề nghiệp:</label>
-          <span>{{hsba.emrBenhNhan.emrDmNgheNghiep.ten}}</span>
+          <span>{{ hsba.emrBenhNhan.emrDmNgheNghiep.ten}}</span>
           <form class="form-inline input-lr2 float-right">
             <input readonly value="" class="form-control form-control-sm text-placeholder w-40px">
             <input readonly value="" class="form-control form-control-sm text-placeholder w-40px">
@@ -149,8 +149,8 @@
         <div class="col-12">
           <label><b class="text-primary mr-1">11.</b>Họ tên, địa chỉ người nhà khi cần
             báo tin:</label>
-          <span>{{hsba.emrBenhNhan.tennguoibaotin}}</span>
-        </div>
+            <span>{{hsba.emrBenhNhan.tennguoibaotin}}</span>
+          </div>
       </div>
 
       <div class="row mb-2">
@@ -335,7 +335,7 @@
           </div>
           <div class="row mb-2">
             <div class="col ml-4">  
-              <span>{{hsba.emrQuanLyNguoiBenh.noichuyenden}}</span>
+              <span>Vàng da do thiếu máu .....</span>
               <form class="form-inline input-lr2 float-right">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
@@ -378,6 +378,52 @@
               </form>
             </div>
           </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="ml-3">
+                <input disabled type="checkbox"> <span class="mr-3">Thủ thuật</span>
+                <input disabled type="checkbox"> <span class="mr-3">Phẫu thuật</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="row mb-2">
+            <div class="col">
+              <label><b class="text-primary mr-1">23.</b>Ra viện: </label>
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col ml-4">
+              <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh
+                chính:</label><br>
+              <span>Vàng da do thiếu máu .....</span>
+              <form class="form-inline input-lr2 float-right">
+                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
+                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
+                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
+                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+              </form>
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col ml-4">
+              <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh kèm
+                theo:</label><br>
+              <span>Vàng da do thiếu máu .....</span>
+              <form class="form-inline input-lr2 float-right">
+                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
+                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
+                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
+                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+              </form>
+            </div>
+          </div>
+
           <div class="row">
             <div class="col">
               <div class="ml-3">
@@ -386,114 +432,6 @@
               </div>
             </div>
           </div>
-
-          <div class="row">
-            <div class="col">
-              <div class="ml-3">
-                <input disabled type="checkbox"> <span class="mr-3">1.Do phẫu thuật</span> <br>
-                <input disabled type="checkbox"> <span class="mr-3">2.Do gây mê</span> <br>
-                <input disabled type="checkbox"> <span class="mr-3">3.Do nhiễm khuẩn</span> <br>
-                <input disabled type="checkbox"> <span class="mr-3">4.Khác</span> <br>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <label class="mr-auto "><b class="text-primary mr-1">23.</b>Tổng số ngày điều trị sau phẫu thuật:</label>
-              <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="2" class="form-control form-control-sm text-placeholder w-40px">
-              </form>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <label class="mr-auto "><b class="text-primary mr-1">24.</b>Tổng số lần phẫu thuật:</label>
-              <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="2" class="form-control form-control-sm text-placeholder w-40px">
-              </form>
-            </div>
-          </div>
-
-
-        </div>
-
-          
-        <div class="col-6">
-          <div class="row mb-2">
-            <div class="col">
-              <label><b class="text-primary mr-1">25.</b>Ra viện: </label>
-            </div>
-          </div>
-
-          <div class="row mb-2">
-            <div class="col ml-4">
-              <label><i class="fas fa-fw bullet-small fa-circle"></i>Bệnh chính: <i>(tổn thương)</i></label><br>
-              <span class="ml-3">Vàng da do thiếu máu .....</span>
-              <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
-              </form>
-            </div>
-          </div>
-
-          <div class="row mt-2">
-            <div class="col ml-4">
-              <label><i class="fas fa-fw bullet-small fa-circle"></i>Nguyên nhân</i></label><br>
-              <span class="ml-3">Vàng da do thiếu máu .....</span>
-              <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
-              </form>
-            </div>            
-          </div>
-
-          <div class="row mt-2">
-            <div class="col ml-4">
-              <label><i class="fas fa-fw bullet-small fa-circle"></i>Chẩn đoán trước phẫu thuật:</i></label><br>
-              <span class="ml-3">Vàng da do thiếu máu .....</span>
-              <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
-              </form>
-            </div>            
-          </div>
-          <div class="row mt-2">
-            <div class="col ml-4">
-              <label><i class="fas fa-fw bullet-small fa-circle"></i>Chẩn đoán sau phẫu thuật:</i></label><br>
-              <span class="ml-3">Vàng da do thiếu máu .....</span>
-              <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
-              </form>
-            </div>            
-          </div>
-
-          
-          <div class="row mb-2">
-            <div class="col ml-4">
-              <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh kèm
-                theo:</label><br>
-              <span class="ml-3">Vàng da do thiếu máu .....</span>
-              <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
-              </form>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
@@ -503,7 +441,7 @@
         <div class="col-6">
           <div class="row mb-2">
             <div class="col">
-              <label><b class="text-primary mr-1">26.</b>Kết quả điều trị: </label>
+              <label><b class="text-primary mr-1">24.</b>Kết quả điều trị: </label>
               <br>
               <div class="ml-3">
                 <input disabled checked type="checkbox"> <span class="mr-3">1.Khỏi</span>
@@ -521,7 +459,7 @@
 
           <div class="row">
             <div class="col">
-              <label><b class="text-primary mr-1">27.</b>Giải phẫu bệnh <i>(khi có sinh thiết):</i></label>
+              <label><b class="text-primary mr-1">25.</b>Giải phẫu bệnh <i>(khi có sinh thiết):</i></label>
               <br>
               <div class="ml-3">
                 <input disabled checked type="checkbox"> <span class="mr-3">1.Lành tính</span>
@@ -535,7 +473,7 @@
         <div class="col-6">
           <div class="row mb-2">
             <div class="col">
-              <label><b class="text-primary mr-1">28.</b>Tình hình tử vong: </label>
+              <label><b class="text-primary mr-1">26.</b>Tình hình tử vong: </label>
               <span>21</span> <label>giờ</label>
               <span>50</span> <label>ph</label>
               <label>ngày</label> <span>25</span>
@@ -544,23 +482,12 @@
             </div>
           </div>
 
-          <div class="row mb-2 ml-2">
-            <table class="ml-4 mr-4">
-              <tr>
-                <td>
-                  <input disabled type="checkbox"> <span class="mr-3">1.Do bệnh</span> <br>
-                  <input disabled type="checkbox"> <span class="mr-3">2.Do tai biến điều trị</span><br>
-                  <input disabled type="checkbox"> <span class="mr-3">3.Khác</span>
-                </td>
-                <td>
-                  <input disabled type="checkbox"> <span class="mr-3">1.Trong 24 giờ vào viện</span><br>
-                  <input disabled type="checkbox"> <span class="mr-3">2.Trong 48 giờ vào viện</span><br>
-                  <input disabled type="checkbox"> <span class="mr-3">3.Trong 72 giờ vào viện</span>
-                </td>
-              </tr>
-            </table>
+          <div class="row mb-2">
             <div class="col">
               <div class="ml-3">
+                <input disabled type="checkbox"> <span class="mr-3">1.Do bệnh</span>
+                <input disabled type="checkbox"> <span class="mr-3">2.Do tai biến điều trị</span>
+                <input disabled type="checkbox"> <span class="mr-3">3.Khác</span>
               </div>
             </div>
           </div>
@@ -568,13 +495,15 @@
           <div class="row mb-2">
             <div class="col">
               <div class="ml-3">
+                <input disabled type="checkbox"> <span class="mr-3">1.Trong 24 giờ vào viện</span>
+                <input disabled type="checkbox"> <span class="mr-3">2.Sau 24 giờ vào viện</span>
               </div>
             </div>
           </div>
 
           <div class="row mb-2">
             <div class="col">
-              <label><b class="text-primary mr-1">29.</b>Nguyên nhân chính tử vong: </label>
+              <label><b class="text-primary mr-1">27.</b>Nguyên nhân chính tử vong: </label>
             </div>
           </div>
 
@@ -590,25 +519,29 @@
               </form>
             </div>
           </div>
+
+          <div class="row mb-2">
+            <div class="col">
+              <label><b class="text-primary mr-1">28.</b>Khám nghiệm tử thi: </label> <input type="checkbox" disabled>
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col">
+              <label><b class="text-primary mr-1">29.</b>Chẩn đoán giải phẫu tử thi: </label>
+              <div class="col ml-3">
+                <span>Không thấy gì .....</span>
+                <form class="form-inline input-lr2 float-right">
+                  <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
+                  <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
+                  <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
+                  <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+                </form>
+              </div>  
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row mb-2">
-        <div class="col">
-          <label><b class="text-primary mr-1">30.</b>Khám nghiệm tử thi: </label> <input type="checkbox" disabled>
-        </div>
-        <div class="col">
-          <label><b class="text-primary mr-1">31.</b>Chẩn đoán giải phẫu tử thi: </label>
-          <div class="col ml-3">
-            <span>Không thấy gì .....</span>
-            <form class="form-inline input-lr2 float-right">
-              <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
-            </form>
-          </div> 
-        </div>
-      </div>      
     </section>
 
     <section class="mb-4">
@@ -667,9 +600,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet-small fa-circle"></i> Bản thân
-        <i>(phát triển thể lực từ nhỏ đến lớn, những bệnh đã mắc, phương pháp ĐTr, tiêm phòng, ăn uống, sinh hoạt
-          vv...):</i>
+      <span class="ml-4"><i class="fas fa-fw bullet-small fa-circle"></i> Bản thân:
       </span>
     </div>
 
@@ -688,42 +619,42 @@
             <th style="width:20%" class="text-center">Thời gian (tính theo tháng)</th class="text-center">
           </tr>
           <tr>
-            <td class="text-center">1</td>
+            <td class="text-cener">1</td>
             <td>
               <input type="checkbox" disabled> <label>Dị ứng</label>
             </td>
             <td class="text-center"></td>
           </tr>
           <tr>
-            <td class="text-center">2</td>
+            <td class="text-cener">2</td>
             <td>
               <input type="checkbox" disabled> <label>Ma Tuý</label>
             </td>
             <td class="text-center"></td>
           </tr>
           <tr>
-            <td class="text-center">3</td>
+            <td class="text-cener">3</td>
             <td>
               <input type="checkbox" disabled> <label>Rượu bia</label>
             </td>
             <td class="text-center"></td>
           </tr>
           <tr>
-            <td class="text-center">4</td>
+            <td class="text-cener">4</td>
             <td>
               <input type="checkbox" disabled> <label>Thuốc lá</label>
             </td>
             <td class="text-center"></td>
           </tr>
           <tr>
-            <td class="text-center">5</td>
+            <td class="text-cener">5</td>
             <td>
               <input type="checkbox" disabled> <label>Thuốc lào</label>
             </td>
             <td class="text-center"></td>
           </tr>
           <tr>
-            <td class="text-center">6</td>
+            <td class="text-cener">6</td>
             <td>
               <input type="checkbox" disabled> <label>Khác</label>
             </td>
@@ -734,8 +665,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet-small fa-circle"></i> Gia đình
-        <i>(Những người trong gia đình: bệnh đã mắc, đời sống, tinh thần, vật chất v.v...):</i>
+      <span class="ml-4"><i class="fas fa-fw bullet-small fa-circle"></i> Gia đình:
       </span>
     </div>
 
@@ -753,7 +683,7 @@
       </span>
     </div>
     <div class="row mt-2">
-      <span class="ml-4">Toàn thân .....</span>
+      <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Toàn thân .....</span>
     </div>
     <div class="row-mt-2">
       <ul>
@@ -774,41 +704,89 @@
         </li>
       </ul>
     </div>
+    <div class="row mt-2">
+      <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Tinh thần của người bệnh:  .....</span>
+    </div>
+    <div class="row mt-2">
+      <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Hình dáng tư thế: .....</span>
+    </div>
+    <div class="row mt-2">
+      <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Da, niêm mạc: .....</span>
+    </div>
+    <div class="row mt-2">
+      <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Triệu chứng xuất huyết<i>(mô tả chi tiết)</i>: .....</span>
+    </div>
+    <div class="row mt-2">
+      <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Hệ thống lông, tóc, móng: .....</span>
+    </div>
+    <div class="row mt-2">
+      <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Triệu chứng phù: .....</span>
+    </div>
+    <div class="row mt-2">
+      <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Tuyến giáp:  .....</span>
+    </div>
 
+    
     <div class="row mt-2">
       <span>
-        <b>2. Bệnh ngoại khoa</b>:
+        <b>2. Các cơ quan</b>:
       </span>
     </div>
-
-    <div class="row mt-2">
-      <span class="ml-4">Chi tiết bệnh ngoại khoa</span>
+    <div class="row">
+      <div class="col-6">
+        <div class="row mt-2">
+          <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Gan: Kích thước: .....</span>
+        </div>
+        <ul>
+          <dd>- Mật độ:</dd>
+          <dd>- Bờ:</dd>
+          <dd>- Mặt gan:</dd>
+          <dd>- Đau:</dd>
+        </ul>
+        <div class="row mt-2">
+          <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Lách: Kích thước: .....</span>
+        </div>
+        <ul>
+          <dd>- Mật độ:</dd>
+          <dd>- Bờ:</dd>
+          <dd>- Mặt gan:</dd>
+          <dd>- Đau:</dd>
+        </ul>
+        <div class="row mt-2">
+          <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Hạch: Vị trí: .....</span>
+        </div>
+        <ul>
+          <dd>- Kích thước :...</dd>
+          <dd>- Số lượng :...</dd>
+          <dd>- Độ di động:...</dd>
+          <dd>- Đau:...</dd>
+        </ul>
+      </div>
+      <div class="col-6">
+        <div class="row mt-2">
+          <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Thần kinh: .....</span>
+        </div>
+        <div class="row mt-2">
+          <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Tim mạch: .....</span>
+        </div>
+        <div class="row mt-2">
+          <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Hô hấp: .....</span>
+        </div>
+        <div class="row mt-2">
+          <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Tiêu hoá: .....</span>
+        </div>
+        <div class="row mt-2">
+          <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Tiết niệu: .....</span>
+        </div>
+        <div class="row mt-2">
+          <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Khác: .....</span>
+        </div>
+      </div>
     </div>
 
     <div class="row mt-2">
       <span>
-        <b>3. Các cơ quan</b>:
-      </span>
-    </div>
-
-    <div class="row-mt-2">
-      <ul>
-        <li>Tuần hoàn:</li>
-        <li>Hô hấp:</li>
-        <li>Tiêu hóa:</li>
-        <li>Thận- Tiết niệu- Sinh dục:</li>
-        <li>Thần Kinh:</li>
-        <li>Cơ- Xương- Khớp:</li>
-        <li>Tai- Mũi- Họng:</li>
-        <li>Răng- Hàm- Mặt:</li>
-        <li>Mắt:</li>
-        <li>Nội tiết, dinh dưỡng và các bệnh lý khác:</li>
-      </ul>
-    </div>
-
-    <div class="row mt-2">
-      <span>
-        <b>4. Các xét nghiệm cận lâm sáng cần làm:</b>
+        <b>3. Các xét nghiệm cận lâm sáng cần làm:</b>
       </span>
     </div>
 
@@ -816,9 +794,72 @@
       <span class="ml-4">Các xét nghiệm cận lâm sáng cần làm .....</span>
     </div>
 
+    <div class="row mt-2">
+      <table class="table table-bordered mt-3 ml-4 mr-4" style="width:80%">
+        <tr>
+          <th style="width:20%" >Huyết học</th>
+          <th style="width:10%" class="text-center"></th>
+          <th style="width:20%" >Truyền máu</th>
+          <th style="width:10%" class="text-center"></th>
+        </tr>
+        <tr>
+          <td>Huyết đồ</td>
+          <td></td>
+          <td>Nhóm máu</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Tuỷ đồ</td>
+          <td></td>
+          <td>Coombs test</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Sinh thiết tuỷ</td>
+          <td></td>
+          <td>Kháng thể bất thường</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Sinh thiết hạch</td>
+          <td></td>
+          <th>Các xét nghiệm liên quan:</th>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Đông máu toàn bộ</td>
+          <td></td>
+          <td>Sinh hoá</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Định lượng yếu tố đông máu</td>
+          <td></td>
+          <td>GPB</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Điện di HST</td>
+          <td></td>
+          <td>Vi sinh</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Nhiễm sắc thể</td>
+          <td></td>
+          <td>X quang</td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="row mt-2">
+      <span class="ml-4">Các xét nghiệm khác .....</span>
+    </div>
+
     <div class="row mt-3">
       <span>
-        <b>5. Tóm tắt bệnh án:</b>
+        <b>4. Tóm tắt bệnh án:</b>
       </span>
     </div>
 
@@ -861,11 +902,11 @@
     </div>
 
     <div class="row mt-3">
-      <h5 class="text-tle">V. Tiên lượng:</h5>
+      <h5 class="text-tle">V. Tiên lượng :</h5>
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">Tiên lượng .....</span>
+      <span class="ml-4">Về cơ bản là tiên lượng .....</span>
     </div>
 
     <div class="row mt-3">
@@ -875,6 +916,54 @@
     <div class="row mt-2">
       <span class="ml-4">Hướng điều trị .....</span>
     </div>
+
+    <div class="row mt-2">
+      <span class="ml-4">Truyền máu:</span>
+    </div>
+
+    <div class="row mt-2">
+      <table class="ml-4 mr-4" style="width:80%">
+        <tr>
+          <td style="width:25%">1. Khối hồng cầu</td>
+          <td style="width:10%">Số lần: 0</td>
+          <td style="width:25%">5. Huyết tương:</td>
+          <td style="width:10%">Số lần: 0</td>
+        </tr>
+        <tr>
+          <td>2. Hồng cầu rửa</td>
+          <td>Số lần: 0</td>
+          <td>6. Huyết tương tươi đông lạnh:</td>
+          <td>Số lần: 0</td>
+        </tr>
+        <tr>
+          <td>3. Khối tiểu cầu</td>
+          <td>Số lần: 0</td>
+          <td>7. Tủa VIII:</td>
+          <td>Số lần: 0</td>
+        </tr>
+        <tr>
+          <td>4. Khối bạch cầu hạt</td>
+          <td>Số lần: 0</td>
+          <td>8. Truyền máu toàn phần:</td>
+          <td>Số lần: 0</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="row mt-2">
+      <span class="ml-4">Các phản ứng khi truyền máu:<input type="checkbox" disabled></span>
+    </div>
+
+        <div class="row mt-2">
+      <span class="ml-4">Loại:
+        <input type="checkbox" disabled class="ml-2 mr-2">1. Mẩn ngứa
+        <input type="checkbox" disabled class="ml-2 mr-2">2. Sốt rét run
+        <input type="checkbox" disabled class="ml-2 mr-2">3. Choáng phản vệ
+        <input type="checkbox" disabled class="ml-2 mr-2">4.Khác
+
+      </span>
+    </div>
+
 
     <div class="row mt-3">
       <div class="col text-center offset-6">
@@ -917,48 +1006,6 @@
 
     <div class="row mt-2">
       <span class="ml-4">Phương pháp điều trị .....</span>
-    </div>
-
-    <div class="row mt-2">
-      <div class="col-4">
-        <span>
-          <i class="fas fa-fw bullet-small fa-circle"></i> Phẫu thuật:
-        </span>
-
-      </div>
-      <div class="col-4">
-        <span>
-          <i class="fas fa-fw bullet-small fa-circle"></i> Thủ thuật:
-        </span>
-      </div>
-    </div>
-
-    <div class="row mt-2">
-      <table class="table table-bordered mt-3 ml-4 mr-4" style="width: 80%;"> 
-        <th class="text-center">Giờ, ngày</th>
-        <th class="text-center">Phương pháp phẫu thuật/vô cảm</th>
-        <th class="text-center">Bác sỹ phẫu thuật</th>
-        <th class="text-center">Bác sỹ gây mê</th>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>  
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>  
-
-      </table>
     </div>
 
     <div class="row mt-3">
