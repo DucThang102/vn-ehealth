@@ -9,7 +9,9 @@
     <benh-an-truyen-nhiem :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='03'"></benh-an-truyen-nhiem>    
     <benh-an-phu-khoa :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='04'"></benh-an-phu-khoa>    
     <benh-an-tam-than :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='07'"></benh-an-tam-than>    
-	
+    <benh-an-da-lieu :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='08'"></benh-an-da-lieu>    
+    <benh-an-dd :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='09'"></benh-an-dd>    
+    <benh-an-hhtm :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='10'"></benh-an-hhtm>    
 	
   </body>
   <button id="printButton" class="d-none btn btn-primary btn-sm" v-on:click="printToPdf()">In tờ bệnh án</button>

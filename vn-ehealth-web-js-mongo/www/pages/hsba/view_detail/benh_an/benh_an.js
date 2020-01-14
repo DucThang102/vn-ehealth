@@ -111,3 +111,18 @@ VueAsyncComponent(
   "/pages/hsba/view_detail/benh_an/benh_an_tam_than.html",
   { props: ["hsba"] }
 );
+VueAsyncComponent(
+  "benh-an-da-lieu",
+  "/pages/hsba/view_detail/benh_an/benh_an_da_lieu.html",
+  { props: ["hsba"] }
+);
+VueAsyncComponent(
+  "benh-an-dd",
+  "/pages/hsba/view_detail/benh_an/benh_an_dd.html",
+  { props: ["hsba"] }
+);
+VueAsyncComponent(
+  "benh-an-hhtm",
+  "/pages/hsba/view_detail/benh_an/benh_an_hhtm.html",
+  { props: ["hsba"] }
+);
