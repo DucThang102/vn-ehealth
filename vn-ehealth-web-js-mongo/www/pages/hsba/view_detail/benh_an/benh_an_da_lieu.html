@@ -462,9 +462,9 @@
               <label><b class="text-primary mr-1">25.</b>Giải phẫu bệnh <i>(khi có sinh thiết):</i></label>
               <br>
               <div class="ml-3">
-                <input disabled checked type="checkbox"> <span class="mr-3">1.Lành tính</span>
-                <input disabled type="checkbox"> <span class="mr-3">2.Nghi ngờ</span>
-                <input disabled type="checkbox"> <span class="mr-3">3.Ác tính</span>
+                <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmKetQuaGiaiPhauBenh.ma') == '01' "  type="checkbox"> <span class="mr-3">1.Lành tính</span>
+                <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmKetQuaGiaiPhauBenh.ma') == '02' " type="checkbox"> <span class="mr-3">2.Nghi ngờ</span>
+                <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmKetQuaGiaiPhauBenh.ma') == '03' " type="checkbox"> <span class="mr-3">3.Ác tính</span>
               </div>
             </div>
           </div>
@@ -733,12 +733,12 @@
     </div>
     <div class="row-mt-2">
       <ul>
-        <li>Tuần hoàn:</li>
-        <li>Hô hấp:</li>
-        <li>Tiêu hóa:</li>
-        <li>Thận- Tiết niệu- Sinh dục:</li>
-        <li>Thần Kinh ngoại biên:</li>
-        <li>Cơ quan khác:</li>
+        <li>Tuần hoàn:{{hsba.emrBenhAn.tuanhoan}}</li>
+        <li>Hô hấp:{{hsba.emrBenhAn.hohap}}</li>
+        <li>Tiêu hóa:{{hsba.emrBenhAn.tieuhoa}}</li>
+        <li>Thận- Tiết niệu- Sinh dục:{{hsba.emrBenhAn.tietnieusinhduc}}</li>
+        <li>Thần Kinh ngoại biên:{{hsba.emrBenhAn.thankinh}}</li>
+        <li>Cơ quan khác:{{hsba.emrBenhAn.tuanhoan}}</li>
       </ul>
     </div>
 
@@ -749,7 +749,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">Các xét nghiệm cận lâm sàng cần làm .....</span>
+      <span class="ml-4">{{hsba.emrBenhAn.xetnghiemcanlamsang}}</span>
     </div>
 
     <div class="row mt-3">
@@ -759,7 +759,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">Tóm tắt bệnh án .....</span>
+      <span class="ml-4">{{hsba.emrBenhAn.tomtat}}</span>
     </div>
 
     <div class="row mt-3">
@@ -773,7 +773,7 @@
     </div>
 
     <div class="row mt-2 ml-3">
-      <span class="ml-4">Bệnh chính .....</span>
+      <span class="ml-4">{{hsba.emrBenhAn.emrDmMaBenhChandoanbenhchinh.ten}}</span>
     </div>
 
     <div class="row mt-3 ml-2">
@@ -793,7 +793,7 @@
     </div>
 
     <div class="row mt-2 ml-3">
-      <span class="ml-4">Phân biệt .....</span>
+      <span class="ml-4">{{hsba.emrBenhAn.emrDmMaBenhChandoanphanbiet.ten}}</span>
     </div>
 
     <div class="row mt-3">
@@ -801,7 +801,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">Tiên lượng .....</span>
+      <span class="ml-4">{{hsba.emrBenhAn.tienluong}}</span>
     </div>
 
     <div class="row mt-3">
@@ -809,7 +809,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">Hướng điều trị .....</span>
+      <span class="ml-4">{{hsba.emrBenhAn.huongdieutri}}</span>
     </div>
 
     <div class="row mt-3">
@@ -832,7 +832,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">Quá trình bệnh lý và diễn biến lâm sàng .....</span>
+      <span class="ml-4">{{hsba.emrTongKetRaVien.dienbienlamsang}}</span>
     </div>
 
     <div class="row mt-3">
@@ -842,7 +842,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">Tóm tắt kết quả xét nghiệm cận lâm sàng có giá trị chẩn đoán .....</span>
+      <span class="ml-4">{{hsba.emrTongKetRaVien.canlamsang}}</span>
     </div>
 
     <div class="row mt-3">
@@ -852,7 +852,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">Phương pháp điều trị .....</span>
+      <span class="ml-4">{{hsba.emrTongKetRaVien.phuongphapdieutri}}</span>
     </div>
 
     <div class="row mt-3">
@@ -862,7 +862,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">Tình trạng người bệnh ra viện .....</span>
+      <span class="ml-4">{{hsba.emrTongKetRaVien.tinhtrangnguoibenh}}</span>
     </div>
 
     <div class="row mt-3">
@@ -872,7 +872,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">Hướng điều trị và các chế độ tiếp theo .....</span>
+      <span class="ml-4">{{hsba.emrTongKetRaVien.chidandieutri}}</span>
     </div>
 
     <div class="row mt-3">
@@ -890,7 +890,7 @@
               <i>Ngày <span>10</span> tháng <span>01</span> năm <span>2020</span></i>
               <h6 class="text-center mt-2 mb-5">Bác sĩ điều trị</h6>
               <br>
-              <p>Họ và tên <b></b></p>
+              <p>Họ và tên <b>{{hsba.emrTongKetRaVien.bacsydieutri}}</b></p>
             </div>
           </td>
         </tr>
