@@ -52,7 +52,7 @@
       <div class="row mb-2">
         <div class="col-6">
           <label><b class="text-primary mr-1">3.</b>Nghề nghiệp:</label>
-          <span>Kinh doanh</span>
+          <span>{{ hsba.emrBenhNhan.emrDmNgheNghiep.ten}}</span>
           <form class="form-inline input-lr2 float-right">
             <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
             <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
@@ -62,7 +62,7 @@
       <div class="row mb-2">
         <div class="col-6">
           <label><b class="text-primary mr-1">4.</b>Dân tộc:</label>
-          <span>Kinh</span>
+          <span>{{hsba.emrBenhNhan.emrDmDanToc.ten}}</span>
           <form class="form-inline input-lr2 float-right">
             <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
             <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
@@ -81,17 +81,17 @@
       <div class="row mb-2">
         <div class="col-6">
           <label><b class="text-primary mr-1">6.</b>Địa chỉ:</label>
-          <span>Số nhà....., đường .....</span>
+          <span>{{hsba.emrBenhNhan.diachi}}</span>
         </div>
         <div class="col-6">
           <label>Xã, phường:</label>
-          <span>Cát Linh</span>
+          <span>{{hsba.emrBenhNhan.emrDmPhuongXa.ten}}</span>
         </div>
       </div>
       <div class="row mb-2">
         <div class="col-6">
           <label>Huyện (Q, Tx):</label>
-          <span>Đống Đa</span>
+          <span>{{hsba.emrBenhNhan.emrDmQuanHuyen.ten}}</span>
           <form class="form-inline input-lr2 float-right">
             <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
             <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
@@ -99,7 +99,7 @@
         </div>
         <div class="col-6">
           <label>Tỉnh, thành phố:</label>
-          <span>Hà Nội</span>
+          <span>{{hsba.emrBenhNhan.emrDmTinhThanh.ten}}</span>
           <form class="form-inline input-lr2 float-right">
             <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
             <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
@@ -110,14 +110,14 @@
       <div class="row mb-2">
         <div class="col-6">
           <label><b class="text-primary mr-1">7.</b>Nơi làm việc:</label>
-          <span>Tòa nhà Giảng Võ</span>
+          <span>{{hsba.emrBenhNhan.noilamviec}}</span>
         </div>
         <div class="col-6">
           <label><b class="text-primary mr-1">8.</b>Đối tượng:
-              <input disabled checked type="checkbox"> <span class="mr-3">1.BHYT</span>
-              <input disabled type="checkbox"> <span class="mr-3">2.Thu phí</span>
-              <input disabled type="checkbox"> <span class="mr-3">3.Miễn</span>
-              <input disabled type="checkbox"> <span class="mr-3">4.Khác</span>
+              <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma') == '01' " type="checkbox"> <span class="mr-3">1.BHYT</span>
+              <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma') == '02' " type="checkbox"> <span class="mr-3">2.Thu phí</span>
+              <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma') == '03' " type="checkbox"> <span class="mr-3">3.Miễn</span>
+              <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma') == '04' " type="checkbox"> <span class="mr-3">4.Khác</span>
           </label>
         </div>
       </div>
@@ -144,28 +144,14 @@
         <div class="col-12">
           <label><b class="text-primary mr-1">10.</b>Họ tên, địa chỉ người nhà khi cần
             báo tin:</label>
-          <span>Nguyễn Văn A</span>
-        </div>
-      </div>
-
-      <div class="row mb-2">
-        <div class="col-12">
-          <label>Địa chỉ:</label>
-          <span>Nhà số ...., đường, xã ..., huyện ...., tỉnh .....</span>
-        </div>
-      </div>
-      <div class="row mb-2">
-        <div class="col-12">
-          <label><b class="text-primary mr-1">11.</b>Họ tên, địa chỉ người nhà khi cần
-            báo tin:</label>
-          <span>Nguyễn Văn A</span>
+          <span>{{hsba.emrBenhNhan.tennguoibaotin}}</span>
         </div>
       </div>
 
       <div class="row mb-2">
         <div class="col-6">
           <label>Địa chỉ:</label>
-          <span>Nhà số ...., đường, xã ..., huyện ...., tỉnh .....</span>
+          <span>{{hsba.emrBenhNhan.diachinguoibaotin}}</span>
         </div>
         <div class="col-6">
           <span>Điện thoại số:
@@ -204,9 +190,9 @@
               <label><b class="text-primary mr-1">12.</b>Trực tiếp vào: </label>
               <br>
               <div class="ml-3">
-                <input disabled type="checkbox"> <span class="mr-3">1.Cấp cứu</span>
-                <input disabled checked type="checkbox"> <span class="mr-3">2.KKB</span>
-                <input disabled type="checkbox"> <span class="mr-3">3.Khoa điều trị</span>
+                <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao.ma') == '01' " type="checkbox"> <span class="mr-3">1.Cấp cứu</span>
+                <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao.ma') == '02' " type="checkbox"> <span class="mr-3">2.KKB</span>
+                <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao.ma') == '03' " type="checkbox"> <span class="mr-3">3.Khoa điều trị</span>
               </div>
             </div>
           </div>
@@ -217,9 +203,9 @@
               <label><b class="text-primary mr-1">13.</b>Nơi giới thiệu: </label>
               <br>
               <div class="ml-3">
-                <input disabled type="checkbox"> <span class="mr-3">1.Cơ quan y tế</span>
-                <input disabled checked type="checkbox"> <span class="mr-3">2.Tự đến</span>
-                <input disabled type="checkbox"> <span class="mr-3">3.Khác</span>
+                <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmNoiGioiThieu.ma') == '01' " type="checkbox"> <span class="mr-3">1.Cơ quan y tế</span>
+                <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmNoiGioiThieu.ma') == '02' " type="checkbox"> <span class="mr-3">2.Tự đến</span>
+                <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmNoiGioiThieu.ma') == '03' " type="checkbox"> <span class="mr-3">3.Khác</span>
               </div>
             </div>
           </div>
@@ -227,7 +213,7 @@
             <div class="col">
               <label><i class="fas fa-fw bullet-small fa-circle"></i>
                 Vào viện do bệnh này lần thứ:</label>
-              <span>5</span>
+              <span>{{hsba.emrQuanLyNguoiBenh.vaovienlanthu}}</span>
             </div>
           </div>
         </div>
@@ -285,9 +271,9 @@
               <label><b class="text-primary mr-1">16.</b>Chuyển viện:</label>
               <br>
               <div class="ml-3">
-                <input disabled checked type="checkbox"> <span class="mr-3">1.Tuyến trên</span>
-                <input disabled type="checkbox"> <span class="mr-3">2.Tuyến dưới</span>
-                <input disabled type="checkbox"> <span class="mr-3">3.CK</span>
+                <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiChuyenVien.ma') == '01' " type="checkbox"> <span class="mr-3">1.Tuyến trên</span>
+                <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiChuyenVien.ma') == '02' " type="checkbox"> <span class="mr-3">2.Tuyến dưới</span>
+                <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiChuyenVien.ma') == '03' " type="checkbox"> <span class="mr-3">3.CK</span>
               </div>
             </div>
           </div>
@@ -309,17 +295,17 @@
               <label>/</label> <span>2020</span>
               <br>
               <div class="ml-3">
-                <input disabled checked type="checkbox"> <span class="mr-3">1.Ra viện</span>
-                <input disabled type="checkbox"> <span class="mr-3">2.Xin về</span>
-                <input disabled type="checkbox"> <span class="mr-3">3.Bỏ về</span>
-                <input disabled type="checkbox"> <span class="mr-3">4.Đưa về</span>
+                <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiRaVien.ma') == '01' " type="checkbox"> <span class="mr-3">1.Ra viện</span>
+                <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiRaVien.ma') == '02' " type="checkbox"> <span class="mr-3">2.Xin về</span>
+                <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiRaVien.ma') == '03' " type="checkbox"> <span class="mr-3">3.Bỏ về</span>
+                <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiRaVien.ma') == '04' " type="checkbox"> <span class="mr-3">4.Đưa về</span>
               </div>
             </div>
           </div>
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">18.</b>Tổng số ngày điều trị: </label>
-              <span>10</span>
+              <span>{{ hsba.emrQuanLyNguoiBenh.tongsongaydieutri}} ngày</span>
             </div>
           </div>
 
@@ -340,7 +326,7 @@
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">19.</b>Nơi chuyển đến: </label>
-              <span>Vàng da do thiếu máu .....</span>
+              <span>{{hsba.emrQuanLyNguoiBenh.noichuyenden}}</span>
               <form class="form-inline input-lr2 float-right">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
@@ -353,7 +339,7 @@
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">20.</b>KKB, Cấp cứu: </label>
-              <span>Vàng da do thiếu máu .....</span>
+              <span>{{hsba.emrChanDoan.emrDmMaBenhChandoankkb.ten}}</span>
               <form class="form-inline input-lr2 float-right">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
@@ -370,7 +356,7 @@
           </div>
           <div class="row mb-2">
             <div class="col">
-              <span>Vàng da do thiếu máu .....</span>
+              <span>{{hsba.emrChanDoan.emrDmMaBenhChandoandieutri.ten}}</span>
               <form class="form-inline input-lr2 float-right">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
@@ -383,8 +369,8 @@
           <div class="row mb-2">
             <div class="col">
               <div class="ml-3">
-                <input disabled type="checkbox"> <span class="mr-3">Tai biến</span>
-                <input disabled type="checkbox"> <span class="mr-3">Biến chứng</span>
+                <input disabled :checked="attr(hsba, 'emrChanDoan.bitaibien') == 'true' " type="checkbox"> <span class="mr-3">Tai biến</span>
+                <input disabled :checked="attr(hsba, 'emrChanDoan.bibienchung') == 'true' "type="checkbox"> <span class="mr-3">Biến chứng</span>
               </div>
             </div>
           </div>
@@ -396,7 +382,7 @@
           </div>
           <div class="row mb-2">
             <div class="col">
-              <span>Vàng da do thiếu máu .....</span>
+              <span>{{hsba.emrChanDoan.tongsongaysaupt}}</span>
               <form class="form-inline input-lr2 float-right">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
@@ -413,7 +399,7 @@
           </div>
           <div class="row mb-2">
             <div class="col">
-              <span>Tắm trắng .....</span>
+              <span>{{hsba.emrChanDoan.tongsolanpt}}</span>
               <form class="form-inline input-lr2 float-right">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
                 <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
@@ -434,7 +420,7 @@
           <div class="row mb-2">
             <div class="col ml-4">
               <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh chính:</label><br>
-              <span>Vàng da do thiếu máu .....</span>
+              <span>{{hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten}}</span>
               <form class="form-inline input-lr2 float-right">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
@@ -446,7 +432,7 @@
 
           <div class="row mb-2">
             <div class="col ml-4">
-              <span> <i>Nguyên nhân:</i> Vàng da do thiếu máu .....</span>
+              <span> <i>Nguyên nhân:</i> {{hsba.emrChanDoan.emrDmLyDoTaiBienBienChung.motachandoanraviennguyennhan}}</span>
               <form class="form-inline input-lr2 float-right">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
@@ -460,7 +446,7 @@
             <div class="col ml-4">
               <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh kèm
                 theo:</label><br>
-              <span>Vàng da do thiếu máu .....</span>
+              <span>{{hsba.emrChanDoan.emrDmLyDoTaiBienBienChung.motachandoanravienkemtheo}}</span>
               <form class="form-inline input-lr2 float-right">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
@@ -473,7 +459,7 @@
           <div class="row mb-2">
             <div class="col ml-4">
               <label><i class="fas fa-fw bullet-small fa-circle"></i> Chẩn đoán trước phẫu thuật: </label><br>
-              <span>Vàng da do thiếu máu .....</span>
+              <span>{{hsba.emrChanDoan.emrDmLyDoTaiBienBienChung.motachandoantruocpt}}</span>
               <form class="form-inline input-lr2 float-right">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
@@ -486,7 +472,7 @@
           <div class="row mb-2">
             <div class="col ml-4">
               <label><i class="fas fa-fw bullet-small fa-circle"></i> Chẩn đoán sau phẫu thuật: </label><br>
-              <span>Vàng da do thiếu máu .....</span>
+              <span>{{hsba.emrChanDoan.emrDmLyDoTaiBienBienChung.motachandoansaupt}}</span>
               <form class="form-inline input-lr2 float-right">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
@@ -508,15 +494,15 @@
               <label><b class="text-primary mr-1">25.</b>Kết quả điều trị: </label>
               <br>
               <div class="ml-3">
-                <input disabled checked type="checkbox"> <span class="mr-3">1.Khỏi</span>
+                <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmKetQuaDieuTri.ma') == '01' " type="checkbox"> <span class="mr-3">1.Khỏi</span>
                 <br>
-                <input disabled type="checkbox"> <span class="mr-3">2.Đỡ, giảm</span>
+                <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmKetQuaDieuTri.ma') == '02' " type="checkbox"> <span class="mr-3">2.Đỡ, giảm</span>
                 <br>
-                <input disabled type="checkbox"> <span class="mr-3">3.Không thay đổi</span>
+                <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmKetQuaDieuTri.ma') == '03' " type="checkbox"> <span class="mr-3">3.Không thay đổi</span>
                 <br>
-                <input disabled type="checkbox"> <span class="mr-3">4.Nặng hơn</span>
+                <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmKetQuaDieuTri.ma') == '04' " type="checkbox"> <span class="mr-3">4.Nặng hơn</span>
                 <br>
-                <input disabled type="checkbox"> <span class="mr-3">5.Tử vong</span>
+                <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmKetQuaDieuTri.ma') == '05' " type="checkbox"> <span class="mr-3">5.Tử vong</span>
               </div>
             </div>
           </div>
@@ -526,9 +512,9 @@
               <label><b class="text-primary mr-1">26.</b>Giải phẫu bệnh <i>(khi có sinh thiết):</i></label>
               <br>
               <div class="ml-3">
-                <input disabled checked type="checkbox"> <span class="mr-3">1.Lành tính</span>
-                <input disabled type="checkbox"> <span class="mr-3">2.Nghi ngờ</span>
-                <input disabled type="checkbox"> <span class="mr-3">3.Ác tính</span>
+                <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmKetQuaGiaiPhauBenh.ma') == '01' " type="checkbox"> <span class="mr-3">1.Lành tính</span>
+                <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmKetQuaGiaiPhauBenh.ma') == '02' " type="checkbox"> <span class="mr-3">2.Nghi ngờ</span>
+                <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmKetQuaGiaiPhauBenh.ma') == '03' " type="checkbox"> <span class="mr-3">3.Ác tính</span>
               </div>
             </div>
           </div>
@@ -548,9 +534,9 @@
           <div class="row mb-2">
             <div class="col">
               <div class="ml-3">
-                <input disabled type="checkbox"> <span class="mr-3">1.Do bệnh</span>
-                <input disabled type="checkbox"> <span class="mr-3">2.Do tai biến điều trị</span>
-                <input disabled type="checkbox"> <span class="mr-3">3.Khác</span>
+                <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmLyDoTuVong.ma') == '01' " type="checkbox"> <span class="mr-3">1.Do bệnh</span>
+                <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmLyDoTuVong.ma') == '02' " type="checkbox"> <span class="mr-3">2.Do tai biến điều trị</span>
+                <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmLyDoTuVong.ma') == '03' " type="checkbox"> <span class="mr-3">3.Khác</span>
               </div>
             </div>
           </div>
@@ -572,7 +558,7 @@
 
           <div class="row mb-2">
             <div class="col">
-              <label><i class="fas fa-fw bullet-small fa-circle"></i> Thiếu tiền .....</label>
+              <span>{{hsba.emrTinhTrangRaVien.emrDmNguyennhantuvong.ten}}</span>
               <form class="form-inline input-lr2 float-right">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
@@ -584,14 +570,15 @@
 
           <div class="row mb-2">
             <div class="col">
-              <label><b class="text-primary mr-1">29.</b>Khám nghiệm tử thi: </label> <input type="checkbox" disabled>
+              <label><b class="text-primary mr-1">29.</b>Khám nghiệm tử thi: </label> 
+              <input :checked="attr(hsba, 'emrTinhTrangRaVien.khamnghiemtuthi') == 'true'" type="checkbox" disabled>
             </div>
           </div>
 
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">30.</b>Chẩn đoán giải phẫu tử thi: </label> <br>
-              <i class="fas fa-fw bullet-small fa-circle"></i><span> Không thấy gì .....</span>
+                <span>{{hsba.emrTinhTrangRaVien.emrDmGiaiphaututhi.ten}}</span>
               <form class="form-inline input-lr2 float-right">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
@@ -630,11 +617,11 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Vào viện do .....</span>
+        <i class="fas fa-fw bullet fa-circle"></i>{{hsba.emrBenhAn.lydovaovien}}
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Vào ngày thứ <u>5</u> của bệnh</span>
+      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Vào ngày thứ <u>xxx5</u> của bệnh</span>
     </div>
 
     <div class="row mt-2">
@@ -644,7 +631,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">Quá trình bệnh lý</span>
+      <span class="ml-4">{{hsba.emrBenhAn.quatrinhbenhly}}</span>
     </div>
 
     <div class="row mt-2">
@@ -654,11 +641,11 @@
     </div>
     <div class="row mt-2"> 
       <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Bản thân: <i>(những bệnh đã mắc, dị ứng, thói quen ăn uống, sinh hoạt, khác  ...)</i></span>
-      <span>................</span>
+      <span class="ml-4">{{hsba.emrBenhAn.tiensubanthan}}</span>
     </div> 
     <div class="row mt-2"> 
       <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Gia đình</span>
-      <span>................</span>
+      <span class="ml-4">{{hsba.emrBenhAn.tiensugiadinh}}</span>
     </div> 
 
     <div class="row mt-2">
@@ -677,7 +664,7 @@
         
         <div class="row mt-2"> 
           <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Tính chất kinh nguyệt:</span>
-          <span>................</span>
+          <span>{{hsba.emrBenhAn.emrCkTienSuPhuKhoa.tinhchatkinhnguyet}}</span>
         </div> 
 
         <div class="row mt-2"> 
@@ -694,7 +681,7 @@
       <div class="col-6">
         <div class="row mt-2"> 
           <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Số ngày thấy kinh ... Lượng kinh:</span>
-          <span>................</span>
+          <span>{{hsba.emrBenhAn.emrCkTienSuPhuKhoa.luongkinh}}</span>
         </div> 
 
         <div class="row mt-2"> 
@@ -747,7 +734,7 @@
         <b>1. Toàn thân</b></span>
     </div>
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Da niêm mạc .....</span>
+      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Da niêm mạc: {{hsba.emrBenhAn.emrCkToanThan.niemmac}}</span>
     </div>
     <div class="row-mt-2">
       <ul>
@@ -772,7 +759,7 @@
       <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Hạch:.....</span>
     </div>
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Vú:.....</span>
+      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Vú: {{hsba.emrBenhAn.emrCkToanThan.vuMota}}</span>
     </div>
     <div class="row mt-2">
       <span>
@@ -781,25 +768,25 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Tuần hoàn: </span>
+      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Tuần hoàn: {{hsba.emrBenhAn.tuanhoan}}</span>
     </div>
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Hô hấp:</span>
+      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Hô hấp: {{hsba.emrBenhAn.hohap}}</span>
     </div>
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Tiêu hóa:</span>
+      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Tiêu hóa: {{hsba.emrBenhAn.tieuhoa}}</span>
     </div>
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Thần kinh</span>
+      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Thần kinh: {{hsba.emrBenhAn.thankinh}}</span>
     </div>
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Cơ - Xương - Khớp:</span>
+      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Cơ - Xương - Khớp: {{hsba.emrBenhAn.coxuongkhop}}</span>
     </div>
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Thận - Tiết niệu:</span>
+      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Thận - Tiết niệu: {{hsba.emrBenhAn.tietnieusinhduc}}</span>
     </div>
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Khác</span>
+      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Khác: {{hsba.emrBenhAn.coquankhac}}</span>
     </div>
 
 
@@ -816,25 +803,25 @@
           </span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Các dấu hiệu sinh dục thứ phát: ...</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Các dấu hiệu sinh dục thứ phát: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.dauhieusinhducthuphat}}</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Môi lớn: </span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Môi lớn: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.moilon}}</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Môi bé: ...</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Môi bé: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.moibe}}</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Âm vật: ...</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Âm vật: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.amvat}}</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Âm hộ: ...</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Âm hộ: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.amho}}</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Màng trinh: ... </span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Màng trinh: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.mangtrinh}}</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Tầng sinh môn: ... </span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Tầng sinh môn: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.tangsinhmon}}</span>
         </div>
 
       </div>
@@ -845,19 +832,19 @@
           </span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Âm đạo: ... </span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Âm đạo: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.amdao}}</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Cổ tử cung: ... </span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Cổ tử cung: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.cotucung}}</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Thân tử cung: ... </span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Thân tử cung: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.thantucung}}</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Phần phụ: ... </span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Phần phụ: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.phanphu}}</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Các túi cùng: ... </span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Các túi cùng: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.cactuicung}}</span>
         </div>
 
       </div>
@@ -870,7 +857,7 @@
       </span>
     </div>
     <div class="row mt-2">
-      <span class="ml-4"> .....</span>
+      <span class="ml-4">{{hsba.emrBenhAn.xetnghiemcanlamsang}}</span>
     </div>
 
     <div class="row mt-2">
@@ -879,7 +866,7 @@
       </span>
     </div>
     <div class="row mt-2">
-      <span class="ml-4"> .....</span>
+      <span class="ml-4">{{hsba.emrBenhAn.tomtat}}</span>
     </div>
     <div class="row mt-3">
       <h5 class="text-tle">IV. Chuẩn đoán khi vào khoa điều trị:</h5>
@@ -892,7 +879,7 @@
     </div>
 
     <div class="row mt-2 ml-3">
-      <span class="ml-4">Bệnh chính .....</span>
+      <span class="ml-4">{{hsba.emrBenhAn.emrDmMaBenhChandoanbenhchinh.ten}}</span>
     </div>
 
     <div class="row mt-3 ml-2">
@@ -920,7 +907,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">Tiên lượng .....</span>
+      <span class="ml-4">{{hsba.emrBenhAn.tienluong}}</span>
     </div>
 
     <div class="row mt-3">
@@ -928,7 +915,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">Hướng điều trị .....</span>
+      <span class="ml-4">{{hsba.emrBenhAn.huongdieutri}}</span>
     </div>
 
     <div class="row mt-3">
@@ -951,7 +938,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">Quá trình bệnh lý và diễn biến lâm sàng .....</span>
+      <span class="ml-4">{{hsba.emrTongKetRaVien.dienbienlamsang}}</span>
     </div>
 
     <div class="row mt-3">
@@ -961,7 +948,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">Tóm tắt kết quả xét nghiệm cận lâm sàng có giá trị chẩn đoán .....</span>
+      <span class="ml-4">{{hsba.emrTongKetRaVien.canlamsang}}</span>
     </div>
 
     <div class="row mt-3">
@@ -971,7 +958,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">Phương pháp điều trị .....</span>
+      <span class="ml-4">{{hsba.emrTongKetRaVien.phuongphapdieutri}}</span>
     </div>
 
     <div class="row mt-2">
@@ -1016,7 +1003,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">Tình trạng người bệnh ra viện .....</span>
+      <span class="ml-4">{{hsba.emrTongKetRaVien.tinhtrangnguoibenh}}</span>
     </div>
 
     <div class="row mt-3">
@@ -1026,7 +1013,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">Hướng điều trị và các chế độ tiếp theo .....</span>
+      <span class="ml-4">{{hsba.emrTongKetRaVien.chidandieutri}}</span>
     </div>
 
     <div class="row mt-3">
@@ -1044,7 +1031,7 @@
               <i>Ngày <span>10</span> tháng <span>01</span> năm <span>2020</span></i>
               <h6 class="text-center mt-2 mb-5">Bác sĩ điều trị</h6>
               <br>
-              <p>Họ và tên <b></b></p>
+              <p>Họ và tên <b>{{hsba.emrTongKetRaVien.bacsydieutri}}</b></p>
             </div>
           </td>
         </tr>
