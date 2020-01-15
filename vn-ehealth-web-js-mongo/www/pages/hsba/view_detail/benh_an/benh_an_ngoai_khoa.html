@@ -526,10 +526,10 @@
               <label><b class="text-primary mr-1">27.</b>Giải phẫu bệnh <i>(khi có sinh thiết):</i></label>
               <br>
               <div class="ml-3">
-                <input disabled type="checkbox"> <span class="mr-3">1.Lành tính</span>
-                <input disabled type="checkbox"> <span class="mr-3">2.Nghi ngờ</span>
-                <input disabled type="checkbox"> <span class="mr-3">3.Ác tính</span>
-              </div>
+                <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmKetQuaGiaiPhauBenh.ma') == '01' "  type="checkbox"> <span class="mr-3">1.Lành tính</span>
+                <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmKetQuaGiaiPhauBenh.ma') == '02' " type="checkbox"> <span class="mr-3">2.Nghi ngờ</span>
+                <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmKetQuaGiaiPhauBenh.ma') == '03' " type="checkbox"> <span class="mr-3">3.Ác tính</span>
+             </div>
             </div>
           </div>
         </div>
