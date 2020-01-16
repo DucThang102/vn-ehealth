@@ -92,9 +92,7 @@ var benh_an_chi_tiet_script = {
     }
   },
 
-  methods: {
-
-  }
+  methods: {}
 };
 
 VueAsyncComponent(
@@ -169,5 +167,15 @@ VueAsyncComponent(
 VueAsyncComponent(
   "benh-an-tmh",
   "/pages/hsba/view_detail/benh_an/benh_an_tmh.html",
+  { props: ["hsba"] }
+);
+VueAsyncComponent(
+  "benh-an-noi-tru-yhct",
+  "/pages/hsba/view_detail/benh_an/benh_an_noi_tru_yhct.html",
+  { props: ["hsba"] }
+);
+VueAsyncComponent(
+  "benh-an-ngoai-tru-yhct",
+  "/pages/hsba/view_detail/benh_an/benh_an_ngoai_tru_yhct.html",
   { props: ["hsba"] }
 );
