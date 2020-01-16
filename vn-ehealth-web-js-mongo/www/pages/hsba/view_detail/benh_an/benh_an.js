@@ -13,6 +13,16 @@ var benh_an_script = {
 
   methods: {
     printToPdf: function() {
+      $("#benh_an input").each(function(){
+        $(this).attr("value", $(this).val());
+      });
+
+      $("#benh_an input[type=checkbox]").each(function(){
+        if($(this).prop('checked')) {
+          $(this).attr("checked", "checked");
+        }
+      });
+
       var body = $("#benh_an").html();
       var wnd = window.open("", ""); //window.open('', '', 'width=1024');
       wnd.document.write(`<html><head>
