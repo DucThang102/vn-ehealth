@@ -464,12 +464,9 @@
           <div class="row mb-2">
             <div class="col ml-4">
               <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh chính:</label><br>
-              <span>{{hsba.emrTinhTrangRaVien.emrDmNguyennhantuvong.ten}}</span>
+              <span>{{nguyenNhanTuVong.ten}}</span>
               <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+                <input v-for="c in toCharArray(nguyenNhanTuVong.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
               </form>
             </div>
           </div>
