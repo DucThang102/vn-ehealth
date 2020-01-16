@@ -351,6 +351,8 @@
       </div>
       <div class="row mb-2">
         <div class="col-6">
+
+
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">20.</b>Nơi chuyển đến: </label>
@@ -405,8 +407,8 @@
           <div class="row">
             <div class="col">
               <div class="ml-3">
-                <input disabled  type="checkbox"> <span class="mr-3">Thủ thuật</span>
-                <input disabled  type="checkbox"> <span class="mr-3">Phẫu thuật</span>
+                <input disabled :checked="attr(hsba, 'coThuThuat') == 'true'"  type="checkbox"> <span class="mr-3">Thủ thuật</span>
+                <input disabled :checked="attr(hsba, 'coPhauThuat') == 'true'" type="checkbox"> <span class="mr-3">Phẫu thuật</span>
               </div>
             </div>
           </div>
