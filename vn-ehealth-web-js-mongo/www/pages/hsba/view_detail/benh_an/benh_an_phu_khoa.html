@@ -963,10 +963,12 @@
 
     <div class="row mt-2">
       <span class="ml-4">
-        <input disabled type="checkbox" class="ml-2 mr-2">Phẫu thuật
-        <input disabled type="checkbox" class="ml-2 mr-2">Thủ thuật
+        <input disabled :checked="attr(hsba, 'coPhauThuat') == 'true'" type="checkbox" class="ml-2 mr-2">Phẫu thuật
+        <input disabled  :checked="attr(hsba, 'coThuThuat') == 'true'" type="checkbox" class="ml-2 mr-2">Thủ thuật
       </span>
     </div>
+
+    
 
     <div class="row mt-2">
       <table class="table table-bordered mt-3 ml-4 mr-4" style="width: 80%;"> 
