@@ -12,6 +12,11 @@
     <benh-an-da-lieu :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='08'"></benh-an-da-lieu>    
     <benh-an-dd :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='09'"></benh-an-dd>    
     <benh-an-hhtm :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='10'"></benh-an-hhtm>    
+    <benh-an-rhm :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='14'"></benh-an-rhm>   
+    <benh-an-tmh :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='15'"></benh-an-tmh>    
+    <benh-an-noi-tru-yhct :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='35'"></benh-an-noi-tru-yhct>
+    <benh-an-ngoai-tru-yhct :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='34'"></benh-an-ngoai-tru-yhct>    
+    
 	
   </body>
   <button id="printButton" class="d-none btn btn-primary btn-sm" v-on:click="printToPdf()">In tờ bệnh án</button>
