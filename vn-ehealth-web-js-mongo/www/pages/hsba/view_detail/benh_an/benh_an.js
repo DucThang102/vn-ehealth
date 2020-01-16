@@ -126,3 +126,13 @@ VueAsyncComponent(
   "/pages/hsba/view_detail/benh_an/benh_an_hhtm.html",
   { props: ["hsba"] }
 );
+VueAsyncComponent(
+  "benh-an-rhm",
+  "/pages/hsba/view_detail/benh_an/benh_an_rhm.html",
+  { props: ["hsba"] }
+);
+VueAsyncComponent(
+  "benh-an-tmh",
+  "/pages/hsba/view_detail/benh_an/benh_an_tmh.html",
+  { props: ["hsba"] }
+);
