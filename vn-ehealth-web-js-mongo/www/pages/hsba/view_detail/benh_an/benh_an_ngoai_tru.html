@@ -111,16 +111,8 @@
           >
           <span>{{ hsba.emrBenhNhan.emrDmNgheNghiep.ten}}</span>
           <form class="form-inline input-lr2 float-right">
-            <input
-              readonly
-              value=""
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
-            <input
-              readonly
-              value=""
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
+            <input v-for="c in toCharArray(maNgheNghiep)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
+
           </form>
         </div>
       </div>

@@ -87,6 +87,10 @@ var benh_an_chi_tiet_script = {
       return tuoi;
     },
 
+    maNgheNghiep() {
+      return attr(this.hsba, "emrBenhNhan.emrDmNgheNghiep.ma") || '';
+    },
+
     maDanToc() {
       return attr(this.hsba, "emrBenhNhan.emrDmDanToc.ma") || '';
     },
@@ -183,6 +187,26 @@ var benh_an_chi_tiet_script = {
 
     chanDoanRaVienChinh() {
       return attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoanravienchinh") || {ma:'',ten:''};
+    },
+
+    chanDoanRaVienNguyenNhan() {
+      return attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoanraviennguyennhan") || {ma:'',ten:''};
+    },
+
+    chanDoanTruocPt() {
+      var chanDoanTruocPtList = attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoantruocpts");
+      if(chanDoanTruocPtList && chanDoanTruocPtList.length > 0) {
+        return chanDoanTruocPtList[0];
+      }
+      return {ma: '', ten: ''};
+    },
+
+    chanDoanSauPt() {
+      var chanDoanSauPtList = attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoansaupts");
+      if(chanDoanSauPtList && chanDoanSauPtList.length > 0) {
+        return chanDoanSauPtList[0];
+      }
+      return {ma: '', ten: ''};
     },
 
     chanDoanRaVienKemTheo() {

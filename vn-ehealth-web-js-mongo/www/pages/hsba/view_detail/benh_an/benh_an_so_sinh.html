@@ -468,11 +468,7 @@
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">26.</b>Tình hình tử vong: </label>
-              <span>21</span> <label>giờ</label>
-              <span>50</span> <label>ph</label>
-              <label>ngày</label> <span>25</span>
-              <label>/</label> <span>11</span>
-              <label>/</label> <span>2019</span>
+              <span>{{ formatNgayGio(ngayGioTuVong) }}</span>
             </div>
           </div>
 
@@ -504,12 +500,9 @@
           <div class="row mb-2">
             <div class="col ml-4">
               <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh chính:</label><br>
-              <span>{{hsba.emrTinhTrangRaVien.emrDmNguyennhantuvong.ten}}</span>
+              <span>{{nguyenNhanTuVong.ten}}</span>
               <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+                <input v-for="c in toCharArray(nguyenNhanTuVong.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
               </form>
             </div>
           </div>
@@ -544,13 +537,13 @@
         <div class="col text-center">
           <h6 class="mb-5">Giám đốc bệnh viện</h6>
           <br>
-          <p>Họ và tên <b>Nguyễn Văn Bác Sỹ</b></p>
+          <p>Họ và tên <b>{{hsba.giamdocbenhvien}}</b></p>
         </div>
         <div class="col text-center">
-          <i class="mb-2">Ngày <span>10</span> tháng <span>01</span> năm <span>2020</span></i>
+          <i class="mb-2">{{formatNgay2(ngayGioRaVien)}}</i>
           <h6 class="text-center mb-5">Trưởng khoa</h6>
           <br>
-          <p>Họ và tên <b>Nguyễn Văn Bác Sỹ</b></p>
+          <p>Họ và tên <b>{{khoaDieuTri.tentruongkhoa}}</b></p>
         </div>
       </div>
     </section>
@@ -917,7 +910,7 @@
 
     <div class="row mt-3">
       <div class="col text-center offset-6">
-        <i class="mb-2">Ngày <span>10</span> tháng <span>01</span> năm <span>2020</span></i>
+        <i class="mb-2">{{formatNgay2(ngayKyBenhAn)}}</i>
         <h6 class="text-center mb-5">Bác sĩ làm bệnh án</h6>
         <br>
         <p class="">Họ và tên <b>{{hsba.emrBenhAn.bacsylambenhan}}</b></p>
