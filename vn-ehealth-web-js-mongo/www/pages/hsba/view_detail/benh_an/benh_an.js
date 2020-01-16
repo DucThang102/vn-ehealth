@@ -67,32 +67,172 @@ var benh_an_chi_tiet_script = {
 
   computed: {
     ngaySinhBenhNhan() {
-      return attr(this.hsba, "emrBenhNhan.ngaysinh");
+      return attr(this.hsba, "emrBenhNhan.ngaysinh") || '';
     },
+    tuoiBenhNhan() {
+      var tuoi = (this.hsba.tuoiBenhNhan || '') + '';
+      if(tuoi.length == 1) {
+        return '0' + tuoi;
+      }
+      return tuoi;
+    },
+
+    maDanToc() {
+      return attr(this.hsba, "emrBenhNhan.emrDmDanToc.ma") || '';
+    },
+
     maQuocTich() {
-      return attr(this.hsba, "emrBenhNhan.emrDmQuocGia.ma");
+      return attr(this.hsba, "emrBenhNhan.emrDmQuocGia.ma") || '';
     },
+
     maQuanHuyen() {
-      return attr(this.hsba, "emrBenhNhan.emrDmQuanHuyen.ma");
+      return attr(this.hsba, "emrBenhNhan.emrDmQuanHuyen.ma") || '';
     },
+
     maTinhThanh() {
-      return attr(this.hsba, "emrBenhNhan.emrDmTinhThanh.ma");
+      return attr(this.hsba, "emrBenhNhan.emrDmTinhThanh.ma") || '';
     },
+
     soTheBHYT() {
-      return attr(this.hsba, "emrBenhNhan.sobhyt");
+      return attr(this.hsba, "emrBenhNhan.sobhyt") || '';
     },
+
     ngayHetHanBHYT() {
-      return attr(this.hsba, "emrBenhNhan.ngayhethanthebhyt");
+      return attr(this.hsba, "emrBenhNhan.ngayhethanthebhyt") || '';
     },
+
     soDienThoai() {
-      return attr(this.hsba, "emrBenhNhan.sodienthoainguoibaotin");
+      return attr(this.hsba, "emrBenhNhan.sodienthoainguoibaotin") || '';
     },
+
     diaChi() {
-      return attr(this.hsba, "emrBenhNhan.diachi");
-    }
+      return attr(this.hsba, "emrBenhNhan.diachi") || '';
+    },
+
+    ngayGioVaoVien() {
+      return this.hsba.emrQuanLyNguoiBenh.ngaygiovaovien || ';'
+    },
+
+    ngayGioRaVien() {
+      return this.hsba.emrQuanLyNguoiBenh.ngaygioravien || ';'
+    },
+
+    ngayKyBenhAn() {
+      return this.hsba.emrBenhAn.ngaykybenhan || '';
+
+    },
+
+    ngayKyDieuTri() {
+      return this.hsba.emrTongKetRaVien.ngaybacsydieutriky || ';'
+    },
+
+    ngayGioTuVong() {
+      return this.hsba.emrTinhTrangRaVien.ngaygiotuvong || ';'
+    },
+
+    khoaDieuTri() {
+      if(this.hsba.emrVaoKhoas.length > 0) {
+        var n = this.hsba.emrVaoKhoas.length;
+        return this.hsba.emrVaoKhoas[n-1];
+      }
+      return {};
+    },
+
+    tenKhoaDieuTri() {
+      var khoa = this.khoaDieuTri;
+      return khoa.tenkhoa || attr(khoa, "emrDmKhoaDieuTri.ten");
+    },
+
+    ngayKetThucDieuTri() {
+      return this.khoaDieuTri.ngayketthucdieutri;
+    },
+
+    chanDoanNoiDen() {
+      return attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoannoiden") || {ma:'',ten:''};
+    },
+
+    chanDoanKKB() {
+      return attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoankkb") || {ma:'',ten:''};
+    },
+
+    chandoanVaoKhoaDieuTri() {
+      return attr(this.hsba, "emrBenhAn.emrDmMaBenhChandoanbenhchinh") || {ma:'',ten:''};
+    },
+
+    chandoanVaoKhoaDieuTriPhanBiet() {
+      return attr(this.hsba, "emrBenhAn.emrDmMaBenhChandoanphanbiet") || {ma:'',ten:''};
+    },
+
+    chandoanVaoKhoaDieuTriKemTheo() {
+      var chanDoanKemTheoList = attr(this.hsba, "emrBenhAn.emrDmMaBenhChandoankemtheos");
+      if(chanDoanKemTheoList && chanDoanKemTheoList.length > 0) {
+        return chanDoanKemTheoList[0];
+      }
+      return {ma: '', ten: ''};
+    },
+
+    chanDoanRaVienChinh() {
+      return attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoanravienchinh") || {ma:'',ten:''};
+    },
+
+    chanDoanRaVienKemTheo() {
+      var chanDoanRaVienKemTheoList = attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoanravienkemtheos");
+      if(chanDoanRaVienKemTheoList && chanDoanRaVienKemTheoList.length > 0) {
+        return chanDoanRaVienKemTheoList[0];
+      }
+      return {ma: '', ten: ''};
+    },
+
+    nguyenNhanTuVong() {
+      return attr(this.hsba, "emrTinhTrangRaVien.emrDmNguyennhantuvong") || {ma:'',ten:''};
+    },
+
+    giaiPhauTuThi() {
+      return attr(this.hsba, "emrTinhTrangRaVien.emrDmGiaiphaututhi") || {ma:'',ten:''};
+    },
   },
 
-  methods: {}
+  methods: {
+    toCharArray(st) {
+      return (st || '').replace('.', '').split('');
+    },
+
+    getTenKhoa(khoa) {
+      return khoa.tenkhoa || attr(khoa, "emrDmKhoaDieuTri.ten");
+    },
+
+    formatNgayGio(ngaygio) {
+      if(ngaygio.length == 16) {
+        var ngay = ngaygio.substring(0, 2);
+        var thang = ngaygio.substring(3, 5);
+        var nam = ngaygio.substring(6, 10);
+        var gio = ngaygio.substring(11, 13);
+        var phut = ngaygio.substring(14, 16);
+        return `${gio} giờ ${phut} ph ngày ${ngay}/${thang}/${nam}`;
+      }
+      return "... giờ ... ph ngày .../.../......";
+    },
+
+    formatNgay(ngaygio) {
+      if(ngaygio.length >= 10) {
+        var ngay = ngaygio.substring(0, 2);
+        var thang = ngaygio.substring(3, 5);
+        var nam = ngaygio.substring(6, 10);
+        return `${ngay} tháng ${thang} năm ${nam}`;
+      }
+      return '... tháng ... năm ......';
+    },
+
+    formatNgay2(ngaygio) {
+      if(ngaygio.length >= 10) {
+        var ngay = ngaygio.substring(0, 2);
+        var thang = ngaygio.substring(3, 5);
+        var nam = ngaygio.substring(6, 10);
+        return `Ngày ${ngay} tháng ${thang} năm ${nam}`;
+      }
+      return 'Ngày ... tháng ... năm ......';
+    }
+  }
 };
 
 VueAsyncComponent(
