@@ -308,7 +308,15 @@ public class EmrHoSoBenhAn {
     }
     
     public String getTuoiBenhNhan() {
-        return JasperUtils.getTuoi(this);
+        var tuoi = JasperUtils.getTuoi(this);
+        var arr = tuoi.split(" ");
+        return arr[0];
+    }
+    
+    public String getDonViTuoiBenhNhan() {
+        var tuoi = JasperUtils.getTuoi(this);
+        var arr = tuoi.split(" ");
+        return arr.length > 1? arr[1] : "";        
     }
     
     public String getKhoaRaVien() {

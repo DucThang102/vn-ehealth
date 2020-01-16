@@ -32,9 +32,9 @@ import vn.ehealth.emr.utils.Constants.VaiTroPTTT;
 @Component
 public class JasperUtils extends JRDefaultScriptlet  {
     
-    final static String STR_TUOI = " tuổi";
-    final static String STR_THANG = " tháng";
-    final static String STR_NGAY = " ngày";
+    final static String STR_TUOI = "";
+    final static String STR_THANG = " Tháng";
+    final static String STR_NGAY = " Ngày";
     final String EMR_REPORT_DATE_FORMAT = "yyyyMMddHHmmss";
     
     final String reportDateFormat_DDMMYYYY = "'Ngày' dd 'tháng' MM 'năm' yyyy";

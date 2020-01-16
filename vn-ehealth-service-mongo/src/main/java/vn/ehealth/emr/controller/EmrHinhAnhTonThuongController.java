@@ -28,6 +28,12 @@ public class EmrHinhAnhTonThuongController {
     
     @Autowired EmrHinhAnhTonThuongService emrHinhAnhTonThuongService;
 
+    @GetMapping("/get_hatt")
+    public ResponseEntity<?> getHatt(@RequestParam("hatt_id") String id) {
+        var hatt = emrHinhAnhTonThuongService.getById(new ObjectId(id));
+        return ResponseEntity.of(hatt);
+    }
+    
     @GetMapping("/get_ds_hatt")
     public ResponseEntity<?> getDsHatt(@RequestParam("hsba_id") String hsbaId) {
         var hattList = emrHinhAnhTonThuongService.getByEmrHoSoBenhAnId(new ObjectId(hsbaId));

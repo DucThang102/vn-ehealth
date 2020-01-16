@@ -1,6 +1,7 @@
 package vn.ehealth.emr.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,9 @@ public class EmrHinhAnhTonThuongService {
 
     @Autowired EmrHinhAnhTonThuongRepository emrHinhAnhTonThuongRepository;
     
+    public Optional<EmrHinhAnhTonThuong> getById(ObjectId id) {
+        return emrHinhAnhTonThuongRepository.findById(id);
+    }
     public List<EmrHinhAnhTonThuong> getByEmrHoSoBenhAnId(ObjectId emrHoSoBenhAnId) {
         return emrHinhAnhTonThuongRepository.findByEmrHoSoBenhAnId(emrHoSoBenhAnId);
     }

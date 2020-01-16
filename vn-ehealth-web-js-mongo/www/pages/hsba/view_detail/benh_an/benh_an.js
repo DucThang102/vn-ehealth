@@ -62,67 +62,102 @@ VueAsyncComponent(
   benh_an_script
 );
 
+var benh_an_chi_tiet_script = {
+  props: ["hsba"],
+
+  computed: {
+    ngaySinhBenhNhan() {
+      return attr(this.hsba, "emrBenhNhan.ngaysinh");
+    },
+    maQuocTich() {
+      return attr(this.hsba, "emrBenhNhan.emrDmQuocGia.ma");
+    },
+    maQuanHuyen() {
+      return attr(this.hsba, "emrBenhNhan.emrDmQuanHuyen.ma");
+    },
+    maTinhThanh() {
+      return attr(this.hsba, "emrBenhNhan.emrDmTinhThanh.ma");
+    },
+    soTheBHYT() {
+      return attr(this.hsba, "emrBenhNhan.sobhyt");
+    },
+    ngayHetHanBHYT() {
+      return attr(this.hsba, "emrBenhNhan.ngayhethanthebhyt");
+    },
+    soDienThoai() {
+      return attr(this.hsba, "emrBenhNhan.sodienthoainguoibaotin");
+    },
+    diaChi() {
+      return attr(this.hsba, "emrBenhNhan.diachi");
+    }
+  },
+
+  methods: {
+
+  }
+};
+
 VueAsyncComponent(
   "benh-an-nhi",
   "/pages/hsba/view_detail/benh_an/benh_an_nhi.html",
-  { props: ["hsba"] }
+  benh_an_chi_tiet_script
 );
 
 VueAsyncComponent(
   "benh-an-so-sinh",
   "/pages/hsba/view_detail/benh_an/benh_an_so_sinh.html",
-  { props: ["hsba"] }
+  benh_an_chi_tiet_script
 );
 
 VueAsyncComponent(
   "benh-an-noi-khoa",
   "/pages/hsba/view_detail/benh_an/benh_an_noi_khoa.html",
-  { props: ["hsba"] }
+  benh_an_chi_tiet_script
 );
 
 VueAsyncComponent(
   "benh-an-ngoai-khoa",
   "/pages/hsba/view_detail/benh_an/benh_an_ngoai_khoa.html",
-  { props: ["hsba"] }
+  benh_an_chi_tiet_script
 );
 
 VueAsyncComponent(
   "benh-an-ngoai-tru",
   "/pages/hsba/view_detail/benh_an/benh_an_ngoai_tru.html",
-  { props: ["hsba"] }
+  benh_an_chi_tiet_script
 );
 VueAsyncComponent(
   "benh-an-san-khoa",
   "/pages/hsba/view_detail/benh_an/benh_an_san_khoa.html",
-  { props: ["hsba"] }
+  benh_an_chi_tiet_script
 );
 VueAsyncComponent(
   "benh-an-truyen-nhiem",
   "/pages/hsba/view_detail/benh_an/benh_an_truyen_nhiem.html",
-  { props: ["hsba"] }
+  benh_an_chi_tiet_script
 );
 VueAsyncComponent(
   "benh-an-phu-khoa",
   "/pages/hsba/view_detail/benh_an/benh_an_phu_khoa.html",
-  { props: ["hsba"] }
+  benh_an_chi_tiet_script
 );
 VueAsyncComponent(
   "benh-an-tam-than",
   "/pages/hsba/view_detail/benh_an/benh_an_tam_than.html",
-  { props: ["hsba"] }
+  benh_an_chi_tiet_script
 );
 VueAsyncComponent(
   "benh-an-da-lieu",
   "/pages/hsba/view_detail/benh_an/benh_an_da_lieu.html",
-  { props: ["hsba"] }
+  benh_an_chi_tiet_script
 );
 VueAsyncComponent(
   "benh-an-dd",
   "/pages/hsba/view_detail/benh_an/benh_an_dd.html",
-  { props: ["hsba"] }
+  benh_an_chi_tiet_script
 );
 VueAsyncComponent(
   "benh-an-hhtm",
   "/pages/hsba/view_detail/benh_an/benh_an_hhtm.html",
-  { props: ["hsba"] }
+  benh_an_chi_tiet_script
 );
