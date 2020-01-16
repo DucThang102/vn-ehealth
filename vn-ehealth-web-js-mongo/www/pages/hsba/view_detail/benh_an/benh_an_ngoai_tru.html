@@ -5,14 +5,14 @@
         Sở Y tế: <strong>{{hsba.emrCoSoKhamBenh.donvichuquan}}</strong><br />
         Bệnh viện:
         <strong class="text-danger">{{hsba.emrCoSoKhamBenh.ten}}</strong> <br />
-        Khoa: <strong class="mr-3 text-primary">Gan mật</strong>Giường
+        Khoa: <strong class="mr-3 text-primary">{{tenKhoaDieuTri}}</strong>Giường: <strong class="text-success">{{khoaDieuTri.giuong}}</strong>
         <strong class="text-success">Số 5</strong>
       </div>
       <div class="col-4">
         <h3 class="text-tle mt-3">BỆNH ÁN NGOẠI TRÚ</h3>
       </div>
       <div class="col-3">
-        Số lưu trữ: <strong class="text-info">20102019</strong> <br />
+        Số lưu trữ: <strong class="text-info">{{hsba.maluutru}}</strong> <br>
         Mã YT: <span class="text-danger"> <strong>{{hsba.mayte}}</strong></span>
       </div>
     </div>
@@ -21,8 +21,9 @@
   <section class="container-fluid pt-2 mb-3">
     <section class="mb-4">
       <h5 class="text-tle">I. HÀNH CHÍNH:</h5>
-      <div class="row mb-2">
-        <div class="ml-auto col-1">Tuổi</div>
+      <div class="ml-auto col-1 text-center">
+        <span v-if="hsba.donViTuoiBenhNhan==''">Tuổi</span>
+        <span v-if="hsba.donViTuoiBenhNhan!=''">{{ hsba.donViTuoiBenhNhan }} tuổi</span>
       </div>
 
       <div class="row mb-2">
@@ -128,33 +129,15 @@
           <label><b class="text-primary mr-1">5.</b>Dân tộc:</label>
           <span>{{hsba.emrBenhNhan.emrDmDanToc.ten}}</span>
           <form class="form-inline input-lr2 float-right">
-            <input
-              readonly
-              value="0"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
-            <input
-              readonly
-              value="1"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
+            <input v-for="c in toCharArray(maDanToc)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
           </form>
         </div>
 
         <div class="col-6">
-          <label><b class="text-primary mr-1">6.</b>Ngoại kiều:</label>
+          <label><b class="text-primary mr-1">6.</b>Quốc tịch:</label>
           <span> {{hsba.emrBenhNhan.emrDmQuocGia.ten}} </span>
           <form class="form-inline input-lr2 float-right">
-            <input
-              readonly
-              value="0"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
-            <input
-              readonly
-              value="1"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
+            <input v-for="c in toCharArray(maQuocTich)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
           </form>
         </div>
       </div>
@@ -173,32 +156,14 @@
           <label class="ml-3">Huyện (Q, Tx):</label>
           <span>{{hsba.emrBenhNhan.emrDmQuanHuyen.ten}}</span>
           <form class="form-inline input-lr2 float-right">
-            <input
-              readonly
-              value="0"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
-            <input
-              readonly
-              value="1"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
+            <input v-for="c in toCharArray(maQuanHuyen)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
           </form>
         </div>
         <div class="col-6">
           <label>Tỉnh, thành phố:</label>
           <span>{{hsba.emrBenhNhan.emrDmTinhThanh.ten}}</span>
           <form class="form-inline input-lr2 float-right">
-            <input
-              readonly
-              value="0"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
-            <input
-              readonly
-              value="1"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
+            <input v-for="c in toCharArray(maTinhThanh)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
           </form>
         </div>
       </div>
@@ -220,34 +185,17 @@
       <div class="row mb-2">
         <div class="col-6">
           <label
-            ><b class="text-primary mr-1">10.</b>BHYT giá trị đến ngày:</label
-          >
-          <span>01</span> <label>tháng</label> <span>01</span>
-          <label>năm</label> <span>2020</span>
+            ><b class="text-primary mr-1">10.</b>BHYT giá trị đến ngày:</label>
+          <span>{{ formatNgay(ngayHetHanBHYT) }}</span>
+
         </div>
         <div class="col-6">
           <label>Số thẻ BHYT:</label>
           <form class="form-inline input-lr2 float-right">
-            <input
-              readonly
-              value="CN"
-              class="form-control form-control-sm text-placeholder w-60px"
-            />
-            <input
-              readonly
-              value="3"
-              class="form-control form-control-sm text-placeholder w-60px"
-            />
-            <input
-              readonly
-              value="01"
-              class="form-control form-control-sm text-placeholder w-60px"
-            />
-            <input
-              readonly
-              value="0003500099"
-              class="form-control form-control-sm text-placeholder w-140px"
-            />
+            <input readonly :value="soTheBHYT.substring(0,2)" class="form-control form-control-sm text-placeholder w-60px">
+            <input readonly :value="soTheBHYT.substring(2,3)" class="form-control form-control-sm text-placeholder w-60px">
+            <input readonly :value="soTheBHYT.substring(3,5)" class="form-control form-control-sm text-placeholder w-60px">
+            <input readonly :value="soTheBHYT.substring(5)" class="form-control form-control-sm text-placeholder w-140px">
           </form>
         </div>
       </div>
@@ -268,69 +216,17 @@
           <span>{{hsba.emrBenhNhan.diachinguoibaotin}}</span>
         </div>
         <div class="col-6">
-          <span
-            >Điện thoại số:
+          <span>Điện thoại số:
             <form class="form-inline input-lr2 float-right">
-              <input
-                readonly
-                value="0"
-                class="form-control form-control-sm text-placeholder w-40px"
-              />
-              <input
-                readonly
-                value="1"
-                class="form-control form-control-sm text-placeholder w-40px"
-              />
-              <input
-                readonly
-                value="2"
-                class="form-control form-control-sm text-placeholder w-40px"
-              />
-              <input
-                readonly
-                value="3"
-                class="form-control form-control-sm text-placeholder w-40px"
-              />
-              <input
-                readonly
-                value="4"
-                class="form-control form-control-sm text-placeholder w-40px"
-              />
-              <input
-                readonly
-                value="5"
-                class="form-control form-control-sm text-placeholder w-40px"
-              />
-              <input
-                readonly
-                value="6"
-                class="form-control form-control-sm text-placeholder w-40px"
-              />
-              <input
-                readonly
-                value="7"
-                class="form-control form-control-sm text-placeholder w-40px"
-              />
-              <input
-                readonly
-                value="8"
-                class="form-control form-control-sm text-placeholder w-40px"
-              />
-              <input
-                readonly
-                value="9"
-                class="form-control form-control-sm text-placeholder w-40px"
-              />
+              <input v-for="c in toCharArray(soDienThoai)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
             </form>
           </span>
         </div>
       </div>
       <div class="row mb-2">
         <div class="col">
-          <label><b class="text-primary mr-1">12.</b>Đến khám bệnh lúc: </label>
-          <span>10</span> <label>giờ</label> <span>00</span> <label>ph</label>
-          <label>ngày</label> <span>01</span> <label>tháng</label>
-          <span>02</span> <label>năm</label> <span>2020</span>
+          <label><b class="text-primary mr-1">12.</b>Đến khám lúc: </label>
+          <span>{{formatNgayGio(ngayGioVaoVien)}}</span>
         </div>
       </div>
       <div class="row mb-2">

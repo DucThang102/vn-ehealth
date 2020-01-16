@@ -4,13 +4,13 @@
       <div class="col-5">
         Sở Y tế: <strong>{{hsba.emrCoSoKhamBenh.donvichuquan}}</strong><br>
         Bệnh viện: <strong class="text-danger">{{hsba.emrCoSoKhamBenh.ten}}</strong> <br>
-        Khoa: <strong class="mr-3 text-primary">Gan mật</strong>Giường <strong class="text-success">Số 5</strong>
+        Khoa: <strong class="mr-3 text-primary">{{tenKhoaDieuTri}}</strong>Giường: <strong class="text-success">{{khoaDieuTri.giuong}}</strong>
       </div>
       <div class="col-4">
         <h3 class="text-tle mt-3">BỆNH ÁN SƠ SINH</h3>
       </div>
       <div class="col-3">
-        Số lưu trữ: <strong class="text-info">20102019</strong> <br>
+        Số lưu trữ: <strong class="text-info">{{hsba.maluutru}}</strong> <br>
         Mã YT: <span class="text-danger"> <strong>{{hsba.mayte}}</strong></span>
       </div>
     </div>
@@ -30,14 +30,14 @@
         <div class="col-6">
           <div class="form-inline input-lr2 float-left">
             <label><b class="text-primary mr-1">2.</b>Sinh ngày:</label>
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px mr-2">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px mr-2">
-            <input readonly value="2" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
+            <input readonly :value="ngaySinhBenhNhan.substring(0,1)" class="form-control form-control-sm text-placeholder w-40px">
+            <input readonly :value="ngaySinhBenhNhan.substring(1,2)" class="form-control form-control-sm text-placeholder w-40px mr-2">
+            <input readonly :value="ngaySinhBenhNhan.substring(3,4)" class="form-control form-control-sm text-placeholder w-40px">
+            <input readonly :value="ngaySinhBenhNhan.substring(4,5)" class="form-control form-control-sm text-placeholder w-40px mr-2">
+            <input readonly :value="ngaySinhBenhNhan.substring(6,7)" class="form-control form-control-sm text-placeholder w-40px">
+            <input readonly :value="ngaySinhBenhNhan.substring(7,8)" class="form-control form-control-sm text-placeholder w-40px">
+            <input readonly :value="ngaySinhBenhNhan.substring(8,9)" class="form-control form-control-sm text-placeholder w-40px">
+            <input readonly :value="ngaySinhBenhNhan.substring(9,10)" class="form-control form-control-sm text-placeholder w-40px">
           </div>
         </div>
       </div>
@@ -123,17 +123,15 @@
           <label><b class="text-primary mr-1">6.</b>Dân tộc:</label>
           <span>{{hsba.emrBenhNhan.emrDmDanToc.ten}}</span>
           <form class="form-inline input-lr2 float-right">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+            <input v-for="c in toCharArray(maDanToc)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
           </form>
         </div>
 
         <div class="col-6">
-          <label><b class="text-primary mr-1">7.</b>Ngoại kiều:</label>
-          <span>Việt Nam</span>
+          <label><b class="text-primary mr-1">6.</b>Quốc tịch:</label>
+          <span> {{hsba.emrBenhNhan.emrDmQuocGia.ten}} </span>
           <form class="form-inline input-lr2 float-right">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+            <input v-for="c in toCharArray(maQuocTich)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
           </form>
         </div>
       </div>
@@ -152,16 +150,14 @@
           <label >Huyện (Q, Tx):</label>
           <span>{{hsba.emrBenhNhan.emrDmQuanHuyen.ten}}</span>
           <form class="form-inline input-lr2 float-right">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+            <input v-for="c in toCharArray(maQuanHuyen)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
           </form>
         </div>
         <div class="col-6">
           <label>Tỉnh, thành phố:</label>
           <span>{{hsba.emrBenhNhan.emrDmTinhThanh.ten}}</span>
           <form class="form-inline input-lr2 float-right">
-            <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-            <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+            <input v-for="c in toCharArray(maTinhThanh)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
           </form>
         </div>
       </div>
@@ -201,16 +197,7 @@
         <div class="col-6">
           <span>Điện thoại số:
             <form class="form-inline input-lr2 float-right">
-              <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="2" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="3" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="4" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="5" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="6" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="7" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="8" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="9" class="form-control form-control-sm text-placeholder w-40px">
+              <input v-for="c in toCharArray(soDienThoai)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
             </form>
           </span>
         </div>
@@ -223,11 +210,7 @@
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">12.</b>Vào viện: </label>
-              <span>10</span> <label>giờ</label>
-              <span>00</span> <label>ph</label>
-              <label>ngày</label> <span>01</span>
-              <label>/</label> <span>01</span>
-              <label>/</label> <span>2020</span>
+              <span>{{formatNgayGio(ngayGioVaoVien)}}</span>
             </div>
           </div>
           <div class="row">
@@ -275,11 +258,11 @@
                   <th class="text-center" style="width:30%">Số ngày điều trị</th>
                 </tr>
                 <tr>
-                  <td>Khoa khám bệnh</td>
-                  <td class="text-center">01/01/2020 10:00</td>
-                  <td class="text-center">5</td>
+                  <td>{{getTenKhoa(hsba.emrVaoKhoas[0])}}</td>
+                  <td class="text-center">{{formatNgayGio(hsba.emrVaoKhoas[0].ngaygiovaokhoa)}}</td>
+                  <td class="text-center">{{hsba.emrVaoKhoas[0].songaydieutri}}</td>
                 </tr>
-              </table>
+               </table>
             </div>
           </div>
           <div class="row">
@@ -291,20 +274,10 @@
                   <th class="text-center" style="width:35%">Ngày giờ vào khoa</th>
                   <th class="text-center" style="width:30%">Số ngày điều trị</th>
                 </tr>
-                <tr>
-                  <td>Khoa điều trị S1</td>
-                  <td class="text-center">05/01/2020 10:00</td>
-                  <td class="text-center">2</td>
-                </tr>
-                <tr>
-                  <td>Khoa điều trị S1</td>
-                  <td class="text-center">07/01/2020 10:00</td>
-                  <td class="text-center">2</td>
-                </tr>
-                <tr>
-                  <td>Khoa điều trị S1</td>
-                  <td class="text-center">09/01/2020 10:00</td>
-                  <td class="text-center">2</td>
+                <tr v-for="khoa in hsba.emrVaoKhoas.slice(1)">
+                  <td>{{getTenKhoa(khoa)}}</td>
+                  <td class="text-center">{{formatNgayGio(khoa.ngaygiovaokhoa)}}</td>
+                  <td class="text-center">{{khoa.songaydieutri}}</td>
                 </tr>
               </table>
             </div>
@@ -326,18 +299,14 @@
             <div class="col ml-4">
               <label><i class="fas fa-fw bullet-small fa-circle"></i>
                 Chuyển đến:</label>
-              <span>Bệnh viện tuyến trên ....</span>
+                <span>{{hsba.emrQuanLyNguoiBenh.noichuyenden}}</span>
             </div>
           </div>
 
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">18.</b>Ra viện: </label>
-              <span>10</span> <label>giờ</label>
-              <span>00</span> <label>ph</label>
-              <label>ngày</label> <span>10</span>
-              <label>/</label> <span>01</span>
-              <label>/</label> <span>2020</span>
+              <span>{{formatNgayGio(ngayGioRaVien)}}</span>
               <br>
               <div class="ml-3">
                 <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiRaVien.ma') == '01' " type="checkbox"> <span class="mr-3">1.Ra viện</span>
@@ -375,12 +344,9 @@
           </div>
           <div class="row mb-2">
             <div class="col ml-4">  
-              <span>{{hsba.emrQuanLyNguoiBenh.noichuyenden}}</span>
+              <span>{{ chanDoanNoiDen.ten }}</span>
               <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+                <input v-for="c in toCharArray(chanDoanNoiDen.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
               </form>
             </div>
           </div>
@@ -392,13 +358,10 @@
           </div>
           <div class="row mb-2">
             <div class="col ml-4">  
-              <span>{{hsba.emrChanDoan.emrDmMaBenhChandoankkb.ten}}</span>
-              <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
-              </form>
+              <span>{{chanDoanKKB.ten}}</span>
+          <form class="form-inline input-lr2 float-right">
+            <input v-for="c in toCharArray(chanDoanKKB.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
+          </form>
             </div>
           </div>
 
@@ -409,12 +372,9 @@
           </div>
           <div class="row mb-2">
             <div class="col ml-4">  
-              <span>{{hsba.emrChanDoan.emrDmMaBenhChandoandieutri.ten}}</span>
+              <span>{{ chandoanVaoKhoaDieuTri.ten}}</span>
               <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+                <input v-for="c in toCharArray(chandoanVaoKhoaDieuTri.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
               </form>
             </div>
           </div>
@@ -422,8 +382,8 @@
           <div class="row">
             <div class="col">
               <div class="ml-3">
-                <input disabled :checked="attr(hsba, 'coThuThuat') == 'true'"  type="checkbox"> <span class="mr-3">Thủ thuật</span>
-                <input disabled :checked="attr(hsba, 'coPhauThuat') == 'true'" type="checkbox"> <span class="mr-3">Phẫu thuật</span>
+                <input disabled :checked="attr(hsba, 'coThuThuat')"  type="checkbox"> <span class="mr-3">Thủ thuật</span>
+                <input disabled :checked="attr(hsba, 'coPhauThuat')" type="checkbox"> <span class="mr-3">Phẫu thuật</span>
               </div>
             </div>
           </div>
@@ -440,12 +400,9 @@
             <div class="col ml-4">
               <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh
                 chính:</label><br>
-              <span>{{hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten}}</span>
+              <span>{{chanDoanRaVienChinh.ten}}</span>
               <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+                <input v-for="c in toCharArray(chanDoanRaVienChinh.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
               </form>
             </div>
           </div>
@@ -454,12 +411,9 @@
             <div class="col ml-4">
               <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh kèm
                 theo:</label><br>
-              <span>Vàng da do thiếu máu .....</span>
+              <span>{{chanDoanRaVienKemTheo.ten}}</span>
               <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+                <input v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
               </form>
             </div>
           </div>
@@ -467,8 +421,8 @@
           <div class="row">
             <div class="col">
               <div class="ml-3">
-                <input disabled :checked="attr(hsba, 'emrChanDoan.bibienchung') == 'true' " type="checkbox"> <span class="mr-3">Tai biến</span>
-                <input disabled :checked="attr(hsba, 'emrChanDoan.bitaibien') == 'true' " type="checkbox"> <span class="mr-3">Biến chứng</span>
+                <input disabled :checked="attr(hsba, 'emrChanDoan.bibienchung')" type="checkbox"> <span class="mr-3">Tai biến</span>
+                <input disabled :checked="attr(hsba, 'emrChanDoan.bitaibien')" type="checkbox"> <span class="mr-3">Biến chứng</span>
               </div>
             </div>
           </div>
@@ -563,7 +517,7 @@
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">28.</b>Khám nghiệm tử thi: </label> 
-              <input :checked="attr(hsba, 'emrTinhTrangRaVien.khamnghiemtuthi') == 'true'" type="checkbox" disabled>
+              <input :checked="attr(hsba, 'emrTinhTrangRaVien.khamnghiemtuthi')" type="checkbox" disabled>
             </div>
           </div>
 
@@ -648,8 +602,8 @@
     <div class="row mt-2">
       <div class="col ml-2">
         <label><i class="fas fa-fw bullet-small fa-circle"></i> Cách đẻ: </label>
-          <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkTinhTrangSanPhu.dethuong') == 'true'" type="checkbox" checked> <span class="mr-3">1.Đẻ thường</span>
-          <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkTinhTrangSanPhu.canthiep') == 'true'" type="checkbox" checked> <span class="mr-3">2.Can thiệp</span>
+          <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkTinhTrangSanPhu.dethuong')" type="checkbox" checked> <span class="mr-3">1.Đẻ thường</span>
+          <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkTinhTrangSanPhu.canthiep')" type="checkbox" checked> <span class="mr-3">2.Can thiệp</span>
           <span>lúc:</span>
           <span>10</span> <label>giờ</label>
           <span>00</span> <label>ph</label>
@@ -671,9 +625,9 @@
     <div class="row mt-3">
       <span>
         <b>b. Tình trạng sơ sinh khi ra đời:</b>
-        <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkTinhTrangSoSinh.sskhocngay') == 'true'" type="checkbox"> <span class="mr-3">1. Khóc ngay</span>
-        <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkTinhTrangSoSinh.ssngat') == 'true'" type="checkbox"> <span class="mr-3">2. Ngạt</span>
-        <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkTinhTrangSoSinh.sskhac') == 'true'" type="checkbox"> <span class="mr-3">3. Khác</span>
+        <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkTinhTrangSoSinh.sskhocngay')" type="checkbox"> <span class="mr-3">1. Khóc ngay</span>
+        <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkTinhTrangSoSinh.ssngat')" type="checkbox"> <span class="mr-3">2. Ngạt</span>
+        <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkTinhTrangSoSinh.sskhac')" type="checkbox"> <span class="mr-3">3. Khác</span>
       </span>
     </div>
 
@@ -718,33 +672,33 @@
           <tr>
             <td class="text-center">1</td>
             <td>
-              <span class="ml-4">Hút dịch</span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.hutdich') == 'true' " type="checkbox">
+              <span class="ml-4">Hút dịch</span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.hutdich')" type="checkbox">
             </td>
             <td class="text-center">4</td>
             <td>
-              <span class="ml-4">Đặt nội khí quản</span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.noikhiquan') == 'true' " type="checkbox">
+              <span class="ml-4">Đặt nội khí quản</span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.noikhiquan')" type="checkbox">
             </td>
 
           </tr>
           <tr>
             <td class="text-center">2</td>
             <td>
-              <span class="ml-4">Xoa bóp tim</span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.xoaboptim') == 'true' " type="checkbox">
+              <span class="ml-4">Xoa bóp tim</span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.xoaboptim')" type="checkbox">
             </td>
             <td class="text-center">5</td>
             <td>
-              <span class="ml-4">Bóp bóng O<sub>2</sub></span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.bopbongõy') == 'true' " type="checkbox">
+              <span class="ml-4">Bóp bóng O<sub>2</sub></span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.bopbongõy')" type="checkbox">
             </td>
 
           </tr>          
           <tr>
             <td class="text-center">3</td>
             <td>
-              <span class="ml-4">Thở O<sub>2</sub></span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.thooxy') == 'true' " type="checkbox">
+              <span class="ml-4">Thở O<sub>2</sub></span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.thooxy')" type="checkbox">
             </td>
             <td class="text-center">6</td>
             <td>
-              <span class="ml-4">Khác</span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.khac') == 'true' " type="checkbox">
+              <span class="ml-4">Khác</span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.khac')" type="checkbox">
             </td>
 
           </tr>          
@@ -771,10 +725,10 @@
 
     <div class="row mt-2">
       <span class="ml-4"><i class="fas fa-fw bullet-small fa-circle"></i> Dị tật bẩm sinh:
-        <input :checked="attr(hsba, 'emrCkKhamSoSinh.ditatbamsinh') == 'true' " type="checkbox"  disabled>
+        <input :checked="attr(hsba, 'emrCkKhamSoSinh.ditatbamsinh')" type="checkbox"  disabled>
       </span>
       <span class="ml-4"><i class="fas fa-fw bullet-small fa-circle"></i> Có hậu môn: 
-        <input :checked="attr(hsba, 'emrCkKhamSoSinh.ditathaumon') == 'true' " type="checkbox"  disabled>
+        <input :checked="attr(hsba, 'emrCkKhamSoSinh.ditathaumon')" type="checkbox"  disabled>
       </span>
     </div>
 
