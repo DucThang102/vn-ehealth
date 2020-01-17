@@ -5,8 +5,8 @@
         Sở Y tế: <strong>{{hsba.emrCoSoKhamBenh.donvichuquan}}</strong><br />
         Bệnh viện:
         <strong class="text-danger">{{hsba.emrCoSoKhamBenh.ten}}</strong> <br />
-        Khoa: <strong class="mr-3 text-primary">{{tenKhoaDieuTri}}</strong>Giường: <strong class="text-success">{{khoaDieuTri.giuong}}</strong>
-        <strong class="text-success">Số 5</strong>
+        Khoa: <strong class="mr-3 text-primary">{{tenKhoaDieuTri}} <br>
+        </strong>Giường: <strong class="text-success">{{khoaDieuTri.giuong}}</strong>
       </div>
       <div class="col-4">
         <h3 class="text-tle mt-3">BỆNH ÁN NGOẠI TRÚ</h3>
@@ -38,59 +38,14 @@
         <div class="col-6">
           <div class="form-inline input-lr2 float-left">
             <label><b class="text-primary mr-1">2.</b>Sinh ngày:</label>
-            <input
-              readonly
-              value="0"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
-            <input
-              readonly
-              value="1"
-              class="form-control form-control-sm text-placeholder w-40px mr-2"
-            />
-            <input
-              readonly
-              value="0"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
-            <input
-              readonly
-              value="1"
-              class="form-control form-control-sm text-placeholder w-40px mr-2"
-            />
-            <input
-              readonly
-              value="2"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
-            <input
-              readonly
-              value="0"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
-            <input
-              readonly
-              value="0"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
-            <input
-              readonly
-              value="0"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
-          </div>
-
-          <div class="form-inline input-lr2 float-right">
-            <input
-              readonly
-              value="2"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
-            <input
-              readonly
-              value="0"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
+            <input readonly :value="ngaySinhBenhNhan.substring(0,1)" class="form-control form-control-sm text-placeholder w-40px">
+            <input readonly :value="ngaySinhBenhNhan.substring(1,2)" class="form-control form-control-sm text-placeholder w-40px mr-2">
+            <input readonly :value="ngaySinhBenhNhan.substring(3,4)" class="form-control form-control-sm text-placeholder w-40px">
+            <input readonly :value="ngaySinhBenhNhan.substring(4,5)" class="form-control form-control-sm text-placeholder w-40px mr-2">
+            <input readonly :value="ngaySinhBenhNhan.substring(6,7)" class="form-control form-control-sm text-placeholder w-40px">
+            <input readonly :value="ngaySinhBenhNhan.substring(7,8)" class="form-control form-control-sm text-placeholder w-40px">
+            <input readonly :value="ngaySinhBenhNhan.substring(8,9)" class="form-control form-control-sm text-placeholder w-40px">
+            <input readonly :value="ngaySinhBenhNhan.substring(9,10)" class="form-control form-control-sm text-placeholder w-40px">
           </div>
         </div>
       </div>
@@ -366,42 +321,19 @@
         <b>6. Chẩn đoán khi ra viện: </b>
       </span>
       <div class="col ml-3">
-        <span>Không thấy gì .....</span>
+        <span>{{hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten}}</span>
         <form class="form-inline input-lr2 float-right">
-          <input
-            readonly
-            value="0"
-            class="form-control form-control-sm text-placeholder w-40px"
-          />
-          <input
-            readonly
-            value="0"
-            class="form-control form-control-sm text-placeholder w-40px"
-          />
-          <input
-            readonly
-            value="0"
-            class="form-control form-control-sm text-placeholder w-40px"
-          />
-          <input
-            readonly
-            value="1"
-            class="form-control form-control-sm text-placeholder w-40px"
-          />
+          <input v-for="c in toCharArray(chanDoanRaVienChinh.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
         </form>
       </div>
     </div>
 
     <div class="row mt-3">
       <span>
-        <b>7. Điều trị ngoại trú từ ngày </b>
-        <span>01</span>
-        <label>tháng</label> <span>02</span> <label>năm</label>
-        <span>2020</span>
-        <span>đến ngày</span>
-        <span>03</span>
-        <label>tháng</label> <span>02</span> <label>năm</label>
-        <span>2020</span>
+        <b>7. Điều trị ngoại trú từ </b>
+        <span>{{formatNgay2(ngayGioVaoVien)}}</span>
+        <span>đến </span>
+        <span>{{formatNgay2(ngayGioRaVien)}}</span>
       </span>
     </div>
   </section>
@@ -410,15 +342,15 @@
       <div class="col text-center">
         <h6 class="mb-5">Giám đốc bệnh viện</h6>
         <br />
-        <p>Họ và tên <b>Nguyễn Văn Bác Sỹ</b></p>
+        <p>Họ và tên <b>{{hsba.giamdocbenhvien}}</b></p>
       </div>
       <div class="col text-center">
         <i class="mb-2"
-          >Ngày <span>10</span> tháng <span>01</span> năm <span>2020</span></i
+          ><span>{{formatNgay2(ngayGioRaVien)}}</span></i
         >
         <h6 class="text-center mb-5">Trưởng khoa</h6>
         <br />
-        <p>Họ và tên <b>Nguyễn Văn Bác Sỹ</b></p>
+        <p>Họ và tên <b>{{khoaDieuTri.tentruongkhoa}}</b></p>
       </div>
     </div>
   </section>
@@ -444,10 +376,7 @@
     </div>
 
     <div class="row mt-2">
-      
       <span class="ml-4">{{hsba.emrTongKetRaVien.canlamsang}}</span>
-      
-      >
     </div>
 
     <div class="row mt-3">
@@ -458,29 +387,9 @@
 
     <div class="row mt-2">
       <div class="col">
-        <span class="ml-2"
-          >{{hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten}}
+        <span class="ml-2">Bệnh chính: {{hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten}}
           <form class="form-inline input-lr2 float-right">
-            <input
-              readonly
-              value="0"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
-            <input
-              readonly
-              value="0"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
-            <input
-              readonly
-              value="0"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
-            <input
-              readonly
-              value="1"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
+            <input v-for="c in toCharArray(chanDoanRaVienChinh.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
           </form>
         </span>
       </div>
@@ -489,28 +398,9 @@
     <div class="row mt-2">
       <div class="col">
         <span class="ml-2"
-          >Bệnh kèm theo <i>(nếu có)</i>: ....
+          >Bệnh kèm theo: <i>(nếu có)</i>:<span>{{chanDoanRaVienKemTheo.ten}}</span>
           <form class="form-inline input-lr2 float-right">
-            <input
-              readonly
-              value="0"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
-            <input
-              readonly
-              value="0"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
-            <input
-              readonly
-              value="0"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
-            <input
-              readonly
-              value="1"
-              class="form-control form-control-sm text-placeholder w-40px"
-            />
+            <input v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
           </form>
         </span>
       </div>
