@@ -600,7 +600,7 @@
 
     <div class="row mt-2">
       <span class="ml-4">
-        <i class="fas fa-fw bullet fa-circle"></i> Vào ngày thứ <u>5xxx</u> của bệnh
+        <i class="fas fa-fw bullet fa-circle"></i> Vào ngày thứ <u>{{hsba.emrBenhAn.vaongaythu||'...'}}</u> của bệnh
       </span>
     </div>
 
@@ -827,7 +827,7 @@
     </div>
 
     <div class="row mt-3">
-      <h5 class="text-tle">IV. Chuẩn đoán khi vào khoa điều trị:</h5>
+      <h5 class="text-tle">IV. Chẩn đoán khi vào khoa điều trị:</h5>
     </div>
 
     <div class="row mt-3 ml-2">
@@ -857,7 +857,7 @@
     </div>
 
     <div class="row mt-2 ml-3">
-      <span class="ml-4">Phân biệt .....</span>
+      <span class="ml-4">{{chandoanVaoKhoaDieuTriPhanBiet.ten}}</span>
     </div>
 
     <div class="row mt-3">
@@ -921,10 +921,12 @@
 
     <div class="row mt-2">
       <span class="ml-4">
-        <input disabled type="checkbox" class="ml-2 mr-2">Phẫu thuật
-        <input disabled type="checkbox" class="ml-2 mr-2">Thủ thuật
-      </span>
+        <input disabled :checked="attr(hsba, 'coThuThuat')"  type="checkbox"> <span class="mr-3">Thủ thuật</span>
+      <input disabled :checked="attr(hsba, 'coPhauThuat')" type="checkbox"> <span class="mr-3">Phẫu thuật</span>
+    </span>
     </div>
+
+
 
     <div class="row mt-2">
       <table class="table table-bordered mt-3 ml-4 mr-4" style="width: 80%;"> 
@@ -985,7 +987,7 @@
           </td>
           <td rowspan="8">
             <div class="col text-center">
-              <i>Ngày <span>10</span> tháng <span>01</span> năm <span>2020</span></i>
+              <i>{{formatNgay2(ngayKyDieuTri)}}</i>
               <h6 class="text-center mt-2 mb-5">Bác sĩ điều trị</h6>
               <br>
               <p>Họ và tên <b>{{hsba.emrTongKetRaVien.bacsydieutri}}</b></p>
