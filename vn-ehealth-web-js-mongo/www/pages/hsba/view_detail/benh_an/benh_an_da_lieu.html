@@ -427,11 +427,7 @@
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">26.</b>Tình hình tử vong: </label>
-              <span>21</span> <label>giờ</label>
-              <span>50</span> <label>ph</label>
-              <label>ngày</label> <span>25</span>
-              <label>/</label> <span>11</span>
-              <label>/</label> <span>2019</span>
+              <span>{{ formatNgayGio(ngayGioTuVong) }}</span>
             </div>
           </div>
 
@@ -730,7 +726,7 @@
     </div>
 
     <div class="row mt-2 ml-3">
-      <span class="ml-4">Bệnh kèm theo .....</span>
+      <span class="ml-4">{{chandoanVaoKhoaDieuTriKemTheo.ten}}</span>
     </div>
 
     <div class="row mt-3 ml-2">

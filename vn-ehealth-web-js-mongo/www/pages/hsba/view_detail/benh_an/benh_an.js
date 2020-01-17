@@ -224,6 +224,7 @@ var benh_an_chi_tiet_script = {
     giaiPhauTuThi() {
       return attr(this.hsba, "emrTinhTrangRaVien.emrDmGiaiphaututhi") || {ma:'',ten:''};
     },
+    
   },
 
   methods: {
