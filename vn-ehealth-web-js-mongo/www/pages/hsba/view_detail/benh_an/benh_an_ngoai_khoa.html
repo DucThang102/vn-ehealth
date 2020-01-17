@@ -543,10 +543,7 @@
           <div class="col ml-3">
             <span>{{hsba.emrTinhTrangRaVien.emrDmGiaiphaututhi.ten}}</span>
             <form class="form-inline input-lr2 float-right">
-              <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-              <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+              <input v-for="c in toCharArray(giaiPhauTuThi.ma)" readonly value="c" class="form-control form-control-sm text-placeholder w-40px">
             </form>
           </div> 
         </div>
@@ -736,15 +733,15 @@
     <div class="row-mt-2">
       <ul>
         <li>Tuần hoàn: {{hsba.emrBenhAn.tuanhoan}} </li>
-        <li>Hô hấp:  {{hsba.emrBenhAn.hohap}} </li>
-        <li>Tiêu hóa:  {{hsba.emrBenhAn.tieuhoa}} </li>
-        <li>Thận- Tiết niệu- Sinh dục:  {{hsba.emrBenhAn.noitietsinhduc}} </li>
-        <li>Thần Kinh:  {{hsba.emrBenhAn.thankinh}} </li>
-        <li>Cơ- Xương- Khớp:  {{hsba.emrBenhAn.coxuongkhop}} </li>
-        <li>Tai- Mũi- Họng:  {{hsba.emrBenhAn.taimuihong}} </li>
-        <li>Răng- Hàm- Mặt:  {{hsba.emrBenhAn.tuanhoan}} </li>
+        <li>Hô hấp: {{hsba.emrBenhAn.hohap}} </li>
+        <li>Tiêu hóa: {{hsba.emrBenhAn.tieuhoa}} </li>
+        <li>Thận- Tiết niệu- Sinh dục: {{hsba.emrBenhAn.noitietsinhduc}} </li>
+        <li>Thần Kinh: {{hsba.emrBenhAn.thankinh}} </li>
+        <li>Cơ- Xương- Khớp: {{hsba.emrBenhAn.coxuongkhop}} </li>
+        <li>Tai- Mũi- Họng: {{hsba.emrBenhAn.taimuihong}} </li>
+        <li>Răng- Hàm- Mặt: {{hsba.emrBenhAn.tuanhoan}} </li>
         <li>Mắt:  {{hsba.emrBenhAn.mat}} </li>
-        <li>Nội tiết, dinh dưỡng và các bệnh lý khác:  {{hsba.emrBenhAn.noitietdinhduong}}</li>
+        <li>Nội tiết, dinh dưỡng và các bệnh lý khác: {{hsba.emrBenhAn.noitietdinhduong}}</li>
 
          </ul>
     </div>
@@ -790,7 +787,7 @@
     </div>
 
     <div class="row mt-2 ml-3">
-      <span class="ml-4">Bệnh kèm theo .....</span>
+      <span class="ml-4">{{chandoanVaoKhoaDieuTriKemTheo.ten}}</span>
     </div>
 
     <div class="row mt-3 ml-2">
@@ -938,7 +935,7 @@
           </td>
           <td rowspan="8">
             <div class="col text-center">
-              <i>Ngày <span>10</span> tháng <span>01</span> năm <span>2020</span></i>
+              <i>{{formatNgay2(ngayKyDieuTri)}}</i>
               <h6 class="text-center mt-2 mb-5">Bác sĩ điều trị</h6>
               <br>
               <p>Họ và tên <b>{{hsba.emrTongKetRaVien.bacsydieutri}}</b></p>
