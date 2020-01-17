@@ -13,12 +13,12 @@ var benh_an_script = {
 
   methods: {
     printToPdf: function() {
-      $("#benh_an input").each(function(){
+      $("#benh_an input").each(function() {
         $(this).attr("value", $(this).val());
       });
 
-      $("#benh_an input[type=checkbox]").each(function(){
-        if($(this).prop('checked')) {
+      $("#benh_an input[type=checkbox]").each(function() {
+        if ($(this).prop("checked")) {
           $(this).attr("checked", "checked");
         }
       });
@@ -77,77 +77,76 @@ var benh_an_chi_tiet_script = {
 
   computed: {
     ngaySinhBenhNhan() {
-      return attr(this.hsba, "emrBenhNhan.ngaysinh") || '';
+      return attr(this.hsba, "emrBenhNhan.ngaysinh") || "";
     },
     tuoiBenhNhan() {
-      var tuoi = (this.hsba.tuoiBenhNhan || '') + '';
-      if(tuoi.length == 1) {
-        return '0' + tuoi;
+      var tuoi = (this.hsba.tuoiBenhNhan || "") + "";
+      if (tuoi.length == 1) {
+        return "0" + tuoi;
       }
       return tuoi;
     },
 
     maNgheNghiep() {
-      return attr(this.hsba, "emrBenhNhan.emrDmNgheNghiep.ma") || '';
+      return attr(this.hsba, "emrBenhNhan.emrDmNgheNghiep.ma") || "";
     },
 
     maDanToc() {
-      return attr(this.hsba, "emrBenhNhan.emrDmDanToc.ma") || '';
+      return attr(this.hsba, "emrBenhNhan.emrDmDanToc.ma") || "";
     },
 
     maQuocTich() {
-      return attr(this.hsba, "emrBenhNhan.emrDmQuocGia.ma") || '';
+      return attr(this.hsba, "emrBenhNhan.emrDmQuocGia.ma") || "";
     },
 
     maQuanHuyen() {
-      return attr(this.hsba, "emrBenhNhan.emrDmQuanHuyen.ma") || '';
+      return attr(this.hsba, "emrBenhNhan.emrDmQuanHuyen.ma") || "";
     },
 
     maTinhThanh() {
-      return attr(this.hsba, "emrBenhNhan.emrDmTinhThanh.ma") || '';
+      return attr(this.hsba, "emrBenhNhan.emrDmTinhThanh.ma") || "";
     },
 
     soTheBHYT() {
-      return attr(this.hsba, "emrBenhNhan.sobhyt") || '';
+      return attr(this.hsba, "emrBenhNhan.sobhyt") || "";
     },
 
     ngayHetHanBHYT() {
-      return attr(this.hsba, "emrBenhNhan.ngayhethanthebhyt") || '';
+      return attr(this.hsba, "emrBenhNhan.ngayhethanthebhyt") || "";
     },
 
     soDienThoai() {
-      return attr(this.hsba, "emrBenhNhan.sodienthoainguoibaotin") || '';
+      return attr(this.hsba, "emrBenhNhan.sodienthoainguoibaotin") || "";
     },
 
     diaChi() {
-      return attr(this.hsba, "emrBenhNhan.diachi") || '';
+      return attr(this.hsba, "emrBenhNhan.diachi") || "";
     },
 
     ngayGioVaoVien() {
-      return this.hsba.emrQuanLyNguoiBenh.ngaygiovaovien || ';'
+      return this.hsba.emrQuanLyNguoiBenh.ngaygiovaovien || ";";
     },
 
     ngayGioRaVien() {
-      return this.hsba.emrQuanLyNguoiBenh.ngaygioravien || ';'
+      return this.hsba.emrQuanLyNguoiBenh.ngaygioravien || ";";
     },
 
     ngayKyBenhAn() {
-      return this.hsba.emrBenhAn.ngaykybenhan || '';
-
+      return this.hsba.emrBenhAn.ngaykybenhan || "";
     },
 
     ngayKyDieuTri() {
-      return this.hsba.emrTongKetRaVien.ngaybacsydieutriky || ';'
+      return this.hsba.emrTongKetRaVien.ngaybacsydieutriky || ";";
     },
 
     ngayGioTuVong() {
-      return this.hsba.emrTinhTrangRaVien.ngaygiotuvong || ';'
+      return this.hsba.emrTinhTrangRaVien.ngaygiotuvong || ";";
     },
 
     khoaDieuTri() {
-      if(this.hsba.emrVaoKhoas.length > 0) {
+      if (this.hsba.emrVaoKhoas.length > 0) {
         var n = this.hsba.emrVaoKhoas.length;
-        return this.hsba.emrVaoKhoas[n-1];
+        return this.hsba.emrVaoKhoas[n - 1];
       }
       return {};
     },
@@ -162,74 +161,134 @@ var benh_an_chi_tiet_script = {
     },
 
     chanDoanNoiDen() {
-      return attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoannoiden") || {ma:'',ten:''};
+      return (
+        attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoannoiden") || {
+          ma: "",
+          ten: ""
+        }
+      );
     },
 
     chanDoanKKB() {
-      return attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoankkb") || {ma:'',ten:''};
+      return (
+        attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoankkb") || {
+          ma: "",
+          ten: ""
+        }
+      );
     },
 
     chandoanVaoKhoaDieuTri() {
-      return attr(this.hsba, "emrBenhAn.emrDmMaBenhChandoanbenhchinh") || {ma:'',ten:''};
+      return (
+        attr(this.hsba, "emrBenhAn.emrDmMaBenhChandoanbenhchinh") || {
+          ma: "",
+          ten: ""
+        }
+      );
     },
 
     chandoanVaoKhoaDieuTriPhanBiet() {
-      return attr(this.hsba, "emrBenhAn.emrDmMaBenhChandoanphanbiet") || {ma:'',ten:''};
+      return (
+        attr(this.hsba, "emrBenhAn.emrDmMaBenhChandoanphanbiet") || {
+          ma: "",
+          ten: ""
+        }
+      );
     },
 
     chandoanVaoKhoaDieuTriKemTheo() {
-      var chanDoanKemTheoList = attr(this.hsba, "emrBenhAn.emrDmMaBenhChandoankemtheos");
-      if(chanDoanKemTheoList && chanDoanKemTheoList.length > 0) {
+      var chanDoanKemTheoList = attr(
+        this.hsba,
+        "emrBenhAn.emrDmMaBenhChandoankemtheos"
+      );
+      if (chanDoanKemTheoList && chanDoanKemTheoList.length > 0) {
         return chanDoanKemTheoList[0];
       }
-      return {ma: '', ten: ''};
+      return { ma: "", ten: "" };
     },
 
     chanDoanRaVienChinh() {
-      return attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoanravienchinh") || {ma:'',ten:''};
+      return (
+        attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoanravienchinh") || {
+          ma: "",
+          ten: ""
+        }
+      );
+    },
+
+    chanDoanRaVienChinhYhct() {
+      return (
+        attr(this.hsba, "emrYhctChanDoan.emrDmYhctBenhdanhRavien") || {
+          ma: "",
+          ten: ""
+        }
+      );
     },
 
     chanDoanRaVienNguyenNhan() {
-      return attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoanraviennguyennhan") || {ma:'',ten:''};
+      return (
+        attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoanraviennguyennhan") || {
+          ma: "",
+          ten: ""
+        }
+      );
     },
 
     chanDoanTruocPt() {
-      var chanDoanTruocPtList = attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoantruocpts");
-      if(chanDoanTruocPtList && chanDoanTruocPtList.length > 0) {
+      var chanDoanTruocPtList = attr(
+        this.hsba,
+        "emrChanDoan.emrDmMaBenhChandoantruocpts"
+      );
+      if (chanDoanTruocPtList && chanDoanTruocPtList.length > 0) {
         return chanDoanTruocPtList[0];
       }
-      return {ma: '', ten: ''};
+      return { ma: "", ten: "" };
     },
 
     chanDoanSauPt() {
-      var chanDoanSauPtList = attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoansaupts");
-      if(chanDoanSauPtList && chanDoanSauPtList.length > 0) {
+      var chanDoanSauPtList = attr(
+        this.hsba,
+        "emrChanDoan.emrDmMaBenhChandoansaupts"
+      );
+      if (chanDoanSauPtList && chanDoanSauPtList.length > 0) {
         return chanDoanSauPtList[0];
       }
-      return {ma: '', ten: ''};
+      return { ma: "", ten: "" };
     },
 
     chanDoanRaVienKemTheo() {
-      var chanDoanRaVienKemTheoList = attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoanravienkemtheos");
-      if(chanDoanRaVienKemTheoList && chanDoanRaVienKemTheoList.length > 0) {
+      var chanDoanRaVienKemTheoList = attr(
+        this.hsba,
+        "emrChanDoan.emrDmMaBenhChandoanravienkemtheos"
+      );
+      if (chanDoanRaVienKemTheoList && chanDoanRaVienKemTheoList.length > 0) {
         return chanDoanRaVienKemTheoList[0];
       }
-      return {ma: '', ten: ''};
+      return { ma: "", ten: "" };
     },
 
     nguyenNhanTuVong() {
-      return attr(this.hsba, "emrTinhTrangRaVien.emrDmNguyennhantuvong") || {ma:'',ten:''};
+      return (
+        attr(this.hsba, "emrTinhTrangRaVien.emrDmNguyennhantuvong") || {
+          ma: "",
+          ten: ""
+        }
+      );
     },
 
     giaiPhauTuThi() {
-      return attr(this.hsba, "emrTinhTrangRaVien.emrDmGiaiphaututhi") || {ma:'',ten:''};
-    },
-    
+      return (
+        attr(this.hsba, "emrTinhTrangRaVien.emrDmGiaiphaututhi") || {
+          ma: "",
+          ten: ""
+        }
+      );
+    }
   },
 
   methods: {
     toCharArray(st) {
-      return (st || '').replace('.', '').split('');
+      return (st || "").replace(".", "").split("");
     },
 
     getTenKhoa(khoa) {
@@ -237,7 +296,7 @@ var benh_an_chi_tiet_script = {
     },
 
     formatNgayGio(ngaygio) {
-      if(ngaygio.length == 16) {
+      if (ngaygio.length == 16) {
         var ngay = ngaygio.substring(0, 2);
         var thang = ngaygio.substring(3, 5);
         var nam = ngaygio.substring(6, 10);
@@ -249,23 +308,23 @@ var benh_an_chi_tiet_script = {
     },
 
     formatNgay(ngaygio) {
-      if(ngaygio.length >= 10) {
+      if (ngaygio.length >= 10) {
         var ngay = ngaygio.substring(0, 2);
         var thang = ngaygio.substring(3, 5);
         var nam = ngaygio.substring(6, 10);
         return `${ngay} tháng ${thang} năm ${nam}`;
       }
-      return '... tháng ... năm ......';
+      return "... tháng ... năm ......";
     },
 
     formatNgay2(ngaygio) {
-      if(ngaygio.length >= 10) {
+      if (ngaygio.length >= 10) {
         var ngay = ngaygio.substring(0, 2);
         var thang = ngaygio.substring(3, 5);
         var nam = ngaygio.substring(6, 10);
         return `Ngày ${ngay} tháng ${thang} năm ${nam}`;
       }
-      return 'Ngày ... tháng ... năm ......';
+      return "Ngày ... tháng ... năm ......";
     }
   }
 };
@@ -337,20 +396,20 @@ VueAsyncComponent(
 VueAsyncComponent(
   "benh-an-rhm",
   "/pages/hsba/view_detail/benh_an/benh_an_rhm.html",
-  { props: ["hsba"] }
+  benh_an_chi_tiet_script
 );
 VueAsyncComponent(
   "benh-an-tmh",
   "/pages/hsba/view_detail/benh_an/benh_an_tmh.html",
-  { props: ["hsba"] }
+  benh_an_chi_tiet_script
 );
 VueAsyncComponent(
   "benh-an-noi-tru-yhct",
   "/pages/hsba/view_detail/benh_an/benh_an_noi_tru_yhct.html",
-  { props: ["hsba"] }
+  benh_an_chi_tiet_script
 );
 VueAsyncComponent(
   "benh-an-ngoai-tru-yhct",
   "/pages/hsba/view_detail/benh_an/benh_an_ngoai_tru_yhct.html",
-  { props: ["hsba"] }
+  benh_an_chi_tiet_script
 );
