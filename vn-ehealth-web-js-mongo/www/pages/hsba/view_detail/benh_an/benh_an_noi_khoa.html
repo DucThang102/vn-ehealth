@@ -226,11 +226,11 @@
           <div class="row">
             <div class="col">
               <label><b class="text-primary mr-1">16.</b>Chuyển khoa: </label>
-              <table class="table">
-                <tr v-for="khoa in hsba.emrVaoKhoas.slice(1)">
-                  <td>{{getTenKhoa(khoa)}}</td>
-                  <td class="text-center">{{formatNgayGio(khoa.ngaygiovaokhoa)}}</td>
-                  <td class="text-center">{{khoa.songaydieutri}}</td>
+              <table class="table" v-if="hsba.emrVaoKhoas.length > 1">
+                <tr>
+                  <th class="text-center" style="width:35%">Khoa</th>
+                  <th class="text-center" style="width:35%">Ngày giờ vào khoa</th>
+                  <th class="text-center" style="width:30%">Số ngày điều trị</th>
                 </tr>
                 <tr v-for="khoa in hsba.emrVaoKhoas.slice(1)">
                   <td>{{getTenKhoa(khoa)}}</td>
@@ -478,10 +478,7 @@
               <div class="col ml-3">
                 <span>{{hsba.emrTinhTrangRaVien.emrDmGiaiphaututhi.ten}}</span>
                 <form class="form-inline input-lr2 float-right">
-                  <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                  <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                  <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                  <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+                  <input v-for="c in toCharArray(giaiPhauTuThi.ma)" readonly value="c" class="form-control form-control-sm text-placeholder w-40px">
                 </form>
               </div>  
             </div>

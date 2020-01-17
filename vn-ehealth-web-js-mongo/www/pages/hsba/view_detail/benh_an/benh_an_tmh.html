@@ -556,10 +556,7 @@
               <div class="col ml-3">
                 <span>{{hsba.emrTinhTrangRaVien.emrDmGiaiphaututhi.ten}}</span>
                 <form class="form-inline input-lr2 float-right">
-                  <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                  <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                  <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                  <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+                 <input v-for="c in toCharArray(giaiPhauTuThi.ma)" readonly value="c" class="form-control form-control-sm text-placeholder w-40px">
                 </form>
               </div>  
             </div>
