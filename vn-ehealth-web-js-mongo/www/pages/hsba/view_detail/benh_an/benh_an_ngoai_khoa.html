@@ -498,9 +498,9 @@
                   <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmLyDoTuVong.ma') == '01' " type="checkbox"> <span class="mr-3">3.Khác</span>
                 </td>
                 <td>
-                  <input disabled type="checkbox"> <span class="mr-3">1.Trong 24 giờ vào viện</span><br>
-                  <input disabled type="checkbox"> <span class="mr-3">2.Trong 48 giờ vào viện</span><br>
-                  <input disabled type="checkbox"> <span class="mr-3">3.Trong 72 giờ vào viện</span>
+                  <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmThoiDiemTuVong.ma') == '01' " type="checkbox"> <span class="mr-3">1.Trong 24 giờ vào viện</span><br>
+                  <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmThoiDiemTuVong.ma') == '02' " type="checkbox"> <span class="mr-3">2.Trong 48 giờ vào viện</span><br>
+                  <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmThoiDiemTuVong.ma') == '03' " type="checkbox"> <span class="mr-3">3.Trong 72 giờ vào viện</span>
                 </td>
               </tr>
             </table>
@@ -536,7 +536,8 @@
       </div>
       <div class="row mb-2">
         <div class="col">
-          <label><b class="text-primary mr-1">30.</b>Khám nghiệm tử thi: </label> <input type="checkbox" disabled :checked="attr(hsba, 'emrTinhTrangRaVien.khamnghiemtuthi')">
+          <label><b class="text-primary mr-1">30.</b>Khám nghiệm tử thi: </label> 
+          <input type="checkbox" disabled :checked="attr(hsba, 'emrTinhTrangRaVien.khamnghiemtuthi')">
         </div>
         <div class="col">
           <label><b class="text-primary mr-1">31.</b>Chẩn đoán giải phẫu tử thi: </label>
