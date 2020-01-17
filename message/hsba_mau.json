@@ -247,7 +247,7 @@
       {
         "ma": "0002",
         "ten": "text"
-      },
+      }
     ],
     "emrDmMaBenhChandoanphanbiet": {
       "ma": "0001",
@@ -1476,7 +1476,7 @@
         {
             "ma": "0002",
             "ten": "text"
-        },
+        }
       ],
       "emrDmMaBenhChandoantruocs": [
         {
@@ -1486,7 +1486,7 @@
         {
             "ma": "0002",
             "ten": "text"
-        },
+        }
       ],
       "emrDmPhauThuThuat": {
         "ma": "0001",
