@@ -691,20 +691,20 @@
 
         <tr v-for="embe in hsba.emrBenhAn.emrCkTienSuSanKhoa.emrCkTienSuSanKhoaChiTiets">
           <td class="text-center">{{embe.lancothai}}</td>
-          <td></td>
-          <td>{{embe.duthang}}</td>
-          <td>{{embe.denon}}</td>
-          <td>{{embe.say}}</td>
-          <td>{{embe.song}}</td>
-          <td>{{embe.hut}}</td>
-          <td>{{embe.nao}}</td>
-          <td>{{embe.covac}}</td>
-          <td>{{embe.chuangoaitucung}}</td>
-          <td>{{embe.chuatrung}}</td>
-          <td>{{embe.thaichetluu}}</td>
-          <td></td>
-          <td>{{embe.phuongphapde}}</td>
-          <td>{{embe.taibien}}</td>
+          <td class="text-center"></td>
+          <td class="text-center"><input disabled :checked="embe.duthang" type="checkbox"></td>
+          <td class="text-center"><input disabled :checked="embe.denon" type="checkbox"></td>
+          <td class="text-center"><input disabled :checked="embe.say" type="checkbox"></td>
+          <td class="text-center"><input disabled :checked="embe.hut" type="checkbox"></td>
+          <td class="text-center"><input disabled :checked="embe.nao" type="checkbox"></td>
+          <td class="text-center"><input disabled :checked="embe.covac" type="checkbox"></td>
+          <td class="text-center"><input disabled :checked="embe.chuangoaitucung" type="checkbox"></td>
+          <td class="text-center"><input disabled :checked="embe.chuatrung" type="checkbox"></td>
+          <td class="text-center"><input disabled :checked="embe.thaichetluu" type="checkbox"></td>
+          <td class="text-center"><input disabled :checked="embe.song" type="checkbox"></td>
+          <td class="text-center"></td>
+          <td class="text-center">{{embe.phuongphapde}}</td>
+          <td class="text-center">{{embe.taibien}}</td>
         </tr>
       </table>
     </div>
