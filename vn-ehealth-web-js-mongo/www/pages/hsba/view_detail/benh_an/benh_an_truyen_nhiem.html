@@ -444,8 +444,8 @@
           <div class="row mb-2">
             <div class="col">
               <div class="ml-3">
-                <input disabled type="checkbox"> <span class="mr-3">1.Trong 24 giờ vào viện</span>
-                <input disabled type="checkbox"> <span class="mr-3">2.Sau 24 giờ vào viện</span>
+                <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmThoiDiemTuVong.ma') == '01' " type="checkbox"> <span class="mr-3">1.Trong 24 giờ vào viện</span>
+                <input disabled :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmThoiDiemTuVong.ma') == '02' " type="checkbox"> <span class="mr-3">2.Sau 24 giờ vào viện</span>
               </div>
             </div>
           </div>

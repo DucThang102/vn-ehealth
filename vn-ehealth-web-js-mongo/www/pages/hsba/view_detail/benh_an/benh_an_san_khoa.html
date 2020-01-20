@@ -69,7 +69,7 @@
         </div>
 
         <div class="col-6">
-          <label><b class="text-primary mr-1">6.</b>Quốc tịch:</label>
+          <label><b class="text-primary mr-1">5.</b>Quốc tịch:</label>
           <span> {{hsba.emrBenhNhan.emrDmQuocGia.ten}} </span>
           <form class="form-inline input-lr2 float-right">
             <input v-for="c in toCharArray(maQuocTich)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
@@ -163,7 +163,7 @@
         <div class="col-6">
           <div class="row mb-2">
             <div class="col">
-              <label><b class="text-primary mr-1">12.</b>Vào viện: </label>
+              <label><b class="text-primary mr-1">11.</b>Vào viện: </label>
               <span>{{formatNgayGio(ngayGioVaoVien)}}</span>
             </div>
           </div>
@@ -558,7 +558,7 @@
     </div>
 
     <div class="row mt-2">
-        <i class="fas fa-fw bullet fa-circle"></i>{{hsba.emrBenhAn.lydovaovien}}
+      <span class="ml-4"> <i class="fas fa-fw bullet fa-circle"></i> {{hsba.emrBenhAn.lydovaovien}} </span> 
     </div>
 
     <div class="row mt-2">
@@ -689,107 +689,22 @@
         <th class="text-center" style="width:10%">Phương pháp đẻ</th>
         <th class="text-center" style="width:10%">Tai biến</th>
 
-        <tr>
-          <td class="text-center">1</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="text-center">2</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="text-center">3</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="text-center">4</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="text-center">5</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="text-center">6</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+        <tr v-for="embe in hsba.emrBenhAn.emrCkTienSuSanKhoa.emrCkTienSuSanKhoaChiTiets">
+          <td class="text-center">{{embe.lancothai}}</td>
+          <td></td>
+          <td>{{embe.duthang}}</td>
+          <td>{{embe.denon}}</td>
+          <td>{{embe.say}}</td>
+          <td>{{embe.song}}</td>
+          <td>{{embe.hut}}</td>
+          <td>{{embe.nao}}</td>
+          <td>{{embe.covac}}</td>
+          <td>{{embe.chuangoaitucung}}</td>
+          <td>{{embe.chuatrung}}</td>
+          <td>{{embe.thaichetluu}}</td>
+          <td></td>
+          <td>{{embe.phuongphapde}}</td>
+          <td>{{embe.taibien}}</td>
         </tr>
       </table>
     </div>
@@ -804,7 +719,7 @@
         <b>1. Toàn thân</b></span>
     </div>
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>{{hsba.emrBenhAn.toanthan}}</span>
+      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Toàn thân: {{hsba.emrBenhAn.toanthan}}</span>
     </div>
     <div class="row-mt-2">
       <ul>
@@ -831,21 +746,21 @@
           <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Toàn trạng:.....</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> {{hsba.emrBenhAn.tuanhoan}}</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Tuần hoàn: {{hsba.emrBenhAn.tuanhoan}}</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> {{hsba.emrBenhAn.hohap}}</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Hô hấp: {{hsba.emrBenhAn.hohap}}</span>
         </div>
       </div>
       <div class="col-6">
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> {{hsba.emrBenhAn.tieuhoa}}</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Tiêu hóa: {{hsba.emrBenhAn.tieuhoa}}</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> {{hsba.emrBenhAn.tietnieusinhduc}}</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Tiết niệu: {{hsba.emrBenhAn.tietnieusinhduc}}</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> {{hsba.emrBenhAn.coquankhac}}</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Các bộ phận khác: {{hsba.emrBenhAn.coquankhac}}</span>
         </div>
       </div class="col-6">
     </div>
