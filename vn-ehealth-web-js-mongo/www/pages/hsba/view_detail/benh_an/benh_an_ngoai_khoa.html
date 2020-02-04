@@ -392,25 +392,32 @@
           <div class="row mb-2">
             <div class="col ml-4">
               <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh
-                chính:</label><br>
-              <span>{{chanDoanRaVienChinh.ten}}</span>
+                chính:(<i>tổn thương</i>)</label><br>
+              <span>{{chanDoanRaVienChinh.ten}}</span> 
               <form class="form-inline input-lr2 float-right">
                 <input v-for="c in toCharArray(chanDoanRaVienChinh.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
+              </form> <br>
+              <span> (<i>nguyên nhân</i>): {{chanDoanRaVienNguyenNhan.ten}}</span>
+              <form class="form-inline input-lr2 float-right">
+                <input v-for="c in toCharArray(chanDoanRaVienNguyenNhan.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
               </form>
+
             </div>
           </div>
 
           
-          <div class="row mt-2">
-            <div class="col ml-4">
-              <label><i class="fas fa-fw bullet-small fa-circle"></i>Nguyên nhân</i></label><br>
-              <span> <i>Nguyên nhân:</i> {{chanDoanRaVienNguyenNhan.ten}}</span>
-              <form class="form-inline input-lr2 float-right">
-                <input v-for="c in toCharArray(chanDoanRaVienNguyenNhan.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-              </form>
-            </div>            
-          </div>
+          
 
+          <div class="row mb-2">
+            <div class="col ml-4">
+              <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh kèm
+                theo:</label><br>
+              <span>{{chanDoanRaVienKemTheo.ten}}</span>
+              <form class="form-inline input-lr2 float-right">
+                <input v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
+              </form>
+            </div>
+          </div>
           
           <div class="row mb-2">
             <div class="col ml-4">
@@ -433,16 +440,7 @@
           </div>
 
           
-          <div class="row mb-2">
-            <div class="col ml-4">
-              <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh kèm
-                theo:</label><br>
-              <span>{{chanDoanRaVienKemTheo.ten}}</span>
-              <form class="form-inline input-lr2 float-right">
-                <input v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-              </form>
-            </div>
-          </div>
+          
 
         </div>
       </div>
