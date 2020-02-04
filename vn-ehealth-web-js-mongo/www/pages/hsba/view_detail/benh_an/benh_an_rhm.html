@@ -211,7 +211,7 @@
           <div class="row mb-3">
             <div class="col">
               <label><b class="text-primary mr-1">15.</b>Vào khoa: </label>
-              <table style="width:100%">
+              <table style="width:100%" v-if="hsba.emrVaoKhoas.length >= 1">
                 <tr>
                   <th class="text-center" style="width:35%">Khoa</th>
                   <th class="text-center" style="width:35%">Ngày giờ vào khoa</th>
@@ -228,7 +228,7 @@
           <div class="row">
             <div class="col">
               <label><b class="text-primary mr-1">16.</b>Chuyển khoa: </label>
-              <table class="table">
+              <table class="table" v-if="hsba.emrVaoKhoas.length > 1">
                 <tr>
                   <th class="text-center" style="width:35%">Khoa</th>
                   <th class="text-center" style="width:35%">Ngày giờ vào khoa</th>
