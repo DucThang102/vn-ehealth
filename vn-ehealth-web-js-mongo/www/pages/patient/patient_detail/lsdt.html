@@ -1,3 +1,126 @@
 <div>
-  lịch sử dùng thuốc
+  <template>
+      <div class="row">
+          <div class="col-8">
+              <div class="portlet p-3">
+                  <h3 class="text-blue text-uppercase">Lịch sử dùng thuốc</h3>
+                  <table class="table">
+                      <thead>
+                          <tr>
+                              <th>STT</th>
+                              <th>Nơi khám</th>
+                              <th>Chẩn đoán</th>
+                              <th>Bác sĩ kê đơn</th>
+                              <th>Ngày kê đơn</th>
+                              <th>Số đơn thuốc</th>
+                            
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>4</td>
+                              <td>Khoa Nội trú</td>
+                              <td><span class="badge badge-info">Tiểu đường cấp 1</span></td>
+                              <td>Phan Đình Hùng</td>
+                              <td>22/12/2019</td>
+                              <td><a href="#" v-on:click="viewDonthuoc(donthuoc)"
+                                ><i class="fas fa-fw fa-binoculars"></i> 16009876</a
+                              ></td>
+                          </tr>
+                          <tr>
+                            <td>4</td>
+                            <td>Khoa Nội trú</td>
+                            <td><span class="badge badge-info">Tiểu đường cấp 2</span></td>
+                            <td>Phan Đình Hùng</td>
+                            <td>22/1/2019</td>
+                            <td><a href="#" v-on:click="viewDonthuoc(donthuoc)"
+                              ><i class="fas fa-fw fa-binoculars"></i> 16009876</a
+                            ></td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Khoa Nội trú</td>
+                          <td><span class="badge badge-info">Tiểu đường cấp 3</span></td>
+                          <td>Phan Đình Hùng</td>
+                          <td>22/3/2019</td>
+                          <td><a href="#" v-on:click="viewDonthuoc(donthuoc)"
+                            ><i class="fas fa-fw fa-binoculars"></i> 16009876</a
+                          ></td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>Khoa Nội trú</td>
+                        <td><span class="badge badge-info">Tiểu đường cấp 1</span></td>
+                        <td>Phan Đình Hùng</td>
+                        <td>22/5/2019</td>
+                        <td><a href="#" v-on:click="viewDonthuoc(donthuoc)"
+                          ><i class="fas fa-fw fa-binoculars"></i> 16009876</a
+                        ></td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Khoa Nội trú</td>
+                      <td><span class="badge badge-info">Sốt phát ban</span></td>
+                      <td>Phan Đình Hùng</td>
+                      <td>22/9/2019</td>
+                      <td><a href="#" v-on:click="viewDonthuoc(donthuoc)"
+                        ><i class="fas fa-fw fa-binoculars"></i> 16009876</a
+                      ></td>
+                  </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+          <div class="col-4">
+              <div class="portlet p-3">
+                  <h3 class="text-blue text-uppercase">Những vấn đề gặp phải</h3>
+                  <ul tabindex="5000" class="list-group no-margn nicescroll todo-list">
+                      <li class="list-group-item">
+                          <div class="form-check">
+                              <input checked="checked" class="form-check-input todo-done" id="7" type="checkbox">
+                              <label class="form-check-label">Dị ứng với thuốc kháng sinh</label>
+                          </div>
+                      </li>
+                      <li class="list-group-item">
+                          <div class="form-check">
+                              <input class="form-check-input todo-done" id="6" type="checkbox">
+                              <label class="form-check-label">Nôn </label>
+                          </div>
+                      </li>
+                      <li class="list-group-item">
+                          <div class="form-check">
+                              <input class="form-check-input todo-done" id="5" type="checkbox">
+                              <label class="form-check-label">Thiếu máu</label>
+                          </div>
+                      </li>
+                      <li class="list-group-item">
+                          <div class="form-check">
+                              <input checked="checked" class="form-check-input todo-done" id="4" type="checkbox">
+                              <label class="form-check-label">Hay buồn ngủ</label>
+                          </div>
+                      </li>
+                      <li class="list-group-item">
+                          <div class="form-check">
+                              <input class="form-check-input todo-done" id="1" type="checkbox">
+                              <label class="form-check-label">Sốt phát ban</label>
+                          </div>
+                      </li>	                    
+                  </ul>
+  
+                  <form name="todo-form" id="todo-form" role="form" class="m-t-20">
+                      <div class="row">
+                          <div class="col-sm-9 todo-inputbar">
+                              <input id="todo-input-text" name="todo-input-text" class="form-control"
+                                  placeholder="Thêm" type="text">
+                          </div>
+                          <div class="col-sm-3 todo-send">
+                              <button class="btn-primary btn-block btn" type="button"
+                                  id="todo-btn-submit">Add</button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </template>
 </div>
