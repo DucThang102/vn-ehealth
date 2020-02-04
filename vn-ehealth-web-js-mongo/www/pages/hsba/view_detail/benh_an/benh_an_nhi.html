@@ -605,28 +605,58 @@
     <div class="row mb-2">
       <div class="col">
         <span class="ml-2"><i class="fas fa-fw bullet-small fa-circle"></i> Tình trạng khi sinh:
-          <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkQuaTrinhSinhTruong.dethuong')" type="checkbox"> <span class="mr-3">1.Đẻ thường</span>
-          <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkQuaTrinhSinhTruong.forceps') " type="checkbox"> <span class="mr-3">2.Forceps</span>
-          <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkQuaTrinhSinhTruong.giachut') " type="checkbox"> <span class="mr-3">3.Giác hút</span>
-          <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkQuaTrinhSinhTruong.dephauthuat')  " type="checkbox" checked> <span class="mr-3">4.Đẻ phẫu thuật</span>
-          <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkQuaTrinhSinhTruong.dechihuy') " type="checkbox"> <span class="mr-3">5.Đẻ chỉ huy</span>
-          <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkQuaTrinhSinhTruong.dekhac') " type="checkbox"> <span class="mr-3">6.Khác</span>
+          
         </span>
       </div>
+
     </div>
+    <div class="row mb-2">
+      <div class="col-3">
+        <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkQuaTrinhSinhTruong.dethuong')" type="checkbox"> <span class="mr-3">1.Đẻ thường</span>
+
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-3">
+        <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkQuaTrinhSinhTruong.forceps') " type="checkbox"> <span class="mr-3">2.Forceps</span>
+
+      </div>
+      <div class="col-3">
+        <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkQuaTrinhSinhTruong.giachut') " type="checkbox"> <span class="mr-3">3.Giác hút</span>
+
+      </div>
+      <div class="col-3">
+        <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkQuaTrinhSinhTruong.dephauthuat')  " type="checkbox" checked> <span class="mr-3">4.Đẻ phẫu thuật</span>
+
+      </div>
+      
+      <div class="col-3">
+        <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkQuaTrinhSinhTruong.dechihuy') " type="checkbox"> <span class="mr-3">5.Đẻ chỉ huy</span>
+
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-3">
+        <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkQuaTrinhSinhTruong.dekhac') " type="checkbox"> <span class="mr-3">6.Khác</span>
+
+      </div>
+    </div>
+  
     <div class="row mb-2">
       <div class="col-3">
         <span class="ml-2"><i class="fas fa-fw bullet-small fa-circle"></i> Cân nặng lúc sinh: {{ hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.cannangsinh }} kg</span>
       </div>
-    </div>
-    <div class="row mb-2">
       <div class="col-3">
-        <span class="ml-2"><i class="fas fa-fw bullet-small fa-circle"></i> Dị tật bẩm sinh:
+        <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkQuaTrinhSinhTruong.coditat') " type="checkbox">
+        <span class="ml-2"> Dị tật bẩm sinh
         </span>
       </div>
       <div class="col-6">
+        <span class="ml-2"> Cụ thể dị tật bẩm sinh:
+        </span>
         <span>{{hsba.emrBenhAn.emrCkQuaTrinhSinhTruong.motaditat}}</span>
       </div>
+
     </div>
     <div class="row mb-2">
         <span class="ml-4">
@@ -673,7 +703,7 @@
         <span class="ml-2"><i class="fas fa-fw bullet-small fa-circle"></i> Đã tiêm chủng:
           <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkTiemChung.tclao') "  type="checkbox"> <span class="mr-3">1. Lao</span>
           <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkTiemChung.tcbailiet')" type="checkbox"> <span class="mr-3">2.Bại liệt</span>
-          <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkTiemChung.tcsoi') " type="checkbox"> <span class="mr-3">3.Sởi(thieu)</span>
+          <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkTiemChung.tcsoi') " type="checkbox"> <span class="mr-3">3.Sởi</span>
           <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkTiemChung.tchoga')" type="checkbox"> <span class="mr-3">4.Ho gà</span>
           <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkTiemChung.tcuonvan')" type="checkbox"> <span class="mr-3">5.Uốn ván</span>
           <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkTiemChung.tcbachhau')" type="checkbox"> <span class="mr-3">6.Bạch hầu</span>
