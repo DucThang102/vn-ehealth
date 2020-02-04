@@ -46,7 +46,6 @@
             <input readonly :value="ngaySinhBenhNhan.substring(8,9)" class="form-control form-control-sm text-placeholder w-40px">
             <input readonly :value="ngaySinhBenhNhan.substring(9,10)" class="form-control form-control-sm text-placeholder w-40px">
           </div>
-
           <div class="form-inline input-lr2 float-right">
             <input v-for="c in toCharArray(tuoiBenhNhan)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
           </div>
@@ -76,7 +75,6 @@
             <input v-for="c in toCharArray(maDanToc)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
           </form>
         </div>
-
         <div class="col-6">
           <label><b class="text-primary mr-1">6.</b>Quốc tịch:</label>
           <span> {{hsba.emrBenhNhan.emrDmQuocGia.ten}} </span>
@@ -124,7 +122,6 @@
               <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma') == '04' " type="checkbox"> <span class="mr-3">4.Khác</span>
           </label>
         </div>
-
       </div>
       <div class="row mb-2">
         <div class="col-6">
@@ -141,7 +138,6 @@
           </form>
         </div>
       </div>
-
       <div class="row mb-2">
         <div class="col-12">
           <label><b class="text-primary mr-1">11.</b>Họ tên, địa chỉ người nhà khi cần
@@ -149,7 +145,6 @@
             <span>{{hsba.emrBenhNhan.tennguoibaotin}}</span>
           </div>
       </div>
-
       <div class="row mb-2">
         <div class="col-6">
           <label>Địa chỉ:</label>
@@ -263,7 +258,6 @@
               <span>{{hsba.emrQuanLyNguoiBenh.noichuyenden}}</span>
             </div>
           </div>
-
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">18.</b>Ra viện: </label>
@@ -283,10 +277,8 @@
               <span>{{ hsba.emrQuanLyNguoiBenh.tongsongaydieutri}} ngày</span>
             </div>
           </div>
-
         </div>
       </div>
-
     </section>
     <section class="mb-4">
       <div class="row mb-2">
@@ -295,15 +287,12 @@
         </div>
         <div class="col-1 text-center mr-auto"><strong>MÃ</strong></div>
         <div class="col-1 text-center col-auto"><strong>MÃ</strong></div>
-
       </div>
       <div class="row mb-2">
         <div class="col-6 text-primary text-center mr-auto"><strong>CHẨN ĐOÁN THEO YHHĐ</strong>
         </div>
         <div class="col-6 text-primary text-center col-auto"><strong>CHẨN ĐOÁN THEO YHCT</strong>
         </div>
-
-
       </div>
       <div class="row mb-2">
         <div class="col-6">
@@ -320,7 +309,6 @@
               </form>
             </div>
           </div>
-
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">21.</b>KKB, Cấp cứu: </label>
@@ -334,7 +322,6 @@
               </form>
             </div>
           </div>
-
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">22.</b>Khi vào khoa điều trị: </label>
@@ -348,7 +335,6 @@
               </form>
             </div>
           </div>
-
           <div class="row">
             <div class="col">
               <div class="ml-3">
@@ -362,7 +348,6 @@
               <label><b class="text-primary mr-1">23.</b>Ra viện: </label>
             </div>
           </div>
-
           <div class="row mb-2">
             <div class="col ml-4">
               <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh
@@ -373,7 +358,6 @@
               </form>
             </div>
           </div>
-
           <div class="row mb-2">
             <div class="col ml-4">
               <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh kèm
@@ -384,7 +368,6 @@
               </form>
             </div>
           </div>
-
           <div class="row">
             <div class="col">
               <div class="ml-3">
@@ -394,7 +377,6 @@
             </div>
           </div>          
         </div>
-
         <div class="col-6">
           <div class="row mb-2">
             <div class="col">
@@ -409,7 +391,6 @@
               </form>
             </div>
           </div>
-
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">25.</b>KKB, Cấp cứu: </label>
@@ -423,7 +404,6 @@
               </form>
             </div>
           </div>
-
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">26.</b>Khi vào khoa điều trị: </label>
@@ -437,7 +417,6 @@
               </form>
             </div>
           </div>
-
           <div class="row">
             <div class="col">
               <div class="ml-3">
@@ -451,7 +430,6 @@
               <label><b class="text-primary mr-1">27.</b>Ra viện: </label>
             </div>
           </div>
-
           <div class="row mb-2">
             <div class="col ml-4">
               <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh
@@ -462,7 +440,6 @@
               </form>
             </div>
           </div>
-
           <div class="row mb-2">
             <div class="col ml-4">
               <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh kèm
@@ -476,7 +453,6 @@
               </form>
             </div>
           </div>
-
           <div class="row">
             <div class="col">
               <div class="ml-3">
@@ -509,7 +485,6 @@
               </div>
             </div>
           </div>
-
           <div class="row">
             <div class="col">
               <label><b class="text-primary mr-1">29.</b>Giải phẫu bệnh <i>(khi có sinh thiết):</i></label>
@@ -522,7 +497,6 @@
             </div>
           </div>
         </div>
-        
         <div class="col-6">
           <div class="row mb-2">
             <div class="col">
@@ -530,7 +504,6 @@
               <span>{{ formatNgayGio(ngayGioTuVong) }}</span>
             </div>
           </div>
-
           <div class="row mb-2">
             <div class="col">
               <div class="ml-3">
@@ -540,7 +513,6 @@
               </div>
             </div>
           </div>
-
           <div class="row mb-2">
             <div class="col">
               <div class="ml-3">
@@ -549,13 +521,11 @@
               </div>
             </div>
           </div>
-
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">31.</b>Nguyên nhân chính tử vong: </label>
             </div>
           </div>
-
           <div class="row mb-2">
             <div class="col ml-4">
               <span>{{nguyenNhanTuVong.ten}}</span>
@@ -564,14 +534,12 @@
               </form>
             </div>
           </div>
-
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">32.</b>Khám nghiệm tử thi: </label> 
               <input :checked="attr(hsba, 'emrTinhTrangRaVien.khamnghiemtuthi') " type="checkbox" disabled>
             </div>
           </div>
-
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">33.</b>Chẩn đoán giải phẫu tử thi: </label>
@@ -586,7 +554,6 @@
         </div>
       </div>
     </section>
-
     <section class="mb-4">
       <div class="row align-items-end">
         <div class="col text-center">
@@ -603,7 +570,6 @@
       </div>
     </section>
   </section>
-
   <section class="container-fluid pt-2 mb-3">
     <div class="row mt-3">
       <h4 class="text-tle">PHẦN II - BỆNH ÁN</h4>
@@ -611,23 +577,19 @@
     <div class="row mt-2">
       <h5 class="text-tle">A. Y HỌC HIỆN ĐẠI:</h5>
     </div>
-
     <div class="row mt-2">
       <h5 class="text-tle">I. Lý do vào viện:</h5>
     </div>
-
     <div class="row mt-2">
       <span class="ml-4">
         <i class="fas fa-fw bullet fa-circle"></i>{{hsba.emrBenhAn.lydovaovien}}
       </span>
     </div>
-
     <div class="row mt-2">
       <span class="ml-4">
         <i class="fas fa-fw bullet fa-circle"></i> Vào ngày thứ <u>{{hsba.emrBenhAn.vaongaythu||'...'}}</u> của bệnh
       </span>
     </div>
-
     <div class="row mt-3">
       <h5 class="text-tle">II. Bệnh sử:</h5>
     </div>
@@ -637,24 +599,20 @@
     <div class="row mt-3">
       <h5 class="text-tle">III. Tiền sử:</h5>
     </div>
-
     <div class="row mt-3">
       <span>
         <b>2. Tiền sử bệnh</b>:
       </span>
     </div>
-
     <div class="row mt-2">
       <span class="ml-4"><i class="fas fa-fw bullet-small fa-circle"></i> Bản thân
         <i>(phát triển thể lực từ nhỏ đến lớn, những bệnh đã mắc, phương pháp ĐTr, tiêm phòng, ăn uống, sinh hoạt
           vv...):</i>
       </span>
     </div>
-
     <div class="row mt-2 ml-2">
       <span class="ml-4">{{hsba.emrBenhAn.tiensubanthan}}</span>
     </div>
-
     <div class="row mt-3 ml-2">
       <div class="col-6">
         <span class="ml-2"><i>Đặc điểm liên quan bệnh:</i></span>
@@ -710,17 +668,14 @@
         </table>
       </div>
     </div>
-
     <div class="row mt-2">
       <span class="ml-4"><i class="fas fa-fw bullet-small fa-circle"></i> Gia đình
         <i>(Những người trong gia đình: bệnh đã mắc, đời sống, tinh thần, vật chất v.v...):</i>
       </span>
     </div>
-
     <div class="row mt-2 ml-2">
       <span class="ml-4">{{hsba.emrBenhAn.tiensugiadinh}}</span>
     </div>
-
     <div class="row mt-3">
       <h5 class="text-tle">IV. Khám bệnh:</h5>
     </div>
@@ -752,7 +707,6 @@
         </li>
       </ul>
     </div>
-
     <div class="row mt-2">
       <span>
         <b>2. Các cơ quan</b>:
@@ -775,61 +729,48 @@
     <div class="row mt-3">
       <h5 class="text-tle">V. Cận lâm sàng:</h5>
     </div>
-
     <div class="row mt-2">
       <span class="ml-4">{{hsba.emrBenhAn.xetnghiemcanlamsang}}</span>
     </div>
-
     <div class="row mt-3">
       <h5 class="text-tle">VI. Tóm tắt bệnh án:</h5>
     </div>
-
     <div class="row mt-2">
       <span class="ml-4">{{hsba.emrBenhAn.tomtat}}</span>
     </div>
-
     <div class="row mt-3">
       <h5 class="text-tle">VII. Chẩn đoán:</h5>
     </div>
-
     <div class="row mt-3 ml-2">
       <span>
         <i class="fas fa-fw bullet-small fa-circle"></i> Bệnh chính:
       </span>
     </div>
-
     <div class="row mt-2 ml-3">
       <span class="ml-4">{{chandoanVaoKhoaDieuTri.ten}}</span>
     </div>
-
     <div class="row mt-3 ml-2">
       <span>
         <i class="fas fa-fw bullet-small fa-circle"></i> Bệnh kèm theo <i>(nếu có):</i>
       </span>
     </div>
-
     <div class="row mt-2 ml-3">
       <span class="ml-4">{{chandoanVaoKhoaDieuTriKemTheo.ten}}</span>
     </div>
-
     <div class="row mt-3 ml-2">
       <span>
         <i class="fas fa-fw bullet-small fa-circle"></i> Phân biệt:
       </span>
     </div>
-
     <div class="row mt-2 ml-3">
       <span class="ml-4">{{chandoanVaoKhoaDieuTriPhanBiet.ten}}</span>
     </div>
-
     <div class="row mt-3">
       <h5 class="text-tle">B. Y HỌC CỔ TRUYỀN</h5>
     </div>
-
     <div class="row mt-3">
       <h5 class="text-tle">I. VỌNG CHẨN</h5>
     </div>
-
     <div class="row mt-3">
       <span>
         <b>1. Hình thái:</b>
@@ -862,13 +803,11 @@
         <input type="checkbox" disabled><span class="ml-3 mr-3">7. Ưa động</span>
       </div>
     </div>
-
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">8. Khác</span>
       </div>
     </div>
-
     <div class="row mt-2">
       <span>
         <b>2. Thần</b>
@@ -887,7 +826,6 @@
         <input type="checkbox" disabled><span class="ml-3 mr-3">3. Khác</span>
       </div>
     </div>
-
     <div class="row mt-2">
       <span>
         <b>3. Sắc:</b>
@@ -908,7 +846,6 @@
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4. Xanh</span> <br>
       </div>
-    
         <div class="col-3">
           <input type="checkbox" disabled><span class="ml-3 mr-3">5. Đen</span>
         </div>
@@ -921,7 +858,6 @@
           <input type="checkbox" disabled><span class="ml-3 mr-3">7. Khác</span>
         </div> 
     </div>
-
     <div class="row mt-2">
       <span>
         <b>4. Trạch:</b>
@@ -940,13 +876,11 @@
         <input type="checkbox" disabled><span class="ml-3 mr-3">3. Khác</span>
       </div>
     </div>
-
     <div class="row mt-2">
       <span>
         <b>5. Lưỡi:</b>
       </span>
     </div>
-
     <div class="row mt-2">
       <span>- Hình thái:</span>
     </div>
@@ -966,7 +900,6 @@
         <input type="checkbox" disabled><span class="ml-3 mr-3">4. Khác</span>
       </div>
     </div>
-      
     <div class="row mt-2">
       <span>- Chất lưỡi, sắc lưỡi:</span>
     </div>
@@ -985,7 +918,6 @@
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Nứt</span>
       </div>
-    
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Cứng</span>
       </div>
@@ -993,7 +925,6 @@
         <input type="checkbox" disabled><span class="ml-3 mr-3">6.Loét</span>
       </div>
     </div>
-
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">7.Hồng</span>
@@ -1001,7 +932,6 @@
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">8.Nhợt </span>
       </div>
-   
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">9.Đỏ</span>
       </div>
@@ -1017,8 +947,6 @@
         <input type="checkbox" disabled><span class="ml-3 mr-3">12.Khác</span>
       </div>
     </div>
-
-
     <div class="row mt-2">
       <span>- Rêu lưỡi:</span>
     </div>
@@ -1070,30 +998,22 @@
         <input type="checkbox" disabled><span class="ml-3 mr-3">12.Khác</span>
       </div>
     </div>
-
-
-    
-
     <div class="row mt-2">
       <span>
         <b>6. Mô tả khác (nếu có)</b>
       </span>
     </div>
-    
     <div class="row mt-2">
       <span>................</span>
     </div>
-
     <div class="row mt-3">
       <h5 class="text-tle">II. VĂN CHẨN</h5>
     </div>
-
     <div class="row mt-3">
       <span>
         <b>1. Âm thanh:</b>
       </span>
     </div>
-
     <div class="row mt-2">
       <span>1.1 Tiếng nói:</span>
     </div>
@@ -1105,88 +1025,65 @@
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.To</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Nhỏ</span>
-
       </div>
-    
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Đứt quãng</span> <br>
-
       </div>
     </div>
     <div class="row mb-2">
-    
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Khàn</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">6.Ngọng</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">7.Mất</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">8.Khác</span>
-
       </div>
     </div>
-
-     
-
     <div class="row mt-2">
       <span>1.2 Hơi thở:</span>
     </div>
     <div class="row mt-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">1.Bình thường</span> 
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Đứt quãng</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Ngắn</span>
-
       </div>
     </div>
-
     <div class="row mt-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Mạnh</span> <br>
-
       </div>
-    
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Yếu</span> 
-
       </div>
     </div>
-
     <div class="row mt-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">6.Khô</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">7.Rít</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">8.Khò khè</span>  <br>
       </div>
     </div>
-
     <div class="row mt-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">9.Chậm</span> 
@@ -1195,29 +1092,17 @@
         <input type="checkbox" disabled><span class="ml-3 mr-3">10.Gấp</span>
       </div>
     </div>
-
     <div class="row mt-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">11.Khác</span>
       </div>
     </div>
-     
     <div class="row mt-2">
-      
         <span>1.3 Ho:</span>
-
-      
-      
       <div class="col">
-
-      
         <input type="checkbox" disabled> <span class="ml-2 mr-3">Có </span> 
-
         <input type="checkbox" disabled> <span class="ml-2 mr-3">Không </span> 
-
-      
       </div>
-      
     </div>
     <div class="row mb-2">
       <div class="col-3">
@@ -1235,7 +1120,6 @@
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Nhiều</span>
       </div>
     </div>
-
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Khan</span>
@@ -1299,8 +1183,6 @@
         <input type="checkbox" disabled><span class="ml-3 mr-3">6.Khác</span> 
       </div>
     </div>
-
-    
     <div class="row mt-2">
       <span>2.2 Chất thải biểu hiện bệnh lý:</span>
       <div class="col">  
@@ -1311,15 +1193,12 @@
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">1.Đờm</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Chất nôn</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Phân</span>
-
       </div>
     </div> 
     <div class="row mb-2">
@@ -1336,12 +1215,8 @@
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">7.Khác</span> 
-
       </div>
-
     </div> 
-     
-
     <div class="row mt-2">
       <span>
         <b>3. Mô tả khác (nếu có)</b>
@@ -1350,11 +1225,9 @@
     <div class="row mt-2">
       <span>................</span>
     </div>
-
     <div class="row mt-3">
       <h5 class="text-tle">III. VẤN CHẨN</h5>
     </div>
-
     <div class="row mt-3">
       <span>
         <b>1. Hàn nhiệt:</b>
@@ -1367,62 +1240,43 @@
         <input type="checkbox" disabled><span class="ml-2 mr-3">Không</span>
       </div>
     </div>
-
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">1.Thích nóng</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Sợ nóng</span>
-
       </div>
     </div>
-
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Thích mát</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Sợ lạnh</span> <br>
-
       </div>
     </div>
-
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Trong người nóng</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">6.Trong người lạnh</span>
-
       </div>
     </div>
-
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">7.Rét run</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">8.Hàn nhiệt vãng lai</span> <br>
-
       </div>
     </div>
-
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">9.Khác</span> 
-
       </div>
-      
     </div>
-
-
-    
-
     <div class="row mt-3">
       <span>
         <b>2. Mồ hôi</b>
@@ -1433,108 +1287,81 @@
         <input type="checkbox" disabled><span class="ml-3 mr-3">1.Bình thường</span> 
       </div>
     </div>
-
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Không có mồ hôi</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Tự hãn</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Đạo hãn</span> <br>
-
       </div>
     </div>
-
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Nhiều</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">6.Ít</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3"> 
         <input type="checkbox" disabled><span class="ml-3 mr-3">7.Khác</span> 
-
       </div>
     </div>
-
     <div class="row mt-3">
       <span>
         <b>3. Đầu mặt cổ:</b>
       </span>
     </div>
-
     <div class="col">
       Biểu hiện bệnh lý:
-
       <input type="checkbox" disabled><span class="ml-3 mr-3">1.Bình thường</span> 
       <input type="checkbox" disabled><span class="ml-3 mr-3">2.Không có mồ hôi</span>
-    
     </div>
-       
-   
     <div class="row mt-2">
       <span>- Đau đầu:</span>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">1.Một chỗ</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Nửa đầu</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Cả đầu</span> 
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Di chuyển</span>  <br>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Ê ẩm</span><br>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">6.Nhói</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">7.Căng</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">8.Nặng đầu</span>  <br>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">9.Đau thắt</span> 
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">10.Khác</span> 
-
       </div>
     </div>
-
-      
-
     <div class="row mt-2">
       <span>- Hoa mắt chóng mặt:</span>
     </div>
@@ -1544,7 +1371,6 @@
         <input type="checkbox" disabled> <span class="ml-2 mr-3">Không </span>
       </div>
     </div>
-
     <div class="row mt-2">
       <span>- Mắt:</span>
     </div>
@@ -1554,32 +1380,25 @@
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Đau</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Khác</span>
-
       </div>
-      
     </div>
-
     <div class="row mt-2">
       <span>- Tai:</span>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">1.Ù</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Điếc</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Đau</span> 
-
       </div>
     </div>
     <div class="row mb-2">
@@ -1587,29 +1406,21 @@
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Khác</span>
       </div>
     </div>
-    
-
-
-
     <div class="row mt-2">
       <span>- Mũi:</span>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">1.Ngạt</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Chảy nước</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Chảy máu cam</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Đau</span> <br>
-
       </div>
     </div>
     <div class="row mb-2">
@@ -1617,21 +1428,15 @@
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Khác</span>
       </div>
     </div>
-
-
-     
-    
     <div class="row mt-2">
       <span>- Họng:</span>
     </div>
     <div class="row mb-2">
       <div class="col-3">  
         <input type="checkbox" disabled><span class="ml-3 mr-3">1.Đau</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Khô</span>
-
       </div>
     </div>
     <div class="row mb-2">  
@@ -1639,8 +1444,6 @@
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Khác</span>
       </div>
     </div>  
-
-    
     <div class="row mt-2">
       <span>- Cổ vai:</span>
     </div>
@@ -1650,60 +1453,47 @@
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Đau</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Khó vân động</span> 
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Khác</span>
-
       </div>
     </div>
-    
     <div class="row mt-3">
       <span>
         <b>4. Lưng: </b>
       </span>
     </div>
-    
-
     <div class="row ">
       <div class="col">  
         Biểu hiện bệnh lý:
         <input type="checkbox" disabled><span class="ml-2 mr-3">Có</span>
         <input type="checkbox" disabled><span class="ml-2 mr-3">Không</span>
       </div>
-    </div>
-       
+    </div>   
     <div class="row mb-2">
       <div class="col-3">  
         <input type="checkbox" disabled><span class="ml-3 mr-3">1.Mỏi</span> 
       </div>
-
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Đau</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Khó vân động</span> 
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Khác</span>
-
       </div>
     </div>
-
     <div class="row mt-3">
       <span>
         <b>5. Ngực: </b>
-      
       </span>
     </div>
     <div class="row ">
@@ -1713,44 +1503,33 @@
         <input type="checkbox" disabled><span class="ml-2 mr-3">Không</span>
       </div>
     </div>
-
     <div class="row mb-2">
       <div class="col-3">  
         <input type="checkbox" disabled><span class="ml-3 mr-3">1.Tức</span> 
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Đau</span>
-
       </div>
     </div>
-
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Ngột ngạt khó thở</span> 
-  
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Đau tức cạnh sườn</span> <br>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Đánh trống ngực</span> 
-  
       </div>
     </div>
-
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">6.Khác</span>
-
       </div>
-
     </div>
-
     <div class="row mt-3">
       <span>
         <b>6. Bụng: </b> 
-       
       </span>
     </div>
     <div class="row ">
@@ -1766,24 +1545,19 @@
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Sôi bụng</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Nóng ruột</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Đầy trướng</span> <br>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Khác</span>
-
       </div>
     </div>
-
     <div class="row mt-3">
       <span>
         <b>7. Chân tay: </b>
@@ -1802,39 +1576,30 @@
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Tê</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Buồn</span> 
-
       </div>
-      
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Mỏi</span> <br>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Nhức</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">6.Nóng</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">7.Lạnh</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">8.Khác</span>
-
       </div>
     </div>
-
     <div class="row mt-3">
       <span>
         <b>8. Ăn: </b>
@@ -1853,53 +1618,42 @@
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Thích mát</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Ăn nhiều</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Ăn ít</span> <br>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Đắng miệng</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">6.Nhạt miệng</span> 
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">7.Thèm ăn</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">8.Chán ăn</span> <br>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">9.Ăn vào bụng chướng</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">10.Khác</span>
-
       </div>
-
     </div>
-
     <div class="row mt-3">
       <span>
         <b>9. Uống: </b>
@@ -1920,31 +1674,24 @@
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">1.Mát</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Ấm nóng</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Nhiều</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Ít</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Khác</span>
-
       </div>
     </div>
-    
-
     <div class="row mt-3">
       <span>
         <b>10. Đại, tiểu tiện: </b>
@@ -1962,47 +1709,36 @@
         <label>- Tiểu tiện:</label>  
       </div>
     </div>
-
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">1.Vàng</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Đỏ</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Đục</span> 
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Buốt</span> <br>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Rắt</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">6.Không tự chủ</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">7.Bí</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">8.Khác</span>
-
       </div>
-
     </div>
-    
     <div class="row mt-2">
       <div class="col">
         <label>- Đại tiện:</label>  
@@ -2011,42 +1747,32 @@
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">1.Táo</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Nát</span>
-
       </div>
     </div>
     <div class="row mb-2">
-
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Sống</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Lỏng</span> <br>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Nhầy mũi</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">6.Bí</span> 
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">7.Khác</span>
-
       </div>
-
     </div>
-
     <div class="row mt-3">
       <span>
         <b>11. Ngủ: </b>
@@ -2059,33 +1785,25 @@
         <input type="checkbox" disabled><span class="ml-2 mr-3">Không</span>
       </div>
     </div>
-    
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">1.Khó vào giấc ngủ</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Hay tỉnh</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Hay mê</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Ngủ ít</span> 
-
       </div>
     </div>
-    
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Khác</span>
-
       </div>
     </div>
-
     <div class="row mt-3">
       <span>
         <b>12. Khả năng sinh dục-sinh sản: </b>
@@ -2105,74 +1823,57 @@
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Mãn dục</span>
       </div>
     </div>
-
     <div class="row mt-2">
       <span>12.1 Nam giới:</span>
-
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">1.Liệt dương</span> 
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Di tinh</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Hoạt tinh</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Mộng tinh</span> <br>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Lãnh tinh</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">6.Khác</span>
-
       </div>
-
     </div>
-
     <div class="row mt-2">
       <span>12.2 Nữ giới:</span>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">1.Vô sinh </span> 
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Động thai</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Sảy thai</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Sảy thai liên tiếp</span> 
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Khác</span>
-
       </div>
-
     </div>
-
     <div class="row mt-2">
       <span>
         - Kinh nguyệt: 
@@ -2193,25 +1894,19 @@
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">1.Trước kỳ</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Sau kỳ</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Bế kinh</span> 
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Khác</span>
-
       </div>
-
     </div>
-
     <div class="row mt-2">
       <span class="ml-3">
         + Thống kinh:
@@ -2220,31 +1915,24 @@
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">1.Trước kỳ</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Trong kỳ</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Sau kỳ</span> 
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Khác</span>
-
       </div>
     </div>
-
     <div class="row mt-2">
       <span>
         - Đới hạ: 
-        
       </span>
     </div>
-
     <div class="row ">
       <div class="col">  
         Biểu hiện bệnh lý:
@@ -2252,39 +1940,27 @@
         <input type="checkbox" disabled><span class="ml-2 mr-3">Không</span>
       </div>
     </div>
-
-
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">1.Vàng</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Trắng</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Hồng</span> 
-
       </div>
     </div>
-
-
     <div class="row mb-2">
       <div class="col-3">
-        <input type="checkbox" disabled><span class="ml-3 mr-3">4.Hôi</span> 
-
+        <input type="checkbox" disabled><span class="ml-3 mr-3">4.Hôi</span>
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Khác</span>
-
       </div>
-      
     </div>
-
-    
     <div class="row mt-3">
       <span>
         <b class="mr-3">13. Các yếu tố liên quan đến xuất hiện bệnh:</b>
@@ -2292,7 +1968,6 @@
         <input type="checkbox" disabled><span class="ml-3 mr-3">Không</span>
       </span>
     </div>
-
     <div class="row mt-3">
       <span>
         <b class="mr-3">14. Mô tả khác (nếu có):</b>
@@ -2301,11 +1976,9 @@
     <div class="row mt-3">
       <span> ............ </span>
     </div>
-
     <div class="row mt-3">
       <h5 class="text-tle">IV. THIẾT CHẨN</h5>
     </div>
-
     <div class="row mt-3">
       <span>
         <b>1. Xúc chẩn:</b>
@@ -2318,7 +1991,6 @@
         <input type="checkbox" disabled><span class="ml-2 mr-3">Không</span>
       </div>
     </div>
-
     <div class="row mt-2">
       <span>- Da:</span>
     </div>
@@ -2328,54 +2000,40 @@
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Nóng</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Lạnh</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Ướt </span> <br>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Chân tay nóng</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">6.Chân tay lạnh</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">7.Ấn lõm</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">8.Ấn đau</span> <br>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">9.U/Cục</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">10.Khác</span>
-
       </div>
-
-
-
-
     </div>
-
     <div class="row mt-2">
       <span>- Cơ - xương - khớp: 
       </span>
@@ -2393,52 +2051,39 @@
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Nóng</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Lạnh</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Ướt </span> <br>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Chân tay nóng</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">6.Chân tay lạnh</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">7.Ấn lõm</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">8.Ấn đau</span> <br>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">9.U/Cục</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">10.Khác</span>
-
       </div>
-
-
-
-
     </div>
     <div class="row mt-2">
       <span>- Bụng: 
@@ -2457,29 +2102,23 @@
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Tích</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Tụ</span> 
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Thiện án</span> <br>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Cự án</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">6.Khác</span>
-
       </div>
-
     </div>
     <div class="row mt-2">
       <span>- Mồ hôi: 
@@ -2498,24 +2137,19 @@
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Trán</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Tay</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Chân</span> 
-
       </div>
     </div>
     <div class="row mb-2">
         <div class="col-3">
           <input type="checkbox" disabled><span class="ml-3 mr-3">5.Khác </span>
-
       </div>
     </div>
-
     <div class="row mt-2">
       <span> <strong>2. Mạch chẩn:</strong></span>
     </div>
@@ -2525,39 +2159,30 @@
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Trì</span>
-  
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Phù</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Sác</span> <br>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Hoạt</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">6.Huyền</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">7.Nhu</span>
- 
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">8.Khác </span>
-
       </div>
-
     </div>
-
     <div class="row mt-2">
       <span>- Tổng khán:</span>
     </div>
@@ -2592,35 +2217,28 @@
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">Thốn</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">Quan</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">Xích</span> 
-
       </div>
     </div>
     <div class="row mt-2">
       <span class="ml-3">
         + Mạch tay phải:
-        
       </span>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">Thốn</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">Quan</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">Xích</span> 
-
       </div>
     </div>
     <div class="row mt-3">
@@ -2631,25 +2249,21 @@
     <div class="row mt-3">
       <span> ............ </span>
     </div>
-
     <div class="row mt-3">
       <h5 class="text-tle">V. TÓM TẮT TỨ CHẨN</h5>
     </div>
     <div class="row mt-3">
       <span> ............ </span>
     </div>
-
     <div class="row mt-3">
       <h5 class="text-tle">VI. BIỆN CHỨNG LUẬN TRỊ</h5>
     </div>
     <div class="row mt-3">
       <span> ............ </span>
     </div>
-    
     <div class="row mt-3">
       <h5 class="text-tle">VII. CHẨN ĐOÁN</h5>
     </div>
-
     <div class="row mt-2">
       <b>1. Bệnh danh: </b>
     </div>
@@ -2666,7 +2280,6 @@
         </form>
       </div>
     </div>
-
     <div class="row mt-2">
       <b>2. Bát cương: </b>
     </div>
@@ -2679,38 +2292,28 @@
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Lý</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Hư</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Thực</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Hàn</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">6.Nhiệt</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">7.Âm</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">8.Dương</span>
-
       </div>
-
     </div>
-
-
     <div class="row mt-2">
       <b>3. Nguyên nhân: </b>
     </div>
@@ -2720,11 +2323,9 @@
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Ngoại nhân</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Bất nội ngoại nhân</span> 
-
       </div>
     </div>
     <div class="row mt-2">
@@ -2736,46 +2337,36 @@
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Can</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Tỳ</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Phế</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Thận</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">6.Tâm bào</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">7.Tiểu trường</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">8.Đởm</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">9.Vị</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">10.Đại</span>
-
       </div>
     </div>
-
     <div class="row mt-2">
       <b>5. Kinh, mạch:  </b>
     </div>
@@ -2785,65 +2376,50 @@
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Can</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Tỳ</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Phế</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">5.Thận</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">6.Tâm bào</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">7.Tiểu trường</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">8.Đởm</span><br>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">9.Vị</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">10.Đại trường</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">11.Bàng quang</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">12.Tam tiêu</span>
-
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">13.Mạch đốc</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">14.Mạch nhâm</span>
-
       </div>
-
     </div>
-
     <div class="row mt-2">
       <b>6. Định vị bệnh theo:</b>
     </div>
@@ -2853,38 +2429,29 @@
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">2.Khí</span>
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">3.Dinh</span> 
-
       </div>
       <div class="col-3">
         <input type="checkbox" disabled><span class="ml-3 mr-3">4.Huyết</span>
-
       </div>
     </div>
-
     <div class="row mt-2">
       <h5 class="text-tle">C. ĐIỀU TRỊ:</h5>
     </div>
-
     <div class="row mt-2">
       <h5 class="text-tle">I. Y HỌC CỔ TRUYỀN</h5>
     </div>
-
     <div class="row mt-2">
       <b>1. Pháp điều trị:</b>
     </div>
-
     <div class="row mt-2">
       <span>Phương pháp điều trị</span>
     </div>
-
     <div class="row mt-2">
       <b>2. Phương:</b>
     </div>
-
     <div class="row mt-2">
       <span>- Phương dược</span>
     </div>
@@ -2903,30 +2470,22 @@
     <div class="row mt-2">
       <span>...........</span>
     </div>
-
     <div class="row mt-2">
       <h5 class="text-tle">II. Y HỌC HIỆN ĐẠI</h5>
       <span>Hướng điều trị:</span>
     </div>
-
     <div class="row mt-2">
       <span>(Phương pháp điều trị, chế độ dinh dưỡng, chế độ chăm sóc, ... ):</span>
     </div>
     <div class="row mt-2">
       <span>...........</span>
     </div>
-
     <div class="row mt-2">
       <h5 class="text-tle">III. DỰ HẬU (TIÊN LƯỢNG):</h5>
     </div>
     <div class="row mt-2">
       <span>...........</span>
     </div>
-
-
-
-
-
     <div class="row mt-3">
       <div class="col text-center offset-6">
         <i class="mb-2">Ngày <span>10</span> tháng <span>01</span> năm <span>2020</span></i>
@@ -2935,48 +2494,37 @@
         <p class="">Họ và tên <b>{{hsba.emrBenhAn.bacsylambenhan}}</b></p>
       </div>
     </div>
-
     <div class="row mt-3">
       <h4 class="text-tle">PHẦN III - TỔNG KẾT BỆNH ÁN RA VIỆN</h4>
     </div>
-
     <div class="row mt-3">
       <span>
         <b>1.Lý do vào viện:</b>{{hsba.emrBenhAn.lydovaovien}}
-
     </div>
-
-
     <div class="row mt-3">
       <span>
         <b>2.Quá trình bệnh lý và diễn biến lâm sàng:</b>
       </span>
     </div>
-
     <div class="row mt-2">
       <span class="ml-4">{{hsba.emrTongKetRaVien.dienbienlamsang}}</span>
     </div>
-
     <div class="row mt-3">
       <span>
         <b>3. Tóm tắt kết quả cận lâm sàng:</b>
       </span>
     </div>
-
     <div class="row mt-2">
       <span class="ml-4">{{hsba.emrTongKetRaVien.canlamsang}}</span>
     </div>
-
     <div class="row mt-3">
       <span>
         <b>3. Phương pháp điều trị:</b>
       </span>
     </div>
-
     <div class="row mt-2">
       <span class="ml-4">{{hsba.emrTongKetRaVien.phuongphapdieutri}}</span>
     </div>
-
     <div class="row mt-3">
       <span>
         <b>4. Chẩn đoán vào viện: </b>
@@ -2987,7 +2535,6 @@
         - Y học hiện đại:
       </span>
     </div>
-
     <div class="row mt-3 ml-3">
       <span>
         Bệnh chính: ..............
@@ -2998,8 +2545,6 @@
         Bệnh kèm theo: ..............
       </span>
     </div>
-
-
     <div class="row mt-3">
       <span>
         - Y học cổ truyền:
@@ -3015,7 +2560,6 @@
         Bệnh kèm theo: ..............
       </span>
     </div>
-
     <div class="row mt-3">
       <span>
         <b>5. Phương pháp điều trị:</b>
@@ -3031,7 +2575,6 @@
         - Y học cổ truyền:..............
       </span>
     </div>
-
     <div class="row mt-3">
       <span>
         <b>6. Kết quả điều trị:</b>
@@ -3046,7 +2589,6 @@
         <input :checked="attr(hsba, 'emrTinhTrangRaVien.emrDmKetQuaDieuTri.ma') == '05' "type="checkbox" disabled><span class="ml-3 mr-3">5.Tử vong</span> 
       </div>
     </div>
-
   <div class="row mt-3">
       <span>
         <b>7. Chẩn đoán ra viện: </b>
@@ -3057,7 +2599,6 @@
         - Y học hiện đại:
       </span>
     </div>
-
     <div class="row mt-3 ml-3">
       <span>
         Bệnh chính: ..............
@@ -3068,8 +2609,6 @@
         Bệnh kèm theo: ..............
       </span>
     </div>
-
-
     <div class="row mt-3">
       <span>
         - Y học cổ truyền:
@@ -3085,17 +2624,14 @@
         Bệnh kèm theo: ..............
       </span>
     </div>
-
     <div class="row mt-3">
       <span>
         <b>8. Tình trạng người bệnh ra viện:</b>
       </span>
     </div>
-
     <div class="row mt-2">
       <span class="ml-4">{{hsba.emrTongKetRaVien.tinhtrangnguoibenh}}</span>
     </div>
-
     <div class="row mt-3">
       <span>
         <b>9. Hướng điều trị và các chế độ tiếp theo:</b>
@@ -3125,7 +2661,6 @@
             </div>
           </td>
         </tr>
-
         <tr>
           <td>
             <center><b>Loại</b></center>
