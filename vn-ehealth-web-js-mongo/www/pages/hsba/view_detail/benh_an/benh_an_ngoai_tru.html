@@ -320,6 +320,8 @@
       <span>
         <b>6. Chẩn đoán khi ra viện: </b>
       </span>
+    </div>
+    <div class="row ">
       <div class="col ml-3">
         <span>{{hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten}}</span>
         <form class="form-inline input-lr2 float-right">
@@ -330,10 +332,10 @@
 
     <div class="row mt-3">
       <span>
-        <b>7. Điều trị ngoại trú từ </b>
-        <span>{{formatNgay2(ngayGioVaoVien)}}</span>
-        <span>đến </span>
-        <span>{{formatNgay2(ngayGioRaVien)}}</span>
+        <b>7. Điều trị ngoại trú từ ngày </b>
+        <span>{{formatNgay(ngayGioVaoVien)}}</span>
+        <span>đến ngày </span>
+        <span>{{formatNgay(ngayGioRaVien)}}</span>
       </span>
     </div>
   </section>
@@ -361,7 +363,7 @@
 
     <div class="row mt-3">
       <span>
-        <b>1.Quá trình bệnh lý và diễn biến lâm sàng:</b>
+        <b>1. Quá trình bệnh lý và diễn biến lâm sàng:</b>
       </span>
     </div>
 
@@ -450,8 +452,8 @@
             <div class="col text-center">
               <i
               <i>{{formatNgay2(ngayKyDieuTri)}}</i>
-                <span>2020</span></i
-              >
+                
+              
               <h6 class="text-center mt-2 mb-5">Bác sĩ điều trị</h6>
               <br />
               <p>Họ và tên <b></b></p>
