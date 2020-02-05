@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import vn.ehealth.emr.model.EmrChucNangSong;
 import vn.ehealth.emr.service.EmrChucNangSongService;
+import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.service.EmrVaoKhoaService;
 import vn.ehealth.emr.utils.EmrUtils;
 
@@ -29,6 +30,25 @@ public class EmrChucNangSongController {
     private Logger logger = LoggerFactory.getLogger(EmrChucNangSongController.class);
     @Autowired EmrVaoKhoaService emrVaoKhoaService;
     @Autowired EmrChucNangSongService emrChucNangSongService;
+    @Autowired EmrHoSoBenhAnService emrHoSoBenhAnService;
+    
+    @GetMapping("/get_ds_chucnangsong_by_bn")
+    public ResponseEntity<?> getDsChucNangSongByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
+        var result = new ArrayList<EmrChucNangSong>();
+        var emrHoSoBenhAns = emrHoSoBenhAnService.getByEmrBenhNhanId(new ObjectId(benhNhanId));
+        
+        for(var emrHoSoBenhAn: emrHoSoBenhAns) {
+            var vkList = emrVaoKhoaService.getByEmrHoSoBenhAnId(emrHoSoBenhAn.id);
+            
+            for(var vk : vkList) {
+                var chucNangSongList = emrChucNangSongService.getByEmrVaoKhoaId(vk.id);
+                chucNangSongList.forEach(x -> x.emrVaoKhoa = vk);
+                result.addAll(chucNangSongList);
+            }
+        }
+        
+        return ResponseEntity.ok(result);
+    }
     
     @GetMapping("/get_ds_chucnangsong")
     public ResponseEntity<?> getDsChucNangSong(@RequestParam("hsba_id") String id) {
