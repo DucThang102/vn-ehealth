@@ -94,6 +94,12 @@ public class EmrHoSoBenhAnController {
         }        
     }
     
+    @GetMapping("/get_ds_hs_by_bn")
+    public ResponseEntity<?> getDsHsbaByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
+        var result = emrHoSoBenhAnService.getByEmrBenhNhanId(new ObjectId(benhNhanId));
+        return ResponseEntity.ok(result);
+    }
+    
     @GetMapping("/get_ds_hs")
     public ResponseEntity<?> getDsHsba(@RequestParam int trangthai ,
                                                 @RequestParam String mayte,
