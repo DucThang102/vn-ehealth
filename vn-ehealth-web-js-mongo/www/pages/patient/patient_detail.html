@@ -6,6 +6,7 @@
     <div id="app">
       <template v-if="patient != null">
         <div class="panel panel-default">
+          <!--
           <div class="text-right MB20">
             <a class="btn-info bo50 btn-pd" href="#"
               ><i class="fa fa-print faR10" aria-hidden="true"></i>In</a
@@ -18,88 +19,42 @@
               lại</a
             >
           </div>
+          -->
           <!--bt-->
           <div class="row row-eq-height">
-            <div class="col-3">
-              <div class="box">
-                <p class="text-center MB0">
-                  <img
-                    src="/images/avatar-4.jpg"
-                    class="img-circle MB10 MT10"
-                    alt=""
-                  /><br />
-                  <span class="text-ten">
-                    {{ patient.tendaydu}} | {{ patient.iddinhdanhchinh }} </span
-                  ><br />
-                  <span class="text-danger"
-                    >{{ patient.emrDmGioiTinh.ten }} </span
-                  ><br />
-                  <span class="btn-info bo50 btn-pd1"
-                    >{{ patient.sobhyt }}</span
-                  >
-                </p>
-              </div>
-            </div>
-            <div class="col-8 offset-1">
-              <div class="row MB20">
-                <div class="col-6">
-                  <ul class="list-ds">
-                    <li>
-                      <span class="text-label1">Giới tính:</span>{{
-                      patient.emrDmGioiTinh.ten }}
-                    </li>
-                    <li>
-                      <span class="text-label1">Ngày sinh:</span>{{
-                      patient.ngaysinh }}
-                    </li>
-                    <li>
-                      <span class="text-label1">Quên quán:</span>{{
-                      patient.emrDmTinhThanh.ten }}
-                    </li>
-                    <li>
-                      <span class="text-label1">Tình trạng hôn nhân:</span>{{
-                      patient.marital_status }}
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-6">
-                  <ul class="list-ds">
-                    <li>
-                      <span class="text-label2">Dân tộc:</span>{{
-                      patient.emrDmDanToc.ten }}
-                    </li>
-                    <li>
-                      <span class="text-label2">Tôn giáo:</span>{{
-                      patient.religion }}
-                    </li>
-                    <li>
-                      <span class="text-label2">Trình độ giáo dục:</span>{{
-                      patient.education }}
-                    </li>
-                    <li>
-                      <span class="text-label2">Trình độ ngoại ngữ:</span>{{
-                      patient.language_skill }}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <ul class="list-inline box-ul li-MR20">
-                <li class="list-inline-item">
-                  <span class="text-danger"
-                    ><i class="MR5 fa fa-mobile" aria-hidden="true"></i>{{
-                    patient.sodienthoainguoibaotin}}</span
-                  >
-                </li>
-                <li class="list-inline-item">
-                  <span class="text-success"
-                    ><i class="MR5 fa fa-map-marker" aria-hidden="true"></i
-                    >{{patient.diachi}}
-                  </span>
-                </li>
-              </ul>
+            <div class="col-6 offset-3">
+                <div class="box">
+                  <p class=" MB0">
+                    <h2>
+                      <span class="text-ten">
+                        {{ patient.tendaydu}} | {{ patient.iddinhdanhchinh }} </span>
+                    </h2>
+                  </p>
+                    <span class="text-label1">Giới tính: </span>{{
+                      patient.emrDmGioiTinh.ten }} <br>
+                    <span class="text-label1">Ngày sinh: </span>{{
+                        patient.ngaysinh }} <br>
+                    <span class="text-label2">Dân tộc: </span>{{
+                            patient.emrDmDanToc.ten }} <br>
+                    <span class="text-label2">Tôn giáo: </span>{{
+                              patient.religion }} <br>
+                    <span class="text-danger"
+                        ><i class="MR5 fa fa-mobile" aria-hidden="true"></i>{{
+                        patient.sodienthoainguoibaotin}}</span>
+                    <span class="text-success"
+                        ><i class="MR5 fa fa-map-marker" aria-hidden="true"></i
+                        >{{patient.diachi}}</span> <br>
+                    <span class="text-label2">Đối tượng: </span><br>
+                    <span class="text-lable2">
+                      Số BHYT:
+                    </span>
+                    <span class="btn-info bo50 btn-pd1"
+                    >  {{ patient.sobhyt }} </span>
+              </div>     
             </div>
           </div>
-
+        </div>  
+<!--
           <div class="row">
             <div class="col-lg-3 col-sm-6">
               <div class="widget-panel widget-style-2 white-bg">
@@ -130,8 +85,10 @@
               </div>
             </div>
           </div>
+
+          -->
           <!-- end row -->
-        </div>
+        
         <!--panel 1-->
 
         <div class="panel panel-default">
