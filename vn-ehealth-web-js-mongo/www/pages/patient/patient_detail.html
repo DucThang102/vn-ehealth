@@ -6,7 +6,7 @@
     <div id="app">
       <template v-if="patient != null">
         <div class="panel panel-default">
-          <!--
+          
           <div class="text-right MB20">
             <a class="btn-info bo50 btn-pd" href="#"
               ><i class="fa fa-print faR10" aria-hidden="true"></i>In</a
@@ -19,7 +19,6 @@
               lại</a
             >
           </div>
-          -->
           <!--bt-->
           <div class="row row-eq-height">
             <div class="col-6 offset-3">
@@ -104,6 +103,7 @@
                 >Tổng quan</a
               >
             </li>
+            
             <li class="nav-item">
               <a
                 class="nav-link"
@@ -116,6 +116,7 @@
                 >Biểu đồ phát triển</a
               >
             </li>
+            
             <li class="nav-item">
               <a
                 class="nav-link"
@@ -263,13 +264,34 @@
   VueAsyncComponent("lsdt", "/pages/patient/patient_detail/lsdt.html", {
     data: function() {
       return {
-        patientId: 0
+        patientId: 0,
+        lsdt_list: null,
+        lsdt: null,
+        hsba: null
       };
     },
+    methods: {
+      viewLsdt: function(lsdt) {
+        this.lsdt = lsdt;
+        $("#lsdtModal").modal();
+      }
+    },
+    props: ["hsba_id"],
     created: async function() {
       this.patientId = getParam("id");
+      if (this.hsba_id) {
+        this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
+          hsba_id: this.hsba_id
+        });
+      }
+
+      this.lsdt_list = await this.get("/api/donthuoc/get_ds_donthuoc_by_bn", {
+        benhnhan_id: this.patientId
+      });
+      console.log(this.lsdt_list);
     }
   });
+  
 
   VueAsyncComponent("pttt", "/pages/patient/patient_detail/pttt.html", {
     data: function() {
@@ -342,11 +364,31 @@
   VueAsyncComponent("csst", "/pages/patient/patient_detail/csst.html", {
     data: function() {
       return {
-        patientId: 0
+        patientId: 0,
+        csst_list: null,
+        csst: null,
+        hsba: null
       };
     },
+    methods: {
+      viewCsst: function(csst) {
+        this.csst = csst;
+        $("#csstModal").modal();
+      }
+    },
+    props: ["hsba_id"],
     created: async function() {
       this.patientId = getParam("id");
+      if (this.hsba_id) {
+        this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
+          hsba_id: this.hsba_id
+        });
+      }
+
+      this.csst_list = await this.get("/api/chucnangsong/get_ds_chucnangsong_by_bn", {
+        benhnhan_id: this.patientId
+      });
+      console.log(this.csst_list);
     }
   });
 
