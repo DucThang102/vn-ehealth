@@ -1,3 +1,39 @@
-<div>
-  chỉ số sinh tồn
+<div v-if="csst_list">
+  <template>
+      <div class="row">
+          <div class="col width=100%">
+              <div class="portlet p-3">
+                  <table class="table table-bordered">
+                    <tr>
+                      <th style="width: 5%;" class="text-center">STT</th>
+                      <th style="width: 15%;" class="text-center">Ngày theo dõi</th>
+                      <th style="width: 10%;" class="text-center">Mạch</th>
+                      <th style="width: 10%;" class="text-center">Nhiệt độ</th>
+                      <th style="width: 10%;" class="text-center">Huyết áp thấp</th>
+                      <th style="width: 10%;" class="text-center">Huyết áp cao</th>
+                      <th style="width: 10%;" class="text-center">Nhịp thở</th>
+                      <th style="width: 10%;" class="text-center">Cân nặng</th>
+                      <th style="width: 20%;" class="text-center">Y tá theo dõi</th>
+                    </tr>
+                    <tr v-for="(csst, i) in csst_list">
+                      <td class="text-center">{{ i + 1 }}</td>
+                      <td class="text-center">{{ csst.ngaytheodoi }}</td>
+                      <td class="text-center">{{ csst.mach }}</td>
+                      <td class="text-center">{{ csst.nhietdo }}</td>
+                      <td class="text-center">{{ csst.huyetapthap }}</td>
+                      <td class="text-center">{{ csst.huyetapcao }}</td>
+                      <td class="text-center">{{ csst.nhiptho }}</td>
+                      <td class="text-center">{{ csst.cannang }}</td>
+                      <td class="text-center">{{ csst.ytatheodoi }}</td>
+                    </tr>
+                    <tr v-if="csst_list.length==0">
+                      <td colspan="5">Không có dữ liệu</td>
+                    </tr>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </template>
 </div>
+
+

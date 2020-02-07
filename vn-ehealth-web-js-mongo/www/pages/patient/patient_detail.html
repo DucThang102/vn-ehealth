@@ -209,8 +209,23 @@
 
 <script type="text/javascript">
   VueAsyncComponent(
-    "patient-summary",
-    "/pages/patient/patient_detail/patient_summary.html"
+    "patient_summary",
+    "/pages/patient/patient_detail/patient_summary.html",
+  
+    {
+      data: function() {
+        return {
+          patientId: 0
+        };
+      },
+      created: function() {
+        this.patientId = getParam("id");
+      }
+    }
+    
+
+      
+    
   );
 
   VueAsyncComponent(
@@ -384,7 +399,6 @@
           hsba_id: this.hsba_id
         });
       }
-
       this.csst_list = await this.get("/api/chucnangsong/get_ds_chucnangsong_by_bn", {
         benhnhan_id: this.patientId
       });
@@ -395,6 +409,7 @@
   new Vue({
     el: "#app",
     data: {
+
       tab: 1,
       patientId: 0,
       patient: null
