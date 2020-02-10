@@ -8,17 +8,9 @@
       <th style="width:10%" class="text-center">STT</th>
       <th style="width:90%" class="text-center">Tên file</th>
     </tr>
-    <tr v-for="(file, i) in hsba.emrFileDinhKems">
-      <td>{{ i + 1 }}</td>
-      <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
-    </tr>
+    
     <tr v-for="(fileDinhKem,index) in hsba.emrFileDinhKems">
       <td class="text-center">{{ index + 1 }}</td>
-      <td class="text-center">
-        <a href="#" title="Xem"
-          ><i class="fas fa-fw fa-lg fa-binoculars"></i
-        ></a>
-      </td>
       <td><a :href="fileDinhKem.url">{{ fileDinhKem.name }}</a></td>
     </tr>
   </table>
