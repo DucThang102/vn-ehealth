@@ -35,19 +35,17 @@ VueAsyncComponent(
         $("#chamsocModal").modal();
       },
       getNgayChamSoc: function(chamsoc) {
-        var ngayChamSocs = chamsoc.emrQuaTrinhChamSocs.map(x =>
-          parseDate(x.ngaychamsoc)
-        );
-        ngayChamSocs = ngayChamSocs.sort(x => x.getTime());
+        var ngayChamSocs = chamsoc.emrQuaTrinhChamSocs.map(x => x.ngaychamsoc);
+        ngayChamSocs = ngayChamSocs.sort(x => parseDate(x).getTime());
 
         if (ngayChamSocs.length == 0) {
           return "";
         }
         ngayBatDau = ngayChamSocs[0];
-        ngayBatDau = ngayBatDau ? ngayBatDau.substring(10) : "";
+        ngayBatDau = ngayBatDau ? ngayBatDau.substring(0, 10) : "";
 
         ngayKetThuc = ngayChamSocs[ngayChamSocs.length - 1];
-        ngayKetThuc = ngayKetThuc ? ngayKetThuc.substring(10) : "";
+        ngayKetThuc = ngayKetThuc ? ngayKetThuc.substring(0, 10) : "";
 
         if (ngayBatDau == ngayKetThuc) {
           return ngayBatDau;

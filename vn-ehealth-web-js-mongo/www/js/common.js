@@ -74,6 +74,19 @@ Vue.mixin({
   }
 });
 
+function parseDate(st) {
+  var dd = st.substring(0, 2);
+  var mm = st.substring(3, 5);
+  var yyyy = st.substring(6, 10);
+  if(st.length == 10) {
+    return new Date(yyyy, mm, dd);
+  }else if(st.length >= 16) {
+    HH = st.substring(11, 13);
+    MM = st.substring(14, 16);
+    return new Date(yyyy, mm, dd, HH, MM);
+  }
+}
+
 function attr(obj, properties, defaultValue) {
   properties = properties.split(".");
   for (let i = 0; i < properties.length; i++) {

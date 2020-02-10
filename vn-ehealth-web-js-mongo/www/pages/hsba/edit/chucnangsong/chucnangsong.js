@@ -95,6 +95,7 @@ VueAsyncComponent('chucnangsong-edit', '/pages/hsba/edit/chucnangsong/chucnangso
     return {
       maVaoKhoa: '',
       vaokhoa_list: null,
+      cnsct: {},
     }
   },
 

@@ -39,19 +39,17 @@ VueAsyncComponent(
         $("#chucnangsongModal").modal();
       },
       getNgayTheoDoi: function(chucnangsong) {
-        var ngayTheoDois = chucnangsong.emrChucNangSongChiTiets.map(x =>
-          parseDate(x.ngaytheodoi)
-        );
-        ngayTheoDois = ngayTheoDois.sort(x => x.getTime());
+        var ngayTheoDois = chucnangsong.emrChucNangSongChiTiets.map(x => x.ngaytheodoi);
+        ngayTheoDois = ngayTheoDois.sort(x => parseDate(x).getTime());
 
         if (ngayTheoDois.length == 0) {
           return "";
         }
         ngayBatDau = ngayTheoDois[0];
-        ngayBatDau = ngayBatDau ? ngayBatDau.substring(10) : "";
+        ngayBatDau = ngayBatDau ? ngayBatDau.substring(0, 10) : "";
 
         ngayKetThuc = ngayTheoDois[ngayTheoDois.length - 1];
-        ngayKetThuc = ngayKetThuc ? ngayKetThuc.substring(10) : "";
+        ngayKetThuc = ngayKetThuc ? ngayKetThuc.substring(0, 10) : "";
 
         if (ngayBatDau == ngayKetThuc) {
           return ngayBatDau;
