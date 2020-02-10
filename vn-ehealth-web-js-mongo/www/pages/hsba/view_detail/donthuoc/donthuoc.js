@@ -7,7 +7,6 @@ VueAsyncComponent(
         donthuoc: null
       };
     },
-
     methods: {
       viewDonthuoc: function(donthuoc) {
         this.donthuoc = donthuoc;
@@ -16,11 +15,9 @@ VueAsyncComponent(
         this.donthuoc = null;
       }
     },
-
     props: ["hsba_id"]
   }
 );
-
 VueAsyncComponent(
   "donthuoc-list",
   "/pages/hsba/view_detail/donthuoc/donthuoc_list.html",
@@ -32,16 +29,13 @@ VueAsyncComponent(
         hsba: null
       };
     },
-
     methods: {
       viewDonthuoc: function(donthuoc) {
         this.donthuoc = donthuoc;
         $("#donthuocModal").modal();
       }
     },
-
     props: ["hsba_id"],
-
     created: async function() {
       if (this.hsba_id) {
         this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
@@ -56,7 +50,6 @@ VueAsyncComponent(
     }
   }
 );
-
 VueAsyncComponent(
   "donthuoc-view",
   "/pages/hsba/view_detail/donthuoc/donthuoc_view.html",
@@ -73,7 +66,6 @@ VueAsyncComponent(
         this.$emit("viewDonthuocList");
       }
     },
-
     created: async function() {
       this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
         hsba_id: this.hsba_id
