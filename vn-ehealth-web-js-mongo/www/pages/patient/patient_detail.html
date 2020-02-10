@@ -101,6 +101,7 @@
                 >Tổng quan</a
               >
             </li>
+            
             <li class="nav-item">
               <a
                 class="nav-link"
@@ -110,7 +111,7 @@
                             marginBottom : '2px', borderTop : tab==2? '0px' : ''}"
                 href="#"
                 v-on:click="tab=2"
-                >Biểu đồ phát triển</a
+                >Lịch sử dùng thuốc</a
               >
             </li>
             <li class="nav-item">
@@ -122,7 +123,7 @@
                             marginBottom : '2px', borderTop : tab==3? '0px' : ''}"
                 href="#"
                 v-on:click="tab=3"
-                >Lịch sử dùng thuốc</a
+                >Chẩn đoán hình ảnh</a
               >
             </li>
             <li class="nav-item">
@@ -134,7 +135,7 @@
                             marginBottom : '2px', borderTop : tab==4? '0px' : ''}"
                 href="#"
                 v-on:click="tab=4"
-                >Chẩn đoán hình ảnh</a
+                >Phẫu thuật, thủ thuật</a
               >
             </li>
             <li class="nav-item">
@@ -146,7 +147,7 @@
                             marginBottom : '2px', borderTop : tab==5? '0px' : ''}"
                 href="#"
                 v-on:click="tab=5"
-                >Phẫu thuật, thủ thuật</a
+                >Tài liệu lâm sàng</a
               >
             </li>
             <li class="nav-item">
@@ -158,18 +159,6 @@
                             marginBottom : '2px', borderTop : tab==6? '0px' : ''}"
                 href="#"
                 v-on:click="tab=6"
-                >Tài liệu lâm sàng</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                style="margin-bottom : '2px',"
-                v-bind:class="{ active: tab == 7 }"
-                v-bind:style="{ backgroundColor: tab==7? '#1057ae' : '#eee', color: tab==7? '#fff' : '#000',
-                            marginBottom : '2px', borderTop : tab==7? '0px' : ''}"
-                href="#"
-                v-on:click="tab=7"
                 >Chỉ số sinh tồn</a
               >
             </li>
@@ -179,21 +168,18 @@
               <patient-summary></patient-summary>
             </div>
             <div v-if="tab==2">
-              <grow-chart></grow-chart>
-            </div>
-            <div v-if="tab==3">
               <lsdt></lsdt>
             </div>
-            <div v-if="tab==4">
+            <div v-if="tab==3">
               <cdha></cdha>
             </div>
-            <div v-if="tab==5">
+            <div v-if="tab==4">
               <pttt></pttt>
             </div>
-            <div v-if="tab==6">
+            <div v-if="tab==5">
               <tlls></tlls>
             </div>
-            <div v-if="tab==7">
+            <div v-if="tab==6">
               <csst></csst>
             </div>
           </div>
@@ -223,20 +209,7 @@
     
   );
 
-  VueAsyncComponent(
-    "grow-chart",
-    "/pages/patient/patient_detail/growchart.html",
-    {
-      data: function() {
-        return {
-          patientId: 0
-        };
-      },
-      created: function() {
-        this.patientId = getParam("id");
-      }
-    }
-  );
+  
 
   VueAsyncComponent("cdha", "/pages/patient/patient_detail/cdha.html", {
     data: function() {
