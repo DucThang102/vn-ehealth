@@ -7,7 +7,6 @@ VueAsyncComponent(
         cdha: null
       };
     },
-
     methods: {
       viewCdha: function(cdha) {
         this.cdha = cdha;
@@ -16,7 +15,6 @@ VueAsyncComponent(
         this.cdha = null;
       }
     },
-
     props: ["hsba_id"]
   }
 );

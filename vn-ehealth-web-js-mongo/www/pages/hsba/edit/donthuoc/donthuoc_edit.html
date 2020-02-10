@@ -65,10 +65,10 @@
           </td>
           <td><input class="form-control" v-model="dtct.lieuluongdung"></td>
           <td>
-            <input v-on:click="openDmtanXuatDungThuocModal(dtct)"
+            <input v-on:click="openDmTanXuatDungThuocModal(dtct)"
               class="form-control" 
-              :value="attr(dtct, 'emrDmtanXuatDungThuoc.ten')" 
-              :title="attr(dtct, 'emrDmtanXuatDungThuoc.ten')">
+              :value="attr(dtct, 'emrDmTanXuatDungThuoc.ten')" 
+              :title="attr(dtct, 'emrDmTanXuatDungThuoc.ten')">
           </td>
           <td><input class="form-control" v-model="dtct.chidandungthuoc"></td>
 
@@ -92,6 +92,6 @@
 
   <danhmuc-popup id="dmThuocSelect" :value="emrDmThuoc" name="emrDmThuoc" title="Thuốc" dm_type="DM_THUOC"></danhmuc-popup>
   <danhmuc-popup id="dmDuongDungThuocSelect" :value="emrDmDuongDungThuoc" name="emrDmDuongDungThuoc" title="Đường dùng thuốc" dm_type="DM_DUONG_DUNG_THUOC"></danhmuc-popup>
-  <danhmuc-popup id="dmtanXuatDungThuocSelect" :value="emrDmtanXuatDungThuoc" name="emrDmtanXuatDungThuoc" title="Tần suất dùng thuốc" dm_type="DM_TAN_SUAT_DUNG_THUOC"></danhmuc-popup>
+  <danhmuc-popup id="dmTanXuatDungThuocSelect" :value="emrDmTanXuatDungThuoc" name="emrDmTanXuatDungThuoc" title="Tần suất dùng thuốc" dm_type="DM_TAN_SUAT_DUNG_THUOC"></danhmuc-popup>
 
 </div>
