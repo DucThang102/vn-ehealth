@@ -1,105 +1,36 @@
+
 <div>
     <template>
-        <div class="row">
-            <div class="col-8">
+        <div class="row" v-if="patient_summary_list">
+            <div class="col width=100%">
                 <div class="portlet p-3">
                     <h3 class="text-blue text-uppercase">Lịch sử thăm khám</h3>
-                    <table class="table">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Nơi khám</th>
-                                <th>Ngày bắt đầu</th>
-                                <th>Ngày kết thúc</th>
-                                <th>Chẩn đoán</th>
-                                <th>Bác sĩ thực hiện</th>
+                                <th style="width: 5% ;" class="text-center">STT</th>
+                                <th style="width: 20%;" class="text-center">Nơi khám</th>
+                                <th style="width: 10%;" class="text-center">Ngày bắt đầu</th>
+                                <th style="width: 10%;" class="text-center">Ngày kết thúc</th>
+                                <th style="width: 30%;" class="text-center">Chẩn đoán</th>
+                                <th style="width: 15%;" class="text-center">Bác sĩ thực hiện</th>
+                                <th style="width: 10%;" class="text-center">Tóm tắt bệnh án</th>
+
                             </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Khoa khám bệnh BHYT</td>
-                                <td>01/01/2015</td>
-                                <td>26/04/2015</td>
-                                <td><span class="badge badge-info">Sốt phát ban</span></td>
-                                <td>N/A</td>
+                            <tr v-for='(patient_summary, i) in patient_summary_list'>
+                                <td class="text-center">{{ i + 1 }}</td>
+                                <td> {{ patient_summary.emrCoSoKhamBenh.ten }}<br> {{ patient_summary.khoaRaVien }}  </td>
+                                <td class="text-center">{{ patient_summary.emrQuanLyNguoiBenh.ngaygiovaovien }}</td>
+                                <td class="text-center">{{ patient_summary.emrQuanLyNguoiBenh.ngaygioravien }}</td>
+                                <td>{{ patient_summary.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten }}</td>
+                                <td class="text-center">{{ patient_summary.emrTongKetRaVien.bacsydieutri }}</td>
+                                <td class="text-center">Xem</td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Khoa khám bệnh theo yêu cầu</td>
-                                <td>01/01/2015</td>
-                                <td>26/04/2015</td>
-                                <td><span class="badge badge-success">Đau lưng</span></td>
-                                <td>N/A</td>
+                            <tr v-if="patient_summary_list.length==0">
+                                <td colspan="5">Không có dữ liệu nào</td>
                             </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Khoa Nội trú</td>
-                                <td>01/05/2015</td>
-                                <td>10/05/2015</td>
-                                <td><span class="badge badge-warning">Tiểu đường tuýp 1</span></td>
-                                <td>N/A</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Khoa Nội trú</td>
-                                <td>01/01/2015</td>
-                                <td>31/05/2015</td>
-                                <td><span class="badge badge-danger">Tiểu đường tuýp 2</span></td>
-                                <td>N/A</td>
-                            </tr>
-                        </tbody>
+                        </thead>   
                     </table>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="portlet p-3">
-                    <h3 class="text-blue text-uppercase">Những vấn đề gặp phải</h3>
-                    <ul tabindex="5000" class="list-group no-margn nicescroll todo-list">
-                        <li class="list-group-item">
-                            <div class="form-check">
-                                <input checked="checked" class="form-check-input todo-done" id="7" type="checkbox">
-                                <label class="form-check-label">Tiểu đường tuýp 2</label>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="form-check">
-                                <input class="form-check-input todo-done" id="6" type="checkbox">
-                                <label class="form-check-label">Gãy tay phải (hồi nhỏ)</label>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="form-check">
-                                <input class="form-check-input todo-done" id="5" type="checkbox">
-                                <label class="form-check-label">Thiếu máu</label>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="form-check">
-                                <input checked="checked" class="form-check-input todo-done" id="4" type="checkbox">
-                                <label class="form-check-label">Hay mất ngủ</label>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="form-check">
-                                <input class="form-check-input todo-done" id="1" type="checkbox">
-                                <label class="form-check-label">Sốt phát ban</label>
-                            </div>
-                        </li>	                    
-                    </ul>
-    
-                    <form name="todo-form" id="todo-form" role="form" class="m-t-20">
-                        <div class="row">
-                            <div class="col-sm-9 todo-inputbar">
-                                <input id="todo-input-text" name="todo-input-text" class="form-control"
-                                    placeholder="Thêm" type="text">
-                            </div>
-                            <div class="col-sm-3 todo-send">
-                                <button class="btn-primary btn-block btn" type="button"
-                                    id="todo-btn-submit">Add</button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
