@@ -20,7 +20,7 @@
                             <tr v-for='(patient_summary, i) in patient_summary_list'>
                                 <td class="text-center">{{ i + 1 }}</td>
                                 <td> {{ patient_summary.emrCoSoKhamBenh.ten }}<br> {{ patient_summary.khoaRaVien }}  </td>
-                                <td class="text-center">{{ patient_summary.emrQuanLyNguoiBenh.ngaygiovaovien }}</td>
+                                <td class="text-center" > {{ patient_summary.emrQuanLyNguoiBenh.ngaygiovaovien }}</td>
                                 <td class="text-center">{{ patient_summary.emrQuanLyNguoiBenh.ngaygioravien }}</td>
                                 <td>{{ patient_summary.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten }}</td>
                                 <td class="text-center">{{ patient_summary.emrTongKetRaVien.bacsydieutri }}</td>
@@ -45,6 +45,22 @@
                                     <button type="button" class="close" data-dismiss="modal" >
                                         <span aria-hidden="true">&times;</span>
                                     </button> 
+                                </div>
+                                <div class="modal-body" v-if="tomtathsba">
+                                    <h3>TÓM TẮT HỒ SƠ BỆNH ÁN</h3>
+                                    1. Lý do vào viện: {{tomtathsba.emrBenhAn.lydovaovien}} <br>
+                                    1. Chẩn đoán lúc vào viện: {{tomtathsba.emrChanDoan.emrDmMaBenhChandoankkb.ten}} <br>
+                                    2. Chẩn đoán lúc ra viện: {{tomtathsba.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten}} <br>
+                                    3. Tóm tắt bệnh án: <br>
+                                    <ul>
+                                        <li>Quá trình bệnh lý và diễn biến lâm sàng: {{tomtathsba.emrTongKetRaVien.dienbienlamsang}}
+                                        </li>
+                                        <li>Tóm tắt kết quả xét nghiệm cận lâm sàng có giá trị chẩn đoán: {{tomtathsba.emrTongKetRaVien.canlamsang}}
+                                        </li>
+                                        <li>Phương pháp điều trị: {{tomtathsba.emrTongKetRaVien.phuongphapdieutri}}
+                                        </li>
+                                        <li>Tình trạng người bệnh ra viện: {{tomtathsba.emrTongKetRaVien.tinhtrangnguoibenh}}</li>
+                                    </ul>
                                 </div>
                                 
                                 
