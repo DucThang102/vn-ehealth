@@ -24,13 +24,35 @@
                                 <td class="text-center">{{ patient_summary.emrQuanLyNguoiBenh.ngaygioravien }}</td>
                                 <td>{{ patient_summary.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten }}</td>
                                 <td class="text-center">{{ patient_summary.emrTongKetRaVien.bacsydieutri }}</td>
-                                <td class="text-center">Xem</td>
+                                <td class="text-center"> 
+                                    <a href="javascript:void(0)" v-on:click="viewTomtathsba(patient_summary)"><i class="fas fa-fw fa-binoculals"></i>Xem</a>
+                                </td>
+
                             </tr>
                             <tr v-if="patient_summary_list.length==0">
                                 <td colspan="5">Không có dữ liệu nào</td>
                             </tr>
                         </thead>   
                     </table>
+
+                    <div class="modal fade" id="tomtathsbaModal">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">
+                                        <strong>Tóm tắt bệnh án</strong>
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" >
+                                        <span aria-hidden="true">&times;</span>
+                                    </button> 
+                                </div>
+                                
+                                
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -201,6 +201,13 @@
           hsba: null
         };
       },
+      methods: {
+        viewTomtathsba: function(tomtathsba) {
+        this.tomtathsba = tomtathsba;
+        $("#tomtathsbaModal").modal();
+      }
+      },
+     
       created: async function() {
         this.patientId = getParam("id");
         this.patient_summary_list = await this.get("/api/hsba/get_ds_hs_by_bn", {
@@ -329,6 +336,7 @@
         this.chucnangsong = chucnangsong;
         $("#chucnangsongModal").modal();
       },
+
       getNgayTheoDoi: function(chucnangsong) {
         var ngayTheoDois = chucnangsong.emrChucNangSongChiTiets.map(x => x.ngaytheodoi);
         ngayTheoDois = ngayTheoDois.sort(x => parseDate(x).getTime());
