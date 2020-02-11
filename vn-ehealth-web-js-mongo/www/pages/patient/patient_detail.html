@@ -52,42 +52,6 @@
             </div>
           </div>
         </div>  
-<!--
-          <div class="row">
-            <div class="col-lg-3 col-sm-6">
-              <div class="widget-panel widget-style-2 white-bg">
-                <div>Chiều cao</div>
-                <i class="fa fa-male text-pink"></i>
-                <h2 class="m-0 counter">165 cm</h2>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="widget-panel widget-style-2 white-bg">
-                <div>Cân nặng</div>
-                <i class="fa fa-male text-purple"></i>
-                <h2 class="m-0 counter">65 Kg</h2>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="widget-panel widget-style-2 white-bg">
-                <div>Huyết áp</div>
-                <i class="fa fa-heartbeat text-info"></i>
-                <h2 class="m-0 counter">80/120</h2>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="widget-panel widget-style-2 white-bg">
-                <div>Nhiệt độ</div>
-                <i class="fa fa-thermometer text-success"></i>
-                <h2 class="m-0 counter">36.5 độ C</h2>
-              </div>
-            </div>
-          </div>
-
-          -->
-          <!-- end row -->
-        
-        <!--panel 1-->
         <div class="panel panel-default">
           <ul class="nav nav-tabs">
             <li class="nav-item">
@@ -162,6 +126,18 @@
                 >Chỉ số sinh tồn</a
               >
             </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                style="margin-bottom : '2px',"
+                v-bind:class="{ active: tab == 7 }"
+                v-bind:style="{ backgroundColor: tab==7? '#1057ae' : '#eee', color: tab==7? '#fff' : '#000',
+                            marginBottom : '2px', borderTop : tab==7? '0px' : ''}"
+                href="#"
+                v-on:click="tab=7"
+                >Xét nghiệm</a
+              >
+            </li>
           </ul>
           <div style="border-top: 2px solid #1057ae">
             <div v-if="tab==1" class="tab-pane active padT20">
@@ -181,6 +157,9 @@
             </div>
             <div v-if="tab==6">
               <csst></csst>
+            </div>
+            <div v-if="tab==7">
+              <xetnghiem></xetnghiem>
             </div>
           </div>
         </div>
