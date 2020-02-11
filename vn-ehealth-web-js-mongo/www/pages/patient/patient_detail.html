@@ -190,27 +190,25 @@
 </div>
 <script type="text/javascript">
   VueAsyncComponent(
-    "patient_summary",
+    "patient-summary",
     "/pages/patient/patient_detail/patient_summary.html",
-  
     {
       data: function() {
         return {
-          patientId: 0
+          patientId: 0,
+          patient_summary_list: 0,
+          patient_summary: null,
+          hsba: null
         };
       },
-      created: function() {
+      created: async function() {
         this.patientId = getParam("id");
+        this.patient_summary_list = await this.get("/api/hsba/get_ds_hs_by_bn", {
+        benhnhan_id: this.patientId
+      });
+      console.log(this.cdha_list);
       }
-    }
-    
-
-      
-    
-  );
-
-  
-
+    });
   VueAsyncComponent("cdha", "/pages/patient/patient_detail/cdha.html", {
     data: function() {
       return {
@@ -220,30 +218,20 @@
         hsba: null
       };
     },
-
     methods: {
       viewCdha: function(cdha) {
         this.cdha = cdha;
         $("#cdhaModal").modal();
       }
     },
-    props: ["hsba_id"],
     created: async function() {
       this.patientId = getParam("id");
-
-      if (this.hsba_id) {
-        this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
-          hsba_id: this.hsba_id
-        });
-      }
-
       this.cdha_list = await this.get("/api/cdha/get_ds_cdha_by_bn", {
         benhnhan_id: this.patientId
       });
       console.log(this.cdha_list);
     }
   });
-
   VueAsyncComponent("lsdt", "/pages/patient/patient_detail/lsdt.html", {
     data: function() {
       return {
@@ -259,23 +247,14 @@
         $("#donthuocModal").modal();
       },
     },
-    props: ["hsba_id"],
     created: async function() {
       this.patientId = getParam("id");
-      if (this.hsba_id) {
-        this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
-          hsba_id: this.hsba_id
-        });
-      }
-
       this.lsdt_list = await this.get("/api/donthuoc/get_ds_donthuoc_by_bn", {
         benhnhan_id: this.patientId
       });
       console.log(this.lsdt_list);
     }
   });
-  
-
   VueAsyncComponent("pttt", "/pages/patient/patient_detail/pttt.html", {
     data: function() {
       return {
@@ -317,22 +296,14 @@
         return "";
       }
     },
-
     created: async function() {
       this.patientId = getParam("id");
-      if (this.hsba_id) {
-        this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
-          hsba_id: this.hsba_id
-        });
-      }
-
       this.pttt_list = await this.get("/api/pttt/get_ds_pttt_by_bn", {
         benhnhan_id: this.patientId
       });
       console.log(this.pttt_list);
     }
   });
-
   VueAsyncComponent("tlls", "/pages/patient/patient_detail/tlls.html", {
     data: function() {
       return {
@@ -381,14 +352,10 @@
         return khoadieutri.tenkhoa || attr(khoadieutri, "emrDmKhoaDieuTri.ten");
       }
     },
-    props: ["hsba_id"],
+    
     created: async function() {
       this.patientId = getParam("id");
-      if (this.hsba_id) {
-        this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
-          hsba_id: this.hsba_id
-        });
-      }
+      
       this.csst_list = await this.get("/api/chucnangsong/get_ds_chucnangsong_by_bn", {
         benhnhan_id: this.patientId
       });
