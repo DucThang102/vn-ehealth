@@ -21,6 +21,9 @@
               <td class="text-center">{{ getTenKhoa(csst.emrVaoKhoa)  }}</td>
               <td class="text-center">{{ getNgayTheoDoi(csst) }}</td>
             </tr>
+            <tr v-if="csst_list.length==0">
+              <td colspan="5">Không có dữ liệu</td>
+            </tr>
           </table>
           <div class="modal fade" id="chucnangsongModal">
             <div class="modal-dialog modal-lg">
