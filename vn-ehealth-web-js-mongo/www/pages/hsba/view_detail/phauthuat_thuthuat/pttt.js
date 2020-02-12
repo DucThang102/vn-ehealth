@@ -46,7 +46,7 @@ VueAsyncComponent(
       },
       getBacsithuchien: function(pttt) {
         var bacsi = pttt.emrThanhVienPttts.find(
-          x => attr(x, "emrDmVaiTro.ma") == "01" || attr(x, "emrDmVaiTro.ma") == "03"
+          x => attr(x, "emrDmVaiTro.ma") == "04"
         );
         if (bacsi) {
           return bacsi.tenbacsi;
@@ -55,7 +55,7 @@ VueAsyncComponent(
       },
       getBacsigayme: function(pttt) {
         var bacsi = pttt.emrThanhVienPttts.find(
-          x => attr(x, "emrDmVaiTro.ma") == "05" 
+          x => attr(x, "emrDmVaiTro.ma") == "08" 
         );
         if (bacsi) {
           return bacsi.tenbacsi;
