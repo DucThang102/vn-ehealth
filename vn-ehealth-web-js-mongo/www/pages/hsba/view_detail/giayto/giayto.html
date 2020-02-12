@@ -1,14 +1,12 @@
 <div v-if="hsba" class="frame">
   <tomtat :hsba="hsba" title="CÁC GIẤY TỜ ĐI KÈM KHÁC"></tomtat>
   <hr />
-
   <b>Các giấy tờ khác kèm theo:</b>
   <table class="table table-bordered mt-3">
     <tr>
       <th style="width:5%" class="text-center">STT</th>
       <th style="width:95%" class="text-center">Tên file</th>
     </tr>
-    
     <tr v-for="(fileDinhKem,index) in hsba.emrFileDinhKems">
       <td class="text-center">{{ index + 1 }}</td>
       <td><a :href="fileDinhKem.url">{{ fileDinhKem.name }}</a></td>
