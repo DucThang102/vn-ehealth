@@ -9,7 +9,7 @@
               <th style="width: 10%;" class="text-center" >STT</th>
               <th style="width: 20%;" class="text-center" >Thao tác</th>
               <th style="width: 25%;" class="text-center" >Số điều trị</th>
-              <th style="width: 20;" class="text-center" >Khoa điều trị</th>
+              <th style="width: 20%;" class="text-center" >Khoa điều trị</th>
               <th style="width: 25%;" class="text-center" >Ngày theo dõi</th>
             </tr>
             <tr v-for='(csst, i) in csst_list'>
@@ -21,8 +21,11 @@
               <td class="text-center">{{ getTenKhoa(csst.emrVaoKhoa)  }}</td>
               <td class="text-center">{{ getNgayTheoDoi(csst) }}</td>
             </tr>
+            <tr v-if="csst_list.length==0">
+              <td colspan="5">Không có dữ liệu</td>
+            </tr>
           </table>
-          <div class="modal fade" id="chucnangsongModal">
+          <div class="modal fade" id="chucnangsongModal"> 
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
                 <div class="modal-header">

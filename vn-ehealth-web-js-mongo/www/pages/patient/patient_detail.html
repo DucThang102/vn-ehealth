@@ -52,42 +52,6 @@
             </div>
           </div>
         </div>  
-<!--
-          <div class="row">
-            <div class="col-lg-3 col-sm-6">
-              <div class="widget-panel widget-style-2 white-bg">
-                <div>Chiều cao</div>
-                <i class="fa fa-male text-pink"></i>
-                <h2 class="m-0 counter">165 cm</h2>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="widget-panel widget-style-2 white-bg">
-                <div>Cân nặng</div>
-                <i class="fa fa-male text-purple"></i>
-                <h2 class="m-0 counter">65 Kg</h2>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="widget-panel widget-style-2 white-bg">
-                <div>Huyết áp</div>
-                <i class="fa fa-heartbeat text-info"></i>
-                <h2 class="m-0 counter">80/120</h2>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-              <div class="widget-panel widget-style-2 white-bg">
-                <div>Nhiệt độ</div>
-                <i class="fa fa-thermometer text-success"></i>
-                <h2 class="m-0 counter">36.5 độ C</h2>
-              </div>
-            </div>
-          </div>
-
-          -->
-          <!-- end row -->
-        
-        <!--panel 1-->
         <div class="panel panel-default">
           <ul class="nav nav-tabs">
             <li class="nav-item">
@@ -162,6 +126,18 @@
                 >Chỉ số sinh tồn</a
               >
             </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                style="margin-bottom : '2px',"
+                v-bind:class="{ active: tab == 7 }"
+                v-bind:style="{ backgroundColor: tab==7? '#1057ae' : '#eee', color: tab==7? '#fff' : '#000',
+                            marginBottom : '2px', borderTop : tab==7? '0px' : ''}"
+                href="#"
+                v-on:click="tab=7"
+                >Xét nghiệm</a
+              >
+            </li>
           </ul>
           <div style="border-top: 2px solid #1057ae">
             <div v-if="tab==1" class="tab-pane active padT20">
@@ -182,6 +158,9 @@
             <div v-if="tab==6">
               <csst></csst>
             </div>
+            <div v-if="tab==7">
+              <xetnghiem></xetnghiem>
+            </div>
           </div>
         </div>
       </template>
@@ -190,27 +169,33 @@
 </div>
 <script type="text/javascript">
   VueAsyncComponent(
-    "patient_summary",
+    "patient-summary",
     "/pages/patient/patient_detail/patient_summary.html",
-  
     {
       data: function() {
         return {
-          patientId: 0
+          patientId: 0,
+          patient_summary_list: 0,
+          patient_summary: null,
+          hsba: null,
+          tomtathsba: null
         };
       },
-      created: function() {
-        this.patientId = getParam("id");
+      methods: {
+        viewTomtathsba: function(tomtathsba) {
+        this.tomtathsba = tomtathsba;
+        $("#tomtathsbaModal").modal();
       }
-    }
-    
-
-      
-    
-  );
-
-  
-
+      },
+     
+      created: async function() {
+        this.patientId = getParam("id");
+        this.patient_summary_list = await this.get("/api/hsba/get_ds_hs_by_bn", {
+        benhnhan_id: this.patientId
+      });
+      console.log(this.cdha_list);
+      }
+    });
   VueAsyncComponent("cdha", "/pages/patient/patient_detail/cdha.html", {
     data: function() {
       return {
@@ -220,30 +205,20 @@
         hsba: null
       };
     },
-
     methods: {
       viewCdha: function(cdha) {
         this.cdha = cdha;
         $("#cdhaModal").modal();
       }
     },
-    props: ["hsba_id"],
     created: async function() {
       this.patientId = getParam("id");
-
-      if (this.hsba_id) {
-        this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
-          hsba_id: this.hsba_id
-        });
-      }
-
       this.cdha_list = await this.get("/api/cdha/get_ds_cdha_by_bn", {
         benhnhan_id: this.patientId
       });
       console.log(this.cdha_list);
     }
   });
-
   VueAsyncComponent("lsdt", "/pages/patient/patient_detail/lsdt.html", {
     data: function() {
       return {
@@ -259,23 +234,14 @@
         $("#donthuocModal").modal();
       },
     },
-    props: ["hsba_id"],
     created: async function() {
       this.patientId = getParam("id");
-      if (this.hsba_id) {
-        this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
-          hsba_id: this.hsba_id
-        });
-      }
-
       this.lsdt_list = await this.get("/api/donthuoc/get_ds_donthuoc_by_bn", {
         benhnhan_id: this.patientId
       });
       console.log(this.lsdt_list);
     }
   });
-  
-
   VueAsyncComponent("pttt", "/pages/patient/patient_detail/pttt.html", {
     data: function() {
       return {
@@ -317,22 +283,14 @@
         return "";
       }
     },
-
     created: async function() {
       this.patientId = getParam("id");
-      if (this.hsba_id) {
-        this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
-          hsba_id: this.hsba_id
-        });
-      }
-
       this.pttt_list = await this.get("/api/pttt/get_ds_pttt_by_bn", {
         benhnhan_id: this.patientId
       });
       console.log(this.pttt_list);
     }
   });
-
   VueAsyncComponent("tlls", "/pages/patient/patient_detail/tlls.html", {
     data: function() {
       return {
@@ -358,6 +316,7 @@
         this.chucnangsong = chucnangsong;
         $("#chucnangsongModal").modal();
       },
+
       getNgayTheoDoi: function(chucnangsong) {
         var ngayTheoDois = chucnangsong.emrChucNangSongChiTiets.map(x => x.ngaytheodoi);
         ngayTheoDois = ngayTheoDois.sort(x => parseDate(x).getTime());
@@ -381,14 +340,10 @@
         return khoadieutri.tenkhoa || attr(khoadieutri, "emrDmKhoaDieuTri.ten");
       }
     },
-    props: ["hsba_id"],
+    
     created: async function() {
       this.patientId = getParam("id");
-      if (this.hsba_id) {
-        this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
-          hsba_id: this.hsba_id
-        });
-      }
+      
       this.csst_list = await this.get("/api/chucnangsong/get_ds_chucnangsong_by_bn", {
         benhnhan_id: this.patientId
       });
