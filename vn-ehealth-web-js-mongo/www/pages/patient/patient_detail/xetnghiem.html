@@ -1,0 +1,125 @@
+<div>
+  <template>
+    <div class="row" v-if="xetnghiem_list">
+      <div class="col width=100% ">
+        <div class="portlet p-3">
+          <h3 class="text-blue text-uppercase">Xét nghiệm</h3>
+          <table class="table table-bordered">
+            <tr>
+              <th style="width: 5%;" class="text-center">STT</th>
+              <th style="width: 15%;" class="text-center">Thao tác</th>
+              <th style="width: 60%;" class="text-center">Loại xét nghiệm</th>
+              <th style="width: 20%;" class="text-center">Ngày thực hiện</th>
+            </tr>
+            <tr v-for="(xetnghiem, i) in xetnghiem_list">
+              <td class="text-center">{{ i + 1 }}</td>
+              <td class="text-center">
+                <a href="#" v-on:click="viewXetnghiem(xetnghiem)"
+                  ><i class="fas fa-fw fa-binoculars"></i> Xem</a
+                >
+              </td>
+              <td class="text-center">{{ xetnghiem.emrDmLoaiXetNghiem.ten }}</td>
+              <td class="text-center">{{ xetnghiem.ngaythuchien }}</td>
+            </tr>
+            <tr v-if="xetnghiem_list.length==0">
+              <td colspan="5">Không có dữ liệu</td>
+            </tr>
+          </table>
+          <div class="modal fade" id="xetnghiemModal">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">
+                    <strong>Thông tin xét nghiệm</strong>
+                  </h5>
+                  <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div v-if="xetnghiem" class="modal-body">
+                  <tomtat :hsba="hsba" title="PHIẾU XÉT NGHIỆM"></tomtat>
+                  <hr />
+                  <font>
+                    <div class="row">
+                      <div class="col-12">
+                        <b>Xét nghiệm: {{xetnghiem.emrDmLoaiXetNghiem.ten}}</b
+                        ><br />
+                        <span>- Ngày yêu cầu: {{ xetnghiem.ngayyeucau }}</span
+                        ><br />
+                        <span>- Bác sĩ yêu cầu: {{ xetnghiem.bacsiyeucau }}</span
+                        ><br />
+                        <span>- Ngày thực hiện: {{ xetnghiem.ngaythuchien }}</span
+                        ><br />
+                        <span
+                          >- Bác sĩ thực hiện: {{ xetnghiem.bacsixetnghiem }}</span
+                        ><br />
+                        <span>- Nhận xét chung: {{ xetnghiem.nhanxet }}</span><br />
+                      </div>
+                    </div>
+                    <hr />
+                    <div v-if="xetnghiem.emrXetNghiemDichVus.length > 0">
+                      <b>Kết quả xét nghiệm :</b>
+                      <table class='table table-bordered mt-3'>
+                        <tr>
+                          <th style='width:5%' class="text-center">STT</th>
+                          <th style='width:25%' class="text-center">Xét nghiệm</th>
+                          <th style='width:20%' class="text-center">Kết quả đo</th>
+                          <th style='width:20%' class="text-center">Đơn vị</th>
+                          <th style='width:30%' class="text-center">Chỉ số bình thường</th>
+                        </tr>
+                        <template v-for="(xndv, i) in xetnghiem.emrXetNghiemDichVus">
+                          <template v-if="xndv.emrXetNghiemKetQuas.length==1">
+                            <tr>
+                              <td class="text-center">{{ i + 1 }}</td>
+                              <td>{{ xndv.emrDmXetNghiem.ten }}</td>
+                              <td class="text-center">{{ xndv.emrXetNghiemKetQuas[0].giatrido }}</td class="text-center">
+                              <td class="text-center">{{ xndv.emrDmXetNghiem.donvi }}</td class="text-center">
+                              <td class="text-center">Nam: {{xndv.emrDmXetNghiem.chisobt_nam}} /
+                                Nữ: {{xndv.emrDmXetNghiem.chisobt_nu}}</td>
+                            </tr>
+                          </template>
+                          <template v-if="xndv.emrXetNghiemKetQuas.length>1">
+                            <tr>
+                              <td :rowspan="1+xndv.emrXetNghiemKetQuas.length">{{ i + 1 }}</td>
+                              <th colspan="4">{{ xndv.emrDmXetNghiem.ten }}</th>
+                            </tr>
+                            <tr v-for="xnkq in xndv.emrXetNghiemKetQuas">                      
+                              <td>{{ xnkq.emrDmChiSoXetNghiem.ten }}</td>
+                              <td class="text-center">{{ xnkq.giatrido }}</td>
+                              <td class="text-center">{{ xnkq.emrDmChiSoXetNghiem.donvi }}</td>
+                              <td class="text-center">Nam: {{xnkq.emrDmChiSoXetNghiem.chisobt_nam}} /
+                                Nữ: {{xnkq.emrDmChiSoXetNghiem.chisobt_nu}}</td>
+                            </tr>                  </template>
+                        </template>
+                      </table>
+                    </div>
+        
+                    <div v-if="xetnghiem.emrFileDinhKemXetNghiems.length > 0">
+                      <hr />
+                      <b>Danh sách file đính kèm:</b>
+                      <table class="table table-bordered mt-3">
+                        <tr>
+                          <th style="width:10%" class="text-center">STT</th>
+                          <th style="width:90%" class="text-center">Tên file</th>
+                        </tr>
+                        <tr v-for="(file, i) in xetnghiem.emrFileDinhKemXetNghiems">
+                          <td>{{ i + 1 }}</td>
+                          <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </font>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Đóng lại
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</div>

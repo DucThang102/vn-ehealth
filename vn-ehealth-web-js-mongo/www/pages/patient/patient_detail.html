@@ -350,6 +350,35 @@
       console.log(this.csst_list);
     }
   });
+  VueAsyncComponent(
+    "xetnghiem",
+    "/pages/patient/patient_detail/xetnghiem.html",
+    {
+      data: function() {
+        return {
+          patientId: 0,
+          xetnghiem_list: 0,
+          xetnghiem: null,
+          hsba: null,
+         
+        };
+      },
+      methods: {
+        viewXetnghiem: function(xetnghiem) {
+        this.xetnghiem = xetnghiem;
+        $("#xetnghiemModal").modal();
+      }
+      },
+     
+      created: async function() {
+        this.patientId = getParam("id");
+        this.xetnghiem_list = await this.get("/api/xetnghiem/get_ds_xetnghiem_by_bn", {
+        benhnhan_id: this.patientId
+      });
+      console.log(this.xetnghiem_list);
+      }
+    });
+  
 
   new Vue({
     el: "#app",
