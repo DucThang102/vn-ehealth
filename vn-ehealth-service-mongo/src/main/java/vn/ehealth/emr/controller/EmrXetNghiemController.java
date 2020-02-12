@@ -1,5 +1,6 @@
 package vn.ehealth.emr.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import vn.ehealth.emr.model.EmrXetNghiem;
+import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.service.EmrXetNghiemService;
 import vn.ehealth.emr.utils.EmrUtils;
 
@@ -26,11 +28,22 @@ public class EmrXetNghiemController {
 
     private Logger logger = LoggerFactory.getLogger(EmrXetNghiemController.class);
     @Autowired EmrXetNghiemService emrXetNghiemService;
+    @Autowired EmrHoSoBenhAnService emrHoSoBenhAnService;
     
     @GetMapping("/get_ds_xetnghiem")
     public ResponseEntity<?> getDsXetNghiem(@RequestParam("hsba_id") String id) {
         var xetnghiemList = emrXetNghiemService.getByEmrHoSoBenhAnId(new ObjectId(id));
         return ResponseEntity.ok(xetnghiemList);
+    }
+    
+    @GetMapping("/get_ds_xetnghiem_by_bn")
+    public ResponseEntity<?> getDsXetNghiemByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
+        var emrHoSoBenhAns = emrHoSoBenhAnService.getByEmrBenhNhanId(new ObjectId(benhNhanId));
+        var result = new ArrayList<EmrXetNghiem>();
+        for(var emrHoSoBenhAn : emrHoSoBenhAns) {
+            result.addAll(emrXetNghiemService.getByEmrHoSoBenhAnId(emrHoSoBenhAn.id));
+        }
+        return ResponseEntity.ok(result);
     }
     
     @GetMapping("/delete_xetnghiem")
