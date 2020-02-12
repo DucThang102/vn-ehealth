@@ -1527,7 +1527,8 @@
     		"emrDmPhauThuThuat": {
                 "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
             },
-            
+            "bacsithuchien": {"type" : "String"},
+            "bacsygayme": {"type" : "String"},
             "ngaygiopttt": {"type" : "Date"},
             "chidinhptt": {"type" : "String"},
             "phuongphapvocam": {"type" : "String"},

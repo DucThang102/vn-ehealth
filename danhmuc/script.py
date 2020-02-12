@@ -5,7 +5,7 @@ import json
 username = 'test2'
 password = urllib.parse.quote_plus('abc@123')
 
-myclient = pymongo.MongoClient('mongodb://%s:%s@34.87.51.9/openmrs2' % (username, password))
+myclient = pymongo.MongoClient('mongodb://%s:%s@34.87.24.163/openmrs2' % (username, password))
 mydb = myclient["openmrs2"]
 mycol = mydb["emr_nhom_dm"]
 

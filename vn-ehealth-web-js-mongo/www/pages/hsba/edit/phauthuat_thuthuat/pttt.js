@@ -40,16 +40,6 @@ VueAsyncComponent('pttt-list', '/pages/hsba/edit/phauthuat_thuthuat/pttt_list.ht
       this.pttt_list = await this.get('/api/pttt/get_ds_pttt', { hsba_id: this.hsba_id });
     },
 
-    getBacsithuchien: function(pttt) {
-      var bacsi = pttt.emrThanhVienPttts.find(
-        x => attr(x, "emrDmVaiTro.ma") == "01" || attr(x, "emrDmVaiTro.ma") == "03"
-      );
-      if (bacsi) {
-        return bacsi.tenbacsi;
-      }
-      return "";
-    },
-
     deletePttt: async function(id) {
       if(confirm('Bạn có muốn xóa phẫu thuật/thủ thuật này không?')){
         var result = await this.get("/api/pttt/delete_pttt", {pttt_id: id});
