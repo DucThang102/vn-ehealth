@@ -15,7 +15,6 @@
                                 <th style="width: 30%;" class="text-center">Chẩn đoán</th>
                                 <th style="width: 15%;" class="text-center">Bác sĩ thực hiện</th>
                                 <th style="width: 10%;" class="text-center">Tóm tắt bệnh án</th>
-
                             </tr>
                             <tr v-for='(patient_summary, i) in patient_summary_list'>
                                 <td class="text-center">{{ i + 1 }}</td>
@@ -27,7 +26,6 @@
                                 <td class="text-center"> 
                                     <a href="javascript:void(0)" v-on:click="viewTomtathsba(patient_summary)"><i class="fas fa-fw fa-binoculals"></i>Xem</a>
                                 </td>
-
                             </tr>
                             <tr v-if="patient_summary_list.length==0">
                                 <td colspan="5">Không có dữ liệu nào</td>
