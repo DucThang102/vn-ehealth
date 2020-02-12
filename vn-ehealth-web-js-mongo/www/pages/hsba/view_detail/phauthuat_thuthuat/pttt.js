@@ -44,24 +44,6 @@ VueAsyncComponent(
         }
         return '';
       },
-      getBacsithuchien: function(pttt) {
-        var bacsi = pttt.emrThanhVienPttts.find(
-          x => attr(x, "emrDmVaiTro.ma") == "04"
-        );
-        if (bacsi) {
-          return bacsi.tenbacsi;
-        }
-        return "";
-      },
-      getBacsigayme: function(pttt) {
-        var bacsi = pttt.emrThanhVienPttts.find(
-          x => attr(x, "emrDmVaiTro.ma") == "08" 
-        );
-        if (bacsi) {
-          return bacsi.tenbacsi;
-        }
-        return "";
-      },
     },
 
     props: ["hsba_id"],
