@@ -296,26 +296,7 @@ var benh_an_chi_tiet_script = {
   },
 
   methods: {
-    getBacsithuchien: function(pttt) {
-      var bacsi = pttt.emrThanhVienPttts.find(
-        x => attr(x, "emrDmVaiTro.ma") == "01" || attr(x, "emrDmVaiTro.ma") == "03"
-      );
-      if (bacsi) {
-        return bacsi.tenbacsi;
-      }
-      return "";
-    },
-    getBacsigayme: function(pttt) {
-      var bacsi = pttt.emrThanhVienPttts.find(
-        x => attr(x, "emrDmVaiTro.ma") == "05" 
-      );
-      if (bacsi) {
-        return bacsi.tenbacsi;
-      }
-      return "";
-    },
     
-
     toCharArray(st) {
       return (st || "").replace(".", "").split("");
     },
