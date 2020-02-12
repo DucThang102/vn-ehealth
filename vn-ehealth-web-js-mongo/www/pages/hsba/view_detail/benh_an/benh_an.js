@@ -60,6 +60,7 @@ var benh_an_script = {
     this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
       hsba_id: this.hsba_id
     });
+    
     setTimeout(function() {
       $("#printButton").removeClass("d-none");
     }, 2000);
@@ -73,6 +74,14 @@ VueAsyncComponent(
 );
 
 var benh_an_chi_tiet_script = {
+  data: function() {
+    return { ptttList: [] };
+  },
+
+  created: async function() {
+    this.ptttList = await this.get("/api/pttt/get_ds_pttt", {hsba_id: this.hsba.id});
+  },
+
   props: ["hsba"],
 
   computed: {
@@ -287,6 +296,26 @@ var benh_an_chi_tiet_script = {
   },
 
   methods: {
+    getBacsithuchien: function(pttt) {
+      var bacsi = pttt.emrThanhVienPttts.find(
+        x => attr(x, "emrDmVaiTro.ma") == "01" || attr(x, "emrDmVaiTro.ma") == "03"
+      );
+      if (bacsi) {
+        return bacsi.tenbacsi;
+      }
+      return "";
+    },
+    getBacsigayme: function(pttt) {
+      var bacsi = pttt.emrThanhVienPttts.find(
+        x => attr(x, "emrDmVaiTro.ma") == "05" 
+      );
+      if (bacsi) {
+        return bacsi.tenbacsi;
+      }
+      return "";
+    },
+    
+
     toCharArray(st) {
       return (st || "").replace(".", "").split("");
     },

@@ -873,12 +873,19 @@
     
 
     <div class="row mt-2">
-      <table class="table table-bordered mt-3 ml-4 mr-4" style="width: 80%;"> 
-        <th class="text-center">Giờ, ngày</th>
-        <th class="text-center">Phương pháp phẫu thuật/vô cảm</th>
-        <th class="text-center">Bác sỹ phẫu thuật</th>
-        <th class="text-center">Bác sỹ gây mê</th>
-        
+      <table class="table table-bordered mt-3 ml-4 mr-4" style="width: 100%;"> 
+        <tr>
+          <th class="text-center">Giờ, ngày</th>
+          <th class="text-center">Phương pháp phẫu thuật/vô cảm</th>
+          <th class="text-center">Bác sỹ phẫu thuật</th>
+          <th class="text-center">Bác sỹ gây mê</th>
+        </tr>
+        <tr v-for="pttt in ptttList">
+          <td class="text-center">{{ pttt.ngaygiopttt }}</td>
+          <td class="text-center">{{ pttt.emrDmPhauThuThuat.ten }} / {{ pttt.phuongphapvocam }}</td>
+          <td class="text-center">{{ getBacsithuchien(pttt)  }}</td>
+          <td class="text-center">{{ getBacsigayme(pttt) }}</td>
+        </tr>
       </table>
     </div>
 
