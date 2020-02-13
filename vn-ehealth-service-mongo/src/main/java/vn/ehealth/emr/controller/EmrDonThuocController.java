@@ -48,7 +48,9 @@ public class EmrDonThuocController {
         							.map(x -> Map.of(
         									"donthuoc", x, 
         									"tenCoSoKhamBenh", emrHoSoBenhAn.getEmrCoSoKhamBenh().ten,
-        									"soBenhAn", emrHoSoBenhAn.matraodoi )
+        									"soBenhAn", emrHoSoBenhAn.matraodoi,
+        									"ngayVaoVien", emrHoSoBenhAn.emrQuanLyNguoiBenh.ngaygiovaovien,
+        									"ngayRaVien", emrHoSoBenhAn.emrQuanLyNguoiBenh.ngaygioravien)
         								)
         							.collect(Collectors.toList());
             result.addAll(lst);
