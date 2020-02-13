@@ -3,7 +3,6 @@
         <div class="row" v-if="lsdt_list">
             <div class="col width=100%">
                 <div class="portlet p-3">
-                    <h3 class="text-blue text-uppercase">Lịch sử dùng thuốc</h3>
                     <table class="table table-bordered">
                       <thead>
                         <tr>
@@ -21,10 +20,10 @@
                       <tbody>
                         <tr v-for="(lsdt, i) in lsdt_list">
                           <td class="text-center">{{ i + 1 }}</td>
-                          <td class="text-center">{{ lsdt.emrCoSoKhamBenhId}}</td>
+                          <td class="text-center">{{ lsdt.tenCoSoKhamBenh}}</td>
                           <td class="text-center">{{ i + 1 }}</td>
                           <td class="text-center">{{ i + 1 }}</td>
-                          <td class="text-center">{{ lsdt.emrHoSoBenhAnId }}</td>
+                          <td class="text-center">{{ lsdt.soBenhAn }}</td>
                           <td class="text-center">{{ lsdt.bacsikedon }}</td>
                           <td class="text-center">{{ lsdt.ngaykedon}}</td>
                           <td class="text-center">{{ lsdt.sodon}}</td>
