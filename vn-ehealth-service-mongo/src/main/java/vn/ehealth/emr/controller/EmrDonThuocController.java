@@ -3,6 +3,7 @@ package vn.ehealth.emr.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
@@ -39,10 +40,18 @@ public class EmrDonThuocController {
     @GetMapping("/get_ds_donthuoc_by_bn")
     public ResponseEntity<?> getDsDonThuocByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
         var emrHoSoBenhAns = emrHoSoBenhAnService.getByEmrBenhNhanId(new ObjectId(benhNhanId));
-        var result = new ArrayList<EmrDonThuoc>();
+        var result = new ArrayList<>();
         
         for(var emrHoSoBenhAn : emrHoSoBenhAns) {
-            result.addAll(emrDonThuocService.getByEmrHoSoBenhAnId(emrHoSoBenhAn.id));
+        	var donThuocList = emrDonThuocService.getByEmrHoSoBenhAnId(emrHoSoBenhAn.id); 
+        	var lst = donThuocList.stream()
+        							.map(x -> Map.of(
+        									"donthuoc", x, 
+        									"tenCoSoKhamBenh", emrHoSoBenhAn.getEmrCoSoKhamBenh().ten,
+        									"soBenhAn", emrHoSoBenhAn.matraodoi )
+        								)
+        							.collect(Collectors.toList());
+            result.addAll(lst);
         }
 
         return ResponseEntity.ok(result);
