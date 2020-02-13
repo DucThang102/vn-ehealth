@@ -20,7 +20,7 @@
             >
           </td>
           <td class="text-center">{{ pttt.emrDmPhauThuThuat.ten }}</td>
-          <td class="text-center">{{ getBacsithuchien(pttt) }}</td>
+          <td class="text-center">{{ pttt.bacsithuchien }}</td>
           <td class="text-center">{{ pttt.ngaygiopttt }}</td>
         </tr>
         <tr v-if="pttt_list.length==0">
@@ -149,6 +149,7 @@
     </div>
   </div>
     </div>
-    
   </template>
 </div>
+
+
