@@ -7,25 +7,29 @@
       <table class="table table-bordered">
         <tr>
           <th style="width: 5%;" class="text-center">STT</th>
-          <th style="width: 15%;" class="text-center">Thao tác</th>
-          <th style="width: 15%;" class="text-center">Loại chẩn đoán hình ảnh</th>
-          <th style="width: 15%;" class="text-center">Chẩn đoán hình ảnh</th>
-          <th style="width: 15%;" class="text-center">Ngày thực hiện</th>
-          <th style="width: 15%;" class="text-center">Nơi thực hiện</th>
+          <th style="width: 20%;" class="text-center">Nơi khám</th>
+          <th style="width: 10%;" class="text-center">Ngày bắt đầu</th>
+          <th style="width: 10%;" class="text-center">Ngày kết thúc</th>
+          <th style="width: 10%;" class="text-center">Loại chẩn đoán hình ảnh</th>
+          <th style="width: 10%;" class="text-center">Chẩn đoán hình ảnh</th>
+          <th style="width: 10%;" class="text-center">Ngày thực hiện</th>
           <th style="width: 20%;" class="text-center">Kết quả</th>
+          <th style="width: 5%;" class="text-center">Thao tác</th>
         </tr>
         <tr v-for="(cdha, i) in cdha_list">
           <td class="text-center">{{ i + 1 }}</td>
+          <td class="text-center">{{ i + 1 }}</td>
+          <td class="text-center">{{ i + 1 }}</td>
+          <td class="text-center">{{ i + 1 }}</td>
+          <td class="text-center">{{ cdha.emrDmLoaiChanDoanHinhAnh.ten }}</td>
+          <td class="text-center">{{ cdha.emrDmChanDoanHinhAnh.ten }}</td>
+          <td class="text-center">{{ cdha.ngaythuchien }}</td>
+          <td class="text-center">{{cdha.ketqua}}</td>
           <td class="text-center">
             <a href="javascript:void(0)" v-on:click="viewCdha(cdha)"
               ><i class="fas fa-fw fa-binoculars"></i> Xem</a
             >
           </td>
-          <td class="text-center">{{ cdha.emrDmLoaiChanDoanHinhAnh.ten }}</td>
-          <td class="text-center">{{ cdha.emrDmChanDoanHinhAnh.ten }}</td>
-          <td class="text-center">{{ cdha.ngaythuchien }}</td>
-          <td class="text-center">Bệnh viện TW</td>
-          <td class="text-center">{{cdha.ketqua}}</td>
         </tr>
         <tr v-if="cdha_list.length==0">
           <td colspan="5">Không có dữ liệu</td>

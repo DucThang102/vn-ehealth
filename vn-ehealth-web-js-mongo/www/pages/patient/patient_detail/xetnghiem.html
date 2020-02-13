@@ -7,19 +7,25 @@
           <table class="table table-bordered">
             <tr>
               <th style="width: 5%;" class="text-center">STT</th>
-              <th style="width: 15%;" class="text-center">Thao tác</th>
-              <th style="width: 60%;" class="text-center">Loại xét nghiệm</th>
-              <th style="width: 20%;" class="text-center">Ngày thực hiện</th>
+              <th style="width: 20%;" class="text-center">Nơi khám</th>
+              <th style="width: 10%;" class="text-center">Ngày vào viện</th>
+              <th style="width: 10%;" class="text-center">Ngày ra viện</th>
+              <th style="width: 40%;" class="text-center">Loại xét nghiệm</th>
+              <th style="width: 10%;" class="text-center">Ngày thực hiện</th>
+              <th style="width: 5%;" class="text-center">Thao tác</th>
             </tr>
             <tr v-for="(xetnghiem, i) in xetnghiem_list">
               <td class="text-center">{{ i + 1 }}</td>
+              <td class="text-center">{{ i + 1 }}</td>
+              <td class="text-center">{{ i + 1 }}</td>
+              <td class="text-center">{{ i + 1 }}</td>
+              <td class="text-center">{{ xetnghiem.emrDmLoaiXetNghiem.ten }}</td>
+              <td class="text-center">{{ xetnghiem.ngaythuchien }}</td>
               <td class="text-center">
                 <a href="#" v-on:click="viewXetnghiem(xetnghiem)"
                   ><i class="fas fa-fw fa-binoculars"></i> Xem</a
                 >
               </td>
-              <td class="text-center">{{ xetnghiem.emrDmLoaiXetNghiem.ten }}</td>
-              <td class="text-center">{{ xetnghiem.ngaythuchien }}</td>
             </tr>
             <tr v-if="xetnghiem_list.length==0">
               <td colspan="5">Không có dữ liệu</td>

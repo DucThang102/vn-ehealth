@@ -7,21 +7,28 @@
       <table class="table table-bordered">
         <tr>
           <th style="width: 5%;" class="text-center">STT</th>
-          <th style="width: 15%;" class="text-center">Thao tác</th>
-          <th style="width: 30%;" class="text-center">Phẫu thuật/thủ thuật</th>
-          <th style="width: 30%;" class="text-center">Bác sĩ thực hiện</th>
-          <th style="width: 20%;" class="text-center">Ngày thực hiện</th>
+          <th style="width: 20%;" class="text-center">Nơi khám</th>
+          <th style="width: 10%;" class="text-center">Ngày bắt đầu</th>
+          <th style="width: 10%;" class="text-center">Ngày kết thúc</th>
+          <th style="width: 25%;" class="text-center">Phẫu thuật/thủ thuật</th>
+          <th style="width: 15%;" class="text-center">Bác sĩ thực hiện</th>
+          <th style="width: 10%;" class="text-center">Ngày thực hiện</th>
+          <th style="width: 5%;" class="text-center">Thao tác</th>
+
         </tr>
         <tr v-for="(pttt, i) in pttt_list">
           <td class="text-center">{{ i + 1 }}</td>
+          <td class="text-center">{{ i + 1 }}</td>
+          <td class="text-center">{{ i + 1 }}</td>
+          <td class="text-center">{{ i + 1 }}</td>
+          <td class="text-center">{{ pttt.emrDmPhauThuThuat.ten }}</td>
+          <td class="text-center">{{ pttt.bacsithuchien }}</td>
+          <td class="text-center">{{ pttt.ngaygiopttt }}</td>
           <td class="text-center">
             <a href="#" v-on:click="viewPttt(pttt)"
               ><i class="fas fa-fw fa-binoculars"></i> Xem</a
             >
           </td>
-          <td class="text-center">{{ pttt.emrDmPhauThuThuat.ten }}</td>
-          <td class="text-center">{{ pttt.bacsithuchien }}</td>
-          <td class="text-center">{{ pttt.ngaygiopttt }}</td>
         </tr>
         <tr v-if="pttt_list.length==0">
           <td colspan="5">Không có dữ liệu</td>

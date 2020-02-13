@@ -22,9 +22,9 @@
                                 <td class="text-center" > {{ patient_summary.emrQuanLyNguoiBenh.ngaygiovaovien }}</td>
                                 <td class="text-center">{{ patient_summary.emrQuanLyNguoiBenh.ngaygioravien }}</td>
                                 <td>{{ patient_summary.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten }}</td>
-                                <td class="text-center">{{ patient_summary.emrTongKetRaVien.bacsydieutri }}</td>
+                                <td class="text-center">{{ patient_summary.emrTongKetRaVien.bacsydieutri }}</td> 
                                 <td class="text-center"> 
-                                    <a href="javascript:void(0)" v-on:click="viewTomtathsba(patient_summary)"><i class="fas fa-fw fa-binoculals"></i>Xem</a>
+                                    <a href="javascript:void(0)" v-on:click="viewTomtathsba(patient_summary)"><i class="fas fa-fw fa-binoculars"></i>Xem</a>
                                 </td>
                             </tr>
                             <tr v-if="patient_summary_list.length==0">
