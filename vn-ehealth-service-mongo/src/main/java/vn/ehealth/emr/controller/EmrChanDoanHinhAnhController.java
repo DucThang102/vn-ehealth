@@ -3,6 +3,7 @@ package vn.ehealth.emr.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
@@ -39,9 +40,19 @@ public class EmrChanDoanHinhAnhController {
     @GetMapping("/get_ds_cdha_by_bn")
     public ResponseEntity<?> getDsChanDoanHinhAnhByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
         var emrHoSoBenhAns = emrHoSoBenhAnService.getByEmrBenhNhanId(new ObjectId(benhNhanId));
-        var result = new ArrayList<EmrChanDoanHinhAnh>();
+        var result = new ArrayList<>();
         for(var emrHoSoBenhAn : emrHoSoBenhAns) {
-            result.addAll(emrChanDoanHinhAnhService.getByEmrHoSoBenhAnId(emrHoSoBenhAn.id));
+            	var cdha_List = emrChanDoanHinhAnhService.getByEmrHoSoBenhAnId(emrHoSoBenhAn.id); 
+            	var lst = cdha_List.stream()
+            							.map(x -> Map.of(
+            									"chandoanhinhanh", x, 
+            									"tenCoSoKhamBenh", emrHoSoBenhAn.getEmrCoSoKhamBenh().ten,
+            									"soBenhAn", emrHoSoBenhAn.matraodoi,
+            									"ngayVaoVien", emrHoSoBenhAn.emrQuanLyNguoiBenh.ngaygiovaovien,
+            									"ngayRaVien", emrHoSoBenhAn.emrQuanLyNguoiBenh.ngaygioravien)
+            								)
+            							.collect(Collectors.toList());
+                result.addAll(lst);     	
         }
         return ResponseEntity.ok(result);
     }

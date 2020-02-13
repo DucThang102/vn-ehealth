@@ -3,6 +3,7 @@ package vn.ehealth.emr.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
@@ -40,9 +41,20 @@ public class EmrPhauThuatThuThuatController {
     @GetMapping("/get_ds_pttt_by_bn")
     public ResponseEntity<?> getDsPhauThuatThuThuatByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
         var emrHoSoBenhAns = emrHoSoBenhAnService.getByEmrBenhNhanId(new ObjectId(benhNhanId));
-        var result = new ArrayList<EmrPhauThuatThuThuat>();
+        var result = new ArrayList<>();
         for(var emrHoSoBenhAn : emrHoSoBenhAns) {
-            result.addAll(emrPhauThuatThuThuatService.getByEmrHoSoBenhAnId(emrHoSoBenhAn.id));
+        	var ptttList = emrPhauThuatThuThuatService.getByEmrHoSoBenhAnId(emrHoSoBenhAn.id); 
+        	var lst = ptttList.stream()
+        							.map(x -> Map.of(
+        									"phauthuatthuthuat", x, 
+        									"tenCoSoKhamBenh", emrHoSoBenhAn.getEmrCoSoKhamBenh().ten,
+        									"soBenhAn", emrHoSoBenhAn.matraodoi,
+        									"ngayVaoVien", emrHoSoBenhAn.emrQuanLyNguoiBenh.ngaygiovaovien,
+        									"ngayRaVien", emrHoSoBenhAn.emrQuanLyNguoiBenh.ngaygioravien)
+        								)
+        							.collect(Collectors.toList());
+            result.addAll(lst);
+
         }
         return ResponseEntity.ok(result);
     }
