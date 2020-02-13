@@ -5,17 +5,20 @@
                 <div class="portlet p-3">
                     <h3 class="text-blue text-uppercase">Lịch sử dùng thuốc</h3>
                     <table class="table table-bordered">
+                      <thead>
                         <tr>
                           <th style="width: 5%;" class="text-center">STT</th>
                           <th style="width: 20%;" class="text-center">Nơi khám</th>
                           <th style="width: 10%;" class="text-center">Ngày bắt đầu</th>
                           <th style="width: 10%;" class="text-center">Ngày kết thúc</th>
-                          <th style="width: 15%;" class="text-center">Số bệnh án</th>
+                          <th style="width: 13%;" class="text-center">Số bệnh án</th>
                           <th style="width: 15%;" class="text-center">Bác sĩ kê đơn</th>
                           <th style="width: 10%;" class="text-center">Ngày kê đơn</th>
                           <th style="width: 10%;" class="text-center">Số đơn</th>
-                          <th style="width: 5%;" class="text-center">Thao tác</th>
+                          <th style="width: 7%;" class="text-center">Thao tác</th>
                         </tr>
+                      </thead>
+                      <tbody>
                         <tr v-for="(lsdt, i) in lsdt_list">
                           <td class="text-center">{{ i + 1 }}</td>
                           <td class="text-center">{{ lsdt.emrCoSoKhamBenhId}}</td>
@@ -34,6 +37,7 @@
                         <tr v-if="lsdt_list.length==0">
                           <td colspan="5">Không có dữ liệu</td>
                         </tr>
+                      </tbody>
                       </table>
                       <div class="modal fade" id="donthuocModal">
                         <div class="modal-dialog modal-lg">
