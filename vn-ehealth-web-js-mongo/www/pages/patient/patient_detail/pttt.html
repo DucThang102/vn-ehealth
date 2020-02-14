@@ -19,12 +19,12 @@
         <tbody>
           <tr v-for="(pttt, i) in pttt_list">
             <td class="text-center">{{ i + 1 }}</td>
-            <td class="text-center">{{ i + 1 }}</td>
-            <td class="text-center">{{ i + 1 }}</td>
-            <td class="text-center">{{ i + 1 }}</td>
-            <td class="text-center">{{ pttt.emrDmPhauThuThuat.ten }}</td>
-            <td class="text-center">{{ pttt.bacsithuchien }}</td>
-            <td class="text-center">{{ pttt.ngaygiopttt }}</td>
+            <td class="text-center">{{ pttt.tenCoSoKhamBenh }}</td>
+            <td class="text-center">{{ pttt.ngayVaoVien }}</td>
+            <td class="text-center">{{ pttt.ngayRaVien }}</td>
+            <td class="text-center">{{ pttt.phauthuatthuthuat.emrDmPhauThuThuat.ten }}</td>
+            <td class="text-center">{{ pttt.phauthuatthuthuat.bacsithuchien }}</td>
+            <td class="text-center">{{ pttt.phauthuatthuthuat.ngaygiopttt }}</td>
             <td class="text-center">
               <a href="#" v-on:click="viewPttt(pttt)"
                 ><i class="fas fa-fw fa-binoculars"></i> Xem</a

@@ -20,13 +20,13 @@
             <tbody>
               <tr v-for="(cdha, i) in cdha_list">
                 <td class="text-center">{{ i + 1 }}</td>
-                <td class="text-center">{{ i + 1 }}</td>
-                <td class="text-center">{{ i + 1 }}</td>
-                <td class="text-center">{{ i + 1 }}</td>
-                <td class="text-center">{{ cdha.emrDmLoaiChanDoanHinhAnh.ten }}</td>
-                <td class="text-center">{{ cdha.emrDmChanDoanHinhAnh.ten }}</td>
-                <td class="text-center">{{ cdha.ngaythuchien }}</td>
-                <td class="text-center">{{cdha.ketqua}}</td>
+                <td class="text-center">{{  cdha.tenCoSoKhamBenh }}</td>
+                <td class="text-center">{{ cdha.ngayVaoVien }}</td>
+                <td class="text-center">{{ cdha.ngayRaVien }}</td>
+                <td class="text-center">{{ cdha.chandoanhinhanh.emrDmLoaiChanDoanHinhAnh.ten }}</td>
+                <td class="text-center">{{ cdha.chandoanhinhanh.emrDmChanDoanHinhAnh.ten }}</td>
+                <td class="text-center">{{ cdha.chandoanhinhanh.ngaythuchien }}</td>
+                <td class="text-center">{{ cdha.chandoanhinhanh.ketqua }}</td>
                 <td class="text-center">
                   <a href="javascript:void(0)" v-on:click="viewCdha(cdha)"
                     ><i class="fas fa-fw fa-binoculars"></i> Xem</a

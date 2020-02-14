@@ -21,12 +21,12 @@
                         <tr v-for="(lsdt, i) in lsdt_list">
                           <td class="text-center">{{ i + 1 }}</td>
                           <td class="text-center">{{ lsdt.tenCoSoKhamBenh}}</td>
-                          <td class="text-center">{{ i + 1 }}</td>
-                          <td class="text-center">{{ i + 1 }}</td>
+                          <td class="text-center">{{ lsdt.ngayVaoVien }}</td>
+                          <td class="text-center">{{ lsdt.ngayRaVien }}</td>
                           <td class="text-center">{{ lsdt.soBenhAn }}</td>
-                          <td class="text-center">{{ lsdt.bacsikedon }}</td>
-                          <td class="text-center">{{ lsdt.ngaykedon}}</td>
-                          <td class="text-center">{{ lsdt.sodon}}</td>
+                          <td class="text-center">{{ lsdt.donthuoc.bacsikedon }}</td>
+                          <td class="text-center">{{ lsdt.donthuoc.ngaykedon}}</td>
+                          <td class="text-center">{{ lsdt.donthuoc.sodon}}</td>
                           <td class="text-center">
                             <a href="javascript:void(0)" v-on:click="viewDonthuoc(lsdt)"
                               ><i class="fas fa-fw fa-binoculars"></i> Xem</a
