@@ -6,7 +6,7 @@
         Bệnh viện:
         <strong class="text-danger">{{hsba.emrCoSoKhamBenh.ten}}</strong> <br />
         Khoa: <strong class="mr-3 text-primary">{{tenKhoaDieuTri}} <br>
-        </strong>Giường: <strong class="text-success">{{khoaDieuTri.giuong}}</strong>
+        
       </div>
       <div class="col-4">
         <h3 class="text-tle mt-3">BỆNH ÁN NGOẠI TRÚ</h3>
@@ -182,7 +182,7 @@
             ><b class="text-primary mr-1">13.</b>Chẩn đoán của nơi giới
             thiệu:</label
           >
-          <span></span>
+          <span> {{ hsba.emrChanDoan.emrDmMaBenhChandoannoiden.ten }}</span>
           <span class="form-inline input-lr2 float-right">
             <input disabled checked type="checkbox" />
             <span class="mr-3">1.Y tế</span> <input disabled type="checkbox" />
