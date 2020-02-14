@@ -18,11 +18,11 @@
             <tbody>
               <tr v-for="(xetnghiem, i) in xetnghiem_list">
                 <td class="text-center">{{ i + 1 }}</td>
-                <td class="text-center">{{ i + 1 }}</td>
-                <td class="text-center">{{ i + 1 }}</td>
-                <td class="text-center">{{ i + 1 }}</td>
-                <td class="text-center">{{ xetnghiem.emrDmLoaiXetNghiem.ten }}</td>
-                <td class="text-center">{{ xetnghiem.ngaythuchien }}</td>
+                <td class="text-center">{{ xetnghiem.tenCoSoKhamBenh }}</td>
+                <td class="text-center">{{ xetnghiem.ngayVaoVien }}</td>
+                <td class="text-center">{{ xetnghiem.ngayRaVien }}</td>
+                <td class="text-center">{{ xetnghiem.xetnghiemList.emrDmLoaiXetNghiem.ten }}</td>
+                <td class="text-center">{{ xetnghiem.xetnghiemList.ngaythuchien }}</td>
                 <td class="text-center">
                   <a href="#" v-on:click="viewXetnghiem(xetnghiem)"
                     ><i class="fas fa-fw fa-binoculars"></i> Xem</a
