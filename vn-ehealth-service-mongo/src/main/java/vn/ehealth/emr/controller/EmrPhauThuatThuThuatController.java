@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import vn.ehealth.emr.model.EmrPhauThuatThuThuat;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.service.EmrPhauThuatThuThuatService;
+import vn.ehealth.emr.utils.DateUtil;
 import vn.ehealth.emr.utils.EmrUtils;
 
 @RestController
@@ -49,8 +50,8 @@ public class EmrPhauThuatThuThuatController {
         									"phauthuatthuthuat", x, 
         									"tenCoSoKhamBenh", emrHoSoBenhAn.getEmrCoSoKhamBenh().ten,
         									"soBenhAn", emrHoSoBenhAn.matraodoi,
-        									"ngayVaoVien", emrHoSoBenhAn.emrQuanLyNguoiBenh.ngaygiovaovien,
-        									"ngayRaVien", emrHoSoBenhAn.emrQuanLyNguoiBenh.ngaygioravien)
+        									"ngayVaoVien", DateUtil.parseDateToString(emrHoSoBenhAn.emrQuanLyNguoiBenh.ngaygiovaovien, "dd/MM/yyyy HH:mm"),
+        									"ngayRaVien", DateUtil.parseDateToString(emrHoSoBenhAn.emrQuanLyNguoiBenh.ngaygioravien, "dd/MM/yyyy HH:mm"))
         								)
         							.collect(Collectors.toList());
             result.addAll(lst);
