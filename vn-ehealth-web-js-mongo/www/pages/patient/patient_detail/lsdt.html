@@ -1,124 +1,159 @@
 <div>
-    <template>
-        <div class="row" v-if="lsdt_list">
-            <div class="col width=100%">
-                <div class="portlet p-3">
-                    <table class="table table-bordered">
-                      <thead>
-                        <tr>
-                          <th style="width: 5%;" class="text-center">STT</th>
-                          <th style="width: 20%;" class="text-center">Nơi khám</th>
-                          <th style="width: 10%;" class="text-center">Ngày bắt đầu</th>
-                          <th style="width: 10%;" class="text-center">Ngày kết thúc</th>
-                          <th style="width: 13%;" class="text-center">Số bệnh án</th>
-                          <th style="width: 15%;" class="text-center">Bác sĩ kê đơn</th>
-                          <th style="width: 10%;" class="text-center">Ngày kê đơn</th>
-                          <th style="width: 10%;" class="text-center">Số đơn</th>
-                          <th style="width: 7%;" class="text-center">Thao tác</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr v-for="(lsdt, i) in lsdt_list">
-                          <td class="text-center">{{ i + 1 }}</td>
-                          <td class="text-center">{{ lsdt.tenCoSoKhamBenh}}</td>
-                          <td class="text-center">{{ lsdt.ngayVaoVien }}</td>
-                          <td class="text-center">{{ lsdt.ngayRaVien }}</td>
-                          <td class="text-center">{{ lsdt.soBenhAn }}</td>
-                          <td class="text-center">{{ lsdt.donthuoc.bacsikedon }}</td>
-                          <td class="text-center">{{ lsdt.donthuoc.ngaykedon}}</td>
-                          <td class="text-center">{{ lsdt.donthuoc.sodon}}</td>
-                          <td class="text-center">
-                            <a href="javascript:void(0)" v-on:click="viewDonthuoc(lsdt)"
-                              ><i class="fas fa-fw fa-binoculars"></i> Xem</a
-                            >
-                          </td>
-                        </tr>
-                        <tr v-if="lsdt_list.length==0">
-                          <td colspan="5">Không có dữ liệu</td>
-                        </tr>
-                      </tbody>
-                      </table>
-                      <div class="modal fade" id="donthuocModal">
-                        <div class="modal-dialog modal-lg">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">
-                                <strong>Thông tin đơn thuốc</strong>
-                              </h5>
-                              <button type="button" class="close" data-dismiss="modal">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div v-if="donthuoc" class="modal-body">
-                              <tomtat :hsba="hsba" title="PHIẾU ĐƠN THUỐC"></tomtat>
-                              <hr />
-                              <div>
-                                <meta charset="UTF-8" />
-                                <table border="1" cellpadding="10" class="table table-bordered">
-                                  <font size="2.5">
-                                    <div class="row">
-                                      <div class="col-12">
-                                        <b>Đơn thuốc số: {{ donthuoc.sodon }}</b><br />
-                                        <span>- Ngày kê đơn: {{ donthuoc.ngaykedon }} </span><br />
-                                        <span>- Bác sỹ kê đơn: {{ donthuoc.bacsikedon }}</span
-                                        ><br />
-                                      </div>
-                                    </div>
-                                    <table class="table table-bordered mt-3">
-                                      <tr>
-                                        <th style="width:4%" class="text-center">STT</th>
-                                        <th style="width:12%" class="text-center">Biệt dược</th>
-                                        <th style="width:12%" class="text-center">Tên thuốc</th>
-                                        <th style="width:12%" class="text-center">Ngày bắt đầu</th>
-                                        <th style="width:12%" class="text-center">Ngày kết thúc</th>
-                                        <th style="width:12%" class="text-center">Đường dùng</th>
-                                        <th style="width:12%" class="text-center">Liều lượng</th>
-                                        <th style="width:12%" class="text-center">Tần suất</th>
-                                        <th style="width:12%" class="text-center">Chỉ dẫn</th>
-                                      </tr>
-                                      <tr v-for="(dtct, i) in donthuoc.emrDonThuocChiTiets">
-                                        <td>{{ i + 1 }}</td>
-                                        <td>{{ dtct.bietduoc }}</td>
-                                        <td>{{ attr(dtct, 'emrDmThuoc.ten') }}</td>
-                                        <td>{{ dtct.ngaybatdau }}</td>
-                                        <td>{{ dtct.ngayketthuc }}</td>
-                                        <td>{{ attr(dtct, 'emrDmDuongDungThuoc.ten') }}</td>
-                                        <td>{{ dtct.lieuluongdung }}</td>
-                                        <td>{{ attr(dtct, 'emrDmTanXuatDungThuoc.ten') }}</td>
-                                        <td>
-                                          {{ attr(dtct, 'emrDmChiDanDungThuoc.ten') ||
-                                          dtct.chidandungthuoc }}
-                                        </td>
-                                      </tr>
-                                    </table>
-                                    <div v-if="donthuoc.emrFileDinhKemDonThuocs.length > 0">
-                                      <hr />
-                                      <b>Danh sách file đính kèm:</b>
-                                      <table class="table table-bordered mt-3">
-                                        <tr>
-                                          <th style="width:10%" class="text-center">STT</th>
-                                          <th style="width:90%" class="text-center">Tên file</th>
-                                        </tr>
-                                        <tr v-for="(file, i) in donthuoc.emrFileDinhKemDonThuocs">
-                                          <td>{{ i + 1 }}</td>
-                                          <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
-                                        </tr>
-                                      </table>
-                                    </div>
-                                  </font>
-                                </table>
-                              </div>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                Đóng lại
-                              </button>
-                            </div>
+  <template>
+    <div class="row" v-if="lsdt_list">
+      <div class="col width=100%">
+        <div class="portlet p-3">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th style="width: 5%;" class="text-center">STT</th>
+                <th style="width: 20%;" class="text-center">Nơi khám</th>
+                <th style="width: 10%;" class="text-center">Ngày bắt đầu</th>
+                <th style="width: 10%;" class="text-center">Ngày kết thúc</th>
+                <th style="width: 13%;" class="text-center">Số bệnh án</th>
+                <th style="width: 15%;" class="text-center">Bác sĩ kê đơn</th>
+                <th style="width: 10%;" class="text-center">Ngày kê đơn</th>
+                <th style="width: 10%;" class="text-center">Số đơn</th>
+                <th style="width: 7%;" class="text-center">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(lsdt, i) in lsdt_list">
+                <td class="text-center">{{ i + 1 }}</td>
+                <td class="text-center">{{ lsdt.tenCoSoKhamBenh}}</td>
+                <td class="text-center">{{ lsdt.ngayVaoVien }}</td>
+                <td class="text-center">{{ lsdt.ngayRaVien }}</td>
+                <td class="text-center">{{ lsdt.soBenhAn }}</td>
+                <td class="text-center">{{ lsdt.bacsikedon }}</td>
+                <td class="text-center">{{ lsdt.ngaykedon}}</td>
+                <td class="text-center">{{ lsdt.sodon}}</td>
+                <td class="text-center">
+                  <a href="javascript:void(0)" v-on:click="viewDonthuoc(lsdt)"
+                    ><i class="fas fa-fw fa-binoculars"></i> Xem</a
+                  >
+                </td>
+              </tr>
+              <tr v-if="lsdt_list.length==0">
+                <td colspan="5">Không có dữ liệu</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="modal fade" id="donthuocModal">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">
+                    <strong>Thông tin đơn thuốc</strong>
+                  </h5>
+                  <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div v-if="donthuoc" class="modal-body">
+                  <tomtat :hsba="hsba" title="PHIẾU ĐƠN THUỐC"></tomtat>
+                  <hr />
+                  <div>
+                    <meta charset="UTF-8" />
+                    <table
+                      border="1"
+                      cellpadding="10"
+                      class="table table-bordered"
+                    >
+                      <font size="2.5">
+                        <div class="row">
+                          <div class="col-12">
+                            <b>Đơn thuốc số: {{ donthuoc.sodon }}</b><br />
+                            <span>- Ngày kê đơn: {{ donthuoc.ngaykedon }} </span
+                            ><br />
+                            <span
+                              >- Bác sỹ kê đơn: {{ donthuoc.bacsikedon }}</span
+                            ><br />
                           </div>
                         </div>
-                      </div>
+                        <table class="table table-bordered mt-3">
+                          <tr>
+                            <th style="width:4%" class="text-center">STT</th>
+                            <th style="width:12%" class="text-center">
+                              Biệt dược
+                            </th>
+                            <th style="width:12%" class="text-center">
+                              Tên thuốc
+                            </th>
+                            <th style="width:12%" class="text-center">
+                              Ngày bắt đầu
+                            </th>
+                            <th style="width:12%" class="text-center">
+                              Ngày kết thúc
+                            </th>
+                            <th style="width:12%" class="text-center">
+                              Đường dùng
+                            </th>
+                            <th style="width:12%" class="text-center">
+                              Liều lượng
+                            </th>
+                            <th style="width:12%" class="text-center">
+                              Tần suất
+                            </th>
+                            <th style="width:12%" class="text-center">
+                              Chỉ dẫn
+                            </th>
+                          </tr>
+                          <tr v-for="(dtct, i) in donthuoc.emrDonThuocChiTiets">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ dtct.bietduoc }}</td>
+                            <td>{{ attr(dtct, 'emrDmThuoc.ten') }}</td>
+                            <td>{{ dtct.ngaybatdau }}</td>
+                            <td>{{ dtct.ngayketthuc }}</td>
+                            <td>{{ attr(dtct, 'emrDmDuongDungThuoc.ten') }}</td>
+                            <td>{{ dtct.lieuluongdung }}</td>
+                            <td>
+                              {{ attr(dtct, 'emrDmTanXuatDungThuoc.ten') }}
+                            </td>
+                            <td>
+                              {{ attr(dtct, 'emrDmChiDanDungThuoc.ten') ||
+                              dtct.chidandungthuoc }}
+                            </td>
+                          </tr>
+                        </table>
+
+                        <div v-if="donthuoc.emrFileDinhKemDonThuocs.length > 0">
+                          <hr />
+                          <b>Danh sách file đính kèm:</b>
+                          <table class="table table-bordered mt-3">
+                            <tr>
+                              <th style="width:10%" class="text-center">STT</th>
+                              <th style="width:90%" class="text-center">
+                                Tên file
+                              </th>
+                            </tr>
+                            <tr
+                              v-for="(file, i) in donthuoc.emrFileDinhKemDonThuocs"
+                            >
+                              <td>{{ i + 1 }}</td>
+                              <td>
+                                <a :href="file.duongdan">{{ file.tenfile }}</a>
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+                      </font>
+                    </table>
+                  </div>
                 </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Đóng lại
+                  </button>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </template>
+      </div>
+    </div>
+  </template>
 </div>

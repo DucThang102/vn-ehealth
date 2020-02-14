@@ -3,161 +3,187 @@
     <div class="row" v-if="pttt_list">
       <div class="col width=100%">
         <div class="portlet p-3">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th style="width: 5%;" class="text-center">STT</th>
-            <th style="width: 20%;" class="text-center">Nơi khám</th>
-            <th style="width: 10%;" class="text-center">Ngày bắt đầu</th>
-            <th style="width: 10%;" class="text-center">Ngày kết thúc</th>
-            <th style="width: 25%;" class="text-center">Phẫu thuật/thủ thuật</th>
-            <th style="width: 13%;" class="text-center">Bác sĩ thực hiện</th>
-            <th style="width: 10%;" class="text-center">Ngày thực hiện</th>
-            <th style="width: 7%;" class="text-center">Thao tác</th> 
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(pttt, i) in pttt_list">
-            <td class="text-center">{{ i + 1 }}</td>
-            <td class="text-center">{{ pttt.tenCoSoKhamBenh }}</td>
-            <td class="text-center">{{ pttt.ngayVaoVien }}</td>
-            <td class="text-center">{{ pttt.ngayRaVien }}</td>
-            <td class="text-center">{{ pttt.phauthuatthuthuat.emrDmPhauThuThuat.ten }}</td>
-            <td class="text-center">{{ pttt.phauthuatthuthuat.bacsithuchien }}</td>
-            <td class="text-center">{{ pttt.phauthuatthuthuat.ngaygiopttt }}</td>
-            <td class="text-center">
-              <a href="#" v-on:click="viewPttt(pttt)"
-                ><i class="fas fa-fw fa-binoculars"></i> Xem</a
-              >
-            </td>
-          </tr>
-          <tr v-if="pttt_list.length==0">
-            <td colspan="5">Không có dữ liệu</td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="modal fade" id="ptttModal">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            
-            <div class="modal-header">
-              <h5 class="modal-title">
-                <strong>Thông tin phẫu thuật thủ thuật</strong>
-              </h5>
-              <button type="button" class="close" data-dismiss="modal">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th style="width: 5%;" class="text-center">STT</th>
+                <th style="width: 20%;" class="text-center">Nơi khám</th>
+                <th style="width: 10%;" class="text-center">Ngày bắt đầu</th>
+                <th style="width: 10%;" class="text-center">Ngày kết thúc</th>
+                <th style="width: 25%;" class="text-center">
+                  Phẫu thuật/thủ thuật
+                </th>
+                <th style="width: 13%;" class="text-center">
+                  Bác sĩ thực hiện
+                </th>
+                <th style="width: 10%;" class="text-center">Ngày thực hiện</th>
+                <th style="width: 7%;" class="text-center">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(pttt, i) in pttt_list">
+                <td class="text-center">{{ i + 1 }}</td>
+                <td class="text-center">{{ pttt.tenCoSoKhamBenh }}</td>
+                <td class="text-center">{{ pttt.ngayVaoVien }}</td>
+                <td class="text-center">{{ pttt.ngayRaVien }}</td>
+                <td class="text-center">{{ pttt.emrDmPhauThuThuat.ten }}</td>
+                <td class="text-center">{{ pttt.bacsithuchien }}</td>
+                <td class="text-center">{{ pttt.ngaygiopttt }}</td>
+                <td class="text-center">
+                  <a href="#" v-on:click="viewPttt(pttt)"
+                    ><i class="fas fa-fw fa-binoculars"></i> Xem</a
+                  >
+                </td>
+              </tr>
+              <tr v-if="pttt_list.length==0">
+                <td colspan="5">Không có dữ liệu</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="modal fade" id="ptttModal">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">
+                    <strong>Thông tin phẫu thuật thủ thuật</strong>
+                  </h5>
+                  <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
 
-            <div v-if="pttt" class="modal-body">
-              <div>
-                <meta charset="UTF-8" />
-                <table border="1" cellpadding="10" class="table table-bordered">
-                  <div class="row" v-if="pttt">
-                    <div class="col-12">
-                      <b>Phẫu thuật/thủ thuật: {{ pttt.emrDmPhauThuThuat.ten }}</b
-                      ><br />
-                      <span>- Ngày thực hiện: {{ pttt.ngaygiopttt }} </span><br />
-                      <span>- Bác sĩ thực hiện: {{ pttt.bacsithuchien}}</span
-                      ><br />
-                      <span>- Bác sĩ gây mê: {{ pttt.bacsygayme }}</span><br />
-                      <span
-                        >- Chẩn đoán trước phẫu thuật, thủ thuật: {{
-                        getTextChanDoans(pttt.emrDmMaBenhChandoantruocs) ||
-                        pttt.motachandoantruocpt }} </span
-                      ><br />
-                      <span
-                        >- Chẩn đoán sau phẫu thuật, thủ thuật: {{
-                        getTextChanDoans(pttt.emrDmMaBenhChandoansaus) ||
-                        pttt.motachandoansaupt }} </span
-                      ><br />
-                    </div>
-                  </div>
-                  <hr />
-    
-                  <div class="row">
-                    <div class="col-12">
-                      <b><span>Thông tin chỉ định</span> <br /></b>
-                      <span>{{ pttt.chidinhptt }} </span>
-                    </div>
-                  </div>
-                  <hr />
-    
-                  <div class="row">
-                    <div class="col-12">
-                      <b><span>Phương pháp vô cảm</span> <br /></b>
-                      <span>{{ pttt.phuongphapvocam }}</span>
-                    </div>
-                  </div>
-                  <hr />
-    
-                  <div class="row">
-                    <div class="col-12">
-                      <b
-                        ><span>Thông tin lược đồ phẫu thuật, thủ thuật</span> <br
-                      /></b>
-                      <span>{{ pttt.luocdoptt }}</span>
-                    </div>
-                  </div>
-                  <hr />
-    
-                  <div class="row">
-                    <div class="col-12">
-                      <b
-                        ><span>Thông tin trình tự phẫu thuật, thủ thuật</span> <br
-                      /></b>
-                      <span>{{ pttt.trinhtuptt }}</span>
-                    </div>
-                  </div>
-                  <hr />
-    
-                  <div class="row">
-                    <div class="col-12">
-                      <b><span>Thành viên tham gia</span> <br /></b>
-                    </div>
-                  </div>
-                  <table class="table table-bordered mt-3">
-                    <tr>
-                      <th style="width:7%" class="text-center">STT</th>
-                      <th style="width:45%" class="text-center">Tên bác sĩ</th>
-                      <th style="width:48%" class="text-center">Vai trò</th>
-                    </tr>
-                    <tr v-for="(tvpttt, i) in pttt.emrThanhVienPttts">
-                      <td>{{ i + 1}}</td>
-                      <td>{{ tvpttt.tenbacsi }}</td>
-                      <td>{{ tvpttt.emrDmVaiTro.ten }}</td>
-                    </tr>
-                  </table>
-    
-                  <div v-if="pttt.emrFileDinhKemPttts.length > 0">
-                    <hr />
-                    <b>Danh sách file đính kèm:</b>
-                    <table class="table table-bordered mt-3">
-                      <tr>
-                        <th style="width:10%" class="text-center">STT</th>
-                        <th style="width:90%" class="text-center">Tên file</th>
-                      </tr>
-                      <tr v-for="(file, i) in pttt.emrFileDinhKemPttts">
-                        <td>{{ i + 1 }}</td>
-                        <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
-                      </tr>
+                <div v-if="pttt" class="modal-body">
+                  <div>
+                    <meta charset="UTF-8" />
+                    <table
+                      border="1"
+                      cellpadding="10"
+                      class="table table-bordered"
+                    >
+                      <div class="row" v-if="pttt">
+                        <div class="col-12">
+                          <b
+                            >Phẫu thuật/thủ thuật: {{ pttt.emrDmPhauThuThuat.ten
+                            }}</b
+                          ><br />
+                          <span>- Ngày thực hiện: {{ pttt.ngaygiopttt }} </span
+                          ><br />
+                          <span
+                            >- Bác sĩ thực hiện: {{ pttt.bacsithuchien}}</span
+                          ><br />
+                          <span>- Bác sĩ gây mê: {{ pttt.bacsygayme }}</span
+                          ><br />
+                          <span
+                            >- Chẩn đoán trước phẫu thuật, thủ thuật: {{
+                            getTextChanDoans(pttt.emrDmMaBenhChandoantruocs) ||
+                            pttt.motachandoantruocpt }} </span
+                          ><br />
+                          <span
+                            >- Chẩn đoán sau phẫu thuật, thủ thuật: {{
+                            getTextChanDoans(pttt.emrDmMaBenhChandoansaus) ||
+                            pttt.motachandoansaupt }} </span
+                          ><br />
+                        </div>
+                      </div>
+                      <hr />
+
+                      <div class="row">
+                        <div class="col-12">
+                          <b><span>Thông tin chỉ định</span> <br /></b>
+                          <span>{{ pttt.chidinhptt }} </span>
+                        </div>
+                      </div>
+                      <hr />
+
+                      <div class="row">
+                        <div class="col-12">
+                          <b><span>Phương pháp vô cảm</span> <br /></b>
+                          <span>{{ pttt.phuongphapvocam }}</span>
+                        </div>
+                      </div>
+                      <hr />
+
+                      <div class="row">
+                        <div class="col-12">
+                          <b
+                            ><span
+                              >Thông tin lược đồ phẫu thuật, thủ thuật</span
+                            >
+                            <br
+                          /></b>
+                          <span>{{ pttt.luocdoptt }}</span>
+                        </div>
+                      </div>
+                      <hr />
+
+                      <div class="row">
+                        <div class="col-12">
+                          <b
+                            ><span
+                              >Thông tin trình tự phẫu thuật, thủ thuật</span
+                            >
+                            <br
+                          /></b>
+                          <span>{{ pttt.trinhtuptt }}</span>
+                        </div>
+                      </div>
+                      <hr />
+
+                      <div class="row">
+                        <div class="col-12">
+                          <b><span>Thành viên tham gia</span> <br /></b>
+                        </div>
+                      </div>
+                      <table class="table table-bordered mt-3">
+                        <tr>
+                          <th style="width:7%" class="text-center">STT</th>
+                          <th style="width:45%" class="text-center">
+                            Tên bác sĩ
+                          </th>
+                          <th style="width:48%" class="text-center">Vai trò</th>
+                        </tr>
+                        <tr v-for="(tvpttt, i) in pttt.emrThanhVienPttts">
+                          <td>{{ i + 1}}</td>
+                          <td>{{ tvpttt.tenbacsi }}</td>
+                          <td>{{ tvpttt.emrDmVaiTro.ten }}</td>
+                        </tr>
+                      </table>
+
+                      <div v-if="pttt.emrFileDinhKemPttts.length > 0">
+                        <hr />
+                        <b>Danh sách file đính kèm:</b>
+                        <table class="table table-bordered mt-3">
+                          <tr>
+                            <th style="width:10%" class="text-center">STT</th>
+                            <th style="width:90%" class="text-center">
+                              Tên file
+                            </th>
+                          </tr>
+                          <tr v-for="(file, i) in pttt.emrFileDinhKemPttts">
+                            <td>{{ i + 1 }}</td>
+                            <td>
+                              <a :href="file.duongdan">{{ file.tenfile }}</a>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
                     </table>
                   </div>
-                </table>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Đóng lại
+                  </button>
+                </div>
               </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                Đóng lại
-              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-    </div>
   </template>
 </div>
-
-
