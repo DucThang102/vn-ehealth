@@ -3,6 +3,7 @@ package vn.ehealth.emr.utils;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,4 +38,9 @@ public class JsonUtil {
         }
         return null;
     }
+     
+     @SuppressWarnings("unchecked")
+	public static Map<String, Object> objectToMap(Object obj) {
+         return mapper.convertValue(obj, Map.class);
+     }
 }
