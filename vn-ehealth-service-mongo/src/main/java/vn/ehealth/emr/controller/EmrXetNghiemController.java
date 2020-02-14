@@ -23,6 +23,7 @@ import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.service.EmrXetNghiemService;
 import vn.ehealth.emr.utils.DateUtil;
 import vn.ehealth.emr.utils.EmrUtils;
+import vn.ehealth.emr.utils.JsonUtil;
 
 @RestController
 @RequestMapping("/api/xetnghiem")
@@ -43,16 +44,16 @@ public class EmrXetNghiemController {
         var emrHoSoBenhAns = emrHoSoBenhAnService.getByEmrBenhNhanId(new ObjectId(benhNhanId));
         var result = new ArrayList<>();
         for(var emrHoSoBenhAn : emrHoSoBenhAns) {
-        	var xetnghiemList = emrXetNghiemService.getByEmrHoSoBenhAnId(emrHoSoBenhAn.id); 
-        	var lst = xetnghiemList.stream()
-        							.map(x -> Map.of(
-        									"xetnghiemList", x, 
-        									"tenCoSoKhamBenh", emrHoSoBenhAn.getEmrCoSoKhamBenh().ten,
-        									"soBenhAn", emrHoSoBenhAn.matraodoi,
-        									"ngayVaoVien", DateUtil.parseDateToString(emrHoSoBenhAn.emrQuanLyNguoiBenh.ngaygiovaovien, "dd/MM/yyyy HH:mm"),
-        									"ngayRaVien", DateUtil.parseDateToString(emrHoSoBenhAn.emrQuanLyNguoiBenh.ngaygioravien, "dd/MM/yyyy HH:mm"))
-        								)
-        							.collect(Collectors.toList());
+        	var xetnghiemList = emrXetNghiemService.getByEmrHoSoBenhAnId(emrHoSoBenhAn.id);
+        	var lst = xetnghiemList.stream().map(x -> JsonUtil.objectToMap(x)).collect(Collectors.toList());
+        	
+        	lst.forEach(x -> {
+        		x.put("tenCoSoKhamBenh", emrHoSoBenhAn.getEmrCoSoKhamBenh().ten);
+        		x.put("soBenhAn", emrHoSoBenhAn.matraodoi);
+        		x.put("ngayVaoVien", DateUtil.parseDateToString(emrHoSoBenhAn.emrQuanLyNguoiBenh.ngaygiovaovien, "dd/MM/yyyy HH:mm"));
+        		x.put("ngayRaVien", DateUtil.parseDateToString(emrHoSoBenhAn.emrQuanLyNguoiBenh.ngaygioravien, "dd/MM/yyyy HH:mm"));
+        	});
+        	
             result.addAll(lst);     	        
         
         }
