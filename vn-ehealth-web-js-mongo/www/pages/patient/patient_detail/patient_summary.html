@@ -78,7 +78,6 @@
                        
                     </div>
                     <br>
-
                     <div class="row">
                       <div class="col-8">
                         <b>1. Họ và tên </b>(In hoa)<b>: {{patient_summary.emrBenhNhan.tendaydu}}</b>
@@ -91,11 +90,11 @@
                         <div class="col-2">
                           <b>3. Giới:</b>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                           <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'M' " type="checkbox"> <span class="mr-3">Nam</span>
                           <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'F' " type="checkbox"> <span class="mr-3">Nữ</span>
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                           <b>4. Dân tộc: </b>{{patient_summary.emrBenhNhan.emrDmDanToc.ten}}
                         </div>
                     </div>
@@ -184,35 +183,6 @@
                       </div>
                     </div>
                   </div>
-                  
-                  <!--
-                  <h3>TÓM TẮT HỒ SƠ BỆNH ÁN</h3>
-                  1. Lý do vào viện: {{tomtathsba.emrBenhAn.lydovaovien}} <br />
-                  1. Chẩn đoán lúc vào viện:
-                  {{tomtathsba.emrChanDoan.emrDmMaBenhChandoankkb.ten}} <br />
-                  2. Chẩn đoán lúc ra viện:
-                  {{tomtathsba.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten}}
-                  <br />
-                  3. Tóm tắt bệnh án: <br />
-                  <ul>
-                    <li>
-                      Quá trình bệnh lý và diễn biến lâm sàng:
-                      {{tomtathsba.emrTongKetRaVien.dienbienlamsang}}
-                    </li>
-                    <li>
-                      Tóm tắt kết quả xét nghiệm cận lâm sàng có giá trị chẩn
-                      đoán: {{tomtathsba.emrTongKetRaVien.canlamsang}}
-                    </li>
-                    <li>
-                      Phương pháp điều trị:
-                      {{tomtathsba.emrTongKetRaVien.phuongphapdieutri}}
-                    </li>
-                    <li>
-                      Tình trạng người bệnh ra viện:
-                      {{tomtathsba.emrTongKetRaVien.tinhtrangnguoibenh}}
-                    </li>
-                  </ul>
-                  -->
                 </div>
               </div>
             </div>
