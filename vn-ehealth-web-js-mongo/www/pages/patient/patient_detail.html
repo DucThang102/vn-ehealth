@@ -196,12 +196,11 @@
           patient_summary_list: 0,
           patient_summary: null,
           hsba: null,
-          tomtathsba: null
         };
       },
       methods: {
-        viewTomtathsba: function(tomtathsba) {
-        this.tomtathsba = tomtathsba;
+        viewTomtathsba: function(patient_summary) {
+        this.patient_summary = patient_summary;
         $("#tomtathsbaModal").modal();
       }
       },

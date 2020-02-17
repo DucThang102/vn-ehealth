@@ -11,11 +11,9 @@
                 <th style="width: 20%;" class="text-center">Nơi khám</th>
                 <th style="width: 10%;" class="text-center">Ngày bắt đầu</th>
                 <th style="width: 10%;" class="text-center">Ngày kết thúc</th>
-                <th style="width: 30%;" class="text-center">Chẩn đoán</th>
-                <th style="width: 15%;" class="text-center">
-                  Bác sĩ thực hiện
-                </th>
-                <th style="width: 10%;" class="text-center">Tóm tắt bệnh án</th>
+                <th style="width: 20%;" class="text-center">Chẩn đoán vào viện</th>
+                <th style="width: 20%;" class="text-center">Chẩn đoán ra viện</th>
+                <th style="width: 15%;" class="text-center">Tóm tắt bệnh án</th>
               </tr>
               <tr v-for="(patient_summary, i) in patient_summary_list">
                 <td class="text-center">{{ i + 1 }}</td>
@@ -31,11 +29,13 @@
                 </td>
                 <td>
                   {{
-                  patient_summary.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten
+                  patient_summary.emrChanDoan.emrDmMaBenhChandoankkb.ten
                   }}
                 </td>
-                <td class="text-center">
-                  {{ patient_summary.emrTongKetRaVien.bacsydieutri }}
+                <td>
+                  {{
+                  patient_summary.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten
+                  }}
                 </td>
                 <td class="text-center">
                   <a
@@ -56,13 +56,136 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">
-                    <strong>Tóm tắt bệnh án</strong>
+                    <strong>Bệnh án:   </strong>
                   </h5>
                   <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body" v-if="tomtathsba">
+                <div class="modal-body" v-if="patient_summary">
+                  <div class="container">
+                    
+                    <div class="row">
+                      <div class="col-12">
+                        Bệnh viện: {{patient_summary.emrCoSoKhamBenh.ten}}
+                      </div>
+                    </div> 
+                    <br>
+                    <div class="row ">
+                      <div class="col-12 text-center">
+                        <h3 ><b>TÓM TẮT HỒ SƠ BỆNH ÁN</b></h3>
+                      </div>
+                       
+                    </div>
+                    <br>
+
+                    <div class="row">
+                      <div class="col-8">
+                        <b>1. Họ và tên </b>(In hoa)<b>: {{patient_summary.emrBenhNhan.tendaydu}}</b>
+                      </div>
+                      <div class="col-4">
+                        <b>2. Năm sinh: </b>{{patient_summary.emrBenhNhan.ngaysinh.substring(6,10)}}
+                      </div>                    
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                          <b>3. Giới:</b>
+                        </div>
+                        <div class="col-4">
+                          <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'M' " type="checkbox"> <span class="mr-3">Nam</span>
+                          <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'F' " type="checkbox"> <span class="mr-3">Nữ</span>
+                        </div>
+                        <div class="col-6">
+                          <b>4. Dân tộc: </b>{{patient_summary.emrBenhNhan.emrDmDanToc.ten}}
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <b>5.Mã số BHYT/Thẻ BHYT số: </b>{{patient_summary.emrBenhNhan.sobhyt}}
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                        <b>6. Nghề nghiệp:</b> {{patient_summary.emrBenhNhan.tendaydu}}
+                      </div>
+                      
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <b>7. Cơ quan/ Đơn vị công tác:</b>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <b>8. Địa chỉ: </b>{{patient_summary.emrBenhNhan.diachi}}, {{patient_summary.emrBenhNhan.emrDmPhuongXa.ten}}, {{patient_summary.emrBenhNhan.emrDmQuanHuyen.ten}},  {{patient_summary.emrBenhNhan.emrDmTinhThanh.ten}},
+
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        <b>9. Vào viện: </b> {{patient_summary.emrQuanLyNguoiBenh.ngaygiovaovien}}
+                      </div>
+
+                      <div class="col-6">
+                        ;
+                        <b>Ra viện</b> {{patient_summary.emrQuanLyNguoiBenh.ngaygioravien}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <b> 10. Chẩn đoán lúc vào viện:</b> {{patient_summary.emrChanDoan.emrDmMaBenhChandoankkb.ten}}
+                      </div>
+                     
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <b> 11. Chẩn đoán lúc ra viện:</b> {{patient_summary.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten}}
+                      </div>
+                     
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <b>12. Tóm tắt bệnh án: </b> 
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                       a, Quá trình bệnh lý và diễn biến lâm sàng: {{patient_summary.emrTongKetRaVien.dienbienlamsang}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                       b, Tóm tắt kết quả xét nghiệm lâm sàng có giá trị chẩn đoán: {{patient_summary.emrTongKetRaVien.canlamsang}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                       c, Phương pháp điều trị: {{patient_summary.emrTongKetRaVien.phuongphapdieutri}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                       d, Tình trạng người bệnh ra viện: {{patient_summary.emrTongKetRaVien.tinhtrangnguoibenh}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                      <b>13. Ghi chú:</b> {{patient_summary.emrTongKetRaVien.chidandieutri}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col offset-6" >
+                        <div class="text-center">                      <i>............ ,ngày ..... tháng ..... năm ...........</i> <br> 
+                        <b> Thủ trưởng đơn vị</b> 
+                        <br>
+                        <i>(ký tên, đóng dấu)</i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!--
                   <h3>TÓM TẮT HỒ SƠ BỆNH ÁN</h3>
                   1. Lý do vào viện: {{tomtathsba.emrBenhAn.lydovaovien}} <br />
                   1. Chẩn đoán lúc vào viện:
@@ -89,6 +212,7 @@
                       {{tomtathsba.emrTongKetRaVien.tinhtrangnguoibenh}}
                     </li>
                   </ul>
+                  -->
                 </div>
               </div>
             </div>
