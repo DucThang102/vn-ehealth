@@ -10,7 +10,9 @@ ejs.close = "%>";
 var API_URL = "http://34.87.24.163:8001";
 var oneDay = 86400000;
 
-server.set("view options", { layout: false });
+server.set("view options", {
+  layout: false
+});
 server.engine("html", require("ejs").renderFile);
 server.engine("js", require("ejs").renderFile);
 server.engine("css", require("ejs").renderFile);
@@ -18,7 +20,7 @@ server.set("view engine", "html");
 server.set("views", __dirname + "/www");
 server.use(cookieParser());
 
-server.all("*", function(req, res, next) {
+server.all("*", function (req, res, next) {
   var request = req.params[0];
   if (request == "/") request = "/index.html";
 
@@ -47,6 +49,8 @@ server.all("*", function(req, res, next) {
   }
 });
 
-server.use(express.static(__dirname + "/www", { maxAge: oneDay }));
+server.use(express.static(__dirname + "/www", {
+  maxAge: oneDay
+}));
 
-server.listen(process.env.PORT || 3000);
+server.listen(process.env.PORT || 8080);
