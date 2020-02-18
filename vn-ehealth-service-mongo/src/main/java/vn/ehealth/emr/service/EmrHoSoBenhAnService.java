@@ -52,8 +52,9 @@ public class EmrHoSoBenhAnService {
     
     @Autowired MongoTemplate mongoTemplate;
     
-    public long countHoSo(ObjectId emrCoSoKhamBenhId, int trangThai, String mayte) {
+    public long countHoSo(ObjectId userId, ObjectId emrCoSoKhamBenhId, int trangThai, String mayte) {
         var query = new Query(Criteria.where("emrCoSoKhamBenhId").is(emrCoSoKhamBenhId)
+        								.orOperator(Criteria.where("dsNguoiXemIds").is(userId), Criteria.where("emrQuanLyNguoiBenh.bacsikhamId").is(userId))
                                         .and("trangThai").is(trangThai)
                                         .and("mayte").regex(mayte)
                              );
@@ -61,11 +62,12 @@ public class EmrHoSoBenhAnService {
         return mongoTemplate.count(query, EmrHoSoBenhAn.class);
     }
     
-    public List<EmrHoSoBenhAn> getDsHoSo(ObjectId emrCoSoKhamBenhId, int trangThai, String mayte, int offset, int limit) {
+    public List<EmrHoSoBenhAn> getDsHoSo(ObjectId userId, ObjectId emrCoSoKhamBenhId, int trangThai, String mayte, int offset, int limit) {
         var sort = new Sort(Sort.Direction.DESC, "ngaytiepnhan");
         var pageable = new OffsetBasedPageRequest(limit, offset, sort);
         var query = new Query(Criteria.where("emrCoSoKhamBenhId").is(emrCoSoKhamBenhId)
-                                        .and("trangThai").is(trangThai)
+        								.orOperator(Criteria.where("dsNguoiXemIds").is(userId), Criteria.where("emrQuanLyNguoiBenh.bacsikhamId").is(userId))
+        								.and("trangThai").is(trangThai)
                                         .and("mayte").regex(mayte)
                              ).with(pageable);
         
@@ -344,6 +346,31 @@ public class EmrHoSoBenhAnService {
             }
             x.emrFileDinhKems.addAll(emrFileDinhKems);
             emrHoSoBenhAnRepository.save(x);
+        });
+    }
+    public void addUserViewHSBA(ObjectId id, ObjectId userId) {
+        var hsba = emrHoSoBenhAnRepository.findById(id);
+        hsba.ifPresent(x -> {
+           if (x.dsNguoiXemIds == null) {
+        	   x.dsNguoiXemIds = new ArrayList<>();
+           }
+           if (!x.dsNguoiXemIds.contains(userId)) {
+        	   x.dsNguoiXemIds.add(userId);
+           }
+           emrHoSoBenhAnRepository.save(x);
+        });
+    }
+    
+    public void deleteUserViewHSBA(ObjectId id, ObjectId userId) {
+        var hsba = emrHoSoBenhAnRepository.findById(id);
+        hsba.ifPresent(x -> {
+           if (x.dsNguoiXemIds == null) {
+        	   x.dsNguoiXemIds = new ArrayList<>();
+           }
+           if (x.dsNguoiXemIds.contains(userId)) {
+        	   x.dsNguoiXemIds.remove(userId);
+           }
+           emrHoSoBenhAnRepository.save(x);
         });
     }
 }
