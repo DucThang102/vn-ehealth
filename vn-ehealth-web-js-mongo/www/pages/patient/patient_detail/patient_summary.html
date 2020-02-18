@@ -52,7 +52,944 @@
           </table>
 
           <div class="modal fade" id="tomtathsbaModal">
+            <!---->
+            <!--Lịch sử thăm khám-  -->
             <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">
+                    <strong>Bệnh án:   </strong>
+                  </h5>
+                  <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body" v-if="patient_summary">
+  <br>
+  <br>
+                  <br>
+                  <hr>
+
+// 7. Phiếu thep dõi dị ứng Thuốc
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            <div class="row">
+              <div class="col-8">
+                Sở Y tế: <br>
+                BV: <br>
+                Khoa:
+        
+              </div>
+              <div class="col-4">
+                MS: 07B/BV-01 <br>
+                Số:
+              </div>
+            </div>
+            <h5 class="text-center"><b>PHIẾU THEO DÕI DỊ ỨNG THUỐC</b></h5>
+            <div class="row">
+              <div class="col-7">
+                Họ tên:
+              </div>
+              <div class="col-3">
+                Tuổi:
+              </div>
+              <div class="col-2">
+                Nam/ Nữ
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col">
+                Địa chỉ:
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                Chẩn đoán chính:
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <b> NHÓM MÁU:</b>
+              </div>
+            </div>
+            <div class="row offset-6">
+              <div class="text-center">
+              <i>Cấp ngày.... tháng... năm.....</i> <br>
+              Bác sĩ</b> <br>
+              <br>
+              <br>
+              Họ tên
+            </div>
+
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-6">
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            <div class="row">
+              <div class="col">
+                Dị ứng với các thuốc và các dị nguyên khác:
+              </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            
+            <br>
+            <div class="row">
+              <div class="col">
+                - Kiểu dị ứng:
+                
+              </div>
+            </div>
+            <br>
+            <br>
+            <br>
+
+            <div class="row">
+              <div class="col">
+                
+                - Bệnh kèm theo (hen, đái đường, tâm thần...):
+              </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+              <div class="col text-center">
+                <i>Nhớ mang theo phiếu này mỗi khi đi khám chữa bệnh.</i>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+// 6. Giấy thử phản ứng Thuốc
+
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      Số Y tế: <br>
+      BV: 
+    </div>
+    <div class="col-6 text-center">
+      Cộng hòa Xã hội Chủ nghĩa Việt Nam <br>
+      Độc lập - Tự do - Hạnh phúc <hr>
+
+    </div>
+    <div class="col-3">
+      MS: 01/BV-01 <br>
+      Số: <br> 
+    </div>
+  </div>
+  <div class="text-center">
+    <h3><b>GIẤY THỬ PHẢN ỨNG THUỐC</b></h3>
+  </div>
+  <div class="row offset-1">
+    
+      <div class="col-7">
+        - Họ tên người bệnh:
+      </div>
+      <div class="col-3">
+        Tuổi:
+      </div>
+      <div class="col-2">
+        Nam/ Nữ
+      </div>
+    
+  </div>
+  <div class="row offset-1">
+    <div class="col">
+      - Địa chỉ:
+    </div>
+  </div>
+  <div class="row offset-1">
+    
+    <div class="col-7">
+      - Khoa:
+    </div>
+    <div class="col-3">
+      Số buồng:
+    </div>
+    <div class="col-2">
+      Giường:
+    </div>  
+  </div>
+  <div class="row offset-1">
+    <div class="col">
+      - Chẩn đoán:
+    </div>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Bắt đầu thử, Giờ/ phút, Ngày/ tháng</th>
+      <th>Tên thuốc, nước sản xuất, lô, số sản xuất, hàm lượng, đơn vị</th>
+      <th>Phương pháp thử</th>
+      <th>Bác sĩ chỉ định <br> (Kí, ghi họ tên)</th>
+      <th>Người thử <br> (Kí, ghi họ tên)</th>
+      <th>Bác sĩ đọc và kiểm tra <br>(Kí, ghi họ tên) </th>
+      <th>Giờ phút đọc kết quả <br> (Viết chữ)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      
+    </tr>
+  </tbody>
+  </table>
+</div>
+
+
+
+<br>
+<br>
+<br>
+
+
+
+//5. Giấy KCB theo yêu cầu
+
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      Số Y tế: <br>
+      BV: 
+    </div>
+    <div class="col-6 text-center">
+      Cộng hòa Xã hội Chủ nghĩa Việt Nam <br>
+      Độc lập - Tự do - Hạnh phúc <hr>
+
+    </div>
+    <div class="col-3">
+      MS: 01/BV-01 <br>
+      Số: <br> 
+    </div>
+  </div>
+  <div class="text-center">
+    <h3><b>GIẤY KHÁM CHỮA BỆNH THEO YÊU CẦU</b></h3>
+  </div>
+  <div class="row offset-2">
+    <b>Kính gửi:</b>........
+  </div>
+
+  <div class="row">
+    <div class="col-7">
+      - Tên tôi là:
+    </div>
+    <div class="col-3">
+      Tuổi:
+    </div>
+    <div class="col-2">
+      Nam/ Nữ
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - CMND/Hộ chiếu/Hộ khẩu số:
+    </div>
+    <div class="col-5">
+      Cơ quan cấp:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Dân tộc:
+    </div>
+    <div class="col-5">
+      Ngoại kiều:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Nghề nghiệp:
+    </div>
+    <div class="col-5">
+      Nơi làm việc:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Địa chỉ:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Khi cần báo tin:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Là người bệnh/ đại diện gia đình người bệnh họ tên là: HỌ VĂN TÊN    Hiện đang khám/ chữa bệnh tại Khoa: ............ Bệnh viện:
+    </div>
+  </div>
+  <p>
+    1. Sau khi nghe bác sĩ phổ biến quy định khám/ chữa bệnh theo yêu cầu của bệnh viện, tôi viết giấy này thỏa thuận xin khám/ chữa bệnh theo yêu cầu và chọn dịch vụ chăm sóc như sau:
+    ...................... <br>
+    2. Tôi xin ứng trước một khoản tiền theo quy định của bệnh viện là:... đồng,( bằng chữ) : ... để khám/ chữa bệnh theo yêu cầu; khi ra viện tôi xin thanh toán đầy đủ. <br>
+    3.Trong khi thực hiện khám/ chữa bệnh theo yêu cầu, nếu có vấn đề phát sinh đề nghị bác sĩ thông báo cho tôi/ gia đình tôi biết để kịp thanh toán kịp thời.  <br>
+    4. Tôi xin chấp hành đầy đủ nội quy khám/ chữa bệnh của bệnh viện, yên tâm chữa bệnh và chịu trách nhiệm về những yêu cầu khám/ chữa bệnh của tôi. 
+
+  </p>
+  <div class="row">
+    <div class="col-6">
+      Duyệt của <br>
+      <b>GIÁM ĐỐC BỆNH VIỆN</b>
+
+    <br> <br> <br> Họ tên .....
+    </div>
+    <div class="col-6">
+      <i>Ngày.... tháng... năm</i> <br>
+      <b>NGƯỜI BỆNH/ ĐẠI DIỆN GIA ĐÌNH</b>
+<br>
+<br>
+<br>
+Họ tên .....
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+
+// 4. Giấy chứng nhận phẫu thuật 
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <table class="table table-bordered">
+        <tr>
+          <th colspan="4" class="text-center">NHỮNG LẦN VÀO VIỆN SAU</th>
+        </tr>
+        <tr>
+          <th style="width: 25%;">Vào ngày</th>
+          <th style="width: 25%;">Ra ngày</th>
+          <th style="width: 25%;">Bệnh viện</th>
+          <th style="width: 25%;">Ghi chú</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <p class="text-center">4</p>
+    </div>
+    <div class="col-6">
+      <table class="table table-bordered">
+        <tr>
+          <th class="text-center">Cộng hòa Xã hội Chủ nghĩa Việt Nam <br>
+            Độc lập - Tự do - Hạnh phúc </th>
+        </tr>
+        <tr>
+          <td>
+            <div class="row">
+              <div class="col">
+                MS: 04/ BV - 01
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                Số lưu trữ
+              </div>
+            </div>
+            
+              <h6 class="text-center"> <b> Giấy chứng nhận phẫu thuật </b></h6>
+            
+            <div class="row">
+              <div class="col">
+                Bệnh viện:
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                Chứng nhận Ông/Bà:
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                - Địa chỉ:
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                - Vào viện ngày:
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                - Ra viện ngày:
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                - Đã phẫu thuật (vị trí, phương thức...): 
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <p class="text-center">1</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <table class="table table-bordered">
+        <tr>
+          <th class="text-center">
+            <b>CÁCH THỨC PHẪU THUẬT</b>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <div class="row">
+              <div class="col">
+                ... 
+                 <br>            
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col">
+                - Nhóm máu:
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                - Yếu tố Rh:
+              </div>
+            </div>
+            <div class="row offset-2">
+              
+              <i>Ngày... tháng .... năm......</i>
+              
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <b>TRƯỞNG KHOA</b>
+                <br>
+                <br>
+                Họ tên .......
+              </div>
+              <div class="col-6">
+                <b>GIÁM ĐỐC</b>
+                <br> <br>
+                Họ tên....
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <p class="text-center">2</p>
+    </div>
+    <div class="col-6">
+      <table class="table table-bordered">
+        <tr>
+          <th colspan="4" class="text-center">KHÁM LẠI</th>
+        </tr>
+        <tr>
+          
+          <th>Ngày</th>
+          <th>Nơi khám</th>
+          <th>Kết quả</th>
+          <th>BS khám</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <p class="text-center">3</p>
+    </div>
+  </div>
+
+  
+</div>
+
+
+<br>
+<br>
+<br> <br>
+
+// 3.Giấy cam đoan chấp nhận phẫu thuật thủ thuật
+
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      Số Y tế: <br>
+      BV:  <br>
+
+
+    </div>
+
+    <div class="col-6 text-center">
+      Cộng hòa Xã hội Chủ nghĩa Việt Nam <br>
+      Độc lập - Tự do - Hạnh phúc <hr>
+
+    </div>
+    <div class="col-3">
+      MS: 01/BV-01 <br>
+      Số lưu trữ: <br> 
+    </div>
+  </div>
+  <div class="text-center">
+    <h3><b>GIẤY CAM ĐOAN CHẤP NHẬN PHẪU THUẬT, THỦ THUẬT VÀ GÂY MÊ HỒI SỨC</b></h3>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Tên tôi là:
+    </div>
+    <div class="col-2">
+      Tuổi
+    </div>
+    <div class="col-3">
+      <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'M' " type="checkbox"> <span class="mr-3">Nam</span>
+      <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'F' " type="checkbox"> <span class="mr-3">Nữ</span>
+
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-6">
+      - Dân tộc: 
+    </div>
+    <div class="col-6">
+      - Ngoại Kiều: 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      - Nghề nghiệp: 
+    </div>
+    <div class="col-6">
+      - Nơi làm việc: 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Địa chỉ:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Là người bệnh/ đại diện gia đình người bệnh/ họ tên là:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      hiện đang được điều trị tại Khoa: .... Bệnh viện: 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Sau khi nghe bác sĩ cho biết tình trạng bệnh của tôi/ của người gia đình tôi/ những nguy hiểm của bệnh nếu không thực hiện phẫu thuật, thủ thuật, gây mê hồi sức và những rủi ro có thể sảy ra do bệnh tật, do khi tiến hành phẫu thuật, thủ thuật, gây mê hồi sức; tôi tự nguyện viết giấy cam đoan này:
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'M' " type="checkbox"> <span class="mr-3">Đồng ý xin phẫu thuật, thủ thuật, gây mê hồi sức và để giấy này làm bằng </span>
+   
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'F' " type="checkbox"> <span class="mr-3">Không đồng ý phẫu thuật, thủ thuật, gây mê hồi sức và để giấy này làm bằng</span>
+
+    </div>
+  </div>
+
+  <div class="row offset-8">
+    <div class="text-center">
+      <i> Ngày.... tháng.... năm..... </i> <br>
+      <b>NgƯỜI BỆNH/ ĐẠI DIỆN GIA ĐÌNH</b>
+      <br>
+      <br>
+      <br>
+      Họ tên:
+    </div>
+  </div>
+
+</div>
+
+
+
+// Mẫu giấy chuyển viện 
+
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-3">
+                        Số Y tế: <br>
+                        BV: 
+                      </div>
+                      <div class="col-6 text-center">
+                        Cộng hòa Xã hội Chủ nghĩa Việt Nam <br>
+                        Độc lập - Tự do - Hạnh phúc <hr>
+                 
+                      </div>
+                      <div class="col-3">
+                        MS: 01/BV-01 <br>
+                        Số lưu trữ: <br> 
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <h3><b>GIẤY CHUYỂN VIỆN</b></h3>
+                    </div>
+                    <div class="row offset-2">
+                      <b>Kính gửi:</b>........
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        Bệnh viện chúng tôi trân trọng giới thiệu:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Họ tên người bệnh: 
+                      </div>
+                      <div class="col-2">
+                        Tuổi:
+                      </div>
+                      <div class="col-3">
+                        <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'M' " type="checkbox"> <span class="mr-3">Nam</span>
+                        <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'F' " type="checkbox"> <span class="mr-3">Nữ</span>
+                      </div>
+                    </div>
+                      <div class="row">
+                        <div class="col-6">
+                          - Dân tộc:
+                        </div>
+                        <div class="col-6">
+                          Ngoại kiều:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          - Nghề nghiệp
+                        </div>
+                        <div class="col-6">
+                          Nơi làm việc:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          - BHYT: giá trị từ: ........ đến ......
+                        </div>
+                        <div class="col-6">
+                          Số:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                        - Địa chỉ:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                        - Đã được điều trị/ khám bệnh tại:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          - Từ ngày: 
+                        </div>
+                        <div class="col-6">
+                          Đến ngày:
+                        </div>
+                      </div>
+                      <br>
+                      
+                        <div class="text-center">
+                          <h4><b>TÓM TẮT BỆNH ÁN</b></h4>
+                        </div>
+                      
+                      <div class="row">
+                        <div class="col">
+                          - Dấu hiệu lâm sàng:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          - Các xét nghiệm:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          - Chẩn đoán:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          - Thuốc đã dùng:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          - Tình trạng người bệnh lúc chuyển viện:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          - Lý do chuyển viện:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          -Chuyển viện hồi: .... giờ ... phút,  ngày... tháng ... năm...
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          - Phương tiện vận chuyển:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          - Họ tên, chức danh người đưa đi:
+                        </div>
+                      </div>
+                   
+                      <div class="row">
+                        <div class="col-6 text-center">
+                          <br>
+                          <b>BÁC SỸ ĐIỀU TRỊ</b>
+                          <br>
+                          <br>
+                          <br>
+                          Họ tên:
+                        </div>
+                        <div class="col-6 text-center">
+                          Ngày... tháng... năm... <br>
+                          <b>GIÁM ĐỐC BỆNH VIỆN</b>
+                          <br>
+                          <br>
+                          <br>
+                          Họ tên: 
+                        </div>
+                      </div>
+                  </div>
+<br>
+<br>
+<br>
+<hr>
+// Mẫu giấy ra viện
+
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-3">
+                        Sở Y tế: <br>
+                        BV: <br>
+                        Khoa: 
+                      </div>
+                      <div class="col-6 text-center">
+                        Cộng hòa Xã hội Chủ nghĩa Việt Nam <br>
+                        Độc lập - Tự do - Hạnh phúc <hr>
+                 
+                      </div>
+                      <div class="col-3">
+                        MS: 01/BV-01 <br>
+                        Số lưu trữ: <br>
+                        Mã Y tế: 
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <h3><b>GIẤY RA VIỆN</b></h3>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Họ tên người bệnh:
+                      </div>
+                      <div class="col-2">
+                        Tuổi:
+                      </div>
+                      <div class="col-3">
+                        <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'M' " type="checkbox"> <span class="mr-3">Nam</span>
+                        <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'F' " type="checkbox"> <span class="mr-3">Nữ</span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        - Dân tộc:
+                      </div>
+                      <div class="col-6">
+                      Nghề nghiệp:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        -BHYT: giá trị từ: ........ đến ......
+                      </div>
+                      <div class="col-6">
+                        Số:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                      - Địa chỉ:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                      - Vào viện lúc:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                      - Ra viện lúc:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                      - Chẩn đoán:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Phương pháp điều trị:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                      - Lời dặn của thầy thuốc:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6 text-center">
+                        Ngày... tháng ... năm <br>
+                        <b >TRƯỞNG KHOA ĐIỀU TRỊ</b >
+                        <br>
+                        <br>
+                        <br>
+                        Họ tên: .....
+                      </div>
+                      <div class="col-6 text-center">
+                        Ngày... tháng ... năm <br>
+                        <b >GIÁM ĐỐC BỆNH VIỆN</b >
+                        <br>
+                        <br>
+                        <br>
+                        Họ tên: .....
+
+                      </div>
+                    </div>
+                  </div>
+
+// Mẫu giấy chuyển viện
+
+
+                </div>
+              </div>
+            </div>
+
+
+<!--Lịch sử thăm khám-->
+            <!--
+              <div class="modal-dialog modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">
@@ -186,6 +1123,8 @@
                 </div>
               </div>
             </div>
+            -->
+            <!--Lịch sử thăm khám-->
           </div>
         </div>
       </div>
