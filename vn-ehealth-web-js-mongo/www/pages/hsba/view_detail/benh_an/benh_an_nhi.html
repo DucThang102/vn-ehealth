@@ -2,13 +2,15 @@
   <section class="container-fluid pt-2 mb-3">
     <div class="row">
       <div class="col-5">
-        Sở Y tế: <strong>{{hsba.emrCoSoKhamBenh.donvichuquan}}</strong><br>
-        Bệnh viện: <strong class="text-danger">{{hsba.emrCoSoKhamBenh.ten}}</strong> <br>
+        <div class="col-10 text-center text-uppercase">
+          <strong>{{hsba.emrCoSoKhamBenh.donvichuquan}}</strong><br>
+        </div>
+        <strong class="text-danger text-uppercase">{{hsba.emrCoSoKhamBenh.ten}}</strong> <br>
         Khoa: <strong class="mr-3 text-primary">{{tenKhoaDieuTri}} <br>
         </strong>Giường: <strong class="text-success">{{khoaDieuTri.giuong}}</strong>
       </div>
       <div class="col-4">
-        <h3 class="text-tle mt-3">BỆNH ÁN NHI KHOA</h3>
+        <h3 class="text-tle mt-3 text-center">BỆNH ÁN NHI KHOA</h3>
       </div>
       <div class="col-3">
         Số lưu trữ: <strong class="text-info">{{hsba.maluutru}}</strong> <br>
