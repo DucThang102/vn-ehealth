@@ -1,23 +1,25 @@
 var benh_an_script = {
-  data: function() {
-    return { hsba: null };
+  data: function () {
+    return {
+      hsba: null
+    };
   },
 
   props: ["hsba_id"],
 
   computed: {
-    pdfURL: function() {
+    pdfURL: function () {
       return this.API_URL + "/api/hsba/view_pdf?hsba_id=" + this.hsba_id;
     }
   },
 
   methods: {
-    printToPdf: function() {
-      $("#benh_an input").each(function() {
+    printToPdf: function () {
+      $("#benh_an input").each(function () {
         $(this).attr("value", $(this).val());
       });
 
-      $("#benh_an input[type=checkbox]").each(function() {
+      $("#benh_an input[type=checkbox]").each(function () {
         if ($(this).prop("checked")) {
           $(this).attr("checked", "checked");
         }
@@ -56,12 +58,12 @@ var benh_an_script = {
     }
   },
 
-  created: async function() {
+  created: async function () {
     this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
       hsba_id: this.hsba_id
     });
-    
-    setTimeout(function() {
+
+    setTimeout(function () {
       $("#printButton").removeClass("d-none");
     }, 2000);
   }
@@ -74,12 +76,16 @@ VueAsyncComponent(
 );
 
 var benh_an_chi_tiet_script = {
-  data: function() {
-    return { ptttList: [] };
+  data: function () {
+    return {
+      ptttList: []
+    };
   },
 
-  created: async function() {
-    this.ptttList = await this.get("/api/pttt/get_ds_pttt", {hsba_id: this.hsba.id});
+  created: async function () {
+    this.ptttList = await this.get("/api/pttt/get_ds_pttt", {
+      hsba_id: this.hsba.id
+    });
   },
 
   props: ["hsba"],
@@ -213,7 +219,10 @@ var benh_an_chi_tiet_script = {
       if (chanDoanKemTheoList && chanDoanKemTheoList.length > 0) {
         return chanDoanKemTheoList[0];
       }
-      return { ma: "", ten: "" };
+      return {
+        ma: "",
+        ten: ""
+      };
     },
 
     chanDoanRaVienChinh() {
@@ -243,38 +252,7 @@ var benh_an_chi_tiet_script = {
       );
     },
 
-    chanDoanTruocPt() {
-      var chanDoanTruocPtList = attr(
-        this.hsba,
-        "emrChanDoan.emrDmMaBenhChandoantruocpts"
-      );
-      if (chanDoanTruocPtList && chanDoanTruocPtList.length > 0) {
-        return chanDoanTruocPtList[0];
-      }
-      return { ma: "", ten: "" };
-    },
 
-    chanDoanSauPt() {
-      var chanDoanSauPtList = attr(
-        this.hsba,
-        "emrChanDoan.emrDmMaBenhChandoansaupts"
-      );
-      if (chanDoanSauPtList && chanDoanSauPtList.length > 0) {
-        return chanDoanSauPtList[0];
-      }
-      return { ma: "", ten: "" };
-    },
-
-    chanDoanRaVienKemTheo() {
-      var chanDoanRaVienKemTheoList = attr(
-        this.hsba,
-        "emrChanDoan.emrDmMaBenhChandoanravienkemtheos"
-      );
-      if (chanDoanRaVienKemTheoList && chanDoanRaVienKemTheoList.length > 0) {
-        return chanDoanRaVienKemTheoList[0];
-      }
-      return { ma: "", ten: "" };
-    },
 
     nguyenNhanTuVong() {
       return (
@@ -296,7 +274,49 @@ var benh_an_chi_tiet_script = {
   },
 
   methods: {
-    
+
+    chanDoanTruocPt(pttt) {
+      var chanDoanTruocPtList = attr(
+        pttt,
+        "emrDmMaBenhChandoantruocs"
+      );
+      if (chanDoanTruocPtList && chanDoanTruocPtList.length > 0) {
+        return chanDoanTruocPtList[0];
+      }
+      return {
+        ma: "",
+        ten: ""
+      };
+    },
+
+    chanDoanSauPt(pttt) {
+      var chanDoanSauPtList = attr(
+        pttt,
+        "emrDmMaBenhChandoansaus"
+      );
+      if (chanDoanSauPtList && chanDoanSauPtList.length > 0) {
+        return chanDoanSauPtList[0];
+      }
+      return {
+        ma: "",
+        ten: ""
+      };
+    },
+
+    chanDoanRaVienKemTheo(pttt) {
+      var chanDoanRaVienKemTheoList = attr(
+        pttt,
+        "emrDmMaBenhChandoanravienkemtheos"
+      );
+      if (chanDoanRaVienKemTheoList && chanDoanRaVienKemTheoList.length > 0) {
+        return chanDoanRaVienKemTheoList[0];
+      }
+      return {
+        ma: "",
+        ten: ""
+      };
+    },
+
     toCharArray(st) {
       return (st || "").replace(".", "").split("");
     },

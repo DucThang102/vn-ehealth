@@ -317,10 +317,12 @@
             </div>
           </div>
           <div class="row mb-2">
-            <span>{{chanDoanKKB.ten}}</span>
-            <form class="form-inline input-lr2 float-right">
-              <input v-for="c in toCharArray(chanDoanKKB.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-            </form>
+            <div class="col ml-4">
+              <span>{{chanDoanKKB.ten}}</span>
+              <form class="form-inline input-lr2 float-right">
+                <input v-for="c in toCharArray(chanDoanKKB.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
+              </form>
+            </div>
           </div>
 
           <div class="row mb-2">
@@ -354,34 +356,22 @@
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">23.</b>Tổng số ngày điều trị sau phẫu thuật:</label>
-            </div>
-          </div>
-          <div class="row mb-2">
-            <div class="col">
-              <span>{{hsba.emrChanDoan.tongsongaysaupt}}</span>
               <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+                <input v-for="c in toCharArray(hsba.emrChanDoan.tongsongaysaupt.toString())" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
               </form>
+
             </div>
           </div>
 
           <div class="row mb-2">
             <div class="col">
-              <label><b class="text-primary mr-1">24.</b>Tổng số lần phẫu thuật </label>
+              <label><b class="text-primary mr-1">24.</b>Tổng số lần phẫu thuật:</label>
+              <form class="form-inline input-lr2 float-right">
+                <input v-for="c in toCharArray(hsba.emrChanDoan.tongsolanpt.toString())" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
+              </form>
+
             </div>
           </div>
-
-          <div class="row mb-2">
-            <div class="col">
-              <span>{{hsba.emrChanDoan.tongsolanpt}}</span>
-              <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
-              </form>
-            </div>
-          </div>          
         </div>
 
         <div class="col-6">
@@ -408,50 +398,53 @@
             <div class="col ml-4">
               <label><i>(nguyên nhân): </i>{{hsba.emrChanDoan.emrDmMaBenhChandoanraviennguyennhan.ten}}</label><br>
               <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
-              </form>
-
-            </div>
-          </div>
-
-          <div class="row mb-2">
-            <div class="col ml-4">
-              <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh kèm
-                theo:</label><br>
-              <span>{{chanDoanRaVienKemTheo.ten}}</span>
-              <form class="form-inline input-lr2 float-right">
-                <input v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-              </form>
-            </div>
-          </div>
-          <div class="row mb-2">
-            <div class="col ml-4">
-              <label><i class="fas fa-fw bullet-small fa-circle"></i> Chẩn đoán trước phẫu thuật: </label><br>
-              <span> {{hsba.emrChanDoan.motachandoantruocpt}} </span>
-              <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
-              </form>
-            </div>
-          </div>
-          <div class="row mb-2">
-            <div class="col ml-4">
-              <label><i class="fas fa-fw bullet-small fa-circle"></i> Chẩn đoán sau phẫu thuật: </label><br>
-              <span> {{hsba.emrChanDoan.motachandoansaupt}} </span>
-              <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+                <input v-for="c in toCharArray(chanDoanRaVienNguyenNhan.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
               </form>
             </div>
           </div>
 
+          <div class="row mb-2">
+            <div class="col">
+              <div class="row ml-4">
+                <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh kèm theo:</label><br>
+                <div class="row ml-4" v-for="pttt in ptttList">
+                  <span>{{chanDoanRaVienKemTheo(pttt).ten}}</span>
+                  <form class="form-inline input-lr2 float-right">
+                    <input v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col">
+              <div class="row ml-4"><label><i class="fas fa-fw bullet-small fa-circle"></i> Chẩn đoán trước phẫu thuật: </label><br></div>
+              <div class="row ml-4" v-for="pttt in ptttList"> 
+                <div class="col">
+                  <span>{{chanDoanTruocPt(pttt).ten}}</span>
+                </div>
+                <form class="form-inline input-lr2 float-right">
+                  <input v-for="c in toCharArray(chanDoanTruocPt(pttt).ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col">
+              <div class="row ml-4">
+                <label><i class="fas fa-fw bullet-small fa-circle"></i> Chẩn đoán sau phẫu thuật: </label><br>
+              </div>
+              <div class="row ml-4" v-for="pttt in ptttList">
+                <div class="col"> 
+                  <span>{{chanDoanSauPt(pttt).ten}}</span>
+                </div>
+                <form class="form-inline input-lr2 float-right">
+                  <input v-for="c in toCharArray(chanDoanSauPt(pttt).ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
