@@ -86,7 +86,7 @@ public class EmrHoSoBenhAnController {
     public ResponseEntity<?> countHsba(@RequestParam int trangthai, @RequestParam String mayte) {
         try {
             var user = UserUtil.getCurrentUser();
-            var count = emrHoSoBenhAnService.countHoSo(user.get().emrCoSoKhamBenhId, trangthai, mayte);
+            var count = emrHoSoBenhAnService.countHoSo(user.get().id, user.get().emrCoSoKhamBenhId, trangthai, mayte);
             return ResponseEntity.ok(count);
         }catch (Exception e) {
             logger.error("Error countHsba:", e);
@@ -107,8 +107,8 @@ public class EmrHoSoBenhAnController {
                                                 @RequestParam int count) {
         
         try {
-            var user = UserUtil.getCurrentUser();
-            var result = emrHoSoBenhAnService.getDsHoSo(user.get().emrCoSoKhamBenhId, trangthai, mayte, start, count);
+            var user = UserUtil.getCurrentUser();    
+            var result = emrHoSoBenhAnService.getDsHoSo(user.get().id, user.get().emrCoSoKhamBenhId, trangthai, mayte, start, count);
             return ResponseEntity.ok(result);
             
         }catch(Exception e) {
@@ -362,5 +362,28 @@ public class EmrHoSoBenhAnController {
             Log.error("Fail to upload giayto:", e);
             return new ResponseEntity<>(Map.of("success", false, "error", e.getMessage()), HttpStatus.BAD_REQUEST);
         }
+    }
+    
+    @PostMapping("/add_user_view_hsba")
+    public ResponseEntity<?> addUserViewHSBA(@RequestParam("hsba_id") String id, @RequestParam("userId") String userId) {
+    	try {
+    	 emrHoSoBenhAnService.addUserViewHSBA(new ObjectId(id), new ObjectId(userId));
+    	 return ResponseEntity.ok(Map.of("success", true));
+    	}catch(Exception e) {
+            var error = Optional.ofNullable(e.getMessage()).orElse("Unknown error");
+            return ResponseEntity.ok(Map.of("success", false, "error", error));
+        }
+       
+    }
+    
+    @PostMapping("/delete_user_view_hsba")
+    public ResponseEntity<?> deleteUserViewHSBA(@RequestParam("hsba_id") String id, @RequestParam("userId") String userId) {
+    	 try {
+    		 emrHoSoBenhAnService.deleteUserViewHSBA(new ObjectId(id), new ObjectId(userId));
+             return ResponseEntity.ok(Map.of("success", true));
+         }catch(Exception e) {
+             var error = Optional.ofNullable(e.getMessage()).orElse("Unknown error");
+             return ResponseEntity.ok(Map.of("success", false, "error", error));
+         }
     }
 }

@@ -85,6 +85,8 @@ public class EmrHoSoBenhAn {
     public List<EmrQuaTrinhSuDungThuoc> emrQuaTrinhSuDungThuocs = new ArrayList<>();
     
     public List<EmrFileDinhKem> emrFileDinhKems = new ArrayList<>();
+    
+    public List<ObjectId> dsNguoiXemIds = new ArrayList<>();
         
     @Transient public List<EmrVaoKhoa> emrVaoKhoas;
     
