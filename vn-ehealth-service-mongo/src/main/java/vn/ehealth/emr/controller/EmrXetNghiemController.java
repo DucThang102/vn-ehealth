@@ -60,6 +60,27 @@ public class EmrXetNghiemController {
         return ResponseEntity.ok(result);
     }
     
+    @GetMapping("/get_ds_xetnghiem_by_bn_new")
+    public ResponseEntity<?> getDsXetNghiemByBenhNhanNew(@RequestParam("benhnhan_id") String benhNhanId, @RequestParam int start, @RequestParam int count) {
+        var xetnghiem_List = emrXetNghiemService.getDsXetNghiemByBenhNhan(new ObjectId(benhNhanId), start, count);
+    	var result = xetnghiem_List.stream().map(x -> JsonUtil.objectToMap(x)).collect(Collectors.toList());
+    	result.forEach(x -> {
+    		var emrHoSoBenhAns = emrHoSoBenhAnService.getById(new ObjectId(x.get("emrHoSoBenhAnId").toString()));
+    		x.put("tenCoSoKhamBenh", emrHoSoBenhAns.get().getEmrCoSoKhamBenh().ten);
+    		x.put("soBenhAn", emrHoSoBenhAns.get().matraodoi);
+    		x.put("ngayVaoVien", DateUtil.parseDateToString(emrHoSoBenhAns.get().emrQuanLyNguoiBenh.ngaygiovaovien, "dd/MM/yyyy HH:mm"));
+    		x.put("ngayRaVien", DateUtil.parseDateToString(emrHoSoBenhAns.get().emrQuanLyNguoiBenh.ngaygioravien, "dd/MM/yyyy HH:mm"));
+    	});  
+        return ResponseEntity.ok(result);
+    }
+    
+    @GetMapping("/count_ds_xetnghiem_by_bn")
+    public ResponseEntity<?> countDsXetNghiemByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
+    	var result = emrXetNghiemService.countDsXetNghiemByBenhNhan(new ObjectId(benhNhanId));
+        return ResponseEntity.ok(result);
+    }
+
+    
     @GetMapping("/delete_xetnghiem")
     public ResponseEntity<?> deleteXetnghiem(@RequestParam("xetnghiem_id") String id) {
         try {

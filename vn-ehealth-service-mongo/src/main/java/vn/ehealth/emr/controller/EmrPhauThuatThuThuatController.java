@@ -57,6 +57,26 @@ public class EmrPhauThuatThuThuatController {
         }
         return ResponseEntity.ok(result);
     }
+    
+    @GetMapping("/get_ds_pttt_by_bn_new")
+    public ResponseEntity<?> getDsPhauThuatThuThuatByBenhNhanNew(@RequestParam("benhnhan_id") String benhNhanId, @RequestParam int start, @RequestParam int count) {  	
+    	var pttt_List = emrPhauThuatThuThuatService.getDsPhauThuatThuThuatByBenhNhan(new ObjectId(benhNhanId), start, count);
+    	var result = pttt_List.stream().map(x -> JsonUtil.objectToMap(x)).collect(Collectors.toList());
+    	result.forEach(x -> {
+    		var emrHoSoBenhAns = emrHoSoBenhAnService.getById(new ObjectId(x.get("emrHoSoBenhAnId").toString()));
+    		x.put("tenCoSoKhamBenh", emrHoSoBenhAns.get().getEmrCoSoKhamBenh().ten);
+    		x.put("soBenhAn", emrHoSoBenhAns.get().matraodoi);
+    		x.put("ngayVaoVien", DateUtil.parseDateToString(emrHoSoBenhAns.get().emrQuanLyNguoiBenh.ngaygiovaovien, "dd/MM/yyyy HH:mm"));
+    		x.put("ngayRaVien", DateUtil.parseDateToString(emrHoSoBenhAns.get().emrQuanLyNguoiBenh.ngaygioravien, "dd/MM/yyyy HH:mm"));
+    	});  
+        return ResponseEntity.ok(result);
+    }
+    
+    @GetMapping("/count_ds_pttt_by_bn")
+    public ResponseEntity<?> countDsPhauThuatThuThuatByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
+    	var result = emrPhauThuatThuThuatService.countDsPhauThuatThuThuatByBenhNhan(new ObjectId(benhNhanId));
+        return ResponseEntity.ok(result);
+    }
 
     @GetMapping("/delete_pttt")
     public ResponseEntity<?> deletePttt(@RequestParam("pttt_id") String id) {
