@@ -51,6 +51,12 @@ public class EmrChanDoanHinhAnhController {
         		x.put("soBenhAn", emrHoSoBenhAn.matraodoi);
         		x.put("ngayVaoVien", DateUtil.parseDateToString(emrHoSoBenhAn.emrQuanLyNguoiBenh.ngaygiovaovien, "dd/MM/yyyy HH:mm"));
         		x.put("ngayRaVien", DateUtil.parseDateToString(emrHoSoBenhAn.emrQuanLyNguoiBenh.ngaygioravien, "dd/MM/yyyy HH:mm"));
+        		x.put("donViChuQuan", emrHoSoBenhAn.getEmrCoSoKhamBenh().donvichuquan); 
+        		x.put("maYTe", emrHoSoBenhAn.mayte);
+        		x.put("tuoiBenhNhan", emrHoSoBenhAn.getTuoiBenhNhan() + " " + emrHoSoBenhAn.getDonViTuoiBenhNhan());
+        		x.put("tenDayDu", emrHoSoBenhAn.emrBenhNhan.tendaydu);
+        		x.put("gioiTinh", emrHoSoBenhAn.emrBenhNhan.emrDmGioiTinh.ten);
+        		x.put("khoadieutri", emrHoSoBenhAn.getEmrVaoKhoas());
         	});        	
             result.addAll(lst);     	
         }

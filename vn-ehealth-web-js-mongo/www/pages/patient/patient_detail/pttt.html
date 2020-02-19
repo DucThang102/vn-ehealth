@@ -45,7 +45,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">
-                    <strong>Thông tin phẫu thuật thủ thuật</strong>
+                    <strong>Bệnh án:</strong>
                   </h5>
                   <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
@@ -53,6 +53,166 @@
                 </div>
 
                 <div v-if="pttt" class="modal-body">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-3">
+                        Sở Y tế: <br>
+                        BV: 
+                      </div>
+                      <div class="col-6">
+                        <h5><b>PHIẾU PHẪU THUẬT/THỦ THUẬT</b></h5>
+                      </div>
+                      <div class="col-3">
+                        MS: 14/BV-01 <br>
+                        Số vào viện:
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-7">
+                        - Họ tên người bệnh:
+                      </div>
+                      <div class="col-2">
+                        Tuổi:
+                      </div>
+                      <div class="col-3">
+                        <input disabled :checked="attr(pttt, 'emrBenhNhan.emrDmGioiTinh.ma') == 'M' " type="checkbox"> <span class="mr-3">Nam</span>
+                        <input disabled :checked="attr(pttt, 'emrBenhNhan.emrDmGioiTinh.ma') == 'F' " type="checkbox"> <span class="mr-3">Nữ</span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        - Khoa: 
+                      </div>
+                      <div class="col-3">
+                        Buồng:
+                      </div>
+                      <div class="col-3">
+                        Giường:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Vào viện lúc: {{pttt.ngayVaoVien}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Phẫu thuật/ thủ thuật lúc: {{pttt.ngaygiopttt}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Chẩn đoán: {{pttt.emrDmMaBenhChandoantruoc.ten}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Trước phẫu thuật/ thủ thuật: {{pttt.motachandoantruocpt}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Sau phẫu thuật/ thủ thuật: {{pttt.motachandoansaupt}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Phương pháp phẫu thuật/ thủ thuật:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Loại phẫu thuật/ thủ thuật: {{pttt.emrDmPhauThuThuat.ten}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Phương pháp vô cảm: {{pttt.phuongphapvocam}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Bác sĩ phẫu thuật/ thủ thhuật:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Bác sĩ gây mê hồi sức:
+                      </div>
+                    </div>
+                    <br>
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th><b>LƯỢC ĐỒ PHẪU THUẬT/THỦ THUẬT</b>  <br>
+                            {{pttt.luocdoptt}} </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="container"></div>
+                            <div class="row">
+                              <div class="col">
+                              Lược đồ hiển thị 
+                              <br>
+                              <br> 
+                              <br>
+                              </div>
+                            </div>
+                            <div class="container">
+                            <div class="row">
+                              - Dẫn lưu:
+                            </div>
+                            <div class="row">
+                              - Bấc:
+                            </div>
+                            <div class="row">
+                              - Ngày rút:
+                            </div>
+                            <div class="row">
+                              - Ngày cắt chỉ:
+                            </div>
+                            <div class="row">
+                              - Khác:
+                            </div>
+                          </div>
+
+
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="row ">
+                      <div class="col">
+                        <h6 class="text-center" ><b > TRÌNH TỰ PHẪU THUẬT THỦ THUẬT </b></h6> <br>
+                        {{pttt.trinhtuptt}}
+                      </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row offset-8">
+                      <div class="text-center">
+                        <i> Ngày.... tháng.... năm..... </i> <br>
+                        <b>PHẪU THUẬT/THỦ THUẬT VIÊN</b>
+                        <br>
+                        <br>
+                        <br>
+                        Họ tên:
+                      </div>
+                    </div>
+
+
+                  </div>
+
+
+
+
+
+                  <!--
                   <div>
                     <meta charset="UTF-8" />
                     <table
@@ -169,6 +329,8 @@
                       </div>
                     </table>
                   </div>
+
+                  -->
                 </div>
                 <div class="modal-footer">
                   <button
