@@ -359,7 +359,7 @@
             <div class="col">
               <label><b class="text-primary mr-1">23.</b>Tổng số ngày điều trị sau phẫu thuật:</label>
               <form class="form-inline input-lr2 float-right">
-                <input v-for="c in toCharArray(hsba.emrChanDoan.tongsongaysaupt.toString())" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
+                <input v-for="c in toCharArray(hsba.emrChanDoan.tongsongaysaupt + '')" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
               </form>
 
             </div>
@@ -369,7 +369,7 @@
             <div class="col">
               <label><b class="text-primary mr-1">24.</b>Tổng số lần phẫu thuật:</label>
               <form class="form-inline input-lr2 float-right">
-                <input v-for="c in toCharArray(hsba.emrChanDoan.tongsolanpt.toString())" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
+                <input v-for="c in toCharArray(hsba.emrChanDoan.tongsolanpt + '')" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
               </form>
 
             </div>
