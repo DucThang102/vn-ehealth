@@ -39,32 +39,8 @@ public class EmrChanDoanHinhAnhController {
         return ResponseEntity.ok(cdhaList);
     }
     
-    @GetMapping("/get_ds_cdha_by_bn")
-    public ResponseEntity<?> getDsChanDoanHinhAnhByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
-        var emrHoSoBenhAns = emrHoSoBenhAnService.getByEmrBenhNhanId(new ObjectId(benhNhanId));
-        var result = new ArrayList<>();
-        for(var emrHoSoBenhAn : emrHoSoBenhAns) {
-           	var cdha_List = emrChanDoanHinhAnhService.getByEmrHoSoBenhAnId(emrHoSoBenhAn.id);
-        	var lst = cdha_List.stream().map(x -> JsonUtil.objectToMap(x)).collect(Collectors.toList());
-        	lst.forEach(x -> {
-        		x.put("tenCoSoKhamBenh", emrHoSoBenhAn.getEmrCoSoKhamBenh().ten);
-        		x.put("soBenhAn", emrHoSoBenhAn.matraodoi);
-        		x.put("ngayVaoVien", DateUtil.parseDateToString(emrHoSoBenhAn.emrQuanLyNguoiBenh.ngaygiovaovien, "dd/MM/yyyy HH:mm"));
-        		x.put("ngayRaVien", DateUtil.parseDateToString(emrHoSoBenhAn.emrQuanLyNguoiBenh.ngaygioravien, "dd/MM/yyyy HH:mm"));
-        		x.put("donViChuQuan", emrHoSoBenhAn.getEmrCoSoKhamBenh().donvichuquan); 
-        		x.put("maYTe", emrHoSoBenhAn.mayte);
-        		x.put("tuoiBenhNhan", emrHoSoBenhAn.getTuoiBenhNhan() + " " + emrHoSoBenhAn.getDonViTuoiBenhNhan());
-        		x.put("tenDayDu", emrHoSoBenhAn.emrBenhNhan.tendaydu);
-        		x.put("gioiTinh", emrHoSoBenhAn.emrBenhNhan.emrDmGioiTinh.ten);
-        		x.put("khoadieutri", emrHoSoBenhAn.getEmrVaoKhoas());
-        	});        	
-            result.addAll(lst);     	
-        }
-        return ResponseEntity.ok(result);
-    }
-    
-    @GetMapping("/get_ds_cdha_by_bn_new")  
-    public ResponseEntity<?> getDsChanDoanHinhAnhByBenhNhanNew(@RequestParam("benhnhan_id") String benhNhanId, @RequestParam int start, @RequestParam int count) {  	
+    @GetMapping("/get_ds_cdha_by_bn")  
+    public ResponseEntity<?> getDsChanDoanHinhAnhByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId, @RequestParam int start, @RequestParam int count) {  	
     	var cdha_List = emrChanDoanHinhAnhService.getDsChanDoanHinhAnh(new ObjectId(benhNhanId), start, count);
     	var result = cdha_List.stream().map(x -> JsonUtil.objectToMap(x)).collect(Collectors.toList());
     	result.forEach(x -> {
@@ -73,6 +49,12 @@ public class EmrChanDoanHinhAnhController {
     		x.put("soBenhAn", emrHoSoBenhAns.get().matraodoi);
     		x.put("ngayVaoVien", DateUtil.parseDateToString(emrHoSoBenhAns.get().emrQuanLyNguoiBenh.ngaygiovaovien, "dd/MM/yyyy HH:mm"));
     		x.put("ngayRaVien", DateUtil.parseDateToString(emrHoSoBenhAns.get().emrQuanLyNguoiBenh.ngaygioravien, "dd/MM/yyyy HH:mm"));
+    		x.put("donViChuQuan", emrHoSoBenhAns.get().getEmrCoSoKhamBenh().donvichuquan); 
+    		x.put("maYTe", emrHoSoBenhAns.get().mayte);
+    		x.put("tuoiBenhNhan", emrHoSoBenhAns.get().getTuoiBenhNhan() + " " + emrHoSoBenhAns.get().getDonViTuoiBenhNhan());
+    		x.put("tenDayDu", emrHoSoBenhAns.get().emrBenhNhan.tendaydu);
+    		x.put("gioiTinh", emrHoSoBenhAns.get().emrBenhNhan.emrDmGioiTinh.ten);
+    		x.put("khoadieutri", emrHoSoBenhAns.get().getEmrVaoKhoas());
     	});  
         return ResponseEntity.ok(result);
     }
