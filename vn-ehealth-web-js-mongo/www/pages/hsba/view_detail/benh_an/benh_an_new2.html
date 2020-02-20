@@ -4,6 +4,7 @@
     <benh-an-so-sinh :hsba="hsba" v-if="parseInt(hsba.emrDmLoaiBenhAn.ma)=='6'"></benh-an-so-sinh>
     <benh-an-noi-khoa :hsba="hsba" v-if="parseInt(hsba.emrDmLoaiBenhAn.ma)=='1'"></benh-an-noi-khoa>
     <benh-an-ngoai-khoa :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='11'"></benh-an-ngoai-khoa>
+	<benh-an-bong :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='12'"></benh-an-bong>
     <benh-an-ngoai-tru :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='20'"></benh-an-ngoai-tru>   
     <benh-an-san-khoa :hsba="hsba" v-if="parseInt(hsba.emrDmLoaiBenhAn.ma)=='5'"></benh-an-san-khoa>    
     <benh-an-truyen-nhiem :hsba="hsba" v-if="parseInt(hsba.emrDmLoaiBenhAn.ma)=='3'"></benh-an-truyen-nhiem>    

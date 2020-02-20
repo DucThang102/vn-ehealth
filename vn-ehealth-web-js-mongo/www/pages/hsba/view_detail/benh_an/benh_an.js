@@ -443,3 +443,9 @@ VueAsyncComponent(
   "/pages/hsba/view_detail/benh_an/benh_an_ngoai_tru_yhct.html",
   benh_an_chi_tiet_script
 );
+
+VueAsyncComponent(
+  "benh-an-bong",
+  "/pages/hsba/view_detail/benh_an/benh_an_bong.html",
+  benh_an_chi_tiet_script
+);
