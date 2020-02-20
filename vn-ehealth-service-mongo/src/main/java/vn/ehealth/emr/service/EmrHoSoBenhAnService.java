@@ -54,7 +54,7 @@ public class EmrHoSoBenhAnService {
     
     public long countHoSo(ObjectId userId, ObjectId emrCoSoKhamBenhId, int trangThai, String mayte) {
         var query = new Query(Criteria.where("emrCoSoKhamBenhId").is(emrCoSoKhamBenhId)
-        								.orOperator(Criteria.where("dsNguoiXemIds").is(userId), Criteria.where("emrQuanLyNguoiBenh.bacsikhamId").is(userId))
+        								//.orOperator(Criteria.where("dsNguoiXemIds").is(userId), Criteria.where("emrQuanLyNguoiBenh.bacsikhamId").is(userId))
                                         .and("trangThai").is(trangThai)
                                         .and("mayte").regex(mayte)
                              );
@@ -66,7 +66,7 @@ public class EmrHoSoBenhAnService {
         var sort = new Sort(Sort.Direction.DESC, "ngaytiepnhan");
         var pageable = new OffsetBasedPageRequest(limit, offset, sort);
         var query = new Query(Criteria.where("emrCoSoKhamBenhId").is(emrCoSoKhamBenhId)
-        								.orOperator(Criteria.where("dsNguoiXemIds").is(userId), Criteria.where("emrQuanLyNguoiBenh.bacsikhamId").is(userId))
+        								//.orOperator(Criteria.where("dsNguoiXemIds").is(userId), Criteria.where("emrQuanLyNguoiBenh.bacsikhamId").is(userId))
         								.and("trangThai").is(trangThai)
                                         .and("mayte").regex(mayte)
                              ).with(pageable);

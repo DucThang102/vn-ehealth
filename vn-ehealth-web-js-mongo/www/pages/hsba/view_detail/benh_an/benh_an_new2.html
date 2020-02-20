@@ -1,16 +1,17 @@
 <div v-if="hsba">
   <body id="benh_an">
-    <benh-an-nhi :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='02'"></benh-an-nhi>
-    <benh-an-so-sinh :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='06'"></benh-an-so-sinh>
-    <benh-an-noi-khoa :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='01'"></benh-an-noi-khoa>
+    <benh-an-nhi :hsba="hsba" v-if="parseInt(hsba.emrDmLoaiBenhAn.ma)=='2'"></benh-an-nhi>
+    <benh-an-so-sinh :hsba="hsba" v-if="parseInt(hsba.emrDmLoaiBenhAn.ma)=='6'"></benh-an-so-sinh>
+    <benh-an-noi-khoa :hsba="hsba" v-if="parseInt(hsba.emrDmLoaiBenhAn.ma)=='1'"></benh-an-noi-khoa>
     <benh-an-ngoai-khoa :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='11'"></benh-an-ngoai-khoa>
+	<benh-an-bong :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='12'"></benh-an-bong>
     <benh-an-ngoai-tru :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='20'"></benh-an-ngoai-tru>   
-    <benh-an-san-khoa :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='05'"></benh-an-san-khoa>    
-    <benh-an-truyen-nhiem :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='03'"></benh-an-truyen-nhiem>    
-    <benh-an-phu-khoa :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='04'"></benh-an-phu-khoa>    
-    <benh-an-tam-than :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='07'"></benh-an-tam-than>    
-    <benh-an-da-lieu :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='08'"></benh-an-da-lieu>    
-    <benh-an-dd :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='09'"></benh-an-dd>    
+    <benh-an-san-khoa :hsba="hsba" v-if="parseInt(hsba.emrDmLoaiBenhAn.ma)=='5'"></benh-an-san-khoa>    
+    <benh-an-truyen-nhiem :hsba="hsba" v-if="parseInt(hsba.emrDmLoaiBenhAn.ma)=='3'"></benh-an-truyen-nhiem>    
+    <benh-an-phu-khoa :hsba="hsba" v-if="parseInt(hsba.emrDmLoaiBenhAn.ma)=='4'"></benh-an-phu-khoa>    
+    <benh-an-tam-than :hsba="hsba" v-if="parseInt(hsba.emrDmLoaiBenhAn.ma)=='7'"></benh-an-tam-than>    
+    <benh-an-da-lieu :hsba="hsba" v-if="parseInt(hsba.emrDmLoaiBenhAn.ma)=='8'"></benh-an-da-lieu>    
+    <benh-an-dd :hsba="hsba" v-if="parseInt(hsba.emrDmLoaiBenhAn.ma)=='9'"></benh-an-dd>    
     <benh-an-hhtm :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='10'"></benh-an-hhtm>    
     <benh-an-rhm :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='14'"></benh-an-rhm>   
     <benh-an-tmh :hsba="hsba" v-if="hsba.emrDmLoaiBenhAn.ma=='15'"></benh-an-tmh>    
