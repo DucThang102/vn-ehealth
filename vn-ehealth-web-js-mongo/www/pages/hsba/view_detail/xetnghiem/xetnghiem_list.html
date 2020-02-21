@@ -33,7 +33,7 @@
           </button>
         </div>
         <div v-if="xetnghiem" class="modal-body">
-          <tomtat :hsba="hsba" title="PHIẾU XÉT NGHIỆM"></tomtat>
+          <!-- <tomtat :hsba="hsba" title="PHIẾU XÉT NGHIỆM"></tomtat>
           <hr />
           <font>
             <div class="row">
@@ -104,7 +104,2601 @@
                 </tr>
               </table>
             </div>
+
+          </font> -->
+          <div>
+            <label>27. Phieu xet nghiem</label>
+          </div>
+          <div class="row">
+            <div class="col-8">
+              <span>{{ hsba.emrCoSoKhamBenh.donvichuquan }}</span><br />
+              <span>{{ hsba.emrCoSoKhamBenh.ten }}</span>
+            </div>
+            <div class="col-4">
+              <span>MS: 27/BV-01</span><br />
+              <span>Số:</span> <span>........</span>
+            </div>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <h5>PHIẾU XÉT NGHIỆM</h5>
+            <label><b>Bệnh phẩm: ......</b></label>
+          </div>
+
+          <font>
+            <div class="row">
+              <div class="col-6">
+                <span>Họ tên người bệnh:</span>
+                <b
+                  ><span class="text-uppercase"
+                    >{{ hsba.emrBenhNhan.tendaydu }}</span
+                  ></b
+                ><br />
+              </div>
+              <div class="col-3">
+                <span>Tuổi:</span> <span>{{ hsba.tuoiBenhNhan }}</span>
+              </div>
+              <div class="col-3">
+                <span>Giới tính:</span>
+                <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span><br />
+              </div>
+            </div>
+            <div>
+              <span>Địa chỉ: {{hsba.emrBenhNhan.diachi}}</span>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <span>Khoa:...</span>
+              </div>
+              <div class="col-3">
+                <span>Buồng:...</span>
+              </div>
+              <div class="col-3">
+                <span>Giường:...</span>
+              </div>
+            </div>
+            <div>
+              <span>Chẩn đoán: ....</span>
+            </div>
+            <table class="table table-bordered">
+              <tr>
+                <th class="text-center">YÊU CẦU XÉT NGHIỆM</th>
+                <th class="text-center">KẾT QUẢ XÉT NGHIỆM</th>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+
+            <section class="mb-4">
+              <div class="row align-items-end">
+                <div class="col text-center">
+                  <i class="mb-2">Ngày ... tháng ... năm ...</i>
+                  <h6 class="mb-5"><b>BÁC SĨ ĐIỀU TRỊ</b></h6>
+                  <br />
+                  <p>Họ và tên <b>bác sĩ điều trị</b></p>
+                </div>
+                <div class="col text-center">
+                  <i class="mb-2">Ngày ... tháng ... năm ...</i>
+                  <h6 class="text-center mb-5">
+                    <b>TRƯỞNG KHOA XÉT NGHIỆM</b>
+                  </h6>
+                  <br />
+                  <p>Họ và tên <b>trưởng khoa xét nghiệm</b></p>
+                </div>
+              </div>
+            </section>
           </font>
+
+          <!-- <div>
+            <label>28. Phieu xet nghiem huyet hoc</label>
+          </div>
+          <div class="row">
+            <div class="col-8"> 
+              <span>{{ hsba.emrCoSoKhamBenh.donvichuquan }}</span><br>
+              <span>{{ hsba.emrCoSoKhamBenh.ten }}</span>
+            </div>
+            <div class="col-4">
+              <span>MS: 28/BV-01</span><br>
+              <span>Số:</span> <span>........</span>
+            </div>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <h5> PHIẾU XÉT NGHIỆM <br>
+            <b>HUYẾT HỌC</b>
+            </h5>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <input disabled type="checkbox"> <span class="mr-3">Thường</span>
+            <input disabled type="checkbox"> <span class="mr-3">Cấp cứu</span>
+          </div>
+
+          <font>
+            <div class="row">
+              <div class="col-6">
+                <span>Họ tên người bệnh:</span> <b><span class='text-uppercase'>{{ hsba.emrBenhNhan.tendaydu }}</span></b><br>
+              </div>
+              <div class="col-3">
+                <span>Tuổi:</span> <span>{{ hsba.tuoiBenhNhan }}</span>
+              </div>
+              <div class="col-3">
+                <span>Giới tính:</span> <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span><br>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <span>Địa chỉ: {{hsba.emrBenhNhan.diachi}}</span>
+              </div>
+              <div class="col-6">
+                <label>Số thẻ BHYT:</label>
+                <form class="form-inline input-lr2 float-right">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(0,2)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(2,3)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(3,5)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(5)" class="form-control form-control-sm text-placeholder w-140px">
+                </form>
+              </div>
+
+            </div>
+            <div class="row"> 
+              <div class="col-6"> 
+                <span>Khoa:...</span>
+              </div>
+              <div class="col-3">
+                <span>Buồng:...</span>
+              </div>
+              <div class="col-3">
+                <span>Giường:...</span>
+              </div>
+            </div>
+            <div>
+              <span>Chẩn đoán: ....</span>
+            </div>
+
+            <div class="row mt-3 ml-3">
+              <span>
+                <b>1.	Tế bào máu ngoại vi</b>:
+              </span>
+            </div>
+
+            <table class="table table-bordered">
+              <tr>
+                <th class="text-center" style="width:40%">Chỉ số</th>
+                <th class="text-center" style="width:10%">Kết quả</th>
+                <th class="text-center" style="width:40%">Chỉ số</th>
+                <th class="text-center" style="width:10%">Kết quả</th>
+              </tr>
+              <tr>
+                <td> Số lượng HC: nam (4,0-5,8 x10 <sup>12</sup>/l) <br>
+                          nữ (3,9-5,4 x10<sup>12</sup>/l)
+                </td>
+                <td></td>
+                <td>  Số lượng BC  (4-10 x 10<sup>9</sup>/l)</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> Huyết sắc tố:  nam (140-160 g/l) <br>
+                          nữ (125-145 g/l)
+                </td>
+                <td></td>
+                <td> Thành phần bạch cầu (%):</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td rowspan="2"> Hematocrit     nam (0,38-0,50 l/l) <br>
+                          nữ (0,35-0,47 l/l)
+                </td>
+                <td rowspan="2"></td>
+                <td>- Đoạn trung tính</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>- Đoạn ưa a xít</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> MCV                      (83-92 fl)</td>
+                <td></td>
+                <td>- Đoạn ưa ba zơ</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> MCH                      (27-32 pg)</td>
+                <td></td>
+                <td>- Mono</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> MCHC                   (320-356 g/l)</td>
+                <td></td>
+                <td>- Lympho</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> Hồng cầu có nhân   (0 x 10<sup>9</sup>/l)</td>
+                <td></td>
+                <td>- Tế bào bất thường</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> Hồng cầu lưới        (0,1-0,5 %)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> Số lượng tiểu cầu   (150-400 x10<sup>9</sup>/l)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td> Máu lắng: giờ 1   (< 15 mm)</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> KSV sốt rét: </td>
+                <td></td>
+                <td>giờ 2   (< 20 mm)</td>
+                <td></td>
+              </tr>
+            </table>
+            <div class="row">
+              <div class="col-2 mt-3 ml-3">
+                <span>
+                  <b>2. Đông máu:</b>
+                </span>
+              </div>
+              <div>
+                <div class="row mt-3 ml-4">
+                  <span>Thời gian máu chảy: ..... phút ....</span>
+                </div>
+                <div class="row mb-3 ml-4">
+                  <span>Thời gian máu đông: .....phút .......</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-2 mt-3 ml-3">
+                <span>
+                  <b>3. Nhóm máu:</b>
+                </span>
+              </div>
+              <div>
+                <div class="row mt-3 ml-4">
+                  <span>Hệ ABO:</span>
+                </div>
+                <div class="row mb-3 ml-4">
+                  <span>Hệ Rh:</span>
+                </div>
+              </div>
+            </div>
+
+            <section class="mb-4">
+              <div class="row align-items-end">
+                <div class="col text-center">
+                  <i class="mb-2">... Giờ ... ngày ... tháng ... năm ...</i>
+                  <h6 class="mb-5"> <b>BÁC SĨ ĐIỀU TRỊ</b> 
+                    </h6>
+                  <br>
+                  <p>Họ và tên <b>bác sĩ điều trị</b></p>
+                </div>
+                <div class="col text-center">
+                  <i class="mb-2">... Giờ ... ngày ... tháng ... năm ...</i>
+                  <h6 class="text-center mb-5"><b>TRƯỞNG KHOA XÉT NGHIỆM</b></h6>
+                  <br>
+                  <p>Họ và tên <b>trưởng khoa xét nghiệm</b></p>
+                </div>
+              </div>
+            </section>               
+            <div>
+              <small><strong>Hướng dẫn:</strong></small>
+            </div>
+            <div>
+              <small>-<i>In khổ A4 dọc, 1 mặt.</i></small><br>
+              <small>- Quy ước quốc tế: số lượng hồng cầu, bạch cầu... tính trong đơn vị lít (l).</small><br>
+              <small>- Vì: 1.000.000.000 = 10<sup>9</sup> = G (Giga); 1.000.000.000.000 = 10<sup>12</sup> = T (Tera). - Số lượng hồng cầu trước đây tính trong 1ml, ví dụ là 4 triệu; nay quy ra trong 1 lít là 4 triệu triệu/ l hay 4 x 10<sup>12</sup>/ l hay 4T/l.</small>
+            </div>
+          </font>   
+          
+          <div>
+            <label>29. Phieu xet nghiem huyet - tuy do</label>
+          </div>
+          <div class="row">
+            <div class="col-8"> 
+              <span>{{ hsba.emrCoSoKhamBenh.donvichuquan }}</span><br>
+              <span>{{ hsba.emrCoSoKhamBenh.ten }}</span>
+            </div>
+            <div class="col-4">
+              <span>MS: 29/BV-01</span><br>
+              <span>Số:</span> <span>........</span>
+            </div>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <h5> PHIẾU XÉT NGHIỆM <br>
+            <b>HUYẾT - TUỶ ĐỒ</b>
+            </h5>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <input disabled type="checkbox"> <span class="mr-3">Thường</span>
+            <input disabled type="checkbox"> <span class="mr-3">Cấp cứu</span>
+          </div>
+
+          <font>
+            <div class="row">
+              <div class="col-6">
+                <span>Họ tên người bệnh:</span> <b><span class='text-uppercase'>{{ hsba.emrBenhNhan.tendaydu }}</span></b><br>
+              </div>
+              <div class="col-3">
+                <span>Tuổi:</span> <span>{{ hsba.tuoiBenhNhan }}</span>
+              </div>
+              <div class="col-3">
+                <span>Giới tính:</span> <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span><br>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <span>Địa chỉ: {{hsba.emrBenhNhan.diachi}}</span>
+              </div>
+              <div class="col-6">
+                <label>Số thẻ BHYT:</label>
+                <form class="form-inline input-lr2 float-right">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(0,2)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(2,3)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(3,5)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(5)" class="form-control form-control-sm text-placeholder w-140px">
+                </form>
+              </div>
+
+            </div>
+            <div class="row"> 
+              <div class="col-6"> 
+                <span>Khoa:...</span>
+              </div>
+              <div class="col-3">
+                <span>Buồng:...</span>
+              </div>
+              <div class="col-3">
+                <span>Giường:...</span>
+              </div>
+            </div>
+            <div>
+              <span>Tóm tắt quá trình bệnh lí, triệu chứng thực thể (gan, lách, hạch): ....</span>
+            </div>
+            <div>
+              <span>Chẩn đoán lâm sàng: ....</span>
+            </div>            
+            <div>
+              <span>Yêu cầu xét nghiệm: ....</span>
+            </div>
+
+            <section class="mb-4">
+              <div class="row align-items-end">
+                <div class="col">
+                  <i>Làm xét nghiệm ... Giờ ... ngày ... tháng ... năm ...</i>
+                  <p> <i>Kết quả test xylocain 2%</i> <br>
+                  Bác sỹ đọc test xylocain 2%:</p>
+                </div>
+                <div class="col text-center">
+                  <i class="mb-2">... Giờ ... ngày ... tháng ... năm ...</i>
+                  <h6 class="text-center mb-5"><b>BÁC SĨ ĐIỀU TRỊ</b></h6>
+                  <br>
+                  <p>Họ và tên <b>bác sĩ điều trị</b></p>
+                </div>
+              </div>
+            </section>               
+
+            <div class="row">
+              <div class="col text-center">
+                <b>KẾT QUẢ</b>
+              </div>
+            </div>
+            <section>
+              <table class="table table-bordered">
+                <tr class="text-center">
+                  <th style="width: 35%;">HUYẾT ĐỒ</th>
+                  <th style="width: 15%;">KẾT QUẢ</th>
+                  <th style="width: 35%;">HOÁ HỌC TẾ BÀO</th>
+                  <th style="width: 15%;">KẾT QUẢ</th>
+                </tr>
+                <tr>
+                  <td>Số lượng hồng cầu (x 1012/l)</td>
+                  <td></td>
+                  <td>Peroxydase (+/-)</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Lượng huyết sắc tố (g/l)</td>
+                  <td></td>
+                  <td>Sudan đen (+/-)</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Hematocrit (l/l)</td>
+                  <td></td>
+                  <td rowspan="3">
+                    <div class="mb-4">
+                      <span>Esterase không đặc hiệu:</span>
+                    </div>
+                    <div class="mt-4 mb-4">
+                      <span>- Không ức chế (điểm)</span>
+                    </div>
+                    <div class="mt-4">
+                      <span>- Có ức chế (điểm)</span>
+                    </div>
+                  </td>
+                  <td rowspan="2"></td>
+                </tr>
+                <tr>
+                  <td>MCV (fl)</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>MCH (pg)</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>MCHC (g/l)</td>
+                  <td></td>
+                  <td>Esterase đặc hiệu (điểm)</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Hồng cầu có nhân (x 109/l)</td>
+                  <td></td>
+                  <td>P. A. S (+/-)</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Hồng cầu lưới (%)</td>
+                  <td></td>
+                  <td rowspan="2">
+                    <div class="mb-4">
+                      <span>Phosphatase kiềm BC (điểm)</span>
+                    </div>
+                    <div class="mt-4 text-center">
+                      <span>(L.A.P)</span>
+                    </div>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Số lượng bạch cầu(x 109/l)</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Số lượng tiểu cầu (x 109/l)</td>
+                  <td></td>
+                  <td rowspan="2">
+                    <div class="mb-3">
+                      <span>Hồng cầu nhiễm sắt: (%)</span>
+                    </div>
+                    <div class="mt-3">
+                      <span>(Sideroblast) (điểm)</span>
+                    </div>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>                
+              </table>
+            </section>
+            <div class="row ml-3">
+              <h6><strong>Nhận xét:</strong></h6>
+              <span>.................</span>
+            </div>
+            <div class="row ml-3">
+              <strong>Kết luận:</strong>
+              <span>.................</span>
+            </div>
+            <div class="row ml-3">
+              <strong>Đề nghị:</strong>
+              <span>.................</span>
+            </div>
+            <section class="mb-4">
+              <div class="row align-items-end">
+               
+                <div class="col text-center offset-6">
+                  <i class="mb-2">... Giờ ... ngày ... tháng ... năm ...</i>
+                  <h6 class="text-center mb-5"><b>TRƯỞNG KHOA XÉT NGHIỆM</b></h6>
+                  <br>
+                  <p>Họ và tên <b>trưởng khoa xét nghiệm</b></p>
+                </div>
+              </div>
+            </section>               
+            <div class="text-center">
+              <strong>TUỶ ĐỒ</strong>
+            </div>
+            <section>
+              <table class="table table-bordered">
+                <tr>
+                  <th class="text-center" style="width: 65%;" colspan="3" rowspan="2">TẾ BÀO</th>
+                  <th class="text-center" style="width: 15%;" rowspan="2">TUỶ BÌNH THƯỜNG (%)</th>
+                  <th class="text-center" style="width: 20%;" colspan="2">KẾT QUẢ</th>
+                </tr>
+                <tr class="text-center">
+                  <th>Tuỷ</th>
+                  <th>Máu</th>
+
+                </tr>
+                <tr>
+                  <td colspan="3">Số lượng tế bào tuỷ xương (25-85 x 109/l) <br>Nguyên tuỷ bào <small>(Myeloblast)</small>
+                  </td>
+                  <td class="text-center">0 - 1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="3">Tiền tuỷ bào <small>(Promyelocyte)</small></td>
+                  <td class="text-center">0 - 2</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <tr>
+                  <td rowspan="3">Tuỷ bào <br><small>(Myelocyte)</small></td>
+                  <td colspan="2">Trung tính <small class="float-right">(Neutrophil)</small></td>
+                  <td class="text-center">3 - 8</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="2">Ưa a xít<small class="float-right">(Eosinophil)</small></td>
+                  <td class="text-center">0 - 1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="2">Ưa ba zơ<small class="float-right">(Basophil)</small></td>
+                  <td class="text-center">0 - 1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <tr>
+                  <td rowspan="3">Hậu tuỷ bào<br><small>(Metamyelocyte)</small></td>
+                  <td colspan="2">Trung tính <small class="float-right">(Neutrophil)</small></td>
+                  <td class="text-center">5 - 12</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="2">Ưa a xít<small class="float-right">(Eosinophil)</small></td>
+                  <td class="text-center">0 - 1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="2">Ưa ba zơ<small class="float-right">(Basophil)</small></td>
+                  <td class="text-center">0 - 1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <tr>
+                  <td rowspan="3">Bạch cầu đũa<br><small>(Band)</small></td>
+                  <td colspan="2">Trung tính <small class="float-right">(Neutrophil)</small></td>
+                  <td class="text-center">5 - 12</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="2">Ưa a xít<small class="float-right">(Eosinophil)</small></td>
+                  <td class="text-center">0 - 1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="2">Ưa ba zơ<small class="float-right">(Basophil)</small></td>
+                  <td class="text-center">0 - 1</td>
+                  <td></td>
+                  <td></td>
+                </tr>                
+
+                <tr>
+                  <td rowspan="3">BBC đoạn<br><small>(Segment)</small></td>
+                  <td colspan="2">Trung tính <small class="float-right">(Neutrophil)</small></td>
+                  <td class="text-center">25 - 41</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="2">Ưa a xít<small class="float-right">(Eosinophil)</small></td>
+                  <td class="text-center">1 - 4</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="2">Ưa ba zơ<small class="float-right">(Basophil)</small></td>
+                  <td class="text-center">0 - 1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <tr>
+                  <td colspan="3">Nguyên lympho bào <small class="float-right">(Lymphoblast)</small></td>
+                  <td class="text-center">0 - 1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="3">Tiền lympho<small class="float-right">(Prolymphocyte)</small></td>
+                  <td class="text-center">0 - 1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="3">Lympho<small class="float-right">(Lymphocyte)</small></td>
+                  <td class="text-center">11 - 26</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <tr>
+                  <td colspan="3">Nguyên tương bào<small class="float-right">(Plasmoblast)</small></td>
+                  <td class="text-center">0 - 1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="3">Tiền tương bào <small class="float-right">(Proplasmocyte)</small></td>
+                  <td class="text-center">0 - 1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="3">Tương bào<small class="float-right">(Plasmocyte)</small></td>
+                  <td class="text-center">0 - 1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <tr>
+                  <td colspan="3">Nguyên mono bào<small class="float-right">(Monoblast)</small></td>
+                  <td class="text-center">0 - 1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="3">Tiền mono<small class="float-right">(Promonocyte)</small></td>
+                  <td class="text-center">0 - 1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="3">Mono<small class="float-right">(Monocyte)</small></td>
+                  <td class="text-center">1 - 2</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <tr>
+                  <td colspan="3">Nguyên tiền hồng cầu<small class="float-right">(Proerythroblast)</small></td>
+                  <td class="text-center">0 - 1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="3">Nguyên hồng cầu ưa ba zơ<small class="float-right">(Erythroblast basophil)</small></td>
+                  <td class="text-center">0,8 - 8</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="3">Nguyên hồng cầu đa sắc<small class="float-right">(Erythroblast polycromatophil)</small></td>
+                  <td class="text-center">2,6 - 12</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="3">Hồng cầu lưới</td>
+                  <td class="text-center">0,5 – 1,2</td>
+                  <td></td>
+                  <td></td>
+                </tr> -->
+          <!-- lỗi chưa hiện đúng ô -->
+          <!-- <tr>
+                  <td colspan="2">Nguyên mẫu tiểu cầu <small>(Megakaryoblast)</small></td>
+                  <td rowspan="4">% tế bào dòng MTC</td>
+                  <td class="text-center">0 - 3</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="2">Mẫu tiểu cầu ưa ba zơ<small>(Megakaryocyte basophil)</small></td>
+                  <td class="text-center">5 - 18</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="2">MTC hạt chưa sinh tiểu cầu<small>(Megakariocyte granular)</small></td>
+                  <td class="text-center">38 - 54</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="2">MTC hạt đang sinh tiểu cầu <small>(Megakariocyte mature)</small></td>
+                  <td class="text-center">21 - 41</td>
+                  <td></td>
+                  <td></td>
+                </tr> -->
+
+          <!-- <tr>
+                  <td colspan="3">MTC nhân tự do (nhân trơ)</td>
+                  <td class="text-center">< 5</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="3">Tế bào khác</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </table>
+            </section>
+
+          </font>          
+
+          <div>
+            <label>30. Phieu xet nghiem chan doan roi loan dong cam mau</label>
+          </div>
+          <div class="row">
+            <div class="col-8"> 
+              <span>{{ hsba.emrCoSoKhamBenh.donvichuquan }}</span><br>
+              <span>{{ hsba.emrCoSoKhamBenh.ten }}</span>
+            </div>
+            <div class="col-4">
+              <span>MS: 30/BV-01</span><br>
+              <span>Số:</span> <span>........</span>
+            </div>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <h5> PHIẾU XÉT NGHIỆM <br>
+            <b>HUYẾT HỌC</b>
+            </h5>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <input disabled type="checkbox"> <span class="mr-3">Thường</span>
+            <input disabled type="checkbox"> <span class="mr-3">Cấp cứu</span>
+          </div>
+
+          <font>
+            <div class="row">
+              <div class="col-6">
+                <span>Họ tên người bệnh:</span> <b><span class='text-uppercase'>{{ hsba.emrBenhNhan.tendaydu }}</span></b><br>
+              </div>
+              <div class="col-3">
+                <span>Tuổi:</span> <span>{{ hsba.tuoiBenhNhan }}</span>
+              </div>
+              <div class="col-3">
+                <span>Giới tính:</span> <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span><br>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <span>Địa chỉ: {{hsba.emrBenhNhan.diachi}}</span>
+              </div>
+              <div class="col-6">
+                <label>Số thẻ BHYT:</label>
+                <form class="form-inline input-lr2 float-right">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(0,2)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(2,3)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(3,5)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(5)" class="form-control form-control-sm text-placeholder w-140px">
+                </form>
+              </div>
+
+            </div>
+            <div class="row"> 
+              <div class="col-6"> 
+                <span>Khoa:...</span>
+              </div>
+              <div class="col-3">
+                <span>Buồng:...</span>
+              </div>
+              <div class="col-3">
+                <span>Giường:...</span>
+              </div>
+            </div>
+            <div>
+              <span>Chẩn đoán lâm sàng: ....</span>
+            </div>
+            <div>
+              <span>Tóm tắt bệnh lý: ....</span>
+            </div>
+
+            <section>
+              <table class="table table-bordered">
+                <tr>
+                  <th style="width: 5%;" class="text-center">STT</th>
+                  <th style="width: 55%;" class="text-center">TÊN XÉT NGHIỆM</th>
+                  <th style="width: 10%;" class="text-center">ĐƠN VỊ</th>
+                  <th style="width: 15%;" class="text-center">CHỈ SỐ BÌNH THƯỜNG</th>
+                  <th style="width: 15%;" class="text-center">KẾT QUẢ CỦA BỆNH NHÂN</th>
+                </tr>
+                <tr>
+                  <td class="text-center">1</td>
+                  <td>Thời gian máu chảy</td>
+                  <td class="text-center">Phút</td>
+                  <td class="text-center"> &le; 4</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="text-center">2</td>
+                  <td>Thời gian máu đông</td>
+                  <td class="text-center">Phút</td>
+                  <td class="text-center"> 7-10</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="text-center">3</td>
+                  <td>Co cục má </td>
+                  <td class="text-center">Mức độ</td>
+                  <td class="text-center">Co hoàn toàn</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="text-center" rowspan="3">4</td>
+                  <td rowspan="3">PT(Prothrombin Time - thời gian Prothrombin)</td>
+                  <td class="text-center">Giây</td>
+                  <td class="text-center"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="text-center">%</td>
+                  <td class="text-center">> 70</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="text-center">INR</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="text-center">5</td>
+                  <td>Thời gian Howell</td>
+                  <td class="text-center">Phút</td>
+                  <td class="text-center">1’15” - 2’30”</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="text-center" rowspan="2">6</td>
+                  <td rowspan="2">APTT (Activated Partial Thromboplastin Time - thời gian thromboplastin từng phần hoạt hóa)</td>
+                  <td class="text-center">Giây</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="text-center">Chỉ số bệnh/chứng</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="text-center" rowspan="2">7</td>
+                  <td rowspan="2">TT (Thrombin Time - thời gian thrombin)</td>
+                  <td class="text-center">Giây</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="text-center">Chỉ số bệnh/chứng</td>
+                  <td></td>
+                  <td></td>
+                </tr>                
+                <tr>
+                  <td class="text-center">8</td>
+                  <td>Nghiệm pháp rượu</td>
+                  <td class="text-center">Dương, âm</td>
+                  <td class="text-center">Âm</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="text-center">9</td>
+                  <td>Nghiệm pháp Von Kaulla</td>
+                  <td class="text-center">Dương, âm</td>
+                  <td class="text-center">Âm</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="text-center">10</td>
+                  <td>Ngưng tập tiểu cầu với ADP</td>
+                  <td class="text-center">%</td>
+                  <td class="text-center"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="text-center">11</td>
+                  <td>Ngưng tập tiểu cầu với collagen</td>
+                  <td class="text-center">%</td>
+                  <td class="text-center"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="text-center">12</td>
+                  <td>Ngưng tập tiểu cầu với Ristocetin</td>
+                  <td class="text-center">%</td>
+                  <td class="text-center"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="text-center">13</td>
+                  <td>Yếu tố 3 tiểu cầu</td>
+                  <td class="text-center">%</td>
+                  <td class="text-center"></td>
+                  <td></td>
+                </tr> 
+                <tr>
+                  <td class="text-center">14</td>
+                  <td>Yếu tố 4 tiểu cầu</td>
+                  <td class="text-center">giây</td>
+                  <td class="text-center"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="text-center">15</td>
+                  <td>Định lượng yếu tố đông máu :</td>
+                  <td class="text-center">%</td>
+                  <td class="text-center"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td class="text-center">16</td>
+                  <td>F.D.P (Fibrin Degradation Product - sản phẩm thoái giáng sợi huyết)</td>
+                  <td class="text-center">&mu;g/ml</td>
+                  <td class="text-center">&lt; 5 &mu;g/ml</td>
+                  <td></td>
+                </tr>                
+                <tr>
+                  <td class="text-center">17</td>
+                  <td>D -dimer</td>
+                  <td class="text-center">&mu;g/ml</td>
+                  <td class="text-center">&lt; 0,05 &mu;g/ml</td>
+                  <td></td>
+                </tr>                
+                <tr>
+                  <td class="text-center">18</td>
+                  <td>Xét nghiệm khác</td>
+                  <td class="text-center"></td>
+                  <td class="text-center"></td>
+                  <td></td>
+                </tr>
+              </table>
+            </section>
+
+
+
+
+            <section class="mb-4">
+              <div class="row align-items-end">
+                <div class="col text-center">
+                  <i class="mb-2">... Giờ ... ngày ... tháng ... năm ...</i>
+                  <h6 class="mb-5"> <b>BÁC SĨ ĐIỀU TRỊ</b> 
+                    </h6>
+                  <br>
+                  <p>Họ và tên <b>bác sĩ điều trị</b></p>
+                </div>
+                <div class="col text-center">
+                  <i class="mb-2">... Giờ ... ngày ... tháng ... năm ...</i>
+                  <h6 class="text-center mb-5"><b>TRƯỞNG KHOA XÉT NGHIỆM</b></h6>
+                  <br>
+                  <p>Họ và tên <b>trưởng khoa xét nghiệm</b></p>
+                </div>
+              </div>
+            </section>               
+          </font>
+
+          <div>
+            <label>31. Phieu xet nghiem sinh thiet tuy xuong</label>
+          </div>
+          <div class="row">
+            <div class="col-8"> 
+              <span>{{ hsba.emrCoSoKhamBenh.donvichuquan }}</span><br>
+              <span>{{ hsba.emrCoSoKhamBenh.ten }}</span>
+            </div>
+            <div class="col-4">
+              <span>MS: 31/BV-01</span><br>
+              <span>Số:</span> <span>........</span>
+            </div>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <h5> PHIẾU XÉT NGHIỆM <br>
+            <b>SINH THIẾT TUỶ XƯƠNG</b>
+            </h5>
+          </div>
+
+          <font>
+            <div class="row">
+              <div class="col-6">
+                <span>Họ tên người bệnh:</span> <b><span class='text-uppercase'>{{ hsba.emrBenhNhan.tendaydu }}</span></b><br>
+              </div>
+              <div class="col-3">
+                <span>Tuổi:</span> <span>{{ hsba.tuoiBenhNhan }}</span>
+              </div>
+              <div class="col-3">
+                <span>Giới tính:</span> <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span><br>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <span>Địa chỉ: {{hsba.emrBenhNhan.diachi}}</span>
+              </div>
+              <div class="col-6">
+                <label>Số thẻ BHYT:</label>
+                <form class="form-inline input-lr2 float-right">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(0,2)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(2,3)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(3,5)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(5)" class="form-control form-control-sm text-placeholder w-140px">
+                </form>
+              </div>
+
+            </div>
+            <div class="row"> 
+              <div class="col-6"> 
+                <span>Khoa:...</span>
+              </div>
+              <div class="col-3">
+                <span>Buồng:...</span>
+              </div>
+              <div class="col-3">
+                <span>Giường:...</span>
+              </div>
+            </div>
+            <div>
+              <span>Chẩn đoán lâm sàng: ....</span>
+            </div>
+
+
+
+
+            <section class="mb-4">
+              <div class="row align-items-end">
+                <div class="col text-center">
+                  <i>Sinh thiết: ... giờ ... ngày ... tháng ... năm ...</i>  
+                </div>
+                <div class="col text-center">
+                  <i class="mb-2">... Giờ ... ngày ... tháng ... năm ...</i>
+                  <h6 class="text-center mb-5"><b>BÁC SĨ ĐIỀU TRỊ</b></h6>
+                  <br>
+                  <p>Họ và tên <b>bác sĩ điều trị/b></p><br>
+                  <i>Số:....................................</i>
+
+                </div>
+              </div>
+              <div class="text-center">
+                <h6><strong>KẾT QUẢ</strong> </h6>
+              </div>
+              <div class="ml-2">
+                <span>....................................</span><br>
+                <span>....................................</span><br>
+                <span>....................................</span><br>
+              </div>
+              <div class="ml-2">
+                <strong>KẾT LUẬN:</strong><span>..................</span><br>
+                <span>............................................</span><br>
+                
+              </div>
+              <div class="ml-2">
+                <strong>ĐỀ NGHỊ:</strong><span>..................</span><br>
+                <span>...........................................</span><br>
+              </div>
+              <div class="row align-items-end">
+                <div class="col text-center offset-6">
+                  <i class="mb-2"> Ngày ... tháng ... năm ...</i>
+                  <h6 class="text-center mb-5"><b>TRƯỞNG KHOA XÉT NGHIỆM</b></h6>
+                  <br>
+                  <p>Họ và tên <b>bác sĩ xét nghiệm </b></p>
+                </div>
+              </div>                            
+            </section>               
+          </font>
+
+          <div>
+            <label>32. Phieu xet nghiem nuoc dich</label>
+          </div>
+          <div class="row">
+            <div class="col-8"> 
+              <span>{{ hsba.emrCoSoKhamBenh.donvichuquan }}</span><br>
+              <span>{{ hsba.emrCoSoKhamBenh.ten }}</span>
+            </div>
+            <div class="col-4">
+              <span>MS: 32/BV-01</span><br>
+              <span>Số:</span> <span>........</span>
+            </div>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <h5> PHIẾU XÉT NGHIỆM <br>
+            <b>TẾ BÀO NƯỚC DỊCH</b>
+            </h5>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <input disabled type="checkbox"> <span class="mr-3">Thường</span>
+            <input disabled type="checkbox"> <span class="mr-3">Cấp cứu</span>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <span>Bệnh phẩm: .......................................................................</span>
+          </div>
+
+          <font>
+            <div class="row">
+              <div class="col-6">
+                <span>Họ tên người bệnh:</span> <b><span class='text-uppercase'>{{ hsba.emrBenhNhan.tendaydu }}</span></b><br>
+              </div>
+              <div class="col-3">
+                <span>Tuổi:</span> <span>{{ hsba.tuoiBenhNhan }}</span>
+              </div>
+              <div class="col-3">
+                <span>Giới tính:</span> <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span><br>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <span>Địa chỉ: {{hsba.emrBenhNhan.diachi}}</span>
+              </div>
+              <div class="col-6">
+                <label>Số thẻ BHYT:</label>
+                <form class="form-inline input-lr2 float-right">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(0,2)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(2,3)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(3,5)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(5)" class="form-control form-control-sm text-placeholder w-140px">
+                </form>
+              </div>
+
+            </div>
+            <div class="row"> 
+              <div class="col-6"> 
+                <span>Khoa:...</span>
+              </div>
+              <div class="col-3">
+                <span>Buồng:...</span>
+              </div>
+              <div class="col-3">
+                <span>Giường:...</span>
+              </div>
+            </div>
+            <div>
+              <span>Chẩn đoán: ....</span>
+            </div>
+
+            <div class="row ml-3 mt-3"> 
+              <span><b>1. Nước tiểu</b></span>
+            </div>
+
+            <table class="table table-bordered">
+              <tr>
+                <th class="text-center" style="width: 12,5%;" rowspan="2">Hồng cầu</th>
+                <th class="text-center" style="width: 12,5%;" rowspan="2">Bạch cầu</th>
+                <th class="text-center" style="width: 12,5%;" rowspan="2">Trụ hạt</th>
+                <th class="text-center" style="width: 12,5%;" rowspan="2">Trụ trong</th>
+                <th class="text-center" style="width: 12,5%;" rowspan="2">Trụ mỡ</th>
+                <th class="text-center" style="width: 12,5%;" colspan="3">Tế bào biểu mô</th>
+              </tr>
+              <tr>
+                <th class="text-center" >Thận</th>
+                <th class="text-center" >Niệu đạo</th>
+                <th class="text-center" >Bàng quang</th>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+
+            <table class="table table-bordered">
+              <tr>
+                <th class="text-center" style="width: 14%;">Cặn <br>oxalat</th>
+                <th class="text-center" style="width: 14%;">Cặn <br>cacbonat</th>
+                <th class="text-center" style="width: 14%;">Cặn <br>sulphat</th>
+                <th class="text-center" style="width: 14%;">Cặn <br>photphat</th>
+                <th class="text-center" style="width: 14%;">Cặn <br>urat</th>
+                <th class="text-center" style="width: 14%;">Cặn khác</th>
+                <th class="text-center" style="width: 14%;">Tinh trùng</th>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+
+            <div class="row">
+              <div class="col-2 mt-3 ml-3">
+                <span>
+                  <b>2.Nước não tuỷ:</b>
+                </span>
+              </div>
+              <div class="col-5">
+                <div class="row mt-3 mb-3 ml-4">
+                  <span>-  Số lượng HC (x 10<sup>12</sup>/l): </span>
+                </div>
+                <div class="row mb-3 ml-4">
+                  <span>-  Số lượng tế bào có nhân (x 10<sup>9</sup>/l): </span>
+                </div>
+                <div class="row mb-3 ml-5">
+                  <span>+ Bạch cầu đoạn trung tính (%):  </span>
+                </div>
+                <div class="row mb-3 ml-5">
+                  <span>+ Bạch cầu lympho: (%) </span>
+                </div>
+                <div class="row mb-3 ml-5">
+                  <span>+ Bạch cầu mono (%):</span>
+                </div>
+                <div class="row mb-3 ml-5">
+                  <span>+ Các tế bào khác (%): </span>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="row mt-3 mb-3">
+                  <span>......................</span>
+                </div>
+                <div class="row mb-3">
+                  <span>......................</span>
+                </div>
+                <div class="row mb-3">
+                  <span>......................</span>
+                </div>
+                <div class="row mb-3">
+                  <span>......................</span>
+                </div>
+                <div class="row mb-3">
+                  <span>......................</span>
+                </div>
+                <div class="row mb-3">
+                  <span>......................</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-2 mt-3 ml-3">
+                <span>
+                  <b>3. Dịch khác: </b>
+                </span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-2 mt-3 ml-3">
+                
+              </div>
+              <div class="col-5">
+                <div class="row mb-3 ml-5">
+                  <span>+ Hồng cầu (Có +/  Không -)</span>
+                </div>
+                <div class="row mb-3 ml-5">
+                  <span>+ Bạch cầu đoạn trung tính (%)</span>
+                </div>
+                <div class="row mb-3 ml-5">
+                  <span>+ Bạch cầu lympho (%):</span>
+                </div>
+                <div class="row mb-3 ml-5">
+                  <span>+ Bạch cầu mono (%)</span>
+                </div>
+                <div class="row mb-3 ml-5">
+                  <span>+ Các tế bào khác (%): </span>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="row mb-3">
+                  <span>......................</span>
+                </div>
+                <div class="row mb-3">
+                  <span>......................</span>
+                </div>
+                <div class="row mb-3">
+                  <span>......................</span>
+                </div>
+                <div class="row mb-3">
+                  <span>......................</span>
+                </div>
+                <div class="row mb-3">
+                  <span>......................</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="mt-3 ml-3 mb-3">
+                <span>....................................................................................................................................</span>
+              </div>
+            </div>
+
+            <section class="mb-4">
+              <div class="row align-items-end">
+                <div class="col text-center">
+                  <i class="mb-2">... Giờ ... ngày ... tháng ... năm ...</i>
+                  <h6 class="mb-5"> <b>BÁC SĨ ĐIỀU TRỊ</b> 
+                    </h6>
+                  <br>
+                  <p>Họ và tên <b>bác sĩ điều trị</b></p>
+                </div>
+                <div class="col text-center">
+                  <i class="mb-2">... Giờ ... ngày ... tháng ... năm ...</i>
+                  <h6 class="text-center mb-5"><b>TRƯỞNG KHOA XÉT NGHIỆM</b></h6>
+                  <br>
+                  <p>Họ và tên <b>trưởng khoa xét nghiệm</b></p>
+                </div>
+              </div>
+            </section> 
+
+          </font>
+
+          <div>
+            <label>33. Phieu xet nghiem hoa sinh mau</label>
+          </div>
+          <div class="row">
+            <div class="col-8"> 
+              <span>{{ hsba.emrCoSoKhamBenh.donvichuquan }}</span><br>
+              <span>{{ hsba.emrCoSoKhamBenh.ten }}</span>
+            </div>
+            <div class="col-4">
+              <span>MS: 33/BV-01</span><br>
+              <span>Số:</span> <span>........</span>
+            </div>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <h5><b>PHIẾU XÉT NGHIỆM HOÁ SINH MÁU</b></h5>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <input disabled type="checkbox"> <span class="mr-3">Thường</span>
+            <input disabled type="checkbox"> <span class="mr-3">Cấp cứu</span>
+          </div>
+
+          <font>
+            <div class="row">
+              <div class="col-6">
+                <span>Họ tên người bệnh:</span> <b><span class='text-uppercase'>{{ hsba.emrBenhNhan.tendaydu }}</span></b><br>
+              </div>
+              <div class="col-3">
+                <span>Tuổi:</span> <span>{{ hsba.tuoiBenhNhan }}</span>
+              </div>
+              <div class="col-3">
+                <span>Giới tính:</span> <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span><br>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <span>Địa chỉ: {{hsba.emrBenhNhan.diachi}}</span>
+              </div>
+              <div class="col-6">
+                <label>Số thẻ BHYT:</label>
+                <form class="form-inline input-lr2 float-right">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(0,2)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(2,3)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(3,5)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(5)" class="form-control form-control-sm text-placeholder w-140px">
+                </form>
+              </div>
+
+            </div>
+            <div class="row"> 
+              <div class="col-6"> 
+                <span>Khoa:...</span>
+              </div>
+              <div class="col-3">
+                <span>Buồng:...</span>
+              </div>
+              <div class="col-3">
+                <span>Giường:...</span>
+              </div>
+            </div>
+            <div>
+              <span>Chẩn đoán: ....</span>
+            </div>
+
+            <table class="table table-bordered">
+              <tr>
+                <th class="text-center" style="width: 15%;">Tên <br>xét nghiệm</th>
+                <th class="text-center" style="width: 25%;">Trị số <br>bình thường</th>
+                <th class="text-center" style="width: 10%;">Kết quả</th>
+                <th class="text-center" style="width: 15%;">Tên <br>xét nghiệm</th>
+                <th class="text-center" style="width: 25%;">Trị số <br>bình thường</th>
+                <th class="text-center" style="width: 10%;">Kết quả</th>
+              </tr>
+              <tr>
+                <td>Urê</td>
+                <td class="text-right">2,5-7,5 mmol/L</td>
+                <td></td>
+                <td>Sắt</td>
+                <td class="text-right">Nam: 11-27 &mu;mol/L <br>Nữ : 7-26 &mu;mol/L</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Glucose</td>
+                <td class="text-right">3,9- 6,4 mmol/L</td>
+                <td></td>
+                <td>Magiê</td>
+                <td class="text-right">0,8- 1,00 mmol/L</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Creatinin</td>
+                <td class="text-right">Nam: 62- 120 &mu;mol/L <br>Nữ   : 53- 100 &mu;mol/L</td>
+                <td></td>
+                <td>AST (GOT)</td>
+                <td class="text-right">&le; 37 U/L- 37<sup>0</sup>C</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Acid Uric</td>
+                <td class="text-right">Nam:180- 420 &mu;mol/L <br>Nữ : 150- 360 &mu;mol/L</td>
+                <td></td>
+                <td>ALT (GPT)</td>
+                <td class="text-right">&le; 40 U/L- 370 C</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>BilirubinT.P</td>
+                <td class="text-right">&le; 17 &mu; mol/L</td>
+                <td></td>
+                <td>Amylase</td>
+                <td class="text-right"></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>BilirubinT.T</td>
+                <td class="text-right">&le; 4,3 &mu;mol/L</td>
+                <td></td>
+                <td>CK</td>
+                <td class="text-right">Nam: 24-190U/L- 37<sup>0</sup><br>Nữ: 24- 167 U/L- 37<sup>0</sup></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>BilirubinG.T</td>
+                <td class="text-right">&le; 12,7 &mu;mol/L</td>
+                <td></td>
+                <td>CK-MB</td>
+                <td class="text-right">&le; 24 U/L- 37<sup>0</sup></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>ProteinT.P</td>
+                <td class="text-right">65- 82 g/L</td>
+                <td></td>
+                <td>LDH</td>
+                <td class="text-right">230- 460 U/L- 37<sup>0</sup></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Albumin</td>
+                <td class="text-right">35- 50 g/L</td>
+                <td></td>
+                <td>GGT</td>
+                <td class="text-right">Nam: 11- 50 U/L- 37<sup>0</sup><br>Nữ: 7- 32 U/L- 37<sup>0</sup></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Globulin</td>
+                <td class="text-right">24- 38 g/L</td>
+                <td></td>
+                <td>Cholinesterase</td>
+                <td class="text-right">5300- 12900 U/L- 37<sup>0</sup></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Tỷ lệ A/G</td>
+                <td class="text-right">1,3-1,8</td>
+                <td></td>
+                <td>Phosphatase <br>kiềm</td>
+                <td class="text-right"></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Fibrinogen</td>
+                <td class="text-right">2- 4 g/L</td>
+                <td></td>
+                <td colspan="2" class="text-center"><b>Các xét nghiệm khí máu</b></td>  
+                <td></td>              
+              </tr>
+              <tr>
+                <td>Cholesterol</td>
+                <td class="text-right">3,9- 5,2 mmol/L</td>
+                <td></td>
+                <td>pH động mạch</td>
+                <td class="text-right">7,37- 7,45</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Triglycerid</td>
+                <td class="text-right">0,46- 1,88 mmol/L</td>
+                <td></td>
+                <td>pCO<sub>2</sub></td>
+                <td class="text-right">Nam: 35- 46 mmHg <br>Nữ: 32- 43 mmHg</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>HDL- cho.</td>
+                <td class="text-right">&ge; 0,9 mmol/L</td>
+                <td></td>
+                <td>pO<sub>2</sub> động mạch</td>
+                <td class="text-right">71- 104 mmHg</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>LDL- cho.</td>
+                <td class="text-right">&le; 3,4 mmol/L</td>
+                <td></td>
+                <td>HCO <sub>3</sub> chuẩn</td>
+                <td class="text-right">21- 26 mmol/L</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Na <sup>+</sup></td>
+                <td class="text-right">135- 145 mmol/L</td>
+                <td></td>
+                <td>Kiềm dư</td>
+                <td class="text-right">-2 đến +3 mmol/L</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>K<sup>+</sup></td>
+                <td class="text-right">3,5- 5 mmol/L</td>
+                <td></td>
+                <td class="text-center" colspan="2">Các xét nghiệm khác</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Cl<sup>-</sup></td>
+                <td class="text-right">98- 106 mmol/L</td>
+                <td></td>
+                <td>-</td>
+                <td class="text-right"></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Calci</td>
+                <td class="text-right">2,15- 2,6 mmol/L</td>
+                <td></td>
+                <td>-</td>
+                <td class="text-right"></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Calci ion hoá</td>
+                <td class="text-right">1,17- 1,29 mmol/L</td>
+                <td></td>
+                <td>-</td>
+                <td class="text-right"></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Phospho</td>
+                <td class="text-right">TE: 1,3- 2,2 mmol/L <br>NL: 0,9- 1,5 mmol/L</td>
+                <td></td>
+                <td>-</td>
+                <td class="text-right"></td>
+                <td></td>
+              </tr>
+            </table>
+
+            <section class="mb-4">
+              <div class="row align-items-end">
+                <div class="col text-center">
+                  <i class="mb-2">... Giờ ... ngày ... tháng ... năm ...</i>
+                  <h6 class="mb-5"> <b>BÁC SĨ ĐIỀU TRỊ</b> 
+                    </h6>
+                  <br>
+                  <p>Họ và tên <b>bác sĩ điều trị</b></p>
+                </div>
+                <div class="col text-center">
+                  <i class="mb-2">... Giờ ... ngày ... tháng ... năm ...</i>
+                  <h6 class="text-center mb-5"><b>TRƯỞNG KHOA XÉT NGHIỆM</b></h6>
+                  <br>
+                  <p>Họ và tên <b>trưởng khoa xét nghiệm</b></p>
+                </div>
+              </div>
+            </section> 
+
+          </font>
+
+          <div>
+            <label>34. Phieu xet nghiem hoa sinh nuoc tieu, phan, dịch choc do</label>
+          </div>
+          <div class="row">
+            <div class="col-8"> 
+              <span>{{ hsba.emrCoSoKhamBenh.donvichuquan }}</span><br>
+              <span>{{ hsba.emrCoSoKhamBenh.ten }}</span>
+            </div>
+            <div class="col-4">
+              <span>MS: 34/BV-01</span><br>
+              <span>Số:</span> <span>........</span>
+            </div>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <label><b>PHIẾU XÉT NGHIỆM HOÁ SINH</b></label>
+            <h5><b>NƯỚC TIỂU, PHÂN, DỊCH CHỌC DÒ</b></h5>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <input disabled type="checkbox"> <span class="mr-3">Thường</span>
+            <input disabled type="checkbox"> <span class="mr-3">Cấp cứu</span>
+          </div>
+
+          <font>
+            <div class="row">
+              <div class="col-6">
+                <span>Họ tên người bệnh:</span> <b><span class='text-uppercase'>{{ hsba.emrBenhNhan.tendaydu }}</span></b><br>
+              </div>
+              <div class="col-3">
+                <span>Tuổi:</span> <span>{{ hsba.tuoiBenhNhan }}</span>
+              </div>
+              <div class="col-3">
+                <span>Giới tính:</span> <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span><br>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <span>Địa chỉ: {{hsba.emrBenhNhan.diachi}}</span>
+              </div>
+              <div class="col-6">
+                <label>Số thẻ BHYT:</label>
+                <form class="form-inline input-lr2 float-right">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(0,2)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(2,3)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(3,5)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(5)" class="form-control form-control-sm text-placeholder w-140px">
+                </form>
+              </div>
+
+            </div>
+            <div class="row"> 
+              <div class="col-6"> 
+                <span>Khoa:...</span>
+              </div>
+              <div class="col-3">
+                <span>Buồng:...</span>
+              </div>
+              <div class="col-3">
+                <span>Giường:...</span>
+              </div>
+            </div>
+            <div>
+              <span>Chẩn đoán: ....</span>
+            </div>
+
+            <table class="table table-bordered mt-3">
+              <tr>
+                <th class="text-center" style="width: 35%;">XÉT NGHIỆM</th>
+                <th class="text-center" style="width: 15%;">KẾT QUẢ</th>
+                <th class="text-center" style="width: 35%;">XÉT NGHIỆM</th>
+                <th class="text-center" style="width: 15%;">KẾT QUẢ</th>
+              </tr>
+              <tr>
+                <td class="text-center"><b>Nước tiểu thường quy cơ bản</b></td>
+                <td class="text-right"></td>
+                <td class="text-center"><b>Phân</b></td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>Tỉ trọng <span class="float-right">(1,015- 1,025)</span></td>
+                <td class="text-right"></td>
+                <td>Huyết sắc tố</td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>pH <span class="float-right">(4,8- 7,4)</span></td>
+                <td class="text-right"></td>
+                <td>Stecobilin</td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>Bạch cầu<span class="float-right">(< 10 /&mu;L)</span></td>
+                <td class="text-right"></td>
+                <td>Stecobilinogen</td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>Hồng cầu<span class="float-right"> (< 5/&mu;L)</span></td>
+                <td class="text-right"></td>
+                <td>Máu toàn phần trong phân</td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>Nitrit<span class="float-right">(âm tính)</span></td>
+                <td class="text-right"></td>
+                <td>XN khác:</td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>Protein<span class="float-right">(< 0,1 g/L)</span></td>
+                <td class="text-right"></td>
+                <td>-</td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>Glucose<span class="float-right">(< 0,84 mmol/L)</span></td>
+                <td class="text-right"></td>
+                <td class="text-center"><b>Dịch não tuỷ</b></td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>Thể cetonic<span class="float-right">(< 5 mmol/L)</span></td>
+                <td class="text-right"></td>
+                <td>Protein <span class="float-right">(< 0,45 g/L)</span></td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>Bilirubin<span class="float-right">(< 3,4 &mu;mol/L)</span></td>
+                <td class="text-right"></td>
+                <td>Glucose<span class="float-right">(2,2- 3,8 mmol/L)</span></td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>Urobilinogen<span class="float-right">(< 16,9 &mu;mol/L)</span></td>
+                <td class="text-right"></td>
+                <td>Clorua<span class="float-right">(120- 130 mmol/L)</span></td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>Dưỡng chấp</td>
+                <td class="text-right"></td>
+                <td>Phản ứng Pandy</td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>Porphyrin</td>
+                <td class="text-right"></td>
+                <td>XN khác:</td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>Protein Bence- Jones</td>
+                <td class="text-right"></td>
+                <td>-</td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td class="text-center"><b>Nước tiểu 24 giờ</b></td>
+                <td class="text-right"></td>
+                <td class="text-center"><b>Dịch vị</b></td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>Tổng thể tích<span class="float-right">(L)</span></td>
+                <td class="text-right"></td>
+                <td>HCl tự do/ đói:..<span class="float-right">(14-16 mmol/L)</span></td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>Protein<span class="float-right">(0,05- 0,07 g/d)</span></td>
+                <td class="text-right"></td>
+                <td>HCl toàn phần/ đói:..<span class="float-right">(25 mmol/L)</span></td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>Glucose<span class="float-right">(0,3- 1,1 mmol/d)</span></td>
+                <td class="text-right"></td>
+                <td>XN khác:</td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>Urê  <span class="float-right">(300- 550 mmol/d)</span></td>
+                <td class="text-right"></td>
+                <td>-</td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>Creatinin<span class="float-right">(9- 22 mmol/d)</span></td>
+                <td class="text-right"></td>
+                <td class="text-center"><b>Dịch chọc dò khác</b></td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>Acid uric<span class="float-right">(1,5- 4,5 mmol/d)</span></td>
+                <td class="text-right"></td>
+                <td>Phản ứng Rivalta</td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>Amylase <span class="float-right">(< 900 U/d- 37<sup>0</sup>C)</span></td>
+                <td class="text-right"></td>
+                <td>Protein<span class="float-right">(g/L)</span></td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>Na<sup>+</sup><span class="float-right">(100- 300 mmol/d)</span></td>
+                <td class="text-right"></td>
+                <td class="text-center"><b>Xét nghiệm khác:</b></td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td>K <sup>+</sup><span class="float-right">(35- 80 mmol/d)</span></td>
+                <td class="text-right"></td>
+                <td>-</td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="text-right"></td>
+                <td>-</td>
+                <td class="text-right"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="text-right"></td>
+                <td>-</td>
+                <td class="text-right"></td>
+              </tr>
+            </table>
+
+            <section class="mb-4">
+              <div class="row align-items-end">
+                <div class="col text-center">
+                  <i class="mb-2">... Giờ ... ngày ... tháng ... năm ...</i>
+                  <h6 class="mb-5"> <b>BÁC SĨ ĐIỀU TRỊ</b> 
+                    </h6>
+                  <br>
+                  <p>Họ và tên <b>bác sĩ điều trị</b></p>
+                </div>
+                <div class="col text-center">
+                  <i class="mb-2">... Giờ ... ngày ... tháng ... năm ...</i>
+                  <h6 class="text-center mb-5"><b>TRƯỞNG KHOA XÉT NGHIỆM</b></h6>
+                  <br>
+                  <p>Họ và tên <b>trưởng khoa xét nghiệm</b></p>
+                </div>
+              </div>
+            </section> 
+          </font>
+
+          <div>
+            <label>35. Phieu xet nghiem vi sinh</label>
+          </div>
+          <div class="row">
+            <div class="col-8"> 
+              <span>{{ hsba.emrCoSoKhamBenh.donvichuquan }}</span><br>
+              <span>{{ hsba.emrCoSoKhamBenh.ten }}</span>
+            </div>
+            <div class="col-4">
+              <span>MS: 35/BV-01</span><br>
+              <span>Số:</span> <span>........</span>
+            </div>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <h5><b>PHIẾU XÉT NGHIỆM VI SINH</b></h5>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <input disabled type="checkbox"> <span class="mr-3">Thường</span>
+            <input disabled type="checkbox"> <span class="mr-3">Cấp cứu</span>
+          </div>
+
+          <font>
+            <div class="row">
+              <div class="col-6">
+                <span>Họ tên người bệnh:</span> <b><span class='text-uppercase'>{{ hsba.emrBenhNhan.tendaydu }}</span></b><br>
+              </div>
+              <div class="col-3">
+                <span>Tuổi:</span> <span>{{ hsba.tuoiBenhNhan }}</span>
+              </div>
+              <div class="col-3">
+                <span>Giới tính:</span> <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span><br>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <span>Địa chỉ: {{hsba.emrBenhNhan.diachi}}</span>
+              </div>
+              <div class="col-6">
+                <label>Số thẻ BHYT:</label>
+                <form class="form-inline input-lr2 float-right">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(0,2)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(2,3)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(3,5)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(5)" class="form-control form-control-sm text-placeholder w-140px">
+                </form>
+              </div>
+
+            </div>
+            <div class="row"> 
+              <div class="col-6"> 
+                <span>Khoa:...</span>
+              </div>
+              <div class="col-3">
+                <span>Buồng:...</span>
+              </div>
+              <div class="col-3">
+                <span>Giường:...</span>
+              </div>
+            </div>
+            <div>
+              <span>Chẩn đoán: ....</span>
+            </div>
+
+            <table class="table table-bordered mt-3">
+              <tr>
+                <th class="text-center" colspan="2" style="width: 50%;">YÊU CẦU XÉT NGHIỆM</th>
+                <th class="text-center" style="width: 50%;">KẾT QUẢ</th>
+              </tr>
+              <tr>
+                <td rowspan="3" style="width: 15%;">Trực tiếp</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td rowspan="3" style="width: 15%;">Nuôi cấy</td>
+                <td>Vi khuẩn ái khí:  </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Vi khuẩn kỵ khí:</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td rowspan="2" style="width: 15%;">Phản ứng HT</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+
+            <section class="mb-4">
+              <div class="row align-items-end">
+                <div class="col text-center offset-6">
+                  <i class="mb-2">... Giờ ... ngày ... tháng ... năm ...</i>
+                  <h6 class="text-center mb-5"><b>BÁC SĨ ĐIỀU TRỊ</b></h6>
+                  <br>
+                  <p>Họ và tên <b>bác sĩ điều trị</b></p><br>
+                </div>
+              </div>
+            </section> 
+
+            <div>
+              <span> <b>Chủng vi khuẩn làm kháng sinh đồ:</b> ...................... 	</span>
+            </div>
+            <div>
+              <small class="float-right">S: nhậy cảm; I: trung gian; R: kháng</small>
+            </div>
+            <table class="table table-bordered"> 
+              <tr>
+                <th style="width: 20%;">Kháng sinh</th>
+                <th style="width: 10%;"class="text-center">S</th>
+                <th style="width: 10%;"class="text-center">I</th>
+                <th style="width: 10%;"class="text-center">R</th>
+                <th style="width: 20%;">Kháng sinh</th>
+                <th style="width: 10%;"class="text-center">S</th>
+                <th style="width: 10%;"class="text-center">I</th>
+                <th style="width: 10%;"class="text-center">R</th>
+              </tr>
+              <tr>
+                <td>Penicilline</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td>Erythromycine</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td>Ampicilline</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td>Tetracycline</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td>Amo+A.clavulanic</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td>Doxycycline</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td>Aztreonam</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td>Nalidixic acid</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td>Mezlocilline</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td>Nofloxacine</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td>Oxacilline/ phế</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td>Ciprofloxacine</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td>Oxacilline/ tụ</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td>Ofloxacine</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td>Cephalotine</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td>Gentamycine</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td>Cefuroxime</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td>Tobramycine</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td>Ceftazidime</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td>Amikacine</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td>Cefotaxime</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td>Netromycine</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td>Ceftriaxone</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td>Co-trimoxazol</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td>Cefoperazone</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td>Nitroxoline</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td>Cefepime</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td><b>Kháng sinh khác:</b></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td>Vancomycin</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td>-</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td>Clindamycin</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td>-</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td>Chloramphenicol</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td>-</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+              </tr>
+            </table>
+
+            <section class="mb-4">
+              <div class="row align-items-end">
+                <div class="col text-center offset-6">
+                  <i class="mb-2">... Giờ ... ngày ... tháng ... năm ...</i>
+                  <h6 class="text-center mb-5"><b>Bác sĩ trưởng khoa xét nghiệm</b></h6>
+                  <br>
+                  <p>Họ và tên <b>bác sĩ xét nghiệm</b></p><br>
+                </div>
+              </div>
+            </section> 
+          </font>
+
+          <div>
+            <label>36. Phieu xet nghiem giai phau benh sinh thiet</label>
+          </div>
+          <div class="row">
+            <div class="col-8"> 
+              <span>{{ hsba.emrCoSoKhamBenh.donvichuquan }}</span><br>
+              <span>{{ hsba.emrCoSoKhamBenh.ten }}</span>
+            </div>
+            <div class="col-4">
+              <span>MS: 36/BV-01</span><br>
+              <span>Số:</span> <span>........</span>
+            </div>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <h5>
+              <label>PHIẾU XÉT NGHIỆM </label> <br>
+              <b>GIẢI PHẪU BỆNH SINH THIẾT</b>
+            </h5>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <input disabled type="checkbox"> <span class="mr-3">Thường</span>
+            <input disabled type="checkbox"> <span class="mr-3">Cấp cứu</span>
+          </div>
+
+          <font>
+            <div class="row">
+              <div class="col-6">
+                <span>Họ tên người bệnh:</span> <b><span class='text-uppercase'>{{ hsba.emrBenhNhan.tendaydu }}</span></b><br>
+              </div>
+              <div class="col-3">
+                <span>Tuổi:</span> <span>{{ hsba.tuoiBenhNhan }}</span>
+              </div>
+              <div class="col-3">
+                <span>Giới tính:</span> <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span><br>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <span>Địa chỉ: {{hsba.emrBenhNhan.diachi}}</span>
+              </div>
+              <div class="col-6">
+                <label>Số thẻ BHYT:</label>
+                <form class="form-inline input-lr2 float-right">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(0,2)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(2,3)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(3,5)" class="form-control form-control-sm text-placeholder w-60px">
+                  <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(5)" class="form-control form-control-sm text-placeholder w-140px">
+                </form>
+              </div>
+
+            </div>
+            <div class="row"> 
+              <div class="col-6"> 
+                <span>Khoa:...</span>
+              </div>
+              <div class="col-3">
+                <span>Buồng:...</span>
+              </div>
+              <div class="col-3">
+                <span>Giường:...</span>
+              </div>
+            </div>
+            <div class="row ml-3 mb-2">
+              <span>- Yêu cầu xét nghiệm: .........</span>
+            </div>
+            <div class="row ml-3 mb-2">
+              <span>- Sinh thiết được lấy từ: .........</span>
+            </div>
+            <div class="row ml-3 mb-2">
+              <span>- Cố định bằng dung dịch: .........</span> <span class="float-right">lúc ... giờ ..., ngày ... / ... / ...</span>
+            </div>
+            <div class="row ml-3 mb-2">
+              <span>- Tóm tắt dấu hiệu lâm sàng chính và các xét nghiệm khác: .........</span>
+            </div>
+            <div class="row ml-3 mb-2">
+              <span>- Quá trình điều trị: .........</span>
+            </div>
+            <div class="row ml-3 mb-2">
+              <span>- Nhận xét đại thể khi lấy sinh thiết: .........</span>
+            </div>
+            <div class="row ml-3 mb-2">
+              <span>- Kết quả sinh thiết lần trước (nếu có): .........</span>
+            </div>
+            <div class="row ml-3 mb-2">
+              <span>- Chẩn đoán lâm sàng: .........</span>
+            </div>
+            <section class="mb-4">
+              <div class="row align-items-end">
+                <div class="col text-center offset-6">
+                  <i class="mb-2">Gửi ngày ... tháng ... năm ...</i>
+                  <h6 class="text-center mb-5"><b>BÁC SĨ ĐIỀU TRỊ</b></h6>
+                  <br>
+                  <p>Họ và tên <b>bác sĩ</b></p><br>
+                </div>
+              </div>
+            </section> 
+
+            <div>
+              <strong>KẾT QUẢ SINH THIẾT:</strong>
+            </div>
+            <div class="row ml-3 mb-2">
+              <div class="col-6">
+                <span>- Người pha bệnh phẩm: .........</span>
+              </div>
+              <div class="col-6">
+                <span>Pha ngày  ... / ... / ...</span>
+              </div>
+            </div>
+            <div class="row ml-3 mb-2">
+              <div class="col-6">
+                <span>- Số mảnh: .........</span>
+              </div>
+              <div class="col-6">
+                <span>Phương pháp nhuộm:....</span>
+              </div>
+            </div>
+            <div class="row ml-3 mb-2">
+              <div class="col-6">
+                <span>- Tiêu bản làm xong ngày ... / ... / ...</span>
+              </div>
+              <div class="col-6">
+                <span>Người làm tiêu bản:....</span>
+              </div>
+            </div>
+            <div>
+              <strong>1. NHẬN XÉT ĐẠI THỂ:</strong>
+            </div>
+            <div class="row ml-3 mb-2">
+              <span>...................</span>
+            </div>
+            <div>
+              <strong>2. NHẬN XÉT VI THỂ:</strong>
+            </div>
+            <div class="row ml-3 mb-2">
+              <span>...................</span>
+            </div>
+            <div>
+              <strong>3. CHẨN ĐOÁN GIẢI PHẪU BỆNH:</strong>
+            </div>
+            <div class="row ml-3 mb-2">
+              <span>...................</span>
+            </div>
+            <div>
+              <strong>4. SỰ PHÙ HỢP VỚI CHẨN ĐOÁN LÂM SÀNG:</strong>
+            </div>
+            <div class="row ml-3 mb-2">
+              <span>...................</span>
+            </div>
+
+            <section class="mb-4">
+              <div class="row align-items-end">
+                <div class="col text-center">
+                  <i class="mb-2"> </i>
+                  <h6 class="mb-5"> <b>BÁC SĨ ĐỌC KẾT QUẢ</b> 
+                    </h6>
+                  <br>
+                  <p>Họ và tên <b>bác sĩ đọc kết quả</b></p>
+                </div>
+                <div class="col text-center">
+                  <i class="mb-2">Trả ngày ... tháng ... năm ...</i>
+                  <h6 class="text-center mb-5"><b>BÁC SĨ  ĐIỀU TRỊ</b></h6>
+                  <br>
+                  <p>Họ và tên <b>bác sĩ điều trị</b></p>
+                </div>
+              </div>
+            </section> 
+          </font>       
+
+          <div>
+            <label>37. Phieu xet nghiemgiai phau benh kham nghiem tu thi</label>
+          </div>
+          <div class="row">
+            <div class="col-8"> 
+              <span>{{ hsba.emrCoSoKhamBenh.donvichuquan }}</span><br>
+              <span>{{ hsba.emrCoSoKhamBenh.ten }}</span>
+            </div>
+            <div class="col-4">
+              <span>MS: 37/BV-01</span><br>
+              <span>Số:</span> <span>........</span>
+            </div>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <h5>
+              <label>PHIẾU XÉT NGHIỆM GIẢI PHẪU BỆNH</label> <br>
+              <b>KHÁM NGHIỆM TỬ THI</b>
+            </h5>
+          </div>
+          <div style="text-align: center;" class="mt-3 mb-3">
+            <input disabled type="checkbox"> <span class="mr-3">Thường</span>
+            <input disabled type="checkbox"> <span class="mr-3">Cấp cứu</span>
+          </div>
+
+          <font>
+            <div class="row">
+              <div class="col-6">
+                <span>Họ tên người bệnh:</span> <b><span class='text-uppercase'>{{ hsba.emrBenhNhan.tendaydu }}</span></b><br>
+              </div>
+              <div class="col-3">
+                <span>Tuổi:</span> <span>{{ hsba.tuoiBenhNhan }}</span>
+              </div>
+              <div class="col-3">
+                <span>Giới tính:</span> <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span><br>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">Địa chỉ: {{hsba.emrBenhNhan.diachi}}</div>
+            </div>
+            <div class="row"> 
+              <div class="col-6"> 
+                <span>Tử vong lúc: ... giờ ..., ngày ... / ... / ...</span>
+              </div>
+              <div class="col-6">
+                <span>Tại khoa:...</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">Người chứng kiến:....</div>
+            </div>
+            <div>
+              <strong>TÓM TẮT QUÁ TRÌNH DIỄN BIẾN BỆNH:</strong>
+            </div>
+            <div class="row ml-3 mb-2">
+              <span>.........</span>
+            </div>
+
+            <div>
+              <strong>1. Chẩn đoán lâm sàng:</strong>
+            </div>
+            <div class="row ml-2">
+              <div class="col-6">
+                <span>+ Khoa khám bệnh: ......</span>
+              </div>
+              <div class="col-6">
+                <span>+ Khoa điều trị: ......</span>
+              </div>
+            </div>
+            <div class="row ml-2">
+              <div class="col-6">
+                <span>+ Trước phẫu thuật (nếu có): ......</span>
+              </div>
+              <div class="col-6">
+                <span>+ Nguyên nhân tử vong: ......</span>
+              </div>
+            </div>
+
+            <div>
+              <strong>2. Chẩn đoán GPB:</strong>
+            </div>
+            <div class="row ml-2">
+              <div class="col-6">
+                <span>+ Bệnh chính: ......</span>
+              </div>
+              <div class="col-6">
+                <span>+ Bệnh kèm theo: ......</span>
+              </div>
+            </div>
+            <div class="row ml-2">
+              <div class="col-6">
+                <span>+ Biến chứng: ......</span>
+              </div>
+              <div class="col-6">
+                <span>+ Nguyên nhân tử vong: ......</span>
+              </div>
+            </div>
+            <div>
+              <strong>3. Khám nghiệm:</strong>
+            </div>
+            <div class="row ml-3 mb-2">
+              <span>a. Khám nghiệm tổng quát tử thi: .............................</span>
+            </div>
+            <div class="row ml-3 mb-2">
+              <span>b. Khám nghiệm các cơ quan, phủ tạng:.............................</span>
+            </div>
+            <div class="row ml-3">
+              <small>1. Không bình thường    2. Bình thường  3. Nghi ngờ</small>
+            </div>
+            <table class="table table-bordered">
+              <tr>
+                <th class="text-center">TT</th>
+                <th class="text-center">CƠ QUAN</th>
+                <th class="text-center">MÃ</th>
+                <th class="text-center">TT</th>
+                <th class="text-center">CƠ QUAN</th>
+                <th class="text-center">MÃ</th>
+              </tr>
+              <tr>
+                <td class="text-center">01</td>
+                <td>Nội tiết</td>
+                <td class="text-center"></td>
+                <td class="text-center">07</td>
+                <td>Hô hấp</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">02</td>
+                <td>Thần kinh</td>
+                <td class="text-center"></td>
+                <td class="text-center">08</td>
+                <td>Tiêu hoá</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">03</td>
+                <td>Mắt</td>
+                <td class="text-center"></td>
+                <td class="text-center">09</td>
+                <td>Da và mô dưới da</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">04</td>
+                <td>Tai- Mũi- Họng</td>
+                <td class="text-center"></td>
+                <td class="text-center">10</td>
+                <td>Cơ- Xương- Khớp</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">05</td>
+                <td>Răng- Hàm- Mặt</td>
+                <td class="text-center"></td>
+                <td class="text-center">11</td>
+                <td>Tiết niệu- Sinh dục</td>
+                <td class="text-center"></td>
+              </tr>
+              <tr>
+                <td class="text-center">06</td>
+                <td>Tuần hoàn</td>
+                <td class="text-center"></td>
+                <td class="text-center">12</td>
+                <td>Khác</td>
+                <td class="text-center"></td>
+              </tr>
+            </table>
+            <div class="row ml-3 mb-2">
+              <span>Mô tả chi tiết cơ quan bệnh lí: </span><br>
+              <span>..........................................................................................</span>
+            </div>
+            <div>
+              <strong>4. Xét nghiệm tổ chức, tế bào:</strong>
+            </div>
+            <div class="row ml-2">
+              <div class="col-5">
+                <span>- Người pha: ...........................  </span>
+              </div>
+              <div class="col-4">
+                <span>- Ngày pha: ... / ... / ...  </span>
+              </div>
+              <div class="col-3">
+                <span>- Số mảnh: .........  </span>
+              </div>
+            </div>
+            <div class="row ml-2">
+              <div class="col-5">
+                <span>- Người làm tiêu bản: ...........................  </span>
+              </div>
+              <div class="col-7">
+                <span>- Số tiêu bản: .........  </span>
+              </div>
+            </div>
+            <div class="row ml-2">
+              <div class="col">
+                <span>- NNhuộm đặc biệt: ...........................</span>
+              </div>
+            </div>
+            <div class="row ml-2">
+              <div class="col">
+                <span>- Kết quả:</span>
+              </div>
+            </div>
+            <div class="row ml-3">
+              <div class="col">
+                <span>+ Mô tả đại thể:................................</span>
+              </div>
+            </div>
+            <div class="row ml-3">
+              <div class="col">
+                <span>+ Kết luận:................................</span>
+              </div>
+            </div>
+            <div>
+              <strong>5. Xét nghiệm vi khuẩn </strong><i>(nếu có):</i>
+            </div>
+            <div class="row ml-3">
+              <span>.......................................</span>
+            </div>
+            <div>
+              <strong>6. Xét nghiệm độc chất </strong><i>(nếu có):</i>
+            </div>
+            <div class="row ml-3">
+              <span>.......................................</span>
+            </div>
+            <div>
+              <strong>KẾT LUẬN CHUNG:</strong>
+            </div>
+            <div class="row ml-3">
+              <span>-Chẩn đoán lâm sàng và chẩn đoán giải phẫu bệnh:    1. Phù hợp      2. Không phù hợp  .</span>
+            </div>
+            <div class="row ml-3">
+              <span>.......................................</span>
+            </div>
+            <div class="row ml-3">
+              <span>.......................................</span>
+            </div>
+
+            <section class="mb-4">
+              <div class="row align-items-end">
+                <div class="col text-center">
+                  <i class="mb-2"> </i>
+                  <h6 class="mb-5"> <b>BÁC SĨ ĐỌC KẾT QUẢ</b> 
+                    </h6>
+                  <br>
+                  <p>Họ và tên <b>bác sĩ đọc kết quả</b></p>
+                </div>
+                <div class="col text-center">
+                  <i class="mb-2">Trả ngày ... tháng ... năm ...</i>
+                  <h6 class="text-center mb-5"><b>BÁC SĨ  ĐIỀU TRỊ</b></h6>
+                  <br>
+                  <p>Họ và tên <b>bác sĩ điều trị</b></p>
+                </div>
+              </div>
+            </section> 
+          </font>  -->
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
