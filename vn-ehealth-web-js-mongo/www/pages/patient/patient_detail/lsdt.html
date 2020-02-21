@@ -50,6 +50,114 @@
                   </button>
                 </div>
                 <div v-if="donthuoc" class="modal-body">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-3">
+                        Sở Y tế: {{ donthuoc.donViChuQuan}} <br>
+                        BV: {{ donthuoc.tenCoSoKhamBenh}} <br>
+                        Khoa: <br>
+                      </div>
+                      <div class="col-6 text-center">
+                        <h3 class="text-center"><b>PHIẾU CÔNG KHAI THUỐC</b></h3><br>
+                        <p>(lần thứ ....)</p>
+                      </div>
+                      <div class="col-3">
+                        MS: 01/BV-01 <br>
+                        Số: <br> 
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        Họ tên người bệnh: {{ donthuoc.tenDayDu}}
+                      </div>
+                      <div class="col-3">
+                        Tuổi: {{ donthuoc.tuoiBenhNhan}}
+                      </div>
+                      <div class="col-2">
+                        Giới tính: {{ donthuoc.gioiTinh}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-3">
+                        Số giường:
+                      </div>
+                      <div class="col-4">
+                        Buồng:
+                      </div>
+                      <div class="col-5">
+                        Ngày vào viện: {{ donthuoc.ngayVaoVien }}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        Chẩn đoán:
+                      </div>
+                      <div class="col-5">
+                        Ngày ra viện: {{ donthuoc.ngayRaVien }}
+                      </div>
+                    </div>
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Số TT</th>
+                          <th>Tên thuốc, hàm lượng</th>
+                          <th>Đơn vị</th>
+                          <th>Ngày, tháng</th>
+                          <th>Tổng số</th>
+                          <th>Đơn giá</th>
+                          <th>Thành tiền</th>
+                          <th>Ghi chú</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Amocilin</td>
+                          <td>Vỉ</td>
+                          
+                          <td>10/02</td>
+                          
+
+                          <td>3</td>
+                          <td>10.000</td>
+                          <td>30.000</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">
+                            Tổng số khoản thuốc dùng
+                          </td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          
+                          
+                          
+                        </tr>
+                        <tr>
+                          <td colspan="2">Người bệnh/ Người nhà ký tên</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                       
+                         
+                      </tbody>
+                    </table>
+                    
+                    
+
+
+                  </div>
+
+
+                  <!--
                   <tomtat :hsba="hsba" title="PHIẾU ĐƠN THUỐC"></tomtat>
                   <hr />
                   <div>
@@ -139,6 +247,7 @@
                       </font>
                     </table>
                   </div>
+                  -->
                 </div>
                 <div class="modal-footer">
                   <button
