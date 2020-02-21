@@ -49,7 +49,90 @@
                 </div>
                 <div v-if="xetnghiem" class="modal-body">
                   <hr />
+
+                  <div class="row">
+                    <div class="col-8">
+                      <span>{{ xetnghiem.donViChuQuan }}</span><br />
+                      <span>{{ xetnghiem.tenCoSoKhamBenh }}</span>
+                    </div>
+                    <div class="col-4">
+                      <span>MS: 27/BV-01</span><br />
+                      <span>Số:</span> <span>........</span>
+                    </div>
+                  </div>
+                  <div style="text-align: center;" class="mt-3 mb-3">
+                    <h5>PHIẾU XÉT NGHIỆM</h5>
+                    <label><b>Bệnh phẩm: ......</b></label>
+                  </div>
                   <font>
+                    <div class="row">
+                      <div class="col-6">
+                        <span>Họ tên người bệnh:</span>
+                        <b
+                          ><span class="text-uppercase"
+                            >{{ xetnghiem.tendaydu }}</span
+                          ></b
+                        ><br />
+                      </div>
+                      <div class="col-3">
+                        <span>Tuổi:</span> <span>{{ xetnghiem.tuoiBenhNhan }}</span>
+                      </div>
+                      <div class="col-3">
+                        <span>Giới tính:</span>
+                        <span>{{ xetnghiem.gioiTinh }}</span><br />
+                      </div>
+                    </div>
+                    <div>
+                      <span>Địa chỉ: ....</span>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        <span>Khoa:...</span>
+                      </div>
+                      <div class="col-3">
+                        <span>Buồng:...</span>
+                      </div>
+                      <div class="col-3">
+                        <span>Giường:...</span>
+                      </div>
+                    </div>
+                    <div>
+                      <span>Chẩn đoán: ....</span>
+                    </div>
+                    <table class="table table-bordered">
+                      <tr>
+                        <th class="text-center">YÊU CẦU XÉT NGHIỆM</th>
+                        <th class="text-center">KẾT QUẢ XÉT NGHIỆM</th>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+
+                    <section class="mb-4">
+                      <div class="row align-items-end">
+                        <div class="col text-center">
+                          <i class="mb-2">Ngày ... tháng ... năm ...</i>
+                          <h6 class="mb-5"><b>BÁC SĨ ĐIỀU TRỊ</b></h6>
+                          <br />
+                          <p>Họ và tên <b>bác sĩ điều trị</b></p>
+                        </div>
+                        <div class="col text-center">
+                          <i class="mb-2">Ngày ... tháng ... năm ...</i>
+                          <h6 class="text-center mb-5">
+                            <b>TRƯỞNG KHOA XÉT NGHIỆM</b>
+                          </h6>
+                          <br />
+                          <p>Họ và tên <b>trưởng khoa xét nghiệm</b></p>
+                        </div>
+                      </div>
+                    </section>
+                  </font>
+
+
+
+                  <!-- <font>
                     <div class="row">
                       <div class="col-12">
                         <b>Xét nghiệm: {{xetnghiem.emrDmLoaiXetNghiem.ten}}</b
@@ -102,7 +185,7 @@
                             </tr>                  </template>
                         </template>
                       </table>
-                    </div>
+                    </div> -->
         
                     <div v-if="xetnghiem.emrFileDinhKemXetNghiems.length > 0">
                       <hr />
