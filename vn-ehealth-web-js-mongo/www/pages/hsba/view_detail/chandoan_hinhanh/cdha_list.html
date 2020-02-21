@@ -39,6 +39,127 @@
           </button>
         </div>
         <div v-if="cdha" class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-3">
+                Sở Y tế: <br>
+                BV:  <br>
+              </div>
+              <div class="col-6 text-center">
+                <h5 class="text-center"><b>PHIẾU CHIẾU/ CHỤP X-QUANG</b></h5><br>
+                <p>(lần thứ ....)</p>
+              </div>
+              <div class="col-3">
+                MS: 19/BV-01 <br>
+                Số: <br> 
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-7">
+                - Họ tên người bệnh: {{cdha.tenDayDu}}
+              </div>
+              <div class="col-3">
+                Tuổi: {{cdha.tuoiBenhNhan}}
+              </div>
+              <div class="col-2">
+                Giới tính: {{cdha.gioiTinh}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                - Địa chỉ:
+              </div>
+            </div>
+            <div class="row">
+              
+              <div class="col-7">
+                - Khoa:
+              </div>
+              <div class="col-3">
+                Số buồng:
+              </div>
+              <div class="col-2">
+                Giường:
+              </div>  
+            </div>
+            <div class="row">
+              <div class="col">
+                - Chẩn đoán:
+              </div>
+            </div>
+            <table class="table table-bordered">
+              <thead>
+                <tr><th class="text-center"><b>YÊU CẦU CHIẾU/ CHỤP</b></th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <br>
+                    <br>
+                    <br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="row offset-6">
+              <div class="col text-center">
+              <i>Ngày.... tháng... năm....</i> <br>
+              <b>BÁC SĨ ĐIỀU TRỊ</b> <br>
+              <br>
+              <br>
+              Họ tên <b>{{ cdha.bacsiyeucau }}</b>
+            </div>
+            </div>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th class="text-center">
+                    <b>KẾT QUẢ CHIẾU/ CHỤP</b>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    {{ cdha.ketqua }}
+                    <br>
+                    <br>
+                    <br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br>
+            <b><u>Lời dặn của BS chuyên khoa: </u></b>{{ cdha.loidan }} <br>
+            <div class="row offset-6">
+              <div class="col text-center">
+                <i>Ngày.... tháng... năm....</i> <br>
+                <b>BÁC SĨ CHUYÊN KHOA</b> <br>
+                <br>
+                <br>
+                Họ tên <b>{{cdha.bacsichuyenkhoa}} </b>
+              </div>
+            </div>
+            <div v-if="cdha.emrFileDinhKemCdhas.length > 0">
+              <hr />
+              <b>Danh sách file đính kèm:</b>
+              <table class="table table-bordered mt-3">
+                <tr>
+                  <th style="width:10%" class="text-center">STT</th>
+                  <th style="width:90%" class="text-center">
+                    Tên file
+                  </th>
+                </tr>
+                <tr v-for="(file, i) in cdha.emrFileDinhKemCdhas">
+                  <td>{{ i + 1 }}</td>
+                  <td>
+                    <a :href="file.duongdan">{{ file.tenfile }}</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <!--
           <tomtat :hsba="hsba" title="PHIẾU CHẨN ĐOÁN HÌNH ẢNH"></tomtat>
           <hr />
           <div>
@@ -104,6 +225,7 @@
               </font>
             </table>
           </div>
+          -->
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
