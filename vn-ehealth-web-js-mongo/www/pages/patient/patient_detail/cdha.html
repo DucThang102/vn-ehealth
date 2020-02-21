@@ -40,7 +40,7 @@
                 </td>
               </tr>
               <tr v-if="cdha_list.length==0">
-                <td colspan="5">Không có dữ liệu</td>
+                <td colspan="9">Không có dữ liệu</td>
               </tr>
             </tbody>
           </table>
@@ -56,8 +56,398 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div v-if="cdha" class="modal-body">
-                  <div>
+                <div v-if="cdha" class="modal-body">  
+                  <!--               
+                    // 22. Phiếu siêu âm
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-3">
+                        Sở Y tế: <br>
+                        BV:  <br>
+                      </div>
+                      <div class="col-6 text-center">
+                        <h3 class="text-center"><b>PHIẾU SIÊU ÂM</b></h3><br>
+                        <p>(lần thứ ....)</p>
+                      </div>
+                      <div class="col-3">
+                        MS: 01/BV-01 <br>
+                        Số: <br> 
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Họ tên người bệnh:
+                      </div>
+                      <div class="col-3">
+                        Tuổi:
+                      </div>
+                      <div class="col-2">
+                        Nam/ Nữ
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Địa chỉ:
+                      </div>
+                      <div class="col-5">
+                        Số BHYT:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Khoa:
+                      </div>
+                      <div class="col-3">
+                        Số buồng:
+                      </div>
+                      <div class="col-2">
+                        Giường:
+                      </div>  
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Chẩn đoán:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Yêu cầu kiểm tra: <br> <br> <br>
+                      </div>
+                    </div>
+                    <div class="row offset-6">
+                      <div class="col text-center">
+                        <i>Ngày.... tháng... năm....</i> <br>
+                        <b>BÁC SĨ ĐIỀU TRỊ</b> <br>
+                        <br>
+                        <br>
+                      Họ tên ....
+                      </div>
+                    </div>
+                  
+                    <h3 class="text-center"><b>KẾT QUẢ SIÊU ÂM</b></h3>
+                    <b>1. Mô tả tổn thương:</b> <br>
+                    <div class="row">
+                      <div class="col-6">
+                        <b>2. Kết luận:</b>
+                      </div>
+                      <div class="col-6">
+                        <b class="text-center">HÌNH ẢNH SIÊU ÂM</b>
+                      </div>
+                    </div>
+                    <b><u>Lời dặn của BS chuyên khoa:</u></b> <br>
+                    <div class="row offset-6">
+                      <div class="col text-center">
+                      <i>Ngày.... tháng... năm....</i> <br>
+                      <b>BÁC SĨ CHUYÊN KHOA</b> <br>
+                      <br>
+                      <br>
+                      Họ tên ....
+                    </div>
+                    </div>
+                  </div>
+                  <hr>
+                  // 21.  Phiếu chụp cộng hưởng từ
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-3">
+                        Sở Y tế: <br>
+                        BV:  <br>
+                      </div>
+                      <div class="col-6 text-center">
+                        <h3 class="text-center"><b>PHIẾU CHỤP CỘNG HƯỞNG TỪ</b></h3><br>
+                        <p>(lần thứ ....)</p>
+                      </div>
+                      <div class="col-3">
+                        MS: 01/BV-01 <br>
+                        Số: <br> 
+                      </div>
+                    </div>
+                    <div class="row"> 
+                      <div class="col-7">
+                        - Họ tên người bệnh:
+                      </div>
+                      <div class="col-3">
+                        Tuổi:
+                      </div>
+                      <div class="col-2">
+                        Nam/ Nữ
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Địa chỉ:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Khoa:
+                      </div>
+                      <div class="col-3">
+                        Số buồng:
+                      </div>
+                      <div class="col-2">
+                        Giường:
+                      </div>  
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Chẩn đoán:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Yêu cầu kiểm tra: <br> <br> <br>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Người bệnh có cơ dị vật kim loại trong cơ thể:  <br> <br> <br>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Các kết quả xét nghiệm, chuẩn đoán hình ảnh đã có:  <br> <br> <br>
+                      </div>
+                    </div>
+                    <div class="row offset-6">
+                      <div class="col text-center">
+                      <i>Ngày.... tháng... năm....</i> <br>
+                      <b>BÁC SĨ ĐIỀU TRỊ</b> <br>
+                      <br>
+                      <br>
+                      Họ tên ....
+                    </div>
+                    </div>
+                  
+                    <h3 class="text-center"><b>KẾT QUẢ</b></h3>
+                    <b>1. Mô tả:</b> <br>
+                    <b>2. Kết luận:</b> <br>
+                    <b><u>Lời dặn của BS chuyên khoa:</u></b> <br>
+                    <div class="row offset-6">
+                      <div class="col text-center">
+                      <i>Ngày.... tháng... năm....</i> <br>
+                      <b>BÁC SĨ CHUYÊN KHOA</b> <br>
+                      <br>
+                      <br>
+                      Họ tên ....
+                    </div>
+                    </div>
+                  </div>
+                  <hr>
+                  //20. Phiếu chụp cắt lớp vi tính
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-3">
+                        Sở Y tế: <br>
+                        BV:  <br>
+                      </div>
+                      <div class="col-6 text-center">
+                        <h3 class="text-center"><b>PHIẾU CHỤP CẮT LỚP VI TÍNH</b></h3><br>
+                        <p>(lần thứ ....)</p>
+                      </div>
+                      <div class="col-3">
+                        MS: 01/BV-01 <br>
+                        Số: <br> 
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Họ tên người bệnh:
+                      </div>
+                      <div class="col-3">
+                        Tuổi:
+                      </div>
+                      <div class="col-2">
+                        Nam/ Nữ
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Địa chỉ:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Khoa:
+                      </div>
+                      <div class="col-3">
+                        Số buồng:
+                      </div>
+                      <div class="col-2">
+                        Giường:
+                      </div>  
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Chẩn đoán:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Yêu cầu kiểm tra: <br> <br> <br>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Người bệnh có cơ địa dị ứng:  <br> <br> <br>
+                      </div>
+                    </div>
+                    <div class="row offset-6">
+                      <div class="col text-center">
+                      <i>Ngày.... tháng... năm....</i> <br>
+                      <b>BÁC SĨ ĐIỀU TRỊ</b> <br>
+                      <br>
+                      <br>
+                      Họ tên ....
+                    </div>
+                    </div>
+                  
+                    <h3 class="text-center"><b>KẾT QUẢ</b></h3>
+                    <b>1. Mô tả:</b> <br>
+                    <b>2. Kết luận:</b> <br>
+                    <b><u>Lời dặn của BS chuyên khoa:</u></b> <br>
+                    <div class="row offset-6">
+                      <div class="col text-center">
+                      <i>Ngày.... tháng... năm....</i> <br>
+                      <b>BÁC SĨ CHUYÊN KHOA</b> <br>
+                      <br>
+                      <br>
+                      Họ tên ....
+                    </div>
+                    </div>
+                  </div>
+                    <hr>
+
+
+
+                  
+                  //19. Phiếu chiếu, chụp X quang 
+                    -->
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-3">
+                        Sở Y tế: <br>
+                        BV:  <br>
+                      </div>
+                      <div class="col-6 text-center">
+                        <h5 class="text-center"><b>PHIẾU CHIẾU/ CHỤP X-QUANG</b></h5><br>
+                        <p>(lần thứ ....)</p>
+                      </div>
+                      <div class="col-3">
+                        MS: 19/BV-01 <br>
+                        Số: <br> 
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Họ tên người bệnh: {{cdha.tenDayDu}}
+                      </div>
+                      <div class="col-3">
+                        Tuổi: {{cdha.tuoiBenhNhan}}
+                      </div>
+                      <div class="col-2">
+                        Giới tính: {{cdha.gioiTinh}}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Địa chỉ:
+                      </div>
+                    </div>
+                    <div class="row">
+                      
+                      <div class="col-7">
+                        - Khoa:
+                      </div>
+                      <div class="col-3">
+                        Số buồng:
+                      </div>
+                      <div class="col-2">
+                        Giường:
+                      </div>  
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Chẩn đoán:
+                      </div>
+                    </div>
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr><th class="text-center"><b>YÊU CẦU CHIẾU/ CHỤP</b></th></tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <br>
+                            <br>
+                            <br>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="row offset-6">
+                      <div class="col text-center">
+                      <i>Ngày.... tháng... năm....</i> <br>
+                      <b>BÁC SĨ ĐIỀU TRỊ</b> <br>
+                      <br>
+                      <br>
+                      Họ tên <b>{{ cdha.bacsiyeucau }}</b>
+                    </div>
+                    </div>
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th class="text-center">
+                            <b>KẾT QUẢ CHIẾU/ CHỤP</b>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            {{ cdha.ketqua }}
+                            <br>
+                            <br>
+                            <br>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <br>
+                    <b><u>Lời dặn của BS chuyên khoa: </u></b>{{ cdha.loidan }} <br>
+                    <div class="row offset-6">
+                      <div class="col text-center">
+                        <i>Ngày.... tháng... năm....</i> <br>
+                        <b>BÁC SĨ CHUYÊN KHOA</b> <br>
+                        <br>
+                        <br>
+                        Họ tên <b>{{cdha.bacsichuyenkhoa}} </b>
+                      </div>
+                    </div>
+                    <div v-if="cdha.emrFileDinhKemCdhas.length > 0">
+                      <hr />
+                      <b>Danh sách file đính kèm:</b>
+                      <table class="table table-bordered mt-3">
+                        <tr>
+                          <th style="width:10%" class="text-center">STT</th>
+                          <th style="width:90%" class="text-center">
+                            Tên file
+                          </th>
+                        </tr>
+                        <tr v-for="(file, i) in cdha.emrFileDinhKemCdhas">
+                          <td>{{ i + 1 }}</td>
+                          <td>
+                            <a :href="file.duongdan">{{ file.tenfile }}</a>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                  <hr>
+                  
+
+                  <!--
+                    <div>
                     <meta charset="UTF-8" />
                     <table
                       border="1"
@@ -131,6 +521,7 @@
                       </div>
                     </table>
                   </div>
+                  -->
                 </div>
                 <div class="modal-footer">
                   <button

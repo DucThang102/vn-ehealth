@@ -36,7 +36,7 @@
                 </td>
               </tr>
               <tr v-if="pttt_list.length==0">
-                <td colspan="5">Không có dữ liệu</td>
+                <td colspan="8">Không có dữ liệu</td>
               </tr>
             </tbody>
           </table>
@@ -57,14 +57,14 @@
                     <div class="row">
                       <div class="col-3">
                         Sở Y tế: <br>
-                        BV: 
+                        BV: {{ pttt.tenCoSoKhamBenh }}
                       </div>
                       <div class="col-6">
                         <h5><b>PHIẾU PHẪU THUẬT/THỦ THUẬT</b></h5>
                       </div>
                       <div class="col-3">
                         MS: 14/BV-01 <br>
-                        Số vào viện:
+                        Số vào viện: 
                       </div>
                     </div>
                     <br>
@@ -145,23 +145,17 @@
                     <table class="table table-bordered">
                       <thead>
                         <tr>
-                          <th><b>LƯỢC ĐỒ PHẪU THUẬT/THỦ THUẬT</b>  <br>
-                            {{pttt.luocdoptt}} </th>
+                          <th>
+                            <b>LƯỢC ĐỒ PHẪU THUẬT/THỦ THUẬT</b> 
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td>
-                            <div class="container"></div>
-                            <div class="row">
-                              <div class="col">
-                              Lược đồ hiển thị 
-                              <br>
-                              <br> 
-                              <br>
-                              </div>
-                            </div>
-                            <div class="container">
+                          <td>                     
+                            {{pttt.luocdoptt}}
+                             <br>                             
+                            
                             <div class="row">
                               - Dẫn lưu:
                             </div>
@@ -177,23 +171,26 @@
                             <div class="row">
                               - Khác:
                             </div>
-                          </div>
-
-
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>                   
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th><b> TRÌNH TỰ PHẪU THUẬT THỦ THUẬT </b>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>                           
+                                {{pttt.trinhtuptt}}
                           </td>
                         </tr>
                       </tbody>
                     </table>
-                    <div class="row ">
-                      <div class="col">
-                        <h6 class="text-center" ><b > TRÌNH TỰ PHẪU THUẬT THỦ THUẬT </b></h6> <br>
-                        {{pttt.trinhtuptt}}
-                      </div>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+                   
                     <div class="row offset-8">
                       <div class="text-center">
                         <i> Ngày.... tháng.... năm..... </i> <br>

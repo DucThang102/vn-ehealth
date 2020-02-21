@@ -1,0 +1,584 @@
+<div>
+    <template>
+      <div class="row" v-if="patient_summary_list">
+        <div class="col width=100%">
+          <div class="portlet p-3">
+            <h3 class="text-blue text-uppercase">Lịch sử thăm khám</h3>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th style="width: 5% ;" class="text-center">STT</th>
+                  <th style="width: 20%;" class="text-center">Nơi khám</th>
+                  <th style="width: 10%;" class="text-center">Ngày bắt đầu</th>
+                  <th style="width: 10%;" class="text-center">Ngày kết thúc</th>
+                  <th style="width: 20%;" class="text-center">Chẩn đoán vào viện</th>
+                  <th style="width: 20%;" class="text-center">Chẩn đoán ra viện</th>
+                  <th style="width: 15%;" class="text-center">Tóm tắt bệnh án</th>
+                </tr>
+                <tr v-for="(patient_summary, i) in patient_summary_list">
+                  <td class="text-center">{{ i + 1 }}</td>
+                  <td>
+                    {{ patient_summary.emrCoSoKhamBenh.ten }}<br />
+                    {{ patient_summary.khoaRaVien }}
+                  </td>
+                  <td class="text-center">
+                    {{ patient_summary.emrQuanLyNguoiBenh.ngaygiovaovien }}
+                  </td>
+                  <td class="text-center">
+                    {{ patient_summary.emrQuanLyNguoiBenh.ngaygioravien }}
+                  </td>
+                  <td>
+                    {{
+                    patient_summary.emrChanDoan.emrDmMaBenhChandoankkb.ten
+                    }}
+                  </td>
+                  <td>
+                    {{
+                    patient_summary.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten
+                    }}
+                  </td>
+                  <td class="text-center">
+                    <a
+                      href="javascript:void(0)"
+                      v-on:click="viewTomtathsba(patient_summary)"
+                      ><i class="fas fa-fw fa-binoculals"></i>Xem</a
+                    >
+                  </td>
+                </tr>
+                <tr v-if="patient_summary_list.length==0">
+                  <td colspan="7">Không có dữ liệu</td>
+                </tr>
+              </thead>
+            </table>
+  
+            <div class="modal fade" id="tomtathsbaModal">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">
+                      <strong>Bệnh án:   </strong>
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body" v-if="patient_summary">
+                    <!--
+                      //26. Phiếu đo chức năng hô hấp
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-3">
+                        Sở Y tế: <br>
+                        BV:  <br>
+                      </div>
+                      <div class="col-6 text-center">
+                        <h3 class="text-center"><b>PHIẾU ĐO CHỨC NĂNG HÔ HẤP</b></h3><br>
+                        <p>(lần thứ ....)</p>
+                      </div>
+                      <div class="col-3">
+                        MS: 01/BV-01 <br>
+                        Số vào viện: <br> 
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Họ tên người bệnh:
+                      </div>
+                      <div class="col-3">
+                        Tuổi:
+                      </div>
+                      <div class="col-2">
+                        Nam/ Nữ
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Địa chỉ:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Khoa:
+                      </div>
+                      <div class="col-3">
+                        Số buồng:
+                      </div>
+                      <div class="col-2">
+                        Giường:
+                      </div>  
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Chẩn đoán:
+                      </div>
+                    </div>
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th>DUNG TÍCH SỐNG</th>
+                          <th>DT.THỞ RA TỐI ĐA/GIÂY</th>
+                          <th>TỈ SỐ TIFFENAU</th>
+                          <th>THÔNG KHÍ PHÚT/ TỐI ĐA</th>
+                          <th>KHÍ DỰ TRỮ</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Dự kiến</td>
+                        </tr>
+                        <tr>
+                          <td>Thực tế</td>
+                        </tr>
+                        <tr>
+                          <td>Tỷ lệ giảm %</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="row">
+                      <div class="col-6 text-center">
+                        <i>Ngày.... tháng... năm....</i> <br>
+                        <b>BÁC SĨ ĐIỀU TRỊ</b> <br>
+                        <br>
+                        <br>
+                        Họ tên ....
+                      </div>
+                      <div class="col-6 text-center">
+                      <i>Ngày.... tháng... năm....</i> <br>
+                      <b>BÁC SĨ CHUYÊN KHOA</b> <br>
+                      <br>
+                      <br>
+                      Họ tên ....
+                      </div>
+                    </div>
+                  </div>
+                    <hr>
+                  
+                  //25. Phiếu nội soi
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-3">
+                        Sở Y tế: <br>
+                        BV:  <br>
+                      </div>
+                      <div class="col-6 text-center">
+                        <h3 class="text-center"><b>PHIẾU NỘI SOI</b></h3><br>
+                        <p>(lần thứ ....)</p>
+                      </div>
+                      <div class="col-3">
+                        MS: 01/BV-01 <br>
+                        Số vào viện: <br> 
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Họ tên người bệnh:
+                      </div>
+                      <div class="col-3">
+                        Tuổi:
+                      </div>
+                      <div class="col-2">
+                        Nam/ Nữ
+                      </div>
+                      </div>
+                    <div class="row">
+                      <div class="col">
+                        - Địa chỉ:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Khoa:
+                      </div>
+                      <div class="col-3">
+                        Số buồng:
+                      </div>
+                      <div class="col-2">
+                        Giường:
+                      </div>  
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Chẩn đoán:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Yêu cầu kiểm tra: <br> <br> <br>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Hẹn ghi điện não .....giờ.....; ngày .../.../ ......
+                      </div>
+                      <div class="col-5 text-center">
+                        <i>Ngày.... tháng... năm....</i> <br>
+                        <b>BÁC SĨ ĐIỀU TRỊ</b> <br>
+                        <br>
+                        <br>
+                        Họ tên ....
+                      </div>
+                    </div>
+                    <h3><b>KẾT QUẢ NỘI SOI:</b></h3>  (loại máy soi, thuốc dùng)
+                    <b><u>Lời dặn của BS chuyên khoa:</u></b> <br>
+                    <div class="row offset-6">
+                      <div class="col text-center">
+                      <i>Ngày.... tháng... năm....</i> <br>
+                      <b>BÁC SĨ CHUYÊN KHOA</b> <br>
+                      <br>
+                      <br>
+                      Họ tên ....
+                    </div>
+                    </div>
+                  </div>
+                  <hr>
+                  
+                  //24. Phiếu điện não
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-3">
+                        Sở Y tế: <br>
+                        BV:  <br>
+                      </div>
+                      <div class="col-6 text-center">
+                        <h3 class="text-center"><b>PHIẾU ĐIỆN TIM</b></h3><br>
+                        <p>(lần thứ ....)</p>
+                      </div>
+                      <div class="col-3">
+                        MS: 01/BV-01 <br>
+                        Số vào viện: <br> 
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Họ tên người bệnh:
+                      </div>
+                      <div class="col-3">
+                        Tuổi:
+                      </div>
+                      <div class="col-2">
+                        Nam/ Nữ
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Địa chỉ:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Khoa:
+                      </div>
+                      <div class="col-3">
+                        Số buồng:
+                      </div>
+                      <div class="col-2">
+                        Giường:
+                      </div>  
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Chẩn đoán:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Yêu cầu kiểm tra: <br> <br> <br>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Hẹn ghi điện não .....giờ.....; ngày .../.../ ......
+                      </div>
+                      <div class="col-5 text-center">
+                        <i>Ngày.... tháng... năm....</i> <br>
+                        <b>BÁC SĨ ĐIỀU TRỊ</b> <br>
+                        <br>
+                        <br>
+                        Họ tên ....
+                      </div>
+                    </div>
+                    <b>- Tình trạng người bệnh lúc ghi điện não:</b>
+                    <h3><b>KẾT QUẢ ĐIỆN NÃO:</b></h3>
+                    <b><u>Lời dặn của BS chuyên khoa:</u></b> <br>
+                    <div class="row offset-6">
+                      <div class="col text-center">
+                      <i>Ngày.... tháng... năm....</i> <br>
+                      <b>BÁC SĨ CHUYÊN KHOA</b> <br>
+                      <br>
+                      <br>
+                      Họ tên ....
+                    </div>
+                    </div>
+                  </div>
+                    <hr>
+                  // 23. Phiếu điện tim
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-3">
+                        Sở Y tế: <br>
+                        BV:  <br>
+                      </div>
+                      <div class="col-6 text-center">
+                        <h3 class="text-center"><b>PHIẾU ĐIỆN TIM</b></h3><br>
+                        <p>(lần thứ ....)</p>
+                      </div>
+                      <div class="col-3">
+                        MS: 01/BV-01 <br>
+                        Số vào viện: <br> 
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Họ tên người bệnh:
+                      </div>
+                      <div class="col-3">
+                        Tuổi:
+                      </div>
+                      <div class="col-2">
+                        Nam/ Nữ
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Cân nặng:... kg;
+                      </div>
+                      <div class="col-5">
+                        Chiều cao: .... cm
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Địa chỉ:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Khoa:
+                      </div>
+                      <div class="col-3">
+                        Số buồng:
+                      </div>
+                      <div class="col-2">
+                        Giường:
+                      </div>  
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Chẩn đoán:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Yêu cầu kiểm tra: <br> <br> <br>
+                      </div>
+                    </div>
+                    <div class="row offset-6">
+                      <div class="col text-center">
+                      <i>Ngày.... tháng... năm....</i> <br>
+                      <b>BÁC SĨ ĐIỀU TRỊ</b> <br>
+                      <br>
+                      <br>
+                      Họ tên ....
+                    </div>
+                    </div>
+                    <h3><b>KẾT QUẢ ĐIỆN TIM</b></h3>
+                    <div class="row">
+                      <div class="col">
+                        - Chuyển đạo mẫu:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        - Nhịp, tần số:
+                      </div>
+                      <div class="col-6">
+                        - Góc anpha :
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        - Trục:
+                      </div>
+                      <div class="col-6">
+                        - Tư thế tim:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        - P:
+                      </div>
+                      <div class="col-6">
+                        - PQ:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - QRS:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - ST:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - T:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - QT:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Chuyển đạo trước tim:
+                      </div>
+                    </div>
+                    <h3><b>KẾT LUẬN:</b></h3>
+                    <b><u>Lời dặn của BS chuyên khoa:</u></b> <br>
+                    <div class="row offset-6">
+                      <div class="col text-center">
+                      <i>Ngày.... tháng... năm....</i> <br>
+                      <b>BÁC SĨ CHUYÊN KHOA</b> <br>
+                      <br>
+                      <br>
+                      Họ tên ....
+                    </div>
+                    </div>
+                  </div>
+                    <hr>
+                    -->
+
+                    <div class="container">
+    
+                      <div class="row">
+                        <div class="col-12">
+                          Bệnh viện: {{patient_summary.emrCoSoKhamBenh.ten}}
+                        </div>
+                      </div> 
+                      <br>
+                      <div class="row ">
+                        <div class="col-12 text-center">
+                          <h3 ><b>TÓM TẮT HỒ SƠ BỆNH ÁN</b></h3>
+                        </div>
+                         
+                      </div>
+                      <br>
+                      <div class="row">
+                        <div class="col-8">
+                          <b>1. Họ và tên </b>(In hoa)<b>: {{patient_summary.emrBenhNhan.tendaydu}}</b>
+                        </div>
+                        <div class="col-4">
+                          <b>2. Năm sinh: </b>{{patient_summary.emrBenhNhan.ngaysinh.substring(6,10)}}
+                        </div>                    
+                      </div>
+                      <div class="row">
+                          <div class="col-2">
+                            <b>3. Giới:</b>
+                          </div>
+                          <div class="col-6">
+                            <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'M' " type="checkbox"> <span class="mr-3">Nam</span>
+                            <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'F' " type="checkbox"> <span class="mr-3">Nữ</span>
+                          </div>
+                          <div class="col-4">
+                            <b>4. Dân tộc: </b>{{patient_summary.emrBenhNhan.emrDmDanToc.ten}}
+                          </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <b>5.Mã số BHYT/Thẻ BHYT số: </b>{{patient_summary.emrBenhNhan.sobhyt}}
+                        </div>
+                      </div>
+  
+                      <div class="row">
+                        <div class="col-12">
+                          <b>6. Nghề nghiệp:</b> {{patient_summary.emrBenhNhan.tendaydu}}
+                        </div>
+                        
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <b>7. Cơ quan/ Đơn vị công tác:</b>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <b>8. Địa chỉ: </b>{{patient_summary.emrBenhNhan.diachi}}, {{patient_summary.emrBenhNhan.emrDmPhuongXa.ten}}, {{patient_summary.emrBenhNhan.emrDmQuanHuyen.ten}},  {{patient_summary.emrBenhNhan.emrDmTinhThanh.ten}},
+  
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          <b>9. Vào viện: </b> {{patient_summary.emrQuanLyNguoiBenh.ngaygiovaovien}}
+                        </div>
+  
+                        <div class="col-6">
+                          ;
+                          <b>Ra viện</b> {{patient_summary.emrQuanLyNguoiBenh.ngaygioravien}}
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <b> 10. Chẩn đoán lúc vào viện:</b> {{patient_summary.emrChanDoan.emrDmMaBenhChandoankkb.ten}}
+                        </div>
+                       
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <b> 11. Chẩn đoán lúc ra viện:</b> {{patient_summary.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten}}
+                        </div>
+                       
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <b>12. Tóm tắt bệnh án: </b> 
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                         a, Quá trình bệnh lý và diễn biến lâm sàng: {{patient_summary.emrTongKetRaVien.dienbienlamsang}}
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                         b, Tóm tắt kết quả xét nghiệm lâm sàng có giá trị chẩn đoán: {{patient_summary.emrTongKetRaVien.canlamsang}}
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                         c, Phương pháp điều trị: {{patient_summary.emrTongKetRaVien.phuongphapdieutri}}
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                         d, Tình trạng người bệnh ra viện: {{patient_summary.emrTongKetRaVien.tinhtrangnguoibenh}}
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                        <b>13. Ghi chú:</b> {{patient_summary.emrTongKetRaVien.chidandieutri}}
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col offset-6" >
+                          <div class="text-center">                      <i>............ ,ngày ..... tháng ..... năm ...........</i> <br> 
+                          <b> Thủ trưởng đơn vị</b> 
+                          <br>
+                          <i>(ký tên, đóng dấu)</i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+  </div>
+  

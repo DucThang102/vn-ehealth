@@ -52,7 +52,2134 @@
           </table>
 
           <div class="modal fade" id="tomtathsbaModal">
+            <!--
             <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">
+                    <strong>Bệnh án:   </strong>
+                  </h5>
+                  <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body" v-if="patient_summary">
+
+  //26. Phiếu đo chức năng hô hấp
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      Sở Y tế: <br>
+      BV:  <br>
+    </div>
+    <div class="col-6 text-center">
+      <h3 class="text-center"><b>PHIẾU ĐO CHỨC NĂNG HÔ HẤP</b></h3><br>
+      <p>(lần thứ ....)</p>
+    </div>
+    <div class="col-3">
+      MS: 01/BV-01 <br>
+      Số vào viện: <br> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Họ tên người bệnh:
+    </div>
+    <div class="col-3">
+      Tuổi:
+    </div>
+    <div class="col-2">
+      Nam/ Nữ
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Địa chỉ:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Khoa:
+    </div>
+    <div class="col-3">
+      Số buồng:
+    </div>
+    <div class="col-2">
+      Giường:
+    </div>  
+  </div>
+  <div class="row">
+    <div class="col">
+      - Chẩn đoán:
+    </div>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th></th>
+        <th>DUNG TÍCH SỐNG</th>
+        <th>DT.THỞ RA TỐI ĐA/GIÂY</th>
+        <th>TỈ SỐ TIFFENAU</th>
+        <th>THÔNG KHÍ PHÚT/ TỐI ĐA</th>
+        <th>KHÍ DỰ TRỮ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Dự kiến</td>
+      </tr>
+      <tr>
+        <td>Thực tế</td>
+      </tr>
+      <tr>
+        <td>Tỷ lệ giảm %</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <div class="col-6 text-center">
+      <i>Ngày.... tháng... năm....</i> <br>
+      <b>BÁC SĨ ĐIỀU TRỊ</b> <br>
+      <br>
+      <br>
+      Họ tên ....
+    </div>
+    <div class="col-6 text-center">
+    <i>Ngày.... tháng... năm....</i> <br>
+    <b>BÁC SĨ CHUYÊN KHOA</b> <br>
+    <br>
+    <br>
+    Họ tên ....
+    </div>
+  </div>
+</div>
+  <hr>
+
+//25. Phiếu nội soi
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      Sở Y tế: <br>
+      BV:  <br>
+    </div>
+    <div class="col-6 text-center">
+      <h3 class="text-center"><b>PHIẾU NỘI SOI</b></h3><br>
+      <p>(lần thứ ....)</p>
+    </div>
+    <div class="col-3">
+      MS: 01/BV-01 <br>
+      Số vào viện: <br> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Họ tên người bệnh:
+    </div>
+    <div class="col-3">
+      Tuổi:
+    </div>
+    <div class="col-2">
+      Nam/ Nữ
+    </div>
+    </div>
+  <div class="row">
+    <div class="col">
+      - Địa chỉ:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Khoa:
+    </div>
+    <div class="col-3">
+      Số buồng:
+    </div>
+    <div class="col-2">
+      Giường:
+    </div>  
+  </div>
+  <div class="row">
+    <div class="col">
+      - Chẩn đoán:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Yêu cầu kiểm tra: <br> <br> <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Hẹn ghi điện não .....giờ.....; ngày .../.../ ......
+    </div>
+    <div class="col-5 text-center">
+      <i>Ngày.... tháng... năm....</i> <br>
+      <b>BÁC SĨ ĐIỀU TRỊ</b> <br>
+      <br>
+      <br>
+      Họ tên ....
+    </div>
+  </div>
+  <h3><b>KẾT QUẢ NỘI SOI:</b></h3>  (loại máy soi, thuốc dùng)
+  <b><u>Lời dặn của BS chuyên khoa:</u></b> <br>
+  <div class="row offset-6">
+    <div class="col text-center">
+    <i>Ngày.... tháng... năm....</i> <br>
+    <b>BÁC SĨ CHUYÊN KHOA</b> <br>
+    <br>
+    <br>
+    Họ tên ....
+  </div>
+  </div>
+</div>
+<hr>
+
+//24. Phiếu điện não
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      Sở Y tế: <br>
+      BV:  <br>
+    </div>
+    <div class="col-6 text-center">
+      <h3 class="text-center"><b>PHIẾU ĐIỆN TIM</b></h3><br>
+      <p>(lần thứ ....)</p>
+    </div>
+    <div class="col-3">
+      MS: 01/BV-01 <br>
+      Số vào viện: <br> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Họ tên người bệnh:
+    </div>
+    <div class="col-3">
+      Tuổi:
+    </div>
+    <div class="col-2">
+      Nam/ Nữ
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Địa chỉ:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Khoa:
+    </div>
+    <div class="col-3">
+      Số buồng:
+    </div>
+    <div class="col-2">
+      Giường:
+    </div>  
+  </div>
+  <div class="row">
+    <div class="col">
+      - Chẩn đoán:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Yêu cầu kiểm tra: <br> <br> <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Hẹn ghi điện não .....giờ.....; ngày .../.../ ......
+    </div>
+    <div class="col-5 text-center">
+      <i>Ngày.... tháng... năm....</i> <br>
+      <b>BÁC SĨ ĐIỀU TRỊ</b> <br>
+      <br>
+      <br>
+      Họ tên ....
+    </div>
+  </div>
+  <b>- Tình trạng người bệnh lúc ghi điện não:</b>
+  <h3><b>KẾT QUẢ ĐIỆN NÃO:</b></h3>
+  <b><u>Lời dặn của BS chuyên khoa:</u></b> <br>
+  <div class="row offset-6">
+    <div class="col text-center">
+    <i>Ngày.... tháng... năm....</i> <br>
+    <b>BÁC SĨ CHUYÊN KHOA</b> <br>
+    <br>
+    <br>
+    Họ tên ....
+  </div>
+  </div>
+</div>
+  <hr>
+// 23. Phiếu điện tim
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      Sở Y tế: <br>
+      BV:  <br>
+    </div>
+    <div class="col-6 text-center">
+      <h3 class="text-center"><b>PHIẾU ĐIỆN TIM</b></h3><br>
+      <p>(lần thứ ....)</p>
+    </div>
+    <div class="col-3">
+      MS: 01/BV-01 <br>
+      Số vào viện: <br> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Họ tên người bệnh:
+    </div>
+    <div class="col-3">
+      Tuổi:
+    </div>
+    <div class="col-2">
+      Nam/ Nữ
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Cân nặng:... kg;
+    </div>
+    <div class="col-5">
+      Chiều cao: .... cm
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Địa chỉ:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Khoa:
+    </div>
+    <div class="col-3">
+      Số buồng:
+    </div>
+    <div class="col-2">
+      Giường:
+    </div>  
+  </div>
+  <div class="row">
+    <div class="col">
+      - Chẩn đoán:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Yêu cầu kiểm tra: <br> <br> <br>
+    </div>
+  </div>
+  <div class="row offset-6">
+    <div class="col text-center">
+    <i>Ngày.... tháng... năm....</i> <br>
+    <b>BÁC SĨ ĐIỀU TRỊ</b> <br>
+    <br>
+    <br>
+    Họ tên ....
+  </div>
+  </div>
+  <h3><b>KẾT QUẢ ĐIỆN TIM</b></h3>
+  <div class="row">
+    <div class="col">
+      - Chuyển đạo mẫu:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      - Nhịp, tần số:
+    </div>
+    <div class="col-6">
+      - Góc anpha :
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      - Trục:
+    </div>
+    <div class="col-6">
+      - Tư thế tim:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      - P:
+    </div>
+    <div class="col-6">
+      - PQ:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - QRS:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - ST:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - T:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - QT:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Chuyển đạo trước tim:
+    </div>
+  </div>
+  <h3><b>KẾT LUẬN:</b></h3>
+  <b><u>Lời dặn của BS chuyên khoa:</u></b> <br>
+  <div class="row offset-6">
+    <div class="col text-center">
+    <i>Ngày.... tháng... năm....</i> <br>
+    <b>BÁC SĨ CHUYÊN KHOA</b> <br>
+    <br>
+    <br>
+    Họ tên ....
+  </div>
+  </div>
+</div>
+  <hr>
+  // 22. Phiếu siêu âm
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      Sở Y tế: <br>
+      BV:  <br>
+    </div>
+    <div class="col-6 text-center">
+      <h3 class="text-center"><b>PHIẾU SIÊU ÂM</b></h3><br>
+      <p>(lần thứ ....)</p>
+    </div>
+    <div class="col-3">
+      MS: 01/BV-01 <br>
+      Số: <br> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Họ tên người bệnh:
+    </div>
+    <div class="col-3">
+      Tuổi:
+    </div>
+    <div class="col-2">
+      Nam/ Nữ
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Địa chỉ:
+    </div>
+    <div class="col-5">
+      Số BHYT:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Khoa:
+    </div>
+    <div class="col-3">
+      Số buồng:
+    </div>
+    <div class="col-2">
+      Giường:
+    </div>  
+  </div>
+  <div class="row">
+    <div class="col">
+      - Chẩn đoán:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Yêu cầu kiểm tra: <br> <br> <br>
+    </div>
+  </div>
+  <div class="row offset-6">
+    <div class="col text-center">
+      <i>Ngày.... tháng... năm....</i> <br>
+      <b>BÁC SĨ ĐIỀU TRỊ</b> <br>
+      <br>
+      <br>
+    Họ tên ....
+    </div>
+  </div>
+
+  <h3 class="text-center"><b>KẾT QUẢ SIÊU ÂM</b></h3>
+  <b>1. Mô tả tổn thương:</b> <br>
+  <div class="row">
+    <div class="col-6">
+      <b>2. Kết luận:</b>
+    </div>
+    <div class="col-6">
+      <b class="text-center">HÌNH ẢNH SIÊU ÂM</b>
+    </div>
+  </div>
+  <b><u>Lời dặn của BS chuyên khoa:</u></b> <br>
+  <div class="row offset-6">
+    <div class="col text-center">
+    <i>Ngày.... tháng... năm....</i> <br>
+    <b>BÁC SĨ CHUYÊN KHOA</b> <br>
+    <br>
+    <br>
+    Họ tên ....
+  </div>
+  </div>
+</div>
+<hr>
+// 21.  Phiếu chụp cộng hưởng từ
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      Sở Y tế: <br>
+      BV:  <br>
+    </div>
+    <div class="col-6 text-center">
+      <h3 class="text-center"><b>PHIẾU CHỤP CỘNG HƯỞNG TỪ</b></h3><br>
+      <p>(lần thứ ....)</p>
+    </div>
+    <div class="col-3">
+      MS: 01/BV-01 <br>
+      Số: <br> 
+    </div>
+  </div>
+  <div class="row"> 
+    <div class="col-7">
+      - Họ tên người bệnh:
+    </div>
+    <div class="col-3">
+      Tuổi:
+    </div>
+    <div class="col-2">
+      Nam/ Nữ
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Địa chỉ:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Khoa:
+    </div>
+    <div class="col-3">
+      Số buồng:
+    </div>
+    <div class="col-2">
+      Giường:
+    </div>  
+  </div>
+  <div class="row">
+    <div class="col">
+      - Chẩn đoán:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Yêu cầu kiểm tra: <br> <br> <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Người bệnh có cơ dị vật kim loại trong cơ thể:  <br> <br> <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Các kết quả xét nghiệm, chuẩn đoán hình ảnh đã có:  <br> <br> <br>
+    </div>
+  </div>
+  <div class="row offset-6">
+    <div class="col text-center">
+    <i>Ngày.... tháng... năm....</i> <br>
+    <b>BÁC SĨ ĐIỀU TRỊ</b> <br>
+    <br>
+    <br>
+    Họ tên ....
+  </div>
+  </div>
+
+  <h3 class="text-center"><b>KẾT QUẢ</b></h3>
+  <b>1. Mô tả:</b> <br>
+  <b>2. Kết luận:</b> <br>
+  <b><u>Lời dặn của BS chuyên khoa:</u></b> <br>
+  <div class="row offset-6">
+    <div class="col text-center">
+    <i>Ngày.... tháng... năm....</i> <br>
+    <b>BÁC SĨ CHUYÊN KHOA</b> <br>
+    <br>
+    <br>
+    Họ tên ....
+  </div>
+  </div>
+</div>
+<hr>
+//20. Phiếu chụp cắt lớp vi tính
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      Sở Y tế: <br>
+      BV:  <br>
+    </div>
+    <div class="col-6 text-center">
+      <h3 class="text-center"><b>PHIẾU CHỤP CẮT LỚP VI TÍNH</b></h3><br>
+      <p>(lần thứ ....)</p>
+    </div>
+    <div class="col-3">
+      MS: 01/BV-01 <br>
+      Số: <br> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Họ tên người bệnh:
+    </div>
+    <div class="col-3">
+      Tuổi:
+    </div>
+    <div class="col-2">
+      Nam/ Nữ
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Địa chỉ:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Khoa:
+    </div>
+    <div class="col-3">
+      Số buồng:
+    </div>
+    <div class="col-2">
+      Giường:
+    </div>  
+  </div>
+  <div class="row">
+    <div class="col">
+      - Chẩn đoán:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Yêu cầu kiểm tra: <br> <br> <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Người bệnh có cơ địa dị ứng:  <br> <br> <br>
+    </div>
+  </div>
+  <div class="row offset-6">
+    <div class="col text-center">
+    <i>Ngày.... tháng... năm....</i> <br>
+    <b>BÁC SĨ ĐIỀU TRỊ</b> <br>
+    <br>
+    <br>
+    Họ tên ....
+  </div>
+  </div>
+
+  <h3 class="text-center"><b>KẾT QUẢ</b></h3>
+  <b>1. Mô tả:</b> <br>
+  <b>2. Kết luận:</b> <br>
+  <b><u>Lời dặn của BS chuyên khoa:</u></b> <br>
+  <div class="row offset-6">
+    <div class="col text-center">
+    <i>Ngày.... tháng... năm....</i> <br>
+    <b>BÁC SĨ CHUYÊN KHOA</b> <br>
+    <br>
+    <br>
+    Họ tên ....
+  </div>
+  </div>
+</div>
+  <hr>
+//19. Phiếu chiếu, chụp X quang 
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      Sở Y tế: <br>
+      BV:  <br>
+    </div>
+    <div class="col-6 text-center">
+      <h3 class="text-center"><b>PHIẾU CHIẾU/ CHỤP X-QUANG</b></h3><br>
+      <p>(lần thứ ....)</p>
+    </div>
+    <div class="col-3">
+      MS: 01/BV-01 <br>
+      Số: <br> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Họ tên người bệnh:
+    </div>
+    <div class="col-3">
+      Tuổi:
+    </div>
+    <div class="col-2">
+      Nam/ Nữ
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Địa chỉ:
+    </div>
+  </div>
+  <div class="row">
+    
+    <div class="col-7">
+      - Khoa:
+    </div>
+    <div class="col-3">
+      Số buồng:
+    </div>
+    <div class="col-2">
+      Giường:
+    </div>  
+  </div>
+  <div class="row">
+    <div class="col">
+      - Chẩn đoán:
+    </div>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr><th class="text-center"><b>YÊU CẦU CHIẾU/ CHỤP</b></th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          ... Nôi dung yêu cầu chiếu chụp 
+          <br>
+          <br>
+          <br>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row offset-6">
+    <div class="col text-center">
+    <i>Ngày.... tháng... năm....</i> <br>
+    <b>BÁC SĨ ĐIỀU TRỊ</b> <br>
+    <br>
+    <br>
+    Họ tên ....
+  </div>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class="text-center">
+          <b>KẾT QUẢ CHIẾU/ CHỤP</b>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          ... Nôi dung Kết quả chiếu chụp hiển thị 
+          <br>
+          <br>
+          <br>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <b><u>Lời dặn của BS chuyên khoa:</u></b> <br>
+  <div class="row offset-6">
+    <div class="col text-center">
+    <i>Ngày.... tháng... năm....</i> <br>
+    <b>BÁC SĨ CHUYÊN KHOA</b> <br>
+    <br>
+    <br>
+    Họ tên ....
+  </div>
+  </div>
+</div>
+<hr>
+// 18.Phiếu so ket 15 ngay dieu tri
+<br>
+<br>
+<br>
+
+// 17. Phiếu theo dõi truyền dịch
+                  <br>
+                  <br>
+                  <br>
+
+// 16.Phiếu truyền máu
+<br>
+<br>
+<br>
+<br>
+
+
+// 15. Phiếu lĩnh và phát máu
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+// 14. Phiếu Phẫu thuật thủ thuật
+<br>
+<br>
+<br>
+
+
+
+// 13. Phiếu gây mê hồi sức
+                  <br>
+                  <br>
+                  <br>
+
+// 12. Phiếu khám chuyên khoa <br>
+
+
+
+// 11. Phiếu theo dõi chuyển dạ đẻ
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      Sở Y tế: <br>
+      BV:  <br>
+      Khoa:
+    </div>
+    <div class="col-6 text-center">
+      <h3 class="text-center"><b>BIỂU ĐỒ CHUYỂN DẠ</b></h3><br>
+      <b>Bắt đầu theo dõi từ khi cổ tử cung mở 3cm</b>
+    </div>
+    <div class="col-3">
+      MS: 01/BV-01 <br>
+      Số vào viện: <br> 
+    </div>
+  </div>
+  <h3 class="text-center">BẢN HƯỚNG DẪN SỬ DỤNG BIỂU ĐỒ CHUYỂN DẠ</h3>
+  <p>Biểu đồ chuyển dạ(BĐCD): dùng cho mỗi thai phụ được theo dõi chuyển dạ và đẻ tại tất cả các tuyến y tế từ cơ sở đến tỉnh, thành phố hoặc trung ương, được ghi chép ngay khi cổ tử cung mở 3cm (dấu hiệu chuyển dạ thực sự).
+    <br>
+    <b>1. Phần thủ tục:</b> <br>
+    - Họ tên, tuổi: chữ in hoa và đúng theo bệnh án. <br>
+    - Lần có thai - lần đẻ: lần có thai có thể nhiều hơn lần đẻ. <br>
+    - Ngày vào: ghi rõ ngày, tháng, năm. <br>
+    - Giờ: ghi từ 0 giờ đến hết 23 giờ (không gi 8 giờ tối mà ghi 20 giờ). <br>
+    - Vỡ ối: nếu ối còn thì ghi "chưa" - Nếu vỡ rồi ghi số giờ, tính từ khi ối vỡ đến khi vào viện. <br>
+    <b>2. Giờ trong ngày:</b> <br>
+    - Phần "....." ở lề bên trái để ghi giờ, phút lúc nhận thai phụ nhập viện. <br>
+    - Các ô trắng được đánh số từ 1 - 24 ở bên phải " giờ trong ngày" ghi giờ thực tế tính từ lúc vào viện. Ví dụ vào viện lúc 5 giờ thì ô số 1 sẽ ghi 6 giờ, ô hai là 7 giờ. <br>
+    Trường hợp giờ thực tế vào viện không phải là con số chẵn thì quy định như sau: <br>
+    + Nếu số phút lẻ từ 30 trở xuống, thì ô số 1 sẽ ghi số giờ chẵn tiếp theo giờ vào viện. ví dụ vào lúc 2 giờ 15 phút thì ô số 1 là 3 giờ, số 2 là 4 giờ. <br>
+    + Nếu số phút lẻ trên 30 thì ô số 1 sẽ ghi giờ lùi lên 1 tiếng. Ví dụ vào viện lúc 15 giờ 35 phút, thì ô số 1 được ghi 17 giờ, ô số hai là 18 giờ. <br>
+    - Các ô trắng để ghi giờ trong ngày nằm ở giữa BĐCD sẽ ghi đúng như các ô giờ trong ngày ở cực trên BĐCD (mục đích chỉ để dễ quan sát khi ghi chép).
+    <table class="table table-bordered offset-2" style="width: 60%;">
+      <tr>
+        <td class="text-center">Tất cả các số đo theo dõi được ở giờ nào sẽ được ghi lại <br> trên trường dọc của BĐCD ở bên trái của ô giờ đó.</td>
+      </tr>
+    </table>
+    Cụ thể là: <br>
+    + Các số liệu thu được do thăm khám <u>ngay lúc vào viện </u>sẽ được ghi (đánh dấu) trên cột dọc đầu tiên (bên trái ô ghi giờ số 1). <br>
+    + Một giờ sau khi vào viện, các số liệu đo được khi khám theo dõi sẽ ghi ở cột dọc nằm giữa hai ô số 1 và số 2 (bên phải ô số 1). <br>
+    <b>3. Phần" Theo dõi bà mẹ":</b> <br>
+    - Trong trường hợp cuộc chuyển dạ (CD) diễn biến bình thường, yêu cầu 4 giờ 1 lần, thai phụ phải được thăm khám lại và ghi các số đo vào BĐCD. <br>
+    <br>
+    1.1. <u>Mạch</u> : Dùng ký hiệu "." hoặc "+". Qua các lần ghi nối lại với nhau thành "đường biểu diễn" mạch. <br>
+    1.2. <u>Huyết áp (HA)</u> ghi bằng ký hiệu "mũi tên" :br
+    + Cực trên mũi tên là số HA tâm thu. <br>
+    + Cực dưới mũi tên là số đo HA tâm trương. <br>
+    1.3. <u>Thân nhiệt của thai phụ</u>: Ghi bằng con số: 36.9 độ hoặc 37.2 độ ... <br>
+    1.4. <u>Protein nước tiểu</u>: Ghi kết quả xét nghiệm khi tiếp nhận thai phụ: <br>
+    + Nếu là xét nghiệm định tính thì tùy kết quả sẽ ghi (-); (+) ; (++) hay (+++). <br>
+    + Nếu xét nghiệm định lượng thì ghi rõ kết quả là bao nhiêu gam/ lit. <br>
+    2. <b>Phần theo dõi thai:</b> <br>
+    2.1. <u>Biểu đồ nhịp tim thai </u>(NTT): <br>
+    - Quy định thời gian theo dõi: nếu CD diễn biến bình thường: <br>
+    + Trong pha tiềm tàng (CTC từ 0-3cm): 1 giờ/ lần. <br>
+    + Trong pha tích cực (CTC từ 3-10cm): 30 phút/ lần. <br>
+    - Tần số NTT được ghi bằng ký hiệu "." hoặc "+" và nối với nhau thành một đường biểu diễn. <br>
+    2.2. <u>Tình trạng ối</u>: Ghi thực trạng tình trạng ối lúc tiếp nhận và những lần theo dõi về sau: <br>
+    - Ghi chữ "C" nếu đầu ối còn, chưa vỡ. <br>
+    - Ghi chữ "T" nếu đầu ối đã vỡ và nước ối trong. <br>
+    - Ghi chữ "X" nếu đầu ối vỡ và nước ối xanh phân xu. <br>
+    - Trường hợp đầu ối vỡ tự nhiên hay "bấm ối" ghi một mũi tên ở các chữ ký hiệu trên vào đúng thời điểm diễn ra hiện tượng kèm theo chữ "vỡ" hoặc "bấm ối". <br>
+    2.3 <u>Chồng khớp</u>: Mô tả sự uốn khuân của đầu thai diễn ra tron quá trình CD. <br>
+    - Quy định thời gian theo dõi: sau mỗi lần thăm âm đạo. <br>
+    - Cách ghi: <br>
+     0  = Khi các xương sọ cách xa nhau, đường khớp dễ nhận thấy. <br>
+     +  = Khi các xương sọ vùa chạm sát vào nhau. <br>
+    ++  = Khi các xương sọ chờm lên nhau. <br>
+    +++ = Khi các xương sọ chờm lên nhau nhiều. <br>
+    <b>5. Phần theo dõi tiến triển của cuộc đẻ:</b> <br>
+    1.1. <u>Biểu đồ mở CTC:</u> <br>
+    - Quy định thời gian theo dõi: nếu cuộc CD bình thường: 4 giờ/ lần qua thăm trong (thăm âm đạo). <br>
+    - Ký hiệu ghi trên biểu đồ (+) và nối lại thành đường biểu diễn độ mở CTC. Như vậy biểu đồ mở CTC là một đường biểu diễn đi dần dần từ thấp lên cao. <br>
+    - Ngay khi vào viện, nếu CTC đã mở được từ 3cm trở nên thì cuộc CD lúc đó phải coi là đã ở pha tích cực. Vì thế giờ thứ nhất sau khi nhập viện sẽ không còn ở ô trắng số 1 nữa mà phải nằm trong các ô từ ô thứ 9 trở đi. <br>
+     Ví dụ: <br>
+     + Thai phụ vào viện lúc 13 giờ với CTC đã mở 3cm thì giờ 13 đó phải nằm ở ô giờ số 8. <br>
+     + Nếu lúc đó CTC lại mở 5cm, thì giờ 13 sẽ ở ô số 10. <br>
+    - Nếu khi vào viện CTC mới mở dưới 3cm thfi CD vẫn còn đang ở pha tiềm tàng, nên độ mở CTC lúc đó được ghi ở cột dọc thứ nhất bên trái ô giờ số 1. 4 giờ sau khám lại, nếu CTC đã mở trên 3cm thì ghi tiếp độ mở đó ở cột dọc bên phải của ô giờ số 4. Nhưng đến đây cuộc chuyển CD đã chuyển sang pha tích cực, vì thế phải di chuyển ký hiệu ghi này theo hàng ngang cho tơi chạm đường báo động ở mức có độ mở CTC tương đương và giờ thực tế của độ mở CTC lúc đó sẽ ở ô tương ứng trong pha tích cực. Ví dụ: <br>
+    + 13 giờ thai phụ vào viện, CTC mở 2cm, được ghi ở mức 2 trên cột dọc đầu tiên ( bên trái ô giờ số 1). <br>
+    + 17 giờ ( 4 giờ sau) giả thử CTC mở được 6 cm thì ghi ở mức đó vào cột dọc bên phải ô giờ số 4. <br>
+    + Sau đó chuyển kí hiệu này sang vị trí tương ứng 6cm trên đường báo động, và như vậy 17 giờ ( giờ thực tế lúc đó) sẽ nằm trong ô giờ số 11 (xem hình minh họa).
+    <br>
+    + Cùng với sự di chuyển chỉ số mở CTC như thế, tất cả các chỉ số khác theo dõi được ghi vào thời điểm đó cũng sẽ chuyển đi theo sang vị trí mới của ô giờ trong pha tích cực. <br>
+    <u class="text-center">Hình minh họa về sự di chuyển kí hiệu độ mở CTC trong BĐCD</u> <br>
+    1.2. <u>Biểu đồ tiến triển của ngôi thai:</u> <br>
+    - Quy định thời gian theo dõi: Đánh giá tiến triển của ngôi nếu qua khám nắn bên ngoài thì được thực hiện cùng lúc với theo dõi cơn co TC và NTT (30 phút hoặc 1 giờ/ lần) nhưng để đảm bảo độ chính xác thì cần phải thăm trong. Do đó độ tiến triển của ngôi được ghi lại trên BĐCD cùng với lúc ghi độ mở CTC ( 4 tiếng/ lần). <br>
+    - Cách ghi được quy định như sau: Dùng ký hiệu hình "0". <br>
+    + Khi ngôi còn cao ghi trên dòng ngang có chỉ số 5. <br>
+    + Khi ngôi chúc, ghi trên dòng có chỉ số 4. <br>
+    + Khi ngôi chặt, ghi trên dòng có chỉ số 3. <br>
+    + Khi ngôi lọt ( còn cao) ghi trên dòng có chỉ số 2. <br>
+    + khi ngôi lọt trung bình, ghi trên dòng có chỉ số 1. <br>
+    + Kho ngôi lọt thấp, ghi trên dòng có chỉ số 0. <br>
+    Như vậy đường biểu diễn sự tiến triển của ngôilà một đường đi xuống dần từ 5( ngôi còn cao) đến 0 (ngôi đã lọt thấp). <br>
+    1.3. <u>Biểu đồ ghi cơn co tử cung (CCTC):</u> <br>
+    - Quy định thời gian theo dõi: Nếu cuộc CD bình thường thì cứ cách 1 giờ (trong pha tiềm tàng) hoặc 30 phút ( trong pha tích cực) phải theo dõi một lần. <br>
+    - CCTC được tính ra tần số (nghĩa là số cơn co xuất hiện trong 10 phút). <br>
+    - Biểu đồ CCTC có 5 ô, tùy theo CCTC đo được mà đánh dấu vào ô số thích hợp với kí hiệu đã được hướng dẫn trên BĐCD: <br>
+      Khi CCTC có độ dài dưới 20 giây. <br>
+      Khi CCTC có độ dài từ 20 đến 40 giây. <br>
+      Khi CCTC có độ dài trên 40 giây. <br>
+    <b>6. Các diễn biến khác + xử trí và kết quả:</b> <br>
+    Phần này để ghi rất tóm tắt, ngắn gọn những bất thường đặc biệt xẩy ra khi theo dõi CD, như ra máu, khó thở, phải cho thai phụ thở oxy hoặc dùng thuốc nào đó. Những chi tiết cần mô tả thêm nếu cần sẽ được ghi lại trong phần theo dõi tại phòng đẻ trong bệnh án.
+    <br>
+    <b>7. Tên người theo dõi và ghi BĐCD:</b> <br>
+    Về mặt pháp lí, người theo dõi khám trên thai phụ cũng là người có trách nhiệm ghi trên BĐCD. Không được thăm khám là một người còn ghi trên BĐCD lại là người khác. Cần ghi rõ tên và chức vụ: NHS, YS bay BS.
+
+
+   </p> 
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+
+// 10.Phiếu theo dõi chức năng sống
+
+
+                  <br>
+                  <br>
+                  <br>
+
+// 9. Phiếu chăm sóc
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      Sở Y tế: <br>
+      BV:  <br>
+      Khoa:
+    </div>
+    <div class="col-6 text-center">
+      <h3 class="text-center"><b>PHIẾU CHĂM SÓC</b></h3><br>
+      Y tá (điều dưỡng) ghi   Phiếu số: ......
+    </div>
+    <div class="col-3">
+      MS: 01/BV-01 <br>
+      Số vào viện: <br> 
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-7">
+      - Họ tên người bệnh:
+    </div>
+    <div class="col-3">
+      Tuổi:
+    </div>
+    <div class="col-2">
+      Nam/ Nữ
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      - Số giường:
+    </div>
+    <div class="col-3">
+      Buồng:
+    </div>
+    <div class="col-5">
+      Chuẩn đoán:
+    </div>
+  </div>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Ngày</th>
+        <th>Giờ, phút</th>
+        <th>Theo dõi diễn biến</th>
+        <th>Thực hiện y lệnh/ chăm sóc</th>
+        <th>Ký tên</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr><tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="text-center">HƯỚNG DẪN GHI CHÉP PHIẾU CHĂM SÓC</h3>
+  <b>Mục đích sử dụng Phiếu chăm sóc:</b> <br>
+  1. Là phiếu dùng để ghi diễn biến của người bệnh về chăm sóc, xử trí và thực hiện các y lệnh về điều trị của y tá (điều dưỡng). <br>
+  2. Là phiếu để thực hiện thông tin giữa các y tá (điều dưỡng) và giữa y tá (điều dưỡng) với bác sĩ điều trị.  <br>
+  3. Là tài liệu pháp lí để xem xét đánh giá trách nhiệm trong phạm vi chức năng và nhiệm vụ của y tá (điều dưỡng). <br>
+
+  <b>Nguyên tắc chung:</b> <br>
+  1. Ghi kịp thời: ngay sau khi theo dõi, chăm sóc hoặc xử trí cho người bệnh. <br>
+  2. Thông tin ngắn gọn, chính xác: chỉ ghi những thông tin trong phạm vi trách nhiệm của y tá ( điều dưỡng). <br>
+  3. Không ghi trùng lặp thông tin: các thông tin đã ghi trên các phiếu (phiếu theo dõi chức năng sống...) sẽ không ghi lại trên phiếu này. <br>
+  4. Kiểm tra lại ngay hoặc trao đổi ngay với các bác sĩ điều trị, nếu y tá (điều dưỡng) phát hiện có những thông tin khác biệt với nhận xét của bác sĩ. <br>
+
+  <b>Hướng dẫn ghi Phiếu chăm sóc</b> <br>
+  1. Mỗi lần ghi vào phiếu chăm sóc phải ghi ngày, giờ và phút tại thời điểm mà người y tá (điều dưỡng) theo dõi hoặc chăm sóc người bệnh. <br>
+  2. Cột diễn biến ghi ngắn gọn những diễn biến hoặc tình trạng bất thường của người bệnh, mà người y tá (điều dưỡng) theo dõi được. Kể cả những than phiền, kiến nghị của người bệnh. <br>
+  3. Cột thực hiện y lệnh/chăm sóc:
+  - <b>Về chăm sóc</b>: ghi những hành động chăm sóc (tắm, vệ sinh, thay đổi tư thế, chăm sóc vết loét, giáo dục sức khỏe, hướng dẫn người bệnh...). <br>
+  - <b>về xử trí</b>: chỉ ghi những xử trí khi có tình huống cần giải quyết trong phạm vi quyền hạn, trách nhiệm của y tá (điều dưỡng) sơ cứu ban đầu cùng với việc báo bác sĩ hoặc các xử trí thông thường ( thay băng, đắp khăn trườm lạnh khi người bệnh sốt cao..)
+  - <b>Về đánh giá kết quả:</b> ghi những kết quả mang lại ngay sau khi xử trí chăm sóc nếu có như: sau khi hút làm thông đường mũi miệng người bệnh thấy dễ thở hơn... <br>
+  - <b>Về thực hiện y lệnh:</b> ghi việc thực hiện y lệnh đặc biệt, bổ sung đột xuất theo hồ sơ bệnh án. Các y lệnh thường quy được ghi đánh dấu trong sổ y lệnh nên chỉ cần ghi đã thực hiện theo y lệnh. Riêng y lệnh truyền dịch phải ghi rõ: mạch, nhiệt độ, huyết áp, nhịp thở trước, trong và kết thúc truyền, khối lượng dịch đã truyền và những bất thường xẩy ra trong suốt quá trình truyền dịch. <br>
+  4. Cột kí tên: Y tá (điều dưỡng) ghi rõ tên của mình đủ để mọi người nhận dạng được chữ kí. <br>
+  5. Đối với người bệnh chăm sóc cấp I, cấp II cần ghi thường xuyên về những diễn biến bệnh của người bệnh. Đối với người bệnh chăm sóc cấp III, ghi tối thiểut 1 lần trong ngày và khi cần. Ngày nghỉ cuối tuần, ngày nghỉ lễ cần ghi những diễn biến của người bệnh nặng hoặc có diễn biến bất thường.
+
+
+
+
+</div>
+
+
+
+                  <br>
+                  <br>
+                  <br>
+
+// 8. Giấy chứng nhận thương tích
+
+<div class="container">
+  
+    <div class="row">
+      <div class="col-3">
+        Sở Y tế: <br>
+        BV:  <br>
+        Số:   /CN
+      </div>
+      <div class="col-6 text-center">
+        Cộng hòa Xã hội Chủ nghĩa Việt Nam <br>
+        Độc lập - Tự do - Hạnh phúc <hr>
+      </div>
+      <div class="col-3">
+        MS: 01/BV-01 <br>
+        Số vào viện: <br> 
+      </div>
+    </div>
+    <div class="text-center">
+      <h3><b>GIẤY CHỨNG NHẬN THƯƠNG TÍCH</b></h3>
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <b>GIÁM ĐỐC BỆNH VIỆN:</b> 
+      </div>
+      <div class="col-4">
+        Chứng nhận: 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-7">
+        - Ông, Bà: 
+      </div>
+      <div class="col-3">
+        Sinh ngày: 
+      </div>
+      <div class="col-2">
+        Giới tính: 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        - Nghề nghiệp:
+      </div>
+      <div class="col-6">
+        - Nơi làm việc:
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        - Số CMND/ Hộ khẩu:
+      </div>
+      <div class="col-6">
+        Ngày và nơi cấp:
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        - Địa chỉ:
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        - Vào viện lúc:
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        - Ra viện lúc:
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <b>- Lý do vào viện:</b>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <b>- Chẩn đoán:</b>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <b>- Tình trạng thương tích lúc vào viện:</b>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <b>- Tình trạng thương tích lúc ra viện:</b>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4 text-center">
+        <br>
+        <b>GIÁM ĐỐC BỆNH VIỆN</b> <br>
+        <br>
+        <br>
+        Họ tên .....
+      </div>
+      <div class="col-4 text-center">
+        <br>
+        <b>TRƯỞNG KHOA</b> <br>
+        <br>
+        <br>
+        Họ tên .....
+      </div>
+      <div class="col-4 text-center">
+         <i>Ngày.... tháng.... năm.....</i><br>
+        <b>BÁC SĨ ĐIỀU TRỊ</b> <br>
+        <br>
+        <br>
+        Họ tên .....
+      </div>
+    </div>
+
+  
+</div>
+
+
+
+
+
+<br>
+<br>
+<br>
+
+
+
+
+// 7. Phiếu thep dõi dị ứng Thuốc
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            <div class="row">
+              <div class="col-8">
+                Sở Y tế: <br>
+                BV: <br>
+                Khoa:
+        
+              </div>
+              <div class="col-4">
+                MS: 07B/BV-01 <br>
+                Số:
+              </div>
+            </div>
+            <h5 class="text-center"><b>PHIẾU THEO DÕI DỊ ỨNG THUỐC</b></h5>
+            <div class="row">
+              <div class="col-7">
+                Họ tên:
+              </div>
+              <div class="col-3">
+                Tuổi:
+              </div>
+              <div class="col-2">
+                Nam/ Nữ
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col">
+                Địa chỉ:
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                Chẩn đoán chính:
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <b> NHÓM MÁU:</b>
+              </div>
+            </div>
+            <div class="row offset-6">
+              <div class="text-center">
+              <i>Cấp ngày.... tháng... năm.....</i> <br>
+              Bác sĩ</b> <br>
+              <br>
+              <br>
+              Họ tên
+            </div>
+
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-6">
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            <div class="row">
+              <div class="col">
+                Dị ứng với các thuốc và các dị nguyên khác:
+              </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            
+            <br>
+            <div class="row">
+              <div class="col">
+                - Kiểu dị ứng:
+                
+              </div>
+            </div>
+            <br>
+            <br>
+            <br>
+
+            <div class="row">
+              <div class="col">
+                
+                - Bệnh kèm theo (hen, đái đường, tâm thần...):
+              </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+              <div class="col text-center">
+                <i>Nhớ mang theo phiếu này mỗi khi đi khám chữa bệnh.</i>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+// 6. Giấy thử phản ứng Thuốc
+
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      Số Y tế: <br>
+      BV: 
+    </div>
+    <div class="col-6 text-center">
+      Cộng hòa Xã hội Chủ nghĩa Việt Nam <br>
+      Độc lập - Tự do - Hạnh phúc <hr>
+
+    </div>
+    <div class="col-3">
+      MS: 01/BV-01 <br>
+      Số: <br> 
+    </div>
+  </div>
+  <div class="text-center">
+    <h3><b>GIẤY THỬ PHẢN ỨNG THUỐC</b></h3>
+  </div>
+  <div class="row offset-1">
+    
+      <div class="col-7">
+        - Họ tên người bệnh:
+      </div>
+      <div class="col-3">
+        Tuổi:
+      </div>
+      <div class="col-2">
+        Nam/ Nữ
+      </div>
+    
+  </div>
+  <div class="row offset-1">
+    <div class="col">
+      - Địa chỉ:
+    </div>
+  </div>
+  <div class="row offset-1">
+    
+    <div class="col-7">
+      - Khoa:
+    </div>
+    <div class="col-3">
+      Số buồng:
+    </div>
+    <div class="col-2">
+      Giường:
+    </div>  
+  </div>
+  <div class="row offset-1">
+    <div class="col">
+      - Chẩn đoán:
+    </div>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Bắt đầu thử, Giờ/ phút, Ngày/ tháng</th>
+      <th>Tên thuốc, nước sản xuất, lô, số sản xuất, hàm lượng, đơn vị</th>
+      <th>Phương pháp thử</th>
+      <th>Bác sĩ chỉ định <br> (Kí, ghi họ tên)</th>
+      <th>Người thử <br> (Kí, ghi họ tên)</th>
+      <th>Bác sĩ đọc và kiểm tra <br>(Kí, ghi họ tên) </th>
+      <th>Giờ phút đọc kết quả <br> (Viết chữ)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      
+    </tr>
+  </tbody>
+  </table>
+</div>
+
+
+
+<br>
+<br>
+<br>
+
+
+
+//5. Giấy KCB theo yêu cầu
+
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      Số Y tế: <br>
+      BV: 
+    </div>
+    <div class="col-6 text-center">
+      Cộng hòa Xã hội Chủ nghĩa Việt Nam <br>
+      Độc lập - Tự do - Hạnh phúc <hr>
+
+    </div>
+    <div class="col-3">
+      MS: 01/BV-01 <br>
+      Số: <br> 
+    </div>
+  </div>
+  <div class="text-center">
+    <h3><b>GIẤY KHÁM CHỮA BỆNH THEO YÊU CẦU</b></h3>
+  </div>
+  <div class="row offset-2">
+    <b>Kính gửi:</b>........
+  </div>
+
+  <div class="row">
+    <div class="col-7">
+      - Tên tôi là:
+    </div>
+    <div class="col-3">
+      Tuổi:
+    </div>
+    <div class="col-2">
+      Nam/ Nữ
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - CMND/Hộ chiếu/Hộ khẩu số:
+    </div>
+    <div class="col-5">
+      Cơ quan cấp:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Dân tộc:
+    </div>
+    <div class="col-5">
+      Ngoại kiều:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Nghề nghiệp:
+    </div>
+    <div class="col-5">
+      Nơi làm việc:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Địa chỉ:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Khi cần báo tin:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Là người bệnh/ đại diện gia đình người bệnh họ tên là: HỌ VĂN TÊN    Hiện đang khám/ chữa bệnh tại Khoa: ............ Bệnh viện:
+    </div>
+  </div>
+  <p>
+    1. Sau khi nghe bác sĩ phổ biến quy định khám/ chữa bệnh theo yêu cầu của bệnh viện, tôi viết giấy này thỏa thuận xin khám/ chữa bệnh theo yêu cầu và chọn dịch vụ chăm sóc như sau:
+    ...................... <br>
+    2. Tôi xin ứng trước một khoản tiền theo quy định của bệnh viện là:... đồng,( bằng chữ) : ... để khám/ chữa bệnh theo yêu cầu; khi ra viện tôi xin thanh toán đầy đủ. <br>
+    3.Trong khi thực hiện khám/ chữa bệnh theo yêu cầu, nếu có vấn đề phát sinh đề nghị bác sĩ thông báo cho tôi/ gia đình tôi biết để kịp thanh toán kịp thời.  <br>
+    4. Tôi xin chấp hành đầy đủ nội quy khám/ chữa bệnh của bệnh viện, yên tâm chữa bệnh và chịu trách nhiệm về những yêu cầu khám/ chữa bệnh của tôi. 
+
+  </p>
+  <div class="row">
+    <div class="col-6">
+      Duyệt của <br>
+      <b>GIÁM ĐỐC BỆNH VIỆN</b>
+
+    <br> <br> <br> Họ tên .....
+    </div>
+    <div class="col-6">
+      <i>Ngày.... tháng... năm</i> <br>
+      <b>NGƯỜI BỆNH/ ĐẠI DIỆN GIA ĐÌNH</b>
+<br>
+<br>
+<br>
+Họ tên .....
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+
+// 4. Giấy chứng nhận phẫu thuật 
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <table class="table table-bordered">
+        <tr>
+          <th colspan="4" class="text-center">NHỮNG LẦN VÀO VIỆN SAU</th>
+        </tr>
+        <tr>
+          <th style="width: 25%;">Vào ngày</th>
+          <th style="width: 25%;">Ra ngày</th>
+          <th style="width: 25%;">Bệnh viện</th>
+          <th style="width: 25%;">Ghi chú</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <p class="text-center">4</p>
+    </div>
+    <div class="col-6">
+      <table class="table table-bordered">
+        <tr>
+          <th class="text-center">Cộng hòa Xã hội Chủ nghĩa Việt Nam <br>
+            Độc lập - Tự do - Hạnh phúc </th>
+        </tr>
+        <tr>
+          <td>
+            <div class="row">
+              <div class="col">
+                MS: 04/ BV - 01
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                Số lưu trữ
+              </div>
+            </div>
+            
+              <h6 class="text-center"> <b> Giấy chứng nhận phẫu thuật </b></h6>
+            
+            <div class="row">
+              <div class="col">
+                Bệnh viện:
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                Chứng nhận Ông/Bà:
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                - Địa chỉ:
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                - Vào viện ngày:
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                - Ra viện ngày:
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                - Đã phẫu thuật (vị trí, phương thức...): 
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <p class="text-center">1</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <table class="table table-bordered">
+        <tr>
+          <th class="text-center">
+            <b>CÁCH THỨC PHẪU THUẬT</b>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <div class="row">
+              <div class="col">
+                ... 
+                 <br>            
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col">
+                - Nhóm máu:
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                - Yếu tố Rh:
+              </div>
+            </div>
+            <div class="row offset-2">
+              
+              <i>Ngày... tháng .... năm......</i>
+              
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <b>TRƯỞNG KHOA</b>
+                <br>
+                <br>
+                Họ tên .......
+              </div>
+              <div class="col-6">
+                <b>GIÁM ĐỐC</b>
+                <br> <br>
+                Họ tên....
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <p class="text-center">2</p>
+    </div>
+    <div class="col-6">
+      <table class="table table-bordered">
+        <tr>
+          <th colspan="4" class="text-center">KHÁM LẠI</th>
+        </tr>
+        <tr>
+          
+          <th>Ngày</th>
+          <th>Nơi khám</th>
+          <th>Kết quả</th>
+          <th>BS khám</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <p class="text-center">3</p>
+    </div>
+  </div>
+
+  
+</div>
+
+
+<br>
+<br>
+<br> <br>
+
+// 3.Giấy cam đoan chấp nhận phẫu thuật thủ thuật
+
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      Số Y tế: <br>
+      BV:  <br>
+
+
+    </div>
+
+    <div class="col-6 text-center">
+      Cộng hòa Xã hội Chủ nghĩa Việt Nam <br>
+      Độc lập - Tự do - Hạnh phúc <hr>
+
+    </div>
+    <div class="col-3">
+      MS: 01/BV-01 <br>
+      Số lưu trữ: <br> 
+    </div>
+  </div>
+  <div class="text-center">
+    <h3><b>GIẤY CAM ĐOAN CHẤP NHẬN PHẪU THUẬT, THỦ THUẬT VÀ GÂY MÊ HỒI SỨC</b></h3>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      - Tên tôi là:
+    </div>
+    <div class="col-2">
+      Tuổi
+    </div>
+    <div class="col-3">
+      <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'M' " type="checkbox"> <span class="mr-3">Nam</span>
+      <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'F' " type="checkbox"> <span class="mr-3">Nữ</span>
+
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-6">
+      - Dân tộc: 
+    </div>
+    <div class="col-6">
+      - Ngoại Kiều: 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      - Nghề nghiệp: 
+    </div>
+    <div class="col-6">
+      - Nơi làm việc: 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Địa chỉ:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      - Là người bệnh/ đại diện gia đình người bệnh/ họ tên là:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      hiện đang được điều trị tại Khoa: .... Bệnh viện: 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Sau khi nghe bác sĩ cho biết tình trạng bệnh của tôi/ của người gia đình tôi/ những nguy hiểm của bệnh nếu không thực hiện phẫu thuật, thủ thuật, gây mê hồi sức và những rủi ro có thể sảy ra do bệnh tật, do khi tiến hành phẫu thuật, thủ thuật, gây mê hồi sức; tôi tự nguyện viết giấy cam đoan này:
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'M' " type="checkbox"> <span class="mr-3">Đồng ý xin phẫu thuật, thủ thuật, gây mê hồi sức và để giấy này làm bằng </span>
+   
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'F' " type="checkbox"> <span class="mr-3">Không đồng ý phẫu thuật, thủ thuật, gây mê hồi sức và để giấy này làm bằng</span>
+
+    </div>
+  </div>
+
+  <div class="row offset-8">
+    <div class="text-center">
+      <i> Ngày.... tháng.... năm..... </i> <br>
+      <b>NgƯỜI BỆNH/ ĐẠI DIỆN GIA ĐÌNH</b>
+      <br>
+      <br>
+      <br>
+      Họ tên:
+    </div>
+  </div>
+
+</div>
+
+
+
+// Mẫu giấy chuyển viện 
+
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-3">
+                        Số Y tế: <br>
+                        BV: 
+                      </div>
+                      <div class="col-6 text-center">
+                        Cộng hòa Xã hội Chủ nghĩa Việt Nam <br>
+                        Độc lập - Tự do - Hạnh phúc <hr>
+                 
+                      </div>
+                      <div class="col-3">
+                        MS: 01/BV-01 <br>
+                        Số lưu trữ: <br> 
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <h3><b>GIẤY CHUYỂN VIỆN</b></h3>
+                    </div>
+                    <div class="row offset-2">
+                      <b>Kính gửi:</b>........
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        Bệnh viện chúng tôi trân trọng giới thiệu:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Họ tên người bệnh: 
+                      </div>
+                      <div class="col-2">
+                        Tuổi:
+                      </div>
+                      <div class="col-3">
+                        <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'M' " type="checkbox"> <span class="mr-3">Nam</span>
+                        <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'F' " type="checkbox"> <span class="mr-3">Nữ</span>
+                      </div>
+                    </div>
+                      <div class="row">
+                        <div class="col-6">
+                          - Dân tộc:
+                        </div>
+                        <div class="col-6">
+                          Ngoại kiều:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          - Nghề nghiệp
+                        </div>
+                        <div class="col-6">
+                          Nơi làm việc:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          - BHYT: giá trị từ: ........ đến ......
+                        </div>
+                        <div class="col-6">
+                          Số:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                        - Địa chỉ:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                        - Đã được điều trị/ khám bệnh tại:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          - Từ ngày: 
+                        </div>
+                        <div class="col-6">
+                          Đến ngày:
+                        </div>
+                      </div>
+                      <br>
+                      
+                        <div class="text-center">
+                          <h4><b>TÓM TẮT BỆNH ÁN</b></h4>
+                        </div>
+                      
+                      <div class="row">
+                        <div class="col">
+                          - Dấu hiệu lâm sàng:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          - Các xét nghiệm:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          - Chẩn đoán:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          - Thuốc đã dùng:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          - Tình trạng người bệnh lúc chuyển viện:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          - Lý do chuyển viện:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          -Chuyển viện hồi: .... giờ ... phút,  ngày... tháng ... năm...
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          - Phương tiện vận chuyển:
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          - Họ tên, chức danh người đưa đi:
+                        </div>
+                      </div>
+                   
+                      <div class="row">
+                        <div class="col-6 text-center">
+                          <br>
+                          <b>BÁC SỸ ĐIỀU TRỊ</b>
+                          <br>
+                          <br>
+                          <br>
+                          Họ tên:
+                        </div>
+                        <div class="col-6 text-center">
+                          Ngày... tháng... năm... <br>
+                          <b>GIÁM ĐỐC BỆNH VIỆN</b>
+                          <br>
+                          <br>
+                          <br>
+                          Họ tên: 
+                        </div>
+                      </div>
+                  </div>
+<br>
+<br>
+<br>
+<hr>
+// Mẫu giấy ra viện
+
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-3">
+                        Sở Y tế: <br>
+                        BV: <br>
+                        Khoa: 
+                      </div>
+                      <div class="col-6 text-center">
+                        Cộng hòa Xã hội Chủ nghĩa Việt Nam <br>
+                        Độc lập - Tự do - Hạnh phúc <hr>
+                 
+                      </div>
+                      <div class="col-3">
+                        MS: 01/BV-01 <br>
+                        Số lưu trữ: <br>
+                        Mã Y tế: 
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <h3><b>GIẤY RA VIỆN</b></h3>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                        - Họ tên người bệnh:
+                      </div>
+                      <div class="col-2">
+                        Tuổi:
+                      </div>
+                      <div class="col-3">
+                        <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'M' " type="checkbox"> <span class="mr-3">Nam</span>
+                        <input disabled :checked="attr(patient_summary, 'emrBenhNhan.emrDmGioiTinh.ma') == 'F' " type="checkbox"> <span class="mr-3">Nữ</span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        - Dân tộc:
+                      </div>
+                      <div class="col-6">
+                      Nghề nghiệp:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        -BHYT: giá trị từ: ........ đến ......
+                      </div>
+                      <div class="col-6">
+                        Số:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                      - Địa chỉ:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                      - Vào viện lúc:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                      - Ra viện lúc:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                      - Chẩn đoán:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        - Phương pháp điều trị:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                      - Lời dặn của thầy thuốc:
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6 text-center">
+                        Ngày... tháng ... năm <br>
+                        <b >TRƯỞNG KHOA ĐIỀU TRỊ</b >
+                        <br>
+                        <br>
+                        <br>
+                        Họ tên: .....
+                      </div>
+                      <div class="col-6 text-center">
+                        Ngày... tháng ... năm <br>
+                        <b >GIÁM ĐỐC BỆNH VIỆN</b >
+                        <br>
+                        <br>
+                        <br>
+                        Họ tên: .....
+
+                      </div>
+                    </div>
+                  </div>
+
+// Mẫu giấy chuyển viện
+
+
+                </div>
+              </div>
+            </div>
+
+          -->
+          <!--Lịch sử thăm khám-->
+
+              <div class="modal-dialog modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">
@@ -73,7 +2200,7 @@
                     <br>
                     <div class="row ">
                       <div class="col-12 text-center">
-                        <h3 ><b>TÓM TẮT HỒ SƠ BỆNH ÁN</b></h3>
+                        <h5 ><b>TÓM TẮT HỒ SƠ BỆNH ÁN</b></h5>
                       </div>
                        
                     </div>
@@ -186,6 +2313,7 @@
                 </div>
               </div>
             </div>
+            
           </div>
         </div>
       </div>
