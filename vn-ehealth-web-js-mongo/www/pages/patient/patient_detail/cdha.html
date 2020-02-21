@@ -334,19 +334,19 @@
                         <p>(lần thứ ....)</p>
                       </div>
                       <div class="col-3">
-                        MS: 01/BV-01 <br>
+                        MS: 19/BV-01 <br>
                         Số: <br> 
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-7">
-                        - Họ tên người bệnh:
+                        - Họ tên người bệnh: {{cdha.tenDayDu}}
                       </div>
                       <div class="col-3">
-                        Tuổi:
+                        Tuổi: {{cdha.tuoiBenhNhan}}
                       </div>
                       <div class="col-2">
-                        Nam/ Nữ
+                        Giới tính: {{cdha.gioiTinh}}
                       </div>
                     </div>
                     <div class="row">
@@ -378,7 +378,6 @@
                       <tbody>
                         <tr>
                           <td>
-                            ... Nôi dung yêu cầu chiếu chụp 
                             <br>
                             <br>
                             <br>
@@ -389,11 +388,10 @@
                     <div class="row offset-6">
                       <div class="col text-center">
                       <i>Ngày.... tháng... năm....</i> <br>
-                      
                       <b>BÁC SĨ ĐIỀU TRỊ</b> <br>
                       <br>
                       <br>
-                      Họ tên {{ cdha.bacsiyeucau }}
+                      Họ tên <b>{{ cdha.bacsiyeucau }}</b>
                     </div>
                     </div>
                     <table class="table table-bordered">
@@ -407,7 +405,6 @@
                       <tbody>
                         <tr>
                           <td>
-                            ... Nôi dung Kết quả chiếu chụp hiển thị 
                             {{ cdha.ketqua }}
                             <br>
                             <br>
@@ -424,7 +421,7 @@
                         <b>BÁC SĨ CHUYÊN KHOA</b> <br>
                         <br>
                         <br>
-                        Họ tên {{ cdha.bacsichuyenkhoa}}
+                        Họ tên <b>{{cdha.bacsichuyenkhoa}} </b>
                       </div>
                     </div>
                     <div v-if="cdha.emrFileDinhKemCdhas.length > 0">
