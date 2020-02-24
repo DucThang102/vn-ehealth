@@ -62,27 +62,27 @@
                   <div class="container">
                     <div class="row">
                       <div class="col-3">
-                        Sở Y tế: <br>
-                        BV:  <br>
+                        Sở Y tế: {{cdha.donViChuQuan}} <br>
+                        BV: {{cdha.tenCoSoKhamBenh}} <br>
                       </div>
                       <div class="col-6 text-center">
                         <h3 class="text-center"><b>PHIẾU SIÊU ÂM</b></h3><br>
                         <p>(lần thứ ....)</p>
                       </div>
                       <div class="col-3">
-                        MS: 01/BV-01 <br>
+                        MS: 22/BV-01 <br>
                         Số: <br> 
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-7">
-                        - Họ tên người bệnh:
+                        - Họ tên người bệnh: {{cdha.tenDayDu}}
                       </div>
                       <div class="col-3">
-                        Tuổi:
+                        Tuổi: {{cdha.tuoiBenhNhan}}
                       </div>
                       <div class="col-2">
-                        Nam/ Nữ
+                        Giới tính: {{cdha.gioiTinh}}
                       </div>
                     </div>
                     <div class="row">
@@ -95,13 +95,13 @@
                     </div>
                     <div class="row">
                       <div class="col-7">
-                        - Khoa:
+                        - Khoa: {{cdha.khoadieutri.tenkhoa}}
                       </div>
                       <div class="col-3">
-                        Số buồng:
+                        Số buồng: {{cdha.khoadieutri.phong}}
                       </div>
                       <div class="col-2">
-                        Giường:
+                        Giường: {{cdha.khoadieutri.giuong}}
                       </div>  
                     </div>
                     <div class="row">
@@ -136,7 +136,7 @@
                         <b class="text-center">HÌNH ẢNH SIÊU ÂM</b>
                       </div>
                     </div>
-                    <b><u>Lời dặn của BS chuyên khoa:</u></b> <br>
+                    <b><u>Lời dặn của BS chuyên khoa:</u></b> {{cdha.loidan}} <br>
                     <div class="row offset-6">
                       <div class="col text-center">
                         <i class="mb-2">{{formatNgay2(cdha.ngaythuchien)}}</i> <br>
@@ -170,27 +170,27 @@
                   <div class="container">
                     <div class="row">
                       <div class="col-3">
-                        Sở Y tế: <br>
-                        BV:  <br>
+                        Sở Y tế: {{cdha.donViChuQuan}}<br>
+                        BV: {{cdha.tenCoSoKhamBenh}} <br>
                       </div>
                       <div class="col-6 text-center">
                         <h3 class="text-center"><b>PHIẾU CHỤP CỘNG HƯỞNG TỪ</b></h3><br>
                         <p>(lần thứ ....)</p>
                       </div>
                       <div class="col-3">
-                        MS: 01/BV-01 <br>
+                        MS: 21/BV-01 <br>
                         Số: <br> 
                       </div>
                     </div>
                     <div class="row"> 
                       <div class="col-7">
-                        - Họ tên người bệnh:
+                        - Họ tên người bệnh: {{cdha.tenDayDu}}
                       </div>
                       <div class="col-3">
-                        Tuổi:
+                        Tuổi: {{cdha.tuoiBenhNhan}}
                       </div>
                       <div class="col-2">
-                        Nam/ Nữ
+                        Giới tính: {{cdha.gioiTinh}}
                       </div>
                     </div>
                     <div class="row">
@@ -244,7 +244,7 @@
                     {{cdha.ketqua}} <br>
                     <b>2. Kết luận:</b> <br>
                     {{cdha.ketluan}} <br>
-                    <b><u>Lời dặn của BS chuyên khoa:</u></b> <br>
+                    <b><u>Lời dặn của BS chuyên khoa:</u></b> {{cdha.loidan}} <br>
                     <div class="row offset-6">
                       <div class="col text-center">
                         <i class="mb-2">{{formatNgay2(cdha.ngaythuchien)}}</i> <br>
@@ -278,27 +278,27 @@
                   <div class="container">
                     <div class="row">
                       <div class="col-3">
-                        Sở Y tế: <br>
-                        BV:  <br>
+                        Sở Y tế: {{cdha.donViChuQuan}}<br>
+                        BV: {{cdha.tenCoSoKhamBenh}} <br>
                       </div>
                       <div class="col-6 text-center">
                         <h3 class="text-center"><b>PHIẾU CHỤP CẮT LỚP VI TÍNH</b></h3><br>
                         <p>(lần thứ ....)</p>
                       </div>
                       <div class="col-3">
-                        MS: 01/BV-01 <br>
+                        MS: 20/BV-01 <br>
                         Số: <br> 
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-7">
-                        - Họ tên người bệnh:
+                        - Họ tên người bệnh: {{cdha.tenDayDu}}
                       </div>
                       <div class="col-3">
-                        Tuổi:
+                        Tuổi: {{cdha.tuoiBenhNhan}}
                       </div>
                       <div class="col-2">
-                        Nam/ Nữ
+                        Giới tính: {{cdha.gioiTinh}}
                       </div>
                     </div>
                     <div class="row">
@@ -347,7 +347,7 @@
                     {{cdha.ketqua}} <br>
                     <b>2. Kết luận:</b> <br>
                     {{cdha.ketluan}} <br>
-                    <b><u>Lời dặn của BS chuyên khoa:</u></b> <br>
+                    <b><u>Lời dặn của BS chuyên khoa:</u></b> {{cdha.loidan}} <br>
                     <div class="row offset-6">
                       <div class="col text-center">
                       <i class="mb-2">{{formatNgay2(cdha.ngaythuchien)}}</i> <br>
@@ -386,8 +386,8 @@
                   <div class="container">
                     <div class="row">
                       <div class="col-3">
-                        Sở Y tế: <br>
-                        BV:  <br>
+                        Sở Y tế: {{cdha.donViChuQuan}}<br>
+                        BV: {{cdha.tenCoSoKhamBenh}} <br>
                       </div>
                       <div class="col-6 text-center">
                         <h5 class="text-center"><b>PHIẾU CHIẾU/ CHỤP X-QUANG</b></h5><br>
