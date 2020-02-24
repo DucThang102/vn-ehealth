@@ -147,36 +147,50 @@
             </div>
             <div class="row">
               <div class="col-6">
-                <span>Khoa:...</span>
+                <span>Khoa:{{getTenKhoa(hsba.emrVaoKhoas[0])}}</span>
               </div>
               <div class="col-3">
-                <span>Buồng:...</span>
+                <span>Buồng: {{khoaDieuTri.buong}} </span>
               </div>
               <div class="col-3">
-                <span>Giường:...</span>
+                <span>Giường: {{khoaDieuTri.giuong}} </span>
               </div>
             </div>
             <div>
-              <span>Chẩn đoán: ....</span>
+              <span>Chẩn đoán: {{hsba.emrBenhAn.emrDmMaBenhChandoanbenhchinh.ten}}</span>
             </div>
-            <table class="table table-bordered">
-              <tr>
-                <th class="text-center">YÊU CẦU XÉT NGHIỆM</th>
-                <th class="text-center">KẾT QUẢ XÉT NGHIỆM</th>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-              </tr>
-            </table>
+
+            <div v-if="xetnghiem.emrXetNghiemDichVus.length > 0">
+              <table class='table table-bordered mt-3'>
+                <tr>
+                  <th style='width:25%' class="text-center">YÊU CẦU XÉT NGHIỆM</th>
+                  <th style='width:20%' class="text-center">KẾT QUẢ XÉT NGHIỆM</th>
+                </tr>
+                <template v-for="(xndv, i) in xetnghiem.emrXetNghiemDichVus">
+                  <template v-if="xndv.emrXetNghiemKetQuas.length==1">
+                    <tr>
+                      <td>{{ xndv.emrDmXetNghiem.ten }}</td>
+                      <td class="text-center">{{ xndv.emrXetNghiemKetQuas[0].giatrido }}</td class="text-center">
+                    </tr>
+                  </template>
+                  <template v-if="xndv.emrXetNghiemKetQuas.length>1">
+                    <tr v-for="xnkq in xndv.emrXetNghiemKetQuas">                      
+                      <td>{{ xnkq.emrDmChiSoXetNghiem.ten }}</td>
+                      <td class="text-center">{{ xnkq.giatrido }}</td>
+                    </tr>                 
+                  </template>
+                </template>
+              </table>
+            </div>
+
 
             <section class="mb-4">
               <div class="row align-items-end">
                 <div class="col text-center">
-                  <i class="mb-2">Ngày ... tháng ... năm ...</i>
+                  <i class="mb-2">{{formatNgay2(xetnghiem.ngayyeucau)}}</i>
                   <h6 class="mb-5"><b>BÁC SĨ ĐIỀU TRỊ</b></h6>
                   <br />
-                  <p>Họ và tên <b>bác sĩ điều trị</b></p>
+                  <p>Họ và tên <b>{{xetnghiem.bacsiyeucau}}</b></p>
                 </div>
                 <div class="col text-center">
                   <i class="mb-2">Ngày ... tháng ... năm ...</i>
