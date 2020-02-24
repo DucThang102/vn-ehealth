@@ -27,7 +27,8 @@ var benh_an_script = {
 
       var body = $("#benh_an").html();
       var wnd = window.open("", ""); //window.open('', '', 'width=1024');
-      wnd.document.write(`<html><head>
+      wnd.document.write(
+        `<html><head>
       <title>Tờ bệnh án</title>
       <style>
         @media print  
