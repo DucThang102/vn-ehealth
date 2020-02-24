@@ -377,7 +377,23 @@
         viewXetnghiem: function(xetnghiem) {
         this.xetnghiem = xetnghiem;
         $("#xetnghiemModal").modal();
-      }
+        },
+        formatNgay2(ngaygio) {
+          if (ngaygio.length >= 10) {
+            var ngay = ngaygio.substring(0, 2);
+            var thang = ngaygio.substring(3, 5);
+            var nam = ngaygio.substring(6, 10);
+            return `Ngày ${ngay} tháng ${thang} năm ${nam}`;
+          }
+          return "Ngày ... tháng ... năm ......";
+        },
+        khoaDieuTri() {
+          if (xetnghiem.emrVaoKhoas.length > 0) {
+            var n = xetnghiem.emrVaoKhoas.length;
+            return xetnghiem.emrVaoKhoas[n - 1];
+          }
+          return {};
+        },        
       },
      
       created: async function() {
