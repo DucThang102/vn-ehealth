@@ -58,6 +58,8 @@ public class EmrXetNghiemController {
         		x.put("tenDayDu", emrHoSoBenhAn.emrBenhNhan.tendaydu);
         		x.put("gioiTinh", emrHoSoBenhAn.emrBenhNhan.emrDmGioiTinh.ten);
         		x.put("khoadieutri", emrHoSoBenhAn.getEmrVaoKhoas());
+        		x.put("diachi", emrHoSoBenhAn.emrBenhNhan.diachi);
+        		x.put("chandoan", emrHoSoBenhAn.emrBenhAn.emrDmMaBenhChandoanbenhchinh.ten);        		
         	});
         	
             result.addAll(lst);     	        
