@@ -519,23 +519,27 @@
               </form>
             </div>
           </div>
+          <div class="row mb-2">
+            <div class="col">
+              <label><b class="text-primary mr-1">30.</b>Khám nghiệm tử thi: </label> 
+              <input type="checkbox" disabled :checked="attr(hsba, 'emrTinhTrangRaVien.khamnghiemtuthi')">
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col">
+              <label><b class="text-primary mr-1">31.</b>Chẩn đoán giải phẫu tử thi: </label>
+              <div class="col ml-3">
+                <span>{{hsba.emrTinhTrangRaVien.emrDmGiaiphaututhi.ten}}</span>
+                <form class="form-inline input-lr2 float-right">
+                  <input v-for="c in toCharArray(giaiPhauTuThi.ma)" readonly value="c" class="form-control form-control-sm text-placeholder w-40px">
+                </form>
+              </div> 
+            </div>
+          </div>      
+
+
         </div>
       </div>
-      <div class="row mb-2">
-        <div class="col">
-          <label><b class="text-primary mr-1">30.</b>Khám nghiệm tử thi: </label> 
-          <input type="checkbox" disabled :checked="attr(hsba, 'emrTinhTrangRaVien.khamnghiemtuthi')">
-        </div>
-        <div class="col">
-          <label><b class="text-primary mr-1">31.</b>Chẩn đoán giải phẫu tử thi: </label>
-          <div class="col ml-3">
-            <span>{{hsba.emrTinhTrangRaVien.emrDmGiaiphaututhi.ten}}</span>
-            <form class="form-inline input-lr2 float-right">
-              <input v-for="c in toCharArray(giaiPhauTuThi.ma)" readonly value="c" class="form-control form-control-sm text-placeholder w-40px">
-            </form>
-          </div> 
-        </div>
-      </div>      
     </section>
 
     <section class="mb-4">
