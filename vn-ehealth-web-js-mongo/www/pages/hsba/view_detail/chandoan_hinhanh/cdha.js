@@ -36,7 +36,16 @@ VueAsyncComponent(
       viewCdha: function(cdha) {
         this.cdha = cdha;
         $("#cdhaModal").modal();
-      }
+      },
+      formatNgay2(ngaygio) {
+        if (ngaygio.length >= 10) {
+          var ngay = ngaygio.substring(0, 2);
+          var thang = ngaygio.substring(3, 5);
+          var nam = ngaygio.substring(6, 10);
+          return `Ngày ${ngay} tháng ${thang} năm ${nam}`;
+        }
+        return "Ngày ... tháng ... năm ......";
+        }      
     },
 
     props: ["hsba_id"],
@@ -70,7 +79,16 @@ VueAsyncComponent(
     methods: {
       viewCdhaList: function() {
         this.$emit("viewCdhaList");
-      }
+      },
+      formatNgay2(ngaygio) {
+        if (ngaygio.length >= 10) {
+          var ngay = ngaygio.substring(0, 2);
+          var thang = ngaygio.substring(3, 5);
+          var nam = ngaygio.substring(6, 10);
+          return `Ngày ${ngay} tháng ${thang} năm ${nam}`;
+        }
+        return "Ngày ... tháng ... năm ......";
+        }      
     },
 
     created: async function() {
