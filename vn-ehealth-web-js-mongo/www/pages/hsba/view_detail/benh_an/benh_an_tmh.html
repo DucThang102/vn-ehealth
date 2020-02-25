@@ -348,44 +348,29 @@
                 <input disabled :checked="(hsba, 'coThuThuat')" type="checkbox"> <span class="mr-3">Biến chứng</span>
               </div>
               <div class="ml-3">
-                <input disabled type="checkbox"> <span class="mr-3">1.Do phẫu thuật</span><br>
-                <input disabled type="checkbox"> <span class="mr-3">2.Do gây mê</span><br>
-                <input disabled type="checkbox"> <span class="mr-3">3.Do nhiễm khuẩn </span><br>
-                <input disabled type="checkbox"> <span class="mr-3">4.Khác </span>
+                <input disabled :checked="(hsba, 'emrChanDoan.emrDmLyDoTaiBienBienChung.ma'== '01' )" type="checkbox"> <span class="mr-3">1.Do phẫu thuật</span><br>
+                <input disabled :checked="(hsba, 'emrChanDoan.emrDmLyDoTaiBienBienChung.ma'== '02' )" type="checkbox"> <span class="mr-3">2.Do gây mê</span><br>
+                <input disabled :checked="(hsba, 'emrChanDoan.emrDmLyDoTaiBienBienChung.ma'== '03' )" type="checkbox"> <span class="mr-3">3.Do nhiễm khuẩn </span><br>
+                <input disabled :checked="(hsba, 'emrChanDoan.emrDmLyDoTaiBienBienChung.ma'== '04' )" type="checkbox"> <span class="mr-3">4.Khác </span>
               </div>
             </div>
           </div>
-          <div class="row mb-2">
+          <div class="row">
             <div class="col">
-              <label><b class="text-primary mr-1">23.</b>Tổng số ngày điều trị sau phẫu thuật:</label>
-            </div>
-          </div>
-          <div class="row mb-2">
-            <div class="col">
-              <span>{{hsba.emrChanDoan.tongsongaysaupt}}</span>
+              <label class="mr-auto "><b class="text-primary mr-1">23.</b>Tổng số ngày điều trị sau phẫu thuật:</label>
               <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+                <input v-for="c in toCharArray(hsba.emrChanDoan.tongsongaysaupt + '')" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
               </form>
             </div>
           </div>
-
-          <div class="row mb-2">
+          <div class="row">
             <div class="col">
-              <label><b class="text-primary mr-1">24.</b>Tổng số lần phẫu thuật </label>
-            </div>
-          </div>
-
-          <div class="row mb-2">
-            <div class="col">
-              <span>{{hsba.emrChanDoan.tongsolanpt}}</span>
+              <label class="mr-auto "><b class="text-primary mr-1">24.</b>Tổng số lần phẫu thuật:</label>
               <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+                <input v-for="c in toCharArray(hsba.emrChanDoan.tongsolanpt + '')" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
               </form>
             </div>
-          </div>          
+          </div>
         </div>
 
         <div class="col-6">
@@ -407,18 +392,12 @@
             </div>
           </div>
 
-          
-
           <div class="row mb-2">
             <div class="col ml-4">
               <label><i>(nguyên nhân): </i>{{hsba.emrChanDoan.emrDmMaBenhChandoanraviennguyennhan.ten}}</label><br>
               <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
+                <input v-for="c in toCharArray(chanDoanRaVienNguyenNhan.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
               </form>
-
             </div>
           </div>
 
@@ -433,27 +412,31 @@
             </div>
           </div>
           <div class="row mb-2">
-            <div class="col ml-4">
-              <label><i class="fas fa-fw bullet-small fa-circle"></i> Chẩn đoán trước phẫu thuật: </label><br>
-              <span> {{hsba.emrChanDoan.motachandoantruocpt}} </span>
-              <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
-              </form>
+            <div class="col">
+              <div class="row ml-4"><label><i class="fas fa-fw bullet-small fa-circle"></i> Chẩn đoán trước phẫu thuật: </label><br></div>
+              <div class="row ml-4" v-for="pttt in ptttList"> 
+                <div class="col">
+                  <span>{{chanDoanTruocPt(pttt).ten}}</span>
+                </div>
+                <form class="form-inline input-lr2 float-right">
+                  <input v-for="c in toCharArray(chanDoanTruocPt(pttt).ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
+                </form>
+              </div>
             </div>
           </div>
           <div class="row mb-2">
-            <div class="col ml-4">
-              <label><i class="fas fa-fw bullet-small fa-circle"></i> Chẩn đoán sau phẫu thuật: </label><br>
-              <span> {{hsba.emrChanDoan.motachandoansaupt}} </span>
-              <form class="form-inline input-lr2 float-right">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
-                <input readonly value="1" class="form-control form-control-sm text-placeholder w-40px">
-              </form>
+            <div class="col">
+              <div class="row ml-4">
+                <label><i class="fas fa-fw bullet-small fa-circle"></i> Chẩn đoán sau phẫu thuật: </label><br>
+              </div>
+              <div class="row ml-4" v-for="pttt in ptttList">
+                <div class="col"> 
+                  <span>{{chanDoanSauPt(pttt).ten}}</span>
+                </div>
+                <form class="form-inline input-lr2 float-right">
+                  <input v-for="c in toCharArray(chanDoanSauPt(pttt).ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
+                </form>
+              </div>
             </div>
           </div>
 
@@ -737,7 +720,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">...</span>
+      <span class="ml-4">{{hsba.emrBenhAn.taimuihong}}</span>
     </div>
 
     <div class="row mt-2">
@@ -798,7 +781,7 @@
         <li>Tuần hoàn:{{hsba.emrBenhAn.tuanhoan}}</li>
         <li>Hô hấp:{{hsba.emrBenhAn.hohap}}</li>
         <li>Tiêu hóa:{{hsba.emrBenhAn.tieuhoa}}</li>
-        <li>Da và mô dưới da:...</li>
+        <li>Da và mô dưới da:{{hsba.emrBenhAn.dalieu}}</li>
         <li>Cơ - Xương - Khớp:{{hsba.emrBenhAn.coxuongkhop}}</li>
         <li>Thận - Tiết niệu - Sinh dục:{{hsba.emrBenhAn.tietnieusinhduc}}</li>
         <li>Khác:{{hsba.emrBenhAn.noitietdinhduong}}{{hsba.emrBenhAn.coquankhac}}</li>
@@ -928,14 +911,23 @@
 
 
     <div class="row mt-2">
-      <table class="table table-bordered mt-3 ml-4 mr-4" style="width: 80%;"> 
-        <th class="text-center">Giờ, ngày</th>
-        <th class="text-center">Phương pháp phẫu thuật/vô cảm</th>
-        <th class="text-center">Bác sỹ phẫu thuật</th>
-        <th class="text-center">Bác sỹ gây mê</th>
-        
+      <table class="table table-bordered mt-3 ml-4 mr-4" style="width: 100%;">
+        <tr>
+          <th class="text-center">Giờ, ngày</th>
+          <th class="text-center">Phương pháp phẫu thuật/vô cảm</th>
+          <th class="text-center">Bác sỹ phẫu thuật</th>
+          <th class="text-center">Bác sỹ gây mê</th>
+        </tr>
+        <tr v-for="pttt in ptttList">
+          <td class="text-center">{{ pttt.ngaygiopttt }}</td>
+          <td class="text-center">
+            {{ pttt.emrDmPhauThuThuat.ten }} / {{ pttt.phuongphapvocam }}
+          </td>
+          <td class="text-center">{{ pttt.bacsithuchien }}</td>
+          <td class="text-center">{{ pttt.bacsygayme }}</td>
+        </tr>
       </table>
-    </div>    
+    </div>
 
     <div class="row mt-3">
       <span>
