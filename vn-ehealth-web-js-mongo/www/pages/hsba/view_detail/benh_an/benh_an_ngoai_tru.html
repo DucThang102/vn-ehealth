@@ -5,16 +5,15 @@
         <div class="col-10 text-center text-uppercase">
           <strong>{{hsba.emrCoSoKhamBenh.donvichuquan}}</strong><br>
         </div>
-        <strong class="text-danger text-uppercase">{{hsba.emrCoSoKhamBenh.ten}}</strong> <br>
-        Khoa: <strong class="mr-3 text-primary">{{tenKhoaDieuTri}} <br>
-        </strong>Giường: <strong class="text-success">{{khoaDieuTri.giuong}}</strong>
+        <strong class="text-danger text-uppercase">{{hsba.emrCoSoKhamBenh.ten}}</strong>
       </div>
       <div class="col-4">
         <h3 class="text-tle mt-3 text-center">BỆNH ÁN NGOẠI TRÚ</h3>
+        <h5 class="text-tle mt-3 text-center">{{tenKhoaDieuTri}}</h5>
       </div>
       <div class="col-3">
-         <strong class="text-info">{{hsba.maluutru}}</strong> <br>
-        Mã YT: <span class="text-danger"> <strong>{{hsba.mayte}}</strong></span>
+        Số ngoại trú: <strong class="text-info"></strong> <br>
+        Số lưu trữ: <span class="text-danger"> <strong>{{hsba.maluutru}}</strong></span>
       </div>
     </div>
   </section>
@@ -48,6 +47,10 @@
             <input readonly :value="ngaySinhBenhNhan.substring(8,9)" class="form-control form-control-sm text-placeholder w-40px">
             <input readonly :value="ngaySinhBenhNhan.substring(9,10)" class="form-control form-control-sm text-placeholder w-40px">
           </div>
+          <div class="form-inline input-lr2 float-right">
+            <input v-for="c in toCharArray(tuoiBenhNhan)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
+          </div>
+
         </div>
       </div>
       <div class="row mb-2">
@@ -252,12 +255,7 @@
         <b>1. Toàn thân</b>
         <i>
           (ý thức, da niêm mạc, hệ thống hạch, tuyến giáp, vị trí, kích thước,
-          số lượng, di động v.v...):</i
-        >
-
-        <div class="row mt-2 ml-2">
-          <span class="ml-4">{{hsba.emrBenhAn.toanthan}}</span>
-        </div>
+          số lượng, di động v.v...):</i>
       </span>
     </div>
     <div class="row mt-2">
@@ -343,7 +341,7 @@
   <section class="mb-4">
     <div class="row align-items-end">
       <div class="col text-center">
-        <h6 class="mb-5">Giám đốc bệnh viện</h6>
+          <h6 class="mb-5"><b>Giám đốc bệnh viện</b> </h6>
         <br />
         <p>Họ và tên <b>{{hsba.giamdocbenhvien}}</b></p>
       </div>
@@ -351,9 +349,9 @@
         <i class="mb-2"
           ><span>{{formatNgay2(ngayGioRaVien)}}</span></i
         >
-        <h6 class="text-center mb-5">Trưởng khoa</h6>
+        <h6 class="text-center mb-5">Bác sỹ khám bệnh</h6>
         <br />
-        <p>Họ và tên <b>{{khoaDieuTri.tentruongkhoa}}</b></p>
+        <p>Họ và tên <b>{{hsba.emrQuanLyNguoiBenh.tenbacsikham}}</b></p>
       </div>
     </div>
   </section>
@@ -453,15 +451,12 @@
             <div class="col text-center">
               <i
               <i>{{formatNgay2(ngayKyDieuTri)}}</i>
-                
-              
               <h6 class="text-center mt-2 mb-5"><b> Bác sĩ điều trị </b></h6>
               <br />
-              <p>Họ và tên <b></b></p>
+              <p>Họ và tên <b>{{hsba.emrTongKetRaVien.bacsydieutri}}</b></p>
             </div>
           </td>
         </tr>
-
         <tr>
           <td>
             <center><b>Loại</b></center>
