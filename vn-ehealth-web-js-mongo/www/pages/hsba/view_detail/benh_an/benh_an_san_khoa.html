@@ -207,18 +207,21 @@
           <div class="row mb-3">
             <div class="col">
               <label><b class="text-primary mr-1">14.</b>Vào khoa: </label>
-              <table style="width:100%" v-if="hsba.emrVaoKhoas.length >= 1">
+              <table style="width:100%" v-if="hsba.emrVaoKhoas.length >= 1" class="table table-bordered">
+                <thead>
                 <tr>
                   <th class="text-center" style="width:35%">Khoa</th>
                   <th class="text-center" style="width:35%">Ngày giờ vào khoa</th>
                   <th class="text-center" style="width:30%">Số ngày điều trị</th>
                 </tr>
-                <tr>
+              </thead>
+              <tbody>                <tr>
                   <td>{{getTenKhoa(hsba.emrVaoKhoas[0])}}</td>
                   <td class="text-center">{{formatNgayGio(hsba.emrVaoKhoas[0].ngaygiovaokhoa)}}</td>
                   <td class="text-center">{{hsba.emrVaoKhoas[0].songaydieutri}}</td>
                 </tr>
-                  </table>
+              </tbody>
+            </table>
             </div>
           </div>
           <div class="row">
@@ -347,18 +350,18 @@
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">24.</b>Cách thức đẻ: </label>
-              <span>........</span>
+              <span>{{hsba.emrTongKetSanKhoa.emrDmCachDe.ten}}</span>
               <br>
               <div class="ml-3">
-                <input disabled :checked="(hsba, 'emrBenhAn.emrCkTinhTrangSanPhu.kiemsoattucung')" type="checkbox"> <span class="mr-3">Kiểm soát tử cung: {{hsba.emrBenhAn.emrCkTinhTrangSanPhu.motakiemsoattucung}}</span>
-                <input disabled type="checkbox"> <span class="mr-3">Tai biến</span>
-                <input disabled type="checkbox"> <span class="mr-3">Biến chứng</span>
+                <input disabled :checked="(hsba, 'emrBenhAn.emrCkTinhTrangSanPhu.kiemsoattucung')" type="checkbox"> <span class="mr-3">Kiểm soát tử cung: {{hsba.emrTongKetSanKhoa.kiemsoattucung}}</span>
+                <input disabled :checked="(hsba, 'emrChanDoan.bitaibien')" type="checkbox"> <span class="mr-3">Tai biến</span>
+                <input disabled :checked="(hsba, 'emrChanDoan.bibienchung')" type="checkbox"> <span class="mr-3">Biến chứng</span>
               </div>
               <div class="ml-3">
-                <input disabled type="checkbox"> <span class="mr-3">1.Do phẫu thuật</span><br>
-                <input disabled type="checkbox"> <span class="mr-3">2.Do gây mê</span><br>
-                <input disabled type="checkbox"> <span class="mr-3">3.Do nhiễm khuẩn </span><br>
-                <input disabled type="checkbox"> <span class="mr-3">4.Khác </span>
+                <input disabled :checked="(hsba, 'emrChanDoan.emrDmLyDoTaiBienBienChung.ma'== '01' )" type="checkbox"> <span class="mr-3">1.Do phẫu thuật</span><br>
+                <input disabled :checked="(hsba, 'emrChanDoan.emrDmLyDoTaiBienBienChung.ma'== '02' )" type="checkbox"> <span class="mr-3">2.Do gây mê</span><br>
+                <input disabled :checked="(hsba, 'emrChanDoan.emrDmLyDoTaiBienBienChung.ma'== '03' )" type="checkbox"> <span class="mr-3">3.Do nhiễm khuẩn </span><br>
+                <input disabled :checked="(hsba, 'emrChanDoan.emrDmLyDoTaiBienBienChung.ma'== '04' )" type="checkbox"> <span class="mr-3">4.Khác </span>
               </div>
 
             </div>
@@ -409,14 +412,14 @@
               <label><b class="text-primary mr-1">26.</b>Trẻ sơ sinh: </label> <br>
               <div class="row">
                 <div class="col">
-                  <input disabled type="checkbox" class="ml-3"> <span class="mr-3 ml-3">1.Đơn thai</span> <br>
-                  <input disabled type="checkbox" class="ml-3"> <span class="mr-3 ml-3">3.Trai</span> <br>
-                  <input disabled type="checkbox" class="ml-3"> <span class="mr-3 ml-3">a.Sống</span> <br>
+                  <input disabled :checked="attr(hsba, 'hsba.emrTongKetSanKhoa.ssdathai') " type="checkbox" class="ml-3"> <span class="mr-3 ml-3">1.Đơn thai</span> <br>
+                  <input disabled :checked="!attr(hsba, 'hsba.emrTongKetSanKhoa.sssotrai') " type="checkbox" class="ml-3"> <span class="mr-3 ml-3">3.Trai</span> <br>
+                  <input disabled :checked="!attr(hsba, 'hsba.emrTongKetSanKhoa.soluongsong')" type="checkbox" class="ml-3"> <span class="mr-3 ml-3">a.Sống</span> <br>
                 </div>
                 <div class="col">
-                  <input disabled type="checkbox" class="ml-3"> <span class="mr-3 ml-3">2.Đa thai</span> <br>          
-                  <input disabled type="checkbox" class="ml-3"> <span class="mr-3 ml-3">4.Gái</span> <br>                
-                  <input disabled type="checkbox" class="ml-3"> <span class="mr-3 ml-3">b.Chết</span><br>
+                  <input disabled :checked="!attr(hsba, 'hsba.emrTongKetSanKhoa.ssdathai') " type="checkbox" class="ml-3"> <span class="mr-3 ml-3">2.Đa thai</span> <br>          
+                  <input disabled :checked="attr(hsba, 'hsba.emrTongKetSanKhoa.sssogai')" type="checkbox" class="ml-3"> <span class="mr-3 ml-3">4.Gái</span> <br>                
+                  <input disabled :checked="attr(hsba, 'hsba.emrTongKetSanKhoa.soluongchet')" type="checkbox" class="ml-3"> <span class="mr-3 ml-3">b.Chết</span><br>
                 </div>
               </div>
               
