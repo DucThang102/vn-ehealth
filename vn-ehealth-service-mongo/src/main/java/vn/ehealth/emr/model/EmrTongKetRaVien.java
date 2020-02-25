@@ -2,6 +2,7 @@ package vn.ehealth.emr.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -20,14 +21,17 @@ public class EmrTongKetRaVien {
 
     public String nguoigiaohoso;
 
+    @JsonFormat(pattern="dd/MM/yyyy HH:mm")
     public Date ngaygiaohoso;
 
     public String nguoinhanhoso;
 
+    @JsonFormat(pattern="dd/MM/yyyy HH:mm")
     public Date ngaynhanhoso;
 
     public String bacsydieutri;
 
+    @JsonFormat(pattern="dd/MM/yyyy HH:mm")
     public Date ngaybacsydieutriky;
 
     public Integer soToXQuang;
