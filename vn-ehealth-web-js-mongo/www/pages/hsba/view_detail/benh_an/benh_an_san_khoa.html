@@ -320,7 +320,7 @@
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">21.</b>Lúc vào đẻ: </label>
-              <span>Vàng da do thiếu máu .....</span>
+              <span>{{hsba.emrBenhAn.emrDmMaBenhChandoanbenhchinh.ten}} {{hsba.emrBenhAn.motachandoanbenhchinh}}.</span>
               <form class="form-inline input-lr2 float-right">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
                 <input readonly value="0" class="form-control form-control-sm text-placeholder w-40px">
@@ -333,21 +333,21 @@
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">22.</b>Ngày đẻ (mổ đẻ): </label>
-              <span>.................</span>
+              <span>{{hsba.emrBenhAn.emrCkTinhTrangSanPhu.thoidiemmode}}</span>
             </div>
           </div>
 
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">23.</b>Ngôi thai: </label>
-              <span>.................</span>
+              <span>{{hsba.emrBenhAn.emrCkKhamSanKhoa.ngoithai}}</span>
             </div>
           </div>
 
           <div class="row mb-2">
             <div class="col">
               <label><b class="text-primary mr-1">24.</b>Cách thức đẻ: </label>
-              <span>.................</span>
+              <span>........</span>
               <br>
               <div class="ml-3">
                 <input disabled :checked="(hsba, 'emrBenhAn.emrCkTinhTrangSanPhu.kiemsoattucung')" type="checkbox"> <span class="mr-3">Kiểm soát tử cung: {{hsba.emrBenhAn.emrCkTinhTrangSanPhu.motakiemsoattucung}}</span>
@@ -584,37 +584,38 @@
     </div>
     <div class="row">
       <div class="col-6">
+
         <div class="row mt-2"> 
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Kinh cuối cùng từ ngày 20/12/2018 đến ngày 20/1/2019</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Kinh cuối cùng từ ngày {{hsba.emrBenhAn.emrCkKhamSanKhoa.kykinhcuoitungay}} đến ngày {{hsba.emrBenhAn.emrCkKhamSanKhoa.kykinhcuoidenngay}}</span>
         </div> 
         <div class="row mt-2"> 
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Tuổi thai: 38 tuần</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Tuổi thai: {{hsba.emrBenhAn.emrCkKhamSanKhoa.kykinhcuoitungay}}</span>
         </div> 
 
         <div class="row mt-2"> 
           <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Khám thai tại:</span>
-          <span>................</span>
+          <span>{{hsba.emrBenhAn.emrCkKhamSanKhoa.khamthaitai}}</span>
         </div> 
 
         <div class="row mt-2"> 
-          <span class="ml-4 mr-4"><i class="fas fa-fw bullet fa-circle"></i> Tiêm phòng uốn ván:</span>
+          <span class="ml-4 mr-4"><i class="fas fa-fw bullet fa-circle"></i> Tiêm phòng uốn ván: {{hsba.emrBenhAn.emrCkKhamSanKhoa.phonguonvan}}</span>
           <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkTiemChung.tcuonvan')" type="checkbox">
-          <span class="ml-4">Được tiêm 0100 lần</span>
+          <span class="ml-4">{{hsba.emrBenhAn.emrCkKhamSanKhoa.muiuonvanthu}}</span>
         </div> 
       </div>
       <div class="col-6">
         <div class="row mt-2"> 
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Bắt đầu chuyển dạ từ 10 giờ 30 phút ngày 20/1/2019</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Bắt đầu chuyển dạ từ: {{hsba. emrBenhAn.emrCkKhamSanKhoa.chuyendaluc}}</span>
         </div> 
 
         <div class="row mt-2"> 
           <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Dấu hiệu lúc đầu:</span>
-          <span>................</span>
+          <span>{{hsba.emrBenhAn.emrCkKhamSanKhoa.trieuchungbandau}}</span>
         </div> 
 
         <div class="row mt-2"> 
           <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Biến chuyển:</span>
-          <span>................</span>
+          <span>{{hsba.emrBenhAn.emrCkKhamSanKhoa.dauhieusaudo}}</span>
         </div> 
       </div>
     </div>
@@ -642,9 +643,9 @@
       <div class="col-6">
         <div class="row mt-2"> 
           <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Bắt đầu thấy kinh năm: </span>
-          <span class="ml-2 mr-2">...</span>
+          <span class="ml-2 mr-2">{{hsba.emrBenhAn.emrCkTienSuPhuKhoa.ngaythaykinh}}</span>
           <span>Tuổi:</span>
-          <span class="ml-2 mr-2">...</span>
+          <span class="ml-2 mr-2">{{hsba.emrBenhAn.emrCkTienSuPhuKhoa.tuoicokinh}}</span>
         </div>
         
         <div class="row mt-2"> 
@@ -654,7 +655,7 @@
 
         <div class="row mt-2"> 
           <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Chu kỳ:</span>
-          <span>.......... ngày</span>
+          <span>{{hsba.emrBenhAn.emrCkTienSuPhuKhoa.chukikinh}} ngày</span>
         </div> 
       </div>
       <div class="col-6">
@@ -665,13 +666,13 @@
 
         <div class="row mt-2"> 
           <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Lấy chồng năm:</span>
-          <span class="ml-2 mr-2">......</span>
+          <span class="ml-2 mr-2">{{hsba.emrBenhAn.emrCkTienSuPhuKhoa.tuoilaychong}}</span>
           <span>tuổi</span>
-          <span class="ml-2 mr-2">.....</span>
+         
         </div> 
         <div class="row mt-2"> 
           <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Những bệnh phụ khoa đã điều trị:</span>
-          <span>................</span>
+          <span>{{hsba.emrBenhAn.emrCkTienSuPhuKhoa.benhphukhoa}}</span>
         </div> 
       </div>
     </div>
@@ -731,7 +732,7 @@
         <b>1. Toàn thân</b></span>
     </div>
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Toàn thân: {{hsba.emrBenhAn.toanthan}}</span>
+      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Toàn thân: </span>
     </div>
     <div class="row-mt-2">
       <ul>
@@ -755,7 +756,7 @@
     <div class="row">
       <div class="col-6">
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Toàn trạng:.....</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Toàn trạng: {{hsba.emrBenhAn.toanthan}}</span>
         </div>
         <div class="row mt-2">
           <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Tuần hoàn: {{hsba.emrBenhAn.tuanhoan}}</span>
@@ -787,24 +788,24 @@
     <div class="row">
       <div class="col-6">
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Bụng có sẹo phẫu thuật cũ</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Bụng có sẹo phẫu thuật cũ: {{hsba.emrBenhAn.emrCkKhamSanKhoa.seomocu}}</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Chiều cao TC:.............  cm, vòng bụng: . ........ cm </span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Chiều cao TC: {{hsba.emrBenhAn.emrCkKhamSanKhoa.chieucaotc}}  cm, vòng bụng: {{hsba.emrBenhAn.emrCkKhamSanKhoa.vongbung}} cm </span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Tim thai: .............. lần/ phút</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Tim thai: {{hsba.emrBenhAn.emrCkKhamSanKhoa.timthai}} lần/ phút</span>
         </div>
       </div>
       <div class="col-6">
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Hình dạng TC: ............. Tư thế:..............</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Hình dạng TC: {{hsba.emrBenhAn.emrCkKhamSanKhoa.hinhdangtc}} Tư thế: {{hsba.emrBenhAn.emrCkKhamSanKhoa.tuthetc}}</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Cơn co TC:.....</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Cơn co TC: {{hsba.emrBenhAn.emrCkKhamSanKhoa.concotc}}</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Vú: .....</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Vú: {{hsba.emrBenhAn.emrCkKhamSanKhoa.vu}}</span>
         </div>
       </div class="col-6">
     </div>
@@ -817,7 +818,7 @@
     <div class="row">
       <div class="col-6"> 
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Chỉ số Bishop: ..... Điểm</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Chỉ số Bishop: {{hsba.emrBenhAn.emrCkKhamSanKhoa.bishop}} Điểm</span>
         </div>
         <div class="row mt-2">
           <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Âm hộ: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.amho}}  Âm đạo: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.amdao}}</span>
@@ -826,16 +827,16 @@
           <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Cổ tử cung: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.cotucung}} Phần phụ: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.phanphu}}</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Ối vỡ lúc: . ....... giờ ......... phút ngày ....../......./.......... </span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Ối vỡ lúc: {{hsba.emrBenhAn.emrCkTinhTrangSanPhu.ngayvooi}} </span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Mầu sắc nước ối:.......................................................</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Mầu sắc nước ối: {{hsba.emrBenhAn.emrCkTinhTrangSanPhu.mauoi}} </span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Ngôi: ............................... Thế: ............................</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Ngôi: {{hsba.emrBenhAn.emrCkKhamSanKhoa.ngoi}} Thế: {{hsba. emrBenhAn.emrCkKhamSanKhoa.the}}</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Độ lọt: 
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Độ lọt: {{hsba.emrBenhAn.emrCkKhamSanKhoa.dolot}}
             <input disabled type="checkbox"> 1.Cao
             <input disabled type="checkbox"> 2.Chúc
             <input disabled type="checkbox"> 3.Chặt
@@ -850,7 +851,7 @@
         </div>
 
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Tình trạng ối: .....	</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Tình trạng ối: {{hsba.emrBenhAn.emrCkKhamSanKhoa.dauoi}}	</span>
         </div>
 
         <div class="row mb-2">
@@ -876,13 +877,13 @@
           </div>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Nước ối nhiều hay ít: .....	</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Nước ối nhiều hay ít: {{hsba.emrBenhAn.emrCkKhamSanKhoa.nuocoi}}	</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Kiểu thế: .....	</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Kiểu thế: {{hsba.emrBenhAn.emrCkKhamSanKhoa.kieuthe}}	</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Đường kính nhô hạ vệ: .....	</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i>Đường kính nhô hạ vệ: {{hsba.emrBenhAn.emrCkKhamSanKhoa.dnhohauve}}	</span>
         </div>
 
       </div> 
@@ -945,10 +946,10 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Vào buồng đẻ lúc: 16 giờ .30 phút ngày dd/mm/yyyy	</span>
+      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Vào buồng đẻ lúc: {{hsba.emrBenhAn.emrCkTinhTrangSanPhu.thoidiemvaode}}	</span>
     </div>
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Tên người theo dõi: ........... Chức danh: 	</span>
+      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Tên người theo dõi: .... Chức danh: .......	</span>
     </div>
 
 
@@ -960,11 +961,13 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Đẻ lúc: 17 giờ .30 phút ngày dd/mm/yyyy	</span>
+      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Đẻ lúc: ....	</span>
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Apgar: 1 phút: ...... điểm    5 phút:....... điểm   10 phút: ....... điểm</span>
+      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Apgar: .....
+        
+        1 phút: ...... điểm    5 phút:....... điểm   10 phút: ....... điểm</span>
     </div>
     
     <div class="row mt-2">
@@ -1166,13 +1169,11 @@
 
     <div class="row mt-3">
       <span>
-        <b>5. Hướng điều trị và các chế độ tiếp theo:</b>
+        <b>5. Hướng điều trị và các chế độ tiếp theo: {{hsba.emrTongKetRaVien.chidandieutri}}</b>
       </span>
     </div>
 
-    <div class="row mt-2">
-      <span class="ml-4">Hướng điều trị và các chế độ tiếp theo .....</span>
-    </div>
+    
 
     <div class="row mt-3">
       <table class="table table-bordered">
