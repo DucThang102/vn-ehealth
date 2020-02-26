@@ -413,17 +413,16 @@
               <div class="row">
                 <div class="col">
                   <input disabled :checked="attr(hsba, 'hsba.emrTongKetSanKhoa.ssdathai') " type="checkbox" class="ml-3"> <span class="mr-3 ml-3">1.Đơn thai</span> <br>
-                  <input disabled :checked="!attr(hsba, 'hsba.emrTongKetSanKhoa.sssotrai') =='0' " type="checkbox" class="ml-3"> <span class="mr-3 ml-3">3.Trai</span> <br>
-                  <input disabled :checked="attr(hsba, 'hsba.emrTongKetSanKhoa.soluongsong')" type="checkbox" class="ml-3"> <span class="mr-3 ml-3">a.Sống</span> <br>
+                  <input disabled :checked="attr(hsba, 'hsba.emrTongKetSanKhoa.sssotrai') > 0 " type="checkbox" class="ml-3"> <span class="mr-3 ml-3">3.Trai</span> <br>
+                  <input disabled :checked="attr(hsba, 'hsba.emrTongKetSanKhoa.soluongsong') > 0" type="checkbox" class="ml-3"> <span class="mr-3 ml-3">a.Sống</span> <br>
                 </div>
                 <div class="col">
                   <input disabled :checked="!attr(hsba, 'hsba.emrTongKetSanKhoa.ssdathai') " type="checkbox" class="ml-3"> <span class="mr-3 ml-3">2.Đa thai</span> <br>          
-                  <input disabled :checked="!attr(hsba, 'hsba.emrTongKetSanKhoa.sssogai')=='0'" type="checkbox" class="ml-3"> <span class="mr-3 ml-3">4.Gái</span> <br>                
-                  <input disabled :checked="attr(hsba, 'hsba.emrTongKetSanKhoa.soluongchet')" type="checkbox" class="ml-3"> <span class="mr-3 ml-3">b.Chết</span><br>
+                  <input disabled :checked="attr(hsba, 'hsba.emrTongKetSanKhoa.sssogai') > 0" type="checkbox" class="ml-3"> <span class="mr-3 ml-3">4.Gái</span> <br>                
+                  <input disabled :checked="attr(hsba, 'hsba.emrTongKetSanKhoa.soluongchet') > 0" type="checkbox" class="ml-3"> <span class="mr-3 ml-3">b.Chết</span><br>
                 </div>
               </div>
               
-             
               <i class="fas fa-fw bullet-small fa-circle"></i><span class="mr-3 ml-3">Dị tật:</span> <br>
               <i class="fas fa-fw bullet-small fa-circle"></i><span class="mr-3 ml-3">Cân nặng: {{hsba.emrTongKetSanKhoa.sscannang}} gram</span> <br>
               
