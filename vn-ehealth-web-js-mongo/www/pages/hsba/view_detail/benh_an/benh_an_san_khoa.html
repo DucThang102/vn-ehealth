@@ -413,7 +413,7 @@
               <div class="row">
                 <div class="col">
                   <input disabled :checked="attr(hsba, 'hsba.emrTongKetSanKhoa.ssdathai') " type="checkbox" class="ml-3"> <span class="mr-3 ml-3">1.Đơn thai</span> <br>
-                  <input disabled :checked="!attr(hsba, 'hsba.emrTongKetSanKhoa.sssotrai')=='0' " type="checkbox" class="ml-3"> <span class="mr-3 ml-3">3.Trai</span> <br>
+                  <input disabled :checked="!attr(hsba, 'hsba.emrTongKetSanKhoa.sssotrai') =='0' " type="checkbox" class="ml-3"> <span class="mr-3 ml-3">3.Trai</span> <br>
                   <input disabled :checked="attr(hsba, 'hsba.emrTongKetSanKhoa.soluongsong')" type="checkbox" class="ml-3"> <span class="mr-3 ml-3">a.Sống</span> <br>
                 </div>
                 <div class="col">
@@ -1116,38 +1116,33 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Chẩn đoán trước phẫu thuật:  .....</span>
+      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Chẩn đoán trước phẫu thuật: {{hsba.emrChanDoan.motachandoantruocpt}}</span>
     </div>
     <div class="row mt-2">
-      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Chẩn đoán sau phẫu thuật: .....</span>
+      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Chẩn đoán sau phẫu thuật: {{hsba.emrChanDoan.motachandoansaupt}}</span>
     </div>
     
 
     <div class="row mt-2">
       <table class="table table-bordered mt-3 ml-4 mr-4" style="width: 80%;"> 
-        <th class="text-center">Giờ, ngày</th>
-        <th class="text-center">Phương pháp phẫu thuật/vô cảm</th>
-        <th class="text-center">Bác sỹ phẫu thuật</th>
-        <th class="text-center">Bác sỹ gây mê</th>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>  
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>  
-
+        <thead>
+          <tr>
+            <th class="text-center">Giờ, ngày</th>
+            <th class="text-center">Phương pháp phẫu thuật/vô cảm</th>
+            <th class="text-center">Bác sỹ phẫu thuật</th>
+            <th class="text-center">Bác sỹ gây mê</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="pttt in ptttList">
+            <td class="text-center">{{ pttt.ngaygiopttt }}</td>
+            <td class="text-center">
+              {{ pttt.emrDmPhauThuThuat.ten }} / {{ pttt.phuongphapvocam }}
+            </td>
+            <td class="text-center">{{ pttt.bacsithuchien }}</td>
+            <td class="text-center">{{ pttt.bacsygayme }}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
     <div class="row mt-2">
