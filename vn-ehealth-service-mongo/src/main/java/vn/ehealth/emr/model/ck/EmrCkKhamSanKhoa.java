@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import vn.ehealth.emr.model.EmrDm;
+
 @JsonInclude(Include.NON_NULL)
 public class EmrCkKhamSanKhoa {
     public String khamthaitai;
@@ -49,7 +51,8 @@ public class EmrCkKhamSanKhoa {
     public String ngoi;
     public String the;
     public String kieuthe;
-    public Integer dolot;
+    //public Integer dolot;
+    public EmrDm emrDmDolot;
     public Integer dnhohauve;
     @JsonFormat(pattern="dd/MM/yyyy HH:mm")
     public Date kykinhcuoitungay;

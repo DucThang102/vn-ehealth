@@ -682,7 +682,9 @@
 	       "ngoi":{"type": "String"},
 	       "the":{"type": "String"},
 	       "kieuthe":{"type": "String"},
-	       "dolot":{"type": "Integer"},
+	       "emrDmDolot": {
+	          "ma": {"type" : "String", "required" : true}, "ten": {"type": "String"}
+	        },
 	       "dnhohauve":{"type": "Integer"},
 	       "kykinhcuoitungay":{"type" : "Date"},
 	       "kykinhcuoidenngay":{"type" : "Date"},
