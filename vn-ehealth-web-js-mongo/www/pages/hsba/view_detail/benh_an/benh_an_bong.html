@@ -353,10 +353,10 @@
           <div class="row">
             <div class="col">
               <div class="ml-3">
-                <input disabled type="checkbox"> <span class="mr-3">1.Do phẫu thuật</span> <br>
-                <input disabled type="checkbox"> <span class="mr-3">2.Do gây mê</span> <br>
-                <input disabled type="checkbox"> <span class="mr-3">3.Do nhiễm khuẩn</span> <br>
-                <input disabled type="checkbox"> <span class="mr-3">4.Khác</span> <br>
+                <input disabled :checked="(hsba, 'emrChanDoan.emrDmLyDoTaiBienBienChung.ma'== '01' )" type="checkbox"> <span class="mr-3">1.Do phẫu thuật</span><br>
+                <input disabled :checked="(hsba, 'emrChanDoan.emrDmLyDoTaiBienBienChung.ma'== '02' )" type="checkbox"> <span class="mr-3">2.Do gây mê</span><br>
+                <input disabled :checked="(hsba, 'emrChanDoan.emrDmLyDoTaiBienBienChung.ma'== '03' )" type="checkbox"> <span class="mr-3">3.Do nhiễm khuẩn </span><br>
+                <input disabled :checked="(hsba, 'emrChanDoan.emrDmLyDoTaiBienBienChung.ma'== '04' )" type="checkbox"> <span class="mr-3">4.Khác </span>
               </div>
             </div>
           </div>
@@ -867,32 +867,24 @@
     
 
     <div class="row mt-2">
-      <table class="table table-bordered mt-3 ml-4 mr-4" style="width: 80%;"> 
-        <th class="text-center">Giờ, ngày</th>
-        <th class="text-center">Phương pháp phẫu thuật/vô cảm</th>
-        <th class="text-center">Bác sỹ phẫu thuật</th>
-        <th class="text-center">Bác sỹ gây mê</th>
+      <table class="table table-bordered mt-3 ml-4 mr-4" style="width: 100%;">
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <th class="text-center">Giờ, ngày</th>
+          <th class="text-center">Phương pháp phẫu thuật/vô cảm</th>
+          <th class="text-center">Bác sỹ phẫu thuật</th>
+          <th class="text-center">Bác sỹ gây mê</th>
         </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>  
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>  
-
+        <tr v-for="pttt in ptttList">
+          <td class="text-center">{{ pttt.ngaygiopttt }}</td>
+          <td class="text-center">
+            {{ pttt.emrDmPhauThuThuat.ten }} / {{ pttt.phuongphapvocam }}
+          </td>
+          <td class="text-center">{{ pttt.bacsithuchien }}</td>
+          <td class="text-center">{{ pttt.bacsygayme }}</td>
+        </tr>
       </table>
     </div>
+
 
     <div class="row mt-3">
       <span>
