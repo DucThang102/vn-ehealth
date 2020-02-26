@@ -591,33 +591,36 @@
           <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Kinh cuối cùng từ ngày {{hsba.emrBenhAn.emrCkKhamSanKhoa.kykinhcuoitungay}} đến ngày {{hsba.emrBenhAn.emrCkKhamSanKhoa.kykinhcuoidenngay}}</span>
         </div> 
         <div class="row mt-2"> 
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Tuổi thai: {{hsba.emrBenhAn.emrCkKhamSanKhoa.kykinhcuoitungay}}</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Tuổi thai: </span>
+          <span class="ml-4"> {{hsba.emrBenhAn.emrCkKhamSanKhoa.kykinhcuoitungay}}</span>
         </div> 
 
         <div class="row mt-2"> 
           <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Khám thai tại:</span>
-          <span>{{hsba.emrBenhAn.emrCkKhamSanKhoa.khamthaitai}}</span>
+          <span class="ml-4">{{hsba.emrBenhAn.emrCkKhamSanKhoa.khamthaitai}}</span>
         </div> 
 
         <div class="row mt-2"> 
-          <span class="ml-4 mr-4"><i class="fas fa-fw bullet fa-circle"></i> Tiêm phòng uốn ván: {{hsba.emrBenhAn.emrCkKhamSanKhoa.phonguonvan}}</span>
-          <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkTiemChung.tcuonvan')" type="checkbox">
-          <span class="ml-4">{{hsba.emrBenhAn.emrCkKhamSanKhoa.muiuonvanthu}}</span>
+          <span class="ml-4 mr-4"><i class="fas fa-fw bullet fa-circle"></i> Tiêm phòng uốn ván</span>
+          <span>
+          <input disabled :checked="attr(hsba, 'emrBenhAn.emrCkTiemChung.phonguonvan')" type="checkbox">
+          <span class="ml-4">{{hsba.emrBenhAn.emrCkKhamSanKhoa.muiuonvanthu}}</span> <span> mũi </span> </span>
         </div> 
       </div>
       <div class="col-6">
         <div class="row mt-2"> 
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Bắt đầu chuyển dạ từ: {{hsba. emrBenhAn.emrCkKhamSanKhoa.chuyendaluc}}</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Bắt đầu chuyển dạ từ:</span> 
+          <span class="ml-4"> {{hsba. emrBenhAn.emrCkKhamSanKhoa.chuyendaluc}}</span>
         </div> 
 
         <div class="row mt-2"> 
           <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Dấu hiệu lúc đầu:</span>
-          <span>{{hsba.emrBenhAn.emrCkKhamSanKhoa.trieuchungbandau}}</span>
+          <span class="ml-4">{{hsba.emrBenhAn.emrCkKhamSanKhoa.trieuchungbandau}}</span>
         </div> 
 
         <div class="row mt-2"> 
           <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Biến chuyển:</span>
-          <span>{{hsba.emrBenhAn.emrCkKhamSanKhoa.dauhieusaudo}}</span>
+          <span class="ml-4">{{hsba.emrBenhAn.emrCkKhamSanKhoa.dauhieusaudo}}</span>
         </div> 
       </div>
     </div>
@@ -632,7 +635,7 @@
       <span class="ml-4">{{hsba.emrBenhAn.tiensubanthan}}</span>
     </div> 
     <div class="row mt-2"> 
-      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Gia đình</span>
+      <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Gia đình:</span>
       <span class="ml-4">{{hsba.emrBenhAn.tiensugiadinh}}</span>
     </div> 
 
@@ -646,35 +649,35 @@
         <div class="row mt-2"> 
           <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Bắt đầu thấy kinh năm: </span>
           <span class="ml-2 mr-2">{{hsba.emrBenhAn.emrCkTienSuPhuKhoa.ngaythaykinh}}</span>
-          <span>Tuổi:</span>
+          <span class="ml-4">Tuổi: </span>
           <span class="ml-2 mr-2">{{hsba.emrBenhAn.emrCkTienSuPhuKhoa.tuoicokinh}}</span>
         </div>
         
         <div class="row mt-2"> 
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Tính chất kinh nguyệt:</span>
-          <span>{{hsba.emrBenhAn.emrCkTienSuPhuKhoa.tinhchatkinhnguyet}}</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Tính chất kinh nguyệt: </span>
+          <span class="ml-4">{{hsba.emrBenhAn.emrCkTienSuPhuKhoa.tinhchatkinhnguyet}}</span>
         </div> 
 
         <div class="row mt-2"> 
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Chu kỳ:</span>
-          <span>{{hsba.emrBenhAn.emrCkTienSuPhuKhoa.chukikinh}} ngày</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Chu kỳ: </span>
+          <span class="ml-4"> {{hsba.emrBenhAn.emrCkTienSuPhuKhoa.chukikinh}} ngày</span>
         </div> 
       </div>
       <div class="col-6">
         <div class="row mt-2"> 
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Lượng kinh</span>
-          <span>{{hsba.emrBenhAn.emrCkTienSuPhuKhoa.luongkinh}}</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Lượng kinh: </span> 
+          <span class="ml-4"> {{ hsba.emrBenhAn.emrCkTienSuPhuKhoa.luongkinh}}</span>
         </div> 
 
         <div class="row mt-2"> 
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Lấy chồng năm:</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Lấy chồng năm: </span>
           <span class="ml-2 mr-2">{{hsba.emrBenhAn.emrCkTienSuPhuKhoa.tuoilaychong}}</span>
           <span>tuổi</span>
          
         </div> 
         <div class="row mt-2"> 
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Những bệnh phụ khoa đã điều trị:</span>
-          <span>{{hsba.emrBenhAn.emrCkTienSuPhuKhoa.benhphukhoa}}</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Những bệnh phụ khoa đã điều trị: </span>
+          <span class="ml-4">{{hsba.emrBenhAn.emrCkTienSuPhuKhoa.benhphukhoa}}</span>
         </div> 
       </div>
     </div>
@@ -821,7 +824,7 @@
           <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Chỉ số Bishop: {{hsba.emrBenhAn.emrCkKhamSanKhoa.bishop}} Điểm</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Âm hộ: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.amho}}  Âm đạo: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.amdao}}</span>
+          <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Âm hộ: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.amho}}</span>
         </div>
         <div class="row mt-2">
           <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Cổ tử cung: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.cotucung}} Phần phụ: {{hsba.emrBenhAn.emrCkKhamPhuKhoa.phanphu}}</span>
@@ -1090,9 +1093,9 @@
 
     <div class="row mt-2">
       <span class="ml-4"><i class="fas fa-fw bullet fa-circle"></i> Tầng sinh môn:
-        <input disabled type="checkbox" class="ml-3 mr-3"> 1. Không rách 
-        <input disabled type="checkbox" class="ml-3 mr-3"> 2. Rách
-        <input disabled type="checkbox" class="ml-3 mr-3"> 3. Cắt
+        <input disabled :checked="(hsba, 'emrBenhAn.emrCkKhamSanKhoa.tangsinhmon') == '01'" type="checkbox" class="ml-3 mr-3"> 1. Không rách 
+        <input disabled :checked="(hsba, 'emrBenhAn.emrCkKhamSanKhoa.tangsinhmon') == '02'" type="checkbox" class="ml-3 mr-3"> 2. Rách
+        <input disabled :checked="(hsba, 'emrBenhAn.emrCkKhamSanKhoa.tangsinhmon') == '03'" type="checkbox" class="ml-3 mr-3"> 3. Cắt
       </span>
     </div>
     <div class="row mt-2">
