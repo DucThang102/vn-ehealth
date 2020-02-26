@@ -212,34 +212,42 @@
           <div class="row mb-3">
             <div class="col">
               <label><b class="text-primary mr-1">15.</b>Vào khoa: </label>
-              <table style="width:100%" v-if="hsba.emrVaoKhoas.length >= 1">
+              <table style="width:100%" v-if="hsba.emrVaoKhoas.length >= 1" class="table table-bordered">
+                <thead>
                 <tr>
                   <th class="text-center" style="width:35%">Khoa</th>
                   <th class="text-center" style="width:35%">Ngày giờ vào khoa</th>
                   <th class="text-center" style="width:30%">Số ngày điều trị</th>
                 </tr>
+              </thead>
+              <tbody>
                 <tr>
                   <td>{{getTenKhoa(hsba.emrVaoKhoas[0])}}</td>
                   <td class="text-center">{{formatNgayGio(hsba.emrVaoKhoas[0].ngaygiovaokhoa)}}</td>
                   <td class="text-center">{{hsba.emrVaoKhoas[0].songaydieutri}}</td>
                 </tr>
+              </tbody>
              </table>
             </div>
           </div>
           <div class="row">
             <div class="col">
               <label><b class="text-primary mr-1">16.</b>Chuyển khoa: </label>
-              <table class="table" v-if="hsba.emrVaoKhoas.length > 1">
+              <table class="table" v-if="hsba.emrVaoKhoas.length > 1" class="table table-bordered">
+                <thead>
                 <tr>
                   <th class="text-center" style="width:35%">Khoa</th>
                   <th class="text-center" style="width:35%">Ngày giờ vào khoa</th>
                   <th class="text-center" style="width:30%">Số ngày điều trị</th>
                 </tr>
+              </thead>
+              <tbody>                
                 <tr v-for="khoa in hsba.emrVaoKhoas.slice(1)">
                   <td>{{getTenKhoa(khoa)}}</td>
                   <td class="text-center">{{formatNgayGio(khoa.ngaygiovaokhoa)}}</td>
                   <td class="text-center">{{khoa.songaydieutri}}</td>
                 </tr>
+              </tbody>
               </table>
             </div>
           </div>
@@ -522,7 +530,7 @@
 
     <div class="row mt-2">
       <span class="ml-4">
-        <i class="fas fa-fw bullet fa-circle"></i> Vào ngày thứ <u>{{hsba.emrBenhAn.vaongaythu||'...'}}</u> của bệnh
+        <i class="fas fa-fw bullet fa-circle"></i> Vào ngày thứ <u>{{hsba.emrBenhAn.vaongaythu}}</u> của bệnh
       </span>
     </div>
 
@@ -560,11 +568,14 @@
         <span class="ml-2"><i>Đặc điểm liên quan bệnh:</i></span>
         <br>
         <table class="table table-bordered mt-3 ml-4 mr-4">
+          <thead>
           <tr>
             <th style="width:10%" class="text-center">STT</th>
             <th style="width:30%" class="text-center">Ký hiệu</th class="text-center">
             <th style="width:20%" class="text-center">Thời gian (tính theo tháng)</th class="text-center">
           </tr>
+        </thead>
+        <tbody>
           <tr>
             <td class="text-cener">1</td>
             <td>
@@ -607,6 +618,7 @@
             </td>
             <td class="text-center">{{hsba.emrBenhAn.dacdiemkhac}}</td>
           </tr>
+        </tbody>
         </table>
       </div>
     </div>
