@@ -636,6 +636,7 @@
     <div class="row mt-2">
       <div class="col-8">
         <table class="table table-bordered mt-3 ml-4 mr-4">
+          <thead>
           <tr>
             <th style="width:5%" class="text-center">STT</th>
             <th style="width:15%" class="text-center"></th class="text-center">
@@ -644,80 +645,83 @@
             <th style="width:15%" class="text-center"></th class="text-center">
             <th style="width:10%" class="text-center">Ký hiệu</th class="text-center">
           </tr>
+        </thead>
+        <tbody>
           <tr>
               <td class="text-cener">1</td>
               <td>
-                <input type="checkbox" disabled> <label>Ăn uống</label>
+                <input type="checkbox" :checked ="(hsba.emrBenhAn.emrCkChucNangSinhHoat.anuong) != ''" disabled> <label>Ăn uống</label>
               </td>
-              <td class="text-center"></td>
+              <td class="text-center"> {{hsba.emrBenhAn.emrCkChucNangSinhHoat.anuong}} </td>
               <td class="text-cener">7</td>
               <td>
                 <input type="checkbox" disabled> <label>Nằm ngửa-sấp</label>
               </td>
-              <td class="text-center"></td>
+              <td class="text-center">......</td>
           </tr>
           <tr>
               <td class="text-cener">2</td>
               <td>
-                <input type="checkbox" disabled> <label>Chải tóc</label>
+                <input type="checkbox" :checked ="(hsba.emrBenhAn.emrCkChucNangSinhHoat.chaitoc) != ''" disabled> <label>Chải tóc</label>
               </td>
-              <td class="text-center"></td>
+              <td class="text-center">{{hsba.emrBenhAn.emrCkChucNangSinhHoat.chaitoc}}</td>
               <td class="text-cener">8</td>
               <td>
-                <input type="checkbox" disabled> <label>Nằm ngửa-ngồi</label>
+                <input type="checkbox"  disabled> <label>Nằm ngửa-ngồi</label>
               </td>
-              <td class="text-center"></td>
+              <td class="text-center">.......</td>
           </tr>          <tr>
               <td class="text-cener">3</td>
               <td>
-                <input type="checkbox" disabled> <label>Đánh răng</label>
+                <input type="checkbox" :checked ="(hsba.emrBenhAn.emrCkChucNangSinhHoat.danhrang) != ''" disabled> <label>Đánh răng</label>
               </td>
-              <td class="text-center"></td>
+              <td class="text-center">{{hsba.emrBenhAn.emrCkChucNangSinhHoat.danhrang}}</td>
               <td class="text-cener">9</td>
               <td>
-                <input type="checkbox" disabled> <label>Đứng-ngồi</label>
+                <input type="checkbox" :checked ="(hsba.emrBenhAn.emrCkChucNangSinhHoat.dungNgoi) != ''" disabled> <label>Đứng-ngồi</label>
               </td>
-              <td class="text-center"></td>
+              <td class="text-center">{{hsba.emrBenhAn.emrCkChucNangSinhHoat.dungNgoi}}</td>
           </tr>          <tr>
               <td class="text-cener">4</td>
               <td>
-                <input type="checkbox" disabled> <label>Tắm</label>
+                <input type="checkbox" :checked ="(hsba.emrBenhAn.emrCkChucNangSinhHoat.tam) != ''" disabled> <label>Tắm</label>
               </td>
-              <td class="text-center"></td>
+              <td class="text-center">{{hsba.emrBenhAn.emrCkChucNangSinhHoat.tam}}</td>
               <td class="text-cener">10</td>
               <td>
-                <input type="checkbox" disabled> <label>Từ sàn đứng lên</label>
+                <input type="checkbox" :checked ="(hsba.emrBenhAn.emrCkChucNangSinhHoat.dunglen) != ''" disabled> <label>Từ sàn đứng lên</label>
               </td>
-              <td class="text-center"></td>
+              <td class="text-center">{{hsba.emrBenhAn.emrCkChucNangSinhHoat.dunglen}}</td>
           </tr>          <tr>
               <td class="text-cener">5</td>
               <td>
-                <input type="checkbox" disabled> <label>Mặc quần áo</label>
+                <input type="checkbox" :checked ="(hsba.emrBenhAn.emrCkChucNangSinhHoat.macquanao) != ''" disabled> <label>Mặc quần áo</label>
               </td>
-              <td class="text-center"></td>
+              <td class="text-center">{{hsba.emrBenhAn.emrCkChucNangSinhHoat.macquanao}}</td>
               <td class="text-cener">11</td>
               <td>
-                <input type="checkbox" disabled> <label>Khả năng di chuyển</label>
+                <input type="checkbox" :checked ="(hsba.emrBenhAn.emrCkChucNangSinhHoat.dichuyen) != ''" disabled :checked ="(hsba.emrBenhAn.emrCkChucNangSinhHoat.dichuyen) != ''" > <label>Khả năng di chuyển</label>
               </td>
-              <td class="text-center"></td>
+              <td class="text-center">{{hsba.emrBenhAn.emrCkChucNangSinhHoat.dichuyen}}</td>
           </tr>          <tr>
               <td class="text-cener">6</td>
               <td>
-                <input type="checkbox" disabled> <label>Đi vệ sinh</label>
+                <input type="checkbox" :checked ="(hsba.emrBenhAn.emrCkChucNangSinhHoat.divesinh) != ''" disabled> <label>Đi vệ sinh</label>
               </td>
-              <td class="text-center"></td>
+              <td class="text-center">{{hsba.emrBenhAn.emrCkChucNangSinhHoat.divesinh}}</td>
               <td class="text-cener">12</td>
               <td>
-                <input type="checkbox" disabled> <label>Dụng cụ trợ giúp</label>
+                <input type="checkbox" :checked ="(hsba.emrBenhAn.emrCkChucNangSinhHoat.dungcu) != ''" disabled> <label>Dụng cụ trợ giúp</label>
               </td>
-              <td class="text-center"></td>
-          </tr>          
+              <td class="text-center">{{hsba.emrBenhAn.emrCkChucNangSinhHoat.dungcu}}</td>
+          </tr> 
+        </tbody>         
         </table>
 
       </div>
     </div>
     <div class="row mt-2 ml-2">
-      <span class="ml-4">Khác .....</span>
+      <span class="ml-4">Khác: {{hsba.emrBenhAn.emrCkChucNangSinhHoat.sinhhoatkhac}}</span>
     </div>
 
 
@@ -804,44 +808,44 @@
       </div>
       <div class="col-6">
         <div class="row mt-2">
-          <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Da và mô dưới da: .....</span>
+          <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Da và mô dưới da: {{hsba.emrBenhAn.dalieu}}</span>
         </div>
 
         <div class="row mt-2">
-          <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Khớp: .....</span>
+          <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Khớp: {{hsba.emrBenhAn.coxuongkhop}}</span>
         </div>
         <ul>
-          <dd>- Hình thể các khớp:...</dd>
-          <dd>- Tầm hoạt động khớp lúc vào viện:...</dd>
-          <dd>- Tầm hoạt động khớp lúc ra viện:...</dd>
+          <dd>- Hình thể các khớp: {{hsba.emrBenhAn.emrCkCoXuongKhop.hinhthekhop}}</dd>
+          <dd>- Tầm hoạt động khớp lúc vào viện: {{hsba.emrBenhAn.emrCkCoXuongKhop.tamhoatdongvaovien}}</dd>
+          <dd>- Tầm hoạt động khớp lúc ra viện: {{hsba.emrBenhAn.emrCkCoXuongKhop.tamhoatdongravienp}}</dd>
         </ul>
         <div class="row mt-2">
           <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Cơ: .....</span>
         </div>
         <ul>
-          <dd>- Tình trạng bệnh lý :...</dd>
-          <dd>- Rối loạn chức năng:...</dd>
-          <dd>- Cơ được thử:... Bậc thử cơ 
-            <input disabled type="checkbox" class="ml-4 mr-2">V
-            <input disabled type="checkbox" class="ml-2 mr-2">IV
-            <input disabled type="checkbox" class="ml-2 mr-2">III
-            <input disabled type="checkbox" class="ml-2 mr-2">II
-            <input disabled type="checkbox" class="ml-2 mr-2">I
+          <dd>- Tình trạng bệnh lý : {{hsba.emrBenhAn.emrCkCoXuongKhop.ttblyco}}</dd>
+          <dd>- Rối loạn chức năng: {{hsba.emrBenhAn.emrCkCoXuongKhop.roiloanco}}</dd>
+          <dd>- Cơ được thử: {{hsba.emrBenhAn.emrCkCoXuongKhop.tencothu}} Bậc thử cơ 
+            <input disabled :checked="(hsba.emrBenhAn.emrCkCoXuongKhop.baccothu)=='5'" type="checkbox" class="ml-4 mr-2">V
+            <input disabled :checked="(hsba.emrBenhAn.emrCkCoXuongKhop.baccothu)=='4'"  type="checkbox" class="ml-2 mr-2">IV
+            <input disabled :checked="(hsba.emrBenhAn.emrCkCoXuongKhop.baccothu)=='3'"  type="checkbox" class="ml-2 mr-2">III
+            <input disabled :checked="(hsba.emrBenhAn.emrCkCoXuongKhop.baccothu)=='2'"  type="checkbox" class="ml-2 mr-2">II
+            <input disabled :checked="(hsba.emrBenhAn.emrCkCoXuongKhop.baccothu)=='1'"  type="checkbox" class="ml-2 mr-2">I
           </dd>
         </ul>
         <div class="row mt-2">
           <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Cột sống: .....</span>
         </div>
         <ul>
-          <dd>- Tình trạng bệnh lý:... Schober: ........</dd>
-          <dd>- Stibor:................Rối loạn chức năng: .........</dd>
-          <dd>- Tầm hoạt động khớp lúc ra viện:...</dd>
+          <dd>- Tình trạng bệnh lý: {{hsba.emrBenhAn.emrCkCoXuongKhop.cotsongttbly}} Schober: {{hsba.emrBenhAn.emrCkCoXuongKhop.cotsongschober}}</dd>
+          <dd>- Stibor: {{hsba.emrBenhAn.emrCkCoXuongKhop.cotsongstibor}} Rối loạn chức năng: {{hsba.emrBenhAn.emrCkCoXuongKhop.cotsongroiloancn}}</dd>
+          <dd>- Tầm hoạt động khớp lúc ra viện: ...............</dd>
         </ul>
         <div class="row mt-2">
-          <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i>  Tiết niệu-sinh dục: .....</span>
+          <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i>  Tiết niệu-sinh dục: {{hsba. emrBenhAn.tietnieusinhduc}}</span>
         </div>
         <div class="row mt-2">
-          <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Các cơ quan khác: .....</span>
+          <span class="ml-4"> <i class="fas fa-fw bullet-small fa-circle"></i> Các cơ quan khác: {{hsba. emrBenhAn.coquankhac}}</span>
         </div>
       </div>
     </div>
