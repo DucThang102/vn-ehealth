@@ -271,6 +271,14 @@ var benh_an_chi_tiet_script = {
           ten: ""
         }
       );
+    },
+
+    coPhauThuat() {
+      return this.ptttList.some(x => x.loaipttt);
+    },
+
+    coThuThuat() {
+      return this.ptttList.some(x => x.loaipttt === false);
     }
   },
 
