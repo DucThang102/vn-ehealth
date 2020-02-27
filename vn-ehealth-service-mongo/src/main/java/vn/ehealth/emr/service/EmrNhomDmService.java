@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import vn.ehealth.emr.model.EmrNhomDm;
 import vn.ehealth.emr.repository.EmrNhomDmRepository;
+import vn.ehealth.emr.utils.Constants.TRANGTHAI_DULIEU;
 
 @Service
 public class EmrNhomDmService {
@@ -28,7 +28,7 @@ public class EmrNhomDmService {
         var criteria = new Criteria().orOperator(
                 Criteria.where("ten").regex(keyword),
                 Criteria.where("ma").regex(keyword)
-             );
+             ).and("trangThai").is(TRANGTHAI_DULIEU.DEFAULT);
         
         return mongoTemplate.count(new Query(criteria), EmrNhomDm.class);
     }
@@ -40,15 +40,14 @@ public class EmrNhomDmService {
         var criteria = new Criteria().orOperator(
                             Criteria.where("ten").regex(keyword),
                             Criteria.where("ma").regex(keyword)
-                            );
+                            ).and("trangThai").is(TRANGTHAI_DULIEU.DEFAULT);
         
-        var sort = new Sort(Sort.Direction.ASC, "id");
+        var query = new Query(criteria);
         
         if(offset.isPresent() && limit.isPresent()) {
-            var pageable = new OffsetBasedPageRequest(limit.get(), offset.get(), sort);
-            return mongoTemplate.find(new Query(criteria).with(pageable), EmrNhomDm.class);
-        }else {
-            return mongoTemplate.find(new Query(criteria).with(sort), EmrNhomDm.class);                
+            query = query.skip(offset.get()).limit(limit.get());
         }
+        
+        return mongoTemplate.find(query, EmrNhomDm.class);
     }
 }

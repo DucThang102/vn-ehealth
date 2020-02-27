@@ -1,6 +1,7 @@
 package vn.ehealth.emr.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.Nonnull;
 
@@ -10,43 +11,55 @@ import org.springframework.stereotype.Service;
 
 import vn.ehealth.emr.model.EmrDieuTri;
 import vn.ehealth.emr.repository.EmrDieuTriRepository;
+import vn.ehealth.emr.repository.EmrHoSoBenhAnRepository;
+import vn.ehealth.emr.utils.Constants.TRANGTHAI_DULIEU;
 
 @Service
 public class EmrDieuTriService {
     
-    @Autowired EmrDieuTriRepository emrDieuTriRepository;
-    @Autowired EmrQuaTrinhDieuTriService emrQuaTrinhDieuTriService;
+    @Autowired 
+    private EmrDieuTriRepository emrDieuTriRepository;
     
-    public List<EmrDieuTri> getByEmrVaoKhoaId(ObjectId emrVaoKhoaId) {
-        return emrDieuTriRepository.findByEmrVaoKhoaId(emrVaoKhoaId);        
+    @Autowired
+    private EmrHoSoBenhAnRepository emrHoSoBenhAnRepository;
+    
+    public Optional<EmrDieuTri> getById(ObjectId id) {
+        return emrDieuTriRepository.findById(id);
     }
     
-    public void deleteAllByEmrVaoKhoaId(ObjectId emrVaoKhoaId) {
-        for(var dieutri : getByEmrVaoKhoaId(emrVaoKhoaId)) {
-            emrDieuTriRepository.delete(dieutri);
-        }
+    public List<EmrDieuTri> getByEmrHoSoBenhAnId(ObjectId emrHoSoBenhAnId) {
+        return emrDieuTriRepository.findByEmrHoSoBenhAnIdAndTrangThai(emrHoSoBenhAnId, TRANGTHAI_DULIEU.DEFAULT);        
+    }
+    
+    public List<EmrDieuTri> getByEmrBenhNhanId(ObjectId emrBenhNhanId) {
+        return emrDieuTriRepository.findByEmrBenhNhanIdAndTrangThai(emrBenhNhanId, TRANGTHAI_DULIEU.DEFAULT);        
     }
 
-    public EmrDieuTri createOrUpdate(@Nonnull EmrDieuTri emrDieuTri) {
-        emrDieuTri = emrDieuTriRepository.save(emrDieuTri);
-        
-        emrQuaTrinhDieuTriService.deleteAllByEmrDieuTriId(emrDieuTri.id);
-        
-        for(int i = 0; emrDieuTri.emrQuaTrinhDieuTris != null && i < emrDieuTri.emrQuaTrinhDieuTris.size(); i++) {
-            var qtdt = emrDieuTri.emrQuaTrinhDieuTris.get(i);
-            qtdt.emrDieuTriId = emrDieuTri.id;
-            qtdt.emrVaoKhoaId = emrDieuTri.emrVaoKhoaId;
-            qtdt.emrHoSoBenhAnId = emrDieuTri.emrHoSoBenhAnId;
-            qtdt.emrBenhNhanId = emrDieuTri.emrBenhNhanId;
-            qtdt.emrCoSoKhamBenhId = emrDieuTri.emrCoSoKhamBenhId;
-            qtdt = emrQuaTrinhDieuTriService.createOrUpdate(qtdt);
-            emrDieuTri.emrQuaTrinhDieuTris.set(i, qtdt);            
+    public EmrDieuTri save(@Nonnull EmrDieuTri dieutri) {
+        if(dieutri.id == null && dieutri.emrHoSoBenhAnId != null) {
+            var hsba = emrHoSoBenhAnRepository.findById(dieutri.emrHoSoBenhAnId).orElseThrow();
+            dieutri.emrBenhNhanId = hsba.emrBenhNhanId;
+            dieutri.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
+            
+            if(hsba.emrVaoKhoas != null && dieutri.emrVaoKhoa != null) {
+                var maKhoaDieuTri = dieutri.emrVaoKhoa.emrDmKhoaDieuTri.ma;
+                
+                var vaokhoa = hsba.emrVaoKhoas.stream()
+                                .filter(x -> x.emrDmKhoaDieuTri.ma == maKhoaDieuTri)
+                                .findFirst();
+                
+                vaokhoa.ifPresent(x -> dieutri.emrVaoKhoa = x);
+            }
         }
-        
-        return emrDieuTriRepository.save(emrDieuTri);
+        return emrDieuTriRepository.save(dieutri);        
     }
     
     public void delete(ObjectId id) {
-        emrDieuTriRepository.deleteById(id);
+        var dieutri = emrDieuTriRepository.findById(id);
+        dieutri.ifPresent(x -> {            
+            x.trangThai = TRANGTHAI_DULIEU.DA_XOA;
+            emrDieuTriRepository.save(x);
+        });
+        
     }
 }

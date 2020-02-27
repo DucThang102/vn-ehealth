@@ -1,8 +1,8 @@
 package vn.ehealth.emr.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.bson.types.ObjectId;
@@ -18,53 +18,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import vn.ehealth.emr.model.EmrXetNghiem;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.service.EmrXetNghiemService;
-import vn.ehealth.emr.utils.DateUtil;
 import vn.ehealth.emr.utils.EmrUtils;
-import vn.ehealth.emr.utils.JsonUtil;
+import vn.ehealth.emr.validate.JsonParser;
 
 @RestController
 @RequestMapping("/api/xetnghiem")
 public class EmrXetNghiemController {
-
+    
     private Logger logger = LoggerFactory.getLogger(EmrXetNghiemController.class);
-    @Autowired EmrXetNghiemService emrXetNghiemService;
-    @Autowired EmrHoSoBenhAnService emrHoSoBenhAnService;
+    
+    @Autowired private EmrXetNghiemService emrXetNghiemService;
+    
+    @Autowired private EmrHoSoBenhAnService emrHoSoBenhAnService;
+
+    private JsonParser jsonParser = new JsonParser();
+    
+    private ObjectMapper objectMapper = EmrUtils.createObjectMapper();
     
     @GetMapping("/get_ds_xetnghiem")
     public ResponseEntity<?> getDsXetNghiem(@RequestParam("hsba_id") String id) {
         var xetnghiemList = emrXetNghiemService.getByEmrHoSoBenhAnId(new ObjectId(id));
         return ResponseEntity.ok(xetnghiemList);
     }
-    
+  
     @GetMapping("/get_ds_xetnghiem_by_bn")
-    public ResponseEntity<?> getDsXetNghiemByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId, @RequestParam int start, @RequestParam int count) {
-        var xetnghiem_List = emrXetNghiemService.getDsXetNghiemByBenhNhan(new ObjectId(benhNhanId), start, count);
-    	var result = xetnghiem_List.stream().map(x -> JsonUtil.objectToMap(x)).collect(Collectors.toList());
-    	result.forEach(x -> {
-    		var emrHoSoBenhAns = emrHoSoBenhAnService.getById(new ObjectId(x.get("emrHoSoBenhAnId").toString()));
-    		x.put("tenCoSoKhamBenh", emrHoSoBenhAns.get().getEmrCoSoKhamBenh().ten);
-    		x.put("soBenhAn", emrHoSoBenhAns.get().matraodoi);
-    		x.put("ngayVaoVien", DateUtil.parseDateToString(emrHoSoBenhAns.get().emrQuanLyNguoiBenh.ngaygiovaovien, "dd/MM/yyyy HH:mm"));
-    		x.put("ngayRaVien", DateUtil.parseDateToString(emrHoSoBenhAns.get().emrQuanLyNguoiBenh.ngaygioravien, "dd/MM/yyyy HH:mm"));
-    		x.put("donViChuQuan", emrHoSoBenhAns.get().getEmrCoSoKhamBenh().donvichuquan); 
-    		x.put("maYTe", emrHoSoBenhAns.get().mayte);
-    		x.put("tuoiBenhNhan", emrHoSoBenhAns.get().getTuoiBenhNhan() + " " + emrHoSoBenhAns.get().getDonViTuoiBenhNhan());
-    		x.put("tenDayDu", emrHoSoBenhAns.get().emrBenhNhan.tendaydu);
-    		x.put("gioiTinh", emrHoSoBenhAns.get().emrBenhNhan.emrDmGioiTinh.ten);
-    		x.put("khoadieutri", emrHoSoBenhAns.get().getEmrVaoKhoas());
-    	});  
+    public ResponseEntity<?> getDsXetNghiemByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
+    	var result = emrXetNghiemService.getByEmrBenhNhanId(new ObjectId(benhNhanId));
         return ResponseEntity.ok(result);
     }
-    
-    @GetMapping("/count_ds_xetnghiem_by_bn")
-    public ResponseEntity<?> countDsXetNghiemByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
-    	var result = emrXetNghiemService.countDsXetNghiemByBenhNhan(new ObjectId(benhNhanId));
-        return ResponseEntity.ok(result);
-    }
-
     
     @GetMapping("/delete_xetnghiem")
     public ResponseEntity<?> deleteXetnghiem(@RequestParam("xetnghiem_id") String id) {
@@ -79,13 +65,12 @@ public class EmrXetNghiemController {
         }
     }
     
-    @PostMapping("/create_or_update_xetnghiem")
-    public ResponseEntity<?> createOrUpdateXetnghiem(@RequestBody String jsonSt) {
+    @PostMapping("/save_xetnghiem")
+    public ResponseEntity<?> saveXetnghiem(@RequestBody String jsonSt) {
         
         try {
-            var mapper = EmrUtils.createObjectMapper();
-            var xetnghiem = mapper.readValue(jsonSt, EmrXetNghiem.class);
-            xetnghiem = emrXetNghiemService.createOrUpdate(xetnghiem);
+            var xetnghiem = objectMapper.readValue(jsonSt, EmrXetNghiem.class);
+            xetnghiem = emrXetNghiemService.save(xetnghiem);
             
             var result = Map.of(
                 "success" , true,
@@ -99,6 +84,39 @@ public class EmrXetNghiemController {
                 "errors", List.of(e.getMessage()) 
             );
             logger.error("Error save xetnghiem:", e);
+            return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+        }
+    }
+    
+    @SuppressWarnings("unchecked")
+    @PostMapping("/create_or_update_xetnghiem")
+    public ResponseEntity<?> createOrUpdateXetnghiemFromHIS(@RequestBody String jsonSt) {
+        try {
+            var map = jsonParser.parseJson(jsonSt);
+            var matraodoiHsba = (String) map.get("matraodoiHoSo");
+            var hsba = emrHoSoBenhAnService.getByMatraodoi(matraodoiHsba).orElseThrow();
+            
+            var xetnghiemObjList = (List<Object>) map.get("emrXetNghiems");
+            var xetnghiemList = xetnghiemObjList.stream()
+                                .map(obj -> objectMapper.convertValue(obj, EmrXetNghiem.class))
+                                .collect(Collectors.toList());
+            
+            emrXetNghiemService.createOrUpdateFromHIS(hsba, xetnghiemList);
+            
+            var result = Map.of(
+                "success" , true,
+                "xetnghiemList", xetnghiemList  
+            );
+            
+            return ResponseEntity.ok(result);
+            
+        }catch(Exception e) {
+            var error = Optional.ofNullable(e.getMessage()).orElse("Unknown error");
+            var result = Map.of(
+                "success" , false,
+                "error", error 
+            );
+            logger.error("Error save xetnghiem from HIS:", e);
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
     }

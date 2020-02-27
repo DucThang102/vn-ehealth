@@ -1,89 +1,61 @@
 package vn.ehealth.emr.service;
 
-import static org.springframework.data.mongodb.core.aggregation.Aggregation.limit;
-import static org.springframework.data.mongodb.core.aggregation.Aggregation.skip;
-import static org.springframework.data.mongodb.core.aggregation.Aggregation.sort;
-
 import java.util.List;
 import javax.annotation.Nonnull;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.aggregation.Aggregation;
-import org.springframework.data.mongodb.core.aggregation.CountOperation;
-import org.springframework.data.mongodb.core.aggregation.LookupOperation;
-import org.springframework.data.mongodb.core.aggregation.UnwindOperation;
-import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Service;
 
-import vn.ehealth.emr.model.EmrChanDoanHinhAnh;
+import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.model.EmrXetNghiem;
-import vn.ehealth.emr.object.CountAggregation;
+import vn.ehealth.emr.repository.EmrHoSoBenhAnRepository;
 import vn.ehealth.emr.repository.EmrXetNghiemRepository;
+import vn.ehealth.emr.utils.Constants.TRANGTHAI_DULIEU;
 
 @Service
 public class EmrXetNghiemService {
 
-    @Autowired EmrXetNghiemRepository emrXetNghiemRepository;
-    @Autowired EmrXetNghiemDichVuService emrXetNghiemDichVuService; 
-    @Autowired MongoTemplate mongoTemplate;
+    @Autowired 
+    private EmrXetNghiemRepository emrXetNghiemRepository;
+    
+    @Autowired
+    private EmrHoSoBenhAnRepository emrHoSoBenhAnRepository;
     
     public List<EmrXetNghiem> getByEmrHoSoBenhAnId(ObjectId emrHoSoBenhAnId) {
-        return emrXetNghiemRepository.findByEmrHoSoBenhAnId(emrHoSoBenhAnId);
+        return emrXetNghiemRepository.findByEmrHoSoBenhAnIdAndTrangThai(emrHoSoBenhAnId, TRANGTHAI_DULIEU.DEFAULT);
     }
     
-    public void deleteAllByEmrHoSoBenhAnId(ObjectId emrHoSoBenhAnId) {
-        for(var xn : getByEmrHoSoBenhAnId(emrHoSoBenhAnId)) {
-            emrXetNghiemRepository.delete(xn);
-        }
+    public List<EmrXetNghiem> getByEmrBenhNhanId(ObjectId emrBenhNhanId) {
+        return emrXetNghiemRepository.findByEmrBenhNhanIdAndTrangThai(emrBenhNhanId, TRANGTHAI_DULIEU.DEFAULT);
     }
     
-    public EmrXetNghiem createOrUpdate(@Nonnull EmrXetNghiem xn) {
-        xn = emrXetNghiemRepository.save(xn);
-        
-        emrXetNghiemDichVuService.deleteAllByXetNghiemId(xn.id);
-        
-        for(int i = 0; xn.emrXetNghiemDichVus != null && i < xn.emrXetNghiemDichVus.size(); i++) {
-            var xndv = xn.emrXetNghiemDichVus.get(i);
-            xndv.emrXetNghiemId = xn.id;
-            xndv.emrHoSoBenhAnId = xn.emrHoSoBenhAnId;
-            xndv.emrBenhNhanId = xn.emrBenhNhanId;
-            xndv.emrCoSoKhamBenhId = xn.emrCoSoKhamBenhId;
-            xndv = emrXetNghiemDichVuService.createOrUpdate(xndv);
-            xn.emrXetNghiemDichVus.set(i, xndv);
+    public EmrXetNghiem save(@Nonnull EmrXetNghiem xn) {
+        if(xn.id == null && xn.emrHoSoBenhAnId != null) {
+            var hsba = emrHoSoBenhAnRepository.findById(xn.emrHoSoBenhAnId).orElseThrow();
+            xn.emrBenhNhanId = hsba.emrBenhNhanId;
+            xn.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
         }
-        
-        return xn;
+        return emrXetNghiemRepository.save(xn);
+    }
+    
+    public void createOrUpdateFromHIS(@Nonnull EmrHoSoBenhAn hsba, @Nonnull List<EmrXetNghiem> xetnghiemList) {
+        for(int i = 0; i < xetnghiemList.size(); i++) {
+            var xetnghiem = xetnghiemList.get(i);
+            xetnghiem.id = emrXetNghiemRepository.findByIdhis(xetnghiem.idhis).map(x -> x.id).orElse(null);
+            xetnghiem.emrHoSoBenhAnId = hsba.id;
+            xetnghiem.emrBenhNhanId = hsba.emrBenhNhanId;
+            xetnghiem.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
+            xetnghiem = emrXetNghiemRepository.save(xetnghiem);
+            xetnghiemList.set(i, xetnghiem);
+        }
     }
     
     public void delete(ObjectId id) {
-        emrXetNghiemRepository.deleteById(id);
-    }
-    
-    public List<EmrXetNghiem> getDsXetNghiemByBenhNhan(ObjectId benhNhanId, int offset, int limit) {	
-    	LookupOperation lookupOperation = LookupOperation.newLookup()
-                .from("emr_ho_so_benh_an")
-                .localField("emrHoSoBenhAnId")
-                .foreignField("_id")
-                .as("emrHoSoBenhAn");
-    	UnwindOperation unwindOperation = Aggregation.unwind("emrHoSoBenhAn");
-		Aggregation aggregation = Aggregation.newAggregation(lookupOperation, unwindOperation, Aggregation.match(Criteria.where("emrHoSoBenhAn.emrBenhNhanId").is(benhNhanId)), sort(Sort.Direction.DESC, "_id"), skip(offset), limit(limit));
-		List<EmrXetNghiem> results = mongoTemplate.aggregate(aggregation, "emr_xet_nghiem", EmrXetNghiem.class).getMappedResults();
-		return results;
-    }
-    
-    public long countDsXetNghiemByBenhNhan(ObjectId benhNhanId) {	
-    	LookupOperation lookupOperation = LookupOperation.newLookup()
-                .from("emr_ho_so_benh_an")
-                .localField("emrHoSoBenhAnId")
-                .foreignField("_id")
-                .as("emrHoSoBenhAn");
-    	UnwindOperation unwindOperation = Aggregation.unwind("emrHoSoBenhAn");
-    	CountOperation count = Aggregation.count().as("total");
-		Aggregation aggregation = Aggregation.newAggregation(lookupOperation, unwindOperation, Aggregation.match(Criteria.where("emrHoSoBenhAn.emrBenhNhanId").is(benhNhanId)), sort(Sort.Direction.DESC, "_id"), count);
-		List<CountAggregation> results = mongoTemplate.aggregate(aggregation, "emr_xet_nghiem", CountAggregation.class).getMappedResults();
-		return results.get(0).total;
+        var xn = emrXetNghiemRepository.findById(id);
+        xn.ifPresent(x -> {
+            x.trangThai = TRANGTHAI_DULIEU.DA_XOA;
+            emrXetNghiemRepository.save(x);
+        });
     }
 }

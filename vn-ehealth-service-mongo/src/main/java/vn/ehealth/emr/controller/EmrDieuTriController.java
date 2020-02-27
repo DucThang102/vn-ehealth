@@ -1,6 +1,5 @@
 package vn.ehealth.emr.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -17,9 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import vn.ehealth.emr.model.EmrDieuTri;
 import vn.ehealth.emr.service.EmrDieuTriService;
-import vn.ehealth.emr.service.EmrVaoKhoaService;
 import vn.ehealth.emr.utils.EmrUtils;
 
 @RestController
@@ -28,21 +28,19 @@ public class EmrDieuTriController {
     
     private Logger logger = LoggerFactory.getLogger(EmrDieuTriController.class);
             
-    @Autowired EmrVaoKhoaService emrVaoKhoaService;
-    @Autowired EmrDieuTriService emrDieuTriService;
+    @Autowired 
+    private EmrDieuTriService emrDieuTriService;
+    
+    private ObjectMapper objectMapper = EmrUtils.createObjectMapper();
     
     @GetMapping("/get_ds_dieutri")
-    public ResponseEntity<?> getDsDieutri(@RequestParam("hsba_id") String id) {
-        var result = new ArrayList<EmrDieuTri>();
-        var vkList = emrVaoKhoaService.getByEmrHoSoBenhAnId(new ObjectId(id));
-        
-        for(var vk : vkList) {
-            var dieuTriList = emrDieuTriService.getByEmrVaoKhoaId(vk.id);
-            dieuTriList.forEach(x -> x.emrVaoKhoa = vk);
-            result.addAll(dieuTriList);
-        }
-        
-        return ResponseEntity.ok(result);
+    public ResponseEntity<?> getDsDieutri(@RequestParam("hsba_id") String id) {        
+        return ResponseEntity.ok(emrDieuTriService.getByEmrHoSoBenhAnId(new ObjectId(id)));
+    }
+    
+    @GetMapping("/get_ds_dieutri_by_bn")
+    public ResponseEntity<?> getDsDieutriByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {        
+        return ResponseEntity.ok(emrDieuTriService.getByEmrBenhNhanId(new ObjectId(benhNhanId)));
     }
     
     @GetMapping("/delete_dieutri")
@@ -58,13 +56,12 @@ public class EmrDieuTriController {
         }
     }
     
-    @PostMapping("/create_or_update_dieutri")
-    public ResponseEntity<?> createOrUpdateDieutri(@RequestBody String jsonSt) {
+    @PostMapping("/save_dieutri")
+    public ResponseEntity<?> save(@RequestBody String jsonSt) {
         
         try {
-            var mapper = EmrUtils.createObjectMapper();            
-            var dieutri = mapper.readValue(jsonSt, EmrDieuTri.class);
-            dieutri = emrDieuTriService.createOrUpdate(dieutri);
+            var dieutri = objectMapper.readValue(jsonSt, EmrDieuTri.class);
+            dieutri = emrDieuTriService.save(dieutri);
             
             var result = Map.of(
                 "success" , true,

@@ -11,24 +11,16 @@ public class EmrServiceFactory implements ApplicationContextAware  {
     private static EmrHoSoBenhAnService emrHoSoBenhAnService;
     private static EmrBenhNhanService emrBenhNhanService;
     private static EmrCoSoKhamBenhService emrCoSoKhamBenhService;
-    private static EmrVaoKhoaService emrVaoKhoaService;
     
     private static EmrChamSocService emrChamSocService;
-    private static EmrQuaTrinhChamSocService emrQuaTrinhChamSocService;
     
     //private static EmrDieuTriService emrDieuTriService;
-    private static EmrQuaTrinhDieuTriService emrQuaTrinhDieuTriService;
     
     //private static EmrChucNangSongService emrChucNangSongService;
-    private static EmrChucNangSongChiTietService emrChucNangSongChiTietService;
     
     //private static EmrHoiChanService emrHoiChanService;
-    private static EmrThanhVienHoiChanService emrThanhVienHoiChanService;
     
     private static EmrXetNghiemService emrXetNghiemService;
-    private static EmrXetNghiemDichVuService emrXetNghiemDichVuService;
-    private static EmrXetNghiemKetQuaService emrXetNghiemKetQuaService;
-    private static EmrDonThuocChiTietService emrDonThuocChiTietService;
     
     private static UserService userService;
     private static RoleService roleService;
@@ -59,13 +51,6 @@ public class EmrServiceFactory implements ApplicationContextAware  {
         return emrCoSoKhamBenhService;        
     }
     
-    public static EmrVaoKhoaService getEmrVaoKhoaService() {
-        if(emrVaoKhoaService == null) {
-            emrVaoKhoaService = applicationContext.getBean(EmrVaoKhoaService.class);            
-        }
-        return emrVaoKhoaService;
-    }
-    
     public static EmrChamSocService getEmrChamSocService() {
         if(emrChamSocService == null) {
             emrChamSocService = applicationContext.getBean(EmrChamSocService.class);
@@ -74,68 +59,12 @@ public class EmrServiceFactory implements ApplicationContextAware  {
         return emrChamSocService;
     }
     
-    public static EmrQuaTrinhChamSocService getEmrQuaTrinhChamSocService() {
-        if(emrQuaTrinhChamSocService == null) {
-            emrQuaTrinhChamSocService = applicationContext.getBean(EmrQuaTrinhChamSocService.class);
-        }
-        
-        return emrQuaTrinhChamSocService;
-    }
-    
-    
-    public static EmrQuaTrinhDieuTriService getEmrQuaTrinhDieuTriService() {
-        if(emrQuaTrinhDieuTriService == null) {
-            emrQuaTrinhDieuTriService = applicationContext.getBean(EmrQuaTrinhDieuTriService.class);
-        }
-        
-        return emrQuaTrinhDieuTriService;
-    }
-    
-    public static EmrChucNangSongChiTietService getEmrChucNangSongChiTietService() {
-        if(emrChucNangSongChiTietService == null) {
-            emrChucNangSongChiTietService = applicationContext.getBean(EmrChucNangSongChiTietService.class);
-        }
-        
-        return emrChucNangSongChiTietService;
-    }
-    
-    public static EmrThanhVienHoiChanService getEmrThanhVienHoiChanService() {
-        if(emrThanhVienHoiChanService == null) {
-            emrThanhVienHoiChanService = applicationContext.getBean(EmrThanhVienHoiChanService.class);
-        }
-        
-        return emrThanhVienHoiChanService;
-    }
-    
     public static EmrXetNghiemService getEmrXetNghiemService() {
         if(emrXetNghiemService == null) {
             emrXetNghiemService = applicationContext.getBean(EmrXetNghiemService.class);
         }
         
         return emrXetNghiemService;
-    }
-    
-    public static EmrXetNghiemDichVuService getEmrXetNghiemDichVuService() {
-        if(emrXetNghiemDichVuService == null) {
-            emrXetNghiemDichVuService = applicationContext.getBean(EmrXetNghiemDichVuService.class);
-        }
-        
-        return emrXetNghiemDichVuService;
-    }
-    
-    public static EmrXetNghiemKetQuaService getEmrXetNghiemKetQuaService() {
-        if(emrXetNghiemKetQuaService == null) {
-            emrXetNghiemKetQuaService = applicationContext.getBean(EmrXetNghiemKetQuaService.class);
-        }
-        
-        return emrXetNghiemKetQuaService;
-    }
-    
-    public static EmrDonThuocChiTietService getEmrDonThuocChiTietService() {
-        if(emrDonThuocChiTietService == null) {
-            emrDonThuocChiTietService = applicationContext.getBean(EmrDonThuocChiTietService.class);            
-        }
-        return emrDonThuocChiTietService;        
     }
     
     public static UserService getUserService() {

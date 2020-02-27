@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import vn.ehealth.emr.model.EmrGiaiPhauBenh;
 import vn.ehealth.emr.service.EmrGiaiPhauBenhService;
 import vn.ehealth.emr.utils.EmrUtils;
@@ -25,11 +27,20 @@ import vn.ehealth.emr.utils.EmrUtils;
 public class EmrGiaiPhauBenhController {
     
     private Logger logger = LoggerFactory.getLogger(EmrGiaiPhauBenhController.class);
-    @Autowired EmrGiaiPhauBenhService emrGiaiPhauBenhService;    
+    @Autowired 
+    private EmrGiaiPhauBenhService emrGiaiPhauBenhService;
+    
+    private ObjectMapper objectMapper = EmrUtils.createObjectMapper();
     
     @GetMapping("/get_ds_gpb")
     public ResponseEntity<?> getDsGiaiPhauBenh(@RequestParam("hsba_id") String id) {
         var gpbList = emrGiaiPhauBenhService.getByEmrHoSoBenhAnId(new ObjectId(id));
+        return ResponseEntity.ok(gpbList);
+    }
+    
+    @GetMapping("/get_ds_gpb_by_bn")
+    public ResponseEntity<?> getDsGiaiPhauBenhByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
+        var gpbList = emrGiaiPhauBenhService.getByEmrHoSoBenhAnId(new ObjectId(benhNhanId));
         return ResponseEntity.ok(gpbList);
     }
     
@@ -46,13 +57,12 @@ public class EmrGiaiPhauBenhController {
         }
     }
     
-    @PostMapping("/create_or_update_gpb")
-    public ResponseEntity<?> createOrUpdateGpb(@RequestBody String jsonSt) {
+    @PostMapping("/save_gpb")
+    public ResponseEntity<?> saveGpb(@RequestBody String jsonSt) {
         
         try {
-            var mapper = EmrUtils.createObjectMapper();
-            var gbp = mapper.readValue(jsonSt, EmrGiaiPhauBenh.class);
-            gbp = emrGiaiPhauBenhService.createOrUpdate(gbp);
+            var gbp = objectMapper.readValue(jsonSt, EmrGiaiPhauBenh.class);
+            gbp = emrGiaiPhauBenhService.save(gbp);
             
             var result = Map.of(
                 "success" , true,

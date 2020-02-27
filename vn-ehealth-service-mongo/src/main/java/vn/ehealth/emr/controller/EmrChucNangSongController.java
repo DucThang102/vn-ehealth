@@ -1,6 +1,5 @@
 package vn.ehealth.emr.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import vn.ehealth.emr.model.EmrChucNangSong;
 import vn.ehealth.emr.service.EmrChucNangSongService;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
-import vn.ehealth.emr.service.EmrVaoKhoaService;
 import vn.ehealth.emr.utils.EmrUtils;
 
 @RestController
@@ -28,40 +26,17 @@ import vn.ehealth.emr.utils.EmrUtils;
 public class EmrChucNangSongController {
     
     private Logger logger = LoggerFactory.getLogger(EmrChucNangSongController.class);
-    @Autowired EmrVaoKhoaService emrVaoKhoaService;
     @Autowired EmrChucNangSongService emrChucNangSongService;
     @Autowired EmrHoSoBenhAnService emrHoSoBenhAnService;
     
     @GetMapping("/get_ds_chucnangsong_by_bn")
     public ResponseEntity<?> getDsChucNangSongByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
-        var result = new ArrayList<EmrChucNangSong>();
-        var emrHoSoBenhAns = emrHoSoBenhAnService.getByEmrBenhNhanId(new ObjectId(benhNhanId));
-        
-        for(var emrHoSoBenhAn: emrHoSoBenhAns) {
-            var vkList = emrVaoKhoaService.getByEmrHoSoBenhAnId(emrHoSoBenhAn.id);
-            
-            for(var vk : vkList) {
-                var chucNangSongList = emrChucNangSongService.getByEmrVaoKhoaId(vk.id);
-                chucNangSongList.forEach(x -> x.emrVaoKhoa = vk);
-                result.addAll(chucNangSongList);
-            }
-        }
-        
-        return ResponseEntity.ok(result);
+        return ResponseEntity.ok(emrChucNangSongService.getByEmrBenhNhanId(new ObjectId(benhNhanId)));
     }
     
     @GetMapping("/get_ds_chucnangsong")
     public ResponseEntity<?> getDsChucNangSong(@RequestParam("hsba_id") String id) {
-        var result = new ArrayList<EmrChucNangSong>();
-        var vkList = emrVaoKhoaService.getByEmrHoSoBenhAnId(new ObjectId(id));
-        
-        for(var vk : vkList) {
-            var chucNangSongList = emrChucNangSongService.getByEmrVaoKhoaId(vk.id);
-            chucNangSongList.forEach(x -> x.emrVaoKhoa = vk);
-            result.addAll(chucNangSongList);
-        }
-        
-        return ResponseEntity.ok(result);
+        return ResponseEntity.ok(emrChucNangSongService.getByEmrHoSoBenhAnId(new ObjectId(id)));
     }
 
     @GetMapping("/delete_chucnangsong")
@@ -77,13 +52,13 @@ public class EmrChucNangSongController {
         }
     }
     
-    @PostMapping("/create_or_update_chucnangsong")
-    public ResponseEntity<?> createOrUpdateChucnangsong(@RequestBody String jsonSt) {
+    @PostMapping("/save_chucnangsong")
+    public ResponseEntity<?> saveChucnangsong(@RequestBody String jsonSt) {
         
         try {
             var mapper = EmrUtils.createObjectMapper();
             var chucnangsong = mapper.readValue(jsonSt, EmrChucNangSong.class);
-            chucnangsong = emrChucNangSongService.createOrUpdate(chucnangsong);
+            chucnangsong = emrChucNangSongService.save(chucnangsong);
             
             var result = Map.of(
                 "success" , true,

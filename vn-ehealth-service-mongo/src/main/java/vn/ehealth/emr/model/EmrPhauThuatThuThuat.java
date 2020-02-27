@@ -19,9 +19,11 @@ import vn.ehealth.emr.utils.ObjectIdUtil;
 public class EmrPhauThuatThuThuat {
 
     @Id public ObjectId id;        
-    public ObjectId emrHoSoBenhAnId;    
+    public ObjectId emrHoSoBenhAnId;  
     public ObjectId emrBenhNhanId;
     public ObjectId emrCoSoKhamBenhId;
+    public int trangThai; 
+    public String idhis;
     
     public List<EmrDmContent> emrDmMaBenhChandoansaus = new ArrayList<>();
     public List<EmrDmContent> emrDmMaBenhChandoantruocs = new ArrayList<>();
@@ -31,10 +33,10 @@ public class EmrPhauThuatThuThuat {
     
     public EmrDmContent emrDmPhauThuThuat;
     
-    @JsonFormat(pattern="dd/MM/yyyy HH:mm")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     public Date ngaygiopttt;
-    public String bacsithuchien;
-    public String bacsygayme;
+    public EmrYSy bacsithuchien;
+    public EmrYSy bacsygayme;
     public String chidinhptt;
     public String phuongphapvocam;
     public String luocdoptt;
@@ -42,13 +44,21 @@ public class EmrPhauThuatThuThuat {
     
     public String motachandoantruocpt;
     public String motachandoansaupt;
-    
-    public Boolean loaipttt;
-    //public String loaimoChklist;
         
-    public List<EmrThanhVienPttt> emrThanhVienPttts = new ArrayList<>();
+    
     
     public List<EmrFileDinhKem> emrFileDinhKemPttts = new ArrayList<>();
+    
+    @JsonInclude(Include.NON_NULL)
+    public static class EmrThanhVienPttt {
+
+        public EmrDmContent emrDmVaiTro;
+        
+        public EmrYSy bacsipttt;
+    }
+    
+    public List<EmrThanhVienPttt> emrThanhVienPttts = new ArrayList<>();
+    
     
     public String getId() { 
         return ObjectIdUtil.idToString(id); 

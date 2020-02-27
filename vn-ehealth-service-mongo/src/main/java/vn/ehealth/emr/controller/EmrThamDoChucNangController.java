@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import vn.ehealth.emr.model.EmrThamDoChucNang;
 import vn.ehealth.emr.service.EmrThamDoChucNangService;
 import vn.ehealth.emr.utils.EmrUtils;
@@ -25,7 +27,11 @@ import vn.ehealth.emr.utils.EmrUtils;
 public class EmrThamDoChucNangController {
     
     private Logger logger = LoggerFactory.getLogger(EmrThamDoChucNangController.class);
-    @Autowired EmrThamDoChucNangService emrThamDoChucNangService;
+    
+    @Autowired 
+    private EmrThamDoChucNangService emrThamDoChucNangService;
+    
+    private ObjectMapper objectMapper = EmrUtils.createObjectMapper();
     
     @GetMapping("/get_ds_tdcn")
     public ResponseEntity<?> getDsThamDoChucNang(@RequestParam("hsba_id") String id) {
@@ -46,13 +52,12 @@ public class EmrThamDoChucNangController {
         }
     }
     
-    @PostMapping("/create_or_update_tdcn")
-    public ResponseEntity<?> createOrUpdateTdcn(@RequestBody String jsonSt) {
+    @PostMapping("/save_tdcn")
+    public ResponseEntity<?> saveTdcn(@RequestBody String jsonSt) {
         
         try {
-            var mapper = EmrUtils.createObjectMapper();
-            var tdcn = mapper.readValue(jsonSt, EmrThamDoChucNang.class);
-            tdcn = emrThamDoChucNangService.createOrUpdate(tdcn);
+            var tdcn = objectMapper.readValue(jsonSt, EmrThamDoChucNang.class);
+            tdcn = emrThamDoChucNangService.save(tdcn);
             
             var result = Map.of(
                 "success" , true,

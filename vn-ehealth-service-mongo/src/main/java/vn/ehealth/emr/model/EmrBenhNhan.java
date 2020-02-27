@@ -18,6 +18,8 @@ public class EmrBenhNhan {
     
     public String getId() { return id != null? id.toHexString() : null; }    
    
+    public int trangThai;
+    
     public EmrDmContent emrDmGioiTinh;
     
     public EmrDmContent emrDmDanToc;

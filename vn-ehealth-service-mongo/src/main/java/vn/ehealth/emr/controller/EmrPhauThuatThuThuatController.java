@@ -1,8 +1,8 @@
 package vn.ehealth.emr.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.bson.types.ObjectId;
@@ -18,12 +18,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import vn.ehealth.emr.model.EmrPhauThuatThuThuat;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.service.EmrPhauThuatThuThuatService;
-import vn.ehealth.emr.utils.DateUtil;
 import vn.ehealth.emr.utils.EmrUtils;
-import vn.ehealth.emr.utils.JsonUtil;
+import vn.ehealth.emr.validate.JsonParser;
 
 @RestController
 @RequestMapping("/api/pttt")
@@ -31,8 +32,11 @@ public class EmrPhauThuatThuThuatController {
     
     private Logger logger = LoggerFactory.getLogger(EmrPhauThuatThuThuatController.class);
             
-    @Autowired EmrPhauThuatThuThuatService emrPhauThuatThuThuatService;
-    @Autowired EmrHoSoBenhAnService emrHoSoBenhAnService;
+    @Autowired private EmrPhauThuatThuThuatService emrPhauThuatThuThuatService;
+    @Autowired private EmrHoSoBenhAnService emrHoSoBenhAnService;
+    
+    private ObjectMapper objectMapper = EmrUtils.createObjectMapper();
+    private JsonParser jsonParser = new JsonParser();    
     
     @GetMapping("/get_ds_pttt")
     public ResponseEntity<?> getDsPhauThuatThuThuat(@RequestParam("hsba_id") String id) {
@@ -41,28 +45,8 @@ public class EmrPhauThuatThuThuatController {
     }
     
     @GetMapping("/get_ds_pttt_by_bn")
-    public ResponseEntity<?> getDsPhauThuatThuThuatByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId, @RequestParam int start, @RequestParam int count) {  	
-    	var pttt_List = emrPhauThuatThuThuatService.getDsPhauThuatThuThuatByBenhNhan(new ObjectId(benhNhanId), start, count);
-    	var result = pttt_List.stream().map(x -> JsonUtil.objectToMap(x)).collect(Collectors.toList());
-    	result.forEach(x -> {
-    		var emrHoSoBenhAns = emrHoSoBenhAnService.getById(new ObjectId(x.get("emrHoSoBenhAnId").toString()));
-    		x.put("tenCoSoKhamBenh", emrHoSoBenhAns.get().getEmrCoSoKhamBenh().ten);
-    		x.put("soBenhAn", emrHoSoBenhAns.get().matraodoi);
-    		x.put("ngayVaoVien", DateUtil.parseDateToString(emrHoSoBenhAns.get().emrQuanLyNguoiBenh.ngaygiovaovien, "dd/MM/yyyy HH:mm"));
-    		x.put("ngayRaVien", DateUtil.parseDateToString(emrHoSoBenhAns.get().emrQuanLyNguoiBenh.ngaygioravien, "dd/MM/yyyy HH:mm"));
-    		x.put("donViChuQuan", emrHoSoBenhAns.get().getEmrCoSoKhamBenh().donvichuquan); 
-    		x.put("maYTe", emrHoSoBenhAns.get().mayte);
-    		x.put("tuoiBenhNhan", emrHoSoBenhAns.get().getTuoiBenhNhan() + " " + emrHoSoBenhAns.get().getDonViTuoiBenhNhan());
-    		x.put("tenDayDu", emrHoSoBenhAns.get().emrBenhNhan.tendaydu);
-    		x.put("gioiTinh", emrHoSoBenhAns.get().emrBenhNhan.emrDmGioiTinh.ten);
-    		x.put("khoadieutri", emrHoSoBenhAns.get().getEmrVaoKhoas());
-    	});  
-        return ResponseEntity.ok(result);
-    }
-    
-    @GetMapping("/count_ds_pttt_by_bn")
-    public ResponseEntity<?> countDsPhauThuatThuThuatByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
-    	var result = emrPhauThuatThuThuatService.countDsPhauThuatThuThuatByBenhNhan(new ObjectId(benhNhanId));
+    public ResponseEntity<?> getDsPhauThuatThuThuatByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {  	
+    	var result = emrPhauThuatThuThuatService.getByEmrBenhNhanId(new ObjectId(benhNhanId));  
         return ResponseEntity.ok(result);
     }
 
@@ -79,13 +63,12 @@ public class EmrPhauThuatThuThuatController {
         }
     }
     
-    @PostMapping("/create_or_update_pttt")
+    @PostMapping("/save_pttt")
     public ResponseEntity<?> createOrUpdatePttt(@RequestBody String jsonSt) {
         
         try {
-            var mapper = EmrUtils.createObjectMapper();
-            var pttt = mapper.readValue(jsonSt, EmrPhauThuatThuThuat.class);
-            pttt = emrPhauThuatThuThuatService.createOrUpdate(pttt);
+            var pttt = objectMapper.readValue(jsonSt, EmrPhauThuatThuThuat.class);
+            pttt = emrPhauThuatThuThuatService.save(pttt);
             
             var result = Map.of(
                 "success" , true,
@@ -99,6 +82,39 @@ public class EmrPhauThuatThuThuatController {
                 "errors", List.of(e.getMessage()) 
             );
             logger.error("Error save pttt:", e);
+            return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+        }
+    }
+    
+    @SuppressWarnings("unchecked")
+    @PostMapping("/create_or_update_pttt")
+    public ResponseEntity<?> createOrUpdatePtttFromHIS(@RequestBody String jsonSt) {
+        try {
+            var map = jsonParser.parseJson(jsonSt);
+            var matraodoiHsba = (String) map.get("matraodoiHoSo");
+            var hsba = emrHoSoBenhAnService.getByMatraodoi(matraodoiHsba).orElseThrow();
+            
+            var ptttObjList = (List<Object>) map.get("emrPhauThuatThuThuats");
+            var ptttList = ptttObjList.stream()
+                                .map(obj -> objectMapper.convertValue(obj, EmrPhauThuatThuThuat.class))
+                                .collect(Collectors.toList());
+            
+            emrPhauThuatThuThuatService.createOrUpdateFromHIS(hsba, ptttList);
+            
+            var result = Map.of(
+                "success" , true,
+                "ptttList", ptttList  
+            );
+            
+            return ResponseEntity.ok(result);
+            
+        }catch(Exception e) {
+            var error = Optional.ofNullable(e.getMessage()).orElse("Unknown error");
+            var result = Map.of(
+                "success" , false,
+                "error", error 
+            );
+            logger.error("Error save phauthuathuthuat from HIS:", e);
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
     }

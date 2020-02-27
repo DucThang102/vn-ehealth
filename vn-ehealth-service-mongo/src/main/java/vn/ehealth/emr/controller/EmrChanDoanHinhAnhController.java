@@ -1,8 +1,8 @@
 package vn.ehealth.emr.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.bson.types.ObjectId;
@@ -18,20 +18,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import vn.ehealth.emr.model.EmrChanDoanHinhAnh;
 import vn.ehealth.emr.service.EmrChanDoanHinhAnhService;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
-import vn.ehealth.emr.utils.DateUtil;
 import vn.ehealth.emr.utils.EmrUtils;
-import vn.ehealth.emr.utils.JsonUtil;
+import vn.ehealth.emr.validate.JsonParser;
 
 @RestController
 @RequestMapping("/api/cdha")
 public class EmrChanDoanHinhAnhController {
     
+    private JsonParser jsonParser = new JsonParser();
+    private ObjectMapper objectMapper = EmrUtils.createObjectMapper();
+    
     private Logger logger = LoggerFactory.getLogger(EmrChanDoanHinhAnhController.class);
-    @Autowired EmrChanDoanHinhAnhService emrChanDoanHinhAnhService;
-    @Autowired EmrHoSoBenhAnService emrHoSoBenhAnService;
+    
+    @Autowired private EmrChanDoanHinhAnhService emrChanDoanHinhAnhService;
+    @Autowired private EmrHoSoBenhAnService emrHoSoBenhAnService;
     
     @GetMapping("/get_ds_cdha")
     public ResponseEntity<?> getDsChanDoanHinhAnh(@RequestParam("hsba_id") String hsbaId) {
@@ -40,31 +45,10 @@ public class EmrChanDoanHinhAnhController {
     }
     
     @GetMapping("/get_ds_cdha_by_bn")  
-    public ResponseEntity<?> getDsChanDoanHinhAnhByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId, @RequestParam int start, @RequestParam int count) {  	
-    	var cdha_List = emrChanDoanHinhAnhService.getDsChanDoanHinhAnh(new ObjectId(benhNhanId), start, count);
-    	var result = cdha_List.stream().map(x -> JsonUtil.objectToMap(x)).collect(Collectors.toList());
-    	result.forEach(x -> {
-    		var emrHoSoBenhAns = emrHoSoBenhAnService.getById(new ObjectId(x.get("emrHoSoBenhAnId").toString()));
-    		x.put("tenCoSoKhamBenh", emrHoSoBenhAns.get().getEmrCoSoKhamBenh().ten);
-    		x.put("soBenhAn", emrHoSoBenhAns.get().matraodoi);
-    		x.put("ngayVaoVien", DateUtil.parseDateToString(emrHoSoBenhAns.get().emrQuanLyNguoiBenh.ngaygiovaovien, "dd/MM/yyyy HH:mm"));
-    		x.put("ngayRaVien", DateUtil.parseDateToString(emrHoSoBenhAns.get().emrQuanLyNguoiBenh.ngaygioravien, "dd/MM/yyyy HH:mm"));
-    		x.put("donViChuQuan", emrHoSoBenhAns.get().getEmrCoSoKhamBenh().donvichuquan); 
-    		x.put("maYTe", emrHoSoBenhAns.get().mayte);
-    		x.put("tuoiBenhNhan", emrHoSoBenhAns.get().getTuoiBenhNhan() + " " + emrHoSoBenhAns.get().getDonViTuoiBenhNhan());
-    		x.put("tenDayDu", emrHoSoBenhAns.get().emrBenhNhan.tendaydu);
-    		x.put("gioiTinh", emrHoSoBenhAns.get().emrBenhNhan.emrDmGioiTinh.ten);
-    		x.put("khoadieutri", emrHoSoBenhAns.get().getEmrVaoKhoas());
-    	});  
-        return ResponseEntity.ok(result);
+    public ResponseEntity<?> getDsChanDoanHinhAnhByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
+        return ResponseEntity.ok(emrChanDoanHinhAnhService.getByEmrBenhNhanId(new ObjectId(benhNhanId)));
     }
     
-    @GetMapping("/count_ds_cdha_by_bn")
-    public ResponseEntity<?> countDsChanDoanHinhAnhByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
-    	var result = emrChanDoanHinhAnhService.countDsChanDoanHinhAnh(new ObjectId(benhNhanId));
-        return ResponseEntity.ok(result);
-    }
-
     @GetMapping("/delete_cdha")
     public ResponseEntity<?> deleteCdha(@RequestParam("cdha_id") String id) {
         try {
@@ -78,13 +62,12 @@ public class EmrChanDoanHinhAnhController {
         }
     }
     
-    @PostMapping("/create_or_update_cdha")
-    public ResponseEntity<?> createOrUpdateCdha(@RequestBody String jsonSt) {
+    @PostMapping("/save_cdha")
+    public ResponseEntity<?> saveCdha(@RequestBody String jsonSt) {
         
         try {
-            var mapper = EmrUtils.createObjectMapper();
-            var cdha = mapper.readValue(jsonSt, EmrChanDoanHinhAnh.class);
-            cdha = emrChanDoanHinhAnhService.createOrUpdate(cdha);
+            var cdha = objectMapper.readValue(jsonSt, EmrChanDoanHinhAnh.class);
+            cdha = emrChanDoanHinhAnhService.save(cdha);
             
             var result = Map.of(
                 "success" , true,
@@ -98,6 +81,39 @@ public class EmrChanDoanHinhAnhController {
                 "errors", List.of(e.getMessage()) 
             );
             logger.error("Error save cdha:", e);
+            return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+        }
+    }   
+    
+    @SuppressWarnings("unchecked")
+    @PostMapping("/create_or_update_cdha")
+    public ResponseEntity<?> createOrUpdateCdhaFromHIS(@RequestBody String jsonSt) {
+        try {
+            var map = jsonParser.parseJson(jsonSt);
+            var matraodoiHsba = (String) map.get("matraodoiHoSo");
+            var hsba = emrHoSoBenhAnService.getByMatraodoi(matraodoiHsba).orElseThrow();
+            
+            var cdhaObjList = (List<Object>) map.get("emrChanDoanHinhAnhs");
+            var cdhaList = cdhaObjList.stream()
+                                .map(obj -> objectMapper.convertValue(obj, EmrChanDoanHinhAnh.class))
+                                .collect(Collectors.toList());
+            
+            emrChanDoanHinhAnhService.createOrUpdateFromHIS(hsba, cdhaList);
+            
+            var result = Map.of(
+                "success" , true,
+                "cdhaList", cdhaList  
+            );
+            
+            return ResponseEntity.ok(result);
+            
+        }catch(Exception e) {
+            var error = Optional.ofNullable(e.getMessage()).orElse("Unknown error");
+            var result = Map.of(
+                "success" , false,
+                "error", error 
+            );
+            logger.error("Error save chandoanhinhanh from HIS:", e);
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
     }

@@ -1,6 +1,5 @@
 package vn.ehealth.emr.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -17,9 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import vn.ehealth.emr.model.EmrHoiChan;
 import vn.ehealth.emr.service.EmrHoiChanService;
-import vn.ehealth.emr.service.EmrVaoKhoaService;
 import vn.ehealth.emr.utils.EmrUtils;
 
 @RestController
@@ -27,21 +27,22 @@ import vn.ehealth.emr.utils.EmrUtils;
 public class EmrHoiChanController {
     
     private Logger logger = LoggerFactory.getLogger(EmrHoiChanController.class);
-    @Autowired EmrVaoKhoaService emrVaoKhoaService;
-    @Autowired EmrHoiChanService emrHoiChanService;
+    
+    @Autowired 
+    private EmrHoiChanService emrHoiChanService;
+    
+    private ObjectMapper objectMapper = EmrUtils.createObjectMapper();
     
     @GetMapping("/get_ds_hoichan")
     public ResponseEntity<?> getDsHoichan(@RequestParam("hsba_id") String id) {
-        var result = new ArrayList<EmrHoiChan>();
-        var vkList = emrVaoKhoaService.getByEmrHoSoBenhAnId(new ObjectId(id));
-        
-        for(var vk : vkList) {
-            var hoiChanList = emrHoiChanService.getByEmrVaoKhoaId(vk.id);
-            hoiChanList.forEach(x -> x.emrVaoKhoa = vk);
-            result.addAll(hoiChanList);
-        }
-        
-        return ResponseEntity.ok(result);
+        var hoichanList = emrHoiChanService.getByEmrHoSoBenhAnId(new ObjectId(id));
+        return ResponseEntity.ok(hoichanList);
+    }
+    
+    @GetMapping("/get_ds_hoichan_by_bn")
+    public ResponseEntity<?> getDsHoichanByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
+        var hoichanList = emrHoiChanService.getByEmrBenhNhanId(new ObjectId(benhNhanId));
+        return ResponseEntity.ok(hoichanList);
     }
     
     @GetMapping("/delete_hoichan")
@@ -57,13 +58,12 @@ public class EmrHoiChanController {
         }
     }
     
-    @PostMapping("/create_or_update_hoichan")
-    public ResponseEntity<?> createOrUpdateHoichan(@RequestBody String jsonSt) {
+    @PostMapping("/save_hoichan")
+    public ResponseEntity<?> saveHoichan(@RequestBody String jsonSt) {
         
         try {
-            var mapper = EmrUtils.createObjectMapper();
-            var hoichan = mapper.readValue(jsonSt, EmrHoiChan.class);
-            hoichan = emrHoiChanService.createOrUpdate(hoichan);
+            var hoichan = objectMapper.readValue(jsonSt, EmrHoiChan.class);
+            hoichan = emrHoiChanService.save(hoichan);
             
             var result = Map.of(
                 "success" , true,

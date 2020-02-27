@@ -2,8 +2,6 @@ package vn.ehealth.emr.model;
 
 import java.util.Date;
 
-import org.bson.types.ObjectId;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -27,21 +25,22 @@ public class EmrQuanLyNguoiBenh {
     
     public String sovaovien;
 
-    @JsonFormat(pattern="dd/MM/yyyy HH:mm")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     public Date ngaygiovaovien;
     
     public Integer vaovienlanthu;
     
-    @JsonFormat(pattern="dd/MM/yyyy HH:mm")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     public Date ngaygioravien;
     
-    public ObjectId bacsikhamId;
+    //public ObjectId bacsikhamId;
     
-    public String tenbacsikham;    
+    public EmrYSy bacsikham;    
 
     public Integer tongsongaydieutri;
 
-    public String tenbacsichoravien;
+    //public String tenbacsichoravien;
+    public EmrYSy bacsichoravien;
 
     public String noichuyenden;
     

@@ -1,36 +1,45 @@
 package vn.ehealth.emr.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import vn.ehealth.emr.service.EmrServiceFactory;
 import vn.ehealth.emr.utils.ObjectIdUtil;
 
 @JsonInclude(Include.NON_NULL)
 @Document(collection = "emr_cham_soc")
 public class EmrChamSoc {
     
+    public static class EmrQuaTrinhChamSoc {
+        @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+        public Date ngaychamsoc;
+        public EmrYSy ytachamsoc;
+        public String theodoidienbien;
+        public String thuchienylenh;
+    }
+    
     @Id public ObjectId id;    
     public ObjectId emrVaoKhoaId;    
     public ObjectId emrHoSoBenhAnId;    
     public ObjectId emrBenhNhanId;
     public ObjectId emrCoSoKhamBenhId;
+    public int trangThai;
+    public String idhis;
     
-    @Transient public EmrVaoKhoa emrVaoKhoa;
+    public EmrKhoaDieuTri emrVaoKhoa;
 
     public String sotochamsoc;
     
-    @Transient public List<EmrQuaTrinhChamSoc> emrQuaTrinhChamSocs;
-    
     public List<EmrFileDinhKem> emrFileDinhKemChamSocs = new ArrayList<>();
+    public List<EmrQuaTrinhChamSoc> emrQuaTrinhChamSocs = new ArrayList<>();
     
     public String getId() { 
         return ObjectIdUtil.idToString(id); 
@@ -70,12 +79,5 @@ public class EmrChamSoc {
     
     public void setEmrCoSoKhamBenhId(String emrCoSoKhamBenhId) {
         this.emrCoSoKhamBenhId = ObjectIdUtil.stringToId(emrCoSoKhamBenhId);
-    }
-    
-    public List<EmrQuaTrinhChamSoc> getEmrQuaTrinhChamSocs() {
-        if(emrQuaTrinhChamSocs == null && id != null) {
-            emrQuaTrinhChamSocs = EmrServiceFactory.getEmrQuaTrinhChamSocService().getByEmrChamSocId(id);
-        }
-        return emrQuaTrinhChamSocs;
     }
 }

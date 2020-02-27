@@ -9,5 +9,6 @@ import vn.ehealth.emr.model.EmrChamSoc;
 
 public interface EmrChamSocRepository extends MongoRepository<EmrChamSoc, ObjectId> {
 
-    public List<EmrChamSoc> findByEmrVaoKhoaId(ObjectId emrVaoKhoaId);
+    public List<EmrChamSoc> findByEmrHoSoBenhAnIdAndTrangThai(ObjectId emrHoSoBenhAnId, int trangThai);
+    public List<EmrChamSoc> findByEmrBenhNhanIdAndTrangThai(ObjectId emrBenhNhanId, int trangThai);
 }

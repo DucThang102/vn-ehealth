@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import vn.ehealth.emr.model.EmrHinhAnhTonThuong;
 import vn.ehealth.emr.service.EmrHinhAnhTonThuongService;
 import vn.ehealth.emr.utils.EmrUtils;
@@ -26,7 +28,10 @@ public class EmrHinhAnhTonThuongController {
     
     private Logger logger = LoggerFactory.getLogger(EmrHinhAnhTonThuongController.class);
     
-    @Autowired EmrHinhAnhTonThuongService emrHinhAnhTonThuongService;
+    @Autowired 
+    private EmrHinhAnhTonThuongService emrHinhAnhTonThuongService;
+    
+    private ObjectMapper objectMapper = EmrUtils.createObjectMapper();
 
     @GetMapping("/get_hatt")
     public ResponseEntity<?> getHatt(@RequestParam("hatt_id") String id) {
@@ -37,6 +42,12 @@ public class EmrHinhAnhTonThuongController {
     @GetMapping("/get_ds_hatt")
     public ResponseEntity<?> getDsHatt(@RequestParam("hsba_id") String hsbaId) {
         var hattList = emrHinhAnhTonThuongService.getByEmrHoSoBenhAnId(new ObjectId(hsbaId));
+        return ResponseEntity.ok(hattList);
+    }
+    
+    @GetMapping("/get_ds_hatt_by_bn")
+    public ResponseEntity<?> getDsHattByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
+        var hattList = emrHinhAnhTonThuongService.getByEmrBenhNhanId(new ObjectId(benhNhanId));
         return ResponseEntity.ok(hattList);
     }
     
@@ -53,13 +64,12 @@ public class EmrHinhAnhTonThuongController {
         }
     }
     
-    @PostMapping("/create_or_update_hatt")
-    public ResponseEntity<?> createOrUpdateHatt(@RequestBody String jsonSt) {
+    @PostMapping("/save_hatt")
+    public ResponseEntity<?> saveHatt(@RequestBody String jsonSt) {
         
         try {
-            var mapper = EmrUtils.createObjectMapper();            
-            var hatt = mapper.readValue(jsonSt, EmrHinhAnhTonThuong.class);
-            hatt = emrHinhAnhTonThuongService.createOrUpdate(hatt);
+            var hatt = objectMapper.readValue(jsonSt, EmrHinhAnhTonThuong.class);
+            hatt = emrHinhAnhTonThuongService.save(hatt);
             
             var result = Map.of(
                 "success" , true,

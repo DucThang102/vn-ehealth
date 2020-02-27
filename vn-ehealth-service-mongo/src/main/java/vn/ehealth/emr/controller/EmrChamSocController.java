@@ -1,6 +1,5 @@
 package vn.ehealth.emr.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -17,9 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import vn.ehealth.emr.model.EmrChamSoc;
 import vn.ehealth.emr.service.EmrChamSocService;
-import vn.ehealth.emr.service.EmrVaoKhoaService;
 import vn.ehealth.emr.utils.EmrUtils;
 
 @RestController
@@ -27,21 +27,22 @@ import vn.ehealth.emr.utils.EmrUtils;
 public class EmrChamSocController {
     
     private Logger logger = LoggerFactory.getLogger(EmrChamSocController.class);
-    @Autowired EmrVaoKhoaService emrVaoKhoaService;
-    @Autowired EmrChamSocService emrChamSocService;
+    
+    @Autowired 
+    private EmrChamSocService emrChamSocService;
+    
+    private ObjectMapper objectMapper = EmrUtils.createObjectMapper();
     
     @GetMapping("/get_ds_chamsoc")
     public ResponseEntity<?> getDsChamSoc(@RequestParam("hsba_id") String id) {
-        var result = new ArrayList<EmrChamSoc>();
-        var vkList = emrVaoKhoaService.getByEmrHoSoBenhAnId(new ObjectId(id));
-        
-        for(var vk : vkList) {
-            var chamSocList = emrChamSocService.getByEmrVaoKhoaId(vk.id);
-            chamSocList.forEach(x -> x.emrVaoKhoa = vk);
-            result.addAll(chamSocList);
-        }
-        
-        return ResponseEntity.ok(result);
+    
+        return ResponseEntity.ok(emrChamSocService.getByEmrHoSoBenhAnId(new ObjectId(id)));
+    }
+    
+    @GetMapping("/get_ds_chamsoc_by_bn")
+    public ResponseEntity<?> getDsChamSocByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
+    
+        return ResponseEntity.ok(emrChamSocService.getByEmrBenhNhanId(new ObjectId(benhNhanId)));
     }
     
     @GetMapping("/delete_chamsoc")
@@ -57,13 +58,12 @@ public class EmrChamSocController {
         }
     }
     
-    @PostMapping("/create_or_update_chamsoc")
-    public ResponseEntity<?> createOrUpdateChamsoc(@RequestBody String jsonSt) {
+    @PostMapping("/save_chamsoc")
+    public ResponseEntity<?> save(@RequestBody String jsonSt) {
         
         try {
-            var mapper = EmrUtils.createObjectMapper();                    
-            var chamsoc = mapper.readValue(jsonSt, EmrChamSoc.class);
-            chamsoc = emrChamSocService.createOrUpdate(chamsoc);
+            var chamsoc = objectMapper.readValue(jsonSt, EmrChamSoc.class);
+            chamsoc = emrChamSocService.save(chamsoc);
             
             var result = Map.of(
                 "success" , true,

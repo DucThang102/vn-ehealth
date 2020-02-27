@@ -2,71 +2,62 @@ package vn.ehealth.emr.service;
 
 import java.util.List;
 
+import javax.annotation.Nonnull;
+
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.aggregation.Aggregation;
-import org.springframework.data.mongodb.core.aggregation.CountOperation;
-import org.springframework.data.mongodb.core.aggregation.LookupOperation;
-import org.springframework.data.mongodb.core.aggregation.UnwindOperation;
-import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Service;
 
 import vn.ehealth.emr.model.EmrChanDoanHinhAnh;
-import vn.ehealth.emr.object.CountAggregation;
+import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.repository.EmrChanDoanHinhAnhRepository;
-import static org.springframework.data.mongodb.core.aggregation.Aggregation.sort;
-import static org.springframework.data.mongodb.core.aggregation.Aggregation.limit;
-import static org.springframework.data.mongodb.core.aggregation.Aggregation.skip;
+import vn.ehealth.emr.repository.EmrHoSoBenhAnRepository;
+import vn.ehealth.emr.utils.Constants.TRANGTHAI_DULIEU;
 
 @Service
 public class EmrChanDoanHinhAnhService {
 
-    @Autowired EmrChanDoanHinhAnhRepository emrChanDoanHinhAnhRepository;
-    @Autowired MongoTemplate mongoTemplate;
+    @Autowired 
+    private EmrChanDoanHinhAnhRepository emrChanDoanHinhAnhRepository;
+    
+    @Autowired
+    private EmrHoSoBenhAnRepository emrHoSoBenhAnRepository;
     
     public List<EmrChanDoanHinhAnh> getByEmrHoSoBenhAnId(ObjectId emrHoSoBenhAnId) {
-        return emrChanDoanHinhAnhRepository.findByEmrHoSoBenhAnId(emrHoSoBenhAnId);
+        return emrChanDoanHinhAnhRepository.findByEmrHoSoBenhAnIdAndTrangThai(emrHoSoBenhAnId, TRANGTHAI_DULIEU.DEFAULT);
     }
     
-    public void deleteAllByEmrHoSoBenhAnId(ObjectId emrHoSoBenhAnId) {
-        for(var cdha : getByEmrHoSoBenhAnId(emrHoSoBenhAnId)) {
-            emrChanDoanHinhAnhRepository.delete(cdha);
-        }
-    }    
+    public List<EmrChanDoanHinhAnh> getByEmrBenhNhanId(ObjectId emrBenhNhanId) {
+        return emrChanDoanHinhAnhRepository.findByEmrBenhNhanIdAndTrangThai(emrBenhNhanId, TRANGTHAI_DULIEU.DEFAULT);
+    }
     
-    public EmrChanDoanHinhAnh createOrUpdate(EmrChanDoanHinhAnh emrChanDoanHinhAnh) {
-        return emrChanDoanHinhAnhRepository.save(emrChanDoanHinhAnh);
+    public EmrChanDoanHinhAnh save(EmrChanDoanHinhAnh cdha) {
+        if(cdha.id == null && cdha.emrHoSoBenhAnId != null) {
+            var hsba = emrHoSoBenhAnRepository.findById(cdha.emrHoSoBenhAnId).orElseThrow();
+            cdha.emrBenhNhanId = hsba.emrBenhNhanId;
+            cdha.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
+        }
+        return emrChanDoanHinhAnhRepository.save(cdha);
+    }
+    
+    public void createOrUpdateFromHIS(@Nonnull EmrHoSoBenhAn hsba, @Nonnull List<EmrChanDoanHinhAnh> cdhaList) {
+        for(int i = 0; i < cdhaList.size(); i++) {
+            var cdha = cdhaList.get(i);
+            cdha.id = emrChanDoanHinhAnhRepository.findByIdhis(cdha.idhis).map(x -> x.id).orElse(null);
+            cdha.emrHoSoBenhAnId = hsba.id;
+            cdha.emrBenhNhanId = hsba.emrBenhNhanId;
+            cdha.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
+            cdha = emrChanDoanHinhAnhRepository.save(cdha);
+            cdhaList.set(i, cdha);
+        }         
     }
     
     public void delete(ObjectId id) {
-        emrChanDoanHinhAnhRepository.deleteById(id);
-    }
-    
-    public List<EmrChanDoanHinhAnh> getDsChanDoanHinhAnh(ObjectId benhNhanId, int offset, int limit) {	
-    	LookupOperation lookupOperation = LookupOperation.newLookup()
-                .from("emr_ho_so_benh_an")
-                .localField("emrHoSoBenhAnId")
-                .foreignField("_id")
-                .as("emrHoSoBenhAn");
-    	UnwindOperation unwindOperation = Aggregation.unwind("emrHoSoBenhAn");
-		Aggregation aggregation = Aggregation.newAggregation(lookupOperation, unwindOperation, Aggregation.match(Criteria.where("emrHoSoBenhAn.emrBenhNhanId").is(benhNhanId)), sort(Sort.Direction.DESC, "_id"), skip(offset), limit(limit));
-		List<EmrChanDoanHinhAnh> results = mongoTemplate.aggregate(aggregation, "emr_chan_doan_hinh_anh", EmrChanDoanHinhAnh.class).getMappedResults();
-		return results;
-    }
-    
-    public long countDsChanDoanHinhAnh(ObjectId benhNhanId) {
-    	LookupOperation lookupOperation = LookupOperation.newLookup()
-                .from("emr_ho_so_benh_an")
-                .localField("emrHoSoBenhAnId")
-                .foreignField("_id")
-                .as("emrHoSoBenhAn");
-    	UnwindOperation unwindOperation = Aggregation.unwind("emrHoSoBenhAn");
-    	CountOperation count = Aggregation.count().as("total");
-		Aggregation aggregation = Aggregation.newAggregation(lookupOperation, unwindOperation, Aggregation.match(Criteria.where("emrHoSoBenhAn.emrBenhNhanId").is(benhNhanId)), sort(Sort.Direction.DESC, "_id"), count);
-		List<CountAggregation> results = mongoTemplate.aggregate(aggregation, "emr_chan_doan_hinh_anh", CountAggregation.class).getMappedResults();
-		return results.get(0).total;
+        var cdha = emrChanDoanHinhAnhRepository.findById(id);
+        cdha.ifPresent(x -> {
+            x.trangThai = TRANGTHAI_DULIEU.DA_XOA;
+            emrChanDoanHinhAnhRepository.save(x);
+        });
     }
 }
 

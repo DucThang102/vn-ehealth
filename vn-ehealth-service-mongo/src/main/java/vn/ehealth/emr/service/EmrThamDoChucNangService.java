@@ -7,28 +7,42 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import vn.ehealth.emr.model.EmrThamDoChucNang;
+import vn.ehealth.emr.repository.EmrHoSoBenhAnRepository;
 import vn.ehealth.emr.repository.EmrThamDoChucNangRepository;
+import vn.ehealth.emr.utils.Constants.TRANGTHAI_DULIEU;
 
 @Service
 public class EmrThamDoChucNangService {
 
-    @Autowired EmrThamDoChucNangRepository emrThamDoChucNangRepository;
+    @Autowired
+    private EmrThamDoChucNangRepository emrThamDoChucNangRepository;
+    
+    @Autowired
+    private EmrHoSoBenhAnRepository emrHoSoBenhAnRepository;
     
     public List<EmrThamDoChucNang> getByEmrHoSoBenhAnId(ObjectId emrHoSoBenhAnId) {
-        return emrThamDoChucNangRepository.findByEmrHoSoBenhAnId(emrHoSoBenhAnId);
+        return emrThamDoChucNangRepository.findByEmrHoSoBenhAnIdAndTrangThai(emrHoSoBenhAnId, TRANGTHAI_DULIEU.DEFAULT);
     }
     
-    public void deleteAllByEmrHoSoBenhAnId(ObjectId emrHoSoBenhAnId) {
-        for(var tdcn : getByEmrHoSoBenhAnId(emrHoSoBenhAnId)) {
-            emrThamDoChucNangRepository.delete(tdcn);
+    public List<EmrThamDoChucNang> getByEmrBenhNhanId(ObjectId emrBenhNhanId) {
+        return emrThamDoChucNangRepository.findByEmrBenhNhanIdAndTrangThai(emrBenhNhanId, TRANGTHAI_DULIEU.DEFAULT);
+    }
+    
+    public EmrThamDoChucNang save(EmrThamDoChucNang tdcn) {
+        if(tdcn.id == null && tdcn.emrHoSoBenhAnId != null) {
+            var hsba = emrHoSoBenhAnRepository.findById(tdcn.emrHoSoBenhAnId).orElseThrow();
+            tdcn.emrBenhNhanId = hsba.emrBenhNhanId;
+            tdcn.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
         }
-    }
-    
-    public EmrThamDoChucNang createOrUpdate(EmrThamDoChucNang emrThamDoChucNang) {
-        return emrThamDoChucNangRepository.save(emrThamDoChucNang);
+        
+        return emrThamDoChucNangRepository.save(tdcn);
     }
     
     public void delete(ObjectId id) {
-        emrThamDoChucNangRepository.deleteById(id);
+        var tdcn = emrThamDoChucNangRepository.findById(id);
+        tdcn.ifPresent(x -> {
+            x.trangThai = TRANGTHAI_DULIEU.DA_XOA;
+            emrThamDoChucNangRepository.save(x);
+        });
     }
 }

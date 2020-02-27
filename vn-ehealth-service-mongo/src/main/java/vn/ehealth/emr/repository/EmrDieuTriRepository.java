@@ -9,5 +9,6 @@ import vn.ehealth.emr.model.EmrDieuTri;
 
 public interface EmrDieuTriRepository extends MongoRepository<EmrDieuTri, ObjectId> {
 
-    public List<EmrDieuTri> findByEmrVaoKhoaId(ObjectId emrVaoKhoaId);
+    public List<EmrDieuTri> findByEmrHoSoBenhAnIdAndTrangThai(ObjectId emrHoSoBenhAnId, int trangThai);
+    public List<EmrDieuTri> findByEmrBenhNhanIdAndTrangThai(ObjectId emrBenhNhanId, int trangThai);
 }

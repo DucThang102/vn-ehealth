@@ -1,10 +1,7 @@
 package vn.ehealth.emr.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
-
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,20 +15,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import vn.ehealth.emr.model.EmrDonThuoc;
 import vn.ehealth.emr.service.EmrDonThuocService;
-import vn.ehealth.emr.service.EmrHoSoBenhAnService;
-import vn.ehealth.emr.utils.DateUtil;
 import vn.ehealth.emr.utils.EmrUtils;
-import vn.ehealth.emr.utils.JsonUtil;
 
 @RestController
 @RequestMapping("/api/donthuoc")
 public class EmrDonThuocController {
     
     private Logger logger = LoggerFactory.getLogger(EmrDonThuocController.class);
-    @Autowired EmrDonThuocService emrDonThuocService;
-    @Autowired EmrHoSoBenhAnService emrHoSoBenhAnService;
+    
+    @Autowired 
+    private EmrDonThuocService emrDonThuocService;
+    
+    private ObjectMapper objectMapper = EmrUtils.createObjectMapper();
     
     @GetMapping("/get_ds_donthuoc")
     public ResponseEntity<?> getDsDonThuoc(@RequestParam("hsba_id") String id) {
@@ -40,29 +39,9 @@ public class EmrDonThuocController {
     }
     
     @GetMapping("/get_ds_donthuoc_by_bn")
-    public ResponseEntity<?> getDsDonThuocByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId, @RequestParam int start, @RequestParam int count) {
-        var donthuoc_List = emrDonThuocService.getDsDonThuocByBenhNhan(new ObjectId(benhNhanId), start, count);
-    	var result = donthuoc_List.stream().map(x -> JsonUtil.objectToMap(x)).collect(Collectors.toList());
-    	result.forEach(x -> {
-    		var emrHoSoBenhAns = emrHoSoBenhAnService.getById(new ObjectId(x.get("emrHoSoBenhAnId").toString()));
-    		x.put("tenCoSoKhamBenh", emrHoSoBenhAns.get().getEmrCoSoKhamBenh().ten);
-    		x.put("soBenhAn", emrHoSoBenhAns.get().matraodoi);
-    		x.put("ngayVaoVien", DateUtil.parseDateToString(emrHoSoBenhAns.get().emrQuanLyNguoiBenh.ngaygiovaovien, "dd/MM/yyyy HH:mm"));
-    		x.put("ngayRaVien", DateUtil.parseDateToString(emrHoSoBenhAns.get().emrQuanLyNguoiBenh.ngaygioravien, "dd/MM/yyyy HH:mm"));
-    		x.put("donViChuQuan", emrHoSoBenhAns.get().getEmrCoSoKhamBenh().donvichuquan); 
-    		x.put("maYTe", emrHoSoBenhAns.get().mayte);
-    		x.put("tuoiBenhNhan", emrHoSoBenhAns.get().getTuoiBenhNhan() + " " + emrHoSoBenhAns.get().getDonViTuoiBenhNhan());
-    		x.put("tenDayDu", emrHoSoBenhAns.get().emrBenhNhan.tendaydu);
-    		x.put("gioiTinh", emrHoSoBenhAns.get().emrBenhNhan.emrDmGioiTinh.ten);
-    		x.put("khoadieutri", emrHoSoBenhAns.get().getEmrVaoKhoas());
-    	});  
-        return ResponseEntity.ok(result);
-    }
-    
-    @GetMapping("/cout_ds_donthuoc_by_bn")
-    public ResponseEntity<?> countDsDonThuocByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
-    	var result = emrDonThuocService.countDsDonThuocByBenhNhan(new ObjectId(benhNhanId));
-        return ResponseEntity.ok(result);
+    public ResponseEntity<?> getDsDonThuocByBenhNhan(@RequestParam("benhnhan_id") String benhNhanId) {
+        var donthuocList = emrDonThuocService.getByEmrBenhNhanId(new ObjectId(benhNhanId));
+        return ResponseEntity.ok(donthuocList);
     }
     
     @GetMapping("/delete_donthuoc")
@@ -78,13 +57,12 @@ public class EmrDonThuocController {
         }
     }
     
-    @PostMapping("/create_or_update_donthuoc")
-    public ResponseEntity<?> createOrUpdateDonthuoc(@RequestBody String jsonSt) {
+    @PostMapping("/save_donthuoc")
+    public ResponseEntity<?> saveDonthuoc(@RequestBody String jsonSt) {
         
         try {
-            var mapper = EmrUtils.createObjectMapper();            
-            var donthuoc = mapper.readValue(jsonSt, EmrDonThuoc.class);
-            donthuoc = emrDonThuocService.createOrUpdate(donthuoc);
+            var donthuoc = objectMapper.readValue(jsonSt, EmrDonThuoc.class);
+            donthuoc = emrDonThuocService.save(donthuoc);
             
             var result = Map.of(
                 "success" , true,
