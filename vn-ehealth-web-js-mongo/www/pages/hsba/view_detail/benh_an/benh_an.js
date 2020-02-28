@@ -91,35 +91,70 @@ var benh_an_chi_tiet_script = {
   props: ["hsba"],
 
   computed: {
+    // Thong tin co so kham benh
+    donViChuQuan() {
+      return attr(this.hsba, "emrCoSoKhamBenh.donvichuquan");
+    },
+
+    coSoKhamBenh() {
+      return attr(this.hsba, "emrCoSoKhamBenh.ten");
+    },
+
+    // Thong tin benh nhan
+    tenBenhNhan(){
+      return attr(this.hsba, "emrBenhNhan.tendaydu") || "";
+    },
+
     ngaySinhBenhNhan() {
       return attr(this.hsba, "emrBenhNhan.ngaysinh") || "";
     },
+
     tuoiBenhNhan() {
-      var tuoi = (this.hsba.tuoiBenhNhan || "") + "";
+      var tuoi = (this.hsba.tuoiBenhNhan.tuoi || "") + "";
       if (tuoi.length == 1) {
         return "0" + tuoi;
       }
       return tuoi;
     },
 
-    maNgheNghiep() {
-      return attr(this.hsba, "emrBenhNhan.emrDmNgheNghiep.ma") || "";
+    gioiTinhBenhNhan() {
+      return attr(this.hsba, "emrBenhNhan.emrDmGioiTinh") || {};
     },
 
-    maDanToc() {
-      return attr(this.hsba, "emrBenhNhan.emrDmDanToc.ma") || "";
+    ngheNghiepBenhNhan() {
+      return attr(this.hsba, "emrBenhNhan.emrDmNgheNghiep") || {};
     },
 
-    maQuocTich() {
-      return attr(this.hsba, "emrBenhNhan.emrDmQuocGia.ma") || "";
+    danTocBenhNhan() {
+      return attr(this.hsba, "emrBenhNhan.emrDmDanToc") || {};
     },
 
-    maQuanHuyen() {
-      return attr(this.hsba, "emrBenhNhan.emrDmQuanHuyen.ma") || "";
+    quocTichBenhNhan() {
+      return attr(this.hsba, "emrBenhNhan.emrDmQuocGia") || {};
     },
 
-    maTinhThanh() {
-      return attr(this.hsba, "emrBenhNhan.emrDmTinhThanh.ma") || "";
+    diaChiXaBenhNhan() {
+      return attr(this.hsba, "emrBenhNhan.emrDmPhuongXa") || {};
+    },
+
+    diaChiBenhNhan() {
+      return attr(this.hsba, "diachi");
+    },
+
+    diaChiHuyenBenhNhan() {
+      return attr(this.hsba, "emrBenhNhan.emrDmQuanHuyen") || {};
+    },
+
+    diaChiTinhBenhNhan() {
+      return attr(this.hsba, "emrBenhNhan.emrDmTinhThanh") || {};
+    },
+
+    noiLamViecBenhNhan() {
+      return attr(this.hsba, "emrBenhNhan.noilamviec");
+    },
+
+    doiTuongTaiChinh() {
+      return attr(this.hsba, "emrBenhNhan.emrDmLoaiDoiTuongTaiChinh") || {};
     },
 
     soTheBHYT() {
@@ -130,150 +165,250 @@ var benh_an_chi_tiet_script = {
       return attr(this.hsba, "emrBenhNhan.ngayhethanthebhyt") || "";
     },
 
-    soDienThoai() {
+    nguoiBaoTin() {
+      return attr(this.hsba, "emrBenhNhan.tennguoibaotin") || "";
+    },
+
+    soDienThoaiNguoiBaoTin() {
       return attr(this.hsba, "emrBenhNhan.sodienthoainguoibaotin") || "";
     },
 
-    diaChi() {
-      return attr(this.hsba, "emrBenhNhan.diachi") || "";
+    diaChiNguoiBaoTin() {
+      return attr(this.hsba, "emrBenhNhan.diachinguoibaotin") || "";
     },
 
+    // Quan ly nguoi benh
     ngayGioVaoVien() {
-      return this.hsba.emrQuanLyNguoiBenh.ngaygiovaovien || ";";
+      return attr(this.hsba, "emrQuanLyNguoiBenh.ngaygiovaovien") || "";
+    },
+
+    noiTrucTiepVao() {
+      return attr(this.hsba, "emrQuanLyNguoiBenh.emrDmNoiTrucTiepVao") || {};
+    },
+
+    noiGioiThieu() {
+      return attr(this.hsba, "emrQuanLyNguoiBenh.emrDmNoiGioiThieu") || {};
+    },
+
+    lanVaoVien() {
+      return attr(this.hsba, "emrQuanLyNguoiBenh.vaovienlanthu");
+    },
+
+    loaiChuyenVien() {
+      return attr(this.hsba, "emrQuanLyNguoiBenh.emrDmLoaiChuyenVien") || {};
+    },
+
+    noiChuyenDen() {
+      return attr(this.hsba, "emrQuanLyNguoiBenh.noichuyenden");
     },
 
     ngayGioRaVien() {
-      return this.hsba.emrQuanLyNguoiBenh.ngaygioravien || ";";
+      return attr(this.hsba, "emrQuanLyNguoiBenh.ngaygioravien") || "";
     },
 
-    ngayKyBenhAn() {
-      return this.hsba.emrBenhAn.ngaykybenhan || "";
+    loaiRaVien() {
+      return attr(this.hsba, "emrQuanLyNguoiBenh.emrDmLoaiRaVien") || {};
     },
 
-    ngayKyDieuTri() {
-      return this.hsba.emrTongKetRaVien.ngaybacsydieutriky || ";";
+    tongSoNgayDieuTri() {
+      return attr(this.hsba, "emrQuanLyNguoiBenh.tongsongaydieutri");
+    },
+
+    // Chan doan    
+    chanDoanNoiDen() {
+      var chanDoan = attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoannoiden") || {};
+      return {ma: chanDoan.ma, ten: chanDoan.ten || getChanDoanProp('motachandoannoiden') };
+    },
+
+    chanDoanKKB() {
+      var chanDoan = attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoankkb") || {};
+      return {ma: chanDoan.ma, ten: chanDoan.ten || getChanDoanProp('motachandoankkb') };
+    },
+
+    chanDoanDieuTri() {
+      var chanDoan = attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoandieutrichinh") || {};
+      return {ma: chanDoan.ma, ten: chanDoan.ten || getChanDoanProp('motachandoandieutrichinh') };
+    },
+
+    chanDoanDieuTriKemTheo() {
+      var chanDoanKemTheoList = attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoandieutrikemtheos")
+      var chanDoan = {};
+      if (chanDoanKemTheoList && chanDoanKemTheoList.length > 0) {
+        chanDoan = chanDoanKemTheoList[0];
+      }
+      return {ma: chanDoan.ma, ten: chanDoan.ten || getChanDoanProp('motachandoandieutrikemtheo') };
+    },
+
+    chandoanDieuTriPhanBiet() {
+      var chanDoan = attr(this.hsba, "emrBenhAn.emrDmMaBenhChandoandieutriphanbiet") || {};
+      return {ma: chanDoan.ma, ten: chanDoan.ten || getChanDoanProp('motachandoandieutriphanbiet') };
+    },
+
+    chanDoanCoPhauThuat() {
+      return attr(this.hsba, "emrChanDoan.dieutriphauthuat");
+    },
+
+    chanDoanCoThuThuat() {
+      return attr(this.hsba, "emrChanDoan.dieutrithuthuat");
+    },
+
+    chanDoanRaVienChinh() {
+      var chanDoan = attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoanravienchinh") || {};
+      return {ma: chanDoan.ma, ten: chanDoan.ten || getChanDoanProp('motachandoanravienchinh') };
+    },
+
+    chanDoanRaVienKemTheo() {
+      var chanDoanKemTheoList = attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoanravienkemtheos")
+      var chanDoan = {};
+      if (chanDoanKemTheoList && chanDoanKemTheoList.length > 0) {
+        chanDoan = chanDoanKemTheoList[0];
+      }
+      return {ma: chanDoan.ma, ten: chanDoan.ten || getChanDoanProp('motachandoanravienkemtheo') };
+    },
+
+    chanDoanRaVienNguyenNhan() {
+      var chanDoan = attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoanraviennguyennhan") || {};
+      return {ma: chanDoan.ma, ten: chanDoan.ten || getChanDoanProp('motachandoanraviennguyennhan') };
+    },
+
+    chanDoanBiTaiBien() {
+      return attr(this.hsba, "emrChanDoan.bitaibien");
+    },
+
+    chanDoanBiBienChung() {
+      return attr(this.hsba, "emrChanDoan.bibienchung");
+    },
+
+    // Tinh trang ra vien
+
+    ketQuaDieuTri() {
+      return attr(this.hsba, "emrTinhTrangRaVien.emrDmKetQuaDieuTri") || {};
+    },
+
+    giaiPhauBenh() {
+      return attr(this.hsba, "emrTinhTrangRaVien.emrDmKetQuaGiaiPhauBenh") || {};
     },
 
     ngayGioTuVong() {
-      return this.hsba.emrTinhTrangRaVien.ngaygiotuvong || ";";
+      return attr(this.hsba, "emrTinhTrangRaVien.ngaygiotuvong") || "";
+    },
+
+    lyDoTuVuong() {
+      return attr(this.hsba, "emrTinhTrangRaVien.emrDmLyDoTuVong") || {};
+    },
+
+    thoiDiemTuVong() {
+      return attr(this.hsba, "emrDmThoiDiemTuVong.emrDmLyDoTuVong") || {};
+    },
+
+    nguyenNhanTuVong() {
+      return attr(this.hsba, "emrTinhTrangRaVien.emrDmMaBenhNguyennhantuvong") || {};
+    },
+
+    khamNghiemTuThi() {
+      return attr(this.hsba, "emrTinhTrangRaVien.khamnghiemtuthi");
+    },
+
+    giaiPhauTuThi() {
+      return attr(this.hsba, "emrTinhTrangRaVien.emrDmMaBenhGiaiphaututhi") || {};
+    },
+
+    //
+    giamDocBenhVien() {
+      return attr(this.hsba, "emrCoSoKhamBenh.giamdoc");
+    },
+
+    truongPhongKHTH() {
+      return attr(this.hsba, "emrCoSoKhamBenh.truongphongth");
+    },
+
+    ngayKyBenhAn() {
+      return this.hsba.ngaykybenhan || "";
+    },
+
+    bacSyLamBenhAn() {
+      return this.hsba.bacsylambenhan;
+    },
+
+    ngayKyDieuTri() {
+      return this.hsba.ngaybacsydieutriky || "";
+    },
+
+    bacSyDieuTri() {
+      return this.hsba.bacsydieutri;
     },
 
     khoaDieuTri() {
+      var khoa = {};
       if (this.hsba.emrVaoKhoas.length > 0) {
         var n = this.hsba.emrVaoKhoas.length;
-        return this.hsba.emrVaoKhoas[n - 1];
+        khoa = this.hsba.emrVaoKhoas[n - 1];
       }
-      return {};
-    },
-
-    tenKhoaDieuTri() {
-      var khoa = this.khoaDieuTri;
-      return khoa.tenkhoa || attr(khoa, "emrDmKhoaDieuTri.ten");
+      if(!khoa.tenkhoa) {
+        khoa.tenkhoa = attr(khoa, "emrDmKhoaDieuTri.ten");
+      }
+      return khoa;
     },
 
     ngayKetThucDieuTri() {
       return this.khoaDieuTri.ngayketthucdieutri;
     },
-
-    chanDoanNoiDen() {
-      return (
-        attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoannoiden") || {
-          ma: "",
-          ten: ""
-        }
-      );
+    
+    //So to dieu tri
+    soToXQuang() {
+      var soTo = this.hsba.sotodieutri.find(x => x.ma ="01");
+      return soTo? soTo.soluong : 0;
     },
 
-    chanDoanKKB() {
-      return (
-        attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoankkb") || {
-          ma: "",
-          ten: ""
-        }
-      );
+    soToCTScanner() {
+      var soTo = this.hsba.sotodieutri.find(x => x.ma ="02");
+      return soTo? soTo.soluong : 0;
     },
 
-    chandoanVaoKhoaDieuTri() {
-      return (
-        attr(this.hsba, "emrBenhAn.emrDmMaBenhChandoanbenhchinh") || {
-          ma: "",
-          ten: ""
-        }
-      );
+    soToSieuAm() {
+      var soTo = this.hsba.sotodieutri.find(x => x.ma ="03");
+      return soTo? soTo.soluong : 0;
     },
 
-    chandoanVaoKhoaDieuTriPhanBiet() {
-      return (
-        attr(this.hsba, "emrBenhAn.emrDmMaBenhChandoanphanbiet") || {
-          ma: "",
-          ten: ""
-        }
-      );
+    soToXetNghiem() {
+      var soTo = this.hsba.sotodieutri.find(x => x.ma ="04");
+      return soTo? soTo.soluong : 0;
     },
 
-    chandoanVaoKhoaDieuTriKemTheo() {
-      var chanDoanKemTheoList = attr(
-        this.hsba,
-        "emrBenhAn.emrDmMaBenhChandoankemtheos"
-      );
-      if (chanDoanKemTheoList && chanDoanKemTheoList.length > 0) {
-        return chanDoanKemTheoList[0];
+    soToKhac() {
+      var tong = 0;
+      for(var i = 0; i < this.hsba.sotodieutri.length; i++) {
+        if(parseInt(this.sotodieutri[i].ma) > 4)
+          tong += this.sotodieutri[i].soluong;
       }
-      return {
-        ma: "",
-        ten: ""
-      };
+      return tong;
     },
 
-    chanDoanRaVienChinh() {
-      return (
-        attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoanravienchinh") || {
-          ma: "",
-          ten: ""
-        }
-      );
-    },
-
-    chanDoanRaVienChinhYhct() {
-      return (
-        attr(this.hsba, "emrYhctChanDoan.emrDmYhctBenhdanhRavien") || {
-          ma: "",
-          ten: ""
-        }
-      );
-    },
-
-    chanDoanRaVienNguyenNhan() {
-      return (
-        attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoanraviennguyennhan") || {
-          ma: "",
-          ten: ""
-        }
-      );
-    },
-
-
-
-    nguyenNhanTuVong() {
-      return (
-        attr(this.hsba, "emrTinhTrangRaVien.emrDmNguyennhantuvong") || {
-          ma: "",
-          ten: ""
-        }
-      );
-    },
-
-    giaiPhauTuThi() {
-      return (
-        attr(this.hsba, "emrTinhTrangRaVien.emrDmGiaiphaututhi") || {
-          ma: "",
-          ten: ""
-        }
-      );
+    tongSoToDieuTri() {
+      var tong = 0;
+      for(var i = 0; i < this.hsba.sotodieutri.length; i++) {
+        tong += this.sotodieutri[i].soluong;
+      }
+      return tong;
     }
   },
 
   methods: {
+    getHsbaProp(prop) {
+      return attr(this.hsba, prop);
+    },
+
+    getBenhNhanProp(prop) {
+      return attr(this.hsba, "emrBenhNhan." + prop);
+    },
+
+    getChanDoanProp(prop) {
+      return attr(this.hsba, "emrChanDoan." + prop);
+    },
+
+    getBenhAnProp(prop) {
+      return attr(this.hsba, "emrBenhAn." + prop);
+    },
 
     chanDoanTruocPt(pttt) {
       var chanDoanTruocPtList = attr(
@@ -326,10 +461,10 @@ var benh_an_chi_tiet_script = {
     },
 
     formatNgayGio(ngaygio) {
-      if (ngaygio.length == 16) {
-        var ngay = ngaygio.substring(0, 2);
-        var thang = ngaygio.substring(3, 5);
-        var nam = ngaygio.substring(6, 10);
+      if (ngaygio.length >= 16) {
+        var nam = ngaygio.substring(0, 4);
+        var thang = ngaygio.substring(5, 7);
+        var ngay = ngaygio.substring(8, 10);
         var gio = ngaygio.substring(11, 13);
         var phut = ngaygio.substring(14, 16);
         return `${gio} giờ ${phut} ph ngày ${ngay}/${thang}/${nam}`;
@@ -339,9 +474,9 @@ var benh_an_chi_tiet_script = {
 
     formatNgay(ngaygio) {
       if (ngaygio.length >= 10) {
-        var ngay = ngaygio.substring(0, 2);
-        var thang = ngaygio.substring(3, 5);
-        var nam = ngaygio.substring(6, 10);
+        var nam = ngaygio.substring(0, 4);
+        var thang = ngaygio.substring(5, 7);
+        var ngay = ngaygio.substring(8, 10);
         return `${ngay} tháng ${thang} năm ${nam}`;
       }
       return "... tháng ... năm ......";
@@ -349,9 +484,9 @@ var benh_an_chi_tiet_script = {
 
     formatNgay2(ngaygio) {
       if (ngaygio.length >= 10) {
-        var ngay = ngaygio.substring(0, 2);
-        var thang = ngaygio.substring(3, 5);
-        var nam = ngaygio.substring(6, 10);
+        var nam = ngaygio.substring(0, 4);
+        var thang = ngaygio.substring(5, 7);
+        var ngay = ngaygio.substring(8, 10);
         return `Ngày ${ngay} tháng ${thang} năm ${nam}`;
       }
       return "Ngày ... tháng ... năm ......";

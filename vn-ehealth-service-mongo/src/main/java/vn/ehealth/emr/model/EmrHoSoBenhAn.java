@@ -19,7 +19,6 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import vn.ehealth.emr.service.EmrServiceFactory;
 import vn.ehealth.emr.utils.ObjectIdUtil;
-import vn.ehealth.emr.utils.Constants.TRANGTHAI_HOSO;
 
 @JsonInclude(Include.NON_NULL)
 @Document(collection="emr_ho_so_benh_an")
@@ -63,22 +62,42 @@ public class EmrHoSoBenhAn {
     
     public EmrQuanLyNguoiBenh emrQuanLyNguoiBenh;
     
-    public EmrTongKetRaVien emrTongKetRaVien;
-    
     public EmrTinhTrangRaVien emrTinhTrangRaVien;
     
     public Map<String, Object> emrBenhAn;
+        
+    public List<EmrKhoaDieuTri> emrVaoKhoas;
+    
+    public Map<String, Object> emrChanDoan;
     
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     public Date ngaykybenhan;
     
     public EmrYSy bacsylambenhan;
     
-    public List<EmrKhoaDieuTri> emrVaoKhoas;
+    public String nguoigiaohoso;
+
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Date ngaygiaohoso;
+
+    public String nguoinhanhoso;
+
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Date ngaynhanhoso;
+
+    public EmrYSy bacsydieutri;
+
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    public Date ngaybacsydieutriky;
+
+    @JsonInclude(Include.NON_NULL)    
+    public static class EmrToDieuTri {
+        public String ma;
+        public String ten;
+        public int soluong;
+    }
     
-    public EmrChanDoan emrChanDoan;
-    
-    public EmrYhctChanDoan emrYhctChanDoan;
+    public List<EmrToDieuTri> sotodieutri = new ArrayList<>();
     
     public List<EmrFileDinhKem> emrFileDinhKems = new ArrayList<>();
     
@@ -150,59 +169,6 @@ public class EmrHoSoBenhAn {
     
     public void setNguoimoluutruId(String nguoimoluutruId) {
         this.nguoimoluutruId = ObjectIdUtil.stringToId(nguoimoluutruId);
-    }
-    
-    
-    public String getMayte() {
-        return mayte;
-    }
-    
-    public String getMaluutru() {
-        return maluutru;
-    }
-    
-    public String getMatraodoi() {
-        return matraodoi;
-    }
-    
-    public EmrQuanLyNguoiBenh getEmrQuanLyNguoiBenh() {
-        return emrQuanLyNguoiBenh;
-    }
-    
-    public EmrTongKetRaVien getEmrTongKetRaVien() {
-        return emrTongKetRaVien;
-    }
-    
-    public EmrTinhTrangRaVien getEmrTinhTrangRaVien() {
-        return emrTinhTrangRaVien;
-    }
-    
-    public Map<String, Object> getEmrBenhAn() {
-        return emrBenhAn;
-    }
-    
-    public EmrChanDoan getEmrChanDoan() {
-        return emrChanDoan;
-    }
-    
-    public EmrYhctChanDoan getEmrYhctChanDoan() {
-        return emrYhctChanDoan;
-    }    
-    
-    public List<EmrFileDinhKem> getEmrFileDinhKems() {
-        return emrFileDinhKems;
-    }
-    
-    public Boolean getCoPhauThuat() {
-        return false;
-    }
-    
-    public Boolean getCoThuThuat() {
-        return false;
-    }    
-    
-    public boolean getDaxoa() {
-        return trangThai == TRANGTHAI_HOSO.DA_XOA;
     }
     
     @JsonInclude(Include.NON_NULL)

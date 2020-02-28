@@ -41,14 +41,14 @@ public class EmrDieuTriService {
             dieutri.emrBenhNhanId = hsba.emrBenhNhanId;
             dieutri.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
             
-            if(hsba.emrVaoKhoas != null && dieutri.emrVaoKhoa != null) {
-                var maKhoaDieuTri = dieutri.emrVaoKhoa.emrDmKhoaDieuTri.ma;
+            if(hsba.emrVaoKhoas != null && dieutri.emrKhoaDieuTri != null) {
+                var maKhoaDieuTri = dieutri.emrKhoaDieuTri.emrDmKhoaDieuTri.ma;
                 
                 var vaokhoa = hsba.emrVaoKhoas.stream()
                                 .filter(x -> x.emrDmKhoaDieuTri.ma == maKhoaDieuTri)
                                 .findFirst();
                 
-                vaokhoa.ifPresent(x -> dieutri.emrVaoKhoa = x);
+                vaokhoa.ifPresent(x -> dieutri.emrKhoaDieuTri = x);
             }
         }
         return emrDieuTriRepository.save(dieutri);        

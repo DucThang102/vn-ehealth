@@ -135,7 +135,7 @@
 
     methods: {
       getTotal: async function () {
-        this.total = await this.get("/api/hsba/count_ds_hs", { trangthai: 1, mayte: this.mayte });
+        this.total = await this.get("/api/hsba/count_ds_hs", { trangthai: 0, mayte: this.mayte });
       },
 
       getTextChanDoan: function (chandoan) {
@@ -152,7 +152,7 @@
 
       getItems: async function () {
         this.items = await this.get("/api/hsba/get_ds_hs",
-                          { trangthai: 1, start: this.offset, count: this.perPage, mayte: this.mayte });
+                          { trangthai: 0, start: this.offset, count: this.perPage, mayte: this.mayte });
 
         this.items.forEach(x => {
           x.nguonDuLieu = this.getNguonDuLieuStr(x.nguonDuLieu);

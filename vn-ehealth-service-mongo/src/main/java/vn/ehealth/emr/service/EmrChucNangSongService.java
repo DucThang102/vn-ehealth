@@ -41,14 +41,14 @@ public class EmrChucNangSongService {
             cns.emrBenhNhanId = hsba.emrBenhNhanId;
             cns.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
             
-            if(hsba.emrVaoKhoas != null && cns.emrVaoKhoa != null) {
-                var maKhoaDieuTri = cns.emrVaoKhoa.emrDmKhoaDieuTri.ma;
+            if(hsba.emrVaoKhoas != null && cns.emrKhoaDieuTri != null) {
+                var maKhoaDieuTri = cns.emrKhoaDieuTri.emrDmKhoaDieuTri.ma;
                 
                 var vaokhoa = hsba.emrVaoKhoas.stream()
                                 .filter(x -> x.emrDmKhoaDieuTri.ma == maKhoaDieuTri)
                                 .findFirst();
                 
-                vaokhoa.ifPresent(x -> cns.emrVaoKhoa = x);
+                vaokhoa.ifPresent(x -> cns.emrKhoaDieuTri = x);
             }
         }
         return emrChucNangSongRepository.save(cns);

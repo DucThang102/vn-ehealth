@@ -45,8 +45,6 @@ public class EmrPhauThuatThuThuat {
     public String motachandoantruocpt;
     public String motachandoansaupt;
         
-    
-    
     public List<EmrFileDinhKem> emrFileDinhKemPttts = new ArrayList<>();
     
     @JsonInclude(Include.NON_NULL)
@@ -90,20 +88,5 @@ public class EmrPhauThuatThuThuat {
     
     public void setEmrCoSoKhamBenhId(String emrCoSoKhamBenhId) {
         this.emrCoSoKhamBenhId = ObjectIdUtil.stringToId(emrCoSoKhamBenhId);
-    }
-    
-    public EmrDmContent getEmrDmMaBenhChandoansau() {
-        if(emrDmMaBenhChandoansaus != null && emrDmMaBenhChandoansaus.size() > 0) {
-            return emrDmMaBenhChandoansaus.get(0);
-        }
-        
-        return null;        
-    }
-    
-    public EmrDmContent getemrDmMaBenhChandoantruoc() {
-        if(emrDmMaBenhChandoantruocs != null && emrDmMaBenhChandoantruocs.size() > 0) {
-            return emrDmMaBenhChandoantruocs.get(0);
-        }
-        return null;
     }
 }

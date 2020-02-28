@@ -9,13 +9,13 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.NON_NULL)
 public class EmrTinhTrangRaVien {
 
-    public EmrDmContent emrDmNguyennhantuvong;
+    public EmrDmContent emrDmMaBenhNguyennhantuvong;
     
     public EmrDmContent emrDmKetQuaDieuTri;
     
     public EmrDmContent emrDmYhctKetQuaDieuTri;
     
-    public EmrDmContent emrDmGiaiphaututhi;
+    public EmrDmContent emrDmMaBenhGiaiphaututhi;
         
     public EmrDmContent emrDmKetQuaGiaiPhauBenh;
   

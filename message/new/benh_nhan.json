@@ -28,6 +28,9 @@
     "ma": "37",
     "ten": "Tỉnh Ninh Bình"
   },
+  "emrDmLoaiDoiTuongTaiChinh":{
+	"ma":"01","ten":"BHYT"
+  },
   "emrDmNgheNghiepBo": {
     "ma": "683",
     "ten": "Nông dân"
