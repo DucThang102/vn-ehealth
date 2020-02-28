@@ -629,11 +629,11 @@
       <form class="form-inline input-lr2 float-right">
           <span class="ml-4">1 phút</span>
           <input readonly :value="hsba.emrBenhAn.emrCkTinhTrangSoSinh.apgar01" class="form-control form-control-sm text-placeholder w-60px">
-          <span>5 phút</span>
+          <span class="ml-4">5 phút</span>
           <input readonly :value="hsba.emrBenhAn.emrCkTinhTrangSoSinh.apgar05" class="form-control form-control-sm text-placeholder w-60px">
-          <span>10 phút</span>
+          <span class="ml-4">10 phút</span>
           <input readonly :value="hsba.emrBenhAn.emrCkTinhTrangSoSinh.apgar10" class="form-control form-control-sm text-placeholder w-60px">
-          <span>Cân nặng</span>
+          <span class="ml-4">Cân nặng</span>
           <input readonly :value="hsba.emrBenhAn.emrCkTinhTrangSoSinh.cannang" class="form-control form-control-sm text-placeholder w-100px">
 
       </form>
@@ -663,35 +663,34 @@
             <tr>
               <td class="text-center">1</td>
               <td>
-                <span class="ml-4">Hút dịch</span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.hutdich')" type="checkbox">
+                <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.hutdich')" type="checkbox"> <span class="ml-4">Hút dịch</span> 
               </td>
               <td class="text-center">4</td>
               <td>
-                <span class="ml-4">Đặt nội khí quản</span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.noikhiquan')" type="checkbox">
+                <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.noikhiquan')" type="checkbox"> <span class="ml-4">Đặt nội khí quản</span> 
               </td>
   
             </tr>
             <tr>
               <td class="text-center">2</td>
               <td>
-                <span class="ml-4">Xoa bóp tim</span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.xoaboptim')" type="checkbox">
+              <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.xoaboptim')" type="checkbox">   <span class="ml-4">Xoa bóp tim</span> 
               </td>
               <td class="text-center">5</td>
               <td>
-                <span class="ml-4">Bóp bóng O<sub>2</sub></span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.bopbongõy')" type="checkbox">
+                <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.bopbongõy')" type="checkbox"> <span class="ml-4">Bóp bóng O<sub>2</sub></span> 
               </td>
   
             </tr>          
             <tr>
               <td class="text-center">3</td>
               <td>
-                <span class="ml-4">Thở O<sub>2</sub></span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.thooxy')" type="checkbox">
+              <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.thooxy')" type="checkbox">   <span class="ml-4">Thở O<sub>2</sub></span> 
               </td>
               <td class="text-center">6</td>
               <td>
-                <span class="ml-4">Khác</span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.khac')" type="checkbox">
+              <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.khac')" type="checkbox">   <span class="ml-4">Khác</span> 
               </td>
-  
             </tr>
           </tbody>          
         </table>
