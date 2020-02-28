@@ -101,7 +101,7 @@ var benh_an_chi_tiet_script = {
     },
 
     // Thong tin benh nhan
-    tenBenhNhan(){
+    tenBenhNhan() {
       return attr(this.hsba, "emrBenhNhan.tendaydu") || "";
     },
 
@@ -217,17 +217,26 @@ var benh_an_chi_tiet_script = {
     // Chan doan    
     chanDoanNoiDen() {
       var chanDoan = attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoannoiden") || {};
-      return {ma: chanDoan.ma, ten: chanDoan.ten || getChanDoanProp('motachandoannoiden') };
+      return {
+        ma: chanDoan.ma,
+        ten: chanDoan.ten || this.getChanDoanProp('motachandoannoiden')
+      };
     },
 
     chanDoanKKB() {
       var chanDoan = attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoankkb") || {};
-      return {ma: chanDoan.ma, ten: chanDoan.ten || getChanDoanProp('motachandoankkb') };
+      return {
+        ma: chanDoan.ma,
+        ten: chanDoan.ten || this.getChanDoanProp('motachandoankkb')
+      };
     },
 
     chanDoanDieuTri() {
       var chanDoan = attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoandieutrichinh") || {};
-      return {ma: chanDoan.ma, ten: chanDoan.ten || getChanDoanProp('motachandoandieutrichinh') };
+      return {
+        ma: chanDoan.ma,
+        ten: chanDoan.ten || this.getChanDoanProp('motachandoandieutrichinh')
+      };
     },
 
     chanDoanDieuTriKemTheo() {
@@ -236,12 +245,18 @@ var benh_an_chi_tiet_script = {
       if (chanDoanKemTheoList && chanDoanKemTheoList.length > 0) {
         chanDoan = chanDoanKemTheoList[0];
       }
-      return {ma: chanDoan.ma, ten: chanDoan.ten || getChanDoanProp('motachandoandieutrikemtheo') };
+      return {
+        ma: chanDoan.ma,
+        ten: chanDoan.ten || this.getChanDoanProp('motachandoandieutrikemtheo')
+      };
     },
 
     chandoanDieuTriPhanBiet() {
       var chanDoan = attr(this.hsba, "emrBenhAn.emrDmMaBenhChandoandieutriphanbiet") || {};
-      return {ma: chanDoan.ma, ten: chanDoan.ten || getChanDoanProp('motachandoandieutriphanbiet') };
+      return {
+        ma: chanDoan.ma,
+        ten: chanDoan.ten || this.getChanDoanProp('motachandoandieutriphanbiet')
+      };
     },
 
     chanDoanCoPhauThuat() {
@@ -254,7 +269,10 @@ var benh_an_chi_tiet_script = {
 
     chanDoanRaVienChinh() {
       var chanDoan = attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoanravienchinh") || {};
-      return {ma: chanDoan.ma, ten: chanDoan.ten || getChanDoanProp('motachandoanravienchinh') };
+      return {
+        ma: chanDoan.ma,
+        ten: chanDoan.ten || this.getChanDoanProp('motachandoanravienchinh')
+      };
     },
 
     chanDoanRaVienKemTheo() {
@@ -263,12 +281,18 @@ var benh_an_chi_tiet_script = {
       if (chanDoanKemTheoList && chanDoanKemTheoList.length > 0) {
         chanDoan = chanDoanKemTheoList[0];
       }
-      return {ma: chanDoan.ma, ten: chanDoan.ten || getChanDoanProp('motachandoanravienkemtheo') };
+      return {
+        ma: chanDoan.ma,
+        ten: chanDoan.ten || this.getChanDoanProp('motachandoanravienkemtheo')
+      };
     },
 
     chanDoanRaVienNguyenNhan() {
       var chanDoan = attr(this.hsba, "emrChanDoan.emrDmMaBenhChandoanraviennguyennhan") || {};
-      return {ma: chanDoan.ma, ten: chanDoan.ten || getChanDoanProp('motachandoanraviennguyennhan') };
+      return {
+        ma: chanDoan.ma,
+        ten: chanDoan.ten || this.getChanDoanProp('motachandoanraviennguyennhan')
+      };
     },
 
     chanDoanBiTaiBien() {
@@ -344,7 +368,7 @@ var benh_an_chi_tiet_script = {
         var n = this.hsba.emrVaoKhoas.length;
         khoa = this.hsba.emrVaoKhoas[n - 1];
       }
-      if(!khoa.tenkhoa) {
+      if (!khoa.tenkhoa) {
         khoa.tenkhoa = attr(khoa, "emrDmKhoaDieuTri.ten");
       }
       return khoa;
@@ -353,41 +377,41 @@ var benh_an_chi_tiet_script = {
     ngayKetThucDieuTri() {
       return this.khoaDieuTri.ngayketthucdieutri;
     },
-    
+
     //So to dieu tri
     soToXQuang() {
-      var soTo = this.hsba.sotodieutri.find(x => x.ma ="01");
-      return soTo? soTo.soluong : 0;
+      var soTo = this.hsba.sotodieutri.find(x => x.ma = "01");
+      return soTo ? soTo.soluong : 0;
     },
 
     soToCTScanner() {
-      var soTo = this.hsba.sotodieutri.find(x => x.ma ="02");
-      return soTo? soTo.soluong : 0;
+      var soTo = this.hsba.sotodieutri.find(x => x.ma = "02");
+      return soTo ? soTo.soluong : 0;
     },
 
     soToSieuAm() {
-      var soTo = this.hsba.sotodieutri.find(x => x.ma ="03");
-      return soTo? soTo.soluong : 0;
+      var soTo = this.hsba.sotodieutri.find(x => x.ma = "03");
+      return soTo ? soTo.soluong : 0;
     },
 
     soToXetNghiem() {
-      var soTo = this.hsba.sotodieutri.find(x => x.ma ="04");
-      return soTo? soTo.soluong : 0;
+      var soTo = this.hsba.sotodieutri.find(x => x.ma = "04");
+      return soTo ? soTo.soluong : 0;
     },
 
     soToKhac() {
       var tong = 0;
-      for(var i = 0; i < this.hsba.sotodieutri.length; i++) {
-        if(parseInt(this.sotodieutri[i].ma) > 4)
-          tong += this.sotodieutri[i].soluong;
+      for (var i = 0; i < this.hsba.sotodieutri.length; i++) {
+        if (parseInt(this.hsba.sotodieutri[i].ma) > 4)
+          tong += this.hsba.sotodieutri[i].soluong;
       }
       return tong;
     },
 
     tongSoToDieuTri() {
       var tong = 0;
-      for(var i = 0; i < this.hsba.sotodieutri.length; i++) {
-        tong += this.sotodieutri[i].soluong;
+      for (var i = 0; i < this.hsba.sotodieutri.length; i++) {
+        tong += this.hsba.sotodieutri[i].soluong;
       }
       return tong;
     }
