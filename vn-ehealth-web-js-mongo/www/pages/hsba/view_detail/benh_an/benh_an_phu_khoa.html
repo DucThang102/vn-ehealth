@@ -341,24 +341,28 @@
             <div class="col">
               <label><b class="text-primary mr-1">14.</b>Vào khoa: </label>
               <table style="width:100%" v-if="hsba.emrVaoKhoas.length >= 1">
-                <tr>
-                  <th class="text-center" style="width:35%">Khoa</th>
-                  <th class="text-center" style="width:35%">
-                    Ngày giờ vào khoa
-                  </th>
-                  <th class="text-center" style="width:30%">
-                    Số ngày điều trị
-                  </th>
-                </tr>
-                <tr>
-                  <td>{{getTenKhoa(hsba.emrVaoKhoas[0])}}</td>
-                  <td class="text-center">
-                    {{formatNgayGio(hsba.emrVaoKhoas[0].ngaygiovaokhoa)}}
-                  </td>
-                  <td class="text-center">
-                    {{hsba.emrVaoKhoas[0].songaydieutri}}
-                  </td>
-                </tr>
+                <thead>
+                  <tr>
+                    <th class="text-center" style="width:35%">Khoa</th>
+                    <th class="text-center" style="width:35%">
+                      Ngày giờ vào khoa
+                    </th>
+                    <th class="text-center" style="width:30%">
+                      Số ngày điều trị
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{getTenKhoa(hsba.emrVaoKhoas[0])}}</td>
+                    <td class="text-center">
+                      {{formatNgayGio(hsba.emrVaoKhoas[0].ngaygiovaokhoa)}}
+                    </td>
+                    <td class="text-center">
+                      {{hsba.emrVaoKhoas[0].songaydieutri}}
+                    </td>
+                  </tr>
+                </tbody> 
               </table>
             </div>
           </div>
@@ -366,22 +370,26 @@
             <div class="col">
               <label><b class="text-primary mr-1">15.</b>Chuyển khoa: </label>
               <table class="table" v-if="hsba.emrVaoKhoas.length > 1">
-                <tr>
-                  <th class="text-center" style="width:35%">Khoa</th>
-                  <th class="text-center" style="width:35%">
-                    Ngày giờ vào khoa
-                  </th>
-                  <th class="text-center" style="width:30%">
-                    Số ngày điều trị
-                  </th>
-                </tr>
-                <tr v-for="khoa in hsba.emrVaoKhoas.slice(1)">
-                  <td>{{getTenKhoa(khoa)}}</td>
-                  <td class="text-center">
-                    {{formatNgayGio(khoa.ngaygiovaokhoa)}}
-                  </td>
-                  <td class="text-center">{{khoa.songaydieutri}}</td>
-                </tr>
+                <thead>
+                  <tr>
+                    <th class="text-center" style="width:35%">Khoa</th>
+                    <th class="text-center" style="width:35%">
+                      Ngày giờ vào khoa
+                    </th>
+                    <th class="text-center" style="width:30%">
+                      Số ngày điều trị
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="khoa in hsba.emrVaoKhoas.slice(1)">
+                    <td>{{getTenKhoa(khoa)}}</td>
+                    <td class="text-center">
+                      {{formatNgayGio(khoa.ngaygiovaokhoa)}}
+                    </td>
+                    <td class="text-center">{{khoa.songaydieutri}}</td>
+                  </tr>
+                </tbody>      
               </table>
             </div>
           </div>
@@ -1405,20 +1413,24 @@
 
     <div class="row mt-2">
       <table class="table table-bordered mt-3 ml-4 mr-4" style="width: 100%;">
-        <tr>
-          <th class="text-center">Giờ, ngày</th>
-          <th class="text-center">Phương pháp phẫu thuật/vô cảm</th>
-          <th class="text-center">Bác sỹ phẫu thuật</th>
-          <th class="text-center">Bác sỹ gây mê</th>
-        </tr>
-        <tr v-for="pttt in ptttList">
-          <td class="text-center">{{ pttt.ngaygiopttt }}</td>
-          <td class="text-center">
-            {{ pttt.emrDmPhauThuThuat.ten }} / {{ pttt.phuongphapvocam }}
-          </td>
-          <td class="text-center">{{ pttt.bacsithuchien }}</td>
-          <td class="text-center">{{ pttt.bacsygayme }}</td>
-        </tr>
+        <thead>
+          <tr>
+            <th class="text-center">Giờ, ngày</th>
+            <th class="text-center">Phương pháp phẫu thuật/vô cảm</th>
+            <th class="text-center">Bác sỹ phẫu thuật</th>
+            <th class="text-center">Bác sỹ gây mê</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="pttt in ptttList">
+            <td class="text-center">{{ pttt.ngaygiopttt }}</td>
+            <td class="text-center">
+              {{ pttt.emrDmPhauThuThuat.ten }} / {{ pttt.phuongphapvocam }}
+            </td>
+            <td class="text-center">{{ pttt.bacsithuchien }}</td>
+            <td class="text-center">{{ pttt.bacsygayme }}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
 

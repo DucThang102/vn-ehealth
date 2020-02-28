@@ -254,16 +254,20 @@
             <div class="col">
               <label><b class="text-primary mr-1">15.</b>Vào khoa: </label>
               <table style="width:100%"  v-if="hsba.emrVaoKhoas.length >= 1">
-                <tr>
-                  <th class="text-center" style="width:35%">Khoa</th>
-                  <th class="text-center" style="width:35%">Ngày giờ vào khoa</th>
-                  <th class="text-center" style="width:30%">Số ngày điều trị</th>
-                </tr>
-                <tr>
-                  <td>{{getTenKhoa(hsba.emrVaoKhoas[0])}}</td>
-                  <td class="text-center">{{formatNgayGio(hsba.emrVaoKhoas[0].ngaygiovaokhoa)}}</td>
-                  <td class="text-center">{{hsba.emrVaoKhoas[0].songaydieutri}}</td>
-                </tr>
+                <thead>
+                  <tr>
+                    <th class="text-center" style="width:35%">Khoa</th>
+                    <th class="text-center" style="width:35%">Ngày giờ vào khoa</th>
+                    <th class="text-center" style="width:30%">Số ngày điều trị</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{getTenKhoa(hsba.emrVaoKhoas[0])}}</td>
+                    <td class="text-center">{{formatNgayGio(hsba.emrVaoKhoas[0].ngaygiovaokhoa)}}</td>
+                    <td class="text-center">{{hsba.emrVaoKhoas[0].songaydieutri}}</td>
+                  </tr>
+                </tbody>               
                </table>
             </div>
           </div>
@@ -271,16 +275,20 @@
             <div class="col">
               <label><b class="text-primary mr-1">16.</b>Chuyển khoa: </label>
               <table class="table" v-if="hsba.emrVaoKhoas.length > 1">
-                <tr>
-                  <th class="text-center" style="width:35%">Khoa</th>
-                  <th class="text-center" style="width:35%">Ngày giờ vào khoa</th>
-                  <th class="text-center" style="width:30%">Số ngày điều trị</th>
-                </tr>
-                <tr v-for="khoa in hsba.emrVaoKhoas.slice(1)">
-                  <td>{{getTenKhoa(khoa)}}</td>
-                  <td class="text-center">{{formatNgayGio(khoa.ngaygiovaokhoa)}}</td>
-                  <td class="text-center">{{khoa.songaydieutri}}</td>
-                </tr>
+                <thead>
+                  <tr>
+                    <th class="text-center" style="width:35%">Khoa</th>
+                    <th class="text-center" style="width:35%">Ngày giờ vào khoa</th>
+                    <th class="text-center" style="width:30%">Số ngày điều trị</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="khoa in hsba.emrVaoKhoas.slice(1)">
+                    <td>{{getTenKhoa(khoa)}}</td>
+                    <td class="text-center">{{formatNgayGio(khoa.ngaygiovaokhoa)}}</td>
+                    <td class="text-center">{{khoa.songaydieutri}}</td>
+                  </tr>
+                </tbody>               
               </table>
             </div>
           </div>
@@ -643,45 +651,49 @@
     <div class="row mt-3 ml-2">
       <div class="col-8">
         <table class="table table-bordered mt-3 ml-4 mr-4">
-          <tr>
-            <th style="width:10%" class="text-center">STT</th>
-            <th style="width:30%" class="text-center" >Phương pháp</th class="text-center">
-            <th style="width:10%" class="text-center">STT</th>
-            <th style="width:30%" class="text-center" >Phương pháp</th class="text-center">
-          </tr>
-          <tr>
-            <td class="text-center">1</td>
-            <td>
-              <span class="ml-4">Hút dịch</span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.hutdich')" type="checkbox">
-            </td>
-            <td class="text-center">4</td>
-            <td>
-              <span class="ml-4">Đặt nội khí quản</span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.noikhiquan')" type="checkbox">
-            </td>
-
-          </tr>
-          <tr>
-            <td class="text-center">2</td>
-            <td>
-              <span class="ml-4">Xoa bóp tim</span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.xoaboptim')" type="checkbox">
-            </td>
-            <td class="text-center">5</td>
-            <td>
-              <span class="ml-4">Bóp bóng O<sub>2</sub></span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.bopbongõy')" type="checkbox">
-            </td>
-
-          </tr>          
-          <tr>
-            <td class="text-center">3</td>
-            <td>
-              <span class="ml-4">Thở O<sub>2</sub></span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.thooxy')" type="checkbox">
-            </td>
-            <td class="text-center">6</td>
-            <td>
-              <span class="ml-4">Khác</span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.khac')" type="checkbox">
-            </td>
-
-          </tr>          
+          <thead>
+            <tr>
+              <th style="width:10%" class="text-center">STT</th>
+              <th style="width:30%" class="text-center" >Phương pháp</th class="text-center">
+              <th style="width:10%" class="text-center">STT</th>
+              <th style="width:30%" class="text-center" >Phương pháp</th class="text-center">
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-center">1</td>
+              <td>
+                <span class="ml-4">Hút dịch</span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.hutdich')" type="checkbox">
+              </td>
+              <td class="text-center">4</td>
+              <td>
+                <span class="ml-4">Đặt nội khí quản</span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.noikhiquan')" type="checkbox">
+              </td>
+  
+            </tr>
+            <tr>
+              <td class="text-center">2</td>
+              <td>
+                <span class="ml-4">Xoa bóp tim</span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.xoaboptim')" type="checkbox">
+              </td>
+              <td class="text-center">5</td>
+              <td>
+                <span class="ml-4">Bóp bóng O<sub>2</sub></span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.bopbongõy')" type="checkbox">
+              </td>
+  
+            </tr>          
+            <tr>
+              <td class="text-center">3</td>
+              <td>
+                <span class="ml-4">Thở O<sub>2</sub></span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.thooxy')" type="checkbox">
+              </td>
+              <td class="text-center">6</td>
+              <td>
+                <span class="ml-4">Khác</span> <input disabled :checked="attr(hsba, 'emrCkPhuongPhapHoiSinh.khac')" type="checkbox">
+              </td>
+  
+            </tr>
+          </tbody>          
         </table>
       </div>
     </div>

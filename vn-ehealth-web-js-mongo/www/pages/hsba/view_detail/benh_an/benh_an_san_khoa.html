@@ -228,16 +228,20 @@
             <div class="col">
               <label><b class="text-primary mr-1">15.</b>Chuyển khoa: </label>
               <table class="table" v-if="hsba.emrVaoKhoas.length > 1">
-                <tr>
-                  <th class="text-center" style="width:35%">Khoa</th>
-                  <th class="text-center" style="width:35%">Ngày giờ vào khoa</th>
-                  <th class="text-center" style="width:30%">Số ngày điều trị</th>
-                </tr>
-                <tr v-for="khoa in hsba.emrVaoKhoas.slice(1)">
-                  <td>{{getTenKhoa(khoa)}}</td>
-                  <td class="text-center">{{formatNgayGio(khoa.ngaygiovaokhoa)}}</td>
-                  <td class="text-center">{{khoa.songaydieutri}}</td>
-                </tr>
+                <thead>
+                  <tr>
+                    <th class="text-center" style="width:35%">Khoa</th>
+                    <th class="text-center" style="width:35%">Ngày giờ vào khoa</th>
+                    <th class="text-center" style="width:30%">Số ngày điều trị</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="khoa in hsba.emrVaoKhoas.slice(1)">
+                    <td>{{getTenKhoa(khoa)}}</td>
+                    <td class="text-center">{{formatNgayGio(khoa.ngaygiovaokhoa)}}</td>
+                    <td class="text-center">{{khoa.songaydieutri}}</td>
+                  </tr>
+                </tbody>               
               </table>
             </div>
           </div>
@@ -687,44 +691,45 @@
     
     <div class="row mt-2">
       <table class="table table-bordered mt-3 ml-4 mr-4"> 
-        <th class="text-center" style="width:5%">Số lần có thai</th>
-        <th class="text-center" style="width:5%">Năm</th>
-        <th class="text-center" style="width:5%">Đẻ đủ tháng</th>
-        <th class="text-center" style="width:5%">Đẻ thiếu tháng</th>
-        <th class="text-center" style="width:5%">Sẩy</th>
-        <th class="text-center" style="width:5%">Hút</th>
-        <th class="text-center" style="width:5%">Nạo</th>
-        <th class="text-center" style="width:5%">Co-vac</th>
-        <th class="text-center" style="width:5%">Chửa ngoài TC</th>
-        <th class="text-center" style="width:5%">Chửa trứng</th>
-        <th class="text-center" style="width:5%">Thai chết lưu</th>
-        <th class="text-center" style="width:5%">Con hiện sống</th>
-        <th class="text-center" style="width:5%">Cân nặng</th>
-        <th class="text-center" style="width:10%">Phương pháp đẻ</th>
-        <th class="text-center" style="width:10%">Tai biến</th>
-
-        <tr v-for="embe in hsba.emrBenhAn.emrCkTienSuSanKhoa.emrCkTienSuSanKhoaChiTiets">
-          <td class="text-center">{{embe.lancothai}}</td>
-          <td class="text-center"></td>
-          <td class="text-center"><input disabled :checked="embe.duthang" type="checkbox"></td>
-          <td class="text-center"><input disabled :checked="embe.denon" type="checkbox"></td>
-          <td class="text-center"><input disabled :checked="embe.say" type="checkbox"></td>
-          <td class="text-center"><input disabled :checked="embe.hut" type="checkbox"></td>
-          <td class="text-center"><input disabled :checked="embe.nao" type="checkbox"></td>
-          <td class="text-center"><input disabled :checked="embe.covac" type="checkbox"></td>
-          <td class="text-center"><input disabled :checked="embe.chuangoaitucung" type="checkbox"></td>
-          <td class="text-center"><input disabled :checked="embe.chuatrung" type="checkbox"></td>
-          <td class="text-center"><input disabled :checked="embe.thaichetluu" type="checkbox"></td>
-          <td class="text-center"><input disabled :checked="embe.song" type="checkbox"></td>
-          <td class="text-center"></td>
-          <td class="text-center">{{embe.phuongphapde}}</td>
-          <td class="text-center">{{embe.taibien}}</td>
-        </tr>
+        <thead>
+          <th class="text-center" style="width:5%">Số lần có thai</th>
+          <th class="text-center" style="width:5%">Năm</th>
+          <th class="text-center" style="width:5%">Đẻ đủ tháng</th>
+          <th class="text-center" style="width:5%">Đẻ thiếu tháng</th>
+          <th class="text-center" style="width:5%">Sẩy</th>
+          <th class="text-center" style="width:5%">Hút</th>
+          <th class="text-center" style="width:5%">Nạo</th>
+          <th class="text-center" style="width:5%">Co-vac</th>
+          <th class="text-center" style="width:5%">Chửa ngoài TC</th>
+          <th class="text-center" style="width:5%">Chửa trứng</th>
+          <th class="text-center" style="width:5%">Thai chết lưu</th>
+          <th class="text-center" style="width:5%">Con hiện sống</th>
+          <th class="text-center" style="width:5%">Cân nặng</th>
+          <th class="text-center" style="width:10%">Phương pháp đẻ</th>
+          <th class="text-center" style="width:10%">Tai biến</th>
+        </thead>
+        
+        <tbody>
+          <tr v-for="embe in hsba.emrBenhAn.emrCkTienSuSanKhoa.emrCkTienSuSanKhoaChiTiets">
+            <td class="text-center">{{embe.lancothai}}</td>
+            <td class="text-center"></td>
+            <td class="text-center"><input disabled :checked="embe.duthang" type="checkbox"></td>
+            <td class="text-center"><input disabled :checked="embe.denon" type="checkbox"></td>
+            <td class="text-center"><input disabled :checked="embe.say" type="checkbox"></td>
+            <td class="text-center"><input disabled :checked="embe.hut" type="checkbox"></td>
+            <td class="text-center"><input disabled :checked="embe.nao" type="checkbox"></td>
+            <td class="text-center"><input disabled :checked="embe.covac" type="checkbox"></td>
+            <td class="text-center"><input disabled :checked="embe.chuangoaitucung" type="checkbox"></td>
+            <td class="text-center"><input disabled :checked="embe.chuatrung" type="checkbox"></td>
+            <td class="text-center"><input disabled :checked="embe.thaichetluu" type="checkbox"></td>
+            <td class="text-center"><input disabled :checked="embe.song" type="checkbox"></td>
+            <td class="text-center"></td>
+            <td class="text-center">{{embe.phuongphapde}}</td>
+            <td class="text-center">{{embe.taibien}}</td>
+          </tr>
+        </tbody>        
       </table>
     </div>
-    
-    
-
     <div class="row mt-3">
       <h5 class="text-tle">III. Khám bệnh:</h5>
     </div>
