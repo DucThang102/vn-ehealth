@@ -138,7 +138,7 @@ var benh_an_chi_tiet_script = {
     },
 
     diaChiBenhNhan() {
-      return attr(this.hsba, "diachi");
+      return attr(this.hsba, "emrBenhNhan.diachi");
     },
 
     diaChiHuyenBenhNhan() {
@@ -322,7 +322,7 @@ var benh_an_chi_tiet_script = {
     },
 
     thoiDiemTuVong() {
-      return attr(this.hsba, "emrDmThoiDiemTuVong.emrDmLyDoTuVong") || {};
+      return attr(this.hsba, "emrTinhTrangRaVien.emrDmThoiDiemTuVong") || {};
     },
 
     nguyenNhanTuVong() {
