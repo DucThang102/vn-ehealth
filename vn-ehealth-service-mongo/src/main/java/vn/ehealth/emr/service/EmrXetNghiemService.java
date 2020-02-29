@@ -42,7 +42,9 @@ public class EmrXetNghiemService {
     public void createOrUpdateFromHIS(@Nonnull EmrHoSoBenhAn hsba, @Nonnull List<EmrXetNghiem> xetnghiemList) {
         for(int i = 0; i < xetnghiemList.size(); i++) {
             var xetnghiem = xetnghiemList.get(i);
-            xetnghiem.id = emrXetNghiemRepository.findByIdhis(xetnghiem.idhis).map(x -> x.id).orElse(null);
+            if(xetnghiem.idhis != null) {
+                xetnghiem.id = emrXetNghiemRepository.findByIdhis(xetnghiem.idhis).map(x -> x.id).orElse(null);
+            }
             xetnghiem.emrHoSoBenhAnId = hsba.id;
             xetnghiem.emrBenhNhanId = hsba.emrBenhNhanId;
             xetnghiem.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;

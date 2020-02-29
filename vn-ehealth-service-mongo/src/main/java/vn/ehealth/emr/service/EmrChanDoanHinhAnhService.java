@@ -43,7 +43,9 @@ public class EmrChanDoanHinhAnhService {
     public void createOrUpdateFromHIS(@Nonnull EmrHoSoBenhAn hsba, @Nonnull List<EmrChanDoanHinhAnh> cdhaList) {
         for(int i = 0; i < cdhaList.size(); i++) {
             var cdha = cdhaList.get(i);
-            cdha.id = emrChanDoanHinhAnhRepository.findByIdhis(cdha.idhis).map(x -> x.id).orElse(null);
+            if(cdha.idhis != null) {
+                cdha.id = emrChanDoanHinhAnhRepository.findByIdhis(cdha.idhis).map(x -> x.id).orElse(null);
+            }
             cdha.emrHoSoBenhAnId = hsba.id;
             cdha.emrBenhNhanId = hsba.emrBenhNhanId;
             cdha.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;

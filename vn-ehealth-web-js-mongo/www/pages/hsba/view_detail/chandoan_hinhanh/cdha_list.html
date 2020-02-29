@@ -18,7 +18,7 @@
       </td>
       <td class="text-center">{{ cdha.emrDmLoaiChanDoanHinhAnh.ten }}</td>
       <td class="text-center">{{ cdha.emrDmChanDoanHinhAnh.ten }}</td>
-      <td class="text-center">{{ cdha.ngaythuchien }}</td>
+      <td class="text-center">{{ formatDateTime(cdha.ngaythuchien) }}</td>
       <td class="text-center" v-if="hsba">{{ hsba.emrCoSoKhamBenh.ten }}</td>
       <td class="text-center">{{cdha.ketqua}}</td>
     </tr>
@@ -55,10 +55,10 @@
                       >- Loại chẩn đoán: {{ cdha.emrDmLoaiChanDoanHinhAnh.ten
                       }}</span
                     ><br />
-                    <span>- Ngày yêu cầu: {{ cdha.ngayyeucau }}</span><br />
-                    <span>- Bác sĩ yêu cầu: {{ cdha.bacsiyeucau }}</span><br />
-                    <span>- Ngày thực hiện: {{ cdha.ngaythuchien }}</span><br />
-                    <span>- Bác sĩ thực hiện: {{ cdha.bacsichuyenkhoa }}</span
+                    <span>- Ngày yêu cầu: {{ formatDateTime(cdha.ngayyeucau) }}</span><br />
+                    <span>- Bác sĩ yêu cầu: {{ attr(cdha, 'bacsiyeucau.ten') }}</span><br />
+                    <span>- Ngày thực hiện: {{ formatDateTime(cdha.ngaythuchien) }}</span><br />
+                    <span>- Bác sĩ thực hiện: {{ attr(cdha, 'bacsichuyenkhoa.ten') }}</span
                     ><br />
                   </div>
                 </div>
@@ -97,7 +97,7 @@
                     </tr>
                     <tr v-for="(file, i) in cdha.emrFileDinhKemCdhas">
                       <td>{{ i + 1 }}</td>
-                      <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+                      <td><a :href="file.url">{{ file.ten }}</a></td>
                     </tr>
                   </table>
                 </div>

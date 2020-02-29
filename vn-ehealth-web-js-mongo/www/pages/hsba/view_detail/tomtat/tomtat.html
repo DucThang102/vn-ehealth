@@ -22,7 +22,11 @@
     </div>
     <div class="col-4">
       <span>Giới tính:</span> <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span><br>
-      <span>Tuổi:</span> <span>{{ hsba.tuoiBenhNhan }}</span><br>
+      <span>Tuổi:</span> 
+      <span>{{ hsba.tuoiBenhNhan.tuoi }}</span>      
+      <span v-if="hsba.tuoiBenhNhan.donvi==2">tháng</span>
+      <span v-if="hsba.tuoiBenhNhan.donvi==3">ngày</span>
+      <br>
       <span>Ngày ra viện:</span> <span>{{ hsba.emrQuanLyNguoiBenh.ngaygioravien }}</span><br>
     </div>
   </div>

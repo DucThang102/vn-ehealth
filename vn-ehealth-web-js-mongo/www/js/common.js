@@ -1,13 +1,33 @@
-var API_URL = "http://34.87.24.163:8002";
+var API_URL = "http://emr.com.vn:8002";
 
 Vue.mixin({
   data: function () {
     return {
-      API_URL: "http://34.87.24.163:8002"
+      API_URL: "http://emr.com.vn:8002"
     };
   },
 
   methods: {
+    formatDate: function(date) {
+      if (date && date.length >= 10) {
+        var yyyy = date.substring(0, 4);
+        var mm = date.substring(5, 7);
+        var dd = date.substring(8, 10);
+        return `${dd}/${mm}/${yyyy}`;
+      }
+      return "";
+    },
+    formatDateTime: function(date) {
+      if (date && date.length >= 16) {
+        var yyyy = date.substring(0, 4);
+        var mm = date.substring(5, 7);
+        var dd = date.substring(8, 10);
+        var HH = date.substring(11, 13);
+        var ss = date.substring(14, 16);
+        return `${dd}/${mm}/${yyyy} ${HH}:${ss}`;
+      }
+      return "";
+    },
     getParam: function (name) {
       if (
         (name = new RegExp("[?&]" + encodeURIComponent(name) + "=([^&]*)").exec(

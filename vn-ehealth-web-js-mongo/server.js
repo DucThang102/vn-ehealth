@@ -7,7 +7,7 @@ var sync_req = require("sync-request");
 ejs.open = "<%";
 ejs.close = "%>";
 
-var API_URL = "http://34.87.24.163:8002";
+var API_URL = "http://emr.com.vn:8002";
 var oneDay = 86400000;
 
 server.set("view options", {
