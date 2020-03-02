@@ -106,7 +106,7 @@ var benh_an_chi_tiet_script = {
     },
 
     ngaySinhBenhNhan() {
-      return attr(this.hsba, "emrBenhNhan.ngaysinh") || "";
+      return this.formatDate(attr(this.hsba, "emrBenhNhan.ngaysinh")) || "";
     },
 
     tuoiBenhNhan() {
