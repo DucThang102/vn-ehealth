@@ -337,6 +337,19 @@ var benh_an_chi_tiet_script = {
       return attr(this.hsba, "emrTinhTrangRaVien.emrDmMaBenhGiaiphaututhi") || {};
     },
 
+    // Benh an
+    tienThai() {
+      return attr(this.hsba, "emrBenhAn.hoibenh.quatrinhsinhtruong.tienthai") || {};
+    },
+
+    tinhTrangKhiSinh() {
+      return attr(this.hsba, "emrBenhAn.hoibenh.quatrinhsinhtruong.emrDmTinhTrangKhiSinh") || {};
+    },
+
+    tiemChung() {
+      return attr(this.hsba, "emrBenhAn.hoibenh.quatrinhsinhtruong.tiemchung") || {};
+    },
+
     //
     giamDocBenhVien() {
       return attr(this.hsba, "emrCoSoKhamBenh.giamdoc");
@@ -495,6 +508,19 @@ var benh_an_chi_tiet_script = {
       }
       return "... giờ ... ph ngày .../.../......";
     },
+
+    formatNgayGio2(ngaygio) {
+      if (ngaygio.length >= 16) {
+        var nam = ngaygio.substring(0, 4);
+        var thang = ngaygio.substring(5, 7);
+        var ngay = ngaygio.substring(8, 10);
+        var gio = ngaygio.substring(11, 13);
+        var phut = ngaygio.substring(14, 16);
+        return `${gio} giờ ${phut} ngày ${ngay}/${thang}/${nam}`;
+      }
+      return "... giờ ... ngày .../.../......";
+    },
+
 
     formatNgay(ngaygio) {
       if (ngaygio.length >= 10) {
