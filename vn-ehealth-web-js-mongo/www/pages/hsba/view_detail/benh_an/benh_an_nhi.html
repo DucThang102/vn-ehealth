@@ -940,7 +940,7 @@
       <span> <b>3. Quá trình sinh trưởng</b>: </span>
     </div>
 
-    <div class="row mb-2">
+    <div class="row mt-2 mb-2">
       <div class="col-2">
         <span class="ml-2"
           ><i class="fas fa-fw bullet-small fa-circle"></i> Là con thứ mấy
@@ -966,80 +966,28 @@
       <div class="col">
         <span class="ml-2"
           ><i class="fas fa-fw bullet-small fa-circle"></i> Tình trạng khi sinh:
+          <input disabled :checked="tinhTrangKhiSinh.ma == '01'" type="checkbox"/>
+          <span class="mr-3">1.Đẻ thường</span>
+          <input disabled :checked="tinhTrangKhiSinh.ma == '02'" type="checkbox"/>
+          <span class="mr-3">2.Forceps</span>
+          <input disabled :checked="tinhTrangKhiSinh.ma == '03'" type="checkbox"/>
+          <span class="mr-3">3.Giác hút</span>
+          <input disabled :checked="tinhTrangKhiSinh.ma == '04'" type="checkbox"/>
+          <span class="mr-3">4.Đẻ phẫu thuật</span>
+          <input disabled :checked="tinhTrangKhiSinh.ma == '05'" type="checkbox"/>
+          <span class="mr-3">5.Đẻ chỉ huy</span>
+          <input disabled :checked="tinhTrangKhiSinh.ma == '06'" type="checkbox"/>
+          <span class="mr-3">6.Khác</span>
         </span>
       </div>
     </div>
-    <div class="row mb-2">
-      <div class="col-3">
-        <input
-          disabled
-          :checked="tinhTrangKhiSinh.ma == '01'"
-          type="checkbox"
-        />
-        <span class="mr-3">1.Đẻ thường</span>
-      </div>
-    </div>
-    <div class="row mb-2">
-      <div class="col-3">
-        <input
-          disabled
-          :checked="tinhTrangKhiSinh.ma == '02'"
-          type="checkbox"
-        />
-        <span class="mr-3">2.Forceps</span>
-      </div>
-      <div class="col-3">
-        <input
-          disabled
-          :checked="tinhTrangKhiSinh.ma == '03'"
-          type="checkbox"
-        />
-        <span class="mr-3">3.Giác hút</span>
-      </div>
-      <div class="col-3">
-        <input
-          disabled
-          :checked="tinhTrangKhiSinh.ma == '04'"
-          type="checkbox"
-          checked
-        />
-        <span class="mr-3">4.Đẻ phẫu thuật</span>
-      </div>
-
-      <div class="col-3">
-        <input
-          disabled
-          :checked="tinhTrangKhiSinh.ma == '05'"
-          type="checkbox"
-        />
-        <span class="mr-3">5.Đẻ chỉ huy</span>
-      </div>
-    </div>
-    <div class="row mb-2">
-      <div class="col-3">
-        <input
-          disabled
-          :checked="tinhTrangKhiSinh.ma == '06'"
-          type="checkbox"
-        />
-        <span class="mr-3">6.Khác</span>
-      </div>
-    </div>
 
     <div class="row mb-2">
       <div class="col-3">
-        <span class="ml-2"
-          ><i class="fas fa-fw bullet-small fa-circle"></i> Cân nặng lúc sinh:
-          {{ hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.cannanglucsinh }}
-          kg</span
-        >
+        <span class="ml-2"><i class="fas fa-fw bullet-small fa-circle"></i> Cân nặng lúc sinh: {{ hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.cannanglucsinh }} kg</span>
       </div>
       <div class="col-3">
-        <input
-          disabled
-          :checked="hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.coditat"
-          type="checkbox"
-        />
+        <input disabled :checked="hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.coditat" type="checkbox"/>
         <span class="ml-2"> Dị tật bẩm sinh </span>
       </div>
       <div class="col-6">
@@ -1049,22 +997,19 @@
     </div>
     <div class="row mb-2">
       <span class="ml-4">
-        <i class="fas fa-fw bullet-small fa-circle"></i> Phát triển về tinh
-        thần:{{hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.phattrientinhthan}}
+        <i class="fas fa-fw bullet-small fa-circle"></i> Phát triển về tinh thần: {{hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.phattrientinhthan}}
       </span>
     </div>
 
     <div class="row mb-2">
       <span class="ml-4">
-        <i class="fas fa-fw bullet-small fa-circle"></i> Phát triển về vận
-        động:{{hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.phattrienvandong}}
+        <i class="fas fa-fw bullet-small fa-circle"></i> Phát triển về vận động: {{hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.phattrienvandong}}
       </span>
     </div>
 
     <div class="row mb-2">
       <span class="ml-4">
-        <i class="fas fa-fw bullet-small fa-circle"></i> Các bệnh lý khác:
-        {{hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.benhlykhac}}
+        <i class="fas fa-fw bullet-small fa-circle"></i> Các bệnh lý khác: {{hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.benhlykhac}}
       </span>
     </div>
 
@@ -1072,49 +1017,25 @@
       <div class="col-8">
         <span class="ml-2"
           ><i class="fas fa-fw bullet-small fa-circle"></i> Nuôi dưỡng:
-          <input
-            disabled
-            :checked="hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.emrDmNuoiDuong.ma == '01'"
-            type="checkbox"
-          />
+          <input disabled :checked="hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.emrDmNuoiDuong.ma == '01'" type="checkbox"/>
           <span class="mr-3">1. Sữa mẹ</span>
-          <input
-            disabled
-            :checked="hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.emrDmNuoiDuong.ma == '02'"
-            type="checkbox"
-          />
+          <input disabled :checked="hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.emrDmNuoiDuong.ma == '02'" type="checkbox"/>
           <span class="mr-3">2. Nuôi nhân tạo</span>
-          <input
-            disabled
-            :checked="hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.emrDmNuoiDuong.ma == '03'"
-            type="checkbox"
-          />
+          <input disabled :checked="hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.emrDmNuoiDuong.ma == '03'" type="checkbox"/>
           <span class="mr-3">3. Hỗn hợp</span>
         </span>
       </div>
       <div class="col-4">
-        <span class="ml-2"
-          ><i class="fas fa-fw bullet-small fa-circle"></i> Cai sữa tháng thứ:
-          {{hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.thangcaisua}}</span
-        >
+        <span class="ml-2"><i class="fas fa-fw bullet-small fa-circle"></i> Cai sữa tháng thứ: {{hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.thangcaisua}}</span>
       </div>
     </div>
 
     <div class="row mb-2">
       <div class="col-6">
-        <span class="ml-2"
-          ><i class="fas fa-fw bullet-small fa-circle"></i> Chăm sóc:
-          <input
-            disabled
-            :checked="hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.emrDmChamSoc.ma == '01'"
-            type="checkbox"
-          />
+        <span class="ml-2"><i class="fas fa-fw bullet-small fa-circle"></i> Chăm sóc: 
+          <input disabled :checked="hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.emrDmChamSoc.ma == '01'" type="checkbox"/>
           <span class="mr-3">1. Tại vườn trẻ</span>
-          <input
-            disabled
-            :checked="hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.emrDmChamSoc.ma == '02'"
-            type="checkbox"
-          />
+          <input disabled :checked="hsba.emrBenhAn.hoibenh.quatrinhsinhtruong.emrDmChamSoc.ma == '02'" type="checkbox"/>
           <span class="mr-3">2. Tại nhà</span>
         </span>
       </div>
