@@ -55,7 +55,7 @@
       <div class="row mb-2">
         <div class="col-6">
           <label><b class="text-primary mr-1">3.</b>Nghề nghiệp:</label>
-          <span>{{ hsba.emrBenhNhan.emrDmNgheNghiep.ten}}</span>
+          <span>{{ngheNghiepBenhNhan.ten}}</span>
           <form class="form-inline input-lr2 float-right">
             <input v-for="c in toCharArray(maNgheNghiep)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
           </form>
@@ -64,7 +64,7 @@
       <div class="row mb-2">
         <div class="col-6">
           <label><b class="text-primary mr-1">4.</b>Dân tộc:</label>
-          <span>{{hsba.emrBenhNhan.emrDmDanToc.ten}}</span>
+          <span>{{ danTocBenhNhan.ten }}</span>
           <form class="form-inline input-lr2 float-right">
             <input v-for="c in toCharArray(maDanToc)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
           </form>
@@ -72,7 +72,7 @@
 
         <div class="col-6">
           <label><b class="text-primary mr-1">5.</b>Quốc tịch:</label>
-          <span> {{hsba.emrBenhNhan.emrDmQuocGia.ten}} </span>
+          <span> {{ quocTichBenhNhan.ten }} </span>
           <form class="form-inline input-lr2 float-right">
             <input v-for="c in toCharArray(maQuocTich)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
           </form>
@@ -81,19 +81,19 @@
       <div class="row mb-2">
         <div class="col-6">
           <label><b class="text-primary mr-1">6.</b>Địa chỉ:</label>
-          <span>{{hsba.emrBenhNhan.diachi}}</span>
+          <span>{{ diaChiBenhNhan }}</span>
         </div>
         <div class="col-6">
           <label>Xã, phường:</label>
-          <span>{{hsba.emrBenhNhan.emrDmPhuongXa.ten}}</span>
+          <span>{{ diaChiXaBenhNhan.ten }}</span>
         </div>
       </div>
       <div class="row mb-2">
         <div class="col-6">
           <label>Huyện (Q, Tx):</label>
-          <span>{{hsba.emrBenhNhan.emrDmQuanHuyen.ten}}</span>
+          <span>{{ diaChiHuyenBenhNhan.ten }}</span>
           <form class="form-inline input-lr2 float-right">
-            <input v-for="c in toCharArray(maQuanHuyen)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
+            <input v-for="c in toCharArray(diaChiHuyenBenhNhan.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
           </form>
         </div>
         <div class="col-6">
