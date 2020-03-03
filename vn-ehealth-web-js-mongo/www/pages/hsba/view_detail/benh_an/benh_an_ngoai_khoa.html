@@ -107,24 +107,23 @@
         </div>
         <div class="col-6">
           <label>Tỉnh, thành phố:</label>
-          <span>{{hsba.emrBenhNhan.emrDmTinhThanh.ten}}</span>
+          <span>{{ diaChiTinhBenhNhan.ten }}</span>
           <form class="form-inline input-lr2 float-right">
-            <input v-for="c in toCharArray(maTinhThanh)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
+            <input v-for="c in toCharArray(diaChiTinhBenhNhan.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
           </form>
         </div>
       </div>
       <div class="row mb-2">
         <div class="col-6">
           <label><b class="text-primary mr-1">8.</b>Nơi làm việc:</label>
-          <span>{{hsba.emrBenhNhan.noilamviec}}</span>
+          <span>{{ noiLamViecBenhNhan }}</span>
         </div>
         <div class="col-6">
           <label><b class="text-primary mr-1">9.</b>Đối tượng:
-            <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma') == '01' " type="checkbox"> <span class="mr-3">1.BHYT</span>
-            <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma') == '02' " type="checkbox"> <span class="mr-3">2.Thu phí</span>
-            <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma') == '03' "  type="checkbox"> <span class="mr-3">3.Miễn</span>
-            <input disabled :checked="attr(hsba, 'emrQuanLyNguoiBenh.emrDmLoaiDoiTuongTaiChinh.ma') == '04' " type="checkbox"> <span class="mr-3">4.Khác</span>
-
+            <input disabled :checked="doiTuongTaiChinh.ma == '01' " type="checkbox"> <span class="mr-3">1.BHYT</span>
+              <input disabled :checked="doiTuongTaiChinh.ma == '02' " type="checkbox"> <span class="mr-3">2.Thu phí</span>
+              <input disabled :checked="doiTuongTaiChinh.ma == '03' " type="checkbox"> <span class="mr-3">3.Miễn</span>
+              <input disabled :checked="doiTuongTaiChinh.ma == '04' " type="checkbox"> <span class="mr-3">4.Khác</span>
           </label>
         </div>
 
@@ -149,19 +148,19 @@
         <div class="col-12">
           <label><b class="text-primary mr-1">11.</b>Họ tên, địa chỉ người nhà khi cần
             báo tin:</label>
-          <span>{{hsba.emrBenhNhan.tennguoibaotin}}</span>
-        </div>
+            <span>{{nguoiBaoTin}}</span>
+          </div>
       </div>
 
       <div class="row mb-2">
         <div class="col-6">
           <label class ="ml-3">Địa chỉ:</label>
-          <span>{{hsba.emrBenhNhan.diachinguoibaotin}}</span>
+          <span>{{diaChiNguoiBaoTin}}</span>
         </div>
         <div class="col-6">
           <span>Điện thoại số:
             <form class="form-inline input-lr2 float-right">
-              <input v-for="c in toCharArray(soDienThoai)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
+              <input v-for="c in toCharArray(soDienThoaiNguoiBaoTin)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
             </form>
           </span>
         </div>
