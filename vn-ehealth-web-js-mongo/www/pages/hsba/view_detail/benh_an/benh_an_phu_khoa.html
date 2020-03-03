@@ -6,7 +6,7 @@
           <strong>{{hsba.emrCoSoKhamBenh.donvichuquan}}</strong><br>
         </div>
         <strong class="text-danger text-uppercase">{{hsba.emrCoSoKhamBenh.ten}}</strong> <br>
-        Khoa: <strong class="mr-3 text-primary">{{tenKhoaDieuTri}} <br>
+        Khoa: <strong class="mr-3 text-primary">{{khoaDieuTri.tenkhoa}} <br>
         </strong>Giường: <strong class="text-success">{{khoaDieuTri.giuong}}</strong>
       </div>
       <div class="col-4">
@@ -23,15 +23,16 @@
     <section class="mb-4">
       <h5 class="text-tle">I. HÀNH CHÍNH:</h5>
       <div class="ml-auto col-1 text-center">
-        <span v-if="hsba.donViTuoiBenhNhan==''">Tuổi</span>
-        <span v-if="hsba.donViTuoiBenhNhan!=''">{{ hsba.donViTuoiBenhNhan }} tuổi</span>
+        <span v-if="getHsbaProp('tuoiBenhNhan.donvi')==1">Tuổi</span>
+        <span v-if="getHsbaProp('tuoiBenhNhan.donvi')==2">Tháng tuổi</span>
+        <span v-if="getHsbaProp('tuoiBenhNhan.donvi')==3">Ngày tuổi</span>
       </div>
       <div class="row mb-2">
         <div class="col-2">
           <label><b class="text-primary mr-1">1.</b> Họ và tên:</label>
         </div>
         <div class="col-4">
-          <span class="text-uppercase"><b>{{hsba.emrBenhNhan.tendaydu }}</b></span>
+          <span class="text-uppercase"><b>{{ tenBenhNhan }}</b></span>
         </div>
         <div class="col-6">
           <div class="form-inline input-lr2 float-left">
