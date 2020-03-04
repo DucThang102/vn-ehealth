@@ -256,21 +256,18 @@
       </span>
     </div>
     <div class="row">
-      <div class="col-9">
+      <div class="col-8">
         <span class="ml-4">{{ getBenhAnProp('khambenh.toanthan') }}</span>
       </div>
-      <div class="col-3">
-        <table class="table table-bordered">
-          <tr>
-            <td>
-              <i>Mạch: {{getBenhAnProp('khambenh.mach')}} lần/ph </i> <br>
-              <i>Nhiệt độ: {{getBenhAnProp('khambenh.nhietdo')}} °C </i> <br>
-              <i>Huyết áp: {{getBenhAnProp('khambenh.huyetapcao')}}/{{getBenhAnProp('khambenh.huyetapthap')}} mmHg </i> <br>
-              <i>Nhịp thở: {{getBenhAnProp('khambenh.nhiptho')}} lần/ph </i> <br>
-              <i>Cân nặng: {{getBenhAnProp('khambenh.cannang')}} kg </i> <br>
-            </td>
-          </tr>
-        </table>        
+      <div class="col-4">
+        
+          
+              <i>Mạch:</i> {{getBenhAnProp('khambenh.mach')}} <i>lần/ph </i> <br>
+              <i>Nhiệt độ:</i>  {{getBenhAnProp('khambenh.nhietdo')}} <i>°C </i> <br>
+              <i>Huyết áp:</i>  {{getBenhAnProp('khambenh.huyetapcao')}}/{{getBenhAnProp('khambenh.huyetapthap')}} <i> mmHg </i> <br>
+              <i>Nhịp thở:</i>  {{getBenhAnProp('khambenh.nhiptho')}} <i>lần/ph </i> <br>
+              <i>Cân nặng:</i>  {{getBenhAnProp('khambenh.cannang')}} <i>kg </i> <br>
+                  
       </div>
     </div>
     <div class="row mt-2">
@@ -287,7 +284,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">......</span>
+      <span class="ml-4">{{getBenhAnProp('khambenh.tomtatkqcanlamsang')}}</span>
     </div>
 
     <div class="row mt-3">
@@ -323,8 +320,8 @@
     <div class="row mt-3">
       <span>
         <b>7. Điều trị ngoại trú từ ngày </b>
-        <span>{{formatNgay(ngayGioVaoVien)}}</span>
-        <span>đến ngày </span>
+        <span>{{formatNgay(ngayGioVaoVien)}} </span>
+        <span> đến ngày </span>
         <span>{{formatNgay(ngayGioRaVien)}}</span>
       </span>
     </div>
@@ -336,13 +333,17 @@
       <div class="col-6 text-center">
         <br>
         <b class="text-center mb-5">Giám đốc bệnh viện</b>
-        <br />
+        <br>
+        <br>
+        <br>
         <p>Họ và tên <b>{{ giamDocBenhVien }}</b></p>
       </div>
       <div class="col-6 text-center">
         <i class="mb-2"><span>{{formatNgay2(ngayGioRaVien)}}</span></i> <br>
         <b class="text-center mb-5">Bác sỹ khám bệnh</b>
-        <br />
+        <br>
+        <br>
+        <br>
         <p>Họ và tên <b>{{ bacSyLamBenhAn.ten }}</b></p>
       </div>
     </div>
@@ -438,7 +439,7 @@
               <br>
               Họ tên <b>{{hsba.nguoigiaohoso}}</b></td>
             <td rowspan="8" class="text-center"> <i>{{formatNgay2(ngayKyDieuTri)}}</i> <br> 
-              <b>Bác sỹ điều trị</b> 
+              <h6 class="text-center mt-2 mb-5"><b> Bác sĩ điều trị </b></h6>
               <br>
               <br>
               <br> 
