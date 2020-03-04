@@ -3,11 +3,14 @@ package vn.ehealth.emr.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.annotation.Nonnull;
+
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import vn.ehealth.emr.model.EmrHinhAnhTonThuong;
+import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.repository.EmrHinhAnhTonThuongRepository;
 import vn.ehealth.emr.repository.EmrHoSoBenhAnRepository;
 import vn.ehealth.emr.utils.Constants.TRANGTHAI_DULIEU;
@@ -49,5 +52,19 @@ public class EmrHinhAnhTonThuongService {
             x.trangThai = TRANGTHAI_DULIEU.DA_XOA;
             emrHinhAnhTonThuongRepository.save(x);
         });
-    }    
+    }  
+    
+    public void createOrUpdateFromHIS(@Nonnull EmrHoSoBenhAn hsba, @Nonnull List<EmrHinhAnhTonThuong> hattList) {
+        for(int i = 0; i < hattList.size(); i++) {
+            var hatt = hattList.get(i);
+            if(hatt.idhis != null) {
+            	hatt.id = emrHinhAnhTonThuongRepository.findByIdhis(hatt.idhis).map(x -> x.id).orElse(null);
+            }
+            hatt.emrHoSoBenhAnId = hsba.id;
+            hatt.emrBenhNhanId = hsba.emrBenhNhanId;
+            hatt.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
+            hatt = emrHinhAnhTonThuongRepository.save(hatt);
+            hattList.set(i, hatt);
+        }         
+    }
 }

@@ -2,11 +2,14 @@ package vn.ehealth.emr.service;
 
 import java.util.List;
 
+import javax.annotation.Nonnull;
+
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import vn.ehealth.emr.model.EmrGiaiPhauBenh;
+import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.repository.EmrGiaiPhauBenhRepository;
 import vn.ehealth.emr.repository.EmrHoSoBenhAnRepository;
 import vn.ehealth.emr.utils.Constants.TRANGTHAI_DULIEU;
@@ -44,5 +47,20 @@ public class EmrGiaiPhauBenhService {
             x.trangThai = TRANGTHAI_DULIEU.DA_XOA;
             emrGiaiPhauBenhRepository.save(x);
         });
+    }
+    
+    public void createOrUpdateFromHIS(@Nonnull EmrHoSoBenhAn hsba, @Nonnull List<EmrGiaiPhauBenh> gpbList) {
+        for(int i = 0; i < gpbList.size(); i++) {
+            var gpb = gpbList.get(i);
+            if(gpb.idhis != null) {
+            	gpb.id = emrGiaiPhauBenhRepository.findByIdhis(gpb.idhis).map(x -> x.id).orElse(null);
+            }
+
+            gpb.emrHoSoBenhAnId = hsba.id;
+            gpb.emrBenhNhanId = hsba.emrBenhNhanId;
+            gpb.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
+            gpb = emrGiaiPhauBenhRepository.save(gpb);
+            gpbList.set(i, gpb);
+        }         
     }
 }

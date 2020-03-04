@@ -1,6 +1,7 @@
 package vn.ehealth.emr.service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.annotation.Nonnull;
@@ -8,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.model.EmrHoiChan;
 import vn.ehealth.emr.repository.EmrHoSoBenhAnRepository;
 import vn.ehealth.emr.repository.EmrHoiChanRepository;
@@ -41,14 +42,14 @@ public class EmrHoiChanService {
             hoichan.emrBenhNhanId = hsba.emrBenhNhanId;
             hoichan.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
             
-            if(hsba.emrVaoKhoas != null && hoichan.emrVaoKhoa != null) {
-                var maKhoaDieuTri = hoichan.emrVaoKhoa.emrDmKhoaDieuTri.ma;
+            if(hsba.emrVaoKhoas != null && hoichan.emrKhoaDieuTri != null) {
+                var maKhoaDieuTri = hoichan.emrKhoaDieuTri.emrDmKhoaDieuTri.ma;
                 
                 var vaokhoa = hsba.emrVaoKhoas.stream()
                                 .filter(x -> x.emrDmKhoaDieuTri.ma == maKhoaDieuTri)
                                 .findFirst();
                 
-                vaokhoa.ifPresent(x -> hoichan.emrVaoKhoa = x);
+                vaokhoa.ifPresent(x -> hoichan.emrKhoaDieuTri = x);
             }
         }
         
@@ -61,5 +62,31 @@ public class EmrHoiChanService {
             x.trangThai = TRANGTHAI_DULIEU.DA_XOA;
             emrHoiChanRepository.save(x);
         });
+    }
+    
+    public void createOrUpdateFromHIS(@Nonnull EmrHoSoBenhAn hsba, @Nonnull List<EmrHoiChan> hcList, @Nonnull List<Object> hcObjList) {
+        for(int i = 0; i < hcList.size(); i++) {
+            var hc = hcList.get(i);
+            if(hc.idhis != null) {
+            	hc.id = emrHoiChanRepository.findByIdhis(hc.idhis).map(x -> x.id).orElse(null);
+            }
+            @SuppressWarnings("unchecked")
+			var  hcObject= (Map<String, Object>) hcObjList.get(i);
+            @SuppressWarnings("unchecked")
+			Map<String, Object> emrDmKhoaDieuTri = (Map<String, Object>) hcObject.get("emrDmKhoaDieuTri");
+            if (emrDmKhoaDieuTri != null && hsba.emrVaoKhoas != null) {
+            	var maKhoaDieuTri =  (String) emrDmKhoaDieuTri.get("ma");
+            	
+            	hc.emrKhoaDieuTri = hsba.emrVaoKhoas.stream()
+                      .filter(x -> x.emrDmKhoaDieuTri.ma.equals(maKhoaDieuTri))
+                      .findFirst()
+                      .orElse(null);
+            }
+            hc.emrHoSoBenhAnId = hsba.id;
+            hc.emrBenhNhanId = hsba.emrBenhNhanId;
+            hc.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
+            hc = emrHoiChanRepository.save(hc);
+            hcList.set(i, hc);
+        }         
     }
 }

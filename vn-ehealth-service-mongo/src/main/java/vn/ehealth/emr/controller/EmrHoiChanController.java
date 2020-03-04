@@ -2,6 +2,8 @@ package vn.ehealth.emr.controller;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
@@ -19,8 +21,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import vn.ehealth.emr.model.EmrHoiChan;
+import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.service.EmrHoiChanService;
 import vn.ehealth.emr.utils.EmrUtils;
+import vn.ehealth.emr.validate.JsonParser;
 
 @RestController
 @RequestMapping("/api/hoichan")
@@ -30,7 +34,9 @@ public class EmrHoiChanController {
     
     @Autowired 
     private EmrHoiChanService emrHoiChanService;
+    @Autowired EmrHoSoBenhAnService emrHoSoBenhAnService;
     
+    private JsonParser jsonParser = new JsonParser();
     private ObjectMapper objectMapper = EmrUtils.createObjectMapper();
     
     @GetMapping("/get_ds_hoichan")
@@ -58,25 +64,35 @@ public class EmrHoiChanController {
         }
     }
     
-    @PostMapping("/save_hoichan")
-    public ResponseEntity<?> saveHoichan(@RequestBody String jsonSt) {
-        
+    @SuppressWarnings("unchecked")
+    @PostMapping("/create_or_update_hoi_chan")
+    public ResponseEntity<?> createOrUpdateHoiChanFromHIS(@RequestBody String jsonSt) {
         try {
-            var hoichan = objectMapper.readValue(jsonSt, EmrHoiChan.class);
-            hoichan = emrHoiChanService.save(hoichan);
+            var map = jsonParser.parseJson(jsonSt);
+            var matraodoiHsba = (String) map.get("matraodoiHoSo");
+            var hsba = emrHoSoBenhAnService.getByMatraodoi(matraodoiHsba).orElseThrow();
+            
+            var hcObjList = (List<Object>) map.get("emrHoiChans");
+            var hcList = hcObjList.stream()
+                                .map(obj -> objectMapper.convertValue(obj, EmrHoiChan.class))
+                                .collect(Collectors.toList());
+            
+            emrHoiChanService.createOrUpdateFromHIS(hsba, hcList, hcObjList);
             
             var result = Map.of(
                 "success" , true,
-                "emrHoiChan", hoichan 
+                "hcList", hcList  
             );
-                    
+            
             return ResponseEntity.ok(result);
+            
         }catch(Exception e) {
+            var error = Optional.ofNullable(e.getMessage()).orElse("Unknown error");
             var result = Map.of(
                 "success" , false,
-                "errors", List.of(e.getMessage()) 
+                "error", error 
             );
-            logger.error("Error save hoichan:", e);
+            logger.error("Error save hoichan from HIS:", e);
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
     }
