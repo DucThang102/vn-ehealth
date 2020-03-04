@@ -377,7 +377,7 @@ var benh_an_chi_tiet_script = {
 
     khoaDieuTri() {
       var khoa = {};
-      if (this.hsba.emrVaoKhoas.length > 0) {
+      if (this.hsba.emrVaoKhoas && this.hsba.emrVaoKhoas.length > 0) {
         var n = this.hsba.emrVaoKhoas.length;
         khoa = this.hsba.emrVaoKhoas[n - 1];
       }
