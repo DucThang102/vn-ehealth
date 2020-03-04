@@ -64,6 +64,28 @@ public class EmrHoiChanController {
         }
     }
     
+    @PostMapping("/save_hoichan")
+    public ResponseEntity<?> saveHoichan(@RequestBody String jsonSt) {
+        
+        try {
+            var hoichan = objectMapper.readValue(jsonSt, EmrHoiChan.class);
+            hoichan = emrHoiChanService.save(hoichan);
+            var result = Map.of(
+                    "success" , true,
+                    "emrHoiChan", hoichan 
+                );
+            return ResponseEntity.ok(result);
+        }catch(Exception e) {
+            var result = Map.of(
+                    "success" , false,
+                    "errors", List.of(e.getMessage()) 
+                    );
+            logger.error("Error save hoichan:", e);
+            return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    
     @SuppressWarnings("unchecked")
     @PostMapping("/create_or_update_hoi_chan")
     public ResponseEntity<?> createOrUpdateHoiChanFromHIS(@RequestBody String jsonSt) {
