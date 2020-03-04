@@ -377,7 +377,7 @@ var benh_an_chi_tiet_script = {
 
     khoaDieuTri() {
       var khoa = {};
-      if (this.hsba.emrVaoKhoas.length > 0) {
+      if (this.hsba.emrVaoKhoas && this.hsba.emrVaoKhoas.length > 0) {
         var n = this.hsba.emrVaoKhoas.length;
         khoa = this.hsba.emrVaoKhoas[n - 1];
       }
@@ -450,7 +450,7 @@ var benh_an_chi_tiet_script = {
     chanDoanTruocPt(pttt) {
       var chanDoanTruocPtList = attr(
         pttt,
-        "emrDmMaBenhChandoantruocs"
+        "emrDmMaBenhChandoantruocpts"
       );
       if (chanDoanTruocPtList && chanDoanTruocPtList.length > 0) {
         return chanDoanTruocPtList[0];
@@ -464,7 +464,7 @@ var benh_an_chi_tiet_script = {
     chanDoanSauPt(pttt) {
       var chanDoanSauPtList = attr(
         pttt,
-        "emrDmMaBenhChandoansaus"
+        "emrDmMaBenhChandoansaupts"
       );
       if (chanDoanSauPtList && chanDoanSauPtList.length > 0) {
         return chanDoanSauPtList[0];
