@@ -364,7 +364,7 @@ var benh_an_chi_tiet_script = {
     },
 
     bacSyLamBenhAn() {
-      return this.hsba.bacsylambenhan;
+      return this.hsba.bacsylambenhan || {};
     },
 
     ngayKyDieuTri() {
@@ -372,7 +372,7 @@ var benh_an_chi_tiet_script = {
     },
 
     bacSyDieuTri() {
-      return this.hsba.bacsydieutri;
+      return this.hsba.bacsydieutri || {};
     },
 
     khoaDieuTri() {
@@ -393,28 +393,40 @@ var benh_an_chi_tiet_script = {
 
     //So to dieu tri
     soToXQuang() {
-      var soTo = this.hsba.sotodieutri.find(x => x.ma = "01");
-      return soTo ? soTo.soluong : 0;
+      if(this.hsba.sotodieutri) {
+        var soTo = this.hsba.sotodieutri.find(x => x.ma = "01");
+        return soTo ? soTo.soluong : 0;
+      }
+      return 0;
     },
 
     soToCTScanner() {
-      var soTo = this.hsba.sotodieutri.find(x => x.ma = "02");
-      return soTo ? soTo.soluong : 0;
+      if(this.hsba.sotodieutri) {
+        var soTo = this.hsba.sotodieutri.find(x => x.ma = "02");
+        return soTo ? soTo.soluong : 0;
+      }
+      return 0;
     },
 
     soToSieuAm() {
-      var soTo = this.hsba.sotodieutri.find(x => x.ma = "03");
-      return soTo ? soTo.soluong : 0;
+      if(this.hsba.sotodieutri) {
+        var soTo = this.hsba.sotodieutri.find(x => x.ma = "03");
+        return soTo ? soTo.soluong : 0;
+      }
+      return 0;
     },
 
     soToXetNghiem() {
-      var soTo = this.hsba.sotodieutri.find(x => x.ma = "04");
-      return soTo ? soTo.soluong : 0;
+      if(this.hsba.sotodieutri) {
+        var soTo = this.hsba.sotodieutri.find(x => x.ma = "04");
+        return soTo ? soTo.soluong : 0;
+      }
+      return 0;
     },
 
     soToKhac() {
       var tong = 0;
-      for (var i = 0; i < this.hsba.sotodieutri.length; i++) {
+      for (var i = 0;this.hsba.sotodieutri && i < this.hsba.sotodieutri.length; i++) {
         if (parseInt(this.hsba.sotodieutri[i].ma) > 4)
           tong += this.hsba.sotodieutri[i].soluong;
       }
@@ -423,7 +435,7 @@ var benh_an_chi_tiet_script = {
 
     tongSoToDieuTri() {
       var tong = 0;
-      for (var i = 0; i < this.hsba.sotodieutri.length; i++) {
+      for (var i = 0;this.hsba.sotodieutri && i < this.hsba.sotodieutri.length; i++) {
         tong += this.hsba.sotodieutri[i].soluong;
       }
       return tong;
@@ -498,7 +510,7 @@ var benh_an_chi_tiet_script = {
     },
 
     formatNgayGio(ngaygio) {
-      if (ngaygio.length >= 16) {
+      if (ngaygio && ngaygio.length >= 16) {
         var nam = ngaygio.substring(0, 4);
         var thang = ngaygio.substring(5, 7);
         var ngay = ngaygio.substring(8, 10);
@@ -510,7 +522,7 @@ var benh_an_chi_tiet_script = {
     },
 
     formatNgayGio2(ngaygio) {
-      if (ngaygio.length >= 16) {
+      if (ngaygio && ngaygio.length >= 16) {
         var nam = ngaygio.substring(0, 4);
         var thang = ngaygio.substring(5, 7);
         var ngay = ngaygio.substring(8, 10);
@@ -523,7 +535,7 @@ var benh_an_chi_tiet_script = {
 
 
     formatNgay(ngaygio) {
-      if (ngaygio.length >= 10) {
+      if (ngaygio && ngaygio.length >= 10) {
         var nam = ngaygio.substring(0, 4);
         var thang = ngaygio.substring(5, 7);
         var ngay = ngaygio.substring(8, 10);
@@ -533,7 +545,7 @@ var benh_an_chi_tiet_script = {
     },
 
     formatNgay2(ngaygio) {
-      if (ngaygio.length >= 10) {
+      if (ngaygio && ngaygio.length >= 10) {
         var nam = ngaygio.substring(0, 4);
         var thang = ngaygio.substring(5, 7);
         var ngay = ngaygio.substring(8, 10);
