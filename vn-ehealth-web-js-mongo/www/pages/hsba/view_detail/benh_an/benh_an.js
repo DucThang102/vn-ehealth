@@ -450,7 +450,7 @@ var benh_an_chi_tiet_script = {
     chanDoanTruocPt(pttt) {
       var chanDoanTruocPtList = attr(
         pttt,
-        "emrDmMaBenhChandoantruocs"
+        "emrDmMaBenhChandoantruocpts"
       );
       if (chanDoanTruocPtList && chanDoanTruocPtList.length > 0) {
         return chanDoanTruocPtList[0];
@@ -464,7 +464,7 @@ var benh_an_chi_tiet_script = {
     chanDoanSauPt(pttt) {
       var chanDoanSauPtList = attr(
         pttt,
-        "emrDmMaBenhChandoansaus"
+        "emrDmMaBenhChandoansaupts"
       );
       if (chanDoanSauPtList && chanDoanSauPtList.length > 0) {
         return chanDoanSauPtList[0];

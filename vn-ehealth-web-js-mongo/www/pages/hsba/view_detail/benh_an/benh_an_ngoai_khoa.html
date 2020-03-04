@@ -603,7 +603,7 @@
               >
               <form class="form-inline input-lr2 float-right">
                 <input
-                  v-for="c in toCharArray(hsba.emrChanDoan.tongsongaysaupt)"
+                  v-for="c in toCharArray(hsba.emrChanDoan.tongsongaysaupt.toString())"
                   :value="c"
                   readonly
                   class="form-control form-control-sm text-placeholder w-40px"
@@ -619,7 +619,7 @@
               >
               <form class="form-inline input-lr2 float-right">
                 <input
-                  v-for="c in toCharArray(hsba.emrChanDoan.tongsolanpt)"
+                  v-for="c in toCharArray(hsba.emrChanDoan.tongsolanpt.toString())"
                   :value="c"
                   readonly
                   class="form-control form-control-sm text-placeholder w-40px"
@@ -643,22 +643,25 @@
                   >tổn thương</i
                 >)</label
               ><br />
-              <span>{{chanDoanRaVienChinh.ten}}</span>
+              <span class="ml-4"
+                >{{hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten}}</span
+              >
               <form class="form-inline input-lr2 float-right">
                 <input
-                  v-for="c in toCharArray(chanDoanRaVienChinh.ma)"
+                  v-for="c in toCharArray(hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh.ma)"
                   :value="c"
                   readonly
                   class="form-control form-control-sm text-placeholder w-40px"
                 />
               </form>
               <br />
-              <span
-                >(<i>nguyên nhân</i>): {{chanDoanRaVienNguyenNhan.ten}}</span
+              <span>(<i>nguyên nhân</i>): </span><br />
+              <span class="ml-4"
+                >{{hsba.emrChanDoan.emrDmMaBenhChandoanraviennguyennhan.ten}}</span
               >
               <form class="form-inline input-lr2 float-right">
                 <input
-                  v-for="c in toCharArray(chanDoanRaVienNguyenNhan.ma)"
+                  v-for="c in toCharArray(hsba.emrChanDoan.emrDmMaBenhChandoanraviennguyennhan.ma)"
                   :value="c"
                   readonly
                   class="form-control form-control-sm text-placeholder w-40px"
@@ -668,24 +671,20 @@
           </div>
 
           <div class="row mb-2">
-            <div class="col">
-              <div class="row ml-4">
-                <label
-                  ><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh kèm
-                  theo:</label
-                ><br />
-                <div class="row ml-4" v-for="pttt in ptttList">
-                  <span>{{chanDoanRaVienKemTheo(pttt).ten}}</span>
-                  <form class="form-inline input-lr2 float-right">
-                    <input
-                      v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)"
-                      :value="c"
-                      readonly
-                      class="form-control form-control-sm text-placeholder w-40px"
-                    />
-                  </form>
-                </div>
-              </div>
+            <div class="col ml-4">
+              <label
+                ><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh kèm
+                theo:</label
+              ><br />
+              <span class="ml-4">{{chanDoanRaVienKemTheo.ten}}</span>
+              <form class="form-inline input-lr2 float-right">
+                <input
+                  v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)"
+                  :value="c"
+                  readonly
+                  class="form-control form-control-sm text-placeholder w-40px"
+                />
+              </form>
             </div>
           </div>
 
@@ -697,19 +696,16 @@
                   trước phẫu thuật: </label
                 ><br />
               </div>
-              <div class="row ml-4" v-for="pttt in ptttList">
-                <div class="col">
-                  <span>{{chanDoanTruocPt(pttt).ten}}</span>
-                </div>
-                <form class="form-inline input-lr2 float-right">
-                  <input
-                    v-for="c in toCharArray(chanDoanTruocPt(pttt).ma)"
-                    :value="c"
-                    readonly
-                    class="form-control form-control-sm text-placeholder w-40px"
-                  />
-                </form>
-              </div>
+              <span class="ml-4">{{chanDoanTruocPt.ten}}</span>
+
+              <form class="form-inline input-lr2 float-right">
+                <input
+                  v-for="c in toCharArray(chanDoanTruocPt.ma)"
+                  :value="c"
+                  readonly
+                  class="form-control form-control-sm text-placeholder w-40px"
+                />
+              </form>
             </div>
           </div>
           <div class="row mb-2">
@@ -720,19 +716,16 @@
                   sau phẫu thuật: </label
                 ><br />
               </div>
-              <div class="row ml-4" v-for="pttt in ptttList">
-                <div class="col">
-                  <span>{{chanDoanSauPt(pttt).ten}}</span>
-                </div>
-                <form class="form-inline input-lr2 float-right">
-                  <input
-                    v-for="c in toCharArray(chanDoanSauPt(pttt).ma)"
-                    :value="c"
-                    readonly
-                    class="form-control form-control-sm text-placeholder w-40px"
-                  />
-                </form>
-              </div>
+              <span class="ml-4">{{chanDoanSauPt.ten}}</span>
+
+              <form class="form-inline input-lr2 float-right">
+                <input
+                  v-for="c in toCharArray(chanDoanSauPt.ma)"
+                  :value="c"
+                  readonly
+                  class="form-control form-control-sm text-placeholder w-40px"
+                />
+              </form>
             </div>
           </div>
         </div>
@@ -850,7 +843,7 @@
               />
               <span class="mr-3">3.Khác</span>
             </div>
-            <div class="ml-3">
+            <div class="ml-3 mt-2 ">
               <input
                 disabled
                 :checked="thoiDiemTuVong.ma == '01' "
@@ -862,13 +855,13 @@
                 :checked="thoiDiemTuVong.ma == '02' "
                 type="checkbox"
               />
-              <span class="mr-3">2.Trong 48 giờ vào viện</span>
+              <span class="mr-3">2.Trong 48 giờ vào viện</span> <br />
               <input
                 disabled
                 :checked="thoiDiemTuVong.ma == '03' "
                 type="checkbox"
               />
-              <span class="mr-3">1.Trong 72 giờ vào viện</span>
+              <span class="mr-3">3.Trong 72 giờ vào viện</span>
             </div>
           </div>
 
@@ -1134,7 +1127,7 @@
           {{getBenhAnProp('khambenh.huyetapcao')}}/{{getBenhAnProp('khambenh.huyetapthap')}}
           mmHg
         </li>
-        <li>Nhịp thở: {{getBenhAnProp('khambenh.nhiptho')}} lần/ph</li>
+        <li>Nhịp thở: c lần/ph</li>
         <li>Cân nặng: {{getBenhAnProp('khambenh.cannang')}} kg</li>
       </ul>
     </div>
@@ -1144,7 +1137,7 @@
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">Chưa có</span>
+      <span class="ml-4">{{getBenhAnProp('khambenh.benhngoaikhoa')}}</span>
     </div>
 
     <div class="row mt-2">
