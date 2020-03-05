@@ -21,7 +21,7 @@ public class EmrChamSoc {
     public static class EmrQuaTrinhChamSoc {
         @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
         public Date ngaychamsoc;
-        public EmrYSy ytachamsoc;
+        public EmrCanboYte ytachamsoc;
         public String theodoidienbien;
         public String thuchienylenh;
     }

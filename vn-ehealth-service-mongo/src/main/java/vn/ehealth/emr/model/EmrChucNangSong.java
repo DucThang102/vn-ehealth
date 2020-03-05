@@ -41,7 +41,7 @@ public class EmrChucNangSong {
         public Integer huyetapcao;
         public Integer nhiptho;
         public Double cannang;
-        public EmrYSy ytatheodoi;
+        public EmrCanboYte ytatheodoi;
     }
     
     public List<EmrChucNangSongChiTiet> emrChucNangSongChiTiets = new ArrayList<>();

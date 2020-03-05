@@ -35,8 +35,8 @@ public class EmrPhauThuatThuThuat {
     
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     public Date ngaygiopttt;
-    public EmrYSy bacsithuchien;
-    public EmrYSy bacsygayme;
+    public EmrCanboYte bacsithuchien;
+    public EmrCanboYte bacsygayme;
     public String chidinhptt;
     public String phuongphapvocam;
     public String luocdoptt;
@@ -52,7 +52,7 @@ public class EmrPhauThuatThuThuat {
 
         public EmrDmContent emrDmVaiTro;
         
-        public EmrYSy bacsipttt;
+        public EmrCanboYte bacsipttt;
     }
     
     public List<EmrThanhVienPttt> emrThanhVienPttts = new ArrayList<>();
