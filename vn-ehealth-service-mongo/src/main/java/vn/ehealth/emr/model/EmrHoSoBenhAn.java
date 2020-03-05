@@ -73,7 +73,7 @@ public class EmrHoSoBenhAn {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     public Date ngaykybenhan;
     
-    public EmrYSy bacsylambenhan;
+    public EmrCanboYte bacsylambenhan;
     
     public String nguoigiaohoso;
 
@@ -85,7 +85,7 @@ public class EmrHoSoBenhAn {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     public Date ngaynhanhoso;
 
-    public EmrYSy bacsydieutri;
+    public EmrCanboYte bacsydieutri;
 
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     public Date ngaybacsydieutriky;

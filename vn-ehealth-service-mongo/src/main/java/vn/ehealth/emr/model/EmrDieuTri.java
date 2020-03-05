@@ -38,7 +38,7 @@ public class EmrDieuTri {
         public String dienbien;
         public String chamsoc;
         public String ylenh;
-        public EmrYSy bacsiraylenh;  
+        public EmrCanboYte bacsiraylenh;  
     }
     
     public List<EmrQuaTrinhDieuTri> emrQuaTrinhDieuTris = new ArrayList<>();

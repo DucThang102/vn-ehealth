@@ -41,7 +41,7 @@ public class EmrHoiChan {
     @JsonInclude(Include.NON_NULL)
     public static class EmrThanhVienHoiChan {
         
-        public EmrYSy bacsihoichan;    
+        public EmrCanboYte bacsihoichan;    
         public EmrDmContent emrDmVaiTro;
     }
     

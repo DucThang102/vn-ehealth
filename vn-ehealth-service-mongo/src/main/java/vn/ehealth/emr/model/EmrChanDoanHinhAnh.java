@@ -31,12 +31,12 @@ public class EmrChanDoanHinhAnh {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     public Date ngayyeucau;
     
-    public EmrYSy bacsiyeucau;
+    public EmrCanboYte bacsiyeucau;
     
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     public Date ngaythuchien;
     
-    public EmrYSy bacsichuyenkhoa;
+    public EmrCanboYte bacsichuyenkhoa;
     public String ketqua;
     public String ketluan;
     public String loidan;

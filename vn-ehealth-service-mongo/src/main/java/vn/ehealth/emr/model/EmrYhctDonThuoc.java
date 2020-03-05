@@ -25,7 +25,7 @@ public class EmrYhctDonThuoc {
     public String idhis;
     
     public Date ngaykedon;
-    public EmrYSy bacsikedon;
+    public EmrCanboYte bacsikedon;
     public String sodon;
     public Date ngaybatdau;
     public Date ngayketthuc;
