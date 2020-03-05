@@ -69,6 +69,43 @@ var benh_an_script = {
   }
 };
 
+var mixin = {
+  methods: {
+    getTenKhoa(khoa) {
+      return khoa.tenkhoa || attr(khoa, "emrDmKhoaDieuTri.ten");
+    },
+    formatNgayGio(ngaygio) {
+      if (ngaygio && ngaygio.length >= 16) {
+        var nam = ngaygio.substring(0, 4);
+        var thang = ngaygio.substring(5, 7);
+        var ngay = ngaygio.substring(8, 10);
+        var gio = ngaygio.substring(11, 13);
+        var phut = ngaygio.substring(14, 16);
+        return `${gio} giờ ${phut} ph ngày ${ngay}/${thang}/${nam}`;
+      }
+      return "... giờ ... ph ngày .../.../......";
+    },
+  }
+}
+
+VueAsyncComponent(
+  "thongtin-vao-khoa",
+  "/pages/hsba/view_detail/benh_an/tt_vaokhoa.html",
+  {
+    props: ["hsba"],
+    mixins: [mixin]
+  }
+);
+
+VueAsyncComponent(
+  "thongtin-chuyen-khoa",
+  "/pages/hsba/view_detail/benh_an/tt_chuyenkhoa.html",
+  {
+    props: ["hsba"],
+    mixins: [mixin]
+  }
+);
+
 VueAsyncComponent(
   "benh-an",
   "/pages/hsba/view_detail/benh_an/benh_an_new2.html",
