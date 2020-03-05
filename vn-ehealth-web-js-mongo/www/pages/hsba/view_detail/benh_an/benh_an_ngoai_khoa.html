@@ -526,7 +526,7 @@
               >
               <form class="form-inline input-lr2 float-right">
                 <input
-                  v-for="c in toCharArray(hsba.emrChanDoan.tongsongaysaupt.toString())"
+                  v-for="c in toCharArray((hsba.emrChanDoan.tongsongaysaupt || '') + '')"
                   :value="c"
                   readonly
                   class="form-control form-control-sm text-placeholder w-40px"
@@ -542,7 +542,7 @@
               >
               <form class="form-inline input-lr2 float-right">
                 <input
-                  v-for="c in toCharArray(hsba.emrChanDoan.tongsolanpt.toString())"
+                  v-for="c in toCharArray((hsba.emrChanDoan.tongsolanpt || '') + '')"
                   :value="c"
                   readonly
                   class="form-control form-control-sm text-placeholder w-40px"
@@ -563,18 +563,18 @@
             <div class="col ml-4">
               <label
                 >+ Bệnh chính:<i>(tổn thương)</i></label><br>
-              <span class="ml-4">{{hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten}}</span>
+              <span class="ml-4">{{chanDoanRaVienChinh.ten}}</span>
               <form class="form-inline input-lr2 float-right">
-                <input v-for="c in toCharArray(hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh.ma)" 
+                <input v-for="c in toCharArray(chanDoanRaVienChinh.ma)" 
                 :value="c" readonly class="form-control form-control-sm text-placeholder w-40px"/>
               </form>
               <br />
               <span><i>(nguyên nhân)</i>: </span><br />
               <span class="ml-4"
-                >{{hsba.emrChanDoan.emrDmMaBenhChandoanraviennguyennhan.ten}}</span
+                >{{chanDoanRaVienNguyenNhan.ten}}</span
               >
               <form class="form-inline input-lr2 float-right">
-                <input v-for="c in toCharArray(hsba.emrChanDoan.emrDmMaBenhChandoanraviennguyennhan.ma)"
+                <input v-for="c in toCharArray(chanDoanRaVienNguyenNhan.ma)"
                   :value="c" readonly class="form-control form-control-sm text-placeholder w-40px" />
               </form>
             </div>
