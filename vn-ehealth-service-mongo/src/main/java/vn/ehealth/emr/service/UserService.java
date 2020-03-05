@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import vn.ehealth.emr.model.User;
@@ -13,6 +14,8 @@ import vn.ehealth.emr.repository.UserRepository;
 public class UserService {
 
     @Autowired UserRepository userRepository;
+    
+    @Autowired PasswordEncoder passwordEncoder;
     
     public Optional<User> getById(ObjectId id) {
         return userRepository.findById(id);

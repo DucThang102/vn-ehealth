@@ -203,7 +203,11 @@ public class EmrHoSoBenhAnController {
             var map = jsonParser.parseJson(jsonSt);
             
             var benhNhan = (Map<String, Object>) map.get("emrBenhNhan");
-            var emrBenhNhan = emrBenhNhanService.getByIdhis((String) benhNhan.get("idhis")).orElseThrow();
+            String idhis = (String) benhNhan.get("idhis");
+            var emrBenhNhan = emrBenhNhanService.getByIdhis(idhis);
+            if(emrBenhNhan.isEmpty()) {
+                throw new Exception(String.format("emrBenhNhan with idhis %s not found, please create this patient first", idhis));
+            }
             
             var coSoKhamBenh = (Map<String, Object>) map.get("emrCoSoKhamBenh");            
             var emrCoSoKhamBenh = emrCoSoKhamBenhService.getByMa((String) coSoKhamBenh.get("ma")).orElseThrow();
@@ -212,7 +216,7 @@ public class EmrHoSoBenhAnController {
             var user = UserUtil.getCurrentUser();
             var userId = user.map(x -> x.id).orElse(null);
             
-            emrHoSoBenhAnService.createOrUpdateFromHIS(userId, emrBenhNhan.id, emrCoSoKhamBenh.id, hsba, jsonSt);
+            emrHoSoBenhAnService.createOrUpdateFromHIS(userId, emrBenhNhan.get().id, emrCoSoKhamBenh.id, hsba, jsonSt);
                         
             var result = Map.of(
                 "success" , true,
