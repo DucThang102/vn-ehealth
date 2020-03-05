@@ -66,29 +66,29 @@
                 <div class="col-6">
                     <label class="mr-auto "><b class="text-primary mr-1">4.</b>Nghề nghiệp:</label>
                     <span></span>
-                    <form class="form-inline input-lr2 float-right">
+                    <div class="form-inline input-lr2 float-right">
                         <input v-for="c in toCharArray(maNgheNghiep)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                         <input v-for="c in toCharArray(maNgheNghiep)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-                    </form>
+                    </div>
                 </div>
             </div>
             <div class="row mb-2">
                 <div class="col-6">
                     <label><b class="text-primary mr-1">5.</b>Dân tộc:</label>
                     <span></span>
-                    <form class="form-inline input-lr2 float-right">
+                    <div class="form-inline input-lr2 float-right">
                         <input v-for="c in toCharArray(maDanToc)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                         <input v-for="c in toCharArray(maDanToc)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-                    </form>
+                    </div>
                 </div>
 
                 <div class="col-6">
                     <label><b class="text-primary mr-1">6.</b>Quốc tịch:</label>
                     <span></span>
-                    <form class="form-inline input-lr2 float-right">
+                    <div class="form-inline input-lr2 float-right">
                         <input v-for="c in toCharArray(maQuocTich)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                         <input v-for="c in toCharArray(maQuocTich)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-                    </form>
+                    </div>
                 </div>
             </div>
             <div class="row mb-2">
@@ -105,18 +105,18 @@
                 <div class="col-6">
                     <label class="ml-3">Huyện (Q, Tx):</label>
                     <span></span>
-                    <form class="form-inline input-lr2 float-right">
+                    <div class="form-inline input-lr2 float-right">
                         <input v-for="c in toCharArray(maQuanHuyen)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                         <input v-for="c in toCharArray(maQuanHuyen)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-                    </form>
+                    </div>
                 </div>
                 <div class="col-6">
                     <label>Tỉnh, thành phố:</label>
                     <span></span>
-                    <form class="form-inline input-lr2 float-right">
+                    <div class="form-inline input-lr2 float-right">
                         <input v-for="c in toCharArray(maTinhThanh)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                         <input v-for="c in toCharArray(maTinhThanh)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-                    </form>
+                    </div>
                 </div>
             </div>
             <div class="row mb-2">
@@ -141,12 +141,12 @@
                 </div>
                 <div class="col-6">
                     <label>Số thẻ BHYT:</label>
-                    <form class="form-inline input-lr2 float-right">
+                    <div class="form-inline input-lr2 float-right">
                         <input readonly :value="soTheBHYT.substring(0,2)" class="form-control form-control-sm text-placeholder w-60px">
                         <input readonly :value="soTheBHYT.substring(2,3)" class="form-control form-control-sm text-placeholder w-60px">
                         <input readonly :value="soTheBHYT.substring(3,5)" class="form-control form-control-sm text-placeholder w-60px">
                         <input readonly :value="soTheBHYT.substring(5)" class="form-control form-control-sm text-placeholder w-140px">
-                    </form>
+                    </div>
                 </div>
             </div>
 
@@ -165,9 +165,9 @@
                 </div>
                 <div class="col-6">
           <span>Điện thoại số:
-<!--            <form class="form-inline input-lr2 float-right">-->
+<!--            <div class="form-inline input-lr2 float-right">-->
 <!--              <input v-for="c in toCharArray(soDienThoai)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">-->
-<!--            </form>-->
+<!--            </div>-->
           </span>
                 </div>
             </div>
@@ -314,12 +314,12 @@
                     <div class="row mb-2">
                         <div class="col ml-4">
                             <span></span>
-                            <form class="form-inline input-lr2 float-right">
+                            <div class="form-inline input-lr2 float-right">
                                 <input v-for="c in toCharArray(chanDoanNoiDen.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chanDoanNoiDen.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chanDoanNoiDen.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chanDoanNoiDen.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-                            </form>
+                            </div>
                         </div>
                     </div>
 
@@ -331,12 +331,12 @@
                     <div class="row mb-2">
                         <div class="col ml-4">
                             <span></span>
-                            <form class="form-inline input-lr2 float-right">
+                            <div class="form-inline input-lr2 float-right">
                                 <input v-for="c in toCharArray(chanDoanKKB.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chanDoanKKB.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chanDoanKKB.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chanDoanKKB.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-                            </form>
+                            </div>
                         </div>
                     </div>
 
@@ -348,12 +348,12 @@
                     <div class="row mb-2">
                         <div class="col ml-4">
                             <span></span>
-                            <form class="form-inline input-lr2 float-right">
+                            <div class="form-inline input-lr2 float-right">
                                 <input v-for="c in toCharArray(chandoanVaoKhoaDieuTri.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chandoanVaoKhoaDieuTri.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chandoanVaoKhoaDieuTri.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chandoanVaoKhoaDieuTri.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-                            </form>
+                            </div>
                         </div>
                     </div>
 
@@ -374,19 +374,19 @@
                     <div class="col pr-0">
                         <label><b class="text-primary mr-1">23.</b>Tổng số ngày điều trị sau phẫu thuật:</label>
                         <span></span>
-                        <form class="form-inline input-lr2 float-right">
+                        <div class="form-inline input-lr2 float-right">
                             <input readonly class="form-control form-control-sm text-placeholder w-40px">
                             <input readonly class="form-control form-control-sm text-placeholder w-40px">
                             <input readonly class="form-control form-control-sm text-placeholder w-40px">
-                        </form>
+                        </div>
                     </div>
                     <div class="col pr-0">
                         <label><b class="text-primary mr-1">24.</b>Tổng số lần phẫu thuật</label>
                         <span></span>
-                        <form class="form-inline input-lr2 float-right">
+                        <div class="form-inline input-lr2 float-right">
                             <input readonly class="form-control form-control-sm text-placeholder w-40px">
                             <input readonly class="form-control form-control-sm text-placeholder w-40px">
-                        </form>
+                        </div>
                     </div>
                 </div>
 
@@ -402,12 +402,12 @@
                             <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh
                                 chính:</label><br>
                             <span></span>
-                            <form class="form-inline input-lr2 float-right">
+                            <div class="form-inline input-lr2 float-right">
                                 <input v-for="c in toCharArray(chanDoanRaVienChinh.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chanDoanRaVienChinh.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chanDoanRaVienChinh.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chanDoanRaVienChinh.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-                            </form>
+                            </div>
                         </div>
                     </div>
 
@@ -416,36 +416,36 @@
                             <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh kèm
                                 theo:</label><br>
                             <span></span>
-                            <form class="form-inline input-lr2 float-right">
+                            <div class="form-inline input-lr2 float-right">
                                 <input v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-                            </form>
+                            </div>
                         </div>
                     </div>
                     <div class="row mb-2">
                         <div class="col ml-4">
                             <label><i class="fas fa-fw bullet-small fa-circle"></i> Chẩn đoán trước phẫu thuật:</label><br>
                             <span></span>
-                            <form class="form-inline input-lr2 float-right">
+                            <div class="form-inline input-lr2 float-right">
                                 <input v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-                            </form>
+                            </div>
                         </div>
                     </div>
                     <div class="row mb-2">
                         <div class="col ml-4">
                             <label><i class="fas fa-fw bullet-small fa-circle"></i> Chẩn đoán sau phẫu thuật:</label><br>
                             <span></span>
-                            <form class="form-inline input-lr2 float-right">
+                            <div class="form-inline input-lr2 float-right">
                                 <input v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-                            </form>
+                            </div>
                         </div>
                     </div>
 
@@ -523,21 +523,21 @@
                     <div class="row mb-2">
                         <div class="col ml-4">
                             <span></span>
-                            <form class="form-inline input-lr2 float-right">
+                            <div class="form-inline input-lr2 float-right">
                                 <input v-for="c in toCharArray(nguyenNhanTuVong.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(nguyenNhanTuVong.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(nguyenNhanTuVong.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 <input v-for="c in toCharArray(nguyenNhanTuVong.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-                            </form>
+                            </div>
                         </div>
                     </div>
 
                     <div class="row mb-2">
                         <div class="col">
                             <label><b class="text-primary mr-1">30.</b>Khám nghiệm tử thi: </label>
-                            <form class="form-inline input-lr2 float-right">
+                            <div class="form-inline input-lr2 float-right">
                                  <input  readonly value="" class="form-control form-control-sm text-placeholder w-40px">
-                            </form>
+                            </div>
                         </div>
                     </div>
 
@@ -546,12 +546,12 @@
                             <label><b class="text-primary mr-1">31.</b>Chẩn đoán giải phẫu tử thi: </label>
                             <div class="col ml-3">
                                 <span></span>
-                                <form class="form-inline input-lr2 float-right">
+                                <div class="form-inline input-lr2 float-right">
                                     <input  readonly value="" class="form-control form-control-sm text-placeholder w-40px">
                                     <input  readonly value="" class="form-control form-control-sm text-placeholder w-40px">
                                     <input  readonly value="" class="form-control form-control-sm text-placeholder w-40px">
                                     <input  readonly value="" class="form-control form-control-sm text-placeholder w-40px">
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
