@@ -35,12 +35,12 @@ public class EmrQuanLyNguoiBenh {
     
     //public ObjectId bacsikhamId;
     
-    public EmrYSy bacsikham;    
+    public EmrCanboYte bacsikham;    
 
     public Integer tongsongaydieutri;
 
     //public String tenbacsichoravien;
-    public EmrYSy bacsichoravien;
+    public EmrCanboYte bacsichoravien;
 
     public String noichuyenden;
     

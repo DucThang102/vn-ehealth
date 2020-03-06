@@ -67,6 +67,7 @@
             <div class="row mb-2">
                 <div class="col-6">
                     <label><b class="text-primary mr-1">5.</b>Dân tộc:</label>
+
                     <span>{{hsba.emrBenhNhan.emrDmDanToc.ten}}</span>
                     <form class="form-inline input-lr2 float-right">
                         <input v-for="c in toCharArray(hsba.emrBenhNhan.emrDmDanToc.ma)" :value="c"  readonly class="form-control form-control-sm text-placeholder w-40px">
@@ -105,6 +106,7 @@
                     <form class="form-inline input-lr2 float-right">
                         <input v-for="c in toCharArray(hsba.emrBenhNhan.emrDmTinhThanh.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                     </form>
+
                 </div>
             </div>
             <div class="row mb-2">
@@ -129,12 +131,14 @@
                 </div>
                 <div class="col-6">
                     <label>Số thẻ BHYT:</label>
+
                     <form class="form-inline input-lr2 float-right">
                         <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(0,2)" class="form-control form-control-sm text-placeholder w-60px">
                         <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(2,3)" class="form-control form-control-sm text-placeholder w-60px">
                         <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(3,5)" class="form-control form-control-sm text-placeholder w-60px">
                         <input readonly :value="hsba.emrBenhNhan.sobhyt.substring(5)" class="form-control form-control-sm text-placeholder w-140px">
                     </form>
+
                 </div>
             </div>
 
@@ -153,9 +157,11 @@
                 </div>
                 <div class="col-6">
           <span>Điện thoại số:
+
               <form class="form-inline input-lr2 float-right">
                   <input v-for="c in toCharArray(hsba.emrBenhNhan.sodienthoainguoibaotin)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
               </form>
+
           </span>
                 </div>
             </div>
@@ -302,9 +308,11 @@
                     <div class="row mb-2">
                         <div class="col ml-4">
                             <span></span>
+
                             <form class="form-inline input-lr2 float-right">
                                 <input v-for="c in toCharArray(hsba.emrChanDoan.emrDmMaBenhChandoannoiden.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                             </form>
+
                         </div>
                     </div>
 
@@ -316,9 +324,11 @@
                     <div class="row mb-2">
                         <div class="col ml-4">
                             <span></span>
+
                             <form class="form-inline input-lr2 float-right">
                                 <input  v-for="c in toCharArray(hsba.emrChanDoan.emrDmMaBenhChandoankkb.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                             </form>
+
                         </div>
                     </div>
 
@@ -329,6 +339,7 @@
                     </div>
                     <div class="row mb-2">
                         <div class="col ml-4">
+
                             <span class="mr-5">T: {{hsba.emrChanDoan.emrDmMaBenhChandoandieutrichinh.T}}</span>
                             <span class="mr-5">N:{{hsba.emrChanDoan.emrDmMaBenhChandoandieutrichinh.N}}</span>
                             <span class="mr-5">M:{{hsba.emrChanDoan.emrDmMaBenhChandoandieutrichinh.M}}</span>
@@ -336,6 +347,7 @@
                             <form class="form-inline input-lr2 float-right">
                                 <input v-for="c in toCharArray(hsba.emrChanDoan.emrDmMaBenhChandoandieutrichinh.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                             </form>
+
                         </div>
                     </div>
 
@@ -367,6 +379,7 @@
 <!--                        <form class="form-inline input-lr2 float-right">-->
 <!--                            <input  v-for="c in toCharArray(hsba.emrChanDoan.tongsolanpt)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">&ndash;&gt;-->
 <!--                        </form>-->
+
                     </div>
                 </div>
 
@@ -381,6 +394,7 @@
                         <div class="col ml-4">
                             <label><i class="fas fa-fw bullet-small fa-circle"></i> Bệnh
                                 chính:</label><br>
+
                             <span>{{hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh.ten}}</span>
                             <form class="form-inline input-lr2 float-right">
                                 <input v-for="c in toCharArray(hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
@@ -389,6 +403,7 @@
                             <span class="mr-5">N:{{hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh.N}}</span>
                             <span class="mr-5">M:{{hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh.M}}</span>
                             <span>Giai đoạn: {{hsba.emrChanDoan.emrDmMaBenhChandoanravienchinh.giaidoan}}</span>
+
                         </div>
                     </div>
 
@@ -401,16 +416,17 @@
                                     <input v-for="(c in toCharArray(benh.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 </form>
                             </div>
-
                         </div>
                     </div>
                     <div class="row mb-2">
                         <div class="col ml-4">
                             <label><i class="fas fa-fw bullet-small fa-circle"></i> Chẩn đoán trước phẫu thuật:</label><br>
+
                             <div class="mt-4 ml-3"  v-for="benh in hsba.emrChanDoan.emrDmMaBenhChandoantruocpts">{{benh.ten}}
                                 <form class="form-inline input-lr2 float-right">
                                     <input v-for="(c in toCharArray(benh.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 </form>
+
                             </div>
                         </div>
                     </div>
@@ -423,6 +439,7 @@
                                     <input v-for="c in toCharArray(benh.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                                 </form>
                             </div>
+
 
                         </div>
                     </div>
@@ -500,19 +517,23 @@
 
                     <div class="row mb-2">
                         <div class="col ml-4">
+
                             <span>{{hsba.emrTinhTrangRaVien.motanguyennhantuvong}}</span>
                             <form class="form-inline input-lr2 float-right">
                                 <input v-for="c in toCharArray(hsba.emrTinhTrangRaVien.emrDmLyDoTuVong.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
                             </form>
+
                         </div>
                     </div>
 
                     <div class="row mb-2">
                         <div class="col">
                             <label><b class="text-primary mr-1">30.</b>Khám nghiệm tử thi: </label>
+
                             <form class="form-inline input-lr2 float-right">
                                 <input disabled :checked="hsba.emrTinhTrangRaVien.khamnghiemtuthi" type="checkbox" class="form-control form-control-sm text-placeholder w-40px ">
                             </form>
+
                         </div>
                     </div>
 
@@ -520,10 +541,12 @@
                         <div class="col">
                             <label><b class="text-primary mr-1">31.</b>Chẩn đoán giải phẫu tử thi: </label>
                             <div class="col ml-3">
+
                                 <span>{{hsba.emrTinhTrangRaVien.motagiaiphaututhi}}</span>
                                 <form class="form-inline input-lr2 float-right">
                                     <input v-for="c in hsba.emrTinhTrangRaVien.emrDmKetQuaGiaiPhauBenh.ma" :value="c" readonly value="" class="form-control form-control-sm text-placeholder w-40px">
                                 </form>
+
                             </div>
                         </div>
                     </div>

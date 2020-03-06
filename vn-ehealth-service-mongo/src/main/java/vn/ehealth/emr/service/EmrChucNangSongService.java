@@ -1,6 +1,7 @@
 package vn.ehealth.emr.service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.annotation.Nonnull;
@@ -8,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import vn.ehealth.emr.model.EmrChucNangSong;
+import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.repository.EmrChucNangSongRepository;
 import vn.ehealth.emr.repository.EmrHoSoBenhAnRepository;
 import vn.ehealth.emr.utils.Constants.TRANGTHAI_DULIEU;
@@ -61,5 +62,32 @@ public class EmrChucNangSongService {
             emrChucNangSongRepository.save(x);
             
         });
+    }
+    
+    public void createOrUpdateFromHIS(@Nonnull EmrHoSoBenhAn hsba, @Nonnull List<EmrChucNangSong> cnsList, @Nonnull List<Object> cnsObjList) {
+        for(int i = 0; i < cnsList.size(); i++) {
+            var cns = cnsList.get(i);
+            if(cns.idhis != null) {
+            	cns.id = emrChucNangSongRepository.findByIdhis(cns.idhis).map(x -> x.id).orElse(null);
+            }
+            @SuppressWarnings("unchecked")
+			var  cnsObject= (Map<String, Object>) cnsObjList.get(i);
+            @SuppressWarnings("unchecked")
+			Map<String, Object> emrDmKhoaDieuTri = (Map<String, Object>) cnsObject.get("emrDmKhoaDieuTri");
+            if (emrDmKhoaDieuTri != null && hsba.emrVaoKhoas != null) {
+            	var maKhoaDieuTri =  (String) emrDmKhoaDieuTri.get("ma");
+            	
+            	cns.emrKhoaDieuTri = hsba.emrVaoKhoas.stream()
+                      .filter(x -> x.emrDmKhoaDieuTri.ma.equals(maKhoaDieuTri))
+                      .findFirst()
+                      .orElse(null);
+            }
+            
+            cns.emrHoSoBenhAnId = hsba.id;
+            cns.emrBenhNhanId = hsba.emrBenhNhanId;
+            cns.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
+            cns = emrChucNangSongRepository.save(cns);
+            cnsList.set(i, cns);
+        }         
     }
 }

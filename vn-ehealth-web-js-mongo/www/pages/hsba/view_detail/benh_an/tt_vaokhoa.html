@@ -1,0 +1,18 @@
+<div>
+  <table class="table table-bordered" v-if="hsba.emrVaoKhoas && hsba.emrVaoKhoas.length >= 1">
+    <thead>
+      <tr>
+        <th class="text-center" style="width:35%">Khoa</th>
+        <th class="text-center" style="width:35%">Ngày giờ vào khoa</th>
+        <th class="text-center" style="width:30%">Số ngày điều trị</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{getTenKhoa(hsba.emrVaoKhoas[0])}}</td>
+        <td class="text-center">{{formatNgayGio(hsba.emrVaoKhoas[0].ngaygiovaokhoa)}}</td>
+        <td class="text-center">{{hsba.emrVaoKhoas[0].songaydieutri}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

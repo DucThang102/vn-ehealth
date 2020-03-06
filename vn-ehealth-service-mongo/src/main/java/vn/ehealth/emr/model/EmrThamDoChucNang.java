@@ -31,7 +31,7 @@ public class EmrThamDoChucNang {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     public Date ngayyeucau;
     
-    public EmrYSy bacsiyeucau;
+    public EmrCanboYte bacsiyeucau;
     public String noidungyeucau;
     
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
@@ -40,7 +40,7 @@ public class EmrThamDoChucNang {
     public String ketqua;
     public String ketluan;
     public String loidan;
-    public EmrYSy bacsichuyenkhoa;
+    public EmrCanboYte bacsichuyenkhoa;
     
     public List<EmrFileDinhKem> emrFileDinhKemTdcns = new ArrayList<>();
     

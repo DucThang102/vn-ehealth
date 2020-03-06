@@ -2,6 +2,8 @@ package vn.ehealth.emr.controller;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
@@ -20,7 +22,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import vn.ehealth.emr.model.EmrGiaiPhauBenh;
 import vn.ehealth.emr.service.EmrGiaiPhauBenhService;
+import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.utils.EmrUtils;
+import vn.ehealth.emr.validate.JsonParser;
 
 @RestController
 @RequestMapping("/api/gpb")
@@ -29,7 +33,9 @@ public class EmrGiaiPhauBenhController {
     private Logger logger = LoggerFactory.getLogger(EmrGiaiPhauBenhController.class);
     @Autowired 
     private EmrGiaiPhauBenhService emrGiaiPhauBenhService;
+    @Autowired EmrHoSoBenhAnService emrHoSoBenhAnService;
     
+    private JsonParser jsonParser = new JsonParser();
     private ObjectMapper objectMapper = EmrUtils.createObjectMapper();
     
     @GetMapping("/get_ds_gpb")
@@ -76,6 +82,39 @@ public class EmrGiaiPhauBenhController {
                 "errors", List.of(e.getMessage()) 
             );
             logger.error("Error save gbp:", e);
+            return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+        }
+    }
+    
+    @SuppressWarnings("unchecked")
+    @PostMapping("/create_or_update_gpb")
+    public ResponseEntity<?> createOrUpdateGpbFromHIS(@RequestBody String jsonSt) {
+        try {
+            var map = jsonParser.parseJson(jsonSt);
+            var matraodoiHsba = (String) map.get("matraodoiHoSo");
+            var hsba = emrHoSoBenhAnService.getByMatraodoi(matraodoiHsba).orElseThrow();
+            
+            var gpbObjList = (List<Object>) map.get("emrGiaiPhauBenhs");
+            var gpbList = gpbObjList.stream()
+                                .map(obj -> objectMapper.convertValue(obj, EmrGiaiPhauBenh.class))
+                                .collect(Collectors.toList());
+            
+            emrGiaiPhauBenhService.createOrUpdateFromHIS(hsba, gpbList);
+            
+            var result = Map.of(
+                "success" , true,
+                "gpbList", gpbList  
+            );
+            
+            return ResponseEntity.ok(result);
+            
+        }catch(Exception e) {
+            var error = Optional.ofNullable(e.getMessage()).orElse("Unknown error");
+            var result = Map.of(
+                "success" , false,
+                "error", error 
+            );
+            logger.error("Error save GiaiPhauBenh from HIS:", e);
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
     }

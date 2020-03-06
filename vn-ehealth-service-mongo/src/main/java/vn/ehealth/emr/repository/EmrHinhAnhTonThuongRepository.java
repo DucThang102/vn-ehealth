@@ -1,6 +1,7 @@
 package vn.ehealth.emr.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -11,4 +12,5 @@ public interface EmrHinhAnhTonThuongRepository extends MongoRepository<EmrHinhAn
 
     public List<EmrHinhAnhTonThuong> findByEmrHoSoBenhAnIdAndTrangThai(ObjectId emrHoSoBenhAnId, int trangThai);
     public List<EmrHinhAnhTonThuong> findByEmrBenhNhanIdAndTrangThai(ObjectId emrBenhNhanId, int trangThai);
+    public Optional<EmrHinhAnhTonThuong> findByIdhis(String idhis);
 }

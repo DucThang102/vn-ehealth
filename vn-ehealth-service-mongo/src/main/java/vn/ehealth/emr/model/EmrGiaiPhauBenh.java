@@ -34,8 +34,8 @@ public class EmrGiaiPhauBenh {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     public Date ngayyeucau;
     
-    public EmrYSy bacsiyeucau;
-    public EmrYSy bacsichuyenkhoa;
+    public EmrCanboYte bacsiyeucau;
+    public EmrCanboYte bacsichuyenkhoa;
     
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     public Date ngaythuchien;

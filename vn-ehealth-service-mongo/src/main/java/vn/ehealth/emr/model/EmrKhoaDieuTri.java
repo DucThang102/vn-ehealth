@@ -18,7 +18,7 @@ public class EmrKhoaDieuTri {
 
     public String tenkhoa;
 
-    public EmrYSy bacsidieutri;
+    public EmrCanboYte bacsidieutri;
 
     public String phong;
 
