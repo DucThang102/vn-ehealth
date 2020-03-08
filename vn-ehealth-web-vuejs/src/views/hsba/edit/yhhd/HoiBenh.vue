@@ -1,0 +1,33 @@
+<template>
+  <div v-if="hsba">
+    <div class="row mt-3">
+      <div class="col-8">
+        <label>Lý do vào viện</label>
+        <span style="color: red;">(*)</span>
+        <textarea rows="3" class="form-control" v-model="hsba.emrBenhAn.lydovaovien"></textarea>
+      </div>
+      <div class="col-4">
+        <label>Vào ngày thứ ... của bệnh</label>
+        <input class="form-control" v-model="hsba.emrBenhAn.vaongaythu" />
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-12">
+        <label>Quá trình bệnh lý</label>
+        <textarea rows="3" class="form-control" v-model="hsba.emrBenhAn.quatrinhbenhly"></textarea>
+      </div>
+    </div>
+
+    <div class="mt-3 mb-3">
+      <button v-on:click="saveHsba()" class="btn btn-sm btn-primary">Lưu lại</button>
+    </div>
+  </div>
+</template>
+
+<script>
+import mixin from "./Mixin.vue";
+
+export default {
+  mixins: [mixin], 
+};
+</script>

@@ -1,0 +1,155 @@
+<template>
+  <div v-if="gpbList">
+    <table class="table table-bordered">
+      <tr>
+        <th style="width: 5%;" class="text-center">STT</th>
+        <th style="width: 15%;" class="text-center">Thao tác</th>
+        <th style="width: 30%;" class="text-center">Giải phẫu bệnh</th>
+        <th style="width: 30%;" class="text-center">Loại giải phẫu bệnh</th>
+        <th style="width: 20%;" class="text-center">Ngày thực hiện</th>
+      </tr>
+      <tr v-for="(gpb, i) in gpbList" :key="gpb.id">
+        <td class="text-center">{{ i + 1 }}</td>
+        <td class="text-center">
+          <a href="#" v-on:click="viewGpb(gpb)">
+            <i class="fas fa-fw fa-binoculars"></i> Xem
+          </a>
+        </td>
+        <td class="text-center">{{ gpb.emrDmGiaiPhauBenh.ten }}</td>
+        <td class="text-center">{{ gpb.emrDmLoaiGiaiPhauBenh.ten }}</td>
+        <td class="text-center">{{ formatDateTime(gpb.ngaythuchien) }}</td>
+      </tr>
+      <tr v-if="gpbList.length==0">
+        <td colspan="5">Không có dữ liệu</td>
+      </tr>
+    </table>
+
+    <div class="modal fade" id="gpbModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              <strong>Thông tin giải phẫu bệnh</strong>
+            </h5>
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div v-if="gpb" class="modal-body">
+            <TomTat :hsbaId="hsbaId" title="PHIẾU GIẢI PHẪU BỆNH"></TomTat>
+            <hr />
+            <font size="2.5">
+              <div class="row">
+                <div class="col-12">
+                  <b>Giải phẫu bệnh: {{ gpb.emrDmGiaiPhauBenh.ten }}</b>
+                  <br />
+                  <span>
+                    - Loại giải phẫu bệnh: {{ gpb.emrDmLoaiGiaiPhauBenh.ten
+                    }}
+                  </span>
+                  <br />
+                  <span>- Ngày yêu cầu: {{ formatDateTime(gpb.ngayyeucau) }}</span>
+                  <br />
+                  <span>- Bác sỹ yêu cầu: {{ attr(gpb, 'bacsiyeucau.ten') }}</span>
+                  <br />
+                  <span>- Ngày thực hiện: {{ formatDateTime(gpb.ngaythuchien) }}</span>
+                  <br />
+                  <span>- Bác sĩ thực hiện: {{ attr(gpb, 'bacsichuyenkhoa.ten') }}</span>
+                  <br />
+                  <span>
+                    - Vị trí mẫu sinh thiết: {{ gpb.emrDmViTriLayMau.ten
+                    }}
+                  </span>
+                  <br />
+                </div>
+              </div>
+              <hr />
+              <div class="row">
+                <div class="col-12">
+                  <b>
+                    <span>Nhận xét đại thể</span>
+                    <br />
+                  </b>
+                  <span>{{ gpb.nhanxetdaithe }}</span>
+                </div>
+              </div>
+              <hr />
+              <div class="row">
+                <div class="col-12">
+                  <b>
+                    <span>Nhận xét vi thể</span>
+                    <br />
+                  </b>
+                  <span>{{ gpb.nhanxetvithe }}</span>
+                </div>
+              </div>
+              <hr />
+              <div class="row">
+                <div class="col-12">
+                  <b>
+                    <span>Chẩn đoán giải phẫu</span>
+                    <br />
+                  </b>
+                  <span>{{ gpb.motachandoangiaiphau }}</span>
+                </div>
+              </div>
+              <div v-if="gpb.emrFileDinhKemGpbs.length > 0">
+                <hr />
+                <b>Danh sách file đính kèm:</b>
+                <table class="table table-bordered mt-3">
+                  <tr>
+                    <th style="width:10%" class="text-center">STT</th>
+                    <th style="width:90%" class="text-center">Tên file</th>
+                  </tr>
+                  <tr v-for="(file, i) in gpb.emrFileDinhKemGpbs" :key="file.id">
+                    <td>{{ i + 1 }}</td>
+                    <td>
+                      <a :href="file.url">{{ file.ten }}</a>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </font>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng lại</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import TomTat from "@/components/hsba/view_detail/TomTat.vue";
+
+export default {
+  components: {
+    TomTat
+  },
+
+  props: ["hsbaId"],
+
+  data() {
+    return {
+      gpbList: null,
+      gpb: null
+    };
+  },
+
+  methods: {
+    viewGpb: function(gpb) {
+      this.gpb = gpb;
+      $("#gpbModal").modal();
+    }
+  },
+
+  created: async function() {
+    this.gpbList = await this.get("/api/gpb/get_ds_gpb", {
+      hsba_id: this.hsbaId
+    });
+  }
+};
+</script>

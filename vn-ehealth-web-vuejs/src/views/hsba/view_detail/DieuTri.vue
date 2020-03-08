@@ -1,0 +1,153 @@
+<template>
+  <div v-if="dieutriList">
+    <table class="table table-bordered">
+      <tr>
+        <th style="width: 5%;" class="text-center">STT</th>
+        <th style="width: 15%;" class="text-center">Thao tác</th>
+        <th style="width: 20%;" class="text-center">Số tờ điều trị</th>
+        <th style="width: 30%;" class="text-center">Khoa điều trị</th>
+        <th style="width: 30%;" class="text-center">Ngày điều trị</th>
+      </tr>
+      <tr v-for="(dieutri, i) in dieutriList" :key="dieutri.id">
+        <td class="text-center">{{ i + 1 }}</td>
+        <td class="text-center">
+          <a href="#" v-on:click="viewDieutri(dieutri)">
+            <i class="fas fa-fw fa-binoculars"></i> Xem
+          </a>
+        </td>
+        <td class="text-center">{{ dieutri.sotodieutri }}</td>
+        <td class="text-center">{{ getTenKhoa(dieutri.emrVaoKhoa) }}</td>
+        <td class="text-center">{{ dieutri.ngaydieutri }}</td>
+      </tr>
+      <tr v-if="dieutriList.length==0">
+        <td colspan="5">Không có dữ liệu</td>
+      </tr>
+    </table>
+
+    <div class="modal fade" id="dieutriModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              <strong>Thông tin điều trị</strong>
+            </h5>
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div v-if="dieutri" class="modal-body">
+            <TomTat :hsbaId="hsbaId" title="PHIẾU ĐIỀU TRỊ"></TomTat>
+            <hr />
+            <div>
+              <meta charset="UTF-8" />
+              <table border="1" cellpadding="10" class="table table-bordered">
+                <font size="2.5">
+                  <div class="row">
+                    <div class="col-12">
+                      <b>Tờ điều trị số: {{ dieutri.sotodieutri }}</b>
+                      <br />
+                      <span>- Tại khoa: {{ getTenKhoa(dieutri.emrVaoKhoa) }}</span>
+                      <br />
+                    </div>
+                  </div>
+                  <table class="table table-bordered mt-3">
+                    <tr>
+                      <th style="width:5%" class="text-center">STT</th>
+                      <th style="width:15%" class="text-center">Ngày thực hiện</th>
+                      <th style="width:35%" class="text-center">Diễn biến người bệnh</th>
+                      <th style="width:25%" class="text-center">Y lệnh</th>
+                      <th style="width:20%" class="text-center">Bác sĩ ra y lệnh</th>
+                    </tr>
+                    <tr v-for="(qtdt, i) in dieutri.emrQuaTrinhDieuTris" :key="qtdt.id">
+                      <td>{{ i + 1 }}</td>
+                      <td>{{ formatDate(qtdt.ngaydieutri) }}</td>
+                      <td>{{ qtdt.dienbien }}</td>
+                      <td>{{ qtdt.ylenh }}</td>
+                      <td>{{ attr(qtdt, 'bacsiraylenh.ten') }}</td>
+                    </tr>
+                  </table>
+
+                  <div v-if="dieutri.emrFileDinhKemDieuTris.length > 0">
+                    <hr />
+                    <b>Danh sách file đính kèm:</b>
+                    <table class="table table-bordered mt-3">
+                      <tr>
+                        <th style="width:10%" class="text-center">STT</th>
+                        <th style="width:90%" class="text-center">Tên file</th>
+                      </tr>
+                      <tr v-for="(file, i) in dieutri.emrFileDinhKemDieuTris" :key="file.id">
+                        <td>{{ i + 1 }}</td>
+                        <td>
+                          <a :href="file.url">{{ file.ten }}</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </font>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng lại</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import TomTat from "@/components/hsba/view_detail/TomTat.vue";
+
+export default {
+  components: {
+    TomTat
+  },
+
+  props: ["hsbaId"],
+
+  data() {
+    return {
+      dieutriList: null,
+      dieutri: null
+    };
+  },
+
+  methods: {
+    viewDieutri: function(dieutri) {
+      this.dieutri = dieutri;
+      $("#dieutriModal").modal();
+    },
+
+    getNgayDieuTri: function(dieutri) {
+      var ngayDieuTris = dieutri.emrQuaTrinhDieuTris.map(x => x.ngaydieutri);
+      ngayDieuTris = ngayDieuTris.sort(x => parseDate(x).getTime());
+
+      if (ngayDieuTris.length == 0) {
+        return "";
+      }
+      
+      let ngayBatDau = ngayDieuTris[0];
+      ngayBatDau = ngayBatDau ? this.formatDate(ngayBatDau) : "";
+
+      let ngayKetThuc = ngayDieuTris[ngayDieuTris.length - 1];
+      ngayKetThuc = ngayKetThuc ? this.formatDate(ngayKetThuc) : "";
+
+      if (ngayBatDau == ngayKetThuc) {
+        return ngayBatDau;
+      } else {
+        return "Từ " + ngayBatDau + " đến " + ngayKetThuc;
+      }
+    },
+    getTenKhoa: function(khoadieutri) {
+      return khoadieutri.tenkhoa || this.attr(khoadieutri, "emrDmKhoaDieuTri.ten");
+    }
+  },
+
+  created: async function() {
+    this.dieutriList = await this.get("/api/dieutri/get_ds_dieutri", {
+      hsba_id: this.hsbaId
+    });
+  }
+};
+</script>

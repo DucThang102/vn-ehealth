@@ -1,0 +1,173 @@
+<template>
+  <div v-if="chucnangsongList">
+    <table class="table table-bordered">
+      <tr>
+        <th style="width: 5%;" class="text-center">STT</th>
+        <th style="width: 15%;" class="text-center">Thao tác</th>
+        <th style="width: 20%;" class="text-center">Số theo dõi</th>
+        <th style="width: 30%;" class="text-center">Khoa điều trị</th>
+        <th style="width: 30%;" class="text-center">Ngày theo dõi</th>
+      </tr>
+      <tr v-for="(chucnangsong, i) in chucnangsongList" :key="chucnangsong.id">
+        <td class="text-center">{{ i + 1 }}</td>
+        <td class="text-center">
+          <a href="#" v-on:click="viewChucnangsong(chucnangsong)">
+            <i class="fas fa-fw fa-binoculars"></i> Xem
+          </a>
+        </td>
+        <td class="text-center">{{ chucnangsong.sophieu }}</td>
+        <td class="text-center">{{ getTenKhoa(chucnangsong.emrVaoKhoa) }}</td>
+        <td class="text-center">{{ chucnangsong.ngaytheodoi }}</td>
+      </tr>
+      <tr v-if="chucnangsongList.length==0">
+        <td colspan="5">Không có dữ liệu</td>
+      </tr>
+    </table>
+
+    <div class="modal fade" id="chucnangsongModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              <strong>Thông tin theo dõi chức năng sống</strong>
+            </h5>
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div v-if="chucnangsong" class="modal-body">
+            <TomTat :hsbaId="hsbaId" title="PHIẾU THEO DÕI CHỨC NĂNG SỐNG"></TomTat>
+            <hr />
+            <div>
+              <meta charset="UTF-8" />
+              <table border="1" cellpadding="10" class="table table-bordered">
+                <font size="2.5">
+                  <div class="row">
+                    <div class="col-12">
+                      <b>
+                        Phiếu theo dõi chức năng sống số: {{ chucnangsong.sophieu
+                        }}
+                      </b>
+                      <br />
+                      <span>
+                        - Tại khoa: {{ getTenKhoa(chucnangsong.emrVaoKhoa)
+                        }}
+                      </span>
+                      <br />
+                    </div>
+                  </div>
+                  <table class="table table-bordered mt-3">
+                    <tr>
+                      <th style="width:5%" class="text-center">STT</th>
+                      <th style="width:20%" class="text-center">Ngày thực hiện</th>
+                      <th style="width:10%" class="text-center">Mạch</th>
+                      <th style="width:10%" class="text-center">Nhiệt độ</th>
+                      <th style="width:10%" class="text-center">Huyết áp</th>
+                      <th style="width:10%" class="text-center">Cân nặng</th>
+                      <th style="width:10%" class="text-center">Nhịp thở</th>
+                      <th style="width:25%" class="text-center">Y tá thực hiện</th>
+                    </tr>
+                    <tr v-for="(cnsct, i) in chucnangsong.emrChucNangSongChiTiets" :key="cnsct.id">
+                      <td>{{ i + 1}}</td>
+                      <td>{{ formatDate(cnsct.ngaytheodoi) }}</td>
+                      <td class="text-center">{{ cnsct.mach }}</td>
+                      <td class="text-center">{{ cnsct. nhietdo }}</td>
+                      <td class="text-center">{{ cnsct.huyetapcao}}/{{ cnsct.huyetapthap }}</td>
+                      <td class="text-center">{{ cnsct.cannang }}</td>
+                      <td class="text-center">{{ cnsct.nhiptho }}</td>
+                      <td class="text-center">{{ attr(cnsct, 'ytatheodoi.ten') }}</td>
+                    </tr>
+                  </table>
+
+                  <div v-if="chucnangsong.emrFileDinhKemChucNangSongs.length > 0">
+                    <hr />
+                    <b>Danh sách file đính kèm:</b>
+                    <table class="table table-bordered mt-3">
+                      <tr>
+                        <th style="width:10%" class="text-center">STT</th>
+                        <th style="width:90%" class="text-center">Tên file</th>
+                      </tr>
+                      <tr
+                        v-for="(file, i) in chucnangsong.emrFileDinhKemChucNangSongs"
+                        :key="file.id"
+                      >
+                        <td>{{ i + 1 }}</td>
+                        <td>
+                          <a :href="file.url">{{ file.ten }}</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </font>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng lại</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import TomTat from "@/components/hsba/view_detail/TomTat.vue";
+
+export default {
+  components: {
+    TomTat
+  },
+
+  props: ["hsbaId"],
+
+  data() {
+    return {
+      chucnangsongList: null,
+      chucnangsong: null
+    };
+  },
+
+  methods: {
+    viewChucnangsong: function(chucnangsong) {
+      this.chucnangsong = chucnangsong;
+      $("#chucnangsongModal").modal();
+    },
+    getNgayTheoDoi: function(chucnangsong) {
+      var ngayChamSocs = chucnangsong.emrChucNangSongChiTiets.map(x => x.ngaychamsoc);
+      ngayChamSocs = ngayChamSocs.sort(x => parseDate(x).getTime());
+
+      if (ngayChamSocs.length == 0) {
+        return "";
+      }
+
+      let ngayBatDau = ngayChamSocs[0];
+      ngayBatDau = ngayBatDau ? this.formatDate(ngayBatDau) : "";
+
+      let ngayKetThuc = ngayChamSocs[ngayChamSocs.length - 1];
+      ngayKetThuc = ngayKetThuc ? this.formatDate(ngayKetThuc) : "";
+
+      if (ngayBatDau == ngayKetThuc) {
+        return ngayBatDau;
+      } else {
+        return "Từ " + ngayBatDau + " đến " + ngayKetThuc;
+      }
+    },
+    getTenKhoa: function(khoadieutri) {
+      return (
+        khoadieutri.tenkhoa || this.attr(khoadieutri, "emrDmKhoaDieuTri.ten")
+      );
+    }
+  },
+
+  created: async function() {
+    this.chucnangsongList = await this.get(
+      "/api/chucnangsong/get_ds_chucnangsong",
+      { hsba_id: this.hsbaId }
+    );
+    this.chucnangsongList.forEach(x => {
+      x.ngaytheodoi = this.getNgayTheoDoi(x);
+    });
+  }
+};
+</script>

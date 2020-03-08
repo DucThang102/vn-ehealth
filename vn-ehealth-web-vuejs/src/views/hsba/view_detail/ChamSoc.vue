@@ -1,0 +1,162 @@
+<template>
+  <div v-if="chamsocList">
+    <table class="table table-bordered">
+      <tr>
+        <th style="width: 5%;" class="text-center">STT</th>
+        <th style="width: 15%;" class="text-center">Thao tác</th>
+        <th style="width: 20%;" class="text-center">Số tờ chăm sóc</th>
+        <th style="width: 30%;" class="text-center">Khoa điều trị</th>
+        <th style="width: 30%;" class="text-center">Ngày chăm sóc</th>
+      </tr>
+      <tr v-for="(chamsoc, i) in chamsocList" :key="chamsoc.id">
+        <td class="text-center">{{ i + 1 }}</td>
+        <td class="text-center">
+          <a href="#" v-on:click="viewChamsoc(chamsoc)">
+            <i class="fas fa-fw fa-binoculars"></i> Xem
+          </a>
+        </td>
+        <td class="text-center">{{ chamsoc.sotochamsoc }}</td>
+        <td class="text-center">{{ getTenKhoa(chamsoc.emrVaoKhoa) }}</td>
+        <td class="text-center">{{ chamsoc.ngaychamsoc }}</td>
+      </tr>
+      <tr v-if="chamsocList.length==0">
+        <td colspan="5">Không có dữ liệu</td>
+      </tr>
+    </table>
+
+    <div class="modal fade" id="chamsocModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              <strong>Thông tin chăm sóc bệnh nhân</strong>
+            </h5>
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div v-if="chamsoc" class="modal-body">
+            <TomTat :hsbaId="hsbaId" title="PHIẾU CHĂM SÓC BỆNH NHÂN"></TomTat>
+            <hr />
+            <div>
+              <meta charset="UTF-8" />
+              <table border="1" cellpadding="10" class="table table-bordered">
+                <font size="2.5">
+                  <div class="row">
+                    <div class="col-12">
+                      <b>Phiếu chăm sóc số: {{ chamsoc.sotochamsoc }}</b>
+                      <br />
+                      <span>
+                        - Tại khoa: {{ chamsoc.emrVaoKhoa.tenkhoa ||
+                        chamsoc.emrVaoKhoa.emrDmKhoaDieuTri.ten }}
+                      </span>
+                      <br />
+                    </div>
+                  </div>
+
+                  <table class="table table-bordered mt-3">
+                    <tr>
+                      <th style="width:5%" class="text-center">STT</th>
+                      <th style="width:15%" class="text-center">Ngày thực hiện</th>
+                      <th style="width:35%" class="text-center">Diễn biến người bệnh</th>
+                      <th style="width:25%" class="text-center">Thực hiện y lệnh/chăm sóc</th>
+                      <th style="width:20%" class="text-center">Y tá chăm sóc</th>
+                    </tr>
+                    <tr v-for="(qtcs, i) in chamsoc.emrQuaTrinhChamSocs" :key="qtcs.id">
+                      <td>{{ i + 1}}</td>
+                      <td>{{ formateDate(qtcs.ngaychamsoc) }}</td>
+                      <td>{{ qtcs.theodoidienbien }}</td>
+                      <td>{{ qtcs.thuchienylenh }}</td>
+                      <td>{{ attr(qtcs, 'ytachamsoc.ten') }}</td>
+                    </tr>
+                  </table>
+
+                  <div v-if="chamsoc.emrFileDinhKemChamSocs.length > 0">
+                    <hr />
+                    <b>Danh sách file đính kèm:</b>
+                    <table class="table table-bordered mt-3">
+                      <tr>
+                        <th style="width:10%" class="text-center">STT</th>
+                        <th style="width:90%" class="text-center">Tên file</th>
+                      </tr>
+                      <tr v-for="(file, i) in chamsoc.emrFileDinhKemChamSocs" :key="file.id">
+                        <td>{{ i + 1 }}</td>
+                        <td>
+                          <a :href="file.url">{{ file.ten }}</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </font>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng lại</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import TomTat from "@/components/hsba/view_detail/TomTat.vue";
+
+export default {
+  components: {
+    TomTat
+  },
+
+  props: ["hsbaId"],
+
+  data() {
+    return {
+      chamsocList: null,
+      chamsoc: null
+    };
+  },
+
+  methods: {
+    viewChamsoc: function(chamsoc) {
+      this.chamsoc = chamsoc;
+      $("#chamsocModal").modal();
+    },
+    getNgayChamSoc: function(chamsoc) {
+      var ngayChamSocs = chamsoc.emrQuaTrinhChamSocs.map(x => x.ngaychamsoc);
+      ngayChamSocs = ngayChamSocs.sort(x => parseDate(x).getTime());
+
+      if (ngayChamSocs.length == 0) {
+        return "";
+      }
+
+      let ngayBatDau = ngayChamSocs[0];
+      ngayBatDau = ngayBatDau ? this.formatDate(ngayBatDau) : "";
+
+      let ngayKetThuc = ngayChamSocs[ngayChamSocs.length - 1];
+      ngayKetThuc = ngayKetThuc ? this.formatDate(ngayKetThuc) : "";
+
+      if (ngayBatDau == ngayKetThuc) {
+        return ngayBatDau;
+      } else {
+        return "Từ " + ngayBatDau + " đến " + ngayKetThuc;
+      }
+    },
+    getTenKhoa: function(khoadieutri) {
+      return (
+        khoadieutri.tenkhoa || this.attr(khoadieutri, "emrDmKhoaDieuTri.ten")
+      );
+    }
+  },
+
+  created: async function() {
+    this.chamsocList = await this.get("/api/chamsoc/get_ds_chamsoc", {
+      hsba_id: this.hsbaId
+    });
+
+    this.chamsocList.forEach(x => {
+      x.ngaychamsoc = this.getNgayChamSoc(x);
+    });
+  }
+};
+</script>

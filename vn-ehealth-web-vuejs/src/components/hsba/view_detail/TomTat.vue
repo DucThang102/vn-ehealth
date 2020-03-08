@@ -1,0 +1,66 @@
+<template>
+  <div v-if="hsba">
+    <div class="row">
+      <div class="col-8">
+        <span>{{ hsba.emrCoSoKhamBenh.donvichuquan }}</span>
+        <br />
+        <span>BV: {{ hsba.emrCoSoKhamBenh.ten }}</span>
+      </div>
+      <div class="col-4">
+        <span>Số lưu trữ: {{ hsba.maluutru }}</span>
+        <br />
+        <span>Mã y tế:</span>
+        <span>{{ hsba.mayte }}</span>
+      </div>
+    </div>
+    <div style="text-align: center;" class="mt-3 mb-3">
+      <h3>{{ title }}</h3>
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <span>Tên bệnh nhân:</span>
+        <b>
+          <span class="text-uppercase">{{ hsba.emrBenhNhan.tendaydu }}</span>
+        </b>
+        <br />
+        <span>Ngày sinh:</span>
+        <span>{{ formatDate(hsba.emrBenhNhan.ngaysinh) }}</span>
+        <br />
+        <span>Ngày vào viện:</span>
+        <span>{{  formatDateTime(hsba.emrQuanLyNguoiBenh.ngaygiovaovien) }}</span>
+        <br />
+      </div>
+      <div class="col-4">
+        <span>Giới tính:</span>
+        <span>{{ hsba.emrBenhNhan.emrDmGioiTinh.ten }}</span>
+        <br />
+        <span>Tuổi:</span>
+        <span>{{ hsba.tuoiBenhNhan.tuoi }}</span>
+        <span v-if="hsba.tuoiBenhNhan.donvi == 2"> tháng</span>
+        <span v-if="hsba.tuoiBenhNhan.donvi == 3"> ngày</span>
+        <br />
+        <span>Ngày ra viện:</span>
+        <span>{{ formatDateTime(hsba.emrQuanLyNguoiBenh.ngaygioravien) }}</span>
+        <br />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      hsba: null
+    }
+  },
+
+  props: ["hsbaId", "title"],
+
+  created: async function() {
+    this.hsba = await this.get("/api/hsba/get_hsba_by_id", {
+        hsba_id: this.hsbaId
+    });
+  }
+};
+</script>

@@ -1,0 +1,235 @@
+<template>
+  <div>
+    <div class="row">
+      <div class="col-3">
+        <div class="widget-panel widget-style-2 bg-white">
+          <i class="fa fa-user text-pink"></i>
+          <h2 class="m-0 counter">{{totalPatient}}</h2>
+          <div>Tổng số B/nhân</div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="widget-panel widget-style-2 bg-white">
+          <i class="fa fa-comment text-purple"></i>
+          <h2 class="m-0 counter">{{totalEncounter}}</h2>
+          <div>Số lượt thăm khám</div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="widget-panel widget-style-2 bg-white">
+          <i class="fa fa-stethoscope text-info"></i>
+          <h2 class="m-0 counter">2</h2>
+          <div>Số dịch vụ KT</div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="widget-panel widget-style-2 bg-white">
+          <i class="fa fa-medkit text-success"></i>
+          <h2 class="m-0 counter">2</h2>
+          <div>Đơn thuốc đã kê</div>
+        </div>
+      </div>
+    </div>
+    <!-- end row -->
+
+    <div class="row">
+      <div class="col-4">
+        <div class="portlet p-3">
+          <h3 class="text-blue text-uppercase">Danh sách công việc</h3>
+          <div class="row mt-3">
+            <div class="col-8">
+              <h4 id="todo-message">
+                <span>3</span> of
+                <span>7</span> remaining
+              </h4>
+            </div>
+            <div class="col-4">
+              <a href class="float-right btn btn-primary btn-sm" id="btn-archive">Archive</a>
+            </div>
+          </div>
+          <ul tabindex="5000" class="list-group no-margn nicescroll todo-list">
+            <li class="list-group-item">
+              <div class="form-check">
+                <input checked="checked" class="form-check-input todo-done" type="checkbox" />
+                <label class="form-check-label">Thực hiện tiểu phẫu</label>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="form-check">
+                <input class="form-check-input todo-done" type="checkbox" />
+                <label class="form-check-label">Tổng kết ra viện (2 bệnh nhân)</label>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="form-check">
+                <input class="form-check-input todo-done" type="checkbox" />
+                <label class="form-check-label">Lịch hẹn tái khám (3 cuộc hẹn hôm nay)</label>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="form-check">
+                <input checked="checked" class="form-check-input todo-done" type="checkbox" />
+                <label class="form-check-label">Họp hội đồng chuyên môn</label>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="form-check">
+                <input checked="checked" class="form-check-input todo-done" type="checkbox" />
+                <label class="form-check-label">Kiểm tra tình trạng hậu phẫu</label>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="form-check">
+                <input checked="checked" class="form-check-input todo-done" type="checkbox" />
+                <label class="form-check-label">Kê đơn thuốc cho bệnh nhân nội trú</label>
+              </div>
+            </li>
+          </ul>
+
+          <form name="todo-form" id="todo-form" role="form" class="m-t-20">
+            <div class="row">
+              <div class="col-sm-9 todo-inputbar">
+                <input
+                  id="todo-input-text"
+                  name="todo-input-text"
+                  class="form-control"
+                  placeholder="Add new todo"
+                  type="text"
+                />
+              </div>
+              <div class="col-sm-3 todo-send">
+                <button class="btn-primary btn-block btn" type="button" id="todo-btn-submit">Add</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="portlet p-3">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Tên bệnh nhân</th>
+                <th>Ngày bắt đầu</th>
+                <th>Ngày kết thúc</th>
+                <th>Tình trạng</th>
+                <th>Bác sĩ điều trị</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Bệnh nhân 01</td>
+                <td>01/01/2015</td>
+                <td>26/04/2015</td>
+                <td>
+                  <span class="badge badge-info">Released</span>
+                </td>
+                <td>Bác sĩ Nội trú</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Bệnh nhân 02</td>
+                <td>01/01/2015</td>
+                <td>26/04/2015</td>
+                <td>
+                  <span class="badge badge-success">Released</span>
+                </td>
+                <td>Bác sĩ Nội trú</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Bệnh nhân 03</td>
+                <td>01/05/2015</td>
+                <td>10/05/2015</td>
+                <td>
+                  <span class="badge badge-warning">Pending</span>
+                </td>
+                <td>Bác sĩ Nội trú</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Bệnh nhân 04</td>
+                <td>01/01/2015</td>
+                <td>31/05/2015</td>
+                <td>
+                  <span class="badge badge-info">Work in Progress</span>
+                </td>
+                <td>Bác sĩ Nội trú</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Bệnh nhân 05</td>
+                <td>01/01/2015</td>
+                <td>31/05/2015</td>
+                <td>
+                  <span class="badge badge-primary">Coming soon</span>
+                </td>
+                <td>Bác sĩ Nội trú</td>
+              </tr>
+
+              <tr>
+                <td>6</td>
+                <td>Bệnh nhân 06</td>
+                <td>01/01/2015</td>
+                <td>31/05/2015</td>
+                <td>
+                  <span class="badge badge-primary">Coming soon</span>
+                </td>
+                <td>Bác sĩ Nội trú</td>
+              </tr>
+
+              <tr>
+                <td>7</td>
+                <td>Bệnh nhân 07</td>
+                <td>01/01/2015</td>
+                <td>31/05/2015</td>
+                <td>
+                  <span class="badge badge-info">Cool</span>
+                </td>
+                <td>Bác sĩ Nội trú</td>
+              </tr>
+
+              <tr>
+                <td>8</td>
+                <td>Bệnh nhân 08</td>
+                <td>01/01/2015</td>
+                <td>31/05/2015</td>
+                <td>
+                  <span class="badge badge-warning">Coming soon</span>
+                </td>
+                <td>Bác sĩ Nội trú</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped src="@/assets/css/dashboard.css">
+</style>
+
+<script>
+export default {
+  data: {
+    totalEncounter: 0,
+    totalPatient: 0,
+    patient: null
+  },
+  methods: {
+    countTotalPatient: function() {
+      return 0;
+    },
+    countTotalEncounter: function() {
+      return 0;
+    }
+  },
+  created: function() {
+    this.countTotalPatient();
+    this.countTotalEncounter();
+  }
+};
+</script>
