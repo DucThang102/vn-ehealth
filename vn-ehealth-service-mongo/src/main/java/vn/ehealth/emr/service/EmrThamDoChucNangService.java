@@ -1,11 +1,12 @@
 package vn.ehealth.emr.service;
 
 import java.util.List;
+import javax.annotation.Nonnull;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.model.EmrThamDoChucNang;
 import vn.ehealth.emr.repository.EmrHoSoBenhAnRepository;
 import vn.ehealth.emr.repository.EmrThamDoChucNangRepository;
@@ -44,5 +45,19 @@ public class EmrThamDoChucNangService {
             x.trangThai = TRANGTHAI_DULIEU.DA_XOA;
             emrThamDoChucNangRepository.save(x);
         });
+    }
+    
+    public void createOrUpdateFromHIS(@Nonnull EmrHoSoBenhAn hsba, @Nonnull List<EmrThamDoChucNang> tdcnList) {
+        for(int i = 0; i < tdcnList.size(); i++) {
+            var tdcn = tdcnList.get(i);
+            if(tdcn.idhis != null) {
+            	tdcn.id = emrThamDoChucNangRepository.findByIdhis(tdcn.idhis).map(x -> x.id).orElse(null);
+            }
+            tdcn.emrHoSoBenhAnId = hsba.id;
+            tdcn.emrBenhNhanId = hsba.emrBenhNhanId;
+            tdcn.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
+            tdcn = emrThamDoChucNangRepository.save(tdcn);
+            tdcnList.set(i, tdcn);
+        }         
     }
 }

@@ -27,7 +27,7 @@ public class EmrDonThuoc {
     
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     public Date ngaykedon;
-    public EmrYSy bacsikedon;
+    public EmrCanboYte bacsikedon;
     public String sodon;
     
     public List<EmrFileDinhKem> emrFileDinhKemDonThuocs = new ArrayList<>();

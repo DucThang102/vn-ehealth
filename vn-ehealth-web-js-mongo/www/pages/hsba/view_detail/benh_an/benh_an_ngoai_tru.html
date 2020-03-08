@@ -28,11 +28,11 @@
         <span v-if="getHsbaProp('tuoiBenhNhan.donvi')==3">Ngày tuổi</span>
       </div>
 
-      <div class="row mb-2">
-        <div class="col-2">
-          <label><b class="text-primary mr-1">1.</b>Họ và tên:</label>
+      <div class="row mb-1">
+        <div class="col-3">
+          <label><b class="text-primary">1.</b>Họ và tên <i>(In hoa)</i>:</label>
         </div>
-        <div class="col-4">
+        <div class="col-3">
           <span class="text-uppercase"><b>{{ tenBenhNhan }}</b></span>
         </div>
         <div class="col-6">
@@ -52,7 +52,7 @@
           </div>
         </div>
       </div>
-      <div class="row mb-2">
+      <div class="row mb-1">
         <div class="col-2">
           <label class="mr-auto "
             ><b class="text-primary mr-1">3.</b>Giới:</label
@@ -68,30 +68,30 @@
             ><b class="text-primary mr-1">4.</b>Nghề nghiệp:</label
           >
           <span>{{ ngheNghiepBenhNhan.ten}}</span>
-          <form class="form-inline input-lr2 float-right">
+          <div class="form-inline input-lr2 float-right">
             <input v-for="c in toCharArray(ngheNghiepBenhNhan.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
 
-          </form>
+          </div>
         </div>
       </div>
-      <div class="row mb-2">
+      <div class="row mb-1">
         <div class="col-6">
           <label><b class="text-primary mr-1">5.</b>Dân tộc:</label>
           <span>{{ danTocBenhNhan.ten }}</span>
-          <form class="form-inline input-lr2 float-right">
+          <div class="form-inline input-lr2 float-right">
             <input v-for="c in toCharArray(danTocBenhNhan.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-          </form>
+          </div>
         </div>
 
         <div class="col-6">
           <label><b class="text-primary mr-1">6.</b>Quốc tịch:</label>
           <span> {{ quocTichBenhNhan.ten }} </span>
-          <form class="form-inline input-lr2 float-right">
+          <div class="form-inline input-lr2 float-right">
             <input v-for="c in toCharArray(quocTichBenhNhan.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-          </form>
+          </div>
         </div>
       </div>
-      <div class="row mb-2">
+      <div class="row mb-1">
         <div class="col-6">
           <label><b class="text-primary mr-1">7.</b>Địa chỉ:</label>
           <span>{{ diaChiBenhNhan }}</span>
@@ -101,37 +101,37 @@
           <span>{{ diaChiXaBenhNhan.ten }}</span>
         </div>
       </div>
-      <div class="row mb-2">
+      <div class="row ">
         <div class="col-6">
           <label class="ml-3">Huyện (Q, Tx):</label>
           <span>{{ diaChiHuyenBenhNhan.ten }}</span>
-          <form class="form-inline input-lr2 float-right">
+          <div class="form-inline input-lr2 float-right">
             <input v-for="c in toCharArray(diaChiHuyenBenhNhan.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-          </form>
+          </div>
         </div>
         <div class="col-6">
           <label>Tỉnh, thành phố:</label>
           <span>{{ diaChiTinhBenhNhan.ten }}</span>
-          <form class="form-inline input-lr2 float-right">
+          <div class="form-inline input-lr2 float-right">
             <input v-for="c in toCharArray(diaChiTinhBenhNhan.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-          </form>
+          </div>
         </div>
       </div>
-      <div class="row mb-2">
+      <div class="row ">
         <div class="col-6">
           <label><b class="text-primary mr-1">8.</b>Nơi làm việc:</label>
           <span>{{ noiLamViecBenhNhan }}</span>
         </div>
         <div class="col-6">
           <label><b class="text-primary mr-1">9.</b>Đối tượng:
-              <input disabled :checked="doiTuongTaiChinh.ma == '01' " type="checkbox"> <span class="mr-3">1.BHYT</span>
-              <input disabled :checked="doiTuongTaiChinh.ma == '02' " type="checkbox"> <span class="mr-3">2.Thu phí</span>
-              <input disabled :checked="doiTuongTaiChinh.ma == '03' " type="checkbox"> <span class="mr-3">3.Miễn</span>
-              <input disabled :checked="doiTuongTaiChinh.ma == '04' " type="checkbox"> <span class="mr-3">4.Khác</span>
+              <input disabled :checked="doiTuongTaiChinh.ma == '01' " type="checkbox"> <span class="mr-3"><small><i>1.BHYT</i></small></span>
+              <input disabled :checked="doiTuongTaiChinh.ma == '02' " type="checkbox"> <span class="mr-3"><small><i>2.Thu phí</i></small></span>
+              <input disabled :checked="doiTuongTaiChinh.ma == '03' " type="checkbox"> <span class="mr-3"><small><i>3.Miễn</i></small></span>
+              <input disabled :checked="doiTuongTaiChinh.ma == '04' " type="checkbox"> <span class="mr-3"><small><i>4.Khác</i></small></span>
           </label>
         </div>
       </div>
-      <div class="row mb-2">
+      <div class="row ">
         <div class="col-6">
           <label
             ><b class="text-primary mr-1">10.</b>BHYT giá trị đến ngày:</label>
@@ -140,16 +140,16 @@
         </div>
         <div class="col-6">
           <label>Số thẻ BHYT:</label>
-          <form class="form-inline input-lr2 float-right">
+          <div class="form-inline input-lr2 float-right">
             <input readonly :value="soTheBHYT.substring(0,2)" class="form-control form-control-sm text-placeholder w-60px">
             <input readonly :value="soTheBHYT.substring(2,3)" class="form-control form-control-sm text-placeholder w-60px">
             <input readonly :value="soTheBHYT.substring(3,5)" class="form-control form-control-sm text-placeholder w-60px">
             <input readonly :value="soTheBHYT.substring(5)" class="form-control form-control-sm text-placeholder w-140px">
-          </form>
+          </div>
         </div>
       </div>
 
-      <div class="row mb-2">
+      <div class="row ">
         <div class="col-12">
           <label
             ><b class="text-primary mr-1">11.</b>Họ tên, địa chỉ người nhà khi
@@ -159,38 +159,38 @@
         </div>
       </div>
 
-      <div class="row mb-2">
+      <div class="row ">
         <div class="col-6">
           <label>Địa chỉ:</label>
           <span>{{diaChiNguoiBaoTin}}</span>
         </div>
         <div class="col-6">
           <span>Điện thoại số:
-            <form class="form-inline input-lr2 float-right">
+            <div class="form-inline input-lr2 float-right">
               <input v-for="c in toCharArray(soDienThoaiNguoiBaoTin)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-            </form>
+            </div>
           </span>
         </div>
       </div>
-      <div class="row mb-2">
+      <div class="row ">
         <div class="col">
           <label><b class="text-primary mr-1">12.</b>Đến khám lúc: </label>
           <span>{{formatNgayGio(ngayGioVaoVien)}}</span>
         </div>
       </div>
-      <div class="row mb-2">
+      <div class="row ">
         <div class="col">
           <label
             ><b class="text-primary mr-1">13.</b>Chẩn đoán của nơi giới
             thiệu:</label
           >
           <span>{{ chanDoanNoiDen.ten }}</span>
-              <form class="form-inline input-lr2 float-right">
+              <div class="form-inline input-lr2 float-right">
                 <input v-for="c in toCharArray(chanDoanNoiDen.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-              </form>
+              </div>
           <span class="form-inline input-lr2 float-right">
-            <input disabled :checked="noiGioiThieu.ma == '01' " type="checkbox"> <span class="mr-3">1.Y tế</span>
-            <input disabled :checked="noiGioiThieu.ma == '02' " type="checkbox"> <span class="mr-3">2.Tự đến</span>
+            <input disabled :checked="noiGioiThieu.ma == '01' " type="checkbox"> <span class="mr-3"><small>1.Y tế</small></span>
+            <input disabled :checked="noiGioiThieu.ma == '02' " type="checkbox"> <span class="mr-3"><small>2.Tự đến</small></span>
           </span>
         </div>
       </div>
@@ -229,7 +229,7 @@
 
     <div class="row mt-2">
       <span class="ml-4"
-        ><i class="fas fa-fw bullet-small fa-circle"></i> Bản thân</span
+        > + Bản thân</span
       >
     </div>
 
@@ -239,7 +239,7 @@
 
     <div class="row mt-2">
       <span class="ml-4"
-        ><i class="fas fa-fw bullet-small fa-circle"></i> Gia đình</span
+        > + Gia đình</span
       >
     </div>
 
@@ -252,53 +252,36 @@
     </div>
     <div class="row mt-2">
       <span>
-        <b>1. Toàn thân</b>
-        <i>
-          (ý thức, da niêm mạc, hệ thống hạch, tuyến giáp, vị trí, kích thước,
-          số lượng, di động v.v...):</i
-        >
-
-        <div class="row mt-2 ml-2">
-          <span class="ml-4">{{ getBenhAnProp('khambenh.toanthan') }}</span>
-        </div>
+        <b>1. Toàn thân:</b>
       </span>
     </div>
-    
-    <div class="row-mt-2">
-      <ul>
-        <li>
-          Mạch: {{getBenhAnProp('khambenh.mach')}} lần/ph
-        </li>
-        <li>
-          Nhiệt độ: {{getBenhAnProp('khambenh.nhietdo')}} °C
-        </li>
-        <li>
-          Huyết áp: {{getBenhAnProp('khambenh.huyetapcao')}}/{{getBenhAnProp('khambenh.huyetapthap')}} mmHg
-        </li>
-        <li>
-          Nhịp thở: {{getBenhAnProp('khambenh.nhiptho')}} lần/ph
-        </li>
-        <li>
-          Cân nặng: {{getBenhAnProp('khambenh.cannang')}} kg
-        </li>
-      </ul>
+    <div class="row">
+      <div class="col-8">
+        <span class="ml-4">{{ getBenhAnProp('khambenh.toanthan') }}</span>
+      </div>
+      <div class="col-4">   
+          <i>Mạch:</i> {{getBenhAnProp('khambenh.mach')}} <i>lần/ph </i> <br>
+          <i>Nhiệt độ:</i>  {{getBenhAnProp('khambenh.nhietdo')}} <i>°C </i> <br>
+          <i>Huyết áp:</i>  {{getBenhAnProp('khambenh.huyetapcao')}}/{{getBenhAnProp('khambenh.huyetapthap')}} <i> mmHg </i> <br>
+          <i>Nhịp thở:</i>  {{getBenhAnProp('khambenh.nhiptho')}} <i>lần/ph </i> <br>
+          <i>Cân nặng:</i>  {{getBenhAnProp('khambenh.cannang')}} <i>kg </i> <br>          
+      </div>
     </div>
-
     <div class="row mt-2">
       <span> <b>2. Các bộ phận:</b> </span>
     </div>
     <div class="row-mt-2">
-      <span class="ml-4">..................</span>
+      <span class="ml-4">{{getBenhAnProp('khambenh.coquankhac')}}</span>
     </div>
 
     <div class="row mt-2">
       <span>
-        <b>3. Các xét nghiệm cận lâm sáng cần làm:</b>
+        <b>3. Tóm tắt kết quả cận lâm sàng:</b>
       </span>
     </div>
 
     <div class="row mt-2">
-      <span class="ml-4">{{getBenhAnProp('khambenh.xetnghiemcanlamsang')}}</span>
+      <span class="ml-4">{{getBenhAnProp('khambenh.tomtatkqcanlamsang')}}</span>
     </div>
 
     <div class="row mt-3">
@@ -311,7 +294,7 @@
     </div>
 
     <div class="row mt-3">
-      <span> <b>5. Đã xử lý </b><i>(thuốc, chăm sóc):</i> </span>
+      <span> <b>5. Đã xử lý </b><i>(thuốc, chăm sóc)</i>: </span>
     </div>
     <div class="row mt-2">
       <span class="ml-4">{{getBenhAnProp('huongdieutri')}}</span>
@@ -325,38 +308,44 @@
     <div class="row ">
       <div class="col ml-3">
         <span>{{ chanDoanRaVienChinh.ten }}</span>
-        <form class="form-inline input-lr2 float-right">
+        <div class="form-inline input-lr2 float-right">
           <input v-for="c in toCharArray(chanDoanRaVienChinh.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-        </form>
+        </div>
       </div>
     </div>
 
     <div class="row mt-3">
       <span>
         <b>7. Điều trị ngoại trú từ ngày </b>
-        <span>{{formatNgay(ngayGioVaoVien)}}</span>
-        <span>đến ngày </span>
+        <span>{{formatNgay(ngayGioVaoVien)}} </span>
+        <span> đến ngày </span>
         <span>{{formatNgay(ngayGioRaVien)}}</span>
       </span>
     </div>
   </section>
+
   <section class="mb-4">
+    
     <div class="row align-items-end">
-      <div class="col text-center">
-        <h6 class="mb-5">Giám đốc bệnh viện</h6>
-        <br />
-        <p>Họ và tên <b>{{hsba.giamdocbenhvien}}</b></p>
+      <div class="col-6 text-center">
+        <br>
+        <b class="text-center mb-5">Giám đốc bệnh viện</b>
+        <br>
+        <br>
+        <br>
+        <p>Họ và tên <b>{{ giamDocBenhVien }}</b></p>
       </div>
-      <div class="col text-center">
-        <i class="mb-2"
-          ><span>{{formatNgay2(ngayGioRaVien)}}</span></i
-        >
-        <h6 class="text-center mb-5">Bác sỹ khám bệnh</h6>
-        <br />
-        <p class="">Họ và tên <b>{{ bacSyLamBenhAn.ten }}</b></p>
+      <div class="col-6 text-center">
+        <i class="mb-2"><span>{{formatNgay2(ngayGioRaVien)}}</span></i> <br>
+        <b class="text-center mb-5">Bác sỹ khám bệnh</b>
+        <br>
+        <br>
+        <br>
+        <p>Họ và tên <b>{{ bacSyLamBenhAn.ten }}</b></p>
       </div>
     </div>
   </section>
+
   <section class="mb-4">
     <div class="row mt-3">
       <h4 class="text-tle">B- TỔNG KẾT BỆNH ÁN</h4>
@@ -390,22 +379,19 @@
 
     <div class="row mt-2">
       <div class="col">
-        <span>{{ chanDoanRaVienChinh.ten }}</span>
-        <form class="form-inline input-lr2 float-right">
+        <span>- Bệnh chính: {{ chanDoanRaVienChinh.ten }}</span>
+        <div class="form-inline input-lr2 float-right">
           <input v-for="c in toCharArray(chanDoanRaVienChinh.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-        </form>
+        </div>
       </div>
     </div>
 
     <div class="row mt-2">
-      <div class="col">
-        <span class="ml-2"
-          >Bệnh kèm theo: <i>(nếu có)</i>:
-          <span>{{ chanDoanRaVienKemTheo.ten }}</span>
-        <form class="form-inline input-lr2 float-right">
+      <div class="col"> 
+        <span>- Bệnh kèm theo <i>(nếu có)</i>: {{ chanDoanRaVienKemTheo.ten }}</span>
+        <div class="form-inline input-lr2 float-right">
           <input v-for="c in toCharArray(chanDoanRaVienKemTheo.ma)" :value="c" readonly class="form-control form-control-sm text-placeholder w-40px">
-        </form>
-        </span>
+        </div>
       </div>
     </div>
 
@@ -440,76 +426,83 @@
     </div>
 
     <div class="row mt-3">
-      <table class="table table-bordered">
-        <tr>
-          <th colspan="2">
-            <center>Hồ sơ, phim, ảnh</center>
-          </th>
-          <td rowspan="4">
-            <center class="mb-5"><b>Người giao hồ sơ:</b></center>
-            <p>Họ và tên:{{hsba.nguoigiaohoso}}</p>
-          </td>
-          <td rowspan="8">
-            <div class="col text-center">
-              <i>{{formatNgay2(ngayKyDieuTri)}}</i>
-              <h6 class="text-center mt-2 mb-5"><b> Bác sĩ điều trị </b></h6>
-              <br />
-              <p>Họ và tên <b>{{bacSyDieuTri.ten}}</b></p>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <center><b>Loại</b></center>
-          </td>
-          <td>
-            <center><b>Số tờ</b></center>
-          </td>
-        </tr>
-        <tr>
-          <td>- X - Quang</td>
-          <td>
-            <center>{{soToXQuang}}</center>
-          </td>
-        </tr>
-        <tr>
-          <td>- CT Scanner</td>
-          <td>
-            <center>{{soToCTScanner}}</center>
-          </td>
-        </tr>
-        <tr>
-          <td>- Siêu âm</td>
-          <td>
-            <center>{{soToSieuAm}}</center>
-          </td>
-          <td rowspan="4">
-            <center class="mb-5"><b> Người nhận hồ sơ:</b></center>
-            <p>Họ và tên:{{hsba.nguoinhanhoso}}</p>
-          </td>
-        </tr>
-        <tr>
-          <td>- Xét nghiệm</td>
-          <td>
-            <center>{{soToXetNghiem}}</center>
-          </td>
-        </tr>
-        <tr>
-          <td>- Khác</td>
-          <td>
-            <center>{{soToKhac}}</center>
-          </td>
-        </tr>
-        <tr>
-          <td>- Toàn bộ hồ sơ</td>
-          <td>
-            <center>
-              {{tongSoToDieuTri}}
-            </center>
-          </td>
-        </tr>
-      </table>
-    </div>
+        <table class="table table-bordered">
+          <tr>
+            <td colspan="2" class="text-center">
+              <h6><b>Hồ sơ, phim, ảnh </b> </h6> 
+            </td>
+            <td rowspan="4" class="text-center">
+              <h6 class="text-center mb-5"><b> Người giao hồ sơ: </b> </h6> <br>
+              <h6 class="text-center ">Họ tên <b>{{hsba.nguoigiaohoso}}</b></h6>
+            </td>
+            <td rowspan="8" class="text-center mt-1"> 
+              <h6><i>{{formatNgay2(ngayKyDieuTri)}}</i> </h6> <br> 
+              <h6 class="text-center mb-5"><b> Bác sĩ điều trị </b></h6>
+              <h6 class="text-center "> Họ tên <b>{{bacSyDieuTri.ten}}</b> </h6>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-center">
+              <h6><b> Loại </b> </h6>
+            </td>
+            <td class="text-center">
+              <h6><b> Số tờ </b> </h6>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h6>- X - Quang</h6>
+            </td>
+            <td class="text-center">
+              <h6>{{soToXQuang}}</h6>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h6>- CT Scaner</h6>
+            </td>
+            <td class="text-center">
+               <h6>{{soToCTScanner}} </h6>
+              </td>
+          </tr>
+          <tr>
+            <td>
+              <h6>- Siêu âm </h6>
+            </td>
+            <td class="text-center">
+               <h6>{{soToSieuAm}} </h6>
+              </td>
+            <td rowspan="4" class="text-center">
+              <h6 class="text-center mb-5"><b >Người nhận hồ sơ: </b> </h6> <br>
+              
+              <h6 class="text-center "> Họ tên <b>{{hsba.nguoinhanhoso}}</b></h6> 
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h6>- Xét nghiệm </h6>
+            </td>
+            <td class="text-center">
+              <h6>{{soToXetNghiem}} </h6>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h6>- Khác ........... </h6>
+              </td>
+            <td class="text-center"> 
+              <h6>{{soToKhac}}  </h6>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h6>- Toàn bộ hồ sơ </h6>
+            </td>
+            <td class="text-center">
+              <h6> {{tongSoToDieuTri}} </h6>
+              </td>
+          </tr>
+        </table>
+      </div>
   </section>
 </div>

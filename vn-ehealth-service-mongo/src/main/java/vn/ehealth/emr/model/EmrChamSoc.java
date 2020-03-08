@@ -21,13 +21,12 @@ public class EmrChamSoc {
     public static class EmrQuaTrinhChamSoc {
         @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
         public Date ngaychamsoc;
-        public EmrYSy ytachamsoc;
+        public EmrCanboYte ytachamsoc;
         public String theodoidienbien;
         public String thuchienylenh;
     }
     
-    @Id public ObjectId id;    
-    public ObjectId emrVaoKhoaId;    
+    @Id public ObjectId id;       
     public ObjectId emrHoSoBenhAnId;    
     public ObjectId emrBenhNhanId;
     public ObjectId emrCoSoKhamBenhId;
@@ -65,14 +64,6 @@ public class EmrChamSoc {
         this.emrBenhNhanId = ObjectIdUtil.stringToId(emrBenhNhanId);
     }
 
-    public String getEmrVaoKhoaId() {
-        return ObjectIdUtil.idToString(emrVaoKhoaId);
-    }
-
-    public void setEmrVaoKhoaId(String emrVaoKhoaId) {
-        this.emrVaoKhoaId = ObjectIdUtil.stringToId(emrVaoKhoaId);
-    }    
-    
     public String getEmrCoSoKhamBenhId() {
         return ObjectIdUtil.idToString(emrCoSoKhamBenhId);
     }

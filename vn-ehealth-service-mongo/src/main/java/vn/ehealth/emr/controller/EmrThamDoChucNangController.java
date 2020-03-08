@@ -2,6 +2,8 @@ package vn.ehealth.emr.controller;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
@@ -19,8 +21,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import vn.ehealth.emr.model.EmrThamDoChucNang;
+import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.service.EmrThamDoChucNangService;
 import vn.ehealth.emr.utils.EmrUtils;
+import vn.ehealth.emr.validate.JsonParser;
 
 @RestController
 @RequestMapping("/api/tdcn")
@@ -30,7 +34,9 @@ public class EmrThamDoChucNangController {
     
     @Autowired 
     private EmrThamDoChucNangService emrThamDoChucNangService;
+    @Autowired EmrHoSoBenhAnService emrHoSoBenhAnService;
     
+    private JsonParser jsonParser = new JsonParser();
     private ObjectMapper objectMapper = EmrUtils.createObjectMapper();
     
     @GetMapping("/get_ds_tdcn")
@@ -71,6 +77,39 @@ public class EmrThamDoChucNangController {
                 "errors", List.of(e.getMessage()) 
             );
             logger.error("Error save tdcn:", e);
+            return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+        }
+    }
+    
+    @SuppressWarnings("unchecked")
+    @PostMapping("/create_or_update_tdcn")
+    public ResponseEntity<?> createOrUpdateTdcnFromHIS(@RequestBody String jsonSt) {
+        try {
+            var map = jsonParser.parseJson(jsonSt);
+            var matraodoiHsba = (String) map.get("matraodoiHoSo");
+            var hsba = emrHoSoBenhAnService.getByMatraodoi(matraodoiHsba).orElseThrow();
+            
+            var tdcnObjList = (List<Object>) map.get("emrThamDoChucNangs");
+            var tdcnList = tdcnObjList.stream()
+                                .map(obj -> objectMapper.convertValue(obj, EmrThamDoChucNang.class))
+                                .collect(Collectors.toList());
+            
+            emrThamDoChucNangService.createOrUpdateFromHIS(hsba, tdcnList);
+            
+            var result = Map.of(
+                "success" , true,
+                "tdcnList", tdcnList  
+            );
+            
+            return ResponseEntity.ok(result);
+            
+        }catch(Exception e) {
+            var error = Optional.ofNullable(e.getMessage()).orElse("Unknown error");
+            var result = Map.of(
+                "success" , false,
+                "error", error 
+            );
+            logger.error("Error save thamdochucnang from HIS:", e);
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
     }

@@ -2,6 +2,8 @@ package vn.ehealth.emr.controller;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
@@ -16,14 +18,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import vn.ehealth.emr.model.EmrChucNangSong;
 import vn.ehealth.emr.service.EmrChucNangSongService;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.utils.EmrUtils;
+import vn.ehealth.emr.validate.JsonParser;
 
 @RestController
 @RequestMapping("/api/chucnangsong")
 public class EmrChucNangSongController {
+	
+	private JsonParser jsonParser = new JsonParser();
+	private ObjectMapper objectMapper = EmrUtils.createObjectMapper();
     
     private Logger logger = LoggerFactory.getLogger(EmrChucNangSongController.class);
     @Autowired EmrChucNangSongService emrChucNangSongService;
@@ -72,6 +80,39 @@ public class EmrChucNangSongController {
                 "errors", List.of(e.getMessage()) 
             );
             logger.error("Error save chucnangsong:", e);
+            return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+        }
+    }
+    
+    @SuppressWarnings("unchecked")
+    @PostMapping("/create_or_update_chuc_nang_song")
+    public ResponseEntity<?> createOrUpdateChamSocFromHIS(@RequestBody String jsonSt) {
+        try {
+            var map = jsonParser.parseJson(jsonSt);
+            var matraodoiHsba = (String) map.get("matraodoiHoSo");
+            var hsba = emrHoSoBenhAnService.getByMatraodoi(matraodoiHsba).orElseThrow();
+            
+            var cnsObjList = (List<Object>) map.get("emrChucNangSongs");
+            var cnsList = cnsObjList.stream()
+                                .map(obj -> objectMapper.convertValue(obj, EmrChucNangSong.class))
+                                .collect(Collectors.toList());
+            
+            emrChucNangSongService.createOrUpdateFromHIS(hsba, cnsList, cnsObjList);
+            
+            var result = Map.of(
+                "success" , true,
+                "cnsList", cnsList  
+            );
+            
+            return ResponseEntity.ok(result);
+            
+        }catch(Exception e) {
+            var error = Optional.ofNullable(e.getMessage()).orElse("Unknown error");
+            var result = Map.of(
+                "success" , false,
+                "error", error 
+            );
+            logger.error("Error save chucnangsong from HIS:", e);
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
     }

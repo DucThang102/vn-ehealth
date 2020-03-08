@@ -79,5 +79,9 @@ public class EmrBenhNhan {
     public String trinhDoVanHoaCuaBo;
     
     public String trinhDoVanHoaCuaMe;
+    
+    public ObjectId userId;
+    
+    public ObjectId emrPersonId;
         
 }

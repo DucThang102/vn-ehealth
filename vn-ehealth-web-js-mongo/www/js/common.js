@@ -1,9 +1,9 @@
-var API_URL = "http://emr.com.vn:8002";
+var API_URL = "http://emr.com.vn:8001";
 
 Vue.mixin({
   data: function () {
     return {
-      API_URL: "http://emr.com.vn:8002"
+      API_URL: "http://emr.com.vn:8001"
     };
   },
 
