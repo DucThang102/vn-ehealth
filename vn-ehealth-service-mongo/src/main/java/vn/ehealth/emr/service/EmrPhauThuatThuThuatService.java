@@ -45,7 +45,9 @@ public class EmrPhauThuatThuThuatService {
     public void createOrUpdateFromHIS(@Nonnull EmrHoSoBenhAn hsba, @Nonnull List<EmrPhauThuatThuThuat> ptttList) {
         for(int i = 0; i < ptttList.size(); i++) {
             var pttt = ptttList.get(i);
-            pttt.id = emrPhauThuatThuThuatRepository.findByIdhis(pttt.idhis).map(x -> x.id).orElse(null);
+            if(pttt.idhis != null) {
+            	pttt.id = emrPhauThuatThuThuatRepository.findByIdhis(pttt.idhis).map(x -> x.id).orElse(null);
+            }
             pttt.emrHoSoBenhAnId = hsba.id;
             pttt.emrBenhNhanId = hsba.emrBenhNhanId;
             pttt.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;

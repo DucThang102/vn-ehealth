@@ -2,6 +2,8 @@ package vn.ehealth.emr.controller;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
@@ -20,7 +22,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import vn.ehealth.emr.model.EmrHinhAnhTonThuong;
 import vn.ehealth.emr.service.EmrHinhAnhTonThuongService;
+import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.utils.EmrUtils;
+import vn.ehealth.emr.validate.JsonParser;
 
 @RestController
 @RequestMapping("/api/hatt")
@@ -30,7 +34,9 @@ public class EmrHinhAnhTonThuongController {
     
     @Autowired 
     private EmrHinhAnhTonThuongService emrHinhAnhTonThuongService;
+    @Autowired EmrHoSoBenhAnService emrHoSoBenhAnService;
     
+    private JsonParser jsonParser = new JsonParser();
     private ObjectMapper objectMapper = EmrUtils.createObjectMapper();
 
     @GetMapping("/get_hatt")
@@ -83,6 +89,39 @@ public class EmrHinhAnhTonThuongController {
                 "errors", List.of(e.getMessage()) 
             );
             logger.error("Error save hatt:", e);
+            return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+        }
+    }
+    
+    @SuppressWarnings("unchecked")
+    @PostMapping("/create_or_update_hatt")
+    public ResponseEntity<?> createOrUpdateChamSocFromHIS(@RequestBody String jsonSt) {
+        try {
+            var map = jsonParser.parseJson(jsonSt);
+            var matraodoiHsba = (String) map.get("matraodoiHoSo");
+            var hsba = emrHoSoBenhAnService.getByMatraodoi(matraodoiHsba).orElseThrow();
+            
+            var hattObjList = (List<Object>) map.get("emrHinhAnhTonThuongs");
+            var hattList = hattObjList.stream()
+                                .map(obj -> objectMapper.convertValue(obj, EmrHinhAnhTonThuong.class))
+                                .collect(Collectors.toList());
+            
+            emrHinhAnhTonThuongService.createOrUpdateFromHIS(hsba, hattList);
+            
+            var result = Map.of(
+                "success" , true,
+                "hattList", hattList  
+            );
+            
+            return ResponseEntity.ok(result);
+            
+        }catch(Exception e) {
+            var error = Optional.ofNullable(e.getMessage()).orElse("Unknown error");
+            var result = Map.of(
+                "success" , false,
+                "error", error 
+            );
+            logger.error("Error save hinhanhtonthuong from HIS:", e);
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
     }

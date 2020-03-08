@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import vn.ehealth.emr.model.EmrDonThuoc;
+import vn.ehealth.emr.model.EmrHoSoBenhAn;
 import vn.ehealth.emr.repository.EmrDonThuocRepository;
 import vn.ehealth.emr.repository.EmrHoSoBenhAnRepository;
 import vn.ehealth.emr.utils.Constants.TRANGTHAI_DULIEU;
@@ -50,5 +51,19 @@ public class EmrDonThuocService {
             x.trangThai = TRANGTHAI_DULIEU.DA_XOA;
             emrDonThuocRepository.save(x); 
         });
+    }
+    
+    public void createOrUpdateFromHIS(@Nonnull EmrHoSoBenhAn hsba, @Nonnull List<EmrDonThuoc> dtList) {
+        for(int i = 0; i < dtList.size(); i++) {
+            var dt = dtList.get(i);
+            if(dt.idhis != null) {
+                dt.id = emrDonThuocRepository.findByIdhis(dt.idhis).map(x -> x.id).orElse(null);
+            }
+            dt.emrHoSoBenhAnId = hsba.id;
+            dt.emrBenhNhanId = hsba.emrBenhNhanId;
+            dt.emrCoSoKhamBenhId = hsba.emrCoSoKhamBenhId;
+            dt = emrDonThuocRepository.save(dt);
+            dtList.set(i, dt);
+        }         
     }
 }

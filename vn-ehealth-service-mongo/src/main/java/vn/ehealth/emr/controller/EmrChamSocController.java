@@ -2,6 +2,8 @@ package vn.ehealth.emr.controller;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
@@ -20,16 +22,22 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import vn.ehealth.emr.model.EmrChamSoc;
 import vn.ehealth.emr.service.EmrChamSocService;
+import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.utils.EmrUtils;
+import vn.ehealth.emr.validate.JsonParser;
 
 @RestController
 @RequestMapping("/api/chamsoc")
 public class EmrChamSocController {
     
-    private Logger logger = LoggerFactory.getLogger(EmrChamSocController.class);
+	private JsonParser jsonParser = new JsonParser();
+    
+	private Logger logger = LoggerFactory.getLogger(EmrChamSocController.class);
     
     @Autowired 
     private EmrChamSocService emrChamSocService;
+    @Autowired 
+    private EmrHoSoBenhAnService emrHoSoBenhAnService;
     
     private ObjectMapper objectMapper = EmrUtils.createObjectMapper();
     
@@ -77,6 +85,38 @@ public class EmrChamSocController {
                 "errors", List.of(e.getMessage()) 
             );
             logger.error("Error save chamsoc:", e);
+            return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+        }
+    }
+    
+    @SuppressWarnings("unchecked")
+    @PostMapping("/create_or_update_cham_soc")
+    public ResponseEntity<?> createOrUpdateChamSocFromHIS(@RequestBody String jsonSt) {
+        try {
+            var map = jsonParser.parseJson(jsonSt);
+            var matraodoiHsba = (String) map.get("matraodoiHoSo");
+            var hsba = emrHoSoBenhAnService.getByMatraodoi(matraodoiHsba).orElseThrow(); 
+            var csObjList = (List<Object>) map.get("emrChamSocs");
+            var csList = csObjList.stream()
+                                .map(obj -> objectMapper.convertValue(obj, EmrChamSoc.class))
+                                .collect(Collectors.toList());
+            
+            emrChamSocService.createOrUpdateFromHIS(hsba, csList, csObjList);
+            
+            var result = Map.of(
+                "success" , true,
+                "csList", csList  
+            );
+            
+            return ResponseEntity.ok(result);
+            
+        }catch(Exception e) {
+            var error = Optional.ofNullable(e.getMessage()).orElse("Unknown error");
+            var result = Map.of(
+                "success" , false,
+                "error", error 
+            );
+            logger.error("Error save chamsoc from HIS:", e);
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
     }
