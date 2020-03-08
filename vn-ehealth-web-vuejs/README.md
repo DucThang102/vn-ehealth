@@ -1,4 +1,4 @@
-# vn-ehealth-web
+# vn-ehealth-web-vuejs
 
 ## Project setup
 ```
