@@ -14,9 +14,9 @@
           ><i class="fas fa-fw fa-binoculars"></i> Xem</a
         >
       </td>
-      <td class="text-center">{{ pttt.emrDmPhauThuThuat.ten }}</td>
-      <td class="text-center">{{ pttt.bacsithuchien }}</td>
-      <td class="text-center">{{ pttt.ngaygiopttt }}</td>
+      <td class="text-center">{{ attr(pttt, 'emrDmPhauThuThuat.ten') }}</td>
+      <td class="text-center">{{ attr(pttt, 'bacsithuchien.ten') }}</td>
+      <td class="text-center">{{ formatDateTime(pttt.ngaygiopttt) }}</td>
     </tr>
     <tr v-if="pttt_list.length==0">
       <td colspan="5">Không có dữ liệu</td>
@@ -45,10 +45,10 @@
                   <div class="col-12">
                     <b>Phẫu thuật/thủ thuật: {{ pttt.emrDmPhauThuThuat.ten }}</b
                     ><br />
-                    <span>- Ngày thực hiện: {{ pttt.ngaygiopttt }} </span><br />
-                    <span>- Bác sĩ thực hiện: {{ pttt.bacsithuchien}}</span
+                    <span>- Ngày thực hiện: {{ formatDateTime(pttt.ngaygiopttt) }} </span><br />
+                    <span>- Bác sĩ thực hiện: {{ attr(pttt, 'bacsithuchien.ten')}}</span
                     ><br />
-                    <span>- Bác sĩ gây mê: {{ pttt.bacsygayme }}</span
+                    <span>- Bác sĩ gây mê: {{ attr(pttt, 'bacsygayme.ten') }}</span
                     ><br />
                     <span
                       >- Chẩn đoán trước phẫu thuật, thủ thuật: {{
@@ -114,8 +114,8 @@
                   </tr>
                   <tr v-for="(tvpttt, i) in pttt.emrThanhVienPttts">
                     <td>{{ i + 1}}</td>
-                    <td>{{ tvpttt.tenbacsi }}</td>
-                    <td>{{ tvpttt.emrDmVaiTro.ten }}</td>
+                    <td>{{ attr(tvpttt, 'bacsipttt.ten') }}</td>
+                    <td>{{ attr(tvpttt, 'emrDmVaiTro.ten') }}</td>
                   </tr>
                 </table>
 

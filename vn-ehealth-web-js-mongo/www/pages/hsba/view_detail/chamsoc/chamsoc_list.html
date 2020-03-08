@@ -67,10 +67,10 @@
                   </tr>
                   <tr v-for="(qtcs, i) in chamsoc.emrQuaTrinhChamSocs">
                     <td>{{ i + 1}}</td>
-                    <td>{{ qtcs.ngaychamsoc }}</td>
+                    <td>{{ formatDate(qtcs.ngaychamsoc) }}</td>
                     <td>{{ qtcs.theodoidienbien }}</td>
                     <td>{{ qtcs.thuchienylenh }}</td>
-                    <td>{{ qtcs.ytachamsoc }}</td>
+                    <td>{{ attr(qtcs, 'ytachamsoc.ten') }}</td>
                   </tr>
                 </table>
 
@@ -84,7 +84,7 @@
                     </tr>
                     <tr v-for="(file, i) in chamsoc.emrFileDinhKemChamSocs">
                       <td>{{ i + 1 }}</td>
-                      <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+                      <td><a :href="file.url">{{ file.ten }}</a></td>
                     </tr>
                   </table>
                 </div>

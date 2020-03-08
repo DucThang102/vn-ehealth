@@ -35,19 +35,23 @@ VueAsyncComponent(
         $("#dieutriModal").modal();
       },
       getNgayDieuTri: function(dieutri) {
-        var ngayDieuTris = dieutri.emrQuaTrinhDieuTris.map(x => x.ngaydieutri);
+		  var ngayDieuTris = dieutri.emrQuaTrinhDieuTris.map(x => x.ngaydieutri);
+		  ngayDieuTris = ngayDieuTris.sort(x => parseDate(x).getTime());
 
-        if (ngayDieuTris.length == 0) {
-          return "";
-        }
+		  if (ngayDieuTris.length == 0) {
+			return "";
+		  }
+		  
+		  let ngayBatDau = ngayDieuTris[0];
+		  ngayBatDau = ngayBatDau ? this.formatDate(ngayBatDau) : "";
 
-        if (ngayDieuTris.length == 1) {
-          return ngayDieuTris[0];
-        }
+		  let ngayKetThuc = ngayDieuTris[ngayDieuTris.length - 1];
+		  ngayKetThuc = ngayKetThuc ? this.formatDate(ngayKetThuc) : "";
 
-        ngayBatDau = ngayDieuTris[0];
-        ngayKetThuc = ngayDieuTris[ngayDieuTris.length - 1];
-        return "Từ " + ngayBatDau + " đến " + ngayKetThuc;
+		  if (ngayBatDau == ngayKetThuc) {
+			return ngayBatDau;
+		  } else {
+			return "Từ " + ngayBatDau + " đến " + ngayKetThuc;
       },
       getTenKhoa: function(khoadieutri) {
         return khoadieutri.tenkhoa || attr(khoadieutri, "emrDmKhoaDieuTri.ten");

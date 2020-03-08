@@ -13,7 +13,7 @@
           ><i class="fas fa-fw fa-binoculars"></i> Xem</a
         >
       </td>
-      <td class="text-center">{{ hoichan.ngaythuchien }}</td>
+      <td class="text-center">{{ formatDateTime(hoichan.ngaythuchien) }}</td>
       <td class="text-center">{{ getTenKhoa(hoichan.emrVaoKhoa) }}</td>
     </tr>
     <tr v-if="hoichan_list.length==0">
@@ -41,7 +41,7 @@
               <font size="2.5">
                 <div class="row">
                   <div class="col-12">
-                    <b>Hội chẩn lúc: {{ hoichan.ngaythuchien }}</b><br />
+                    <b>Hội chẩn lúc: {{ formatDateTime(hoichan.ngaythuchien) }}</b><br />
                     <span>- Tại khoa: {{ getTenKhoa(hoichan.emrVaoKhoa) }}</span
                     ><br />
                     <div class="row">
@@ -57,8 +57,8 @@
                     </div>
                     <span>- Thành viên tham gia:</span>
                     <ul>
-                      <li v-for="bs in hoichan.emrThanhVienHoiChans">
-                        {{ bs.tenbacsi }}
+                      <li v-for="tvhc in hoichan.emrThanhVienHoiChans">
+                        {{ attr(tvhc, 'bacsihoichan.ten') }}
                       </li>
                     </ul>
                   </div>
@@ -98,7 +98,7 @@
                     </tr>
                     <tr v-for="(file, i) in hoichan.emrFileDinhKemHoiChans">
                       <td>{{ i + 1 }}</td>
-                      <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+                      <td><a :href="file.url">{{ file.ten }}</a></td>
                     </tr>
                   </table>
                 </div>

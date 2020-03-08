@@ -16,7 +16,7 @@
       </td>
       <td class="text-center">{{ gpb.emrDmGiaiPhauBenh.ten }}</td>
       <td class="text-center">{{ gpb.emrDmLoaiGiaiPhauBenh.ten }}</td>
-      <td class="text-center">{{ gpb.ngaythuchien }}</td>
+      <td class="text-center">{{ formatDateTime(gpb.ngaythuchien) }}</td>
     </tr>
     <tr v-if="gpb_list.length==0">
       <td colspan="5">Không có dữ liệu</td>
@@ -50,10 +50,10 @@
                       }}</span
                     >
                     <br />
-                    <span>- Ngày yêu cầu: {{ gpb.ngayyeucau }}</span> <br />
-                    <span>- Bác sỹ yêu cầu: {{ gpb.bacsiyeucau }} </span> <br />
-                    <span>- Ngày thực hiện: {{ gpb.ngaythuchien }}</span> <br />
-                    <span>- Bác sĩ thực hiện: {{ gpb.bacsichuyenkhoa }}</span>
+                    <span>- Ngày yêu cầu: {{ formatDateTime(gpb.ngayyeucau) }}</span> <br />
+                    <span>- Bác sỹ yêu cầu: {{ attr(gpb, 'bacsiyeucau.ten') }} </span> <br />
+                    <span>- Ngày thực hiện: {{ formatDateTime(gpb.ngaythuchien) }}</span> <br />
+                    <span>- Bác sĩ thực hiện: {{ attr(gpb, 'bacsichuyenkhoa.ten') }}</span>
                     <br />
                     <span
                       >- Vị trí mẫu sinh thiết: {{ gpb.emrDmViTriLayMau.ten
@@ -93,7 +93,7 @@
                     </tr>
                     <tr v-for="(file, i) in gpb.emrFileDinhKemGpbs">
                       <td>{{ i + 1 }}</td>
-                      <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+                      <td><a :href="file.url">{{ file.ten }}</a></td>
                     </tr>
                   </table>
                 </div>

@@ -15,8 +15,8 @@
         >
       </td>
       <td class="text-center">{{ donthuoc.sodon }}</td>
-      <td class="text-center">{{ donthuoc.bacsikedon }}</td>
-      <td class="text-center">{{ donthuoc.ngaykedon }}</td>
+      <td class="text-center">{{ attr(donthuoc, 'bacsikedon.ten') }}</td>
+      <td class="text-center">{{ formatDate(donthuoc.ngaykedon) }}</td>
     </tr>
 
     <tr v-if="donthuoc_list.length==0">
@@ -45,8 +45,8 @@
                 <div class="row">
                   <div class="col-12">
                     <b>Đơn thuốc số: {{ donthuoc.sodon }}</b><br />
-                    <span>- Ngày kê đơn: {{ donthuoc.ngaykedon }} </span><br />
-                    <span>- Bác sỹ kê đơn: {{ donthuoc.bacsikedon }}</span
+                    <span>- Ngày kê đơn: {{ formatDate(donthuoc.ngaykedon) }} </span><br />
+                    <span>- Bác sỹ kê đơn: {{ attr(donthuoc, 'bacsikedon.ten') }}</span
                     ><br />
                   </div>
                 </div>
@@ -66,8 +66,8 @@
                     <td>{{ i + 1 }}</td>
                     <td>{{ dtct.bietduoc }}</td>
                     <td>{{ attr(dtct, 'emrDmThuoc.ten') }}</td>
-                    <td>{{ dtct.ngaybatdau }}</td>
-                    <td>{{ dtct.ngayketthuc }}</td>
+                    <td>{{ formatDate(dtct.ngaybatdau) }}</td>
+                    <td>{{ formatDate(dtct.ngayketthuc) }}</td>
                     <td>{{ attr(dtct, 'emrDmDuongDungThuoc.ten') }}</td>
                     <td>{{ dtct.lieuluongdung }}</td>
                     <td>{{ attr(dtct, 'emrDmTanXuatDungThuoc.ten') }}</td>
@@ -88,7 +88,7 @@
                     </tr>
                     <tr v-for="(file, i) in donthuoc.emrFileDinhKemDonThuocs">
                       <td>{{ i + 1 }}</td>
-                      <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+                      <td><a :href="file.url">{{ file.ten }}</a></td>
                     </tr>
                   </table>
                 </div>

@@ -13,7 +13,7 @@
           Xem</a></td>
       <td class="text-center">{{ tdcn.emrDmThamDoChucNang.ten }}</td>
       <td class="text-center">{{ tdcn.emrDmLoaiThamDoChucNang.ten }}</td>
-      <td class="text-center">{{ tdcn.ngaythuchien }}</td>
+      <td class="text-center">{{ formatDateTime(tdcn.ngaythuchien) }}</td>
     </tr>
     <tr v-if="tdcn_list.length==0">
       <td colspan="5">Không có dữ liệu</td>
@@ -41,10 +41,10 @@
                 <div class="col-12">
                   <b>Thăm dò chức năng: {{ tdcn.emrDmThamDoChucNang.ten }} </b> <br>
                   <span>- Loại thăm dò chức năng: {{ tdcn.emrDmLoaiThamDoChucNang.ten }}<br>
-                    <span>- Ngày yêu cầu: {{ tdcn.ngayyeucau }}</span> <br>
-                    <span>- Bác sỹ yêu cầu: {{ tdcn.bacsiyeucau }} </span> <br>
-                    <span>- Ngày thực hiện: {{ tdcn.ngaythuchien }} </span> <br>
-                    <span>- Bác sĩ thực hiện: {{ tdcn.bacsichuyenkhoa }} </span> <br>
+                    <span>- Ngày yêu cầu: {{ formatDateTime(tdcn.ngayyeucau) }}</span> <br>
+                    <span>- Bác sỹ yêu cầu: {{ attr(tdcn, 'bacsiyeucau.ten') }} </span> <br>
+                    <span>- Ngày thực hiện: {{ formatDateTime(tdcn.ngaythuchien) }} </span> <br>
+                    <span>- Bác sĩ thực hiện: {{ attr(tdcn, 'bacsichuyenkhoa.ten') }} </span> <br>
                 </div>
               </div>
               <hr>
@@ -82,7 +82,7 @@
                   </tr>
                   <tr v-for="(file, i) in tdcn.emrFileDinhKemTdcns">
                     <td>{{ i + 1 }}</td>
-                    <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+                    <td><a :href="file.url">{{ file.ten }}</a></td>
                   </tr>
                 </table>
               </div>

@@ -82,7 +82,7 @@ VueAsyncComponent(
           x => attr(x, "emrDmVaiTro.ma") == "1"
         );
         if (bacsi) {
-          return bacsi.tenbacsi;
+          return attr(bacsi, 'bacsihoichan.ten');
         }
         return "";
       },
@@ -92,7 +92,7 @@ VueAsyncComponent(
           x => attr(x, "emrDmVaiTro.ma") == "2"
         );
         if (bacsi) {
-          return bacsi.tenbacsi;
+          return attr(bacsi, 'bacsihoichan.ten');
         }
         return "";
       }

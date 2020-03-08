@@ -72,7 +72,7 @@
                     v-for="(cnsct, i) in chucnangsong.emrChucNangSongChiTiets"
                   >
                     <td>{{ i + 1}}</td>
-                    <td>{{ cnsct.ngaytheodoi }}</td>
+                    <td>{{ formatDate(cnsct.ngaytheodoi) }}</td>
                     <td class="text-center">{{ cnsct.mach }}</td>
                     <td class="text-center">{{ cnsct. nhietdo }}</td>
                     <td class="text-center">
@@ -80,7 +80,7 @@
                     </td>
                     <td class="text-center">{{ cnsct.cannang }}</td>
                     <td class="text-center">{{ cnsct.nhiptho }}</td>
-                    <td class="text-center">{{ cnsct.ytatheodoi }}</td>
+                    <td class="text-center">{{ attr(cnsct, 'ytatheodoi.ten') }}</td>
                   </tr>
                 </table>
 
@@ -96,7 +96,7 @@
                       v-for="(file, i) in chucnangsong.emrFileDinhKemChucNangSongs"
                     >
                       <td>{{ i + 1 }}</td>
-                      <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+                      <td><a :href="file.url">{{ file.ten }}</a></td>
                     </tr>
                   </table>
                 </div>

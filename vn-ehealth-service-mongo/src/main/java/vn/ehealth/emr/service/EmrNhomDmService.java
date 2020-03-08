@@ -28,7 +28,7 @@ public class EmrNhomDmService {
         var criteria = new Criteria().orOperator(
                 Criteria.where("ten").regex(keyword),
                 Criteria.where("ma").regex(keyword)
-             ).and("trangThai").is(TRANGTHAI_DULIEU.DEFAULT);
+             );
         
         return mongoTemplate.count(new Query(criteria), EmrNhomDm.class);
     }
@@ -40,7 +40,7 @@ public class EmrNhomDmService {
         var criteria = new Criteria().orOperator(
                             Criteria.where("ten").regex(keyword),
                             Criteria.where("ma").regex(keyword)
-                            ).and("trangThai").is(TRANGTHAI_DULIEU.DEFAULT);
+                            );
         
         var query = new Query(criteria);
         

@@ -39,23 +39,24 @@ VueAsyncComponent(
         $("#chucnangsongModal").modal();
       },
       getNgayTheoDoi: function(chucnangsong) {
-        var ngayTheoDois = chucnangsong.emrChucNangSongChiTiets.map(x => x.ngaytheodoi);
-        ngayTheoDois = ngayTheoDois.sort(x => parseDate(x).getTime());
+          var ngayChamSocs = chucnangsong.emrChucNangSongChiTiets.map(x => x.ngaychamsoc);
+		  ngayChamSocs = ngayChamSocs.sort(x => parseDate(x).getTime());
 
-        if (ngayTheoDois.length == 0) {
-          return "";
-        }
-        ngayBatDau = ngayTheoDois[0];
-        ngayBatDau = ngayBatDau ? ngayBatDau.substring(0, 10) : "";
+		  if (ngayChamSocs.length == 0) {
+			return "";
+		  }
 
-        ngayKetThuc = ngayTheoDois[ngayTheoDois.length - 1];
-        ngayKetThuc = ngayKetThuc ? ngayKetThuc.substring(0, 10) : "";
+		  let ngayBatDau = ngayChamSocs[0];
+		  ngayBatDau = ngayBatDau ? this.formatDate(ngayBatDau) : "";
 
-        if (ngayBatDau == ngayKetThuc) {
-          return ngayBatDau;
-        } else {
-          return "Từ " + ngayBatDau + " đến " + ngayKetThuc;
-        }
+		  let ngayKetThuc = ngayChamSocs[ngayChamSocs.length - 1];
+		  ngayKetThuc = ngayKetThuc ? this.formatDate(ngayKetThuc) : "";
+
+		  if (ngayBatDau == ngayKetThuc) {
+			return ngayBatDau;
+		  } else {
+			return "Từ " + ngayBatDau + " đến " + ngayKetThuc;
+		  }
       },
       getTenKhoa: function(khoadieutri) {
         return khoadieutri.tenkhoa || attr(khoadieutri, "emrDmKhoaDieuTri.ten");

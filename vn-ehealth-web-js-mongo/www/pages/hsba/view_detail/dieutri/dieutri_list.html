@@ -64,10 +64,10 @@
                   </tr>
                   <tr v-for="(qtdt, i) in dieutri.emrQuaTrinhDieuTris">
                     <td>{{ i + 1 }}</td>
-                    <td>{{ qtdt.ngaydieutri }}</td>
+                    <td>{{ formatDate(qtdt.ngaydieutri) }}</td>
                     <td>{{ qtdt.dienbien }}</td>
                     <td>{{ qtdt.ylenh }}</td>
-                    <td>{{ qtdt.bacsiraylenh }}</td>
+                    <td>{{ attr(qtdt, 'bacsiraylenh.ten') }}</td>
                   </tr>
                 </table>
 
@@ -81,7 +81,7 @@
                     </tr>
                     <tr v-for="(file, i) in dieutri.emrFileDinhKemDieuTris">
                       <td>{{ i + 1 }}</td>
-                      <td><a :href="file.duongdan">{{ file.tenfile }}</a></td>
+                      <td><a :href="file.url">{{ file.ten }}</a></td>
                     </tr>
                   </table>
                 </div>
