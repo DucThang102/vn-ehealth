@@ -52,6 +52,7 @@ VueAsyncComponent(
 			return ngayBatDau;
 		  } else {
 			return "Từ " + ngayBatDau + " đến " + ngayKetThuc;
+		  }
       },
       getTenKhoa: function(khoadieutri) {
         return khoadieutri.tenkhoa || attr(khoadieutri, "emrDmKhoaDieuTri.ten");
