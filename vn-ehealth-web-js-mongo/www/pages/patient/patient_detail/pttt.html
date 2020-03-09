@@ -27,7 +27,7 @@
                 <td class="text-center">{{ pttt.ngayVaoVien }}</td>
                 <td class="text-center">{{ pttt.ngayRaVien }}</td>
                 <td class="text-center">{{ pttt.emrDmPhauThuThuat.ten }}</td>
-                <td class="text-center">{{ pttt.bacsithuchien }}</td>
+                <td class="text-center">{{ pttt.bacsithuchien.ten }}</td>
                 <td class="text-center">{{ pttt.ngaygiopttt }}</td>
                 <td class="text-center">
                   <a href="#" v-on:click="viewPttt(pttt)"
@@ -56,18 +56,18 @@
                   <div class="container">
                     <div class="row">
                       <div class="col-3">
-                        Sở Y tế: <br>
-                        BV: 
+                        Sở Y tế: <br />
+                        BV:
                       </div>
                       <div class="col-6">
                         <h5><b>PHIẾU PHẪU THUẬT/THỦ THUẬT</b></h5>
                       </div>
                       <div class="col-3">
-                        MS: 14/BV-01 <br>
+                        MS: 14/BV-01 <br />
                         Số vào viện:
                       </div>
                     </div>
-                    <br>
+                    <br />
                     <div class="row">
                       <div class="col-7">
                         - Họ tên người bệnh:
@@ -76,13 +76,23 @@
                         Tuổi:
                       </div>
                       <div class="col-3">
-                        <input disabled :checked="attr(pttt, 'emrBenhNhan.emrDmGioiTinh.ma') == 'M' " type="checkbox"> <span class="mr-3">Nam</span>
-                        <input disabled :checked="attr(pttt, 'emrBenhNhan.emrDmGioiTinh.ma') == 'F' " type="checkbox"> <span class="mr-3">Nữ</span>
+                        <input
+                          disabled
+                          :checked="attr(pttt, 'emrBenhNhan.emrDmGioiTinh.ma') == 'M' "
+                          type="checkbox"
+                        />
+                        <span class="mr-3">Nam</span>
+                        <input
+                          disabled
+                          :checked="attr(pttt, 'emrBenhNhan.emrDmGioiTinh.ma') == 'F' "
+                          type="checkbox"
+                        />
+                        <span class="mr-3">Nữ</span>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-6">
-                        - Khoa: 
+                        - Khoa:
                       </div>
                       <div class="col-3">
                         Buồng:
@@ -103,12 +113,13 @@
                     </div>
                     <div class="row">
                       <div class="col">
-                        - Chẩn đoán: {{pttt.emrDmMaBenhChandoantruoc.ten}}
+                        - Chẩn đoán: {{pttt.emrDmMaBenhChandoantruocs[0].ten}}
                       </div>
                     </div>
                     <div class="row">
                       <div class="col">
-                        - Trước phẫu thuật/ thủ thuật: {{pttt.motachandoantruocpt}}
+                        - Trước phẫu thuật/ thủ thuật:
+                        {{pttt.motachandoantruocpt}}
                       </div>
                     </div>
                     <div class="row">
@@ -123,7 +134,8 @@
                     </div>
                     <div class="row">
                       <div class="col">
-                        - Loại phẫu thuật/ thủ thuật: {{pttt.emrDmPhauThuThuat.ten}}
+                        - Loại phẫu thuật/ thủ thuật:
+                        {{pttt.emrDmPhauThuThuat.ten}}
                       </div>
                     </div>
                     <div class="row">
@@ -141,12 +153,14 @@
                         - Bác sĩ gây mê hồi sức:
                       </div>
                     </div>
-                    <br>
+                    <br />
                     <table class="table table-bordered">
                       <thead>
                         <tr>
-                          <th><b>LƯỢC ĐỒ PHẪU THUẬT/THỦ THUẬT</b>  <br>
-                            {{pttt.luocdoptt}} </th>
+                          <th>
+                            <b>LƯỢC ĐỒ PHẪU THUẬT/THỦ THUẬT</b> <br />
+                            {{pttt.luocdoptt}}
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -155,62 +169,57 @@
                             <div class="container"></div>
                             <div class="row">
                               <div class="col">
-                              Lược đồ hiển thị 
-                              <br>
-                              <br> 
-                              <br>
+                                Lược đồ hiển thị
+                                <br />
+                                <br />
+                                <br />
                               </div>
                             </div>
                             <div class="container">
-                            <div class="row">
-                              - Dẫn lưu:
+                              <div class="row">
+                                - Dẫn lưu:
+                              </div>
+                              <div class="row">
+                                - Bấc:
+                              </div>
+                              <div class="row">
+                                - Ngày rút:
+                              </div>
+                              <div class="row">
+                                - Ngày cắt chỉ:
+                              </div>
+                              <div class="row">
+                                - Khác:
+                              </div>
                             </div>
-                            <div class="row">
-                              - Bấc:
-                            </div>
-                            <div class="row">
-                              - Ngày rút:
-                            </div>
-                            <div class="row">
-                              - Ngày cắt chỉ:
-                            </div>
-                            <div class="row">
-                              - Khác:
-                            </div>
-                          </div>
-
-
                           </td>
                         </tr>
                       </tbody>
                     </table>
                     <div class="row ">
                       <div class="col">
-                        <h6 class="text-center" ><b > TRÌNH TỰ PHẪU THUẬT THỦ THUẬT </b></h6> <br>
+                        <h6 class="text-center">
+                          <b> TRÌNH TỰ PHẪU THUẬT THỦ THUẬT </b>
+                        </h6>
+                        <br />
                         {{pttt.trinhtuptt}}
                       </div>
                     </div>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                     <div class="row offset-8">
                       <div class="text-center">
-                        <i> Ngày.... tháng.... năm..... </i> <br>
+                        <i> Ngày.... tháng.... năm..... </i> <br />
                         <b>PHẪU THUẬT/THỦ THUẬT VIÊN</b>
-                        <br>
-                        <br>
-                        <br>
+                        <br />
+                        <br />
+                        <br />
                         Họ tên:
                       </div>
                     </div>
-
-
                   </div>
-
-
-
-
 
                   <!--
                   <div>
