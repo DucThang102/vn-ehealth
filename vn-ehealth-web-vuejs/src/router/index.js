@@ -68,6 +68,8 @@ import DashBoard from '@/views/DashBoard.vue';
 
 import DmDungChung from '@/views/danhmuc/DmDungChung.vue'
 import DmChuanHoa from '@/views/danhmuc/DmChuanHoa.vue'
+import DsNguoiDung from '@/views/quantri/DanhSachNguoiDung.vue'
+import ThemNguoiDung from '@/views/quantri/ThemNguoiDung.vue'
 
 Vue.use(VueRouter)
 
@@ -99,7 +101,7 @@ const routes = [
     name: 'xemTTBenhNhan',
     component: XemTTBenhNhan,
     props: true,
-    children: [      
+    children: [
       {
         path: 'tongquan',
         name: 'ttBenhNhanTongQuan',
@@ -163,7 +165,7 @@ const routes = [
     path: '/hsba/xem_hsba/:hsbaId',
     component: XemHsba,
     props: true,
-    children: [      
+    children: [
       {
         path: 'benh_an',
         name: 'xemToBenhAn',
@@ -377,7 +379,7 @@ const routes = [
       {
         path: 'hatt/',
         component: ChinhSuaTTHinhAnTonThuong,
-        props: true,        
+        props: true,
         children: [
           {
             path: 'list',
@@ -505,7 +507,7 @@ const routes = [
     name: 'dashboard',
     component: DashBoard
   },
-  
+
   {
     path: '/danhmuc/dungchung',
     name: 'dmDungChung',
@@ -515,7 +517,17 @@ const routes = [
     path: '/danhmuc/chuanhoa',
     name: 'dmChuanHoa',
     component: DmChuanHoa
-  }  
+  },
+    {
+        path: '/quantri/dsnguoidung',
+        name: 'dsnguoidung',
+        component: DsNguoiDung
+    },
+    {
+        path: '/quantri/themnguoidung',
+        name: 'themnguoidung',
+        component: ThemNguoiDung
+    }
 ]
 
 const router = new VueRouter({

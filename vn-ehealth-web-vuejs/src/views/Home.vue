@@ -74,6 +74,21 @@
             </router-link>
           </div>
         </li>
+        <li class="nav-item active dropdown">
+          <a
+                  class="nav-link dropdown-toggle text-uppercase"
+                  href="#"
+                  id="hsbaDropdown"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+          >Quản trị</a>
+          <div class="dropdown-menu" aria-labelledby="hsbaDropdown">
+            <router-link class="dropdown-item" to="/quantri/dsnguoidung">
+              <i class="fas fa-angle-right black"></i> Danh sách người dùng
+            </router-link>
+          </div>
+        </li>
       </ul>
     </nav>    
     <div id="content-wrapper" class="bg-light">
