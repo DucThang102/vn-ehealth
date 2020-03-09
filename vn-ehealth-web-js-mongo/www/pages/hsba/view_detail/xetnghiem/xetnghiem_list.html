@@ -77,14 +77,14 @@
                   <template v-if="xndv.emrXetNghiemKetQuas.length>1">
                     <tr>
                       <td :rowspan="1+xndv.emrXetNghiemKetQuas.length">{{ i + 1 }}</td>
-                      <th colspan="4">{{ xndv.emrDmXetNghiem.ten }}</th>
+                      <th colspan="4">{{ attr(xndv, 'emrDmXetNghiem.ten') }}</th>
                     </tr>
                     <tr v-for="xnkq in xndv.emrXetNghiemKetQuas">                      
-                      <td>{{ xnkq.emrDmChiSoXetNghiem.ten }}</td>
+                      <td>{{ attr(xnkq, 'emrDmChiSoXetNghiem.ten') }}</td>
                       <td class="text-center">{{ xnkq.giatrido }}</td>
-                      <td class="text-center">{{ xnkq.emrDmChiSoXetNghiem.donvi }}</td>
-                      <td class="text-center">Nam: {{xnkq.emrDmChiSoXetNghiem.chisobt_nam}} /
-                        Nữ: {{xnkq.emrDmChiSoXetNghiem.chisobt_nu}}</td>
+                      <td class="text-center">{{ attr(xnkq, 'emrDmChiSoXetNghiem.extension.donvi') }}</td>
+                      <td class="text-center">Nam: {{ attr(xnkq, 'emrDmChiSoXetNghiem.extension.chisobtnam')}} /
+                        Nữ: {{ attr(xnkq, 'emrDmChiSoXetNghiem.extension.chisobtnu')}}</td>
                     </tr>                  
                   </template>
                 </template>

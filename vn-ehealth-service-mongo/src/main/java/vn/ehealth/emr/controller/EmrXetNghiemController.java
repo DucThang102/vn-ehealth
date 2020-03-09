@@ -88,7 +88,6 @@ public class EmrXetNghiemController {
         }
     }
     
-    @SuppressWarnings("unchecked")
     @PostMapping("/create_or_update_xetnghiem")
     public ResponseEntity<?> createOrUpdateXetnghiemFromHIS(@RequestBody String jsonSt) {
         try {
@@ -96,16 +95,43 @@ public class EmrXetNghiemController {
             var matraodoiHsba = (String) map.get("matraodoiHoSo");
             var hsba = emrHoSoBenhAnService.getByMatraodoi(matraodoiHsba).orElseThrow();
             
-            var xetnghiemObjList = (List<Object>) map.get("emrXetNghiems");
-            var xetnghiemList = xetnghiemObjList.stream()
+            var xetnghiemList = EmrUtils.getFieldAsList(map, "emrXetNghiems");
+            if(xetnghiemList == null) {
+                throw new Exception("emrXetNghiems is null");
+            }
+            
+            for(var xetnghiem: xetnghiemList) {
+                var xndvList = EmrUtils.getFieldAsList(xetnghiem, "emrXetNghiemDichVus");
+                if(xndvList == null) continue;
+                
+                for(var xndv : xndvList) {
+                    var xnkqList = EmrUtils.getFieldAsList(xndv, "emrXetNghiemKetQuas");
+                    if(xnkqList == null) continue;
+                    
+                    for(var xnkq : xnkqList) {
+                        var chisoxn = EmrUtils.getFieldAsObject(xnkq, "emrDmChiSoXetNghiem");
+                        if(chisoxn != null) {
+                            var extension = Map.of(
+                                "donvi", chisoxn.getOrDefault("donvi", ""),
+                                "chisobtnam", chisoxn.getOrDefault("chisobtnam", ""),
+                                "chisobtnu", chisoxn.getOrDefault("chisobtnu", "")
+                            );
+                            
+                            chisoxn.put("extension", extension);
+                        }
+                    }
+                }
+            }
+            
+            var xetnghiemModelList = xetnghiemList.stream()
                                 .map(obj -> objectMapper.convertValue(obj, EmrXetNghiem.class))
                                 .collect(Collectors.toList());
             
-            emrXetNghiemService.createOrUpdateFromHIS(hsba, xetnghiemList);
+            emrXetNghiemService.createOrUpdateFromHIS(hsba, xetnghiemModelList);
             
             var result = Map.of(
                 "success" , true,
-                "xetnghiemList", xetnghiemList  
+                "xetnghiemList", xetnghiemModelList  
             );
             
             return ResponseEntity.ok(result);
