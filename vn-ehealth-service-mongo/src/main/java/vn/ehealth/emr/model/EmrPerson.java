@@ -23,7 +23,8 @@ public class EmrPerson {
     public Date ngaysinh;
     public String email;
     public String dienthoai;
-    public String noilamviec;
+    public String cmnd;
+    public String noilamviec;    
     
     public EmrDmContent emrDmGioiTinh;
     public EmrDmContent emrDmDanToc;
@@ -32,4 +33,6 @@ public class EmrPerson {
     public EmrDmContent emrDmPhuongXa;
     public EmrDmContent emrDmQuanHuyen;
     public EmrDmContent emrDmTinhThanh;
+    
+    public ObjectId userId;
 }

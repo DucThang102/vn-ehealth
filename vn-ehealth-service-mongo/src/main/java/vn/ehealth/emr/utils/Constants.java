@@ -12,7 +12,15 @@ public class Constants {
     }
     
     public static interface MA_DANH_MUC {
-    } 
+    }
+    
+    
+    public static interface MA_VAI_TRO {
+        final public static String BENH_NHAN = "01";
+        final public static String BAC_SI = "02";
+        final public static String ADMIN = "03";
+        final public static String SUPER_USER = "04";
+    }
     
     public static interface MA_HANH_DONG {
         final public static String TAO_MOI = "01";

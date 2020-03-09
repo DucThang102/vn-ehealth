@@ -80,8 +80,6 @@ public class EmrBenhNhan {
     
     public String trinhDoVanHoaCuaMe;
     
-    public ObjectId userId;
-    
     public ObjectId emrPersonId;
         
 }
