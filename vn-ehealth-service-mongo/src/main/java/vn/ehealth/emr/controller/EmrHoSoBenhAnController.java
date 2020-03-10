@@ -104,9 +104,14 @@ public class EmrHoSoBenhAnController {
         }        
     }
     
+    @GetMapping("/count_hsba_logs")
+    public ResponseEntity<?> countHsbaLogs(@RequestParam("hsba_id") String id) {        
+        return ResponseEntity.ok(emrHoSoBenhAnService.countHistory(new ObjectId(id)));
+    } 
+    
     @GetMapping("/get_hsba_logs")
-    public ResponseEntity<?> getHsbaLogs(@RequestParam("hsba_id") String id) {        
-        return ResponseEntity.ok(emrHoSoBenhAnService.getHistory(new ObjectId(id)));
+    public ResponseEntity<?> getHsbaLogs(@RequestParam("hsba_id") String id, @RequestParam int start, @RequestParam int count) {        
+        return ResponseEntity.ok(emrHoSoBenhAnService.getHistory(new ObjectId(id), start, count));
     }    
     
     

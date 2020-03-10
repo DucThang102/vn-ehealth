@@ -24,6 +24,7 @@ import vn.ehealth.emr.model.EmrHoiChan;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.service.EmrHoiChanService;
 import vn.ehealth.emr.utils.EmrUtils;
+import vn.ehealth.emr.utils.UserUtil;
 import vn.ehealth.emr.validate.JsonParser;
 
 @RestController
@@ -54,7 +55,8 @@ public class EmrHoiChanController {
     @GetMapping("/delete_hoichan")
     public ResponseEntity<?> deleteHoichan(@RequestParam("hoichan_id") String id) {
         try {
-            emrHoiChanService.delete(new ObjectId(id));
+        	var user = UserUtil.getCurrentUser();
+            emrHoiChanService.delete(new ObjectId(id), user.get().id);
             var result = Map.of("success" , true);
             return ResponseEntity.ok(result);
         }catch(Exception e) {
@@ -68,8 +70,9 @@ public class EmrHoiChanController {
     public ResponseEntity<?> saveHoichan(@RequestBody String jsonSt) {
         
         try {
+        	var user = UserUtil.getCurrentUser();
             var hoichan = objectMapper.readValue(jsonSt, EmrHoiChan.class);
-            hoichan = emrHoiChanService.save(hoichan);
+            hoichan = emrHoiChanService.save(hoichan, user.get().id, jsonSt);
             var result = Map.of(
                     "success" , true,
                     "emrHoiChan", hoichan 
@@ -98,8 +101,10 @@ public class EmrHoiChanController {
             var hcList = hcObjList.stream()
                                 .map(obj -> objectMapper.convertValue(obj, EmrHoiChan.class))
                                 .collect(Collectors.toList());
+            var user = UserUtil.getCurrentUser();
+            var userId = user.map(x -> x.id).orElse(null);
             
-            emrHoiChanService.createOrUpdateFromHIS(hsba, hcList, hcObjList);
+            emrHoiChanService.createOrUpdateFromHIS(userId, hsba, hcList, hcObjList, jsonSt);
             
             var result = Map.of(
                 "success" , true,
@@ -117,6 +122,22 @@ public class EmrHoiChanController {
             logger.error("Error save hoichan from HIS:", e);
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
+    }
+    
+    @GetMapping("/count_hoichan_logs")
+    public ResponseEntity<?> countLogs(@RequestParam("hoichan_id") String id) {        
+        return ResponseEntity.ok(emrHoiChanService.countHistory(new ObjectId(id)));
+    } 
+    
+    @GetMapping("/get_hoichan_logs")
+    public ResponseEntity<?> getLogs(@RequestParam("hoichan_id") String id, @RequestParam int start, @RequestParam int count) {        
+        return ResponseEntity.ok(emrHoiChanService.getHistory(new ObjectId(id), start, count));
+    }    
+    
+    
+    @GetMapping("/get_hs_goc")
+    public ResponseEntity<?> getHsGoc(@RequestParam("hoichan_id") String id) {
+        return ResponseEntity.ok(Map.of("hsGoc", emrHoiChanService.getHsgoc(new ObjectId(id))));
     }
 
 }

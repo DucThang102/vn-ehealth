@@ -24,6 +24,7 @@ import vn.ehealth.emr.model.EmrChanDoanHinhAnh;
 import vn.ehealth.emr.service.EmrChanDoanHinhAnhService;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.utils.EmrUtils;
+import vn.ehealth.emr.utils.UserUtil;
 import vn.ehealth.emr.validate.JsonParser;
 
 @RestController
@@ -52,7 +53,8 @@ public class EmrChanDoanHinhAnhController {
     @GetMapping("/delete_cdha")
     public ResponseEntity<?> deleteCdha(@RequestParam("cdha_id") String id) {
         try {
-            emrChanDoanHinhAnhService.delete(new ObjectId(id));
+        	var user = UserUtil.getCurrentUser();
+            emrChanDoanHinhAnhService.delete(new ObjectId(id), user.get().id);
             var result = Map.of("success" , true);
             return ResponseEntity.ok(result);
         }catch(Exception e) {
@@ -66,8 +68,9 @@ public class EmrChanDoanHinhAnhController {
     public ResponseEntity<?> saveCdha(@RequestBody String jsonSt) {
         
         try {
+        	var user = UserUtil.getCurrentUser();
             var cdha = objectMapper.readValue(jsonSt, EmrChanDoanHinhAnh.class);
-            cdha = emrChanDoanHinhAnhService.save(cdha);
+            cdha = emrChanDoanHinhAnhService.save(cdha, user.get().id, jsonSt);
             
             var result = Map.of(
                 "success" , true,
@@ -97,8 +100,10 @@ public class EmrChanDoanHinhAnhController {
             var cdhaList = cdhaObjList.stream()
                                 .map(obj -> objectMapper.convertValue(obj, EmrChanDoanHinhAnh.class))
                                 .collect(Collectors.toList());
+            var user = UserUtil.getCurrentUser();
+            var userId = user.map(x -> x.id).orElse(null);
             
-            emrChanDoanHinhAnhService.createOrUpdateFromHIS(hsba, cdhaList);
+            emrChanDoanHinhAnhService.createOrUpdateFromHIS(userId, hsba, cdhaList, jsonSt);
             
             var result = Map.of(
                 "success" , true,
@@ -116,5 +121,21 @@ public class EmrChanDoanHinhAnhController {
             logger.error("Error save chandoanhinhanh from HIS:", e);
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
+    }
+    
+    @GetMapping("/count_cdha_logs")
+    public ResponseEntity<?> countLogs(@RequestParam("cdha_id") String id) {        
+        return ResponseEntity.ok(emrChanDoanHinhAnhService.countHistory(new ObjectId(id)));
+    } 
+    
+    @GetMapping("/get_cdha_logs")
+    public ResponseEntity<?> getLogs(@RequestParam("cdha_id") String id, @RequestParam int start, @RequestParam int count) {        
+        return ResponseEntity.ok(emrChanDoanHinhAnhService.getHistory(new ObjectId(id), start, count));
+    }    
+    
+    
+    @GetMapping("/get_hs_goc")
+    public ResponseEntity<?> getHsGoc(@RequestParam("cdha_id") String id) {
+        return ResponseEntity.ok(Map.of("hsGoc", emrChanDoanHinhAnhService.getHsgoc(new ObjectId(id))));
     }
 }

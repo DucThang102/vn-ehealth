@@ -24,6 +24,7 @@ import vn.ehealth.emr.model.EmrChamSoc;
 import vn.ehealth.emr.service.EmrChamSocService;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.utils.EmrUtils;
+import vn.ehealth.emr.utils.UserUtil;
 import vn.ehealth.emr.validate.JsonParser;
 
 @RestController
@@ -56,7 +57,8 @@ public class EmrChamSocController {
     @GetMapping("/delete_chamsoc")
     public ResponseEntity<?> deleteChamSoc(@RequestParam("chamsoc_id") String id) {
         try {
-            emrChamSocService.delete(new ObjectId(id));
+        	var user = UserUtil.getCurrentUser();
+            emrChamSocService.delete(new ObjectId(id), user.get().id);
             var result = Map.of("success" , true);
             return ResponseEntity.ok(result);
         }catch(Exception e) {
@@ -70,8 +72,9 @@ public class EmrChamSocController {
     public ResponseEntity<?> save(@RequestBody String jsonSt) {
         
         try {
+        	var user = UserUtil.getCurrentUser();
             var chamsoc = objectMapper.readValue(jsonSt, EmrChamSoc.class);
-            chamsoc = emrChamSocService.save(chamsoc);
+            chamsoc = emrChamSocService.save(chamsoc, user.get().id, jsonSt);
             
             var result = Map.of(
                 "success" , true,
@@ -100,8 +103,10 @@ public class EmrChamSocController {
             var csList = csObjList.stream()
                                 .map(obj -> objectMapper.convertValue(obj, EmrChamSoc.class))
                                 .collect(Collectors.toList());
+            var user = UserUtil.getCurrentUser();
+            var userId = user.map(x -> x.id).orElse(null);
             
-            emrChamSocService.createOrUpdateFromHIS(hsba, csList, csObjList);
+            emrChamSocService.createOrUpdateFromHIS(userId, hsba, csList, csObjList, jsonSt);
             
             var result = Map.of(
                 "success" , true,
@@ -119,5 +124,21 @@ public class EmrChamSocController {
             logger.error("Error save chamsoc from HIS:", e);
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
+    }
+    
+    @GetMapping("/count_chamsoc_logs")
+    public ResponseEntity<?> countLogs(@RequestParam("chamsoc_id") String id) {        
+        return ResponseEntity.ok(emrChamSocService.countHistory(new ObjectId(id)));
+    } 
+    
+    @GetMapping("/get_chamsoc_logs")
+    public ResponseEntity<?> getLogs(@RequestParam("chamsoc_id") String id, @RequestParam int start, @RequestParam int count) {        
+        return ResponseEntity.ok(emrChamSocService.getHistory(new ObjectId(id), start, count));
+    }    
+    
+    
+    @GetMapping("/get_hs_goc")
+    public ResponseEntity<?> getHsGoc(@RequestParam("chamsoc_id") String id) {
+        return ResponseEntity.ok(Map.of("hsGoc", emrChamSocService.getHsgoc(new ObjectId(id))));
     }
 }

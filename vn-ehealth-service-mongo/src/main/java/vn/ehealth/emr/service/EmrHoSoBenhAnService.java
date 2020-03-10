@@ -91,8 +91,12 @@ public class EmrHoSoBenhAnService {
         return "";
     }
     
-    public List<Object> getHistory(ObjectId id) {
-        var logs = emrLogService.getLogs(EmrHoSoBenhAn.class.getName(), id, MA_HANH_DONG.CHINH_SUA, false, -1, -1);
+    public long countHistory(ObjectId id) {
+        return emrLogService.countLogs(EmrHoSoBenhAn.class.getName(), id, MA_HANH_DONG.CHINH_SUA, false);   
+    }
+    
+    public List<Object> getHistory(ObjectId id, int offset, int limit) {
+        var logs = emrLogService.getLogs(EmrHoSoBenhAn.class.getName(), id, MA_HANH_DONG.CHINH_SUA, false, offset, limit);
         
         var result = new ArrayList<>();
         for(var log : logs) {

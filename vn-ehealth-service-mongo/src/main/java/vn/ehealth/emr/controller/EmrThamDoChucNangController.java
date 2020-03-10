@@ -24,6 +24,7 @@ import vn.ehealth.emr.model.EmrThamDoChucNang;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.service.EmrThamDoChucNangService;
 import vn.ehealth.emr.utils.EmrUtils;
+import vn.ehealth.emr.utils.UserUtil;
 import vn.ehealth.emr.validate.JsonParser;
 
 @RestController
@@ -48,7 +49,8 @@ public class EmrThamDoChucNangController {
     @GetMapping("/delete_tdcn")
     public ResponseEntity<?> deleteTdcn(@RequestParam("tdcn_id") String id) {
         try {
-            emrThamDoChucNangService.delete(new ObjectId(id));
+        	var user = UserUtil.getCurrentUser();
+            emrThamDoChucNangService.delete(new ObjectId(id), user.get().id);
             var result = Map.of("success" , true);
             return ResponseEntity.ok(result);
         }catch(Exception e) {
@@ -62,8 +64,9 @@ public class EmrThamDoChucNangController {
     public ResponseEntity<?> saveTdcn(@RequestBody String jsonSt) {
         
         try {
+        	var user = UserUtil.getCurrentUser();
             var tdcn = objectMapper.readValue(jsonSt, EmrThamDoChucNang.class);
-            tdcn = emrThamDoChucNangService.save(tdcn);
+            tdcn = emrThamDoChucNangService.save(tdcn, user.get().id, jsonSt);
             
             var result = Map.of(
                 "success" , true,
@@ -93,8 +96,10 @@ public class EmrThamDoChucNangController {
             var tdcnList = tdcnObjList.stream()
                                 .map(obj -> objectMapper.convertValue(obj, EmrThamDoChucNang.class))
                                 .collect(Collectors.toList());
+            var user = UserUtil.getCurrentUser();
+            var userId = user.map(x -> x.id).orElse(null);
             
-            emrThamDoChucNangService.createOrUpdateFromHIS(hsba, tdcnList);
+            emrThamDoChucNangService.createOrUpdateFromHIS(userId, hsba, tdcnList, jsonSt);
             
             var result = Map.of(
                 "success" , true,
@@ -112,5 +117,21 @@ public class EmrThamDoChucNangController {
             logger.error("Error save thamdochucnang from HIS:", e);
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
+    }
+    
+    @GetMapping("/count_tdcn_logs")
+    public ResponseEntity<?> countLogs(@RequestParam("tdcn_id") String id) {        
+        return ResponseEntity.ok(emrThamDoChucNangService.countHistory(new ObjectId(id)));
+    } 
+    
+    @GetMapping("/get_tdcn_logs")
+    public ResponseEntity<?> getLogs(@RequestParam("tdcn_id") String id, @RequestParam int start, @RequestParam int count) {        
+        return ResponseEntity.ok(emrThamDoChucNangService.getHistory(new ObjectId(id), start, count));
+    }    
+    
+    
+    @GetMapping("/get_hs_goc")
+    public ResponseEntity<?> getHsGoc(@RequestParam("tdcn_id") String id) {
+        return ResponseEntity.ok(Map.of("hsGoc", emrThamDoChucNangService.getHsgoc(new ObjectId(id))));
     }
 }

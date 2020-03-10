@@ -24,6 +24,7 @@ import vn.ehealth.emr.model.EmrGiaiPhauBenh;
 import vn.ehealth.emr.service.EmrGiaiPhauBenhService;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.utils.EmrUtils;
+import vn.ehealth.emr.utils.UserUtil;
 import vn.ehealth.emr.validate.JsonParser;
 
 @RestController
@@ -53,7 +54,8 @@ public class EmrGiaiPhauBenhController {
     @GetMapping("/delete_gpb")
     public ResponseEntity<?> deleteGpb(@RequestParam("gpb_id") String id) {
         try {
-            emrGiaiPhauBenhService.delete(new ObjectId(id));
+        	var user = UserUtil.getCurrentUser();
+            emrGiaiPhauBenhService.delete(new ObjectId(id), user.get().id);
             var result = Map.of("success" , true);
             return ResponseEntity.ok(result);
         }catch(Exception e) {
@@ -67,8 +69,9 @@ public class EmrGiaiPhauBenhController {
     public ResponseEntity<?> saveGpb(@RequestBody String jsonSt) {
         
         try {
+        	var user = UserUtil.getCurrentUser();
             var gbp = objectMapper.readValue(jsonSt, EmrGiaiPhauBenh.class);
-            gbp = emrGiaiPhauBenhService.save(gbp);
+            gbp = emrGiaiPhauBenhService.save(gbp, user.get().id, jsonSt);
             
             var result = Map.of(
                 "success" , true,
@@ -98,8 +101,10 @@ public class EmrGiaiPhauBenhController {
             var gpbList = gpbObjList.stream()
                                 .map(obj -> objectMapper.convertValue(obj, EmrGiaiPhauBenh.class))
                                 .collect(Collectors.toList());
+            var user = UserUtil.getCurrentUser();
+            var userId = user.map(x -> x.id).orElse(null);
             
-            emrGiaiPhauBenhService.createOrUpdateFromHIS(hsba, gpbList);
+            emrGiaiPhauBenhService.createOrUpdateFromHIS(userId, hsba, gpbList, jsonSt);
             
             var result = Map.of(
                 "success" , true,
@@ -117,5 +122,21 @@ public class EmrGiaiPhauBenhController {
             logger.error("Error save GiaiPhauBenh from HIS:", e);
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
+    }
+    
+    @GetMapping("/count_gpb_logs")
+    public ResponseEntity<?> countLogs(@RequestParam("gpb_id") String id) {        
+        return ResponseEntity.ok(emrGiaiPhauBenhService.countHistory(new ObjectId(id)));
+    } 
+    
+    @GetMapping("/get_gpb_logs")
+    public ResponseEntity<?> getLogs(@RequestParam("gpb_id") String id, @RequestParam int start, @RequestParam int count) {        
+        return ResponseEntity.ok(emrGiaiPhauBenhService.getHistory(new ObjectId(id), start, count));
+    }    
+    
+    
+    @GetMapping("/get_hs_goc")
+    public ResponseEntity<?> getHsGoc(@RequestParam("gpb_id") String id) {
+        return ResponseEntity.ok(Map.of("hsGoc", emrGiaiPhauBenhService.getHsgoc(new ObjectId(id))));
     }
 }

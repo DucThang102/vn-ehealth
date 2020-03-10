@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import vn.ehealth.emr.model.EmrNhomDm;
 import vn.ehealth.emr.repository.EmrNhomDmRepository;
-import vn.ehealth.emr.utils.Constants.TRANGTHAI_DULIEU;
 
 @Service
 public class EmrNhomDmService {

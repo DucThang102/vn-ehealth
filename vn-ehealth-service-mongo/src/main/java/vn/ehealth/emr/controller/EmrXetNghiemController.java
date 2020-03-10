@@ -24,6 +24,7 @@ import vn.ehealth.emr.model.EmrXetNghiem;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.service.EmrXetNghiemService;
 import vn.ehealth.emr.utils.EmrUtils;
+import vn.ehealth.emr.utils.UserUtil;
 import vn.ehealth.emr.validate.JsonParser;
 
 @RestController
@@ -55,7 +56,8 @@ public class EmrXetNghiemController {
     @GetMapping("/delete_xetnghiem")
     public ResponseEntity<?> deleteXetnghiem(@RequestParam("xetnghiem_id") String id) {
         try {
-            emrXetNghiemService.delete(new ObjectId(id));
+        	var user = UserUtil.getCurrentUser();
+            emrXetNghiemService.delete(new ObjectId(id), user.get().id);
             var result = Map.of("success" , true);
             return ResponseEntity.ok(result);
         }catch(Exception e) {
@@ -69,8 +71,9 @@ public class EmrXetNghiemController {
     public ResponseEntity<?> saveXetnghiem(@RequestBody String jsonSt) {
         
         try {
+        	var user = UserUtil.getCurrentUser();
             var xetnghiem = objectMapper.readValue(jsonSt, EmrXetNghiem.class);
-            xetnghiem = emrXetNghiemService.save(xetnghiem);
+            xetnghiem = emrXetNghiemService.save(xetnghiem, user.get().id, jsonSt);
             
             var result = Map.of(
                 "success" , true,
@@ -126,8 +129,10 @@ public class EmrXetNghiemController {
             var xetnghiemModelList = xetnghiemList.stream()
                                 .map(obj -> objectMapper.convertValue(obj, EmrXetNghiem.class))
                                 .collect(Collectors.toList());
+            var user = UserUtil.getCurrentUser();
+            var userId = user.map(x -> x.id).orElse(null);
             
-            emrXetNghiemService.createOrUpdateFromHIS(hsba, xetnghiemModelList);
+            emrXetNghiemService.createOrUpdateFromHIS(userId, hsba, xetnghiemModelList, jsonSt);
             
             var result = Map.of(
                 "success" , true,
@@ -145,5 +150,21 @@ public class EmrXetNghiemController {
             logger.error("Error save xetnghiem from HIS:", e);
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
+    }
+    
+    @GetMapping("/count_xetnghiem_logs")
+    public ResponseEntity<?> countLogs(@RequestParam("xetnghiem_id") String id) {        
+        return ResponseEntity.ok(emrXetNghiemService.countHistory(new ObjectId(id)));
+    } 
+    
+    @GetMapping("/get_xetnghiem_logs")
+    public ResponseEntity<?> getLogs(@RequestParam("xetnghiem_id") String id, @RequestParam int start, @RequestParam int count) {        
+        return ResponseEntity.ok(emrXetNghiemService.getHistory(new ObjectId(id), start, count));
+    }    
+    
+    
+    @GetMapping("/get_hs_goc")
+    public ResponseEntity<?> getHsGoc(@RequestParam("xetnghiem_id") String id) {
+        return ResponseEntity.ok(Map.of("hsGoc", emrXetNghiemService.getHsgoc(new ObjectId(id))));
     }
 }

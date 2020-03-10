@@ -24,6 +24,7 @@ import vn.ehealth.emr.model.EmrDieuTri;
 import vn.ehealth.emr.service.EmrDieuTriService;
 import vn.ehealth.emr.service.EmrHoSoBenhAnService;
 import vn.ehealth.emr.utils.EmrUtils;
+import vn.ehealth.emr.utils.UserUtil;
 import vn.ehealth.emr.validate.JsonParser;
 
 @RestController
@@ -52,7 +53,8 @@ public class EmrDieuTriController {
     @GetMapping("/delete_dieutri")
     public ResponseEntity<?> deleteDieutri(@RequestParam("dieutri_id") String id) {
         try {
-            emrDieuTriService.delete(new ObjectId(id));
+        	var user = UserUtil.getCurrentUser();
+            emrDieuTriService.delete(new ObjectId(id), user.get().id);
             var result = Map.of("success" , true);
             return ResponseEntity.ok(result);
         }catch(Exception e) {
@@ -67,7 +69,8 @@ public class EmrDieuTriController {
         
         try {
             var dieutri = objectMapper.readValue(jsonSt, EmrDieuTri.class);
-            dieutri = emrDieuTriService.save(dieutri);
+            var user = UserUtil.getCurrentUser();
+            dieutri = emrDieuTriService.save(dieutri, user.get().id, jsonSt);
             
             var result = Map.of(
                 "success" , true,
@@ -97,8 +100,10 @@ public class EmrDieuTriController {
             var dtList = dtObjList.stream()
                                 .map(obj -> objectMapper.convertValue(obj, EmrDieuTri.class))
                                 .collect(Collectors.toList());
+            var user = UserUtil.getCurrentUser();
+            var userId = user.map(x -> x.id).orElse(null);
             
-            emrDieuTriService.createOrUpdateFromHIS(hsba, dtList, dtObjList);
+            emrDieuTriService.createOrUpdateFromHIS(userId, hsba, dtList, dtObjList, jsonSt);
             
             var result = Map.of(
                 "success" , true,
@@ -116,5 +121,21 @@ public class EmrDieuTriController {
             logger.error("Error save dieutri from HIS:", e);
             return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
+    }
+    
+    @GetMapping("/count_dieutri_logs")
+    public ResponseEntity<?> countLogs(@RequestParam("dieutri_id") String id) {        
+        return ResponseEntity.ok(emrDieuTriService.countHistory(new ObjectId(id)));
+    } 
+    
+    @GetMapping("/get_dieutri_logs")
+    public ResponseEntity<?> getLogs(@RequestParam("dieutri_id") String id, @RequestParam int start, @RequestParam int count) {        
+        return ResponseEntity.ok(emrDieuTriService.getHistory(new ObjectId(id), start, count));
+    }    
+    
+    
+    @GetMapping("/get_hs_goc")
+    public ResponseEntity<?> getHsGoc(@RequestParam("dieutri_id") String id) {
+        return ResponseEntity.ok(Map.of("hsGoc", emrDieuTriService.getHsgoc(new ObjectId(id))));
     }
 }
