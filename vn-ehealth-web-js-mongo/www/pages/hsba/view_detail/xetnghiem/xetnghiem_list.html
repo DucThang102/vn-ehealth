@@ -68,10 +68,10 @@
                     <tr>
                       <td class="text-center">{{ i + 1 }}</td>
                       <td>{{ xndv.emrDmXetNghiem.ten }}</td>
-                      <td class="text-center">{{ xndv.emrXetNghiemKetQuas[0].giatrido }}</td class="text-center">
-                      <td class="text-center">{{ xndv.emrDmXetNghiem.donvi }}</td class="text-center">
-                      <td class="text-center">Nam: {{xndv.emrDmXetNghiem.chisobt_nam}} /
-                        Nữ: {{xndv.emrDmXetNghiem.chisobt_nu}}</td>
+                      <td class="text-center">{{ xndv.emrXetNghiemKetQuas[0].giatrido }}</td class="text-center">    
+                      <td class="text-center">{{ attr(xndv.emrXetNghiemKetQuas[0], 'emrDmChiSoXetNghiem.extension.donvi') }} </td class="text-center">          
+                      <td class="text-center">Nam: {{ attr(xndv.emrXetNghiemKetQuas[0], 'emrDmChiSoXetNghiem.extension.chisobtnam')}} /
+                        Nữ: {{ attr(xndv.emrXetNghiemKetQuas[0], 'emrDmChiSoXetNghiem.extension.chisobtnu')}}</td>
                     </tr>
                   </template>
                   <template v-if="xndv.emrXetNghiemKetQuas.length>1">
