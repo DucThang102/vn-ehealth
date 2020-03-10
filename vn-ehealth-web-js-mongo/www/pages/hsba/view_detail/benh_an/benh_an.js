@@ -364,6 +364,10 @@ var benh_an_chi_tiet_script = {
       return attr(this.hsba, "emrChanDoan.bibienchung");
     },
 
+    LyDoTaiBienBienChung() {
+      return attr(this.hsba, "emrChanDoan.emrDmLyDoTaiBienBienChung");
+    },
+
     // Tinh trang ra vien
 
     ketQuaDieuTri() {
@@ -547,9 +551,9 @@ var benh_an_chi_tiet_script = {
         var ngay = ngaygio.substring(8, 10);
         var gio = ngaygio.substring(11, 13);
         var phut = ngaygio.substring(14, 16);
-        return `${gio} giờ ${phut} ngày ${ngay}/${thang}/${nam}`;
+        return `${gio} giờ ${phut} ph ngày ${ngay}/${thang}/${nam}`;
       }
-      return "... giờ ... ngày .../.../......";
+      return "... giờ ... ph ngày .../.../......";
     },
 
 
