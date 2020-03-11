@@ -79,7 +79,7 @@ public class EmrDmService {
                 criteria = criteria.and("emrDmChaId").is(chaId);
             }
             
-            if(capdo >= 0) {
+            if(capdo > 0) {
                 criteria = criteria.and("capdo").is(capdo);
             }
             
