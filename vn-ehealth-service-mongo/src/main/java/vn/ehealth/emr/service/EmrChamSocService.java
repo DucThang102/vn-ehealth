@@ -98,12 +98,14 @@ public class EmrChamSocService {
             csList.set(i, cs);
             if(check == null) {
                 emrLogService.logAction(EmrChamSoc.class.getName(), cs.id, MA_HANH_DONG.TAO_MOI, new Date(), userId, 
-                		JsonUtil.dumpObject(cs), jsonSt);
+                		JsonUtil.dumpObject(cs), "");
             } else {
             	emrLogService.logAction(EmrChamSoc.class.getName(), cs.id, MA_HANH_DONG.CHINH_SUA, new Date(), userId, 
-                        JsonUtil.dumpObject(cs), jsonSt);
+                        JsonUtil.dumpObject(cs), "");
             }  
-        }         
+        }      
+        emrLogService.logAction(EmrHoSoBenhAn.class.getName() + ".EmrChamSocList", hsba.id, MA_HANH_DONG.CHINH_SUA, new Date(), userId, 
+                "", jsonSt);
     }
     
     public String getHsgoc(ObjectId id) {
@@ -135,7 +137,7 @@ public class EmrChamSocService {
                 ngayThucHien = sdf.format(log.ngayThucHien);
             }            
                     
-            result.add(Map.of("chamsoc", chamsoc, "hsGoc", log.ghiChu, "ngaySua", ngayThucHien, "nguoiSua", nguoiThucHien));
+            result.add(Map.of("chamsoc", chamsoc, "ngaySua", ngayThucHien, "nguoiSua", nguoiThucHien));
         }
         
         return result;

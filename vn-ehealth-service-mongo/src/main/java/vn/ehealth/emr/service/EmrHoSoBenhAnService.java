@@ -112,7 +112,7 @@ public class EmrHoSoBenhAnService {
                 ngayThucHien = sdf.format(log.ngayThucHien);
             }            
                     
-            result.add(Map.of("hsba", hsba, "hsGoc", log.ghiChu, "ngaySua", ngayThucHien, "nguoiSua", nguoiThucHien));
+            result.add(Map.of("hsba", hsba, "ngaySua", ngayThucHien, "nguoiSua", nguoiThucHien));
         }
         
         return result;

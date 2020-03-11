@@ -89,12 +89,14 @@ public class EmrHinhAnhTonThuongService {
             hattList.set(i, hatt);
             if(check == null) {
                 emrLogService.logAction(EmrHinhAnhTonThuong.class.getName(), hatt.id, MA_HANH_DONG.TAO_MOI, new Date(), userId, 
-                		JsonUtil.dumpObject(hatt), jsonSt);
+                		JsonUtil.dumpObject(hatt), "");
             } else {
             	emrLogService.logAction(EmrHinhAnhTonThuong.class.getName(), hatt.id, MA_HANH_DONG.CHINH_SUA, new Date(), userId, 
-                        JsonUtil.dumpObject(hatt), jsonSt);
+                        JsonUtil.dumpObject(hatt), "");
             } 
-        }         
+        }
+        emrLogService.logAction(EmrHoSoBenhAn.class.getName() + ".EmrHinhAnhTonThuongList", hsba.id, MA_HANH_DONG.CHINH_SUA, new Date(), userId, 
+                "", jsonSt);
     }
     
     public String getHsgoc(ObjectId id) {
@@ -126,7 +128,7 @@ public class EmrHinhAnhTonThuongService {
                 ngayThucHien = sdf.format(log.ngayThucHien);
             }            
                     
-            result.add(Map.of("hatt", hatt, "hsGoc", log.ghiChu, "ngaySua", ngayThucHien, "nguoiSua", nguoiThucHien));
+            result.add(Map.of("hatt", hatt, "ngaySua", ngayThucHien, "nguoiSua", nguoiThucHien));
         }
         
         return result;

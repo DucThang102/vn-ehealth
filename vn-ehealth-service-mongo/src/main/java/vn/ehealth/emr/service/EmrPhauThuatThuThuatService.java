@@ -77,12 +77,15 @@ public class EmrPhauThuatThuThuatService {
             ptttList.set(i, pttt);
             if(check == null) {
                 emrLogService.logAction(EmrPhauThuatThuThuat.class.getName(), pttt.id, MA_HANH_DONG.TAO_MOI, new Date(), userId, 
-                		JsonUtil.dumpObject(pttt), jsonSt);
+                		JsonUtil.dumpObject(pttt), "");
             } else {
             	emrLogService.logAction(EmrPhauThuatThuThuat.class.getName(), pttt.id, MA_HANH_DONG.CHINH_SUA, new Date(), userId, 
-                        JsonUtil.dumpObject(pttt), jsonSt);
+                        JsonUtil.dumpObject(pttt), "");
             } 
-        }         
+        }
+        
+        emrLogService.logAction(EmrHoSoBenhAn.class.getName() + ".EmrPhauThuatThuThuatList", hsba.id, MA_HANH_DONG.CHINH_SUA, new Date(), userId, 
+                "", jsonSt); 
     }
     
     public void delete(ObjectId id, ObjectId userId) {
@@ -123,7 +126,7 @@ public class EmrPhauThuatThuThuatService {
                 ngayThucHien = sdf.format(log.ngayThucHien);
             }            
                     
-            result.add(Map.of("pttt", pttt, "hsGoc", log.ghiChu, "ngaySua", ngayThucHien, "nguoiSua", nguoiThucHien));
+            result.add(Map.of("pttt", pttt, "ngaySua", ngayThucHien, "nguoiSua", nguoiThucHien));
         }
         
         return result;
