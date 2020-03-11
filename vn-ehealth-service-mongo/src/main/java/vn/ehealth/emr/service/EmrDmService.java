@@ -75,7 +75,7 @@ public class EmrDmService {
             }
            
             if(!StringUtils.isEmpty(maCha)) {
-                var chaId = emrNhomDmService.getByMa(maCha).map(x -> x.id).orElse(null);
+                var chaId = emrDmRepository.findByEmrNhomDmIdAndMa(nhomId, maCha).map(x -> x.id).orElse(null);
                 criteria = criteria.and("emrDmChaId").is(chaId);
             }
             
