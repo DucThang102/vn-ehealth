@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import vn.ehealth.emr.model.EmrBenhNhan;
 import vn.ehealth.emr.service.EmrBenhNhanService;
 import vn.ehealth.emr.utils.EmrUtils;
+import vn.ehealth.emr.utils.UserUtil;
 import vn.ehealth.emr.validate.JsonParser;
 
 @RestController
@@ -67,7 +68,10 @@ public class EmrBenhNhanController {
                 throw new RuntimeException("Empty iddinhdanhchinh");
             }
             
-            benhNhan = emrBenhNhanService.createOrUpdate(benhNhan, jsonSt);
+            var user = UserUtil.getCurrentUser();
+            var userId = user.map(x -> x.id).orElse(null);
+            
+            benhNhan = emrBenhNhanService.createOrUpdate(userId, benhNhan, jsonSt);
             
             var result = Map.of(
                 "success" , true,
