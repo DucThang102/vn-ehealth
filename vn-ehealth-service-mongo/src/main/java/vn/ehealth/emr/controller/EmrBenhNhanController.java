@@ -67,7 +67,7 @@ public class EmrBenhNhanController {
                 throw new RuntimeException("Empty iddinhdanhchinh");
             }
             
-            benhNhan = emrBenhNhanService.createOrUpdate(benhNhan);
+            benhNhan = emrBenhNhanService.createOrUpdate(benhNhan, jsonSt);
             
             var result = Map.of(
                 "success" , true,

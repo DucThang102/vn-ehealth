@@ -1,5 +1,6 @@
 package vn.ehealth.emr.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,6 +13,8 @@ import org.springframework.stereotype.Service;
 
 import vn.ehealth.emr.model.EmrBenhNhan;
 import vn.ehealth.emr.repository.EmrBenhNhanRepository;
+import vn.ehealth.emr.utils.JsonUtil;
+import vn.ehealth.emr.utils.Constants.MA_HANH_DONG;
 
 @Service
 public class EmrBenhNhanService {
@@ -22,12 +25,27 @@ public class EmrBenhNhanService {
     @Autowired 
     private EmrBenhNhanRepository emrBenhNhanRepository;
     
-    public EmrBenhNhan createOrUpdate(EmrBenhNhan emrBenhNhan) {
-        var emrBenhNhan0 = emrBenhNhanRepository.findByIddinhdanhchinh(emrBenhNhan.iddinhdanhchinh);
-        emrBenhNhan0.ifPresent(x -> {
-            emrBenhNhan.id = x.id;
-        });
-        return emrBenhNhanRepository.save(emrBenhNhan);
+    @Autowired 
+    private EmrLogService emrLogService;
+    
+    public EmrBenhNhan createOrUpdate(ObjectId userId, EmrBenhNhan emrBenhNhan, String jsonSt) {
+        boolean createNew = emrBenhNhan.id == null;
+        
+        emrBenhNhan.id = emrBenhNhanRepository
+                            .findByIddinhdanhchinh(emrBenhNhan.iddinhdanhchinh)
+                            .map(x -> x.id).orElse(null);
+        
+        emrBenhNhan = emrBenhNhanRepository.save(emrBenhNhan);
+        
+        if(createNew) {
+            emrLogService.logAction(EmrBenhNhan.class.getName(), emrBenhNhan.id, MA_HANH_DONG.TAO_MOI, new Date(), userId, 
+                                        "", jsonSt);
+        }
+        
+        emrLogService.logAction(EmrBenhNhan.class.getName(), emrBenhNhan.id, MA_HANH_DONG.CHINH_SUA, new Date(), userId, 
+                                    JsonUtil.dumpObject(emrBenhNhan), jsonSt);
+        
+        return emrBenhNhan;
     }
     
     public Optional<EmrBenhNhan> getById(ObjectId id) {
