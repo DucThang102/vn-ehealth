@@ -83,6 +83,7 @@ export default {
       var token = result.accessToken;
       if(token) {
         localStorage.setItem("token", token);
+        localStorage.setItem("username", data.username);
         location.href = "/";
         this.$router.push({name: 'home'});
       }else {
