@@ -24,8 +24,9 @@ public class EmrPerson {
     public String email;
     public String dienthoai;
     public String cmnd;
-    public String noilamviec;    
-    
+    public String noilamviec;
+    public String diachiChitiet;
+
     public EmrDmContent emrDmGioiTinh;
     public EmrDmContent emrDmDanToc;
     public EmrDmContent emrDmQuocGia;
