@@ -9,6 +9,11 @@
                     <label>Họ và tên:</label>
                     <input type="text" class="form-control" v-model="user.emrPerson.tendaydu"
                            placeholder="Nguyen Van A">
+                    <ul v-if="errors.tendaydu">
+                        <li v-for="(error,i) in errors.tendaydu" :key="i" style="color:red">
+                            {{error}}
+                        </li>
+                    </ul>
                 </div>
                 <div class="col-4 float-left">
                     <label>Ngày sinh</label>
@@ -25,6 +30,11 @@
                 <div class="col-4 float-left mt-3">
                     <label>Email</label>
                     <input type="text" class="form-control" placeholder="nva@gmail.com" v-model="user.emrPerson.email">
+                    <ul v-if="errors.email">
+                        <li v-for="(error,i) in errors.email" :key="i" style="color:red">
+                            {{error}}
+                        </li>
+                    </ul>
                 </div>
                 <div class="col-4 float-left mt-3">
                     <label>Số điện thoại</label>
@@ -90,7 +100,7 @@
                 </div>
                 <div class="col mt-3">
                     <label>Vai trò người dùng</label><br>
-                    <div v-for="role in roles">
+                    <div v-for="role in roles" :key="role.id">
                         <input type="checkbox" :id="role.id" :value="role.id" v-model="user.roleIds" >
                         <label :for="role.id" class="mr-4">{{role.ten}}</label>
                     </div>
@@ -125,6 +135,10 @@
                         emrDmQuanHuyen: {},
                         emrDmTinhThanh: {},
                     },
+                },
+                errors: {
+                    email: [],
+                    tendaydu: []
                 },
 
                 dmNgheNghiepList: [],
@@ -169,13 +183,21 @@
                 this.updateTenDm(this.user.emrPerson.emrDmTinhThanh, this.dmTinhThanhList);
                 this.updateTenDm(this.user.emrPerson.emrDmQuanHuyen, this.dmQuanHuyenList);
                 this.updateTenDm(this.user.emrPerson.emrDmPhuongXa, this.dmPhuongXaList);
+                this.errors.email = [];
+                this.errors.tendaydu = [];
+
                 let result = await this.post("/api/user/create_user", this.user);
                 console.log("result: " + JSON.stringify(result));
                 if (result.success) {
                     alert("Thêm người dùng thành công");
                     sessionStorage.removeItem("dataChange");
                 } else {
-                    alert(result.error);
+                    let errors = result.errors;
+                    for(let i = 0; i < errors.length; i++){
+                        let field = errors[i].field;
+                        let message = errors[i].message;
+                        this.errors[field].push(message);
+                    }
                 }
             }
         },
