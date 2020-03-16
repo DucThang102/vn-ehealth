@@ -4,111 +4,116 @@
             <i class="far fa-file-alt"></i> THÊM NGƯỜI DÙNG
         </div>
         <div class="ml-5 mr-5">
-            <form action="" class="row">
-                <div class="col-4 float-left">
-                    <label>Họ và tên:</label>
-                    <input type="text" class="form-control" v-model="user.emrPerson.tendaydu"
-                           placeholder="Nguyen Van A">
-                    <ul v-if="errors.tendaydu">
-                        <li v-for="(error,i) in errors.tendaydu" :key="i" style="color:red">
-                            {{error}}
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-4 float-left">
-                    <label>Ngày sinh</label>
-                    <date-picker v-model="user.emrPerson.ngaysinh" :config="{format: 'YYYY-DD-MM HH:mm:ss'}"/>
-                </div>
-                <div class="col-4 float-left">
-                    <label>Giới tính</label>
-                    <select v-model="user.emrPerson.emrDmGioiTinh.ma" class="form-control">
-                        <option value="M">Nam</option>
-                        <option value="F">Nữ</option>
-                        <option value="U">Không xác định</option>
-                    </select>
-                </div>
-                <div class="col-4 float-left mt-3">
-                    <label>Email</label>
-                    <input type="text" class="form-control" placeholder="nva@gmail.com" v-model="user.emrPerson.email">
-                    <ul v-if="errors.email">
-                        <li v-for="(error,i) in errors.email" :key="i" style="color:red">
-                            {{error}}
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-4 float-left mt-3">
-                    <label>Số điện thoại</label>
-                    <input type="number" class="form-control" placeholder="0978544446"
-                           v-model="user.emrPerson.dienthoai">
-                </div>
-                <div class="col-4 float-left mt-3">
-                    <label>CMNN/Hộ chiếu</label>
-                    <input type="text" class="form-control" placeholder="121322231" v-model="user.emrPerson.cmnd">
-                </div>
-                <div class="col-4 float-left mt-3">
-                    <label>Nghề nghiệp</label>
-                    <select v-model="user.emrPerson.emrDmNgheNghiep.ma" class="form-control">
-                        <option v-for="dm in dmNgheNghiepList" :key="dm.id" :value="dm.ma">{{dm.ten}}</option>
-                    </select>
-                </div>
-                <div class="col-4 float-left mt-3">
-                    <label>Quốc tịch</label>
-                    <select v-model="user.emrPerson.emrDmQuocGia.ma" class="form-control">
-                        <option v-for="dm in dmQuocGiaList" :key="dm.id" :value="dm.ma">{{dm.ten}}</option>
-                    </select>
-                </div>
-                <div class="col-4 float-left mt-3">
-                    <label>Dân tộc</label>
-                    <select v-model="user.emrPerson.emrDmDanToc.ma" class="form-control">
-                        <option v-for="dm in dmDanTocList" :key="dm.id" :value="dm.ma">{{dm.ten}}</option>
-                    </select>
-                </div>
-                <div class="col-12 mt-3">
-                    <label>Địa chỉ</label>
-                    <input type="text" class="form-control" v-model="user.emrPerson.diachiChitiet" placeholder="123 KV, An Hưng">
-                </div>
-                <div class="col-4 float-left mt-3">
-                    <label>Tỉnh</label>
-                    <select
-                            @change="updateDmQuanHuyen"
-                            v-model="user.emrPerson.emrDmTinhThanh.ma"
-                            class="form-control"
-                    >
-                        <option v-for="dm in dmTinhThanhList" :key="dm.id" :value="dm.ma">{{dm.ten}}</option>
-                    </select>
-                </div>
-                <div class="col-4 float-left mt-3">
-                    <label>Huyện</label>
-                    <select
-                            @change="updateDmXaPhuong"
-                            v-model="user.emrPerson.emrDmQuanHuyen.ma"
-                            class="form-control"
-                    >
-                        <option v-for="dm in dmQuanHuyenList" :key="dm.id" :value="dm.ma">{{dm.ten}}</option>
-                    </select>
-                </div>
-                <div class="col-4 float-left mt-3">
-                    <label>Xã</label>
-                    <select v-model="user.emrPerson.emrDmPhuongXa.ma" class="form-control">
-                        <option v-for="dm in dmPhuongXaList" :key="dm.id" :value="dm.ma">{{dm.ten}}</option>
-                    </select>
-                </div>
-                <div class="col-12 mt-3">
-                    <label>Nơi làm việc</label>
-                    <input type="text" class="form-control" placeholder="Công ty CP VEIG"
-                           v-model="user.emrPerson.noilamviec">
-                </div>
-                <div class="col mt-3">
-                    <label>Vai trò người dùng</label><br>
-                    <div v-for="role in roles" :key="role.id">
-                        <input type="checkbox" :id="role.id" :value="role.id" v-model="user.roleIds" >
-                        <label :for="role.id" class="mr-4">{{role.ten}}</label>
+            <div v-if="loading" style="position: absolute;left: 50%;top:50%" class="spinner-border"></div>
+            <div id="app" v-if="!loading">
+                <form action="" class="row">
+                    <div class="col-4 float-left">
+                        <label>Họ và tên:</label>
+                        <input type="text" class="form-control" v-model="user.emrPerson.tendaydu"
+                               placeholder="Nguyen Van A">
+                        <ul v-if="errors.tendaydu">
+                            <li v-for="(error,i) in errors.tendaydu" :key="i" style="color:red">
+                                {{error}}
+                            </li>
+                        </ul>
                     </div>
-                </div>
-                <input type="button" value="Lưu lại" v-on:click="createUser()" class="form-control mt-5"
-                       style="background-color: #C4C4C4; width: 200px;">
+                    <div class="col-4 float-left">
+                        <label>Ngày sinh</label>
+                        <date-picker v-model="user.emrPerson.ngaysinh" :config="{format: 'YYYY-DD-MM HH:mm:ss'}"/>
+                    </div>
+                    <div class="col-4 float-left">
+                        <label>Giới tính</label>
+                        <select v-model="user.emrPerson.emrDmGioiTinh.ma" class="form-control">
+                            <option value="M">Nam</option>
+                            <option value="F">Nữ</option>
+                            <option value="U">Không xác định</option>
+                        </select>
+                    </div>
+                    <div class="col-4 float-left mt-3">
+                        <label>Email</label>
+                        <input type="text" class="form-control" placeholder="nva@gmail.com"
+                               v-model="user.emrPerson.email">
+                        <ul v-if="errors.email">
+                            <li v-for="(error,i) in errors.email" :key="i" style="color:red">
+                                {{error}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-4 float-left mt-3">
+                        <label>Số điện thoại</label>
+                        <input type="number" class="form-control" placeholder="0978544446"
+                               v-model="user.emrPerson.dienthoai">
+                    </div>
+                    <div class="col-4 float-left mt-3">
+                        <label>CMNN/Hộ chiếu</label>
+                        <input type="text" class="form-control" placeholder="121322231" v-model="user.emrPerson.cmnd">
+                    </div>
+                    <div class="col-4 float-left mt-3">
+                        <label>Nghề nghiệp</label>
+                        <select v-model="user.emrPerson.emrDmNgheNghiep.ma" class="form-control">
+                            <option v-for="dm in dmNgheNghiepList" :key="dm.id" :value="dm.ma">{{dm.ten}}</option>
+                        </select>
+                    </div>
+                    <div class="col-4 float-left mt-3">
+                        <label>Quốc tịch</label>
+                        <select v-model="user.emrPerson.emrDmQuocGia.ma" class="form-control">
+                            <option v-for="dm in dmQuocGiaList" :key="dm.id" :value="dm.ma">{{dm.ten}}</option>
+                        </select>
+                    </div>
+                    <div class="col-4 float-left mt-3">
+                        <label>Dân tộc</label>
+                        <select v-model="user.emrPerson.emrDmDanToc.ma" class="form-control">
+                            <option v-for="dm in dmDanTocList" :key="dm.id" :value="dm.ma">{{dm.ten}}</option>
+                        </select>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <label>Địa chỉ</label>
+                        <input type="text" class="form-control" v-model="user.emrPerson.diachiChitiet"
+                               placeholder="123 KV, An Hưng">
+                    </div>
+                    <div class="col-4 float-left mt-3">
+                        <label>Tỉnh</label>
+                        <select
+                                @change="updateDmQuanHuyen"
+                                v-model="user.emrPerson.emrDmTinhThanh.ma"
+                                class="form-control"
+                        >
+                            <option v-for="dm in dmTinhThanhList" :key="dm.id" :value="dm.ma">{{dm.ten}}</option>
+                        </select>
+                    </div>
+                    <div class="col-4 float-left mt-3">
+                        <label>Huyện</label>
+                        <select
+                                @change="updateDmXaPhuong"
+                                v-model="user.emrPerson.emrDmQuanHuyen.ma"
+                                class="form-control"
+                        >
+                            <option v-for="dm in dmQuanHuyenList" :key="dm.id" :value="dm.ma">{{dm.ten}}</option>
+                        </select>
+                    </div>
+                    <div class="col-4 float-left mt-3">
+                        <label>Xã</label>
+                        <select v-model="user.emrPerson.emrDmPhuongXa.ma" class="form-control">
+                            <option v-for="dm in dmPhuongXaList" :key="dm.id" :value="dm.ma">{{dm.ten}}</option>
+                        </select>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <label>Nơi làm việc</label>
+                        <input type="text" class="form-control" placeholder="Công ty CP VEIG"
+                               v-model="user.emrPerson.noilamviec">
+                    </div>
+                    <div class="col mt-3">
+                        <label>Vai trò người dùng</label><br>
+                        <div v-for="role in roles" :key="role.id">
+                            <input type="checkbox" :id="role.id" :value="role.id" v-model="user.roleIds">
+                            <label :for="role.id" class="ml-2">{{role.ten}}</label>
+                        </div>
+                    </div>
+                    <input type="button" value="Lưu lại" v-on:click="createUser()" class="form-control mt-5"
+                           style="background-color: #C4C4C4; width: 200px;">
 
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </template>
@@ -147,7 +152,8 @@
                 dmTinhThanhList: [],
                 dmQuanHuyenList: [],
                 dmPhuongXaList: [],
-                roles: []
+                roles: [],
+                loading: false
             };
         },
 
@@ -177,6 +183,7 @@
             },
 
             createUser: async function () {
+                this.loading = true;
                 this.updateTenDm(this.user.emrPerson.emrDmNgheNghiep, this.dmNgheNghiepList);
                 this.updateTenDm(this.user.emrPerson.emrDmQuocGia, this.dmQuocGiaList);
                 this.updateTenDm(this.user.emrPerson.emrDmDanToc, this.dmDanTocList);
@@ -193,19 +200,18 @@
                     sessionStorage.removeItem("dataChange");
                 } else {
                     let errors = result.errors;
-                    for(let i = 0; i < errors.length; i++){
+                    for (let i = 0; i < errors.length; i++) {
                         let field = errors[i].field;
                         let message = errors[i].message;
                         this.errors[field].push(message);
                     }
                 }
+                this.loading = false;
             }
         },
 
         created: async function () {
-            this.roles = await  this.get("/api/user/getRolesByUsername", {
-                username: localStorage.getItem("username")
-            });
+            this.roles = await this.get("/api/role/getAll");
             this.dmNgheNghiepList = await this.get("/api/danhmuc/get_dm_list", {
                 dm_type: "DM_NGHE_NGHIEP"
             });

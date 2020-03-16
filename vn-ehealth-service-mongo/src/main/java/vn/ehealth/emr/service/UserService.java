@@ -2,8 +2,13 @@ package vn.ehealth.emr.service;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import vn.ehealth.emr.dto.response.ListResultDTO;
+import vn.ehealth.emr.dto.response.UserDTO;
 import vn.ehealth.emr.model.EmrPerson;
 import vn.ehealth.emr.model.Role;
 import vn.ehealth.emr.model.User;
@@ -62,5 +67,27 @@ public class UserService {
     public List<Role> getRolesByUsername(String username){
         Optional<User> user =  userRepository.findByUsername(username);
         return user.map(User::getRoles).orElse(null);
+    }
+
+    public ListResultDTO<UserDTO> findAll(Integer page, Integer pageSize) {
+        ListResultDTO<UserDTO> resultDTO = new ListResultDTO<>();
+        List<UserDTO> listUserDTO = new ArrayList<>();
+        Pageable pageable = PageRequest.of(page - 1, pageSize);
+        Page<User> rawData = userRepository.findAll(pageable);
+        if (rawData.hasContent()) {
+            rawData.getContent().forEach(user -> {
+                EmrPerson emrPerson = emrPersonRepository.findById(user.emrPersonId).orElse(new EmrPerson());
+                UserDTO userDTO = new UserDTO();
+                userDTO.setEmrCoSoKhamBenhId(user.emrCoSoKhamBenhId);
+                userDTO.setId(user.id);
+                userDTO.setUsername(user.username);
+                userDTO.setPassword(user.password);
+                userDTO.setRoles(user.getRoles());
+                userDTO.setEmrPerson(emrPerson);
+                listUserDTO.add(userDTO);
+            });
+            resultDTO = new ListResultDTO<>(listUserDTO, rawData.getTotalElements(), rawData.getTotalPages());
+        }
+        return resultDTO;
     }
 }

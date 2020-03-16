@@ -19,64 +19,84 @@
             </button>
         </div>
         <div class="pr-4 pt-4">
-            <table class="table table-bordered table-width-100 mt-4">
-                <thead>
-                <tr>
-                    <th style="width:5%">STT</th>
-                    <th style="width:20%">Họ tên</th>
-                    <th style="width:20%">Email</th>
-                    <th style="width:15%">Số điện thoại</th>
-                    <th style="width:12%">Vai trò</th>
-                    <th style="width:13%">Trạng thái</th>
-                    <th style="width:15%">Thao tác</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td align="center">1</td>
-                    <td>Nguyen Van A</td>
-                    <td>ndff@gmail.com</td>
-                    <td>0908664434</td>
-                    <td>Bệnh nhân</td>
-                    <td>Đã khóa</td>
-                    <td align="center">
-                        <a class="mr-2" href="#" title="Xem">
-                            <i class="fa fa-eye"></i>
-                        </a>
-                        <a class="mr-2" href="#" title="Mở khóa">
-                            <i class="fa fa-user"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center">2</td>
-                    <td>Tran Van B</td>
-                    <td>trb@gmail.com</td>
-                    <td>0907867533</td>
-                    <td>Bác sỹ</td>
-                    <td>Đang hoạt động</td>
-                    <td align="center">
-                        <a class="mr-2" href="#" title="Xem">
-                            <i class="fa fa-eye"></i>
-                        </a>
-                        <a class="mr-2" href="#" title="Khóa">
-                            <i class="fa fa-user-lock"></i>
-                        </a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <div v-if="loading" style="position: absolute;left: 50%;top:50%" class="spinner-border"></div>
+            <div id="app" v-if="!loading">
+                <div v-if="totalRecords === 0">
+                    <b>Không có dữ liệu</b>
+                </div>
+                <table v-if="totalRecords > 0" class="table table-bordered table-width-100 mt-4">
+                    <thead>
+                    <tr>
+                        <th style="width:5%">STT</th>
+                        <th style="width:20%">Họ tên</th>
+                        <th style="width:20%">Email</th>
+                        <th style="width:15%">Số điện thoại</th>
+                        <th style="width:12%">Vai trò</th>
+                        <th style="width:13%">Trạng thái</th>
+                        <th style="width:15%">Thao tác</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="(item, index) in items">
+                        <td align="center">{{index}}</td>
+                        <td>{{item.emrPerson.tendaydu}}</td>
+                        <td>{{item.emrPerson.email}}</td>
+                        <td>{{item.emrPerson.dienthoai}}</td>
+                        <td></td>
+                        <td></td>
+                        <td align="center">
+                            <a class="mr-2" href="#" title="Xem">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a class="mr-2" href="#" title="Mở khóa">
+                                <i class="fa fa-user"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
 
-            <router-link class="form-control" style="background-color: #C4C4C4; width: 200px; text-align: center"
-                         to="/quantri/themnguoidung">
-                Thêm người dùng
-            </router-link>
+                <router-link class="form-control" style="background-color: #C4C4C4; width: 200px; text-align: center"
+                             to="/quantri/themnguoidung">
+                    Thêm người dùng
+                </router-link>
+            </div>
         </div>
     </div>
 </template>
 
+
 <script>
+    export default {
+        data() {
+            return {
+                pageSize: 10,
+                page: 1,
+                items: [],
+                totalPages: null,
+                totalRecords: null,
+                loading: false,
+            };
+        },
+
+        methods: {
+            getAll: async function () {
+                let result = await this.get("/api/user/findAll", {
+                    page: this.page, pageSize: this.pageSize
+                });
+                this.items = result.listData;
+                this.totalPages = result.totalPage;
+                this.totalRecords = result.totalRow;
+            }
+        },
+        created: async function () {
+            this.loading = true;
+            await this.getAll();
+            this.loading = false;
+        }
+    }
 </script>
+
 
 <style scoped>
 

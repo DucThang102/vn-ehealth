@@ -1,4 +1,4 @@
-package vn.ehealth.emr.dto;
+package vn.ehealth.emr.dto.request;
 
 import java.util.List;
 

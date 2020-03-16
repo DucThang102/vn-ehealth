@@ -10,7 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import vn.ehealth.emr.dto.UserRequestDTO;
+import vn.ehealth.emr.dto.request.UserRequestDTO;
+import vn.ehealth.emr.dto.response.ListResultDTO;
+import vn.ehealth.emr.dto.response.UserDTO;
 import vn.ehealth.emr.model.Role;
 import vn.ehealth.emr.service.EmailService;
 import vn.ehealth.emr.service.UserService;
@@ -95,4 +97,11 @@ public class UserController {
         return userService.getRolesByUsername(username);
     }
 
+
+    @GetMapping("findAll")
+    @ResponseBody
+    public ResponseEntity<ListResultDTO<UserDTO>> findAll(@RequestParam("page") Integer page,
+                                                          @RequestParam("pageSize") Integer pageSize) {
+        return ResponseEntity.ok(userService.findAll(page, pageSize));
+    }
 }
