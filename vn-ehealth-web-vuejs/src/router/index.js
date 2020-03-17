@@ -518,16 +518,20 @@ const routes = [
     name: 'dmChuanHoa',
     component: DmChuanHoa
   },
-    {
-        path: '/quantri/dsnguoidung',
-        name: 'dsnguoidung',
-        component: DsNguoiDung
-    },
-    {
-        path: '/quantri/themnguoidung',
-        name: 'themnguoidung',
-        component: ThemNguoiDung
+  {
+    path: '/quantri/dsnguoidung',
+    name: 'dsnguoidung',
+    component: DsNguoiDung
+  },
+  {
+    path: '/quantri/themnguoidung',
+    name: 'themnguoidung',
+    component: ThemNguoiDung,
+    props: true,
+    meta: {
+      userId: ""
     }
+  }
 ]
 
 const router = new VueRouter({

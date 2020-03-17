@@ -64,8 +64,8 @@ public class UserService {
         return user;
     }
 
-    public List<Role> getRolesByUsername(String username){
-        Optional<User> user =  userRepository.findByUsername(username);
+    public List<Role> getRolesByUsername(String username) {
+        Optional<User> user = userRepository.findByUsername(username);
         return user.map(User::getRoles).orElse(null);
     }
 
@@ -78,8 +78,8 @@ public class UserService {
             rawData.getContent().forEach(user -> {
                 EmrPerson emrPerson = emrPersonRepository.findById(user.emrPersonId).orElse(new EmrPerson());
                 UserDTO userDTO = new UserDTO();
-                userDTO.setEmrCoSoKhamBenhId(user.emrCoSoKhamBenhId);
-                userDTO.setId(user.id);
+                userDTO.setEmrCoSoKhamBenhId(user.emrCoSoKhamBenhId.toHexString());
+                userDTO.setId(user.id.toHexString());
                 userDTO.setUsername(user.username);
                 userDTO.setPassword(user.password);
                 userDTO.setRoles(user.getRoles());
@@ -89,5 +89,46 @@ public class UserService {
             resultDTO = new ListResultDTO<>(listUserDTO, rawData.getTotalElements(), rawData.getTotalPages());
         }
         return resultDTO;
+    }
+
+    public ListResultDTO<UserDTO> search(String roleId, String keyword, Integer page, Integer pageSize) {
+        ListResultDTO<UserDTO> resultDTO;
+        List<UserDTO> listUserDTO = new ArrayList<>();
+        Pageable pageable = PageRequest.of(page - 1, pageSize);
+        Page<EmrPerson> rawData = emrPersonRepository.findByEmailOrDienthoaiOrTendaydu(keyword, keyword, keyword, pageable);
+        if (rawData.hasContent()) {
+            rawData.getContent().forEach(emrPerson -> {
+                User user = userRepository.findById(emrPerson.userId).orElse(new User());
+                user.getRoles().forEach(role -> {
+                    if (role.id.toHexString().equals(roleId)) {
+                        UserDTO userDTO = new UserDTO();
+                        userDTO.setEmrCoSoKhamBenhId(user.emrCoSoKhamBenhId.toHexString());
+                        userDTO.setId(user.id.toHexString());
+                        userDTO.setUsername(user.username);
+                        userDTO.setPassword(user.password);
+                        userDTO.setRoles(user.getRoles());
+                        userDTO.setEmrPerson(emrPerson);
+                        listUserDTO.add(userDTO);
+                    }
+                });
+            });
+        }
+        resultDTO = new ListResultDTO<>(listUserDTO, rawData.getTotalElements(), rawData.getTotalPages());
+        return resultDTO;
+    }
+
+    public UserDTO findById(String id) {
+        UserDTO userDTO = new UserDTO();
+        Optional<User> optionalUser = userRepository.findById(new ObjectId(id));
+        optionalUser.ifPresent(user -> {
+            EmrPerson emrPerson = emrPersonRepository.findById(user.emrPersonId).orElse(new EmrPerson());
+            userDTO.setEmrCoSoKhamBenhId(user.emrCoSoKhamBenhId.toHexString());
+            userDTO.setId(user.id.toHexString());
+            userDTO.setUsername(user.username);
+            userDTO.setPassword(user.password);
+            userDTO.setRoles(user.getRoles());
+            userDTO.setEmrPerson(emrPerson);
+        });
+        return userDTO;
     }
 }

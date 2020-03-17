@@ -9,8 +9,7 @@
                 <form action="" class="row">
                     <div class="col-4 float-left">
                         <label>Họ và tên:</label>
-                        <input type="text" class="form-control" v-model="user.emrPerson.tendaydu"
-                               placeholder="Nguyen Van A">
+                        <input type="text" class="form-control" v-model="user.emrPerson.tendaydu">
                         <ul v-if="errors.tendaydu">
                             <li v-for="(error,i) in errors.tendaydu" :key="i" style="color:red">
                                 {{error}}
@@ -31,7 +30,7 @@
                     </div>
                     <div class="col-4 float-left mt-3">
                         <label>Email</label>
-                        <input type="text" class="form-control" placeholder="nva@gmail.com"
+                        <input type="text" class="form-control"
                                v-model="user.emrPerson.email">
                         <ul v-if="errors.email">
                             <li v-for="(error,i) in errors.email" :key="i" style="color:red">
@@ -41,12 +40,12 @@
                     </div>
                     <div class="col-4 float-left mt-3">
                         <label>Số điện thoại</label>
-                        <input type="number" class="form-control" placeholder="0978544446"
+                        <input type="number" class="form-control"
                                v-model="user.emrPerson.dienthoai">
                     </div>
                     <div class="col-4 float-left mt-3">
                         <label>CMNN/Hộ chiếu</label>
-                        <input type="text" class="form-control" placeholder="121322231" v-model="user.emrPerson.cmnd">
+                        <input type="text" class="form-control" v-model="user.emrPerson.cmnd">
                     </div>
                     <div class="col-4 float-left mt-3">
                         <label>Nghề nghiệp</label>
@@ -68,8 +67,7 @@
                     </div>
                     <div class="col-12 mt-3">
                         <label>Địa chỉ</label>
-                        <input type="text" class="form-control" v-model="user.emrPerson.diachiChitiet"
-                               placeholder="123 KV, An Hưng">
+                        <input type="text" class="form-control" v-model="user.emrPerson.diachiChitiet">
                     </div>
                     <div class="col-4 float-left mt-3">
                         <label>Tỉnh</label>
@@ -99,13 +97,14 @@
                     </div>
                     <div class="col-12 mt-3">
                         <label>Nơi làm việc</label>
-                        <input type="text" class="form-control" placeholder="Công ty CP VEIG"
+                        <input type="text" class="form-control"
                                v-model="user.emrPerson.noilamviec">
                     </div>
                     <div class="col mt-3">
                         <label>Vai trò người dùng</label><br>
-                        <div v-for="role in roles" :key="role.id">
-                            <input type="checkbox" :id="role.id" :value="role.id" v-model="user.roleIds">
+                        <div v-for="role in allRoles" :key="role.id">
+                            <input type="checkbox" id="aaa" :value="role.id" v-model="role.ischeck"
+                                   :checked="role.ischeck">
                             <label :for="role.id" class="ml-2">{{role.ten}}</label>
                         </div>
                     </div>
@@ -123,7 +122,7 @@
         data: function () {
             return {
                 user: {
-                    roleIds: [],
+                    roles: [],
                     emrPerson: {
                         tendaydu: "",
                         ngaysinh: "",
@@ -152,7 +151,7 @@
                 dmTinhThanhList: [],
                 dmQuanHuyenList: [],
                 dmPhuongXaList: [],
-                roles: [],
+                allRoles: [],
                 loading: false
             };
         },
@@ -161,6 +160,24 @@
         props: ["userId"],
 
         methods: {
+            getUserById: async function () {
+                this.allRoles = await this.get("/api/role/getAll");
+                this.user = await this.get("/api/user/findById", {
+                    id: this.userId
+                });
+                if (this.user.roles != null) {
+                    this.user.roles.forEach(roleUse => {
+                        this.allRoles.forEach(role => {
+                            if (role.id === roleUse.id) {
+                                role.ischeck = true
+                            } else {
+                                role.ischeck = false
+                            }
+                        })
+                    })
+                }
+            },
+
             updateDmQuanHuyen: async function () {
                 this.dmQuanHuyenList = await this.get("/api/danhmuc/get_dm_list", {
                     dm_type: "DM_DVHC",
@@ -194,7 +211,6 @@
                 this.errors.tendaydu = [];
 
                 let result = await this.post("/api/user/create_user", this.user);
-                console.log("result: " + JSON.stringify(result));
                 if (result.success) {
                     alert("Thêm người dùng thành công");
                     sessionStorage.removeItem("dataChange");
@@ -209,9 +225,9 @@
                 this.loading = false;
             }
         },
-
         created: async function () {
-            this.roles = await this.get("/api/role/getAll");
+            this.user = this.getUserById();
+
             this.dmNgheNghiepList = await this.get("/api/danhmuc/get_dm_list", {
                 dm_type: "DM_NGHE_NGHIEP"
             });
@@ -241,6 +257,7 @@
                 parentCode: this.user.emrPerson.emrDmQuanHuyen.ma
             });
         },
+        watch: {}
     };
 </script>
 

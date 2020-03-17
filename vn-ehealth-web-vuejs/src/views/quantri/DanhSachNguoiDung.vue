@@ -10,12 +10,10 @@
             </form>
         </div>
         <div class="col-6 float-left p-0 ">
-            <select class="form-control float-left" style="width: 180px">
-                <option value="Lọc theo vai trò">Lọc theo vai trò</option>
-                <option value="Lọc theo vai trò">Lọc theo vai trò</option>
-                <option value="Lọc theo vai trò">Lọc theo vai trò</option>
+            <select class="form-control float-left" style="width: 180px" v-model="roleId">
+                <option v-for="role in roles" :value="role.id">{{role.ten}}</option>
             </select>
-            <button class="float-left ml-3 form-control" style="width: 150px; background-color: #C4C4C4">Tìm kiếm
+            <button v-on:click="search()" class="float-left ml-3 form-control" style="width: 150px; background-color: #C4C4C4">Tìm kiếm
             </button>
         </div>
         <div class="pr-4 pt-4">
@@ -38,16 +36,20 @@
                     </thead>
                     <tbody>
                     <tr v-for="(item, index) in items">
-                        <td align="center">{{index}}</td>
+                        <td align="center">{{index+1}}</td>
                         <td>{{item.emrPerson.tendaydu}}</td>
                         <td>{{item.emrPerson.email}}</td>
                         <td>{{item.emrPerson.dienthoai}}</td>
-                        <td></td>
+                        <td>
+                            <span v-for="role in item.roles">{{role.ten}}</span>
+                        </td>
                         <td></td>
                         <td align="center">
-                            <a class="mr-2" href="#" title="Xem">
-                                <i class="fa fa-eye"></i>
-                            </a>
+                            <router-link class="mr-2" title="Xem"
+                                         :to="{name: 'themnguoidung', params: {userId: item.id.valueOf()}}">
+                                    <i class="fa fa-eye"></i>
+                            </router-link>
+
                             <a class="mr-2" href="#" title="Mở khóa">
                                 <i class="fa fa-user"></i>
                             </a>
@@ -76,6 +78,9 @@
                 totalPages: null,
                 totalRecords: null,
                 loading: false,
+                roles: [],
+                roleId: "",
+                keyword: "",
             };
         },
 
@@ -87,10 +92,22 @@
                 this.items = result.listData;
                 this.totalPages = result.totalPage;
                 this.totalRecords = result.totalRow;
-            }
+            },
+            search: async function () {
+                let result = await this.get("/api/user/search", {
+                    page: this.page,
+                    pageSize: this.pageSize,
+                    keyword: this.keyword,
+                    roleId: this.roleId
+                });
+                this.items = result.listData;
+                this.totalPages = result.totalPage;
+                this.totalRecords = result.totalRow;
+            },
         },
         created: async function () {
             this.loading = true;
+            this.roles = await this.get("/api/role/getAll");
             await this.getAll();
             this.loading = false;
         }
