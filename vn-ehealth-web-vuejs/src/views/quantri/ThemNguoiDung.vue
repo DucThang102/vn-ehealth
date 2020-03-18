@@ -103,13 +103,13 @@
                     <div class="col mt-3">
                         <label>Vai trò người dùng</label><br>
                         <div v-for="role in allRoles" :key="role.id">
-                            <input type="checkbox" id="aaa" :value="role.id" v-model="role.ischeck"
-                                   :checked="role.ischeck">
+                            <input type="checkbox" id="aaa" :value="role.id" v-model="role.ischecked"
+                                   :checked="role.ischecked">
                             <label :for="role.id" class="ml-2">{{role.ten}}</label>
                         </div>
                     </div>
-                    <input type="button" value="Lưu lại" v-on:click="createUser()" class="form-control mt-5"
-                           style="background-color: #C4C4C4; width: 200px;">
+                    <input type="button" value="Lưu lại" v-on:click="submitForm()" class="form-control"
+                           style="background-color: #C4C4C4; width: 200px; margin-top: 200px">
 
                 </form>
             </div>
@@ -118,11 +118,14 @@
 </template>
 
 <script>
+    import router from "../../router";
+
     export default {
         data: function () {
             return {
                 user: {
                     roles: [],
+                    roleIds:[],
                     emrPerson: {
                         tendaydu: "",
                         ngaysinh: "",
@@ -161,17 +164,14 @@
 
         methods: {
             getUserById: async function () {
-                this.allRoles = await this.get("/api/role/getAll");
                 this.user = await this.get("/api/user/findById", {
                     id: this.userId
                 });
                 if (this.user.roles != null) {
-                    this.user.roles.forEach(roleUse => {
+                    this.user.roles.forEach(roleUser => {
                         this.allRoles.forEach(role => {
-                            if (role.id === roleUse.id) {
-                                role.ischeck = true
-                            } else {
-                                role.ischeck = false
+                            if (role.id === roleUser.id) {
+                                role.ischecked = true;
                             }
                         })
                     })
@@ -223,11 +223,53 @@
                     }
                 }
                 this.loading = false;
+            },
+
+            updateUser: async function (){
+                this.loading = true;
+                this.updateTenDm(this.user.emrPerson.emrDmNgheNghiep, this.dmNgheNghiepList);
+                this.updateTenDm(this.user.emrPerson.emrDmQuocGia, this.dmQuocGiaList);
+                this.updateTenDm(this.user.emrPerson.emrDmDanToc, this.dmDanTocList);
+                this.updateTenDm(this.user.emrPerson.emrDmTinhThanh, this.dmTinhThanhList);
+                this.updateTenDm(this.user.emrPerson.emrDmQuanHuyen, this.dmQuanHuyenList);
+                this.updateTenDm(this.user.emrPerson.emrDmPhuongXa, this.dmPhuongXaList);
+                this.errors.email = [];
+                this.errors.tendaydu = [];
+                let newRoles = [];
+                this.allRoles.forEach(role => {
+                    if (role.ischecked){
+                        newRoles.push(role.id);
+                    }
+                });
+                this.user.roleIds = newRoles;
+                let result = await this.post("/api/user/update", this.user);
+                if (result.success) {
+                    sessionStorage.removeItem("dataChange");
+                    router.back();
+                } else {
+                    let errors = result.errors;
+                    for (let i = 0; i < errors.length; i++) {
+                        let field = errors[i].field;
+                        let message = errors[i].message;
+                        this.errors[field].push(message);
+                    }
+                }
+                this.loading = false;
+            },
+
+            submitForm: async function(){
+                if(this.userId){
+                    this.updateUser();
+                }else {
+                    this.createUser()
+                }
             }
         },
         created: async function () {
-            this.user = this.getUserById();
-
+            this.allRoles = await this.get("/api/role/getAll");
+            if (this.userId) {
+                this.user = this.getUserById();
+            }
             this.dmNgheNghiepList = await this.get("/api/danhmuc/get_dm_list", {
                 dm_type: "DM_NGHE_NGHIEP"
             });

@@ -25,7 +25,7 @@ public class User {
     public String password;
     public String fullName;
     public ObjectId emrPersonId;
-    @Transient List<Role> roles;
+    @Transient public List<Role> roles;
     
     public List<ObjectId> roleIds;
     

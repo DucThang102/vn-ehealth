@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import vn.ehealth.emr.dto.request.UserRequestDTO;
+import vn.ehealth.emr.dto.request.UserUpdateDTO;
 import vn.ehealth.emr.dto.response.ListResultDTO;
 import vn.ehealth.emr.dto.response.UserDTO;
 import vn.ehealth.emr.model.Role;
@@ -119,5 +120,41 @@ public class UserController {
     @ResponseBody
     public ResponseEntity<UserDTO> findById(@RequestParam("id") String id){
         return ResponseEntity.ok(userService.findById(id));
+    }
+
+    @PostMapping("/update")
+    public ResponseEntity<?> update(@RequestBody UserUpdateDTO userUpdateDTO) {
+        try {
+            var errors = new ArrayList<>();
+            if (StringUtils.isEmpty(userUpdateDTO.getEmrPerson().email)) {
+                errors.add(Map.of("field", "email", "message", messages.getProperty("error.email.required")));
+            }
+
+            if (StringUtils.isEmpty(userUpdateDTO.getEmrPerson().tendaydu)) {
+                errors.add(Map.of("field", "tendaydu", "message", messages.getProperty("error.tendaydu.required")));
+            }
+
+            if (errors.size() > 0) {
+                var result = Map.of("success", false, "errors", errors);
+                return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+            }
+
+            var user = userService.update(userUpdateDTO);
+            var result = Map.of(
+                    "success", true,
+                    "user", user
+            );
+
+            return ResponseEntity.ok(result);
+
+        } catch (Exception e) {
+            var error = Optional.ofNullable(e.getMessage()).orElse("Unknown error");
+            var result = Map.of(
+                    "success", false,
+                    "errors", List.of(Map.of("unknown", error))
+            );
+            logger.error("Error save user: ", e);
+            return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+        }
     }
 }

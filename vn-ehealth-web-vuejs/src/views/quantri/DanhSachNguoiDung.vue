@@ -41,7 +41,7 @@
                         <td>{{item.emrPerson.email}}</td>
                         <td>{{item.emrPerson.dienthoai}}</td>
                         <td>
-                            <span v-for="role in item.roles">{{role.ten}}</span>
+                            <span v-for="role in item.roles">{{role.ten + ', '}}</span>
                         </td>
                         <td></td>
                         <td align="center">
@@ -57,6 +57,14 @@
                     </tr>
                     </tbody>
                 </table>
+                <b-pagination
+                        v-if="totalRecords > pageSize"
+                        size="sm"
+                        v-model="currentPage"
+                        :total-rows="totalRecords"
+                        :per-page="pageSize"
+                ></b-pagination>
+                <label class="label">Tổng số : {{ totalRecords }} bản ghi</label>
 
                 <router-link class="form-control" style="background-color: #C4C4C4; width: 200px; text-align: center"
                              to="/quantri/themnguoidung">
@@ -72,8 +80,8 @@
     export default {
         data() {
             return {
-                pageSize: 10,
-                page: 1,
+                pageSize: 5,
+                currentPage: 1,
                 items: [],
                 totalPages: null,
                 totalRecords: null,
@@ -87,7 +95,7 @@
         methods: {
             getAll: async function () {
                 let result = await this.get("/api/user/findAll", {
-                    page: this.page, pageSize: this.pageSize
+                    page: this.currentPage, pageSize: this.pageSize
                 });
                 this.items = result.listData;
                 this.totalPages = result.totalPage;
@@ -95,7 +103,7 @@
             },
             search: async function () {
                 let result = await this.get("/api/user/search", {
-                    page: this.page,
+                    page: this.currentPage,
                     pageSize: this.pageSize,
                     keyword: this.keyword,
                     roleId: this.roleId
@@ -104,13 +112,24 @@
                 this.totalPages = result.totalPage;
                 this.totalRecords = result.totalRow;
             },
+            reload: function() {
+                var url = "/quantri/dsnguoidung/?" + this.serialize({page: this.page});
+                location.href = url;
+            }
         },
         created: async function () {
+            var parameters = this.$route.query;
+            this.currentPage = parameters.current_page || 1;
             this.loading = true;
             this.roles = await this.get("/api/role/getAll");
             await this.getAll();
             this.loading = false;
-        }
+        },
+        watch: {
+            currentPage: async function() {
+                await this.getAll();
+            }
+        },
     }
 </script>
 
